@@ -1,0 +1,350 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mapa de conhecimento — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .tile { transition: transform .18s ease, box-shadow .18s ease; cursor: pointer; }
+  .tile:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 24px rgba(0,32,70,.13); }
+  .tile:active { transform: scale(.97); }
+  .tile-verde    { background: linear-gradient(135deg,rgba(157,244,204,.55),rgba(157,244,204,.25)); border-color:#006c4d; }
+  .tile-amarelo  { background: linear-gradient(135deg,rgba(254,243,199,.7),rgba(254,243,199,.35)); border-color:#f59e0b; }
+  .tile-vermelho { background: linear-gradient(135deg,rgba(255,218,214,.6),rgba(255,218,214,.3)); border-color:#ba1a1a; }
+  .tile-novo     { background:#fff; border-color:#e5e1d8; }
+
+  #drawer {
+    position: fixed; right: 0; top: 0; bottom: 0; width: 360px; max-width: 95vw;
+    z-index: 100; transform: translateX(100%);
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+  }
+  #drawer.open { transform: translateX(0); }
+  #drawer-overlay {
+    position: fixed; inset: 0; z-index: 99;
+    background: rgba(0,32,70,.35); opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+  }
+  #drawer-overlay.open { opacity: 1; pointer-events: auto; }
+  .ring-mini { transform: rotate(-90deg); }
+  @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+  .pulse-dot { animation: pulse-dot 2s ease infinite; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/90 backdrop-blur-md border-b border-[#e5e1d8] px-4 py-3 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif font-semibold text-primary text-base flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon">map</span>
+      Mapa de conhecimento
+    </h1>
+    <p class="text-xs text-on-surface-variant">{{ categorias|length }} disciplina{{ categorias|length|pluralize:"s" }} mapeada{{ categorias|length|pluralize:"s" }}</p>
+  </div>
+  {% include "quiz/includes/dark_toggle_btn.html" %}
+</nav>
+
+<div class="md:ml-64 sticky top-[57px] z-20 bg-surface/95 backdrop-blur-md border-b border-[#e5e1d8] px-4 py-2.5 flex items-center gap-3 flex-wrap">
+  {% if bancas %}
+  <div class="flex items-center gap-2 flex-wrap">
+    <a href="{% url 'mapa_conhecimento' %}"
+       class="px-3 py-1 rounded-full text-xs font-semibold transition-colors
+              {% if not banca_filtro %}bg-primary text-on-primary{% else %}bg-white border border-[#e5e1d8] text-on-surface-variant hover:bg-surface-container-low{% endif %}">
+      Todas bancas
+    </a>
+    {% for b in bancas %}
+    <a href="?banca={{ b }}"
+       class="px-3 py-1 rounded-full text-xs font-semibold transition-colors
+              {% if banca_filtro == b %}bg-primary text-on-primary{% else %}bg-white border border-[#e5e1d8] text-on-surface-variant hover:bg-surface-container-low{% endif %}">
+      {{ b }}
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="ml-auto flex items-center gap-2 bg-white border border-[#e5e1d8] rounded-xl px-3 py-1.5">
+    <span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+    <input id="search-input" type="text" placeholder="Buscar disciplina…"
+           class="bg-transparent text-xs outline-none w-36 text-on-surface placeholder:text-on-surface-variant"/>
+  </div>
+</div>
+
+<div class="md:ml-64 max-w-6xl mx-auto px-4 py-6 space-y-6">
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="paper-card rounded-2xl p-4 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-secondary-container/60 flex items-center justify-center text-lg shrink-0">🟢</div>
+      <div>
+        <p class="text-xl font-serif font-bold text-secondary">{{ resumo.verde }}</p>
+        <p class="text-[10px] text-on-surface-variant">Dominando ≥70%</p>
+      </div>
+    </div>
+    <div class="paper-card rounded-2xl p-4 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-lg shrink-0">🟡</div>
+      <div>
+        <p class="text-xl font-serif font-bold text-amber-600">{{ resumo.amarelo }}</p>
+        <p class="text-[10px] text-on-surface-variant">Desenvolvendo 50–69%</p>
+      </div>
+    </div>
+    <div class="paper-card rounded-2xl p-4 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-error-container/60 flex items-center justify-center text-lg shrink-0">🔴</div>
+      <div>
+        <p class="text-xl font-serif font-bold text-error">{{ resumo.vermelho }}</p>
+        <p class="text-[10px] text-on-surface-variant">Atenção &lt;50%</p>
+      </div>
+    </div>
+    <div class="paper-card rounded-2xl p-4 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-lg shrink-0">⬜</div>
+      <div>
+        <p class="text-xl font-serif font-bold text-on-surface-variant">{{ resumo.novo }}</p>
+        <p class="text-[10px] text-on-surface-variant">Não iniciado</p>
+      </div>
+    </div>
+  </div>
+
+  {% if categorias %}
+  <div id="mapa-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+    {% for cat in categorias %}
+    <div class="tile tile-{{ cat.status }} rounded-2xl border-2 p-4 select-none"
+         data-id="{{ cat.id }}" data-nome="{{ cat.nome }}"
+         onclick="abrirDrawer({{ cat.id }})">
+      <div class="flex items-start justify-between mb-3">
+        <div class="w-2.5 h-2.5 rounded-full pulse-dot
+          {% if cat.status == 'verde' %}bg-secondary
+          {% elif cat.status == 'amarelo' %}bg-amber-500
+          {% elif cat.status == 'vermelho' %}bg-error
+          {% else %}bg-outline{% endif %}"></div>
+        {% if cat.respondidas > 0 %}
+        <svg width="32" height="32" viewBox="0 0 32 32" class="ring-mini shrink-0">
+          <circle cx="16" cy="16" r="12" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="3"/>
+          <circle cx="16" cy="16" r="12" fill="none"
+            stroke="{% if cat.status == 'verde' %}#006c4d{% elif cat.status == 'amarelo' %}#f59e0b{% else %}#ba1a1a{% endif %}"
+            stroke-width="3" stroke-linecap="round"
+            stroke-dasharray="{{ cat.pct }} 100" pathLength="100"/>
+        </svg>
+        {% endif %}
+      </div>
+      <p class="font-serif font-semibold text-xs leading-tight text-on-surface mb-3 min-h-[2.5rem]">{{ cat.nome }}</p>
+      {% if cat.respondidas > 0 %}
+      <div class="flex items-end justify-between">
+        <div>
+          <span class="text-lg font-serif font-bold
+            {% if cat.status == 'verde' %}text-secondary
+            {% elif cat.status == 'amarelo' %}text-amber-700
+            {% else %}text-error{% endif %}">
+            {{ cat.pct }}%
+          </span>
+          <p class="text-[9px] text-on-surface-variant leading-none">acerto</p>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-on-surface-variant">{{ cat.respondidas }}/{{ cat.total_banco }}</span>
+          <p class="text-[8px] text-on-surface-variant">questões</p>
+        </div>
+      </div>
+      <div class="mt-2 h-1 bg-black/10 rounded-full overflow-hidden">
+        <div class="h-full rounded-full
+          {% if cat.status == 'verde' %}bg-secondary
+          {% elif cat.status == 'amarelo' %}bg-amber-500
+          {% elif cat.status == 'vermelho' %}bg-error
+          {% else %}bg-outline{% endif %}"
+          style="width:{{ cat.cobertura }}%"></div>
+      </div>
+      {% else %}
+      <p class="text-[10px] text-on-surface-variant mt-1">{{ cat.total_banco }} questão{{ cat.total_banco|pluralize:"ões" }} disponível</p>
+      <p class="text-[9px] text-on-surface-variant mt-0.5">Não iniciado</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="flex flex-wrap items-center gap-4 text-xs text-on-surface-variant py-2">
+    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-secondary inline-block"></span>Dominando ≥70%</span>
+    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>Desenvolvendo 50–69%</span>
+    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-error inline-block"></span>Atenção &lt;50%</span>
+    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-outline inline-block"></span>Não iniciado</span>
+    <span class="ml-auto text-[10px]">Barra inferior = cobertura do banco</span>
+  </div>
+  {% else %}
+  <div class="paper-card rounded-2xl p-12 text-center">
+    <span class="material-symbols-outlined text-5xl text-outline block mb-3">map</span>
+    <p class="font-serif font-semibold text-on-surface-variant mb-1">Nenhuma disciplina encontrada</p>
+    <p class="text-xs text-on-surface-variant">
+      {% if banca_filtro %}
+        Nenhuma questão de <strong>{{ banca_filtro }}</strong> cadastrada.
+        <a href="{% url 'mapa_conhecimento' %}" class="text-primary underline ml-1">Ver todas as bancas</a>
+      {% else %}
+        Adicione questões para visualizar o mapa.
+      {% endif %}
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+<div id="drawer-overlay" onclick="fecharDrawer()"></div>
+
+<div id="drawer" class="bg-white shadow-2xl border-l border-[#e5e1d8] flex flex-col overflow-y-auto">
+  <div id="drawer-header" class="px-5 py-4 border-b border-[#e5e1d8] flex items-center justify-between shrink-0">
+    <div class="flex items-center gap-3">
+      <div id="drawer-status-dot" class="w-3 h-3 rounded-full bg-outline"></div>
+      <h2 id="drawer-titulo" class="font-serif font-semibold text-sm text-primary">—</h2>
+    </div>
+    <button onclick="fecharDrawer()" class="text-on-surface-variant hover:text-primary transition-colors p-1">
+      <span class="material-symbols-outlined text-sm">close</span>
+    </button>
+  </div>
+
+  <div class="flex-1 px-5 py-4 space-y-5">
+    <div class="grid grid-cols-3 gap-2">
+      <div class="bg-surface-container-low rounded-xl p-3 text-center">
+        <p id="d-pct" class="text-xl font-serif font-bold text-on-surface">—</p>
+        <p class="text-[10px] text-on-surface-variant">acerto</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-3 text-center">
+        <p id="d-resp" class="text-xl font-serif font-bold text-on-surface">—</p>
+        <p class="text-[10px] text-on-surface-variant">respondidas</p>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-3 text-center">
+        <p id="d-banco" class="text-xl font-serif font-bold text-on-surface">—</p>
+        <p class="text-[10px] text-on-surface-variant">no banco</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+        <span id="d-acertos-label">Acertos: 0</span>
+        <span id="d-erros-label">Erros: 0</span>
+      </div>
+      <div class="h-3 bg-surface-container rounded-full overflow-hidden flex">
+        <div id="d-bar-acertos" class="h-full bg-secondary rounded-l-full transition-all duration-700" style="width:0%"></div>
+        <div id="d-bar-erros" class="h-full bg-error transition-all duration-700" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+        <span>Cobertura do banco</span>
+        <span id="d-cobertura-pct" class="font-serif font-bold text-primary">0%</span>
+      </div>
+      <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+        <div id="d-bar-cobertura" class="h-full bg-primary rounded-full transition-all duration-700" style="width:0%"></div>
+      </div>
+    </div>
+
+    <p id="d-ultima" class="text-[11px] text-on-surface-variant"></p>
+
+    <div class="space-y-2">
+      <h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-wide">Sub-tópicos</h3>
+      <div id="assuntos-list" class="space-y-1.5"></div>
+      <p id="assuntos-vazio" class="text-xs text-on-surface-variant hidden">Nenhum sub-tópico cadastrado.</p>
+    </div>
+  </div>
+
+  <div class="px-5 py-4 border-t border-[#e5e1d8] grid grid-cols-2 gap-2 shrink-0">
+    <a id="btn-estudar" href="#" class="flex items-center justify-center gap-2 bg-primary text-on-primary text-xs font-semibold py-2.5 rounded-xl hover:bg-primary-container transition-colors">
+      <span class="material-symbols-outlined active-icon text-sm">play_arrow</span>
+      Estudar agora
+    </a>
+    <a id="btn-erros" href="#" class="flex items-center justify-center gap-2 bg-error text-white text-xs font-semibold py-2.5 rounded-xl hover:opacity-90 transition-colors">
+      <span class="material-symbols-outlined active-icon text-sm">error</span>
+      Ver erros
+    </a>
+  </div>
+</div>
+
+<script>
+const DATA = {{ categorias_json|safe }};
+const catMap = {};
+DATA.forEach(c => { catMap[c.id] = c; });
+
+document.getElementById('search-input').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.tile').forEach(tile => {
+    const nome = tile.dataset.nome.toLowerCase();
+    tile.style.display = (!q || nome.includes(q)) ? '' : 'none';
+  });
+});
+
+const STATUS_COLORS = {
+  verde:    { dot:'#006c4d', bar:'bg-secondary',   text:'text-secondary' },
+  amarelo:  { dot:'#f59e0b', bar:'bg-amber-500',   text:'text-amber-600' },
+  vermelho: { dot:'#ba1a1a', bar:'bg-error',       text:'text-error'     },
+  novo:     { dot:'#74777f', bar:'bg-outline',     text:'text-on-surface-variant' },
+};
+
+function abrirDrawer(id) {
+  const c = catMap[id];
+  if (!c) return;
+  const sc = STATUS_COLORS[c.status] || STATUS_COLORS.novo;
+
+  document.getElementById('drawer-titulo').textContent = c.nome;
+  document.getElementById('drawer-status-dot').style.background = sc.dot;
+
+  document.getElementById('d-pct').textContent   = c.respondidas > 0 ? c.pct + '%' : '—';
+  document.getElementById('d-resp').textContent  = c.respondidas;
+  document.getElementById('d-banco').textContent = c.total_banco;
+
+  const total = c.respondidas || 1;
+  const pAc = Math.round(c.acertos / total * 100);
+  const pEr = Math.round(c.erros   / total * 100);
+  document.getElementById('d-acertos-label').textContent = 'Acertos: ' + c.acertos;
+  document.getElementById('d-erros-label').textContent   = 'Erros: '   + c.erros;
+  document.getElementById('d-bar-acertos').style.width   = pAc + '%';
+  document.getElementById('d-bar-erros').style.width     = pEr + '%';
+
+  document.getElementById('d-cobertura-pct').textContent = c.cobertura + '%';
+  document.getElementById('d-bar-cobertura').style.width = c.cobertura + '%';
+
+  const ul = document.getElementById('d-ultima');
+  ul.textContent = c.ultima ? '📅 Última atividade: ' + c.ultima : '⬜ Sem atividade registrada';
+
+  const list  = document.getElementById('assuntos-list');
+  const vazio = document.getElementById('assuntos-vazio');
+  list.innerHTML = '';
+  if (c.assuntos && c.assuntos.length > 0) {
+    vazio.classList.add('hidden');
+    c.assuntos.forEach(a => {
+      const asc = STATUS_COLORS[a.status] || STATUS_COLORS.novo;
+      const item = document.createElement('div');
+      item.className = 'flex items-center gap-2 p-2 rounded-lg bg-surface-container-low';
+      item.innerHTML = `
+        <div class="w-2 h-2 rounded-full shrink-0" style="background:${asc.dot}"></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-medium text-on-surface truncate">${a.nome}</p>
+          <div class="flex items-center gap-2 mt-0.5">
+            <div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full rounded-full ${asc.bar}" style="width:${a.pct}%"></div>
+            </div>
+            <span class="text-[10px] text-on-surface-variant shrink-0">${a.respondidas > 0 ? a.pct + '%' : '—'}</span>
+          </div>
+        </div>`;
+      list.appendChild(item);
+    });
+  } else {
+    vazio.classList.remove('hidden');
+  }
+
+  document.getElementById('btn-estudar').href = '/quiz/' + c.id + '/';
+  document.getElementById('btn-erros').href   = '/caderno-de-erros/?categoria=' + encodeURIComponent(c.nome);
+
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharDrawer(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Termos de Uso | SantuarioEdu</title>
+<meta name="description" content="Termos de Uso da plataforma SantuarioEdu — regras e direitos do usuário."/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<style>
+  body { font-family:'Inter',sans-serif; background:#fff; color:#191c1d; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .doc h2 { font-size:1.35rem; font-weight:800; color:#002046; margin:2rem 0 .8rem; padding-bottom:.4rem; border-bottom:2px solid #e0e7ff; }
+  .doc h3 { font-size:1.05rem; font-weight:700; color:#1b365d; margin:1.4rem 0 .5rem; }
+  .doc p, .doc li { color:#333; line-height:1.7; margin-bottom:.7rem; }
+  .doc ul { padding-left:1.4rem; margin-bottom:.9rem; }
+  .doc ul li { list-style:disc; margin-bottom:.3rem; }
+  .doc strong { color:#002046; }
+  .doc a { color:#006c4d; text-decoration:underline; font-weight:600; }
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-4xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      {% include "quiz/includes/brand_mark.html" with size="30" %}
+      <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <a href="/" class="text-xs font-bold text-slate-600 hover:text-[#002046] flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
+      Voltar
+    </a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 md:px-8 py-12 doc">
+  <p class="text-xs font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">Documento Legal</p>
+  <h1 class="text-3xl md:text-4xl font-extrabold text-[#002046] mb-2 tracking-tight">Termos de Uso</h1>
+  <p class="text-sm text-slate-500 mb-8">Última atualização: <strong>{{ data_atualizacao|default:"15 de janeiro de 2025" }}</strong></p>
+
+  <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 text-sm">
+    <p class="font-bold text-amber-900 flex items-center gap-2 mb-2">
+      <span class="material-symbols-outlined" style="font-size:18px;">info</span>
+      Antes de continuar
+    </p>
+    <p class="text-amber-900 leading-relaxed">
+      Ao criar uma conta na SantuarioEdu, você concorda com estes termos. Leia com atenção
+      — eles definem seus direitos e suas responsabilidades ao usar a plataforma.
+    </p>
+  </div>
+
+  <h2>1. Sobre a plataforma</h2>
+  <p>
+    A <strong>SantuarioEdu</strong> é uma plataforma online de estudos com IA
+    que oferece banco de questões, simulados, revisão espaçada, análises de desempenho e
+    tutoria por inteligência artificial.
+  </p>
+  <p>
+    O serviço é prestado em formato <strong>"como está"</strong>, como ferramenta de apoio ao aprendizado.
+    O usuário entende que o sucesso depende de estudo dedicado e fatores fora do controle da plataforma.
+  </p>
+
+  <h2>2. Cadastro e conta de usuário</h2>
+  <p>
+    Para usar a plataforma você deve:
+  </p>
+  <ul>
+    <li>Ter pelo menos <strong>18 anos</strong> (ou autorização do responsável legal).</li>
+    <li>Fornecer informações <strong>verdadeiras</strong> no cadastro.</li>
+    <li>Manter a confidencialidade da sua senha — você é responsável por tudo que acontecer na sua conta.</li>
+    <li>Notificar imediatamente em caso de uso não autorizado da sua conta.</li>
+  </ul>
+  <p>
+    É proibido criar múltiplas contas para burlar limites do plano gratuito.
+  </p>
+
+  <h2>3. Conduta esperada</h2>
+  <p>Ao usar a plataforma, você concorda em <strong>NÃO</strong>:</p>
+  <ul>
+    <li>Compartilhar conteúdo ofensivo, ilegal, discriminatório ou que viole direitos de terceiros.</li>
+    <li>Copiar, distribuir ou revender o banco de questões e materiais.</li>
+    <li>Usar bots, scrapers ou automação para acessar conteúdo.</li>
+    <li>Tentar invadir, comprometer ou sobrecarregar a plataforma.</li>
+    <li>Usar a IA da plataforma para gerar conteúdo ilegal ou abusivo.</li>
+    <li>Vender, transferir ou ceder sua conta a terceiros.</li>
+  </ul>
+  <p>
+    O descumprimento pode levar a <strong>suspensão ou exclusão da conta</strong> sem aviso prévio.
+  </p>
+
+  <h2>4. Conteúdo da plataforma</h2>
+  <h3>4.1 Conteúdo nosso</h3>
+  <p>
+    As questões, comentários, ilustrações, código, design e identidade visual da SantuarioEdu
+    são <strong>protegidos por direitos autorais</strong>. Você pode usá-los para estudo pessoal,
+    mas não pode copiá-los ou distribuí-los publicamente.
+  </p>
+  <p>
+    Questões provenientes de provas oficiais (PRF, Cebraspe, FGV, etc.) são de domínio público
+    quanto ao enunciado, mas comentários e análises são nossos.
+  </p>
+
+  <h3>4.2 Conteúdo gerado por você</h3>
+  <p>
+    Comentários, anotações e participação em grupos são de sua autoria.
+    Ao publicar, você concede à SantuarioEdu licença não-exclusiva para exibir esse conteúdo
+    na plataforma — mas mantém os direitos autorais.
+  </p>
+
+  <h2>5. Inteligência Artificial</h2>
+  <p>
+    Recursos de IA (Tutor, Análises, Resumos, Plano de Estudos) usam os modelos
+    provedores externos (Groq/Google). Por se tratar de IA generativa, respostas podem conter
+    <strong>imprecisões ocasionais</strong> — sempre cruze informações importantes com fontes oficiais.
+  </p>
+  <p>
+    Há limites diários de uso de IA por plano para evitar abuso e manter o serviço estável.
+  </p>
+
+  <h2>6. Planos e pagamento</h2>
+  <ul>
+    <li>O <strong>Plano Gratuito</strong> oferece acesso limitado, sem custo, com prazo indefinido.</li>
+    <li>Planos pagos (PRO, Premium) podem ser contratados conforme valores e condições vigentes.</li>
+    <li>Pagamentos são processados pelo Mercado Pago (gateway certificado PCI-DSS) — não armazenamos dados de cartão.</li>
+    <li>Renovações de assinatura ocorrem automaticamente até cancelamento pelo usuário.</li>
+  </ul>
+
+  <h3>6.1 Direito de arrependimento (CDC Art. 49)</h3>
+  <p>
+    Você tem <strong>7 dias corridos</strong> após a contratação para desistir e receber reembolso integral,
+    independentemente do motivo. Solicite via
+    <a href="mailto:financeiro@santuarioedu.com.br">financeiro@santuarioedu.com.br</a>.
+  </p>
+
+  <h3>6.2 Cancelamento</h3>
+  <p>
+    Você pode cancelar sua assinatura a qualquer momento na área "Minha Assinatura".
+    Após o cancelamento, você continua com acesso ao plano pago até o fim do ciclo já pago.
+  </p>
+
+  <h2>7. Limitação de responsabilidade</h2>
+  <p>
+    A SantuarioEdu se compromete a manter a plataforma estável e disponível, mas <strong>não garante</strong>:
+  </p>
+  <ul>
+    <li>Resultados específicos de aprendizado, retenção ou aprovação em qualquer avaliação.</li>
+    <li>Funcionamento 100% ininterrupto (podemos ter manutenções).</li>
+    <li>Que todo conteúdo gerado por IA seja sempre preciso.</li>
+    <li>Resultados específicos de estudo.</li>
+  </ul>
+  <p>
+    A responsabilidade total da plataforma se limita ao valor pago pelo usuário nos últimos 12 meses,
+    salvo nos casos previstos pelo Código de Defesa do Consumidor.
+  </p>
+
+  <h2>8. Privacidade</h2>
+  <p>
+    O tratamento dos seus dados pessoais segue nossa
+    <a href="/legal/privacidade/">Política de Privacidade</a>, em conformidade com a LGPD.
+  </p>
+
+  <h2>9. Suspensão e exclusão</h2>
+  <p>
+    Reservamos o direito de suspender ou excluir contas que violem estes termos,
+    com ou sem aviso, dependendo da gravidade da infração. Em fraude ou abuso grave,
+    nos reservamos o direito de não fazer reembolso de assinaturas ativas.
+  </p>
+  <p>
+    Você também pode <strong>excluir sua conta a qualquer momento</strong> em
+    <a href="/perfil/excluir/">/perfil/excluir/</a>.
+  </p>
+
+  <h2>10. Alterações nos termos</h2>
+  <p>
+    Podemos atualizar estes termos. Mudanças significativas serão comunicadas com antecedência
+    mínima de <strong>15 dias</strong> por e-mail e/ou banner no app. Continuar usando a plataforma
+    após as mudanças significa aceite dos novos termos.
+  </p>
+
+  <h2>11. Lei aplicável e foro</h2>
+  <p>
+    Estes termos são regidos pelas leis da <strong>República Federativa do Brasil</strong>.
+    Fica eleito o foro do domicílio do usuário para dirimir quaisquer conflitos,
+    em respeito ao Código de Defesa do Consumidor (Lei nº 8.078/1990).
+  </p>
+
+  <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mt-10 text-sm">
+    <p class="font-bold text-slate-900 mb-1">Contato</p>
+    <p class="text-slate-700">
+      📧 <a href="mailto:contato@santuarioedu.com.br">contato@santuarioedu.com.br</a><br/>
+      Para questões legais: <a href="mailto:juridico@santuarioedu.com.br">juridico@santuarioedu.com.br</a>
+    </p>
+  </div>
+</main>
+
+<footer class="bg-[#0a1929] text-blue-300 py-8 mt-12 text-center text-xs">
+  © SantuarioEdu · <a href="/legal/termos/" class="hover:text-white">Termos de Uso</a> · <a href="/legal/privacidade/" class="hover:text-white">Privacidade</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seleção de estudo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='praticar' %}
+
+<!-- Top bar -->
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md flex items-center justify-between md:ml-64 h-16 px-6 lg:px-10 border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">menu_book</span>
+    <h1 class="font-serif text-lg font-semibold text-primary">Seleção de estudo</h1>
+  </div>
+</header>
+
+<main class="md:ml-64 py-8 pb-20 min-h-screen">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 space-y-10">
+
+    <!-- Hero -->
+    <section class="fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Estudo livre</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 leading-tight">
+        O que vamos estudar hoje?
+      </h2>
+      <p class="text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+        Comece direto por um dos modos abaixo, use a busca ou escolha uma disciplina específica.
+      </p>
+    </section>
+
+    <!-- ═══ Toggle de origem (persistido em localStorage) ═══ -->
+    <section class="fade-in" style="animation-delay:.05s;">
+      <div class="paper-card rounded-2xl p-4 md:p-5">
+        <div class="flex items-start md:items-center gap-3 flex-col md:flex-row">
+          <div class="flex items-center gap-2.5 md:mr-4">
+            <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">filter_alt</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-outline">Origem das questões</p>
+              <p class="text-[11px] text-on-surface-variant">Sua escolha vale para todos os modos abaixo</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-1.5 md:gap-2 w-full md:flex-1 md:max-w-2xl bg-surface-container-low rounded-xl p-1">
+            <button type="button" data-origem=""
+                    class="origem-btn flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all">
+              <span class="material-symbols-outlined active-icon" style="font-size:16px;">all_inclusive</span>
+              <span>Tudo</span>
+            </button>
+            <button type="button" data-origem="real"
+                    class="origem-btn flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all">
+              <span class="material-symbols-outlined active-icon" style="font-size:16px;">verified</span>
+              <span>Só provas oficiais</span>
+            </button>
+            <button type="button" data-origem="ia"
+                    class="origem-btn flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all">
+              <span class="material-symbols-outlined active-icon" style="font-size:16px;">smart_toy</span>
+              <span>Só IA</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modos de estudo (4 cards) -->
+    <section class="fade-in" style="animation-delay:.1s;">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-outline">Modos de estudo</h2>
+        <a href="{% url 'simulado_edital' %}" class="text-xs font-semibold text-secondary hover:underline">Ver todos →</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Simulado Completo -->
+        <a href="{% url 'simulado_edital' %}"
+           class="group relative overflow-hidden bg-gradient-to-br from-primary to-primary-container text-white rounded-2xl p-5 hover:shadow-xl hover:-translate-y-0.5 transition-all shadow-md">
+          <div class="absolute -top-8 -right-8 w-32 h-32 bg-white/5 rounded-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur">
+                <span class="material-symbols-outlined active-icon" style="font-size:20px;">assignment</span>
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-widest bg-white/15 px-2 py-0.5 rounded-full">Avaliação</span>
+            </div>
+            <h3 class="font-serif text-lg font-semibold mb-1 leading-tight">Simulado completo</h3>
+            <p class="text-white/70 text-xs leading-relaxed mb-4">
+              Configure por edital ou monte uma seleção personalizada com cronômetro.
+            </p>
+            <span class="inline-flex items-center gap-1 text-xs font-bold text-secondary-fixed">
+              Começar
+              <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Aleatórias -->
+        <a href="{% url 'iniciar_quiz' %}?modo=todas"
+           class="group relative overflow-hidden bg-gradient-to-br from-secondary to-[#004d38] text-white rounded-2xl p-5 hover:shadow-xl hover:-translate-y-0.5 transition-all shadow-md">
+          <div class="absolute -bottom-8 -left-8 w-28 h-28 bg-white/5 rounded-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur">
+                <span class="material-symbols-outlined active-icon" style="font-size:20px;">shuffle</span>
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-widest bg-white/15 px-2 py-0.5 rounded-full">Aleatório</span>
+            </div>
+            <h3 class="font-serif text-lg font-semibold mb-1 leading-tight">Questões aleatórias</h3>
+            <p class="text-white/70 text-xs leading-relaxed mb-4">
+              Sorteio livre do banco inteiro. Sem filtro de disciplina, sem tempo — só estudar.
+            </p>
+            <span class="inline-flex items-center gap-1 text-xs font-bold text-secondary-fixed">
+              Sortear
+              <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Modo Desafio -->
+        <a href="{% url 'modo_desafio' %}"
+           class="group relative overflow-hidden paper-card rounded-2xl p-5 hover:-translate-y-0.5 transition-all">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
+              <span class="material-symbols-outlined text-amber-600 active-icon" style="font-size:20px;">bolt</span>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Rápido</span>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-primary mb-1 leading-tight">Modo desafio</h3>
+          <p class="text-on-surface-variant text-xs leading-relaxed mb-4">
+            10 ou 15 questões com tempo limite. Pontuação por velocidade e ranking.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-600 group-hover:text-amber-700">
+            Jogar
+            <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+          </span>
+        </a>
+
+        <!-- Questão do Dia -->
+        <a href="{% url 'questao_do_dia' %}"
+           class="group relative overflow-hidden paper-card rounded-2xl p-5 hover:-translate-y-0.5 transition-all">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">today</span>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest bg-primary-fixed text-primary-container px-2 py-0.5 rounded-full">Diário</span>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-primary mb-1 leading-tight">Questão do dia</h3>
+          <p class="text-on-surface-variant text-xs leading-relaxed mb-4">
+            1 questão difícil por dia. Vale 100 pontos e mantém seu streak.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-primary">
+            Responder
+            <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Busca rápida -->
+    <section class="fade-in" style="animation-delay:.15s;">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Busca rápida</h2>
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none" style="font-size:20px;">search</span>
+        <input type="text" placeholder="Pesquise por disciplina, tema ou assunto..."
+               class="w-full pl-12 pr-4 py-3.5 bg-white border border-[#e5e1d8] rounded-xl text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all placeholder:text-outline/60 shadow-sm"/>
+      </div>
+    </section>
+
+    <!-- Filtros avançados -->
+    <section class="fade-in" style="animation-delay:.2s;">
+      <div class="paper-card rounded-2xl overflow-hidden">
+        <button type="button" onclick="toggleFiltros()" class="w-full flex items-center justify-between px-5 py-4 hover:bg-surface-container-low transition-colors text-left">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">tune</span>
+            </div>
+            <div>
+              <p class="font-serif text-base font-semibold text-primary leading-tight">Quiz personalizado</p>
+              <p class="text-xs text-on-surface-variant">Filtre por banca, ano, tipo e modo</p>
+            </div>
+          </div>
+          <span id="filtros-chevron" class="material-symbols-outlined text-on-surface-variant transition-transform" style="font-size:22px;">expand_more</span>
+        </button>
+        <div id="filtros-body" class="hidden border-t border-[#e5e1d8] px-5 py-5">
+          <form method="get" action="{% url 'iniciar_quiz' %}" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Matéria</label>
+              <select name="categoria" class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="">Todas</option>
+                {% for cat in categorias %}
+                <option value="{{ cat.id }}">{{ cat.nome }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Banca</label>
+              <input type="text" name="banca" placeholder="Ex: CESPE, FCC..." class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Ano</label>
+              <input type="number" name="ano" placeholder="Ex: 2024" min="1990" max="2030" class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Tipo</label>
+              <select name="tipo" class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="">Todos</option>
+                <option value="ME">Múltipla Escolha</option>
+                <option value="CE">Certo ou Errado</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Questões</label>
+              <select name="modo" class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="novas">Não respondidas</option>
+                <option value="erradas">Que errei</option>
+                <option value="todas">Todas</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Origem</label>
+              <select name="origem" class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="">Provas + IA</option>
+                <option value="real">Só provas oficiais</option>
+                <option value="ia">Só geradas por IA</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2 flex items-end">
+              <button type="submit" class="w-full px-6 py-2.5 bg-primary text-on-primary font-semibold text-sm rounded-lg hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>
+                Iniciar quiz
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disciplinas -->
+    <section class="fade-in" style="animation-delay:.25s;">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-widest text-outline">Disciplinas</h2>
+          <p class="text-xs text-on-surface-variant mt-1">{{ categorias|length }} disciplina{{ categorias|length|pluralize }} disponíve{{ categorias|length|pluralize:"l,is" }}</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for cat in categorias %}
+          <a href="{% url 'iniciar_quiz_categoria' cat.id %}"
+             class="group paper-card p-5 rounded-2xl hover:-translate-y-0.5 transition-all relative overflow-hidden flex flex-col">
+            {% if cat.concluido %}
+              <div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+            {% endif %}
+
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 bg-primary/8 group-hover:bg-primary group-hover:text-white transition-colors flex items-center justify-center rounded-xl">
+                {% if 'Direito' in cat.nome or 'legislação' in cat.nome|lower %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">gavel</span>
+                {% elif 'Física' in cat.nome or 'Matemática' in cat.nome or 'Lógica' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">functions</span>
+                {% elif 'Português' in cat.nome or 'Redação' in cat.nome or 'Língua' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">language</span>
+                {% elif 'Informática' in cat.nome or 'Computação' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">computer</span>
+                {% elif 'História' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">history_edu</span>
+                {% elif 'Geografia' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">public</span>
+                {% elif 'Química' in cat.nome or 'Biologia' in cat.nome %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">science</span>
+                {% else %}
+                  <span class="material-symbols-outlined" style="font-size:22px;">book</span>
+                {% endif %}
+              </div>
+              {% if cat.concluido %}
+                <span class="text-[10px] font-bold uppercase tracking-wider text-on-secondary-container bg-secondary-container px-2 py-1 rounded-full whitespace-nowrap">Finalizado</span>
+              {% elif cat.total > 0 %}
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary-container bg-primary-fixed px-2 py-1 rounded-full whitespace-nowrap">
+                  {% widthratio cat.respondidas cat.total 100 %}%
+                </span>
+              {% else %}
+                <span class="text-[10px] font-bold uppercase tracking-wider text-outline bg-surface-container px-2 py-1 rounded-full whitespace-nowrap">Vazio</span>
+              {% endif %}
+            </div>
+
+            <h3 class="font-serif text-lg font-semibold text-primary mb-1 line-clamp-2 leading-tight" title="{{ cat.nome }}">{{ cat.nome }}</h3>
+            <p class="text-xs text-on-surface-variant mb-2">{{ cat.total }} questão{{ cat.total|pluralize:"ões" }} cadastrada{{ cat.total|pluralize }}</p>
+
+            <!-- Composição: prova real vs IA -->
+            {% if cat.de_prova or cat.por_ia %}
+            <div class="flex flex-wrap gap-1 mb-3">
+              {% if cat.de_prova %}
+              <span class="inline-flex items-center gap-1 bg-secondary-container/50 text-secondary px-2 py-0.5 rounded-full text-[10px] font-bold" title="Questões de provas oficiais">
+                <span class="material-symbols-outlined active-icon" style="font-size:11px;">verified</span>
+                {{ cat.de_prova }} de prova
+              </span>
+              {% endif %}
+              {% if cat.por_ia %}
+              <span class="inline-flex items-center gap-1 bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold" title="Questões geradas por IA para treino">
+                <span class="material-symbols-outlined active-icon" style="font-size:11px;">smart_toy</span>
+                {{ cat.por_ia }} por IA
+              </span>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="mt-auto">
+              <div class="flex justify-between text-[10px] font-bold text-on-surface-variant mb-1.5">
+                <span>Progresso</span>
+                <span class="font-mono">{{ cat.respondidas }} / {{ cat.total }}</span>
+              </div>
+              <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-primary-container h-full rounded-full transition-all duration-700"
+                     style="width: {% if cat.total > 0 %}{% widthratio cat.respondidas cat.total 100 %}{% else %}0{% endif %}%;"></div>
+              </div>
+            </div>
+          </a>
+        {% empty %}
+          <div class="col-span-full paper-card rounded-2xl p-12 text-center text-on-surface-variant">
+            <span class="material-symbols-outlined block mx-auto mb-2 text-outline-variant" style="font-size:48px;">school</span>
+            <p class="font-serif text-lg font-semibold text-primary">Nenhuma disciplina cadastrada</p>
+            <p class="text-xs mt-1">Aguarde novos conteúdos serem adicionados ao banco.</p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+  </div>
+</main>
+
+{% if user.is_staff or user.is_superuser %}
+<!-- FAB admin -->
+<div id="fab-admin" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+  <div id="fab-menu" class="flex-col items-end gap-2 mb-1" style="display:none;">
+    <a href="{% url 'admin_questao_criar' %}" class="flex items-center gap-2 bg-white text-primary text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all border border-[#e5e1d8]">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">add_circle</span>
+      Nova questão
+    </a>
+    <a href="{% url 'admin_questoes' %}" class="flex items-center gap-2 bg-white text-primary text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all border border-[#e5e1d8]">
+      <span class="material-symbols-outlined" style="font-size:18px;">quiz</span>
+      Ver questões
+    </a>
+    <a href="{% url 'admin_painel' %}" class="flex items-center gap-2 bg-white text-primary text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all border border-[#e5e1d8]">
+      <span class="material-symbols-outlined" style="font-size:18px;">grid_view</span>
+      Painel admin
+    </a>
+  </div>
+  <button id="fab-btn" onclick="toggleFab()" class="w-14 h-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:bg-primary-container transition-all hover:scale-105 active:scale-95">
+    <span id="fab-icon" class="material-symbols-outlined active-icon" style="font-size:24px;">admin_panel_settings</span>
+  </button>
+</div>
+<script>
+  function toggleFab() {
+    const menu = document.getElementById('fab-menu');
+    const icon = document.getElementById('fab-icon');
+    const open = menu.style.display === 'none';
+    menu.style.display = open ? 'flex' : 'none';
+    menu.style.flexDirection = 'column';
+    icon.textContent = open ? 'close' : 'admin_panel_settings';
+  }
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('fab-admin').contains(e.target)) {
+      document.getElementById('fab-menu').style.display = 'none';
+      document.getElementById('fab-icon').textContent = 'admin_panel_settings';
+    }
+  });
+</script>
+{% endif %}
+
+<script>
+  function toggleFiltros() {
+    const body = document.getElementById('filtros-body');
+    const chev = document.getElementById('filtros-chevron');
+    body.classList.toggle('hidden');
+    chev.classList.toggle('rotate-180');
+  }
+
+  /* ═══ Toggle de origem (persistido) ═══
+     Salva escolha em localStorage e propaga como querystring ?origem=X
+     em todos os links que apontam pra rotas de estudo/simulado.        */
+  (function() {
+    const KEY = 'santuario:origem';
+    let atual = '';
+    try { atual = localStorage.getItem(KEY) || ''; } catch(e) {}
+
+    const buttons = document.querySelectorAll('.origem-btn');
+
+    function pintar() {
+      buttons.forEach(b => {
+        const ativo = (b.dataset.origem || '') === atual;
+        if (ativo) {
+          b.classList.add('bg-primary', 'text-white', 'shadow-sm');
+          b.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+        } else {
+          b.classList.remove('bg-primary', 'text-white', 'shadow-sm');
+          b.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+        }
+      });
+    }
+
+    function propagar() {
+      // Rotas onde a preferência faz sentido
+      const rotas_alvo = ['/quiz/', '/estudar/', '/simulado/', '/quiz-por-assunto/', '/temas/', '/modo-desafio/'];
+      const seletor = 'a[href^="/quiz/"], a[href^="/simulado/"], a[href^="/estudar/"], a[href^="/modo-desafio/"], a[href*="?modo="]';
+      document.querySelectorAll(seletor).forEach(a => {
+        try {
+          const u = new URL(a.href, window.location.origin);
+          // Ignora links que já apontam pra fora do domínio
+          if (u.host !== window.location.host) return;
+          // Não aplica em rotas admin/API/notificações
+          if (u.pathname.startsWith('/admin') || u.pathname.startsWith('/api/')) return;
+          u.searchParams.delete('origem');
+          if (atual) u.searchParams.set('origem', atual);
+          a.href = u.pathname + (u.search ? u.search : '') + u.hash;
+        } catch(e) {}
+      });
+      // Também pré-preenche o <select name="origem"> do form Quiz Personalizado
+      const sel = document.querySelector('select[name="origem"]');
+      if (sel) sel.value = atual;
+    }
+
+    buttons.forEach(b => b.addEventListener('click', () => {
+      atual = b.dataset.origem || '';
+      try { localStorage.setItem(KEY, atual); } catch(e) {}
+      pintar();
+      propagar();
+    }));
+
+    pintar();
+    propagar();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "quiz/admin/base.html" %}
+
+{% block title %}Excluir Questão{% endblock %}
+{% block topbar_icon %}delete{% endblock %}
+{% block topbar_title %}Excluir Questão #{{ questao.id }}{% endblock %}
+
+{% block content %}
+<div class="max-w-lg">
+  <div class="card overflow-hidden">
+    <!-- Aviso -->
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-[rgba(239,68,68,0.2)] bg-[rgba(239,68,68,0.07)]">
+      <span class="material-symbols-outlined text-red" style="font-size:20px;font-variation-settings:'FILL' 1;">warning</span>
+      <div>
+        <p class="font-semibold text-sm text-text-1">Ação irreversível</p>
+        <p class="text-xs text-text-3">Esta questão será excluída permanentemente.</p>
+      </div>
+    </div>
+
+    <!-- Conteúdo da questão -->
+    <div class="px-5 py-4">
+      <div class="bg-[rgba(255,255,255,0.03)] rounded-lg p-4 mb-4 border border-[rgba(255,255,255,0.06)]">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="badge bg-[rgba(255,255,255,0.07)] text-text-3">#{{ questao.id }}</span>
+          <span class="badge bg-[rgba(255,255,255,0.07)] text-text-2">{{ questao.categoria.nome }}</span>
+          {% if questao.tipo == 'CE' %}
+            <span class="badge bg-green-bg text-green border border-green-border">Certo/Errado</span>
+          {% else %}
+            <span class="badge bg-[rgba(79,142,247,0.1)] text-accent border border-[rgba(79,142,247,0.2)]">Múltipla Escolha</span>
+          {% endif %}
+        </div>
+        <p class="text-sm text-text-1 leading-relaxed line-clamp-4">{{ questao.texto }}</p>
+        <p class="text-xs text-text-3 mt-3 font-medium">
+          <span class="material-symbols-outlined inline-block align-middle" style="font-size:13px;">list</span>
+          {{ questao.alternativa_set.count }} alternativa(s) serão excluídas junto.
+        </p>
+      </div>
+
+      <div class="flex gap-3">
+        <form method="post" class="flex-1">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger w-full justify-center py-2.5">
+            <span class="material-symbols-outlined" style="font-size:15px;font-variation-settings:'FILL' 1;">delete_forever</span>
+            Confirmar exclusão
+          </button>
+        </form>
+        <a href="{% url 'admin_questoes' %}" class="btn btn-ghost flex-1 justify-center py-2.5">
+          Cancelar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

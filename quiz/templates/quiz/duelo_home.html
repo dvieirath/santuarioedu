@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Duelo em tempo real — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='competicao' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary leading-tight">⚔️ Duelo em tempo real</h1>
+    <p class="text-xs text-on-surface-variant">Desafie outro estudante 1 vs 1</p>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-2xl mx-auto px-6 py-8 space-y-6">
+
+  {% if messages %}{% for msg in messages %}
+  <div class="rounded-lg px-4 py-3 text-sm font-medium
+    {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border border-error/20
+    {% else %}bg-secondary-container/40 text-on-secondary-container border border-secondary/30{% endif %}">{{ msg }}</div>
+  {% endfor %}{% endif %}
+
+  <div class="rounded-2xl p-6 text-white shadow-xl relative overflow-hidden fade-in" style="background:linear-gradient(135deg, #1b365d, #002046);">
+    <div class="absolute -right-6 -top-6 w-32 h-32 bg-white/5 rounded-full"></div>
+    <div class="relative">
+      <span class="text-5xl">⚔️</span>
+      <h2 class="font-serif text-3xl font-bold mt-3 leading-tight">Duelo 1 vs 1</h2>
+      <p class="text-white/70 text-sm mt-1">Responda as mesmas questões que seu oponente e veja quem vai melhor.</p>
+      <div class="flex flex-wrap gap-2 mt-4 text-xs">
+        <span class="bg-white/15 rounded-full px-3 py-1">⏱ Timer por questão</span>
+        <span class="bg-white/15 rounded-full px-3 py-1">📊 Placar ao vivo</span>
+        <span class="bg-white/15 rounded-full px-3 py-1">🏆 Resultado imediato</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="paper-card rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">add_circle</span>
+        <h2 class="font-serif font-semibold text-base text-primary">Criar duelo</h2>
+      </div>
+      <form method="post" action="{% url 'duelo_criar' %}">
+        {% csrf_token %}
+        <div class="space-y-3">
+          <div>
+            <label class="text-xs text-on-surface-variant font-semibold block mb-1">Disciplina (opcional)</label>
+            <select name="categoria_id" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="">Todas</option>
+              {% for cat in categorias %}<option value="{{ cat.pk }}">{{ cat.nome }}</option>{% endfor %}
+            </select>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-xs text-on-surface-variant font-semibold block mb-1">Questões</label>
+              <select name="n_questoes" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="5">5</option><option value="10" selected>10</option><option value="15">15</option><option value="20">20</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-on-surface-variant font-semibold block mb-1">Tempo/Q</label>
+              <select name="tempo_por_q" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="15">15s</option><option value="30" selected>30s</option><option value="45">45s</option><option value="60">60s</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined active-icon" style="font-size:16px;">swords</span>
+            Criar duelo
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="paper-card rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:20px;">login</span>
+        <h2 class="font-serif font-semibold text-base text-primary">Entrar com código</h2>
+      </div>
+      <p class="text-xs text-on-surface-variant mb-4">Recebeu um código de duelo? Cole aqui e entre na batalha.</p>
+      <div class="space-y-3">
+        <input id="inp-codigo" type="text" placeholder="AB3K9Z" maxlength="6"
+               class="w-full text-center font-serif text-2xl font-bold tracking-widest uppercase rounded-lg border border-outline-variant/40 bg-white px-3 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20"/>
+        <button id="btn-entrar" onclick="entrarDuelo()" class="w-full bg-secondary hover:opacity-90 text-white font-semibold text-sm py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">arrow_forward</span>
+          Entrar no duelo
+        </button>
+        <p id="msg-entrar" class="text-xs text-center text-error hidden"></p>
+      </div>
+    </div>
+  </div>
+
+  {% if duelos_ativos %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+      <h2 class="font-serif font-semibold text-base text-primary">Duelos em andamento</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for d in duelos_ativos %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <div class="flex-1">
+          <p class="text-sm font-medium text-on-surface">
+            {% if d.criador == request.user %}Você vs {{ d.adversario.username|default:"aguardando…" }}
+            {% else %}{{ d.criador.username }} vs Você{% endif %}
+          </p>
+          <p class="text-xs text-on-surface-variant">
+            {% if d.categoria %}{{ d.categoria.nome }} · {% endif %}{{ d.n_questoes }} questões · {{ d.tempo_por_q }}s/q
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          {% if d.status == 'aguardando' %}
+            <span class="text-xs bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full font-semibold">Aguardando</span>
+            <a href="{% url 'duelo_sala' d.codigo %}" class="text-xs bg-white border border-[#e5e1d8] text-on-surface px-3 py-1.5 rounded-lg font-semibold hover:bg-surface-container-low transition-colors">Sala</a>
+          {% else %}
+            <span class="text-xs bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-full font-semibold">Jogando</span>
+            <a href="{% url 'duelo_jogar' d.pk %}" class="text-xs bg-primary text-on-primary px-3 py-1.5 rounded-lg font-semibold hover:bg-primary-container transition-colors">Jogar</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if historico %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px;">history</span>
+      <h2 class="font-serif font-semibold text-base text-primary">Histórico de duelos</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for h in historico %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <span class="text-2xl">
+          {% if h.resultado == 'vitoria' %}🏆{% elif h.resultado == 'derrota' %}💀{% else %}🤝{% endif %}
+        </span>
+        <div class="flex-1">
+          <p class="text-sm font-medium text-on-surface">
+            {% if h.resultado == 'vitoria' %}Vitória{% elif h.resultado == 'derrota' %}Derrota{% else %}Empate{% endif %} vs {{ h.oponente.username|default:"?" }}
+          </p>
+          <p class="text-xs text-on-surface-variant">
+            {% if h.duelo.categoria %}{{ h.duelo.categoria.nome }} · {% endif %}{{ h.duelo.criado_em|date:"d/m/Y" }}
+          </p>
+        </div>
+        <div class="text-right">
+          <p class="text-sm font-bold {% if h.resultado == 'vitoria' %}text-secondary{% elif h.resultado == 'derrota' %}text-error{% else %}text-amber-500{% endif %}">
+            {{ h.meus_pts }} × {{ h.pts_oponente }}
+          </p>
+          <a href="{% url 'duelo_resultado' h.duelo.pk %}" class="text-xs text-primary hover:underline">Ver detalhes</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if not historico and not duelos_ativos %}
+  <div class="text-center py-12">
+    <span class="text-6xl">⚔️</span>
+    <p class="text-on-surface-variant mt-4 text-sm">Nenhum duelo ainda. Crie um e desafie um amigo.</p>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+async function entrarDuelo() {
+  const codigo = document.getElementById('inp-codigo').value.trim().toUpperCase();
+  const msg = document.getElementById('msg-entrar');
+  const btn = document.getElementById('btn-entrar');
+  if (codigo.length < 4) { msg.textContent = 'Digite um código válido.'; msg.classList.remove('hidden'); return; }
+  btn.disabled = true;
+  btn.innerHTML = '<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> Entrando…';
+  try {
+    const r = await fetch("{% url 'api_duelo_entrar' %}", {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':getCookie('csrftoken')},
+      body: JSON.stringify({codigo})
+    });
+    const data = await r.json();
+    if (data.ok) window.location.href = data.url;
+    else { msg.textContent = data.erro || 'Erro'; msg.classList.remove('hidden'); btn.disabled = false; btn.innerHTML = 'Entrar no duelo'; }
+  } catch(e) { msg.textContent = 'Erro de conexão'; msg.classList.remove('hidden'); btn.disabled = false; btn.innerHTML = 'Entrar no duelo'; }
+}
+function getCookie(name) { let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)'); return v ? v[2] : null; }
+document.getElementById('inp-codigo').addEventListener('keydown', e => { if (e.key === 'Enter') entrarDuelo(); });
+</script>
+
+</body>
+</html>

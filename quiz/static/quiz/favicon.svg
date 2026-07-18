@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#002046"/>
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Tronco central -->
+    <path d="M32 42 L32 24" stroke="#ffffff" stroke-width="2.5"/>
+    <!-- Ramos -->
+    <path d="M32 28 L24 20" stroke="#ffffff" stroke-width="2"/>
+    <path d="M32 28 L40 20" stroke="#ffffff" stroke-width="2"/>
+    <path d="M32 24 L26 16" stroke="#9df4cc" stroke-width="2"/>
+    <path d="M32 24 L38 16" stroke="#9df4cc" stroke-width="2"/>
+  </g>
+  <!-- Nós -->
+  <circle cx="24" cy="20" r="2.2" fill="#9df4cc"/>
+  <circle cx="40" cy="20" r="2.2" fill="#9df4cc"/>
+  <circle cx="26" cy="16" r="1.8" fill="#ffffff"/>
+  <circle cx="38" cy="16" r="1.8" fill="#ffffff"/>
+  <circle cx="32" cy="24" r="2" fill="#9df4cc"/>
+  <!-- Livro (base) -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 44 L14 54 L31 54 Q30 51 30 48 L30 42 L14 42 Z"/>
+    <path d="M50 44 L50 54 L33 54 Q34 51 34 48 L34 42 L50 42 Z"/>
+  </g>
+</svg>

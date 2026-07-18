@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simulado — Questão {{ numero }}/{{ total }}</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  /* Alternativas Múltipla Escolha */
+  .alt-card {
+    position:relative; display:flex; align-items:flex-start; gap:16px;
+    padding:16px 18px; border-radius:12px; cursor:pointer;
+    background:#ffffff; border:1px solid rgba(196,198,207,.55);
+    transition:all .18s ease;
+  }
+  .alt-card:hover { border-color:#aec7f6; transform:translateY(-1px); }
+  .alt-num {
+    flex-shrink:0; width:32px; height:32px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:14px;
+    background:#f0eded; color:#44474e;
+    transition:all .15s;
+  }
+  .alt-card:hover .alt-num { background:#d6e3ff; color:#002046; }
+  .alt-card:has(input:checked) {
+    border-color:#006c4d;
+    background:linear-gradient(135deg, rgba(157,244,204,.10) 0%, #ffffff 100%);
+    box-shadow:0 6px 18px rgba(0,108,77,.10);
+  }
+  .alt-card:has(input:checked) .alt-num { background:#006c4d; color:#ffffff; }
+  .alt-check { margin-left:auto; opacity:0; transform:scale(.7); transition:all .2s; color:#006c4d; flex-shrink:0; }
+  .alt-card:has(input:checked) .alt-check { opacity:1; transform:scale(1); }
+
+  /* Certo/Errado */
+  .ce-card {
+    flex:1; padding:24px 16px; border-radius:14px; cursor:pointer; text-align:center;
+    background:#ffffff; border:1px solid rgba(196,198,207,.55); transition:all .18s;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .ce-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(28,27,27,.08); }
+  .ce-card.ce-c:has(input:checked) {
+    border-color:#006c4d;
+    background:linear-gradient(135deg, rgba(157,244,204,.20) 0%, #ffffff 100%);
+  }
+  .ce-card.ce-e:has(input:checked) {
+    border-color:#ba1a1a;
+    background:linear-gradient(135deg, rgba(255,218,214,.35) 0%, #ffffff 100%);
+  }
+  .ce-icon { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; transition:transform .18s; }
+  .ce-c .ce-icon { background:#9df4cc; color:#005139; }
+  .ce-e .ce-icon { background:#ffdad6; color:#93000a; }
+  .ce-card:has(input:checked) .ce-icon { transform:scale(1.1); }
+
+  /* Mapa de questões */
+  .nav-dot {
+    width:30px; height:30px; border-radius:8px; font-size:11px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    border:1px solid transparent; transition:all .15s;
+    font-family:'Inter', sans-serif; text-decoration:none;
+  }
+  .nav-dot.respondida { background:rgba(157,244,204,.5); color:#0f7253; border-color:#9df4cc; }
+  .nav-dot.atual { background:#002046; color:#fff; border-color:#002046; box-shadow:0 4px 12px rgba(0,32,70,.25); }
+  .nav-dot.vazia { background:#f0eded; color:#74777f; border-color:#e5e1d8; }
+  .nav-dot:hover { transform:scale(1.1); }
+
+  /* Timer warning */
+  .timer-warning { color:#ba1a1a !important; animation:blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0.5; } }
+
+  kbd { display:inline-block; padding:2px 6px; font-family:'Inter',sans-serif; font-size:10px; background:#1b365d; color:#fff; border-radius:4px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<!-- Top nav com timer + progresso -->
+<header class="bg-surface/85 backdrop-blur-md flex justify-between items-center w-full px-4 sm:px-6 lg:px-10 h-16 fixed top-0 z-40 border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-4 min-w-0">
+    <a href="{% url 'dashboard' %}" class="flex items-center gap-2 shrink-0">
+      {% include "quiz/includes/brand_mark.html" with size="28" %}
+      <span class="text-sm font-bold text-primary uppercase tracking-widest hidden sm:inline font-serif">SantuarioEdu</span>
+    </a>
+    <span class="text-on-surface-variant text-xs hidden md:inline">·</span>
+    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 text-amber-700">
+      <span class="material-symbols-outlined" style="font-size:14px;">assignment</span>
+      <span class="text-xs font-bold">Simulado</span>
+    </div>
+    <span class="text-xs font-medium text-on-surface-variant">
+      <span class="font-serif text-primary font-bold text-lg">{{ numero }}</span>
+      <span class="text-on-surface-variant">/ {{ total }}</span>
+    </span>
+  </div>
+
+  <!-- Timer -->
+  <div class="flex items-center gap-2 px-3 py-1.5 rounded-full paper-card" id="timer-wrap">
+    <span class="material-symbols-outlined text-secondary" style="font-size:16px;" id="timer-icon">timer</span>
+    <span class="font-serif font-bold text-base tabular-nums text-on-surface" id="timer-display">--:--:--</span>
+  </div>
+
+  <form method="post" id="form-finalizar" onsubmit="return confirmarFinalizar()" class="shrink-0">
+    {% csrf_token %}
+    <input type="hidden" name="acao" value="finalizar"/>
+    <button type="submit" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-error border border-error/30 rounded-full hover:bg-error/5 transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">stop_circle</span>
+      <span class="hidden sm:inline">Finalizar</span>
+    </button>
+  </form>
+</header>
+
+<!-- Barra de progresso -->
+<div class="fixed top-16 left-0 right-0 z-40 h-1 bg-surface-container">
+  <div class="h-full bg-gradient-to-r from-secondary to-primary transition-all duration-500"
+       style="width: calc({{ numero }} / {{ total }} * 100%);"></div>
+</div>
+
+<main class="pt-24 pb-12 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto min-h-screen">
+
+  <!-- Metadata chips -->
+  <div class="flex flex-wrap items-center gap-2 mb-6 fade-in">
+    <span class="inline-flex items-center gap-1.5 bg-primary text-on-primary px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide">
+      <span class="material-symbols-outlined" style="font-size:13px;">menu_book</span>
+      {{ questao.categoria.nome|default:"Geral" }}
+    </span>
+    {% if questao.assunto %}
+    <span class="inline-flex items-center gap-1 bg-white border border-[#e5e1d8] text-on-surface-variant px-2.5 py-1.5 rounded-full text-[11px] font-semibold">
+      <span class="material-symbols-outlined" style="font-size:12px;">label</span>
+      {{ questao.assunto }}
+    </span>
+    {% endif %}
+    {% include "quiz/includes/origem_questao.html" with q=questao %}
+    {% if questao.tipo == 'CE' %}
+    <span class="bg-primary-fixed text-primary-container px-2.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide">Certo ou Errado</span>
+    {% else %}
+    <span class="bg-primary-fixed text-primary-container px-2.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide">Múltipla Escolha</span>
+    {% endif %}
+    <span class="ml-auto text-[11px] text-on-surface-variant font-mono">Q{{ numero }} · #{{ questao.id }}</span>
+  </div>
+
+  <!-- Layout 7/5: enunciado + alternativas -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+    <!-- Enunciado -->
+    <section class="lg:col-span-7 space-y-6 fade-in">
+      <article class="paper-card rounded-2xl p-6 sm:p-8">
+        <span class="inline-block px-3 py-1 bg-primary text-on-primary rounded text-[10px] font-bold uppercase tracking-widest mb-5">Enunciado</span>
+
+        {% if questao.imagem %}
+        <figure class="mb-5 rounded-xl overflow-hidden bg-surface-container-low border border-[#e5e1d8]">
+          <img src="{{ questao.imagem.url }}" alt="Figura" class="w-full max-h-[480px] object-contain bg-white p-2 cursor-zoom-in" onclick="abrirImagem(this.src)">
+          <figcaption class="text-[10px] text-center text-on-surface-variant py-1.5 bg-surface-container-low">
+            <span class="material-symbols-outlined align-middle" style="font-size:11px;">zoom_in</span> Clique para ampliar
+          </figcaption>
+        </figure>
+        {% endif %}
+
+        <div class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line">{{ questao.texto|safe }}</div>
+      </article>
+    </section>
+
+    <!-- Alternativas + Mapa -->
+    <section class="lg:col-span-5 lg:sticky lg:top-24 space-y-5 fade-in" style="animation-delay:.1s;">
+
+      <form method="post" id="form-resposta">
+        {% csrf_token %}
+        <input type="hidden" name="acao" value="proxima"/>
+
+        <div class="flex items-center justify-between px-1 mb-3">
+          <p class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">
+            {% if questao.tipo == 'CE' %}Avalie a afirmativa{% else %}Selecione uma alternativa{% endif %}
+          </p>
+          <span class="text-[10px] text-on-surface-variant font-mono">
+            {{ alternativas|length }} opç{% if alternativas|length == 1 %}ão{% else %}ões{% endif %}
+          </span>
+        </div>
+
+        {% if questao.tipo == 'CE' %}
+        <div class="flex gap-3 mb-5">
+          {% for alt in alternativas %}
+          {% if alt.texto|lower == 'certo' or alt.texto|lower == 'c' %}
+          <label class="ce-card ce-c">
+            <input type="radio" name="alternativa_id" value="{{ alt.id }}" {% if resposta_atual.alternativa_escolhida.id == alt.id %}checked{% endif %} class="sr-only" required>
+            <div class="ce-icon"><span class="material-symbols-outlined active-icon">check</span></div>
+            <span class="text-base font-bold text-on-surface font-serif">CERTO</span>
+            <span class="text-[11px] text-on-surface-variant">A afirmativa está correta</span>
+          </label>
+          {% else %}
+          <label class="ce-card ce-e">
+            <input type="radio" name="alternativa_id" value="{{ alt.id }}" {% if resposta_atual.alternativa_escolhida.id == alt.id %}checked{% endif %} class="sr-only" required>
+            <div class="ce-icon"><span class="material-symbols-outlined active-icon">close</span></div>
+            <span class="text-base font-bold text-on-surface font-serif">ERRADO</span>
+            <span class="text-[11px] text-on-surface-variant">A afirmativa está incorreta</span>
+          </label>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="space-y-3 mb-5">
+          {% for alt in alternativas %}
+          <label class="alt-card">
+            <input type="radio" name="alternativa_id" value="{{ alt.id }}" {% if resposta_atual.alternativa_escolhida.id == alt.id %}checked{% endif %} class="sr-only" required>
+            <span class="alt-num">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %}</span>
+            <span class="flex-1 text-[15px] leading-relaxed text-on-surface pr-6">{{ alt.texto }}</span>
+            <span class="material-symbols-outlined alt-check active-icon" style="font-size:22px;">check_circle</span>
+          </label>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Navegação -->
+        <div class="grid grid-cols-2 gap-2 mb-4">
+          {% if anterior %}
+          <a href="{% url 'simulado_questao' simulado.id anterior %}" class="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white border border-[#e5e1d8] text-on-surface hover:bg-surface-container-low transition-colors font-semibold text-sm">
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+            Anterior
+          </a>
+          {% else %}<div></div>{% endif %}
+
+          {% if proximo %}
+          <button type="submit" class="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors font-semibold text-sm shadow-md">
+            Próxima
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </button>
+          {% else %}
+          <button type="submit" name="acao" value="finalizar" onclick="return confirmarFinalizar()"
+                  class="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-secondary text-white hover:opacity-90 transition-colors font-semibold text-sm shadow-md">
+            <span class="material-symbols-outlined active-icon" style="font-size:16px;">check_circle</span>
+            Concluir
+          </button>
+          {% endif %}
+        </div>
+
+        <div class="hidden md:flex items-center justify-center gap-2 pt-2 text-[10px] text-on-surface-variant">
+          <span>Atalhos:</span>
+          {% if questao.tipo == 'CE' %}<kbd>C</kbd><kbd>E</kbd>{% else %}<kbd>A-E</kbd>{% endif %}
+          <kbd>Enter</kbd>
+          <span class="opacity-60">para próxima</span>
+        </div>
+      </form>
+
+      <!-- Mapa de questões -->
+      <div class="paper-card rounded-2xl p-5">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-serif text-base font-semibold text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined" style="font-size:18px;">grid_view</span>
+            Gabarito
+          </h3>
+          <span class="text-[10px] text-on-surface-variant font-mono">
+            <span class="text-secondary font-bold">{{ respondidas_ids|length }}</span>/{{ total }}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-8 sm:grid-cols-10 gap-1.5">
+          {% for r in respostas %}
+          <a href="{% url 'simulado_questao' simulado.id r.ordem %}"
+             class="nav-dot {% if r.ordem == numero %}atual{% elif r.ordem in respondidas_ids %}respondida{% else %}vazia{% endif %}"
+             title="Questão {{ r.ordem }}">{{ r.ordem }}</a>
+          {% endfor %}
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t border-[#e5e1d8] text-[10px]">
+          <span class="flex items-center gap-1.5"><span class="nav-dot respondida" style="width:14px;height:14px;font-size:0;"></span> Respondida</span>
+          <span class="flex items-center gap-1.5"><span class="nav-dot atual" style="width:14px;height:14px;font-size:0;"></span> Atual</span>
+          <span class="flex items-center gap-1.5"><span class="nav-dot vazia" style="width:14px;height:14px;font-size:0;"></span> Em branco</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Modal imagem -->
+<div id="imgViewer" onclick="this.style.display='none'"
+     style="display:none;position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);"
+     class="items-center justify-center cursor-zoom-out p-6">
+  <img id="imgViewerImg" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+</div>
+
+<script>
+function abrirImagem(src) {
+  document.getElementById('imgViewerImg').src = src;
+  document.getElementById('imgViewer').style.display = 'flex';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+  const radios = document.querySelectorAll('input[name="alternativa_id"]');
+  if (!radios.length) return;
+  const tipo = '{{ questao.tipo }}';
+  if (tipo === 'CE') {
+    if (e.key.toLowerCase() === 'c' && radios[0]) { radios[0].checked = true; }
+    if (e.key.toLowerCase() === 'e' && radios[1]) { radios[1].checked = true; }
+  } else {
+    const map = { 'a':0, 'b':1, 'c':2, 'd':3, 'e':4 };
+    const idx = map[e.key.toLowerCase()];
+    if (idx !== undefined && radios[idx]) { radios[idx].checked = true; }
+  }
+});
+
+// Timer
+let segundos = {{ segundos_restantes }};
+const display = document.getElementById('timer-display');
+const wrap = document.getElementById('timer-wrap');
+const icon = document.getElementById('timer-icon');
+
+function formatarTempo(s) {
+  const h = String(Math.floor(s / 3600)).padStart(2, '0');
+  const m = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+  const ss = String(s % 60).padStart(2, '0');
+  return `${h}:${m}:${ss}`;
+}
+
+function tick() {
+  display.textContent = formatarTempo(segundos);
+  if (segundos <= 600) {
+    display.classList.add('timer-warning');
+    icon.textContent = 'alarm';
+    wrap.style.borderColor = '#ba1a1a';
+  }
+  if (segundos <= 0) {
+    display.textContent = '00:00:00';
+    document.getElementById('form-finalizar').submit();
+    return;
+  }
+  segundos--;
+  setTimeout(tick, 1000);
+}
+tick();
+
+function confirmarFinalizar() {
+  const respondidas = {{ respondidas_ids|length }};
+  const total = {{ total }};
+  const faltam = total - respondidas;
+  if (faltam > 0) {
+    return confirm(`Você ainda tem ${faltam} questão(ões) sem resposta.\nDeseja finalizar o simulado mesmo assim?`);
+  }
+  return confirm('Tem certeza que deseja finalizar o simulado?');
+}
+</script>
+
+</body>
+</html>

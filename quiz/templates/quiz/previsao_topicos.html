@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Previsão de tópicos — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+  @keyframes bar-grow { from { width: 0 } }
+  .bar-grow { animation: bar-grow .8s ease-out both; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary leading-tight">🔭 Previsão de tópicos</h1>
+    <p class="text-xs text-on-surface-variant">IA prevê quais disciplinas têm maior chance de cair</p>
+  </div>
+  <a href="?recalc=1" class="flex items-center gap-1.5 text-xs font-semibold text-primary border border-primary/20 px-3 py-1.5 rounded-lg hover:bg-primary-fixed/40 transition-colors">
+    <span class="material-symbols-outlined" style="font-size:14px;">refresh</span>
+    Atualizar
+  </a>
+</nav>
+
+<div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-8">
+
+  {% if not previsoes %}
+  <div class="flex flex-col items-center justify-center py-24 text-center">
+    <div class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center mb-5">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:40px;">psychology</span>
+    </div>
+    <h2 class="font-serif text-xl font-semibold text-primary mb-2">Sem dados suficientes ainda</h2>
+    <p class="text-sm text-on-surface-variant max-w-xs mb-6">Responda mais questões para que a IA gere uma previsão personalizada.</p>
+    <a href="{% url 'iniciar_quiz' %}?modo=todas" class="px-6 py-3 bg-primary text-on-primary font-semibold text-sm rounded-lg hover:bg-primary-container transition-colors">Responder questões</a>
+  </div>
+
+  {% else %}
+
+  <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-5 text-white fade-in">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <p class="font-serif text-xl font-bold">{{ total }} disciplinas analisadas</p>
+        <p class="text-xs text-white/70">Baseado no seu histórico + padrões históricos</p>
+      </div>
+      <div class="text-4xl">🔭</div>
+    </div>
+    <div class="flex gap-4 text-xs">
+      <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-400"></span> {{ alta|length }} alta</span>
+      <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> {{ media|length }} média</span>
+      <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-outline-variant"></span> {{ baixa|length }} baixa</span>
+    </div>
+  </div>
+
+  {% if previsoes|length >= 3 %}
+  <div class="paper-card rounded-2xl p-5">
+    <h2 class="font-serif text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:20px;">bar_chart</span>
+      Probabilidade por disciplina
+    </h2>
+    <div style="height:240px"><canvas id="grafico-previsao"></canvas></div>
+  </div>
+  {% endif %}
+
+  {% if alta %}
+  <div>
+    <h2 class="font-serif text-lg font-semibold text-primary mb-3 flex items-center gap-2">
+      <span class="w-3 h-3 rounded-full bg-error"></span>
+      🔴 Alta prioridade — estude agora
+    </h2>
+    <div class="space-y-3">
+      {% for p in alta %}
+      <div class="paper-card rounded-2xl overflow-hidden border-error/30">
+        <div class="p-4 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-error-container/60 flex items-center justify-center shrink-0">
+            <span class="font-serif text-xl font-bold text-error">{{ p.probabilidade|floatformat:0 }}%</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-serif font-semibold text-base text-primary truncate">{{ p.categoria.nome }}</p>
+            {% if p.justificativa %}
+            <p class="text-xs text-on-surface-variant mt-0.5 line-clamp-2">{{ p.justificativa }}</p>
+            {% endif %}
+            <div class="mt-1.5 w-full bg-error-container/40 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full bg-error bar-grow" style="width:{{ p.probabilidade|floatformat:0 }}%"></div>
+            </div>
+          </div>
+          <a href="{% url 'iniciar_quiz' %}?categoria={{ p.categoria.id }}" class="shrink-0 flex items-center gap-1 text-xs font-bold text-error bg-error-container/40 border border-error/30 px-3 py-2 rounded-lg hover:bg-error-container/60 transition-colors">
+            <span class="material-symbols-outlined active-icon" style="font-size:16px;">bolt</span>
+            Estudar
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if media %}
+  <div>
+    <h2 class="font-serif text-lg font-semibold text-primary mb-3 flex items-center gap-2">
+      <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+      🟡 Média prioridade
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for p in media %}
+      <div class="paper-card rounded-2xl p-4 flex items-center gap-3 border-amber-200">
+        <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
+          <span class="text-sm font-bold text-amber-600">{{ p.probabilidade|floatformat:0 }}%</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">{{ p.categoria.nome }}</p>
+          <div class="mt-1 w-full bg-amber-50 rounded-full h-1">
+            <div class="h-1 rounded-full bg-amber-400 bar-grow" style="width:{{ p.probabilidade|floatformat:0 }}%"></div>
+          </div>
+        </div>
+        <a href="{% url 'iniciar_quiz' %}?categoria={{ p.categoria.id }}" class="shrink-0 p-1.5 rounded-lg text-amber-600 hover:bg-amber-50 transition-colors">
+          <span class="material-symbols-outlined" style="font-size:16px;">play_arrow</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if baixa %}
+  <details class="paper-card rounded-2xl">
+    <summary class="px-5 py-4 cursor-pointer font-serif font-semibold text-base text-primary flex items-center gap-2 select-none list-none">
+      <span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+      ⚪ Baixa prioridade ({{ baixa|length }} disciplinas)
+      <span class="ml-auto text-on-surface-variant text-xs font-normal">Clique para expandir</span>
+    </summary>
+    <div class="border-t border-[#e5e1d8] p-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+      {% for p in baixa %}
+      <div class="flex items-center gap-2 text-xs">
+        <span class="font-bold text-on-surface-variant w-8 text-right shrink-0">{{ p.probabilidade|floatformat:0 }}%</span>
+        <span class="text-on-surface-variant truncate">{{ p.categoria.nome }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
+
+  <div class="paper-card rounded-2xl p-4 flex gap-3" style="background:rgba(214,227,255,.4); border-color:rgba(0,32,70,.15);">
+    <span class="material-symbols-outlined text-primary shrink-0 active-icon" style="font-size:24px;">lightbulb</span>
+    <p class="text-xs text-primary-container leading-relaxed">
+      <strong>Como interpretar:</strong> A probabilidade é estimada pela IA com base no peso histórico de cada disciplina + frequência com que você tem estudado. Atualize diariamente para manter a previsão precisa.
+    </p>
+  </div>
+
+  {% endif %}
+</div>
+
+<script>
+const previsoes = {{ previsoes_json|safe }};
+
+if (previsoes.length >= 3) {
+  const top10 = previsoes.slice(0, 10);
+  const ctx = document.getElementById('grafico-previsao').getContext('2d');
+  const tickColor = '#64748b';
+  const gridColor = '#f1f5f9';
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: top10.map(p => p.nome.length > 22 ? p.nome.slice(0, 20) + '…' : p.nome),
+      datasets: [{
+        label: 'Probabilidade (%)',
+        data: top10.map(p => p.prob),
+        backgroundColor: top10.map(p => p.prob >= 70 ? 'rgba(186,26,26,.75)' : p.prob >= 40 ? 'rgba(245,158,11,.75)' : 'rgba(148,163,184,.5)'),
+        borderRadius: 6,
+      }],
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      scales: {
+        x: { min: 0, max: 100, ticks: { color: tickColor, callback: v => v + '%' }, grid: { color: gridColor } },
+        y: { ticks: { color: tickColor, font: { size: 11 } }, grid: { display: false } },
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.raw}% de probabilidade` } } },
+    },
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Flashcards — SantuarioEdu</title>
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .pill {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:9999px;
+    font-size:12px; font-weight:600;
+    background:#ffffff; color:#44474e;
+    border:1px solid rgba(229,225,216,.8);
+    text-decoration:none; cursor:pointer;
+    transition:all .15s;
+  }
+  .pill:hover { border-color:#002046; color:#002046; }
+  .pill-active { background:#002046; color:#ffffff; border-color:#002046; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='revisao' %}
+
+<!-- Top Bar -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 md:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">style</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Flashcards</h1>
+      <p class="text-[11px] text-on-surface-variant">Memorização com revisão espaçada</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    {% if pendentes > 0 %}
+    <a href="{% url 'flashcard_estudar' %}{% if cat_id %}?categoria={{ cat_id }}{% endif %}"
+       class="flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary px-4 py-2 rounded-full text-xs font-semibold transition-colors shadow-md">
+      <span class="material-symbols-outlined active-icon" style="font-size:15px;">play_arrow</span>
+      Revisar agora · {{ pendentes }}
+    </a>
+    {% else %}
+    <a href="{% url 'flashcard_estudar' %}{% if cat_id %}?categoria={{ cat_id }}{% endif %}"
+       class="flex items-center gap-2 bg-white border border-[#e5e1d8] hover:bg-surface-container-low text-on-surface px-4 py-2 rounded-full text-xs font-semibold transition-colors">
+      <span class="material-symbols-outlined" style="font-size:15px;">play_arrow</span>
+      Estudar todos
+    </a>
+    {% endif %}
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 md:px-10 space-y-8">
+
+    <!-- Hero -->
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Revisão · Flashcards</p>
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold text-primary mb-3 leading-tight italic">
+        Treine sua memória
+      </h2>
+      <p class="text-base text-on-surface-variant leading-relaxed max-w-2xl">
+        Crie cartões com pergunta e resposta. O sistema aplica <strong class="text-on-surface font-semibold">revisão espaçada</strong> automaticamente para fixar o conteúdo na memória de longo prazo.
+      </p>
+    </section>
+
+    <!-- Mensagens -->
+    {% if messages %}
+    <div class="space-y-2">
+      {% for msg in messages %}
+      <div class="rounded-lg px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'success' %}bg-secondary-container/40 text-on-secondary-container border-secondary/30
+        {% else %}bg-error-container/40 text-on-error-container border-error/20{% endif %}">
+        {{ msg }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Stats -->
+    <section class="grid grid-cols-3 gap-4 fade-in" style="animation-delay:.1s;">
+      <div class="paper-card rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-9 h-9 rounded-lg bg-primary/5 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" style="font-size:18px;">style</span>
+          </div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Total</p>
+        </div>
+        <p class="font-serif text-3xl font-bold text-primary">{{ total }}</p>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">cartões criados</p>
+      </div>
+      <div class="paper-card rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center">
+            <span class="material-symbols-outlined text-amber-600" style="font-size:18px;">schedule</span>
+          </div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Pendentes</p>
+        </div>
+        <p class="font-serif text-3xl font-bold text-amber-600">{{ pendentes }}</p>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">para revisar hoje</p>
+      </div>
+      <div class="paper-card rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-9 h-9 rounded-lg bg-secondary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-secondary-container" style="font-size:18px;">check_circle</span>
+          </div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Em dia</p>
+        </div>
+        <p class="font-serif text-3xl font-bold text-secondary">{{ em_dia|default:0 }}</p>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">revisão atualizada</p>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="fade-in" style="animation-delay:.15s;">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-outline mb-3">Filtrar por disciplina</p>
+      <div class="flex gap-2 flex-wrap">
+        <a href="{% url 'flashcards' %}" class="pill {% if not cat_id %}pill-active{% endif %}">
+          <span class="material-symbols-outlined" style="font-size:14px;">apps</span>
+          Todas
+        </a>
+        {% for cat in categorias %}
+        <a href="{% url 'flashcards' %}?categoria={{ cat.id }}"
+           class="pill {% if cat_id == cat.id|stringformat:'s' %}pill-active{% endif %}">
+          {{ cat.nome }}
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Criar novo -->
+    <section class="fade-in" style="animation-delay:.2s;">
+      <div class="paper-card rounded-2xl overflow-hidden">
+        <details>
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-surface-container-low transition-colors select-none list-none">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">add_circle</span>
+              </div>
+              <div>
+                <p class="font-serif text-base font-semibold text-primary">Criar novo flashcard</p>
+                <p class="text-xs text-on-surface-variant">Pergunta na frente, resposta no verso</p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant transition-transform" style="font-size:22px;">expand_more</span>
+          </summary>
+          <form method="post" class="px-5 pb-5 border-t border-[#e5e1d8] space-y-4 pt-5">
+            {% csrf_token %}
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Frente — pergunta ou conceito</label>
+              <textarea name="frente" rows="2" required
+                placeholder="Ex: Qual é o princípio da legalidade?"
+                class="w-full text-sm border border-outline-variant/40 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Verso — resposta ou explicação</label>
+              <textarea name="verso" rows="3" required
+                placeholder="Ex: O administrador público só pode fazer o que a lei autoriza..."
+                class="w-full text-sm border border-outline-variant/40 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">
+                Disciplina <span class="normal-case font-normal opacity-60">(opcional)</span>
+              </label>
+              <select name="categoria_id" class="w-full text-sm border border-outline-variant/40 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+                <option value="">Sem disciplina</option>
+                {% for cat in categorias %}
+                <option value="{{ cat.id }}">{{ cat.nome }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold py-3 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined active-icon" style="font-size:16px;">add</span>
+              Criar flashcard
+            </button>
+          </form>
+        </details>
+      </div>
+    </section>
+
+    <!-- Lista -->
+    <section class="fade-in" style="animation-delay:.25s;">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-outline">
+          {% if cat_id %}Disciplina filtrada{% else %}Meus flashcards{% endif %}
+        </h2>
+        {% if flashcards %}
+        <span class="text-[11px] text-on-surface-variant font-mono">{{ flashcards|length }} card{{ flashcards|length|pluralize }}</span>
+        {% endif %}
+      </div>
+
+      {% if flashcards %}
+      <div class="grid gap-4 sm:grid-cols-2">
+        {% for fc in flashcards %}
+        <article class="paper-card rounded-2xl p-5 relative group" data-fc-id="{{ fc.id }}">
+          <div class="flex items-center gap-2 mb-3">
+            {% if fc.categoria %}
+            <span class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-primary-container bg-primary-fixed px-2 py-0.5 rounded-full">
+              {{ fc.categoria.nome }}
+            </span>
+            {% endif %}
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full
+              {% if fc.dificuldade == 1 %}bg-secondary-container/40 text-on-secondary-container
+              {% elif fc.dificuldade == 3 %}bg-error-container/60 text-on-error-container
+              {% else %}bg-amber-100 text-amber-700{% endif %}">
+              {% if fc.dificuldade == 1 %}● Fácil{% elif fc.dificuldade == 3 %}● Difícil{% else %}● Médio{% endif %}
+            </span>
+            <button onclick="deletarFlashcard({{ fc.id }}, this)"
+                    class="ml-auto opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all p-1 rounded-full hover:bg-error/5"
+                    title="Excluir">
+              <span class="material-symbols-outlined" style="font-size:16px;">delete</span>
+            </button>
+          </div>
+
+          <div class="mb-3">
+            <p class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Pergunta</p>
+            <p class="font-serif text-base font-semibold text-on-surface line-clamp-2 leading-snug">{{ fc.frente }}</p>
+          </div>
+
+          <div class="mb-4 pl-3 border-l-2 border-secondary/40">
+            <p class="text-[9px] font-bold uppercase tracking-widest text-secondary mb-1">Resposta</p>
+            <p class="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">{{ fc.verso }}</p>
+          </div>
+
+          <div class="flex items-center justify-between pt-3 border-t border-[#e5e1d8] text-[10px] text-on-surface-variant">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined" style="font-size:13px;">visibility</span>
+              Visto {{ fc.vezes_visto }}x
+            </span>
+            {% if fc.proxima_revisao %}
+            <span class="flex items-center gap-1 font-mono">
+              <span class="material-symbols-outlined" style="font-size:13px;">event</span>
+              {{ fc.proxima_revisao|date:"d/m/Y" }}
+            </span>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="paper-card rounded-2xl p-12 text-center border-dashed" style="border-style:dashed;">
+        <div class="scale-in w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-primary" style="font-size:32px;">style</span>
+        </div>
+        <h3 class="font-serif text-xl font-semibold text-primary mb-1">Nenhum flashcard ainda</h3>
+        <p class="text-sm text-on-surface-variant max-w-xs mx-auto mb-5">
+          Crie seu primeiro cartão de memorização — pergunta na frente, resposta no verso.
+        </p>
+        <button type="button" onclick="document.querySelector('details').open = true; document.querySelector('details').scrollIntoView({behavior:'smooth'});"
+                class="inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">add_circle</span>
+          Criar primeiro flashcard
+        </button>
+      </div>
+      {% endif %}
+    </section>
+
+  </div>
+</main>
+
+<script>
+  const CSRF = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+
+  async function deletarFlashcard(id, btn) {
+    if (!confirm('Excluir este flashcard?')) return;
+    const card = btn.closest('article');
+    try {
+      await fetch(`/api/flashcard/${id}/deletar/`, {
+        method:'POST',
+        headers:{'X-CSRFToken':CSRF},
+      });
+      card.style.opacity = '0';
+      card.style.transform = 'scale(.92)';
+      card.style.transition = 'all .2s';
+      setTimeout(() => card.remove(), 200);
+    } catch(e) { alert('Erro ao deletar.'); }
+  }
+</script>
+
+</body>
+</html>

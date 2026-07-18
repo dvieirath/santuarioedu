@@ -1,0 +1,46 @@
+{
+  "name": "SantuarioEdu",
+  "short_name": "SantuarioEdu",
+  "description": "Plataforma de estudos com IA: banco de questões, simulados cronometrados, revisão espaçada e tutor inteligente.",
+  "start_url": "/dashboard/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#002046",
+  "theme_color": "#002046",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/static/quiz/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/quiz/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Estudar",
+      "short_name": "Estudar",
+      "description": "Escolher tema",
+      "url": "/escolher-tema/"
+    },
+    {
+      "name": "Revisão SRS",
+      "short_name": "Revisão",
+      "description": "Revisão espaçada",
+      "url": "/revisao-srs/"
+    },
+    {
+      "name": "Questão do Dia",
+      "short_name": "Questão do dia",
+      "description": "Desafio diário",
+      "url": "/questao-do-dia/"
+    }
+  ]
+}

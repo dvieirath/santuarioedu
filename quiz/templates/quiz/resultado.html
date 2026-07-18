@@ -1,0 +1,491 @@
+{% load quiz_extras %}
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resultado — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% load static %}<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/source-serif-4.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary":"#002046","primary-container":"#1b365d","on-primary":"#ffffff","on-primary-container":"#7089b4",
+        "secondary":"#006c4d","on-secondary":"#ffffff","secondary-container":"#9df4cc","on-secondary-container":"#0f7253",
+        "surface":"#fcf9f8","background":"#f6f1e7",
+        "surface-container":"#f0eded","surface-container-low":"#f6f3f2","surface-container-high":"#eae7e7",
+        "surface-container-highest":"#e5e2e1","surface-container-lowest":"#ffffff",
+        "on-surface":"#1c1b1b","on-surface-variant":"#44474e",
+        "outline":"#74777f","outline-variant":"#c4c6cf",
+        "error":"#ba1a1a","error-container":"#ffdad6","on-error-container":"#93000a",
+        "primary-fixed":"#d6e3ff","primary-fixed-dim":"#aec7f6",
+        "secondary-fixed":"#9df4cc",
+      },
+      fontFamily: {
+        serif: ["'Source Serif 4'", "Georgia", "serif"],
+        body: ["Inter", "sans-serif"],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background:#f6f1e7; font-family:'Inter',sans-serif; color:#1c1b1b; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .active-icon { font-variation-settings:'FILL' 1; }
+  h1,h2,h3,h4,h5,.font-serif { font-family:'Source Serif 4', Georgia, serif; }
+
+  .paper-card {
+    background:#ffffff;
+    border:1px solid #e5e1d8;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  /* AI button — gradiente navy→sage */
+  .ai-btn {
+    background:linear-gradient(135deg, #002046 0%, #006c4d 100%);
+    position:relative; overflow:hidden;
+  }
+  .ai-btn::after {
+    content:''; position:absolute; inset:-50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation:aiPulse 4s infinite linear;
+  }
+  @keyframes aiPulse {
+    0%,100% { transform:translate(0,0); }
+    50%     { transform:translate(6%, 4%); }
+  }
+
+  /* Markdown da justificativa */
+  .markdown-content p  { margin-bottom:.8em; line-height:1.65; }
+  .markdown-content strong { color:#002046; font-weight:700; }
+  .markdown-content ul, .markdown-content ol { padding-left:1.4rem; margin-bottom:.8em; }
+  .markdown-content li { margin-bottom:.35em; }
+  .markdown-content h2, .markdown-content h3 { font-family:'Source Serif 4', serif; color:#002046; font-weight:600; margin:1em 0 .4em; font-size:1.05em; }
+  .markdown-content code { background:#f0eded; padding:2px 6px; border-radius:4px; font-size:.9em; }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .fade-in { animation:fadeInUp .5s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(.85); }
+    to   { opacity:1; transform:scale(1); }
+  }
+  .scale-in { animation:scaleIn .4s cubic-bezier(.16,1,.3,1) both; }
+</style>
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-8 px-4">
+
+<div class="w-full max-w-2xl fade-in">
+
+  <!-- ═══ Banner de resultado ══════════════════════════════════════════ -->
+  <div class="rounded-2xl overflow-hidden mb-6 paper-card">
+    <div class="{% if escolha.correta %}bg-gradient-to-br from-secondary to-[#004d38]{% else %}bg-gradient-to-br from-[#c53030] to-[#8b1e1e]{% endif %} px-8 py-8 text-white text-center relative">
+      <div class="scale-in inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/15 backdrop-blur mb-3">
+        <span class="material-symbols-outlined active-icon" style="font-size:36px;">
+          {% if escolha.correta %}check{% else %}close{% endif %}
+        </span>
+      </div>
+      <h1 class="font-serif text-3xl font-semibold mb-1">
+        {% if escolha.correta %}Resposta correta{% else %}Resposta incorreta{% endif %}
+      </h1>
+      <p class="text-sm text-white/85">
+        {% if escolha.correta %}Excelente trabalho — continue nesse ritmo.{% else %}Não desanime — aprenda com o erro abaixo.{% endif %}
+      </p>
+
+      {% if modo_revisao or modo_srs or modo_dia %}
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
+        {% if modo_srs %}
+        <span class="inline-flex items-center gap-1 bg-white/15 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <span class="material-symbols-outlined" style="font-size:14px;">neurology</span>
+          Espaçada
+        </span>
+        {% if srs_proxima %}
+        <span class="bg-white/10 text-white/90 text-xs px-3 py-1 rounded-full">
+          Próxima: {{ srs_proxima|date:"d/m/Y" }}
+        </span>
+        {% endif %}
+        {% if srs_pendentes %}
+        <span class="bg-white/10 text-white/90 text-xs px-3 py-1 rounded-full">
+          {{ srs_pendentes }} pendente{{ srs_pendentes|pluralize:"s" }}
+        </span>
+        {% endif %}
+        {% endif %}
+        {% if modo_revisao %}
+        <span class="inline-flex items-center gap-1 bg-white/15 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <span class="material-symbols-outlined" style="font-size:14px;">replay</span>
+          Revisão
+        </span>
+        {% endif %}
+        {% if modo_dia %}
+        <span class="inline-flex items-center gap-1 bg-white/15 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <span class="material-symbols-outlined" style="font-size:14px;">today</span>
+          Questão do Dia
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Corpo -->
+    <div class="p-6 lg:p-8 space-y-5">
+
+      <!-- Chips -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 bg-primary-fixed text-primary-container text-xs font-semibold px-3 py-1.5 rounded-full">
+          <span class="material-symbols-outlined active-icon" style="font-size:14px;">category</span>
+          {{ escolha.questao.categoria.nome }}
+        </span>
+        {% if escolha.questao.assunto %}
+        <span class="inline-flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container text-xs font-semibold px-3 py-1.5 rounded-full">
+          <span class="material-symbols-outlined" style="font-size:13px;">label</span>
+          {{ escolha.questao.assunto }}
+        </span>
+        {% endif %}
+        {% include "quiz/includes/origem_questao.html" with q=escolha.questao %}
+        <div class="flex gap-2 ml-auto shrink-0">
+          <button id="btn-fav" onclick="toggleFavorita({{ escolha.questao.id }})"
+                  title="{% if is_favorita %}Remover dos favoritos{% else %}Favoritar{% endif %}"
+                  class="w-9 h-9 flex items-center justify-center rounded-full border transition-all
+                  {% if is_favorita %}bg-secondary-container text-on-secondary-container border-secondary/30{% else %}bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:bg-primary-fixed hover:text-primary{% endif %}">
+            <span id="fav-icon" class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' {% if is_favorita %}1{% else %}0{% endif %};">bookmark</span>
+          </button>
+          {% if user.is_staff %}
+          <button onclick="document.getElementById('modalEdicao').style.display='flex'"
+                  title="Editar questão"
+                  class="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant/30 hover:bg-primary hover:text-white transition-all">
+            <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+          </button>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Enunciado -->
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Questão</p>
+        <p id="texto-questao" class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-line">{{ escolha.questao.texto }}</p>
+        {% if escolha.questao.imagem %}
+        <img src="{{ escolha.questao.imagem.url }}" alt="Imagem da questão" class="mt-3 max-w-full rounded-xl border border-[#e5e1d8]"/>
+        {% endif %}
+      </div>
+
+      <!-- Sua resposta -->
+      <div class="rounded-xl p-4 {% if escolha.correta %}bg-secondary-container/25 border-l-4 border-secondary{% else %}bg-error-container/40 border-l-4 border-error{% endif %}">
+        <p class="text-[10px] font-bold uppercase tracking-widest {% if escolha.correta %}text-secondary{% else %}text-on-error-container{% endif %} mb-1">Sua resposta</p>
+        <p class="text-sm text-on-surface leading-relaxed">{{ escolha.texto }}</p>
+      </div>
+
+      <!-- Resposta correta (se errou) -->
+      {% if not escolha.correta %}
+      <div class="rounded-xl p-4 bg-secondary-container/25 border-l-4 border-secondary">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-1">Resposta correta</p>
+        {% for alt in escolha.questao.alternativa_set.all %}
+          {% if alt.correta %}
+          <p class="text-sm font-semibold text-on-surface leading-relaxed">{{ alt.texto }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Análise da Questão -->
+      {% if escolha.questao.justificativa %}
+      <div class="rounded-xl p-5 bg-primary-fixed/40 border-l-4 border-primary-fixed-dim">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">lightbulb</span>
+          <h3 class="font-serif text-lg font-semibold text-primary">Análise da questão</h3>
+        </div>
+        <div class="markdown-content text-sm text-on-surface">
+          {{ escolha.questao.justificativa|markdown|safe }}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Tutor IA (se errou) — gradiente navy→sage do padrão -->
+      {% if not escolha.correta %}
+      <button onclick="abrirTutorIA({{ escolha.questao.id }}, {{ escolha.id }})"
+              class="ai-btn w-full flex items-center justify-center gap-2 text-white text-sm font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[.99] relative z-10">
+        <span class="material-symbols-outlined active-icon relative z-10" style="font-size:20px;">smart_toy</span>
+        <span class="relative z-10">Explicar com Tutor IA</span>
+      </button>
+      {% endif %}
+
+      <!-- Avaliação de dificuldade -->
+      <div class="rounded-xl border border-[#e5e1d8] bg-surface-container-low/60 p-4">
+        <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-3 flex items-center gap-1.5">
+          <span class="material-symbols-outlined active-icon" style="font-size:14px;">sentiment_satisfied</span>
+          Como foi essa questão para você?
+        </p>
+        <div class="flex gap-2" id="dif-container">
+          <button onclick="avaliarDificuldade(1)" data-d="1"
+                  class="dif-btn flex-1 py-2.5 rounded-lg text-xs font-semibold border transition-all
+                  border-secondary/30 text-secondary hover:bg-secondary-container/30
+                  {% if avaliacao_dificuldade == 1 %}bg-secondary-container/40 border-secondary{% endif %}">
+            😌 Fácil
+          </button>
+          <button onclick="avaliarDificuldade(2)" data-d="2"
+                  class="dif-btn flex-1 py-2.5 rounded-lg text-xs font-semibold border transition-all
+                  border-amber-300 text-amber-700 hover:bg-amber-50
+                  {% if avaliacao_dificuldade == 2 %}bg-amber-100 border-amber-500{% endif %}">
+            😐 Médio
+          </button>
+          <button onclick="avaliarDificuldade(3)" data-d="3"
+                  class="dif-btn flex-1 py-2.5 rounded-lg text-xs font-semibold border transition-all
+                  border-error/30 text-error hover:bg-error-container/40
+                  {% if avaliacao_dificuldade == 3 %}bg-error-container/40 border-error{% endif %}">
+            😓 Difícil
+          </button>
+        </div>
+        <p id="dif-msg" class="text-[10px] text-on-surface-variant mt-2 text-center min-h-[14px]"></p>
+      </div>
+
+      <!-- Anotação pessoal -->
+      <div class="rounded-xl border border-[#e5e1d8] overflow-hidden">
+        <button onclick="toggleAnotacao()" class="w-full flex items-center justify-between px-4 py-3 bg-surface-container-low hover:bg-surface-container transition-all">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface-variant active-icon" style="font-size:16px;">sticky_note_2</span>
+            <span class="text-xs font-semibold text-on-surface-variant">Minha anotação</span>
+            {% if anotacao %}<span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">Salva</span>{% endif %}
+          </div>
+          <span id="anotacao-chevron" class="material-symbols-outlined text-on-surface-variant transition-transform {% if anotacao %}rotate-180{% endif %}" style="font-size:16px;">expand_more</span>
+        </button>
+        <div id="anotacao-body" class="{% if not anotacao %}hidden{% endif %} p-4 space-y-3 bg-white">
+          <textarea id="anotacao-texto" rows="3" placeholder="Escreva sua anotação, mnemônico, dúvida..."
+            class="w-full text-sm border border-outline-variant/40 rounded-lg px-3 py-2 resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">{% if anotacao %}{{ anotacao.texto }}{% endif %}</textarea>
+          <div class="flex gap-2 justify-end">
+            <button onclick="deletarAnotacao({{ escolha.questao.id }})"
+              class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-semibold rounded-lg hover:bg-surface-container-high">Apagar</button>
+            <button onclick="salvarAnotacao({{ escolha.questao.id }})"
+              class="px-4 py-1.5 bg-primary text-white text-xs font-semibold rounded-lg hover:bg-primary-container">Salvar</button>
+          </div>
+          <p id="anotacao-status" class="text-[10px] text-secondary hidden">✓ Anotação salva!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ Ações inferior ══════════════════════════════════════════════ -->
+  {% if modo_dia %}
+  <!-- Questão do Dia concluída -->
+  <div class="paper-card rounded-2xl p-5 mb-4 text-center">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:22px;">today</span>
+      <p class="font-serif text-lg font-semibold text-primary">Questão do Dia concluída!</p>
+    </div>
+    <p class="text-sm text-on-surface-variant">
+      {% if dia_acertos %}🏆 Acertou em cheio! +100 pontos no seu placar.{% else %}Leia a justificativa e tente amanhã.{% endif %}
+      Volte amanhã para um novo desafio.
+    </p>
+  </div>
+  <div class="grid sm:grid-cols-2 gap-3 mb-3">
+    <a href="{% url 'dashboard' %}"
+       class="flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:bg-primary-container transition-all">
+      <span class="material-symbols-outlined" style="font-size:18px;">dashboard</span>
+      Voltar ao painel
+    </a>
+    <a href="{% url 'iniciar_quiz' %}"
+       class="flex items-center justify-center gap-2 bg-secondary text-white px-6 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:opacity-90 transition-all">
+      <span class="material-symbols-outlined" style="font-size:18px;">menu_book</span>
+      Continuar treinando
+    </a>
+  </div>
+  <div class="flex flex-wrap items-center justify-center gap-2">
+    <a href="{% url 'modo_desafio' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-orange-600 px-3 py-1.5 rounded-full hover:bg-orange-50 transition-all">
+      <span class="material-symbols-outlined" style="font-size:14px;">bolt</span> Modo desafio
+    </a>
+    <span class="text-on-surface-variant text-xs">·</span>
+    <a href="{% url 'ranking' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-amber-600 px-3 py-1.5 rounded-full hover:bg-amber-50 transition-all">
+      <span class="material-symbols-outlined" style="font-size:14px;">emoji_events</span> Ranking
+    </a>
+  </div>
+  {% else %}
+  <div class="flex flex-col sm:flex-row gap-3">
+    {% if modo_srs %}
+      <a href="{% url 'revisao_srs' %}?start=1" class="flex-1 flex items-center justify-center gap-2 bg-secondary text-white px-8 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:opacity-90 transition-all">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">neurology</span>
+        Próxima revisão{% if srs_pendentes %} ({{ srs_pendentes }}){% endif %}
+      </a>
+    {% elif modo_revisao %}
+      {% if categoria_id %}
+      <a href="{% url 'quiz_revisao_categoria' categoria_id %}" class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:bg-primary-container transition-all">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">replay</span>
+        Próxima revisão
+      </a>
+      {% else %}
+      <a href="{% url 'quiz_revisao' %}" class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:bg-primary-container transition-all">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">replay</span>
+        Próxima revisão
+      </a>
+      {% endif %}
+    {% else %}
+      {% if categoria_id %}
+      <a href="{% url 'iniciar_quiz_categoria' categoria_id %}?banca={{ filtros.banca }}&ano={{ filtros.ano }}&tipo={{ filtros.tipo }}&modo={{ filtros.modo|default:'novas' }}&origem={{ filtros.origem }}"
+         class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:bg-primary-container transition-all">
+        Próxima questão
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+      {% else %}
+      <a href="{% url 'iniciar_quiz' %}?banca={{ filtros.banca }}&ano={{ filtros.ano }}&tipo={{ filtros.tipo }}&modo={{ filtros.modo|default:'novas' }}&origem={{ filtros.origem }}"
+         class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-3.5 rounded-xl font-semibold text-sm shadow-md hover:bg-primary-container transition-all">
+        Próxima questão
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+      {% endif %}
+    {% endif %}
+
+    <a href="{% url 'dashboard' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-surface-container-low transition-all">
+      <span class="material-symbols-outlined" style="font-size:18px;">dashboard</span>
+      Painel
+    </a>
+    <a href="{% url 'escolher_tema' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-surface-container-low transition-all">
+      <span class="material-symbols-outlined" style="font-size:18px;">menu_book</span>
+      Mudar matéria
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- Modal de Edição (staff) -->
+{% if user.is_staff %}
+<div id="modalEdicao" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] items-center justify-center" style="display:none">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 p-6">
+    <h3 class="font-serif text-lg font-semibold text-primary mb-4">Editar questão</h3>
+    <textarea id="textoEdicao" class="w-full h-36 border border-outline-variant/40 rounded-lg p-3 text-sm resize-vertical focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">{{ escolha.questao.texto }}</textarea>
+    <div class="flex gap-3 mt-4 justify-end">
+      <button onclick="document.getElementById('modalEdicao').style.display='none'"
+              class="px-4 py-2 text-sm font-semibold bg-surface-container-low rounded-lg hover:bg-surface-container">Cancelar</button>
+      <button onclick="salvarEdicao()"
+              class="px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-primary-container">Salvar</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Toasts de conquista -->
+{% if novas_conquistas %}
+<div id="conquista-toasts" class="fixed top-6 right-6 z-[110] flex flex-col gap-3 max-w-xs">
+  {% for c in novas_conquistas %}
+  <div class="conquista-toast flex items-center gap-3 bg-white border border-secondary/30 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
+    <span class="text-3xl shrink-0">{{ c.emoji }}</span>
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-wider text-secondary">Conquista desbloqueada</p>
+      <p class="text-sm font-bold text-primary">{{ c.label }}</p>
+      <p class="text-xs text-on-surface-variant">{{ c.desc }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.conquista-toast').forEach((t, i) => {
+    setTimeout(() => {
+      t.classList.remove('opacity-0', 'translate-y-4');
+      setTimeout(() => {
+        t.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => t.remove(), 500);
+      }, 4000);
+    }, i * 600);
+  });
+});
+</script>
+{% endif %}
+
+<script>
+const CSRF = '{{ csrf_token }}';
+
+function toggleAnotacao() {
+  document.getElementById('anotacao-body').classList.toggle('hidden');
+  document.getElementById('anotacao-chevron').classList.toggle('rotate-180');
+}
+
+async function salvarAnotacao(qid) {
+  const texto = document.getElementById('anotacao-texto').value.trim();
+  await fetch(`/api/anotacao/${qid}/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    body: JSON.stringify({ texto })
+  });
+  const status = document.getElementById('anotacao-status');
+  status.classList.remove('hidden');
+  setTimeout(() => status.classList.add('hidden'), 2000);
+}
+
+async function deletarAnotacao(qid) {
+  document.getElementById('anotacao-texto').value = '';
+  await salvarAnotacao(qid);
+}
+
+async function toggleFavorita(qid) {
+  const btn = document.getElementById('btn-fav');
+  const icon = document.getElementById('fav-icon');
+  try {
+    const res = await fetch(`/api/favorita/${qid}/`, {
+      method: 'POST',
+      headers: { 'X-CSRFToken': CSRF }
+    });
+    const data = await res.json();
+    if (data.status === 'added' || data.favoritado) {
+      btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+      btn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'border-secondary/30');
+      icon.style.fontVariationSettings = "'FILL' 1";
+      btn.title = 'Remover dos favoritos';
+    } else {
+      btn.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'border-secondary/30');
+      icon.style.fontVariationSettings = "'FILL' 0";
+      btn.title = 'Favoritar';
+    }
+  } catch(e) { console.error(e); }
+}
+
+async function avaliarDificuldade(dif) {
+  document.querySelectorAll('.dif-btn').forEach(b => b.classList.remove('ring-2','ring-primary/40'));
+  const target = document.querySelector(`.dif-btn[data-d="${dif}"]`);
+  if (target) target.classList.add('ring-2','ring-primary/40');
+  try {
+    const r = await fetch(`/api/avaliar/{{ escolha.questao.id }}/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ dificuldade: dif }),
+    });
+    const d = await r.json();
+    document.getElementById('dif-msg').textContent =
+      `${d.label || 'Avaliação'} registrada! Próxima revisão: ${d.proxima_revisao || '—'}`;
+  } catch(e) {}
+}
+
+{% if user.is_staff %}
+async function salvarEdicao() {
+  const texto = document.getElementById('textoEdicao').value;
+  const res = await fetch(`/api/editar-questao/{{ escolha.questao.id }}/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    body: JSON.stringify({ texto })
+  });
+  const data = await res.json();
+  if (data.success) {
+    document.getElementById('texto-questao').textContent = texto;
+    document.getElementById('modalEdicao').style.display = 'none';
+  } else {
+    alert('Erro: ' + data.error);
+  }
+}
+{% endif %}
+</script>
+
+{% with questao=escolha.questao %}
+{% include "quiz/includes/comentarios.html" %}
+{% endwith %}
+{% include "quiz/includes/tutor_ia.html" with questao=escolha.questao %}
+{% include "quiz/includes/tutor_ia_drawer.html" %}
+</body>
+</html>

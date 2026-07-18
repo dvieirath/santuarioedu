@@ -1,0 +1,185 @@
+{% extends "quiz/admin/base.html" %}
+{% load static %}
+
+{% block title %}Estatísticas da Plataforma{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+
+  <div>
+    <h1 class="text-2xl font-extrabold text-slate-900 dark:text-white">📊 Estatísticas da Plataforma</h1>
+    <p class="text-sm text-slate-500 mt-1">Visão geral de uso, desempenho e alunos.</p>
+  </div>
+
+  <!-- KPIs gerais -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    {% for kpi in kpis %}{% endfor %}
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Usuários ativos</p>
+      <p class="text-3xl font-black text-slate-900 dark:text-white">{{ total_users }}</p>
+      <p class="text-xs text-slate-500 mt-1">{{ novos_30d }} novos nos últimos 30 dias</p>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Ativos (7 dias)</p>
+      <p class="text-3xl font-black text-blue-600">{{ ativos_7d }}</p>
+      <p class="text-xs text-slate-500 mt-1">{{ ativos_30d }} nos últimos 30 dias</p>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Total de respostas</p>
+      <p class="text-3xl font-black text-slate-900 dark:text-white">{{ total_respostas }}</p>
+      <p class="text-xs text-slate-500 mt-1">{{ respostas_hoje }} hoje</p>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Aproveitamento médio</p>
+      <p class="text-3xl font-black {% if pct_plat >= 70 %}text-emerald-600{% elif pct_plat >= 50 %}text-amber-600{% else %}text-red-600{% endif %}">
+        {{ pct_plat }}%
+      </p>
+      <p class="text-xs text-slate-500 mt-1">{{ total_questoes }} questões no banco</p>
+    </div>
+  </div>
+
+  <!-- Atividade diária -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <h2 class="font-bold text-base mb-4">Atividade — Últimos 30 dias</h2>
+    <div style="height:220px"><canvas id="grafico-atividade"></canvas></div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-6">
+
+    <!-- Top usuários -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <h2 class="font-bold text-base mb-4 flex items-center gap-2">
+        <span class="text-amber-500">🏆</span> Top 10 usuários (30 dias)
+      </h2>
+      <div class="space-y-2">
+        {% for u in top_usuarios %}
+        <div class="flex items-center gap-3">
+          <span class="w-5 text-xs text-center font-bold
+            {% if forloop.counter == 1 %}text-amber-500{% elif forloop.counter == 2 %}text-slate-400{% elif forloop.counter == 3 %}text-amber-700{% else %}text-slate-500{% endif %}">
+            {{ forloop.counter }}
+          </span>
+          <span class="flex-1 text-sm truncate">{{ u.usuario__first_name|default:u.usuario__username }}</span>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">{{ u.total }}q</span>
+          <span class="text-sm font-bold
+            {% if u.acertos|divisibleby:1 %}
+            {% with pct=u.acertos %}
+            {% endwith %}
+            {% endif %}
+            text-emerald-600">
+            {% widthratio u.acertos u.total 100 %}%
+          </span>
+        </div>
+        {% empty %}
+        <p class="text-sm text-slate-500">Nenhuma atividade nos últimos 30 dias.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Questões mais erradas -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <h2 class="font-bold text-base mb-4 flex items-center gap-2">
+        <span class="text-red-500">❌</span> Questões mais erradas
+      </h2>
+      <div class="space-y-2">
+        {% for q in mais_erradas %}
+        <div class="flex items-start gap-3 text-sm">
+          <span class="flex-shrink-0 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 font-bold text-xs px-2 py-0.5 rounded-full mt-0.5">{{ q.erros }}x</span>
+          <div class="min-w-0">
+            <p class="truncate text-slate-700 dark:text-slate-300">{{ q.questao__texto|truncatechars:70 }}</p>
+            <p class="text-xs text-slate-500">{{ q.questao__categoria__nome }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-sm text-slate-500">Nenhum dado ainda.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Aproveitamento por disciplina -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+    <h2 class="font-bold text-base mb-4">Desempenho por disciplina</h2>
+    <div class="space-y-2">
+      {% for cat in cats_stats %}
+      <div>
+        <div class="flex items-center justify-between text-xs mb-1">
+          <span class="font-medium text-slate-700 dark:text-slate-300 truncate max-w-[60%]">{{ cat.nome }}</span>
+          <span class="font-bold {% if cat.pct >= 70 %}text-emerald-600{% elif cat.pct >= 50 %}text-amber-600{% else %}text-red-600{% endif %}">
+            {{ cat.pct }}% ({{ cat.total }} respostas)
+          </span>
+        </div>
+        <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
+          <div class="h-1.5 rounded-full {% if cat.pct >= 70 %}bg-emerald-500{% elif cat.pct >= 50 %}bg-amber-500{% else %}bg-red-500{% endif %}"
+            style="width:{{ cat.pct }}%"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Alunos em risco -->
+  {% if em_risco %}
+  <div class="bg-orange-50 dark:bg-orange-900/20 rounded-2xl border border-orange-200 dark:border-orange-700/40 p-5">
+    <h2 class="font-bold text-base mb-3 text-orange-700 dark:text-orange-400 flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">warning</span>
+      Alunos em risco de quebrar streak (sem estudar há +3 dias)
+    </h2>
+    <div class="flex flex-wrap gap-2">
+      {% for m in em_risco %}
+      <a href="{% url 'perfil_publico' m.usuario.username %}"
+         class="flex items-center gap-2 bg-white dark:bg-slate-800 border border-orange-200 dark:border-orange-700/30
+                rounded-xl px-3 py-1.5 text-sm hover:border-orange-400 transition-colors">
+        <span class="font-semibold">{{ m.usuario.username }}</span>
+        <span class="text-orange-500 text-xs">🔥 {{ m.streak_atual }}d</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<script>
+const serie = {{ serie_json|safe }};
+if (serie.length) {
+  new Chart(document.getElementById('grafico-atividade').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: serie.map(d => d.dia.slice(5)),
+      datasets: [
+        {
+          label: 'Respostas',
+          data: serie.map(d => d.respostas),
+          backgroundColor: 'rgba(99,102,241,.7)',
+          borderRadius: 3,
+          yAxisID: 'y',
+        },
+        {
+          label: 'Usuários únicos',
+          data: serie.map(d => d.usuarios),
+          type: 'line',
+          borderColor: '#f59e0b',
+          backgroundColor: 'transparent',
+          pointBackgroundColor: '#f59e0b',
+          pointRadius: 2,
+          tension: 0.4,
+          yAxisID: 'y2',
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y:  { position: 'left',  ticks: { color: '#94a3b8' }, grid: { color: '#e2e8f0' } },
+        y2: { position: 'right', ticks: { color: '#f59e0b' }, grid: { display: false } },
+        x:  { ticks: { color: '#94a3b8', maxRotation: 45 }, grid: { display: false } },
+      },
+      plugins: { legend: { labels: { color: '#94a3b8' } } },
+    },
+  });
+}
+</script>
+{% endblock %}

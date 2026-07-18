@@ -1,0 +1,503 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Análise de banca — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+  .tab-btn { padding:10px 18px; font-size:13px; font-weight:600; color:#44474e; border-bottom:2px solid transparent; transition:all .15s; cursor:pointer; background:none; border-left:none; border-right:none; border-top:none; font-family:'Inter',sans-serif; }
+  .tab-btn:hover { color:#1b365d; }
+  .tab-btn.tab-active { color:#002046; border-bottom-color:#002046; }
+  @keyframes bar-grow { from { width:0 } }
+  .bar-grow { animation: bar-grow .7s ease-out both; }
+  .banca-card { transition:all .18s; }
+  .banca-card:hover { border-color:rgba(0,32,70,.25); box-shadow:0 8px 24px rgba(25,28,29,.08); }
+  .prose-ia p { margin-bottom:.6rem; line-height:1.6; }
+  .prose-ia strong { font-weight:700; color:#002046; }
+  .prose-ia em { font-style:italic; color:#006c4d; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 md:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">analytics</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Análise de banca</h1>
+      <p class="text-[11px] text-on-surface-variant">{{ total_respondidas }} questões com banca identificada</p>
+    </div>
+  </div>
+  <a href="{% url 'analytics' %}" class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors" title="Voltar">close</a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 md:px-10 space-y-8">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Inteligência IA · Análise</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">
+        Padrões de banca
+      </h2>
+      <p class="text-base text-on-surface-variant leading-relaxed max-w-2xl">
+        Veja seu desempenho por <strong class="text-on-surface font-semibold">banca examinadora</strong> e
+        <strong class="text-on-surface font-semibold">ano de prova</strong>, descubra suas matérias fracas em cada uma,
+        e gere <strong class="text-primary font-semibold">insights por IA</strong> sobre como melhorar.
+      </p>
+    </section>
+
+    {% if bancas %}
+
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="paper-card rounded-2xl p-5">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Bancas</p>
+        <p class="text-3xl font-serif font-bold text-primary mt-1">{{ bancas|length }}</p>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">com respostas</p>
+      </div>
+      <div class="paper-card rounded-2xl p-5">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Questões</p>
+        <p class="text-3xl font-serif font-bold text-primary mt-1">{{ total_respondidas }}</p>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">analisadas</p>
+      </div>
+      {% if banca_top %}
+      <div class="paper-card rounded-2xl p-5" style="background:rgba(157,244,204,.3); border-color:rgba(0,108,77,.3);">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-secondary">🏆 Melhor banca</p>
+        <p class="text-lg font-serif font-bold text-secondary mt-1 truncate">{{ banca_top.banca }}</p>
+        <p class="text-[11px] text-secondary mt-0.5 font-semibold">{{ banca_top.pct }}% de acerto</p>
+      </div>
+      {% endif %}
+      {% if banca_fraca and banca_fraca.banca != banca_top.banca %}
+      <div class="paper-card rounded-2xl p-5" style="background:rgba(255,218,214,.35); border-color:rgba(186,26,26,.3);">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-error">⚠️ Foco necessário</p>
+        <p class="text-lg font-serif font-bold text-error mt-1 truncate">{{ banca_fraca.banca }}</p>
+        <p class="text-[11px] text-error mt-0.5 font-semibold">{{ banca_fraca.pct }}% de acerto</p>
+      </div>
+      {% endif %}
+    </section>
+
+    <section>
+      <div class="flex gap-0 border-b border-[#e5e1d8] mb-6">
+        <button type="button" onclick="setTab('bancas')" id="tab-bancas" class="tab-btn tab-active">
+          <span class="material-symbols-outlined align-middle" style="font-size:14px;">domain</span>
+          Por banca
+        </button>
+        <button type="button" onclick="setTab('tendencia')" id="tab-tendencia" class="tab-btn">
+          <span class="material-symbols-outlined align-middle" style="font-size:14px;">trending_up</span>
+          Tendência
+        </button>
+        <button type="button" onclick="setTab('anos')" id="tab-anos" class="tab-btn">
+          <span class="material-symbols-outlined align-middle" style="font-size:14px;">calendar_month</span>
+          Por ano
+        </button>
+      </div>
+
+      <div id="panel-bancas" class="space-y-3">
+        {% for b in bancas %}
+        <div class="banca-card paper-card rounded-2xl overflow-hidden">
+          <div class="p-4 flex items-center gap-3 cursor-pointer select-none" onclick="toggleBanca('banca-{{ forloop.counter }}')">
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center shrink-0 font-serif font-bold text-lg
+              {% if b.pct >= 70 %}bg-secondary-container/50 text-secondary border border-secondary/30
+              {% elif b.pct >= 50 %}bg-amber-100 text-amber-700 border border-amber-300
+              {% else %}bg-error-container/50 text-error border border-error/30{% endif %}">
+              {{ b.pct }}%
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-semibold text-sm text-on-surface truncate">{{ b.banca }}</p>
+              <p class="text-xs text-on-surface-variant mt-0.5">
+                <span class="font-semibold text-on-surface">{{ b.total }}</span> questões ·
+                <span class="text-secondary">{{ b.acertos }} ✓</span> ·
+                <span class="text-error">{{ b.erros }} ✗</span>
+              </p>
+              <div class="mt-2 w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                <div class="h-1.5 rounded-full bar-grow
+                  {% if b.pct >= 70 %}bg-secondary
+                  {% elif b.pct >= 50 %}bg-amber-500
+                  {% else %}bg-error{% endif %}"
+                  style="width:{{ b.pct }}%"></div>
+              </div>
+            </div>
+            <div class="shrink-0 flex flex-col gap-1.5 items-end">
+              <button type="button" onclick="event.stopPropagation(); abrirInsightIA('{{ b.banca|escapejs }}', {{ b.pct }}, '{{ b.pior_cat|escapejs }}')"
+                      title="Gerar insight por IA"
+                      class="ai-btn flex items-center gap-1 text-[11px] font-semibold text-white px-2.5 py-1.5 rounded-lg transition-colors">
+                <span class="material-symbols-outlined active-icon relative z-10" style="font-size:13px;">psychology</span>
+                <span class="relative z-10">Insight IA</span>
+              </button>
+              <a href="{% url 'iniciar_quiz' %}?banca={{ b.banca|urlencode }}"
+                 onclick="event.stopPropagation()"
+                 class="flex items-center gap-1 text-[11px] font-semibold text-on-surface bg-white border border-[#e5e1d8] px-2.5 py-1.5 rounded-lg hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined" style="font-size:13px;">replay</span>
+                Treinar
+              </a>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant transition-transform" style="font-size:18px;" id="chevron-banca-{{ forloop.counter }}">expand_more</span>
+          </div>
+
+          <div id="banca-{{ forloop.counter }}" class="hidden border-t border-[#e5e1d8] bg-surface-container-low/40">
+            {% if b.cats %}
+            <div class="p-4 space-y-2.5">
+              <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-3">Desempenho por disciplina</p>
+              {% for cat in b.cats %}
+              <div class="flex items-center gap-3">
+                <p class="text-xs font-medium text-on-surface w-36 shrink-0 truncate" title="{{ cat.nome }}">{{ cat.nome }}</p>
+                <div class="flex-1 bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="h-2 rounded-full bar-grow
+                    {% if cat.pct >= 70 %}bg-secondary
+                    {% elif cat.pct >= 50 %}bg-amber-500
+                    {% else %}bg-error{% endif %}"
+                    style="width:{{ cat.pct }}%"></div>
+                </div>
+                <span class="text-xs font-serif font-bold w-10 text-right
+                  {% if cat.pct >= 70 %}text-secondary
+                  {% elif cat.pct >= 50 %}text-amber-700
+                  {% else %}text-error{% endif %}">
+                  {{ cat.pct }}%
+                </span>
+                <span class="text-[10px] text-on-surface-variant w-9 text-right font-mono">{{ cat.total }}q</span>
+              </div>
+              {% endfor %}
+            </div>
+            {% if b.pior_cat %}
+            <div class="px-4 pb-4 flex flex-wrap gap-2 text-xs">
+              <span class="inline-flex items-center gap-1 bg-error-container/50 text-error border border-error/30 px-2.5 py-1.5 rounded-lg">
+                <span class="material-symbols-outlined" style="font-size:13px;">priority_high</span>
+                Foco: <strong>{{ b.pior_cat }}</strong>
+              </span>
+              {% if b.melhor_cat %}
+              <span class="inline-flex items-center gap-1 bg-secondary-container/50 text-secondary border border-secondary/30 px-2.5 py-1.5 rounded-lg">
+                <span class="material-symbols-outlined" style="font-size:13px;">workspace_premium</span>
+                Forte: <strong>{{ b.melhor_cat }}</strong>
+              </span>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% else %}
+            <p class="p-4 text-xs text-on-surface-variant">Sem detalhes de categoria disponíveis.</p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+
+        {% if sem_banca > 0 %}
+        <p class="text-xs text-on-surface-variant text-center py-2 flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:14px;">info</span>
+          {{ sem_banca }} questão(ões) respondida(s) sem banca identificada
+        </p>
+        {% endif %}
+      </div>
+
+      <div id="panel-tendencia" class="hidden space-y-5">
+        <div class="paper-card rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">trending_up</span>
+            </div>
+            <div>
+              <h3 class="text-sm font-serif font-semibold text-primary">Evolução semanal</h3>
+              <p class="text-[11px] text-on-surface-variant">Últimas 8 semanas — aproveitamento + volume</p>
+            </div>
+          </div>
+          <div class="relative mt-5" style="height:260px">
+            <canvas id="grafico-tendencia"></canvas>
+          </div>
+        </div>
+
+        <div class="paper-card rounded-2xl overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-surface-container-low border-b border-[#e5e1d8]">
+                <th class="px-4 py-3 text-left text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Semana</th>
+                <th class="px-4 py-3 text-center text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Questões</th>
+                <th class="px-4 py-3 text-center text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Acertos</th>
+                <th class="px-4 py-3 text-center text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Aproveit.</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#e5e1d8]">
+              {% for s in tendencia %}
+              <tr class="hover:bg-surface-container-low transition-colors">
+                <td class="px-4 py-3 text-xs font-medium text-on-surface">{{ s.label }}</td>
+                <td class="px-4 py-3 text-center text-xs {% if s.total == 0 %}text-on-surface-variant{% endif %}">{{ s.total }}</td>
+                <td class="px-4 py-3 text-center text-xs text-secondary font-semibold">{{ s.acertos }}</td>
+                <td class="px-4 py-3 text-center">
+                  {% if s.total > 0 %}
+                  <span class="font-serif font-bold text-xs px-2 py-0.5 rounded-full
+                    {% if s.pct >= 70 %}bg-secondary-container/60 text-secondary
+                    {% elif s.pct >= 50 %}bg-amber-100 text-amber-700
+                    {% else %}bg-error-container/60 text-error{% endif %}">
+                    {{ s.pct }}%
+                  </span>
+                  {% else %}
+                  <span class="text-on-surface-variant text-xs">—</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panel-anos" class="hidden space-y-5">
+        {% if anos %}
+        <div class="paper-card rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center">
+              <span class="material-symbols-outlined text-amber-600 active-icon" style="font-size:18px;">calendar_month</span>
+            </div>
+            <div>
+              <h3 class="text-sm font-serif font-semibold text-primary">Aproveitamento por ano</h3>
+              <p class="text-[11px] text-on-surface-variant">Performance por ano de prova das questões respondidas</p>
+            </div>
+          </div>
+          <div class="relative mt-5" style="height:260px">
+            <canvas id="grafico-anos"></canvas>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
+          {% for a in anos %}
+          <div class="paper-card rounded-2xl p-4 text-center">
+            <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">{{ a.ano }}</p>
+            <p class="text-2xl font-serif font-bold mt-1
+              {% if a.pct >= 70 %}text-secondary
+              {% elif a.pct >= 50 %}text-amber-600
+              {% else %}text-error{% endif %}">
+              {{ a.pct }}%
+            </p>
+            <p class="text-[10px] text-on-surface-variant mt-0.5 font-mono">{{ a.total }}q</p>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-16 text-on-surface-variant">
+          <span class="material-symbols-outlined block mx-auto mb-3 text-outline-variant" style="font-size:48px;">calendar_month</span>
+          <p class="text-sm font-semibold text-on-surface">Nenhuma questão com ano identificado</p>
+          <p class="text-xs mt-1">Responda questões que tenham ano marcado para ver a análise aqui.</p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    {% else %}
+    <div class="paper-card rounded-3xl border-dashed p-12 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">source</span>
+      </div>
+      <h3 class="font-serif font-semibold text-primary text-lg mb-1">Ainda sem dados de banca</h3>
+      <p class="text-sm text-on-surface-variant max-w-md mx-auto mb-6">
+        Responda questões que possuem banca identificada para ver sua análise aqui. As estatísticas serão geradas automaticamente.
+      </p>
+      <a href="{% url 'iniciar_quiz' %}" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>
+        Responder questões
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</main>
+
+<div id="insight-overlay" onclick="fecharInsight()"
+     class="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<aside id="insight-drawer"
+       class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-white shadow-2xl border-l border-[#e5e1d8]
+              flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="flex items-center gap-3 px-5 py-4 border-b border-[#e5e1d8] shrink-0 ai-glow">
+    <div class="w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center relative z-10">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">psychology</span>
+    </div>
+    <div class="flex-1 relative z-10">
+      <h2 class="text-base font-serif font-semibold text-primary leading-tight">Insight de banca</h2>
+      <p class="text-[11px] text-on-surface-variant" id="insight-banca-label">—</p>
+    </div>
+    <button type="button" onclick="fecharInsight()" class="relative z-10 p-2 rounded-full text-on-surface-variant hover:bg-white/60 transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+    </button>
+  </div>
+
+  <div class="flex-1 overflow-y-auto px-5 py-5">
+    <div id="insight-loading" class="hidden flex-col items-center justify-center gap-4 py-16 text-center">
+      <div class="w-12 h-12 rounded-full border-4 border-primary/10 border-t-primary animate-spin"></div>
+      <p class="text-sm text-on-surface-variant">Analisando seus padrões...</p>
+    </div>
+    <div id="insight-erro" class="hidden rounded-2xl bg-error-container/40 border border-error/30 p-5 text-center">
+      <span class="material-symbols-outlined text-error active-icon block mx-auto mb-2" style="font-size:32px;">error</span>
+      <p id="insight-erro-msg" class="text-sm font-semibold text-error"></p>
+    </div>
+    <div id="insight-conteudo" class="hidden space-y-4">
+      <div id="insight-texto" class="prose-ia text-sm text-on-surface leading-relaxed"></div>
+      <div class="pt-3 border-t border-[#e5e1d8]">
+        <a id="insight-link-treinar" href="{% url 'iniciar_quiz' %}"
+           class="flex items-center justify-center gap-2 bg-primary text-on-primary text-sm font-semibold py-3 rounded-xl hover:bg-primary-container transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">fitness_center</span>
+          Treinar esta banca agora
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+const CSRF          = '{{ csrf_token }}';
+const INSIGHT_URL   = '{% url "api_insight_banca" %}';
+const bancasData    = {{ bancas_json|safe }};
+const anosData      = {{ anos_json|safe }};
+const tendenciaData = {{ tendencia_json|safe }};
+
+function setTab(name) {
+  ['bancas','tendencia','anos'].forEach(t => {
+    document.getElementById('panel-' + t).classList.add('hidden');
+    document.getElementById('tab-' + t).classList.remove('tab-active');
+  });
+  document.getElementById('panel-' + name).classList.remove('hidden');
+  document.getElementById('tab-' + name).classList.add('tab-active');
+
+  if (name === 'tendencia' && !window._gT) { initGraficoTendencia(); window._gT = true; }
+  if (name === 'anos'      && !window._gA) { initGraficoAnos();      window._gA = true; }
+}
+
+function toggleBanca(id) {
+  const el  = document.getElementById(id);
+  const idx = id.split('-')[1];
+  const chv = document.getElementById('chevron-banca-' + idx);
+  const open = !el.classList.contains('hidden');
+  el.classList.toggle('hidden', open);
+  chv.style.transform = open ? '' : 'rotate(180deg)';
+}
+
+function showInsight(id) {
+  ['insight-loading','insight-erro','insight-conteudo'].forEach(n =>
+    document.getElementById(n)?.classList.add('hidden')
+  );
+  const el = document.getElementById(id);
+  el?.classList.remove('hidden');
+  if (id === 'insight-loading') el?.classList.add('flex');
+}
+
+async function abrirInsightIA(banca, pct, piorCat) {
+  document.getElementById('insight-banca-label').textContent = banca + ' · ' + pct + '% de acerto';
+  document.getElementById('insight-link-treinar').href = '/quiz/?banca=' + encodeURIComponent(banca);
+
+  document.getElementById('insight-drawer').classList.remove('translate-x-full');
+  document.getElementById('insight-overlay').classList.remove('opacity-0','pointer-events-none');
+  document.getElementById('insight-overlay').classList.add('opacity-100');
+  document.body.style.overflow = 'hidden';
+
+  showInsight('insight-loading');
+
+  try {
+    const resp = await fetch(INSIGHT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ banca }),
+    });
+    const data = await resp.json();
+    if (data.erro) {
+      document.getElementById('insight-erro-msg').textContent = data.erro;
+      showInsight('insight-erro');
+      return;
+    }
+    document.getElementById('insight-texto').innerHTML = renderMd(data.insight);
+    showInsight('insight-conteudo');
+  } catch (e) {
+    document.getElementById('insight-erro-msg').textContent = 'Erro de conexão. Tente novamente.';
+    showInsight('insight-erro');
+  }
+}
+
+function fecharInsight() {
+  document.getElementById('insight-drawer').classList.add('translate-x-full');
+  document.getElementById('insight-overlay').classList.add('opacity-0','pointer-events-none');
+  document.getElementById('insight-overlay').classList.remove('opacity-100');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharInsight(); });
+
+function renderMd(txt) {
+  return txt
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/^#{1,3}\s+(.+)$/gm, '<p class="font-serif font-semibold text-base text-primary mt-3 mb-1">$1</p>')
+    .replace(/\n\n/g, '</p><p class="mb-2">')
+    .replace(/^(?!<[p])(.+)$/gm, '<p class="mb-2">$1</p>');
+}
+
+function initGraficoTendencia() {
+  const ctx = document.getElementById('grafico-tendencia').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: tendenciaData.map(s => s.label),
+      datasets: [
+        {
+          label: 'Aproveitamento (%)',
+          data: tendenciaData.map(s => s.pct),
+          borderColor: '#002046',
+          backgroundColor: 'rgba(0,32,70,.08)',
+          fill: true, tension: 0.4,
+          pointBackgroundColor: tendenciaData.map(s => s.pct >= 70 ? '#006c4d' : s.pct >= 50 ? '#f59e0b' : '#ba1a1a'),
+          pointRadius: 5, pointHoverRadius: 7,
+        },
+        {
+          label: 'Questões',
+          data: tendenciaData.map(s => s.total),
+          borderColor: '#94a3b8', borderDash: [4,4],
+          fill: false, tension: 0.3, pointRadius: 3, yAxisID: 'y2',
+        },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        y:  { min:0, max:100, ticks: { color:'#64748b', callback: v => v + '%' }, grid: { color:'#f1f5f9' } },
+        y2: { position:'right', ticks: { color:'#64748b' }, grid: { display:false } },
+        x:  { ticks: { color:'#64748b' }, grid: { display:false } },
+      },
+      plugins: {
+        legend: { display:true, labels: { color:'#64748b', boxWidth:12, font:{size:11} } },
+        tooltip:{ callbacks:{ label: c => c.dataset.label==='Aproveitamento (%)' ? ` ${c.raw}%` : ` ${c.raw} questões` } },
+      },
+    },
+  });
+}
+
+function initGraficoAnos() {
+  if (!anosData.length) return;
+  const ctx = document.getElementById('grafico-anos')?.getContext('2d');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: anosData.map(a => a.ano),
+      datasets: [{
+        label: 'Aproveitamento (%)',
+        data: anosData.map(a => a.pct),
+        backgroundColor: anosData.map(a =>
+          a.pct >= 70 ? 'rgba(0,108,77,.8)' : a.pct >= 50 ? 'rgba(245,158,11,.8)' : 'rgba(186,26,26,.8)'
+        ),
+        borderRadius: 8,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        y: { min:0, max:100, ticks: { color:'#64748b', callback: v => v + '%' }, grid: { color:'#f1f5f9' } },
+        x: { ticks: { color:'#64748b' }, grid: { display:false } },
+      },
+      plugins: {
+        legend: { display:false },
+        tooltip:{ callbacks:{ label: c => ` ${c.raw}%` } },
+      },
+    },
+  });
+}
+</script>
+
+</body>
+</html>

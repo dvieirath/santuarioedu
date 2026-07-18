@@ -1,0 +1,98 @@
+<!-- Push Notification opt-in — inclua em qualquer página logada -->
+<div id="push-banner" class="hidden fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:w-80 z-50
+     bg-primary text-white rounded-2xl shadow-xl p-4 flex items-start gap-3 animate-in">
+  <span class="material-symbols-outlined text-2xl shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">notifications</span>
+  <div class="flex-1 min-w-0">
+    <p class="text-sm font-bold mb-0.5">Ativar lembretes de estudo?</p>
+    <p class="text-xs text-white/70 leading-snug">Receba alertas quando tiver revisões SRS pendentes e lembretes da sua meta diária.</p>
+    <div class="flex gap-2 mt-3">
+      <button onclick="ativarPush()" id="btn-ativar-push"
+        class="flex-1 py-2 bg-white text-primary text-xs font-bold rounded-xl hover:bg-white/90 transition-all">
+        Ativar
+      </button>
+      <button onclick="dispensarPush()"
+        class="px-3 py-2 bg-white/10 text-white text-xs font-semibold rounded-xl hover:bg-white/20 transition-all">
+        Agora não
+      </button>
+    </div>
+  </div>
+  <button onclick="dispensarPush()" class="shrink-0 text-white/60 hover:text-white transition-colors">
+    <span class="material-symbols-outlined text-base">close</span>
+  </button>
+</div>
+
+<script>
+(function(){
+  // Mostra banner só se: SW suportado, permissão não negada, não dispensado antes
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+  if (Notification.permission === 'denied') return;
+  if (Notification.permission === 'granted') return; // já ativo
+  if (localStorage.getItem('prf_push_dismissed')) return;
+
+  // Mostra após 5s de permanência na página
+  setTimeout(function(){
+    var banner = document.getElementById('push-banner');
+    if (banner) banner.classList.remove('hidden');
+  }, 5000);
+})();
+
+function dispensarPush() {
+  localStorage.setItem('prf_push_dismissed', '1');
+  var banner = document.getElementById('push-banner');
+  if (banner) banner.classList.add('hidden');
+}
+
+async function ativarPush() {
+  var btn = document.getElementById('btn-ativar-push');
+  if (btn) { btn.textContent = 'Ativando…'; btn.disabled = true; }
+
+  try {
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') { dispensarPush(); return; }
+
+    const reg = await navigator.serviceWorker.ready;
+
+    // Busca chave pública VAPID
+    const cfgResp = await fetch('/api/push/config/');
+    const cfg = await cfgResp.json();
+    const vapidKey = urlBase64ToUint8Array(cfg.publicKey);
+
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: vapidKey,
+    });
+
+    // Envia subscription ao servidor
+    const csrf = document.querySelector('[name=csrfmiddlewaretoken]');
+    if (!csrf) { dispensarPush(); return; }
+    await fetch('/api/push/subscribe/', {
+      method: 'POST',
+      headers: { 'X-CSRFToken': csrf.value, 'Content-Type': 'application/json' },
+      body: JSON.stringify(sub.toJSON()),
+    });
+
+    // Envia notificação de teste
+    await fetch('/api/push/test/', {
+      method: 'POST',
+      headers: { 'X-CSRFToken': csrf.value },
+    });
+
+    localStorage.setItem('prf_push_dismissed', '1');
+    var banner = document.getElementById('push-banner');
+    if (banner) {
+      banner.innerHTML = '<span class="material-symbols-outlined text-2xl shrink-0" style="font-variation-settings:\'FILL\' 1;">check_circle</span><p class="text-sm font-bold">Notificações ativadas! ✅</p>';
+      setTimeout(function(){ banner.classList.add('hidden'); }, 3000);
+    }
+  } catch(e) {
+    console.error('Push error:', e);
+    dispensarPush();
+  }
+}
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = atob(base64);
+  return Uint8Array.from([...rawData].map(c => c.charCodeAt(0)));
+}
+</script>

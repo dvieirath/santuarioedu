@@ -1,0 +1,49 @@
+{% comment %}
+Partial de analytics — injeta scripts conforme configuração e consent LGPD.
+
+Comportamento:
+- Plausible: injeta sempre que PLAUSIBLE_DOMAIN estiver configurado.
+  É cookieless e agregado — não precisa de consent explícito por LGPD.
+- GA4: injeta apenas se GA_MEASUREMENT_ID configurado E o usuário aceitou
+  a categoria "analytics" no cookie banner.
+
+Uso: incluir uma vez no <head> ou fim de <body> das páginas relevantes
+(landing, dashboard, planos). Costuma ir no landing.html/base.
+{% endcomment %}
+
+{% if PLAUSIBLE_DOMAIN %}
+<script defer data-domain="{{ PLAUSIBLE_DOMAIN }}" src="https://plausible.io/js/script.js"></script>
+{% endif %}
+
+{% if GA_MEASUREMENT_ID %}
+<script>
+(function() {
+  function loadGA() {
+    if (window._gaLoaded) return;
+    window._gaLoaded = true;
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id={{ GA_MEASUREMENT_ID }}';
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', '{{ GA_MEASUREMENT_ID }}', {
+      anonymize_ip: true,
+      cookie_flags: 'SameSite=None;Secure',
+    });
+  }
+
+  function checkAndLoad() {
+    if (window.cookieConsent && window.cookieConsent.has('analytics')) {
+      loadGA();
+    }
+  }
+  document.addEventListener('DOMContentLoaded', checkAndLoad);
+  document.addEventListener('cookieConsentChange', checkAndLoad);
+})();
+</script>
+{% endif %}

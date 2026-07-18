@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Plano de estudos IA — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  #plano-output h2 { font-size:1.35rem; font-weight:600; margin-top:1.25rem; margin-bottom:.5rem; color:#002046; font-family:'Source Serif 4', serif; }
+  #plano-output h3 { font-size:1.1rem; font-weight:600; margin-top:1rem; margin-bottom:.35rem; color:#1b365d; font-family:'Source Serif 4', serif; }
+  #plano-output ul { list-style:disc; padding-left:1.25rem; margin-bottom:.75rem; }
+  #plano-output ol { list-style:decimal; padding-left:1.25rem; margin-bottom:.75rem; }
+  #plano-output li { margin-bottom:.25rem; line-height:1.6; }
+  #plano-output p  { margin-bottom:.6rem; line-height:1.65; }
+  #plano-output strong { font-weight:700; color:#002046; }
+  #plano-output em { font-style:italic; color:#006c4d; }
+  #plano-output table { width:100%; border-collapse:collapse; margin-bottom:1rem; font-size:.85rem; }
+  #plano-output th { background:#002046; color:#fff; padding:.4rem .7rem; text-align:left; font-weight:700; }
+  #plano-output td { padding:.35rem .7rem; border-bottom:1px solid #e5e1d8; }
+  #plano-output tr:nth-child(even) td { background:#f6f3f2; }
+  @media print {
+    nav, form, .grid.grid-cols-2:last-child { display: none !important; }
+    body { background: white !important; }
+    #plano-output { font-size: 12pt; }
+  }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">psychology</span>
+      Plano de estudos IA
+    </h1>
+    <p class="text-xs text-on-surface-variant">Cronograma personalizado</p>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-6">
+
+  <div class="grid grid-cols-3 gap-3">
+    <div class="paper-card rounded-xl p-4 text-center">
+      <div class="font-serif text-2xl font-bold text-primary">{{ total_resp }}</div>
+      <div class="text-xs text-on-surface-variant mt-0.5">Questões</div>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <div class="font-serif text-2xl font-bold {% if aprov_geral >= 70 %}text-secondary{% elif aprov_geral >= 50 %}text-amber-500{% else %}text-error{% endif %}">{{ aprov_geral }}%</div>
+      <div class="text-xs text-on-surface-variant mt-0.5">Aproveitamento</div>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <div class="font-serif text-2xl font-bold text-on-surface">{{ pontos_fracos|length }}</div>
+      <div class="text-xs text-on-surface-variant mt-0.5">Fracas</div>
+    </div>
+  </div>
+
+  {% if pontos_fracos or pontos_fortes %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {% if pontos_fracos %}
+    <div class="paper-card rounded-2xl p-4" style="background:rgba(255,218,214,.35); border-color:rgba(186,26,26,.25);">
+      <p class="text-xs font-bold text-error uppercase tracking-wide mb-2 flex items-center gap-1.5">
+        <span class="material-symbols-outlined active-icon" style="font-size:14px;">trending_down</span>
+        Pontos a melhorar
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {% for d in pontos_fracos %}
+        <span class="bg-error-container/60 text-on-error-container text-xs px-2.5 py-1 rounded-full font-medium">{{ d }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% if pontos_fortes %}
+    <div class="paper-card rounded-2xl p-4" style="background:rgba(157,244,204,.25); border-color:rgba(0,108,77,.25);">
+      <p class="text-xs font-bold text-secondary uppercase tracking-wide mb-2 flex items-center gap-1.5">
+        <span class="material-symbols-outlined active-icon" style="font-size:14px;">trending_up</span>
+        Pontos fortes
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {% for d in pontos_fortes %}
+        <span class="bg-secondary-container text-on-secondary-container text-xs px-2.5 py-1 rounded-full font-medium">{{ d }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="ai-glow px-5 py-4 flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary active-icon relative z-10">tune</span>
+      <div class="relative z-10">
+        <h2 class="font-serif font-semibold text-lg text-primary">Configure seu plano</h2>
+        <p class="text-xs text-primary/70">Preencha para a IA personalizar o cronograma</p>
+      </div>
+    </div>
+    <form method="post" class="p-5 space-y-4">
+      {% csrf_token %}
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">
+            <span class="material-symbols-outlined align-middle" style="font-size:14px;">schedule</span>
+            Horas por dia
+          </label>
+          <select name="horas_dia" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant/40 bg-white text-sm font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+            {% for h in "12345" %}<option value="{{ h }}" {% if form_data.horas_dia == h|add:0 %}selected{% endif %}>{{ h }}h por dia</option>{% endfor %}
+            <option value="6" {% if form_data.horas_dia == 6 %}selected{% endif %}>6h por dia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">
+            <span class="material-symbols-outlined align-middle" style="font-size:14px;">calendar_month</span>
+            Dias por semana
+          </label>
+          <select name="dias_semana" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant/40 bg-white text-sm font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+            {% for d in "34567" %}<option value="{{ d }}" {% if form_data.dias_semana == d|add:0 %}selected{% endif %}>{{ d }} dias/sem</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">
+          <span class="material-symbols-outlined align-middle" style="font-size:14px;">event</span>
+          Data da prova (opcional)
+        </label>
+        <input type="date" name="data_prova" value="{{ form_data.data_prova }}" class="w-full px-3 py-2.5 rounded-lg border border-outline-variant/40 bg-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+      </div>
+      <button type="submit" id="gerar-btn" class="ai-btn w-full flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-lg transition-colors text-sm relative z-10">
+        <span class="material-symbols-outlined active-icon relative z-10" style="font-size:16px;">psychology</span>
+        <span class="relative z-10" id="btn-text">Gerar meu plano personalizado</span>
+      </button>
+    </form>
+  </div>
+
+  {% if plano_gerado %}
+  <div class="paper-card rounded-2xl overflow-hidden border-primary/20">
+    <div class="ai-glow px-5 py-4 flex items-center justify-between border-b border-[#e5e1d8]">
+      <div class="flex items-center gap-3 relative z-10">
+        <span class="w-9 h-9 rounded-xl bg-white/60 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary active-icon">auto_awesome</span>
+        </span>
+        <div>
+          <h2 class="font-serif font-semibold text-lg text-primary">Seu plano personalizado</h2>
+          <p class="text-xs text-primary/70">Gerado por IA</p>
+        </div>
+      </div>
+      <button onclick="imprimirPlano()" class="relative z-10 flex items-center gap-1.5 text-xs font-semibold text-primary hover:bg-white/60 transition-colors px-3 py-1.5 rounded-lg">
+        <span class="material-symbols-outlined" style="font-size:14px;">print</span>
+        Imprimir
+      </button>
+    </div>
+    <div class="p-5 text-sm text-on-surface leading-relaxed" id="plano-output">
+      <div id="plano-raw" class="hidden">{{ plano_gerado }}</div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <a href="{% url 'escolher_tema' %}" class="flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>
+      Começar a estudar
+    </a>
+    <a href="{% url 'revisao_srs' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface py-3 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined" style="font-size:16px;">neurology</span>
+      Revisão espaçada
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+document.querySelector('form').addEventListener('submit', function() {
+  const btn = document.getElementById('gerar-btn');
+  const txt = document.getElementById('btn-text');
+  btn.disabled = true;
+  btn.classList.add('opacity-75');
+  txt.textContent = 'Gerando seu plano…';
+});
+
+function applyInline(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.+?)__/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/_(.+?)_/g, '<em>$1</em>');
+}
+
+const rawEl = document.getElementById('plano-raw');
+if (rawEl) {
+  const output = document.getElementById('plano-output');
+  const raw = rawEl.textContent.trim();
+  let lines = raw.split('\n');
+  let result = [];
+  let inTable = false;
+  let tableRows = [];
+
+  lines.forEach(line => {
+    if (/^### /.test(line)) { result.push(`<h3>${applyInline(line.slice(4))}</h3>`); return; }
+    if (/^## /.test(line))  { result.push(`<h2>${applyInline(line.slice(3))}</h2>`); return; }
+    if (/^# /.test(line))   { result.push(`<h2>${applyInline(line.slice(2))}</h2>`); return; }
+    if (/^\|[-:| ]+\|$/.test(line)) return;
+    if (/^\|.+\|$/.test(line)) {
+      const cells = line.slice(1,-1).split('|').map(c => c.trim());
+      if (!inTable) { inTable = true; tableRows = []; }
+      tableRows.push(cells);
+      return;
+    }
+    if (inTable) {
+      const [head, ...body] = tableRows;
+      let thtml = '<table><thead><tr>' + head.map(h=>`<th>${applyInline(h)}</th>`).join('') + '</tr></thead><tbody>';
+      body.forEach(r => { thtml += '<tr>' + r.map(c=>`<td>${applyInline(c)}</td>`).join('') + '</tr>'; });
+      thtml += '</tbody></table>';
+      result.push(thtml);
+      inTable = false; tableRows = [];
+    }
+    if (/^- /.test(line))       { result.push(`<li>${applyInline(line.slice(2))}</li>`); return; }
+    if (/^\d+\. /.test(line))   { result.push(`<li>${applyInline(line.replace(/^\d+\. /,''))}</li>`); return; }
+    if (line.trim() === '')     { result.push('<br/>'); return; }
+    result.push(`<p>${applyInline(line)}</p>`);
+  });
+
+  if (inTable && tableRows.length) {
+    const [head, ...body] = tableRows;
+    let thtml = '<table><thead><tr>' + head.map(h=>`<th>${applyInline(h)}</th>`).join('') + '</tr></thead><tbody>';
+    body.forEach(r => { thtml += '<tr>' + r.map(c=>`<td>${applyInline(c)}</td>`).join('') + '</tr>'; });
+    thtml += '</tbody></table>';
+    result.push(thtml);
+  }
+
+  let final = result.join('\n').replace(/(<li>[\s\S]*?<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
+  output.innerHTML = final;
+}
+
+function imprimirPlano() { window.print(); }
+</script>
+
+</body>
+</html>

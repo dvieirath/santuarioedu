@@ -1,0 +1,599 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Modo desafio — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .hero-bg::before {
+    content:""; position:fixed; top:-150px; right:-150px; width:500px; height:500px;
+    background:radial-gradient(circle, rgba(245,158,11,.06) 0%, transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+  .hero-bg::after {
+    content:""; position:fixed; bottom:-150px; left:-150px; width:450px; height:450px;
+    background:radial-gradient(circle, rgba(0,108,77,.05) 0%, transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+  .dif-card {
+    transition:all .15s; cursor:pointer;
+    background:#ffffff; border:2px solid #e5e1d8;
+  }
+  .dif-card:hover { border-color:rgba(0,32,70,.35); transform:translateY(-2px); box-shadow:0 8px 20px rgba(25,28,29,.08); }
+  .dif-card.active {
+    border-color:#002046;
+    background:linear-gradient(135deg,rgba(157,244,204,.25) 0%,rgba(255,255,255,1) 100%);
+    box-shadow:0 8px 24px rgba(0,32,70,.12);
+  }
+  .dif-card.active .dif-emoji { transform:scale(1.15); }
+  .dif-emoji { transition:transform .2s; }
+  .alt-card {
+    position:relative; display:flex; align-items:flex-start; gap:14px;
+    padding:16px 18px; border-radius:14px; cursor:pointer;
+    background:#ffffff; border:2px solid #e5e1d8;
+    transition:all .15s ease;
+  }
+  .alt-card:hover:not(:disabled) { border-color:rgba(0,32,70,.35); background:#fbfaf7; }
+  .alt-card.selecionada { border-color:#002046; background:linear-gradient(135deg,rgba(157,244,204,.2) 0%,#fff 100%); }
+  .alt-card.correta-reveal { background:linear-gradient(135deg,rgba(157,244,204,.5) 0%,rgba(157,244,204,.15) 100%) !important; border-color:#006c4d !important; }
+  .alt-card.errada-reveal  { background:linear-gradient(135deg,rgba(255,218,214,.55) 0%,rgba(255,218,214,.15) 100%) !important; border-color:#ba1a1a !important; }
+  .alt-letra {
+    flex-shrink:0; width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:14px; font-family:'Source Serif 4', serif;
+    background:#f3f0ea; color:#002046; transition:all .15s;
+  }
+  .alt-card:hover:not(:disabled) .alt-letra { background:#1b365d; color:#fff; }
+  .alt-card.selecionada .alt-letra { background:#002046; color:#fff; }
+  .alt-card.correta-reveal .alt-letra { background:#006c4d; color:#fff; }
+  .alt-card.errada-reveal  .alt-letra { background:#ba1a1a; color:#fff; }
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow:0 0 0 0 rgba(0,32,70,.3); }
+    50%      { box-shadow:0 0 0 10px rgba(0,32,70,0); }
+  }
+  .glow-pulse { animation:glow-pulse 2.5s infinite; }
+</style>
+</head>
+<body class="hero-bg">
+
+<header class="bg-surface/90 backdrop-blur-md flex justify-between items-center w-full px-6 lg:px-10 h-16 fixed top-0 z-40 border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-8">
+    <a href="{% url 'dashboard' %}" class="flex items-center gap-2">
+      {% include "quiz/includes/brand_mark.html" with size="28" %}
+      <span class="font-serif text-base font-bold text-primary uppercase tracking-widest">SantuarioEdu</span>
+    </a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="{% url 'dashboard' %}" class="text-on-surface-variant text-sm font-medium hover:bg-surface-container-low px-3 py-1.5 rounded-full transition-colors">Painel</a>
+      <a href="{% url 'iniciar_quiz' %}" class="text-on-surface-variant text-sm font-medium hover:bg-surface-container-low px-3 py-1.5 rounded-full transition-colors">Banco</a>
+      <span class="text-primary font-semibold text-sm bg-amber-100 px-3 py-1.5 rounded-full">⚡ Modo desafio</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    {% if stats_user.melhor_pontos %}
+    <div class="paper-card rounded-full px-3 py-1.5" title="Seu recorde pessoal">
+      <div class="flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:14px;">workspace_premium</span>
+        <span class="text-xs font-serif font-bold text-on-surface">{{ stats_user.melhor_pontos }}</span>
+        <span class="text-[10px] text-on-surface-variant">pts</span>
+      </div>
+    </div>
+    {% endif %}
+    <a href="{% url 'dashboard' %}" class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors" title="Sair">close</a>
+  </div>
+</header>
+
+<main id="tela-inicio" class="pt-20 pb-12 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto min-h-screen relative z-10">
+
+  <div class="text-center mb-8 mt-4 fade-in">
+    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center mb-4 shadow-xl mx-auto glow-pulse">
+      <span class="material-symbols-outlined text-white text-4xl active-icon">bolt</span>
+    </div>
+    <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Modo desafio · Contra o relógio</p>
+    <h1 class="font-serif italic text-3xl sm:text-4xl font-bold text-primary mb-2">Acerte rápido, ganhe pontos</h1>
+    <p class="text-on-surface-variant max-w-md mx-auto text-sm">
+      Quanto mais rápido você responde corretamente, maior o bônus de velocidade.
+    </p>
+  </div>
+
+  <div class="paper-card rounded-3xl p-6 sm:p-8 mb-6">
+    <form method="get" id="form-cfg" class="space-y-6">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">tune</span>
+          <h3 class="font-serif font-semibold text-sm text-primary">Escolha a dificuldade</h3>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <button type="button" onclick="setDif('facil')"
+            class="dif-card {% if dificuldade == 'facil' %}active{% endif %} rounded-2xl py-5 px-3 text-center">
+            <div class="text-3xl dif-emoji mb-2">🐢</div>
+            <div class="text-sm font-serif font-semibold text-on-surface">Fácil</div>
+            <div class="text-[10px] text-on-surface-variant font-mono mt-0.5">45s · 10 questões</div>
+            <div class="text-[10px] text-secondary font-bold mt-1.5">Pra aquecer</div>
+          </button>
+          <button type="button" onclick="setDif('normal')"
+            class="dif-card {% if dificuldade == 'normal' %}active{% endif %} rounded-2xl py-5 px-3 text-center">
+            <div class="text-3xl dif-emoji mb-2">⚡</div>
+            <div class="text-sm font-serif font-semibold text-on-surface">Normal</div>
+            <div class="text-[10px] text-on-surface-variant font-mono mt-0.5">30s · 10 questões</div>
+            <div class="text-[10px] text-amber-600 font-bold mt-1.5">Padrão</div>
+          </button>
+          <button type="button" onclick="setDif('dificil')"
+            class="dif-card {% if dificuldade == 'dificil' %}active{% endif %} rounded-2xl py-5 px-3 text-center">
+            <div class="text-3xl dif-emoji mb-2">🔥</div>
+            <div class="text-sm font-serif font-semibold text-on-surface">Difícil</div>
+            <div class="text-[10px] text-on-surface-variant font-mono mt-0.5">20s · 15 questões</div>
+            <div class="text-[10px] text-error font-bold mt-1.5">Pro intenso</div>
+          </button>
+        </div>
+        <input type="hidden" name="dif" id="dif-input" value="{{ dificuldade }}">
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">filter_list</span>
+          <h3 class="font-serif font-semibold text-sm text-primary">Disciplina</h3>
+        </div>
+        <select name="categoria" onchange="this.form.submit()"
+          class="w-full bg-white border border-[#e5e1d8] text-on-surface rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+          <option value="">Todas as disciplinas</option>
+          {% for cat in categorias %}
+          <option value="{{ cat.id }}" {% if cat_id == cat.id|stringformat:'s' %}selected{% endif %}>{{ cat.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <button onclick="iniciarDesafio()"
+    class="w-full bg-primary hover:bg-primary-container text-on-primary font-serif font-bold text-lg py-5 rounded-2xl transition-all hover:scale-[1.01] active:scale-[.99] mb-6 flex items-center justify-center gap-3">
+    <span class="material-symbols-outlined active-icon" style="font-size:24px;">play_arrow</span>
+    Iniciar desafio
+  </button>
+
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <div class="paper-card rounded-2xl p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-serif font-semibold text-sm text-primary flex items-center gap-2">
+          <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:18px;">trending_up</span>
+          Seu desempenho
+        </h3>
+        <span class="text-[10px] text-on-surface-variant font-mono">{{ stats_user.total_partidas }} partida{{ stats_user.total_partidas|pluralize }}</span>
+      </div>
+      {% if stats_user.melhor_pontos %}
+      <div class="rounded-xl p-4 mb-3" style="background:linear-gradient(135deg,rgba(254,243,199,.5),rgba(254,215,170,.4)); border:1px solid rgba(217,119,6,.3);">
+        <p class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">Recorde pessoal</p>
+        <p class="text-2xl font-serif font-bold text-amber-700 mt-0.5">{{ stats_user.melhor_pontos }} <span class="text-sm text-amber-500">pts</span></p>
+      </div>
+      <div class="space-y-1">
+        <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Últimas partidas</p>
+        {% for u in stats_user.ultimas %}
+        <div class="flex items-center justify-between text-xs px-2.5 py-2 bg-surface-container-low rounded-lg">
+          <span class="text-on-surface-variant">{{ u.realizado_em|date:"d/m H:i" }}</span>
+          <div class="flex items-center gap-3">
+            <span class="text-on-surface">{{ u.acertos }}/{{ u.total }}</span>
+            <span class="font-serif font-bold text-amber-600">{{ u.pontos }}pts</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="text-center py-6 text-on-surface-variant">
+        <span class="material-symbols-outlined block mx-auto mb-2 text-outline-variant" style="font-size:36px;">sports_score</span>
+        <p class="text-xs">Você ainda não fez nenhum desafio.</p>
+        <p class="text-xs font-semibold text-primary mt-1">Bora começar?</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="paper-card rounded-2xl p-5">
+      <h3 class="font-serif font-semibold text-sm text-primary flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:18px;">emoji_events</span>
+        Top 10 global
+      </h3>
+      {% if ranking %}
+      <div class="space-y-1">
+        {% for r in ranking %}
+        <div class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg {% if r.is_me %}bg-amber-50 border border-amber-300{% else %}hover:bg-surface-container-low{% endif %} transition-colors">
+          <span class="w-6 text-center text-sm font-serif font-bold
+            {% if forloop.counter == 1 %}text-amber-500
+            {% elif forloop.counter == 2 %}text-slate-400
+            {% elif forloop.counter == 3 %}text-amber-700
+            {% else %}text-on-surface-variant{% endif %}">
+            {% if forloop.counter == 1 %}🥇{% elif forloop.counter == 2 %}🥈{% elif forloop.counter == 3 %}🥉{% else %}{{ forloop.counter }}{% endif %}
+          </span>
+          <span class="flex-1 text-xs text-on-surface truncate">
+            {{ r.nome }}{% if r.is_me %} <span class="text-[9px] font-bold text-amber-600 ml-1">(você)</span>{% endif %}
+          </span>
+          <span class="text-xs font-serif font-bold text-amber-600">{{ r.melhor }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="text-center py-6 text-on-surface-variant">
+        <span class="material-symbols-outlined block mx-auto mb-2 text-outline-variant" style="font-size:36px;">leaderboard</span>
+        <p class="text-xs font-semibold">Seja o primeiro!</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="mt-6 paper-card rounded-2xl p-5">
+    <h3 class="font-serif font-semibold text-sm text-primary mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">info</span>
+      Como funciona o ranking
+    </h3>
+    <div class="grid sm:grid-cols-3 gap-3 text-xs">
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary active-icon mt-0.5" style="font-size:16px;">check_circle</span>
+        <div>
+          <p class="font-semibold text-on-surface">Acerto = 10 pts</p>
+          <p class="text-on-surface-variant mt-0.5">Cada questão correta vale 10 pontos base.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-amber-500 active-icon mt-0.5" style="font-size:16px;">timer</span>
+        <div>
+          <p class="font-semibold text-on-surface">Bônus de velocidade</p>
+          <p class="text-on-surface-variant mt-0.5">Quanto mais rápido, mais bônus (até +5 pts).</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-amber-500 active-icon mt-0.5" style="font-size:16px;">workspace_premium</span>
+        <div>
+          <p class="font-semibold text-on-surface">XP & conquistas</p>
+          <p class="text-on-surface-variant mt-0.5">Você ganha XP e pode desbloquear conquistas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<main id="tela-quiz" class="hidden min-h-screen relative z-10">
+
+  <header class="bg-surface/90 backdrop-blur-md border-b border-[#e5e1d8] px-4 sm:px-6 py-3 flex items-center gap-4 sticky top-0 z-30">
+    <a href="{% url 'modo_desafio' %}" class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-low transition-colors" title="Sair">
+      <span class="material-symbols-outlined" style="font-size:20px;">close</span>
+    </a>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between text-xs mb-1.5">
+        <span id="q-progresso" class="text-on-surface-variant font-medium">Questão 1 / {{ total_questoes }}</span>
+        <span class="flex items-center gap-3">
+          <span id="q-acertos-header" class="text-secondary font-bold">0 acertos</span>
+          <span id="q-pontos-header" class="text-amber-600 font-serif font-bold">0pts</span>
+        </span>
+      </div>
+      <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+        <div id="q-barra" class="h-1.5 rounded-full bg-gradient-to-r from-amber-500 to-red-500 transition-all duration-300" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="relative w-14 h-14 flex-shrink-0">
+      <svg class="w-14 h-14 -rotate-90" viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#e5e1d8" stroke-width="4"/>
+        <circle id="timer-ring" cx="25" cy="25" r="22" fill="none"
+          stroke="#f97316" stroke-width="4"
+          style="stroke-dasharray:138; stroke-dashoffset:0; transition:stroke-dashoffset 1s linear; stroke-linecap:round;"/>
+      </svg>
+      <span id="timer-num" class="absolute inset-0 flex items-center justify-center text-base font-serif font-bold text-amber-500">{{ segundos_por_questao }}</span>
+    </div>
+  </header>
+
+  <div class="px-4 sm:px-6 lg:px-8 py-6 max-w-3xl mx-auto">
+    <article class="paper-card rounded-2xl overflow-hidden mb-4">
+      <div class="bg-surface-container-low px-5 py-3 border-b border-[#e5e1d8] flex items-center justify-between">
+        <p id="q-categoria" class="text-[10px] font-bold uppercase tracking-widest text-primary"></p>
+        <span class="text-[10px] text-on-surface-variant font-mono">Modo desafio · {{ dif_label }}</span>
+      </div>
+      <div class="p-5 sm:p-6">
+        <div id="q-imagem-wrap" class="hidden mb-4 rounded-xl overflow-hidden bg-surface-container-low border border-[#e5e1d8]">
+          <img id="q-imagem" src="" alt="" class="w-full max-h-72 object-contain bg-white p-2 mx-auto">
+        </div>
+        <p id="q-texto" class="text-[15px] font-medium text-on-surface leading-relaxed whitespace-pre-line"></p>
+      </div>
+    </article>
+
+    <div id="q-alts" class="space-y-2.5 mb-4"></div>
+    <div id="q-feedback" class="hidden rounded-2xl px-4 py-3 text-sm font-medium mb-3"></div>
+
+    <button id="btn-proxima" onclick="proximaQuestao()"
+      class="hidden w-full bg-primary hover:bg-primary-container text-on-primary font-semibold py-4
+             rounded-xl transition-all hover:scale-[1.005] active:scale-[.99] flex items-center justify-center gap-2">
+      <span>Próxima questão</span>
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">arrow_forward</span>
+    </button>
+  </div>
+</main>
+
+
+<main id="tela-resultado" class="hidden min-h-screen px-4 py-12 max-w-3xl mx-auto relative z-10">
+  <article class="paper-card rounded-3xl p-8 sm:p-10 text-center mb-6 relative overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10">
+      <div id="res-emoji" class="text-7xl mb-4">🎯</div>
+
+      <div id="res-recorde-banner" class="hidden mb-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 shadow-lg">
+          <span class="material-symbols-outlined text-white active-icon" style="font-size:14px;">workspace_premium</span>
+          <span class="text-xs font-bold text-white tracking-wide">NOVO RECORDE PESSOAL!</span>
+        </div>
+      </div>
+
+      <h2 class="text-5xl font-serif font-bold text-primary mb-1">
+        <span id="res-pontos">0</span>
+        <span class="text-2xl text-on-surface-variant">pts</span>
+      </h2>
+      <p class="text-on-surface-variant mb-6" id="res-acertos"></p>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="rounded-xl p-3" style="background:rgba(254,243,199,.4); border:1px solid rgba(217,119,6,.25);">
+          <p class="text-[10px] text-amber-700 uppercase font-bold tracking-wide">Posição</p>
+          <p class="text-xl font-serif font-bold text-amber-600 mt-1"><span id="res-posicao">—</span></p>
+        </div>
+        <div class="rounded-xl p-3" style="background:rgba(219,234,254,.5); border:1px solid rgba(30,64,175,.2);">
+          <p class="text-[10px] text-blue-700 uppercase font-bold tracking-wide">Tempo médio</p>
+          <p class="text-xl font-serif font-bold text-blue-600 mt-1"><span id="res-tempo">—</span>s</p>
+        </div>
+        <div class="rounded-xl p-3" style="background:rgba(157,244,204,.3); border:1px solid rgba(0,108,77,.25);">
+          <p class="text-[10px] text-secondary uppercase font-bold tracking-wide">XP ganho</p>
+          <p class="text-xl font-serif font-bold text-secondary mt-1">+<span id="res-xp">0</span></p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button onclick="reiniciarDesafio()"
+          class="flex-1 bg-primary hover:bg-primary-container text-on-primary font-semibold py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">replay</span>
+          Jogar novamente
+        </button>
+        <a href="{% url 'dashboard' %}"
+          class="flex-1 bg-white hover:bg-surface-container-low text-on-surface font-semibold py-3.5 rounded-2xl transition-colors border border-[#e5e1d8] flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">dashboard</span>
+          Painel
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <div class="paper-card rounded-2xl p-5">
+    <h3 class="font-serif font-semibold text-sm text-primary flex items-center gap-2 mb-3">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:18px;">emoji_events</span>
+      Top 10 global · atualizado
+    </h3>
+    <div id="res-top10" class="space-y-1"></div>
+  </div>
+</main>
+
+
+<script>
+const QUESTOES        = {{ questoes_json|safe }};
+const TOTAL           = QUESTOES.length;
+const SEG_POR_QUESTAO = {{ segundos_por_questao }};
+const CSRF            = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+const POST_URL        = '{% url "modo_desafio" %}';
+
+let qIdx = 0, acertos = 0, pontosAtu = 0, respostas = [];
+let timerInterval = null, timerSeg = SEG_POR_QUESTAO, questaoInicio = 0, respondeu = false;
+
+function setDif(d) {
+  document.getElementById('dif-input').value = d;
+  document.getElementById('form-cfg').submit();
+}
+
+function iniciarDesafio() {
+  document.getElementById('tela-inicio').classList.add('hidden');
+  document.getElementById('tela-quiz').classList.remove('hidden');
+  qIdx = 0; acertos = 0; pontosAtu = 0; respostas = [];
+  mostrarQuestao();
+}
+
+function reiniciarDesafio() {
+  document.getElementById('tela-resultado').classList.add('hidden');
+  document.getElementById('tela-inicio').classList.remove('hidden');
+}
+
+function mostrarQuestao() {
+  if (qIdx >= TOTAL) { finalizarDesafio(); return; }
+
+  respondeu = false;
+  const q = QUESTOES[qIdx];
+  questaoInicio = Date.now();
+
+  const pct = Math.round(qIdx / TOTAL * 100);
+  document.getElementById('q-progresso').textContent = `Questão ${qIdx + 1} / ${TOTAL}`;
+  document.getElementById('q-acertos-header').textContent = `${acertos} acerto${acertos !== 1 ? 's' : ''}`;
+  document.getElementById('q-pontos-header').textContent = `${pontosAtu}pts`;
+  document.getElementById('q-barra').style.width = pct + '%';
+
+  const imgWrap = document.getElementById('q-imagem-wrap');
+  if (q.imagem_url) {
+    document.getElementById('q-imagem').src = q.imagem_url;
+    imgWrap.classList.remove('hidden');
+  } else {
+    imgWrap.classList.add('hidden');
+  }
+
+  document.getElementById('q-categoria').textContent = q.categoria;
+  document.getElementById('q-texto').textContent = q.texto;
+
+  const container = document.getElementById('q-alts');
+  container.innerHTML = '';
+  const isCe = q.tipo === 'CE';
+  const letras = isCe ? ['C','E'] : ['A','B','C','D','E'];
+
+  q.alternativas.forEach((alt, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'alt-card w-full text-left';
+    btn.dataset.altId   = alt.id;
+    btn.dataset.correta = alt.correta;
+    btn.innerHTML = `
+      <span class="alt-letra">${letras[i] || i+1}</span>
+      <span class="flex-1 text-[14px] leading-relaxed text-on-surface pr-1">${alt.texto}</span>`;
+    btn.onclick = () => selecionar(btn, q.id);
+    container.appendChild(btn);
+  });
+
+  document.getElementById('q-feedback').classList.add('hidden');
+  document.getElementById('btn-proxima').classList.add('hidden');
+
+  iniciarTimer();
+}
+
+function iniciarTimer() {
+  clearInterval(timerInterval);
+  timerSeg = SEG_POR_QUESTAO;
+  atualizarTimer();
+  timerInterval = setInterval(() => {
+    timerSeg--;
+    atualizarTimer();
+    if (timerSeg <= 0) {
+      clearInterval(timerInterval);
+      if (!respondeu) expirar();
+    }
+  }, 1000);
+}
+
+function atualizarTimer() {
+  document.getElementById('timer-num').textContent = timerSeg;
+  const circumference = 138;
+  const offset = circumference * (1 - timerSeg / SEG_POR_QUESTAO);
+  const ring   = document.getElementById('timer-ring');
+  ring.style.strokeDashoffset = offset;
+  const fracao = timerSeg / SEG_POR_QUESTAO;
+  const cor = fracao < 0.3 ? '#ba1a1a' : fracao < 0.6 ? '#f59e0b' : '#f97316';
+  ring.style.stroke = cor;
+  document.getElementById('timer-num').style.color = cor;
+}
+
+function expirar() {
+  respondeu = true;
+  const q = QUESTOES[qIdx];
+  respostas.push({ questao_id: q.id, alternativa_id: null, tempo_seg: SEG_POR_QUESTAO });
+  mostrarGabarito(null, false);
+  document.getElementById('btn-proxima').classList.remove('hidden');
+}
+
+function selecionar(btn, qId) {
+  if (respondeu) return;
+  respondeu = true;
+  clearInterval(timerInterval);
+
+  const tempo = (Date.now() - questaoInicio) / 1000;
+  const altId   = parseInt(btn.dataset.altId);
+  const correta = btn.dataset.correta === 'True' || btn.dataset.correta === 'true';
+
+  respostas.push({ questao_id: qId, alternativa_id: altId, tempo_seg: tempo.toFixed(2) });
+
+  if (correta) {
+    acertos++;
+    const bonus = Math.max(0, Math.round((SEG_POR_QUESTAO - tempo) / SEG_POR_QUESTAO * 5));
+    pontosAtu += 10 + bonus;
+  }
+
+  btn.classList.add('selecionada');
+  mostrarGabarito(altId, correta);
+  document.getElementById('btn-proxima').classList.remove('hidden');
+}
+
+function mostrarGabarito(altIdEscolhida, acertou) {
+  document.querySelectorAll('.alt-card').forEach(b => {
+    b.disabled = true;
+    b.classList.remove('selecionada');
+    const correta = b.dataset.correta === 'True' || b.dataset.correta === 'true';
+    if (correta) b.classList.add('correta-reveal');
+    else if (parseInt(b.dataset.altId) === altIdEscolhida && !acertou) b.classList.add('errada-reveal');
+  });
+
+  const fb = document.getElementById('q-feedback');
+  fb.classList.remove('hidden');
+  if (altIdEscolhida === null) {
+    fb.className = 'mt-2 rounded-2xl px-4 py-3 text-sm font-medium bg-surface-container-low text-on-surface-variant border border-[#e5e1d8]';
+    fb.innerHTML = '<span class="material-symbols-outlined align-middle text-amber-500 mr-1" style="font-size:16px;">timer_off</span> Tempo esgotado!';
+  } else if (acertou) {
+    const tempo = (Date.now() - questaoInicio) / 1000;
+    const bonus = Math.max(0, Math.round((SEG_POR_QUESTAO - tempo) / SEG_POR_QUESTAO * 5));
+    fb.className = 'mt-2 rounded-2xl px-4 py-3 text-sm font-semibold bg-secondary-container/40 text-secondary border border-secondary/30';
+    fb.innerHTML = `<span class="material-symbols-outlined align-middle mr-1" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span> Correto! +10pts${bonus > 0 ? ` <span class="text-secondary">+${bonus}pts bônus de velocidade</span>` : ''}`;
+  } else {
+    fb.className = 'mt-2 rounded-2xl px-4 py-3 text-sm font-semibold bg-error-container/40 text-error border border-error/30';
+    fb.innerHTML = '<span class="material-symbols-outlined align-middle mr-1" style="font-size:16px;font-variation-settings:\'FILL\' 1;">cancel</span> Errado! A alternativa correta está destacada em verde.';
+  }
+}
+
+function proximaQuestao() { qIdx++; mostrarQuestao(); }
+
+async function finalizarDesafio() {
+  document.getElementById('tela-quiz').classList.add('hidden');
+  document.getElementById('tela-resultado').classList.remove('hidden');
+
+  try {
+    const resp = await fetch(POST_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ respostas }),
+    });
+    const data = await resp.json();
+
+    const pontos = data.pontos || 0;
+    const pct    = data.total ? Math.round(data.acertos / data.total * 100) : 0;
+    const emoji  = pct >= 90 ? '🏆' : pct >= 70 ? '🎯' : pct >= 50 ? '💪' : pct >= 30 ? '📚' : '🔄';
+
+    document.getElementById('res-emoji').textContent = emoji;
+    document.getElementById('res-pontos').textContent = pontos;
+    document.getElementById('res-acertos').textContent = `${data.acertos} de ${data.total} acertos · ${pct}% de aproveitamento`;
+    document.getElementById('res-posicao').textContent = '#' + (data.posicao || '—');
+    document.getElementById('res-tempo').textContent   = data.tempo_medio || 0;
+    document.getElementById('res-xp').textContent      = data.xp_ganho || 0;
+
+    if (data.novo_recorde) {
+      document.getElementById('res-recorde-banner').classList.remove('hidden');
+    }
+
+    if (data.top10 && data.top10.length) {
+      const html = data.top10.map((r, i) => {
+        const pos = i + 1;
+        const medal = pos === 1 ? '🥇' : pos === 2 ? '🥈' : pos === 3 ? '🥉' : pos;
+        const cls = r.is_me ? 'bg-amber-50 border border-amber-300' : 'hover:bg-surface-container-low';
+        const meTag = r.is_me ? ' <span class="text-[9px] font-bold text-amber-600 ml-1">(você)</span>' : '';
+        return `
+          <div class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg ${cls}">
+            <span class="w-6 text-center text-sm font-serif font-bold text-on-surface-variant">${medal}</span>
+            <span class="flex-1 text-xs text-on-surface truncate">${r.nome}${meTag}</span>
+            <span class="text-xs font-serif font-bold text-amber-600">${r.melhor}</span>
+          </div>`;
+      }).join('');
+      document.getElementById('res-top10').innerHTML = html;
+    }
+  } catch(e) {
+    console.error(e);
+    document.getElementById('res-pontos').textContent = '?';
+    document.getElementById('res-acertos').textContent = `${acertos} de ${TOTAL} acertos`;
+  }
+}
+
+document.addEventListener('keydown', e => {
+  const quizVisible = !document.getElementById('tela-quiz').classList.contains('hidden');
+  if (!quizVisible || respondeu) return;
+  const radios = document.querySelectorAll('.alt-card');
+  if (!radios.length) return;
+  if (/^[1-5]$/.test(e.key)) {
+    const idx = parseInt(e.key) - 1;
+    if (radios[idx]) radios[idx].click();
+  }
+  if (e.key === 'Enter' && !document.getElementById('btn-proxima').classList.contains('hidden')) {
+    proximaQuestao();
+  }
+});
+</script>
+
+</body>
+</html>

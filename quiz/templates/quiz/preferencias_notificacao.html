@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Notificações — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<header class="md:ml-64 sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">notifications</span>
+  <div>
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none">Notificações</h1>
+    <p class="text-xs text-on-surface-variant">Configure quando e como ser lembrado</p>
+  </div>
+</header>
+
+<div class="md:ml-64 max-w-lg mx-auto px-6 py-8 space-y-5">
+
+  {% if messages %}
+  {% for msg in messages %}
+  <div class="bg-secondary-container/40 border border-secondary/30 text-on-secondary-container rounded-lg px-4 py-3 text-sm font-medium flex items-center gap-2 fade-in">
+    <span class="material-symbols-outlined active-icon" style="font-size:18px;">check_circle</span>
+    {{ msg }}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <!-- Horário de pico -->
+  {% if pref.hora_pico is not None %}
+  <div class="paper-card rounded-xl p-4 flex items-center gap-3 fade-in" style="background:rgba(214,227,255,.3);">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:24px;">insights</span>
+    <div>
+      <p class="text-sm font-semibold text-primary">Seu horário de pico detectado</p>
+      <p class="text-xs text-on-surface-variant">Você costuma estudar às <strong>{{ pref.hora_pico }}h</strong> — ajuste o lembrete abaixo.</p>
+    </div>
+  </div>
+  {% endif %}
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+
+    <div class="paper-card rounded-2xl divide-y divide-[#e5e1d8] overflow-hidden fade-in" style="animation-delay:.1s;">
+      {% include "quiz/includes/toggle_row.html" with name="lembrete_diario" checked=pref.lembrete_diario icon="alarm" title="Lembrete diário" desc="Notificação no horário configurado abaixo" %}
+      {% include "quiz/includes/toggle_row.html" with name="streak_em_risco" checked=pref.streak_em_risco icon="local_fire_department" title="Streak em risco" desc="Aviso quando seu streak está prestes a quebrar" %}
+      {% include "quiz/includes/toggle_row.html" with name="novidades" checked=pref.novidades icon="campaign" title="Novidades" desc="Atualizações de funcionalidades e eventos" %}
+    </div>
+
+    <div class="paper-card rounded-2xl p-5 fade-in" style="animation-delay:.15s;">
+      <label class="block text-sm font-semibold text-primary mb-2 flex items-center gap-2">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px;">schedule</span>
+        Horário do lembrete diário
+      </label>
+      <input type="time" name="hora_lembrete" value="{{ hora_str }}"
+             class="w-full bg-white border border-outline-variant/40 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-colors"/>
+      <p class="text-xs text-on-surface-variant mt-1.5">Receberá uma notificação push neste horário (se permitido pelo navegador).</p>
+    </div>
+
+    <button type="submit" class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">save</span>
+      Salvar preferências
+    </button>
+  </form>
+
+  <a href="{% url 'modo_desafio' %}" class="flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl p-4 hover:opacity-90 transition-opacity">
+    <span class="material-symbols-outlined active-icon" style="font-size:26px;">bolt</span>
+    <div>
+      <p class="font-serif text-base font-semibold">Fazer um desafio agora</p>
+      <p class="text-[11px] text-orange-100">10 questões · 30s cada · ranking global</p>
+    </div>
+    <span class="material-symbols-outlined ml-auto">arrow_forward</span>
+  </a>
+</div>
+
+</body>
+</html>

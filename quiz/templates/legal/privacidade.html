@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Política de Privacidade | SantuarioEdu</title>
+<meta name="description" content="Política de Privacidade da SantuarioEdu — como coletamos, usamos e protegemos seus dados pessoais conforme a LGPD."/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<style>
+  body { font-family:'Inter',sans-serif; background:#fff; color:#191c1d; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .doc h2 { font-size:1.35rem; font-weight:800; color:#002046; margin:2rem 0 .8rem; padding-bottom:.4rem; border-bottom:2px solid #e0e7ff; }
+  .doc h3 { font-size:1.05rem; font-weight:700; color:#1b365d; margin:1.4rem 0 .5rem; }
+  .doc p, .doc li { color:#333; line-height:1.7; margin-bottom:.7rem; }
+  .doc ul { padding-left:1.4rem; margin-bottom:.9rem; }
+  .doc ul li { list-style:disc; margin-bottom:.3rem; }
+  .doc strong { color:#002046; }
+  .doc a { color:#006c4d; text-decoration:underline; font-weight:600; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-4xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      {% include "quiz/includes/brand_mark.html" with size="30" %}
+      <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <a href="/" class="text-xs font-bold text-slate-600 hover:text-[#002046] flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
+      Voltar
+    </a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 md:px-8 py-12 doc">
+  <p class="text-xs font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">Documento Legal</p>
+  <h1 class="text-3xl md:text-4xl font-extrabold text-[#002046] mb-2 tracking-tight">Política de Privacidade</h1>
+  <p class="text-sm text-slate-500 mb-8">Última atualização: <strong>{{ data_atualizacao|default:"15 de janeiro de 2025" }}</strong></p>
+
+  <div class="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-8 text-sm">
+    <p class="font-bold text-blue-900 flex items-center gap-2 mb-2">
+      <span class="material-symbols-outlined" style="font-size:18px;">info</span>
+      Resumo rápido
+    </p>
+    <p class="text-blue-900 leading-relaxed">
+      Coletamos os dados mínimos necessários para você usar a plataforma (login, respostas, progresso).
+      Nunca vendemos dados a terceiros. Você pode excluir sua conta e todos os dados a qualquer momento.
+    </p>
+  </div>
+
+  <h2>1. Quem somos</h2>
+  <p>
+    A <strong>SantuarioEdu</strong> ("nós", "plataforma") é responsável pelo tratamento dos seus dados pessoais
+    quando você usa nossos serviços. Estamos comprometidos com a transparência e com a
+    <strong>Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018)</strong>.
+  </p>
+  <p>
+    Para qualquer dúvida sobre seus dados, fale com nosso encarregado de proteção de dados (DPO) em
+    <a href="mailto:{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}">{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}</a>.
+  </p>
+
+  <h2>2. Quais dados coletamos</h2>
+
+  <h3>2.1 Dados fornecidos por você</h3>
+  <ul>
+    <li><strong>Cadastro:</strong> nome de usuário, e-mail e senha (armazenada com hash criptográfico).</li>
+    <li><strong>Perfil opcional:</strong> nome, foto, objetivo de estudo, biografia.</li>
+    <li><strong>Conteúdo gerado:</strong> respostas a questões, comentários, anotações, flashcards e participação em grupos.</li>
+  </ul>
+
+  <h3>2.2 Dados coletados automaticamente</h3>
+  <ul>
+    <li><strong>Dados de acesso:</strong> endereço IP, user-agent (navegador/dispositivo), datas de login/logout — usados para segurança.</li>
+    <li><strong>Dados de uso:</strong> questões respondidas, tempo gasto, taxa de acerto, sequências de estudo (streak).</li>
+    <li><strong>Cookies essenciais:</strong> sessão de login e prevenção de CSRF. Sem cookies não-essenciais sem seu consentimento.</li>
+  </ul>
+
+  <h3>2.3 Dados de terceiros (Login Social)</h3>
+  <p>
+    Se você optar por fazer login com <strong>Google</strong>, recebemos: nome, e-mail, foto de perfil e ID público
+    do Google. Nada além disso. Nunca acessamos seus contatos, e-mails ou outros dados da sua conta Google.
+  </p>
+
+  <h2>3. Por que coletamos esses dados (finalidades)</h2>
+  <ul>
+    <li><strong>Operar a plataforma:</strong> autenticar você, mostrar suas estatísticas, salvar seu progresso.</li>
+    <li><strong>Melhorar sua experiência:</strong> recomendar questões com IA, calcular revisão espaçada, comparar com a turma.</li>
+    <li><strong>Segurança:</strong> detectar fraude, brute-force, abuso de cota da IA.</li>
+    <li><strong>Comunicação transacional:</strong> notificações sobre seu estudo (revisão SRS, conclusão de simulado), recuperação de senha.</li>
+    <li><strong>Comunicação de marketing (somente com opt-in explícito):</strong> dicas de estudo, novidades de funcionalidades e promoções. Você pode revogar a qualquer momento em <a href="/perfil/notificacoes/">Preferências</a>.</li>
+    <li><strong>Cumprir obrigações legais:</strong> manter registros de acesso conforme o Marco Civil da Internet (Art. 15, Lei 12.965/2014).</li>
+  </ul>
+
+  <h3>3.1 E-mails de marketing — opt-in explícito</h3>
+  <p>
+    Por padrão, <strong>não</strong> recebemos consentimento implícito para envio de e-mails de marketing.
+    Você precisa marcar a caixa "Quero receber novidades, dicas e promoções por e-mail" durante o cadastro.
+    Se em algum momento quiser parar de receber, basta clicar em <strong>"Cancelar inscrição"</strong> no rodapé
+    de qualquer e-mail ou desabilitar em <a href="/perfil/notificacoes/">Preferências de notificação</a>.
+    Mesmo após cancelar, continuaremos enviando comunicações <em>transacionais</em>
+    (recuperação de senha, alertas de revisão SRS) — pois são essenciais ao funcionamento do serviço.
+  </p>
+
+  <h2>4. Base legal do tratamento (LGPD Art. 7º)</h2>
+  <ul>
+    <li><strong>Execução de contrato</strong> (Art. 7º, V): dados necessários para prestar o serviço.</li>
+    <li><strong>Consentimento</strong> (Art. 7º, I): para envio de e-mails de marketing ou cookies opcionais.</li>
+    <li><strong>Legítimo interesse</strong> (Art. 7º, IX): para segurança e prevenção a fraude.</li>
+    <li><strong>Cumprimento de obrigação legal</strong> (Art. 7º, II): logs de acesso por 6 meses (Marco Civil, Art. 15).</li>
+  </ul>
+
+  <h2>5. Compartilhamento com terceiros</h2>
+  <p>
+    Compartilhamos dados <strong>estritamente</strong> com prestadores de serviço necessários para operar a plataforma:
+  </p>
+  <ul>
+    <li><strong>Google (Gemini API):</strong> enviamos textos de questões e seus erros para gerar análises e tutoria por IA. Não enviamos seu nome, e-mail ou outros identificadores.</li>
+    <li><strong>Google (OAuth):</strong> apenas se você escolher login com Google.</li>
+    <li><strong>Provedor de hospedagem:</strong> dados ficam armazenados em servidores em datacenters seguros.</li>
+    <li><strong>Provedor de e-mail transacional:</strong> envio de notificações e recuperação de senha.</li>
+  </ul>
+  <p>
+    <strong>Nunca vendemos seus dados.</strong> Não fazemos perfilamento publicitário e não compartilhamos com anunciantes.
+  </p>
+
+  <h2>6. Por quanto tempo guardamos</h2>
+  <ul>
+    <li><strong>Conta ativa:</strong> enquanto você usar o serviço.</li>
+    <li><strong>Após exclusão da conta:</strong> dados pessoais são apagados imediatamente. Backups podem reter por até 30 dias.</li>
+    <li><strong>Logs de acesso (IP, datas):</strong> 6 meses (obrigação legal — Marco Civil da Internet).</li>
+    <li><strong>Dados financeiros (se houver assinatura):</strong> 5 anos (obrigação fiscal).</li>
+  </ul>
+
+  <h2>7. Seus direitos (LGPD Art. 18)</h2>
+  <p>Você tem direito a:</p>
+  <ul>
+    <li><strong>Acesso:</strong> saber quais dados temos sobre você.</li>
+    <li><strong>Correção:</strong> atualizar dados incompletos ou desatualizados.</li>
+    <li><strong>Exclusão:</strong> apagar sua conta e dados — disponível em <a href="/perfil/excluir/">/perfil/excluir/</a>.</li>
+    <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado (solicitar por e-mail).</li>
+    <li><strong>Revogação de consentimento:</strong> a qualquer momento, em Preferências de notificação.</li>
+    <li><strong>Oposição:</strong> contestar tratamento que considere indevido.</li>
+  </ul>
+  <p>
+    Para exercer qualquer um desses direitos, escreva para
+    <a href="mailto:{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}">{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}</a>.
+    Respondemos em até 15 dias.
+  </p>
+
+  <h2>8. Segurança dos dados</h2>
+  <p>Aplicamos múltiplas camadas de proteção:</p>
+  <ul>
+    <li>Senhas armazenadas com hash <strong>PBKDF2 + SHA256</strong> (irreversível).</li>
+    <li>Transmissão criptografada via <strong>HTTPS/TLS</strong>.</li>
+    <li>Bloqueio automático contra brute-force no login (5 tentativas).</li>
+    <li>Cabeçalhos de segurança modernos (CSP, HSTS, X-Frame-Options).</li>
+    <li>Auditoria de eventos sensíveis (logins, mudanças de conta).</li>
+    <li>Acesso administrativo restrito por autenticação multi-fator.</li>
+  </ul>
+  <p>
+    Mesmo assim, nenhum sistema é 100% imune. Em caso de incidente que afete seus dados,
+    seguiremos a Resolução CD/ANPD nº 15/2024 e notificaremos você e a ANPD em até 72 horas.
+  </p>
+
+  <h2>9. Crianças e adolescentes</h2>
+  <p>
+    Nossa plataforma é destinada a maiores de <strong>18 anos</strong> ou usuários autorizados pelos responsáveis.
+    Se identificarmos cadastro de menor sem autorização, a conta será excluída.
+  </p>
+
+  <h2>10. Alterações nesta política</h2>
+  <p>
+    Podemos atualizar este documento periodicamente. Mudanças relevantes serão comunicadas
+    por e-mail e/ou banner no app. A versão sempre vigente é a publicada nesta página.
+  </p>
+
+  <h2>11. Foro</h2>
+  <p>
+    Fica eleito o foro da comarca do domicílio do usuário para dirimir quaisquer conflitos
+    decorrentes desta política, em conformidade com o Código de Defesa do Consumidor.
+  </p>
+
+  <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mt-10 text-sm">
+    <p class="font-bold text-slate-900 mb-1">Encarregado de Proteção de Dados (DPO)</p>
+    <p class="text-slate-700">
+      📧 <a href="mailto:{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}">{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}</a><br/>
+      Responsável conforme LGPD Art. 41.
+    </p>
+  </div>
+</main>
+
+<footer class="bg-[#0a1929] text-blue-300 py-8 mt-12 text-center text-xs">
+  © SantuarioEdu · <a href="/legal/termos/" class="hover:text-white">Termos de Uso</a> · <a href="/legal/privacidade/" class="hover:text-white">Privacidade</a>
+</footer>
+</body>
+</html>

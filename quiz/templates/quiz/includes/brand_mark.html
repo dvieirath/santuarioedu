@@ -1,0 +1,7 @@
+{% load static %}{% comment %}
+Logo mark reutilizável — livro + árvore de circuitos.
+Uso:
+  {% include "quiz/includes/brand_mark.html" %}
+  {% include "quiz/includes/brand_mark.html" with size="32" %}
+  {% include "quiz/includes/brand_mark.html" with size="32" variant="white" %}  (para fundo escuro)
+{% endcomment %}{% if variant == "white" %}<img src="{% static 'quiz/logo-mark-white.svg' %}" alt="SantuarioEdu" width="{{ size|default:'28' }}" height="{{ size|default:'28' }}" class="inline-block align-middle"/>{% else %}<img src="{% static 'quiz/logo-mark.svg' %}" alt="SantuarioEdu" width="{{ size|default:'28' }}" height="{{ size|default:'28' }}" class="inline-block align-middle"/>{% endif %}

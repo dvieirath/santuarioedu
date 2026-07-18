@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Estudar por assunto — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .nivel-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .nivel-forte    { background:#006c4d; box-shadow:0 0 0 3px rgba(0,108,77,.15); }
+  .nivel-regular  { background:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.15); }
+  .nivel-fraco    { background:#ba1a1a; box-shadow:0 0 0 3px rgba(186,26,26,.15); }
+  .nivel-novo     { background:#94a3b8; box-shadow:0 0 0 3px rgba(148,163,184,.15); }
+
+  .badge-nivel-forte    { background:rgba(157,244,204,.5); color:#0f7253; }
+  .badge-nivel-regular  { background:#fef3c7; color:#a16207; }
+  .badge-nivel-fraco    { background:rgba(255,218,214,.6); color:#93000a; }
+  .badge-nivel-novo     { background:#f0eded; color:#64748b; }
+
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .chevron { transform:rotate(180deg); }
+  .chevron { transition:transform .2s; }
+  details .open-text { display:none; }
+  details[open] .closed-text { display:none; }
+  details[open] .open-text { display:inline; }
+
+  .filter-chip {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:9999px; font-size:12px; font-weight:600;
+    border:1px solid rgba(229,225,216,.8); background:#ffffff; color:#44474e;
+    transition:all .15s; cursor:pointer; text-decoration:none;
+  }
+  .filter-chip:hover { border-color:#002046; color:#002046; }
+  .filter-chip.active { background:#002046; color:#fff; border-color:#002046; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='praticar' %}
+
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md md:ml-64 flex justify-between items-center px-6 lg:px-10 h-16 border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">menu_book</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Estudar por assunto</h1>
+      <p class="text-[11px] text-on-surface-variant">Filtre o banco por tópico específico</p>
+    </div>
+  </div>
+</header>
+
+<main class="md:ml-64 py-8 pb-12 px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto min-h-screen">
+
+  <!-- KPIs -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 fade-in">
+    <div class="paper-card rounded-xl p-4">
+      <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Tópicos</p>
+      <p class="font-serif text-3xl font-bold text-primary mt-1">{{ stats.total_assuntos }}</p>
+      <p class="text-xs text-on-surface-variant mt-0.5">{{ stats.total_questoes }} questões</p>
+    </div>
+    <div class="paper-card rounded-xl p-4">
+      <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Aproveitamento</p>
+      <p class="font-serif text-3xl font-bold mt-1 {% if stats.pct_geral >= 70 %}text-secondary{% elif stats.pct_geral >= 50 %}text-amber-600{% else %}text-error{% endif %}">{{ stats.pct_geral }}%</p>
+      <p class="text-xs text-on-surface-variant mt-0.5">{{ stats.total_resp }} respondidas</p>
+    </div>
+    <div class="paper-card rounded-xl p-4">
+      <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pontos fortes</p>
+      <p class="font-serif text-3xl font-bold text-secondary mt-1">{{ stats.fortes }}</p>
+      <p class="text-xs text-on-surface-variant mt-0.5">≥70% de acerto</p>
+    </div>
+    <div class="paper-card rounded-xl p-4">
+      <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pontos fracos</p>
+      <p class="font-serif text-3xl font-bold text-error mt-1">{{ stats.fracos }}</p>
+      <p class="text-xs text-on-surface-variant mt-0.5">&lt;50% — priorize</p>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <form method="get" id="form-filtros" class="paper-card rounded-2xl p-5 mb-5 fade-in" style="animation-delay:.1s;">
+    <div class="grid md:grid-cols-12 gap-3">
+      <div class="md:col-span-5 relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-size:18px;">search</span>
+        <input type="text" name="q" value="{{ busca }}"
+          placeholder="Buscar por palavra-chave..."
+          class="w-full bg-white border border-outline-variant/40 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"/>
+      </div>
+      <div class="md:col-span-3">
+        <select name="categoria" onchange="this.form.submit()"
+          class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Todas as disciplinas</option>
+          {% for cat in categorias %}
+          <option value="{{ cat.id }}" {% if cat_id == cat.id|stringformat:'s' %}selected{% endif %}>{{ cat.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="md:col-span-3">
+        <select name="topico" onchange="this.form.submit()"
+          class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Todos os tópicos</option>
+          {% for t in topicos_dropdown %}
+          <option value="{{ t }}" {% if topico == t %}selected{% endif %}>{{ t }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="md:col-span-1">
+        <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold px-3 py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:18px;">filter_alt</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-[#e5e1d8]">
+      <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mr-1">Filtrar:</span>
+      <a href="?{% if cat_id %}categoria={{ cat_id }}&{% endif %}{% if topico %}topico={{ topico }}&{% endif %}{% if busca %}q={{ busca }}&{% endif %}" class="filter-chip {% if not nivel_filtro %}active{% endif %}">Todos</a>
+      <a href="?nivel=forte{% if cat_id %}&categoria={{ cat_id }}{% endif %}{% if topico %}&topico={{ topico }}{% endif %}{% if busca %}&q={{ busca }}{% endif %}" class="filter-chip {% if nivel_filtro == 'forte' %}active{% endif %}">
+        <span class="nivel-dot nivel-forte"></span> Fortes
+      </a>
+      <a href="?nivel=regular{% if cat_id %}&categoria={{ cat_id }}{% endif %}{% if topico %}&topico={{ topico }}{% endif %}{% if busca %}&q={{ busca }}{% endif %}" class="filter-chip {% if nivel_filtro == 'regular' %}active{% endif %}">
+        <span class="nivel-dot nivel-regular"></span> Regulares
+      </a>
+      <a href="?nivel=fraco{% if cat_id %}&categoria={{ cat_id }}{% endif %}{% if topico %}&topico={{ topico }}{% endif %}{% if busca %}&q={{ busca }}{% endif %}" class="filter-chip {% if nivel_filtro == 'fraco' %}active{% endif %}">
+        <span class="nivel-dot nivel-fraco"></span> Fracos
+      </a>
+      <a href="?nivel=novo{% if cat_id %}&categoria={{ cat_id }}{% endif %}{% if topico %}&topico={{ topico }}{% endif %}{% if busca %}&q={{ busca }}{% endif %}" class="filter-chip {% if nivel_filtro == 'novo' %}active{% endif %}">
+        <span class="nivel-dot nivel-novo"></span> Não iniciados
+      </a>
+      {% if cat_id or topico or busca or nivel_filtro %}
+      <a href="{% url 'estudar_por_assunto' %}" class="text-xs text-error font-semibold hover:underline ml-auto flex items-center gap-1">
+        <span class="material-symbols-outlined" style="font-size:14px;">close</span>
+        Limpar filtros
+      </a>
+      {% endif %}
+    </div>
+  </form>
+
+  {% if grupos %}
+  <div class="flex items-center justify-end gap-2 mb-3">
+    <button type="button" onclick="toggleAllDisciplinas(true)" class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white hover:bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-full transition-colors">
+      <span class="material-symbols-outlined" style="font-size:13px;">unfold_more</span>
+      Expandir todas
+    </button>
+    <button type="button" onclick="toggleAllDisciplinas(false)" class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white hover:bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-full transition-colors">
+      <span class="material-symbols-outlined" style="font-size:13px;">unfold_less</span>
+      Recolher todas
+    </button>
+  </div>
+  {% endif %}
+
+  <!-- Disciplinas -->
+  {% for g in grupos %}
+  <details class="disciplina-card paper-card rounded-2xl overflow-hidden mb-3" {% if cat_id %}open{% endif %}>
+    <summary class="px-5 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-colors">
+      <div class="w-11 h-11 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-on-primary" style="font-size:20px;">school</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h2 class="font-serif text-lg font-semibold text-primary">{{ g.cat_nome }}</h2>
+        <p class="text-[11px] text-on-surface-variant mt-0.5">
+          <span class="font-semibold">{{ g.total_topicos }} tópico{{ g.total_topicos|pluralize }}</span> ·
+          {{ g.total_questoes }} questões
+          {% if g.total_resp %} · <span class="text-on-surface">{{ g.total_resp }} respondida{{ g.total_resp|pluralize }}</span>{% endif %}
+        </p>
+      </div>
+      <span class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold hidden md:inline">
+        <span class="closed-text">Abrir</span>
+        <span class="open-text">Fechar</span>
+      </span>
+      <span class="material-symbols-outlined chevron text-primary" style="font-size:24px;">expand_more</span>
+    </summary>
+
+    <div class="border-t border-[#e5e1d8]">
+      {% for t in g.topicos %}
+      {% with s=t.subs.0 %}
+      <a href="{% url 'quiz_por_assunto' s.assunto %}"
+         class="flex items-center gap-3 px-5 py-3.5 border-b border-[#e5e1d8] last:border-b-0 hover:bg-surface-container-low transition-colors group/topic">
+        <span class="nivel-dot nivel-{{ t.nivel }} ml-2"></span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface group-hover/topic:text-primary transition-colors">{{ t.topico }}</p>
+          {% if t.subs|length > 1 %}
+          <p class="text-[10px] text-on-surface-variant mt-0.5">
+            {{ t.subs|length }} subtópicos · {{ t.total }} questões{% if t.resp %} · {{ t.pct }}% de acerto{% endif %}
+          </p>
+          {% elif s.subtopico %}
+          <p class="text-[10px] text-on-surface-variant mt-0.5 truncate">
+            {{ s.subtopico }} · {{ t.total }} questão{{ t.total|pluralize:"ões" }}{% if t.resp %} · {{ t.pct }}%{% endif %}
+          </p>
+          {% else %}
+          <p class="text-[10px] text-on-surface-variant mt-0.5">
+            {{ t.total }} questão{{ t.total|pluralize:"ões" }}{% if t.resp %} · {{ t.acertos }}/{{ t.resp }} respondidas · {{ t.pct }}%{% endif %}
+          </p>
+          {% endif %}
+        </div>
+        {% if t.resp %}
+        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full badge-nivel-{{ t.nivel }}">{{ t.pct }}%</span>
+        {% endif %}
+        <span class="material-symbols-outlined text-on-surface-variant group-hover/topic:text-primary transition-colors" style="font-size:18px;">arrow_forward</span>
+      </a>
+      {% endwith %}
+      {% endfor %}
+    </div>
+  </details>
+  {% empty %}
+  <div class="paper-card rounded-2xl p-12 text-center">
+    <span class="material-symbols-outlined text-outline-variant block mb-3" style="font-size:48px;">search_off</span>
+    <p class="font-serif text-lg font-semibold text-primary mb-1">Nenhum assunto encontrado</p>
+    <p class="text-xs text-on-surface-variant max-w-md mx-auto">
+      Tente limpar os filtros, ou aguarde que mais questões com assunto sejam cadastradas.
+    </p>
+    {% if cat_id or topico or busca or nivel_filtro %}
+    <a href="{% url 'estudar_por_assunto' %}" class="inline-flex items-center gap-1.5 mt-4 bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-container">
+      <span class="material-symbols-outlined" style="font-size:16px;">refresh</span>
+      Limpar filtros
+    </a>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <!-- Legenda -->
+  <section class="mt-6 paper-card rounded-2xl p-5">
+    <h3 class="font-serif text-base font-semibold text-primary mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:18px;">info</span>
+      Como funcionam as cores
+    </h3>
+    <div class="grid sm:grid-cols-4 gap-3 text-xs">
+      <div class="flex items-start gap-2">
+        <span class="nivel-dot nivel-forte mt-1"></span>
+        <div><p class="font-bold text-on-surface">Forte (≥70%)</p><p class="text-on-surface-variant mt-0.5">Manda bem nesse tópico.</p></div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="nivel-dot nivel-regular mt-1"></span>
+        <div><p class="font-bold text-on-surface">Regular (50–69%)</p><p class="text-on-surface-variant mt-0.5">Precisa reforçar.</p></div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="nivel-dot nivel-fraco mt-1"></span>
+        <div><p class="font-bold text-on-surface">Fraco (&lt;50%)</p><p class="text-on-surface-variant mt-0.5">Priorize este tópico.</p></div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="nivel-dot nivel-novo mt-1"></span>
+        <div><p class="font-bold text-on-surface">Não iniciado</p><p class="text-on-surface-variant mt-0.5">Ainda não respondeu.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function toggleAllDisciplinas(abrir) {
+    document.querySelectorAll('.disciplina-card').forEach(d => {
+      if (abrir) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+    }
+  });
+</script>
+
+</body>
+</html>

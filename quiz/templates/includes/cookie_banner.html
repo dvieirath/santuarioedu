@@ -1,0 +1,186 @@
+{% comment %}
+Banner de consentimento de cookies (LGPD Art. 8º + Art. 9º).
+
+Categorias:
+  - Essenciais (sessão, CSRF, allauth): SEMPRE aceitos, obrigatórios
+  - Analytics (uso agregado, Sentry-perf): opt-in
+  - Marketing (indicações, remarketing futuro): opt-in
+
+Estado em localStorage sob 'cookie_consent_v1' (mantido do banner anterior
+por compatibilidade). Formato:
+  { choice: 'all'|'essential'|'custom', analytics: bool, marketing: bool, ts: ms }
+
+Outros scripts consultam window.cookieConsent.has('analytics'|'marketing')
+antes de inicializar GA/Plausible/etc.
+{% endcomment %}
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] p-4 hidden">
+  <div class="max-w-4xl mx-auto paper-card rounded-2xl shadow-2xl p-5 md:p-6 flex flex-col md:flex-row items-start gap-4">
+    <span class="material-symbols-outlined text-primary active-icon shrink-0" style="font-size:28px;">cookie</span>
+    <div class="flex-1 min-w-0">
+      <p class="font-serif font-semibold text-primary text-sm mb-1">Nós usamos cookies</p>
+      <p class="text-xs text-on-surface-variant leading-relaxed">
+        Cookies essenciais mantêm você logado e o site funcionando (art. 8º LGPD).
+        Cookies opcionais (analytics) ajudam a entender como você usa o app.
+        <a href="{% url 'politica_privacidade' %}" class="text-primary hover:underline font-semibold">Saiba mais</a>.
+      </p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2 shrink-0 w-full md:w-auto">
+      <button type="button" onclick="cookieConsent.accept('all')"
+              class="bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+        Aceitar todos
+      </button>
+      <button type="button" onclick="cookieConsent.accept('essential')"
+              class="bg-white border border-[#e5e1d8] text-on-surface px-4 py-2 rounded-lg text-xs font-semibold hover:bg-surface-container-low transition-colors whitespace-nowrap">
+        Só essenciais
+      </button>
+      <button type="button" onclick="cookieConsent.openPrefs()"
+              class="text-xs text-on-surface-variant hover:text-primary px-2 py-2 whitespace-nowrap">
+        Configurar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="cookie-prefs-modal" class="hidden fixed inset-0 z-[101] bg-black/55 backdrop-blur-sm items-center justify-center p-4">
+  <div class="paper-card rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden">
+    <div class="px-6 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon">tune</span>
+      <h3 class="font-serif text-lg font-semibold text-primary">Preferências de cookies</h3>
+    </div>
+    <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+      <div class="flex items-start gap-3">
+        <input type="checkbox" checked disabled class="mt-1 accent-primary"/>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-on-surface">
+            Essenciais
+            <span class="text-[10px] font-normal bg-primary-fixed text-primary-container px-1.5 py-0.5 rounded-full ml-1">obrigatórios</span>
+          </p>
+          <p class="text-xs text-on-surface-variant mt-0.5">
+            Sessão (mantém você logado), CSRF (segurança), consentimento (lembra sua escolha).
+            Sem estes, o site não funciona — não requer consentimento por lei (art. 8º LGPD).
+          </p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <input type="checkbox" id="prefs-analytics" class="mt-1 accent-primary"/>
+        <label for="prefs-analytics" class="flex-1 cursor-pointer">
+          <p class="text-sm font-semibold text-on-surface">Análise de uso</p>
+          <p class="text-xs text-on-surface-variant mt-0.5">
+            Estatísticas anônimas (páginas mais acessadas, tempo médio, erros).
+            Ajuda a melhorar o app. Nunca vinculamos ao seu perfil pessoal.
+          </p>
+        </label>
+      </div>
+      <div class="flex items-start gap-3">
+        <input type="checkbox" id="prefs-marketing" class="mt-1 accent-primary"/>
+        <label for="prefs-marketing" class="flex-1 cursor-pointer">
+          <p class="text-sm font-semibold text-on-surface">Marketing</p>
+          <p class="text-xs text-on-surface-variant mt-0.5">
+            Usado apenas para atribuição em campanhas de indicação. Nenhum
+            tracker externo hoje — reservamos a categoria para o futuro.
+          </p>
+        </label>
+      </div>
+    </div>
+    <div class="bg-surface-container-low px-6 py-4 flex justify-between gap-2">
+      <button type="button" onclick="cookieConsent.closePrefs()"
+              class="text-xs text-on-surface-variant hover:text-primary px-3 py-2">
+        Cancelar
+      </button>
+      <button type="button" onclick="cookieConsent.savePrefs()"
+              class="bg-primary text-on-primary px-5 py-2 rounded-lg text-xs font-semibold hover:bg-primary-container transition-colors">
+        Salvar preferências
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const KEY = 'cookie_consent_v1';
+  const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+  const banner = document.getElementById('cookie-banner');
+  const modal  = document.getElementById('cookie-prefs-modal');
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (obj.ts && Date.now() - obj.ts > ONE_YEAR) {
+        localStorage.removeItem(KEY); return null;
+      }
+      return obj;
+    } catch(e) { return null; }
+  }
+
+  function save(state) {
+    const payload = { ...state, ts: Date.now(), v: 1 };
+    try { localStorage.setItem(KEY, JSON.stringify(payload)); } catch(e) {}
+    window.cookieConsent.current = payload;
+    document.dispatchEvent(new CustomEvent('cookieConsentChange', { detail: payload }));
+    window.dispatchEvent(new CustomEvent('cookieConsentChange', { detail: { choice: state.choice } })); // compat legacy
+  }
+
+  window.cookieConsent = {
+    current: null,
+
+    accept(mode) {
+      const state = mode === 'all'
+        ? { choice: 'all',       essentials: true, analytics: true,  marketing: true }
+        : { choice: 'essential', essentials: true, analytics: false, marketing: false };
+      save(state);
+      banner.classList.add('hidden');
+    },
+
+    openPrefs() {
+      const cur = load() || { essentials: true, analytics: false, marketing: false };
+      document.getElementById('prefs-analytics').checked = !!cur.analytics;
+      document.getElementById('prefs-marketing').checked = !!cur.marketing;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    },
+
+    closePrefs() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    },
+
+    savePrefs() {
+      save({
+        choice: 'custom',
+        essentials: true,
+        analytics:  document.getElementById('prefs-analytics').checked,
+        marketing:  document.getElementById('prefs-marketing').checked,
+      });
+      this.closePrefs();
+      banner.classList.add('hidden');
+    },
+
+    reopen() { banner.classList.remove('hidden'); },
+
+    has(cat) {
+      const cur = this.current || load();
+      if (!cur) return false;
+      if (cur.choice === 'all') return true;
+      return !!cur[cat];
+    },
+  };
+
+  // Compatibilidade com API legada
+  window.setCookieChoice = (m) => window.cookieConsent.accept(m === 'all' ? 'all' : 'essential');
+  window.getCookieConsent = () => {
+    const cur = load();
+    return cur ? cur.choice : null;
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const existing = load();
+    if (existing) {
+      window.cookieConsent.current = existing;
+    } else {
+      setTimeout(() => banner.classList.remove('hidden'), 800);
+    }
+  });
+})();
+</script>

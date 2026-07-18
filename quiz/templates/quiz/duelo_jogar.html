@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Duelo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .alt-btn { transition: all .18s ease; }
+  .alt-btn:not(:disabled):hover { transform: translateX(4px); }
+  .alt-btn.correct { background-color: rgba(0,108,77,.15); border-color:#006c4d; color:#0f7253; }
+  .alt-btn.wrong { background-color: rgba(186,26,26,.12); border-color:#ba1a1a; color:#93000a; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  .shake { animation: shake .4s ease; }
+</style>
+</head>
+<body>
+
+<div class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="max-w-2xl mx-auto px-6 py-3 flex items-center gap-3">
+    <div class="flex-1 text-right">
+      <p class="text-xs text-on-surface-variant truncate">{{ request.user.username }}</p>
+      <p id="score-eu" class="font-serif font-bold text-2xl text-primary">{{ meus_acertos }}</p>
+    </div>
+    <div class="shrink-0 text-center px-4">
+      <p class="text-[10px] text-on-surface-variant font-semibold">Q <span id="q-num">{{ numero_questao }}</span>/{{ total_questoes }}</p>
+      <p class="font-serif font-bold text-base text-on-surface-variant">VS</p>
+    </div>
+    <div class="flex-1">
+      <p class="text-xs text-on-surface-variant truncate">{{ oponente.username|default:"?" }}</p>
+      <p id="score-oponente" class="font-serif font-bold text-2xl text-on-surface-variant">{{ acertos_oponente }}</p>
+    </div>
+  </div>
+
+  <div class="h-1 bg-surface-container relative overflow-hidden">
+    <div id="timer-bar" class="h-1 bg-primary absolute left-0 top-0" style="width:100%"></div>
+  </div>
+  <div class="flex justify-between px-6 pb-1.5">
+    <span class="text-[10px] text-on-surface-variant">Tempo restante</span>
+    <span id="timer-txt" class="text-[10px] font-bold text-primary">{{ tempo_por_q }}s</span>
+  </div>
+</div>
+
+<div class="max-w-2xl mx-auto px-6 py-6 space-y-5">
+
+  {% if questao_atual %}
+
+  <div class="flex items-center justify-between">
+    <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Questão {{ numero_questao }} de {{ total_questoes }}</span>
+    <span class="text-xs bg-primary-fixed text-primary-container px-2.5 py-1 rounded-full font-semibold">{{ questao_atual.categoria.nome }}</span>
+  </div>
+
+  <div id="card-questao" class="paper-card rounded-2xl p-5 fade-in">
+    <p class="font-serif text-base leading-relaxed text-on-surface">{{ questao_atual.enunciado }}</p>
+  </div>
+
+  <div id="alternativas" class="space-y-3">
+    {% for alt in alternativas %}
+    <button id="alt-{{ alt.pk }}" data-alt-id="{{ alt.pk }}" data-correta="{{ alt.correta|yesno:'true,false' }}"
+      {% if ja_respondi %}disabled{% endif %}
+      onclick="responder({{ alt.pk }}, this)"
+      class="alt-btn w-full flex items-center gap-3 bg-white border border-outline-variant/40 rounded-lg px-4 py-3 text-left text-sm font-medium text-on-surface {% if ja_respondi %}opacity-60 cursor-not-allowed{% endif %}">
+      <span class="shrink-0 w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-xs font-bold text-on-surface-variant">{{ alt.letra }}</span>
+      <span>{{ alt.texto }}</span>
+    </button>
+    {% endfor %}
+  </div>
+
+  {% if ja_respondi %}
+  <div id="aguardando-oponente" class="paper-card rounded-xl px-4 py-3 flex items-center gap-2" style="background:rgba(251,191,36,.1); border-color:rgba(251,191,36,.3);">
+    <div class="flex gap-0.5">
+      <span class="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style="animation-delay:0s"></span>
+      <span class="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style="animation-delay:.15s"></span>
+      <span class="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style="animation-delay:.3s"></span>
+    </div>
+    <p class="text-xs font-semibold text-amber-700">Aguardando oponente…</p>
+  </div>
+  {% endif %}
+
+  {% else %}
+  <div class="text-center py-16">
+    <span class="text-5xl">⏳</span>
+    <p class="text-on-surface-variant mt-4 text-sm">Carregando próxima questão…</p>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+const DUELO_ID = {{ duelo.pk }};
+const QUESTAO_ID = {{ questao_atual.pk|default:"null" }};
+const Q_INDEX = {{ duelo.questao_atual }};
+const TEMPO_POR_Q = {{ tempo_por_q }};
+let jaRespondi = {{ ja_respondi|yesno:"true,false" }};
+let respondido = false;
+let timerInterval, timerStart;
+let pollingAtivo = true;
+
+function iniciarTimer() {
+  if (jaRespondi) return;
+  const bar = document.getElementById('timer-bar');
+  const txt = document.getElementById('timer-txt');
+  bar.style.width = '100%';
+  let restante = TEMPO_POR_Q;
+  timerStart = Date.now();
+  timerInterval = setInterval(() => {
+    restante = Math.max(0, TEMPO_POR_Q - Math.floor((Date.now() - timerStart) / 1000));
+    const pct = (restante / TEMPO_POR_Q) * 100;
+    bar.style.width = pct + '%';
+    txt.textContent = restante + 's';
+    if (pct < 30) { bar.classList.remove('bg-primary'); bar.classList.add('bg-error'); }
+    else { bar.classList.remove('bg-error'); bar.classList.add('bg-primary'); }
+    if (restante === 0 && !respondido) { clearInterval(timerInterval); responder(null, null, true); }
+  }, 250);
+}
+
+async function responder(altId, btn, timeout=false) {
+  if (respondido) return;
+  respondido = true;
+  clearInterval(timerInterval);
+  const tempoMs = Date.now() - (timerStart || Date.now());
+  if (btn) {
+    document.querySelectorAll('.alt-btn').forEach(b => b.disabled = true);
+    if (btn.dataset.correta === 'true') btn.classList.add('correct');
+    else { btn.classList.add('wrong','shake'); document.querySelectorAll('.alt-btn').forEach(b => { if(b.dataset.correta==='true') b.classList.add('correct'); }); }
+  } else {
+    document.querySelectorAll('.alt-btn').forEach(b => { b.disabled = true; if(b.dataset.correta==='true') b.classList.add('correct'); });
+  }
+  try {
+    await fetch('/api/duelo/' + DUELO_ID + '/responder/', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':getCookie('csrftoken')},
+      body: JSON.stringify({alternativa_id: altId, tempo_ms: tempoMs, questao_index: Q_INDEX})
+    });
+  } catch(e) {}
+  setTimeout(pollingJogo, 800);
+}
+
+async function pollingJogo() {
+  if (!pollingAtivo) return;
+  try {
+    const r = await fetch('/api/duelo/' + DUELO_ID + '/status/');
+    const data = await r.json();
+    document.getElementById('score-eu').textContent = data.meus_acertos;
+    document.getElementById('score-oponente').textContent = data.acertos_oponente;
+    if (data.url_resultado) { pollingAtivo = false; window.location.href = data.url_resultado; return; }
+    if (data.questao_atual > Q_INDEX) { pollingAtivo = false; window.location.reload(); return; }
+  } catch(e) {}
+  if (pollingAtivo) setTimeout(pollingJogo, 1000);
+}
+
+function getCookie(name){let v=document.cookie.match('(^|;) ?'+name+'=([^;]*)(;|$)');return v?v[2]:null;}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!jaRespondi && QUESTAO_ID) iniciarTimer();
+  else if (jaRespondi) setTimeout(pollingJogo, 1000);
+});
+</script>
+
+</body>
+</html>

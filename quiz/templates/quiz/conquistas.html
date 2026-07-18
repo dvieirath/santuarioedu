@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Conquistas — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .badge-locked { filter: grayscale(1) opacity(0.4); }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<main class="md:ml-64 min-h-screen">
+  <header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md flex items-center px-6 lg:px-10 h-16 border-b border-[#e5e1d8] gap-3">
+    <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:22px;">emoji_events</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Conquistas</h1>
+      <p class="text-xs text-on-surface-variant">{{ total_desbloqueadas }}/{{ total }} desbloqueadas</p>
+    </div>
+  </header>
+
+  <div class="p-6 lg:p-10 max-w-4xl mx-auto pb-24 md:pb-8">
+
+    <div class="paper-card rounded-2xl p-6 mb-8 fade-in">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏆</span>
+          <span class="font-serif text-xl font-semibold text-primary">Suas conquistas</span>
+        </div>
+        <span class="font-serif text-2xl font-bold text-secondary">{{ total_desbloqueadas }}/{{ total }}</span>
+      </div>
+      <div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-secondary to-primary rounded-full transition-all duration-1000"
+             style="width:{% widthratio total_desbloqueadas total 100 %}%"></div>
+      </div>
+      <p class="text-xs text-on-surface-variant mt-2">
+        {% if total_desbloqueadas == total %}🎉 Você desbloqueou todas as conquistas!
+        {% else %}Continue estudando para desbloquear todas.{% endif %}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in" style="animation-delay:.1s;">
+      {% for c in todas %}
+      <div class="paper-card rounded-2xl relative overflow-hidden {% if c.desbloqueada %}ring-2 ring-amber-200{% endif %}">
+        {% if c.desbloqueada %}
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent pointer-events-none"></div>
+        {% endif %}
+
+        <div class="relative p-5 flex items-start gap-4">
+          <div class="shrink-0 w-14 h-14 rounded-xl flex items-center justify-center text-3xl
+            {% if c.desbloqueada %}bg-amber-100{% else %}bg-surface-container badge-locked{% endif %}">
+            {{ c.emoji }}
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <h3 class="font-serif text-base font-semibold {% if c.desbloqueada %}text-primary{% else %}text-on-surface-variant{% endif %}">
+                {{ c.label }}
+              </h3>
+              {% if c.desbloqueada %}
+              <span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">DESBLOQUEADA</span>
+              {% endif %}
+            </div>
+            <p class="text-xs text-on-surface-variant mb-3">{{ c.desc }}</p>
+
+            {% if c.desbloqueada %}
+              <div class="flex items-center justify-between">
+                <p class="text-[10px] text-secondary font-medium">
+                  ✓ Conquistada em {{ c.data|date:"d/m/Y" }}
+                </p>
+                <a href="{% url 'conquista_card' c.codigo %}"
+                   class="flex items-center gap-1 text-[10px] font-bold text-primary hover:text-primary-container bg-primary-fixed/60 hover:bg-primary-fixed px-2 py-1 rounded-lg transition-colors">
+                  <span class="material-symbols-outlined active-icon" style="font-size:11px;">share</span>
+                  Compartilhar
+                </a>
+              </div>
+            {% else %}
+              <div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div class="h-full bg-primary/40 rounded-full transition-all duration-700" style="width:{{ c.progresso }}%"></div>
+              </div>
+              <p class="text-[10px] text-on-surface-variant mt-1">{{ c.progresso }}% concluído</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if total_desbloqueadas == 0 %}
+    <div class="mt-8 text-center">
+      <p class="text-sm text-on-surface-variant mb-4">Comece a estudar para desbloquear sua primeira conquista!</p>
+      <a href="{% url 'iniciar_quiz' %}?modo=todas" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-on-primary font-semibold text-sm rounded-lg hover:bg-primary-container">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">play_arrow</span>
+        Responder questões
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</main>
+
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#e5e1d8] h-16 flex items-center justify-around px-2 z-50">
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'dashboard' %}">
+    <span class="material-symbols-outlined">dashboard</span><span class="text-[10px]">Painel</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'escolher_tema' %}">
+    <span class="material-symbols-outlined">menu_book</span><span class="text-[10px]">Questões</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-amber-500" href="{% url 'conquistas' %}">
+    <span class="material-symbols-outlined active-icon">emoji_events</span><span class="text-[10px] font-bold">Conquistas</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'analytics' %}">
+    <span class="material-symbols-outlined">insights</span><span class="text-[10px]">Análise</span>
+  </a>
+</nav>
+
+</body>
+</html>

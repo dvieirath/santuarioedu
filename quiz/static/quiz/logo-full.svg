@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" fill="none">
+  <title>SantuarioEdu</title>
+  <!-- Mark (usa mesmo desenho do logo-mark, centrado no eixo X 320) -->
+  <g transform="translate(120 0)">
+    <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M200 260 L200 175" stroke="#002046" stroke-width="12"/>
+      <path d="M200 200 L160 180 L160 130" stroke="#002046" stroke-width="10"/>
+      <path d="M200 200 L240 180 L240 130" stroke="#002046" stroke-width="10"/>
+      <path d="M200 175 L200 90" stroke="#002046" stroke-width="10"/>
+      <path d="M200 130 L170 100 L170 65" stroke="#002046" stroke-width="9"/>
+      <path d="M200 130 L230 100 L230 65" stroke="#002046" stroke-width="9"/>
+      <path d="M200 210 L145 190 L120 155 L120 105" stroke="#9df4cc" stroke-width="10"/>
+      <path d="M200 210 L255 190 L280 155 L280 105" stroke="#9df4cc" stroke-width="10"/>
+      <path d="M160 130 L130 100" stroke="#9df4cc" stroke-width="8"/>
+      <path d="M240 130 L270 100" stroke="#9df4cc" stroke-width="8"/>
+    </g>
+    <g fill="#002046">
+      <circle cx="170" cy="65" r="12"/>
+      <circle cx="230" cy="65" r="12"/>
+      <circle cx="200" cy="90" r="14"/>
+      <circle cx="160" cy="130" r="10"/>
+      <circle cx="240" cy="130" r="10"/>
+      <circle cx="200" cy="200" r="9"/>
+    </g>
+    <g fill="#9df4cc">
+      <circle cx="120" cy="105" r="12"/>
+      <circle cx="280" cy="105" r="12"/>
+      <circle cx="130" cy="100" r="10"/>
+      <circle cx="270" cy="100" r="10"/>
+      <circle cx="145" cy="190" r="9"/>
+      <circle cx="255" cy="190" r="9"/>
+    </g>
+    <g fill="none" stroke="#002046" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M55 260 L55 340 L195 340 Q192 315 192 290 L192 250 L55 250 Z"/>
+      <path d="M345 260 L345 340 L205 340 Q208 315 208 290 L208 250 L345 250 Z"/>
+      <path d="M180 340 Q200 358 220 340"/>
+    </g>
+  </g>
+  <!-- Wordmark: "SantuarioEdu" -->
+  <text x="320" y="450"
+        font-family="Inter, system-ui, sans-serif"
+        font-weight="800"
+        font-size="72"
+        letter-spacing="-1"
+        text-anchor="middle"
+        fill="#002046">SantuarioEdu</text>
+</svg>

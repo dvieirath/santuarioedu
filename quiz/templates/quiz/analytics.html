@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Análise de Desempenho — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% load static %}<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/source-serif-4.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary":"#002046","primary-container":"#1b365d","on-primary":"#ffffff","on-primary-container":"#7089b4",
+        "secondary":"#006c4d","on-secondary":"#ffffff","secondary-container":"#9df4cc","on-secondary-container":"#0f7253",
+        "surface":"#fcf9f8","background":"#f6f1e7",
+        "surface-container":"#f0eded","surface-container-low":"#f6f3f2","surface-container-high":"#eae7e7",
+        "surface-container-highest":"#e5e2e1","surface-container-lowest":"#ffffff",
+        "on-surface":"#1c1b1b","on-surface-variant":"#44474e",
+        "outline":"#74777f","outline-variant":"#c4c6cf",
+        "error":"#ba1a1a","error-container":"#ffdad6","on-error-container":"#93000a",
+        "primary-fixed":"#d6e3ff","primary-fixed-dim":"#aec7f6",
+        "secondary-fixed":"#9df4cc","secondary-fixed-dim":"#81d7b1",
+      },
+      fontFamily: {
+        serif: ["'Source Serif 4'", "Georgia", "serif"],
+        body: ["Inter", "sans-serif"],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background:#f6f1e7; font-family:'Inter',sans-serif; color:#1c1b1b; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .active-icon { font-variation-settings:'FILL' 1; }
+  h1,h2,h3,h4,h5,.font-serif { font-family:'Source Serif 4', Georgia, serif; }
+
+  .paper-card {
+    background:#ffffff;
+    border:1px solid #e5e1d8;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+    transition:box-shadow .2s ease;
+  }
+  .paper-card:hover { box-shadow:0 4px 6px rgba(0,0,0,0.07); }
+
+  .ai-highlight { background:rgba(0,108,77,0.15); padding:0 4px; border-radius:2px; }
+
+  .bar-col {
+    position:relative; height:100%; border-radius:10px 10px 0 0;
+    background:#eae7e7; cursor:pointer; overflow:hidden;
+    transition:transform .15s ease;
+  }
+  .bar-col:hover { transform:translateY(-2px); }
+  .bar-fill {
+    position:absolute; bottom:0; left:0; right:0;
+    background:linear-gradient(180deg, rgba(0,32,70,0.10) 0%, rgba(0,32,70,0.28) 100%);
+    transition:height .5s cubic-bezier(.16,1,.3,1);
+  }
+  .bar-cap {
+    position:absolute; left:0; right:0; height:3px;
+    background:#002046; border-radius:2px;
+    transition:bottom .5s cubic-bezier(.16,1,.3,1), background .15s;
+  }
+  .bar-col:hover .bar-cap { background:#006c4d; }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .fade-in { animation:fadeInUp .5s cubic-bezier(.16,1,.3,1) both; }
+</style>
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<main class="md:ml-64 min-h-screen flex flex-col">
+
+  <!-- Top App Bar -->
+  <header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] flex justify-between items-center h-16 px-6 lg:px-10 w-full">
+    <h1 class="font-serif text-xl font-semibold text-primary">Análise de Desempenho</h1>
+    <div class="flex items-center gap-4">
+      <div class="relative hidden md:block">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none">search</span>
+        <input type="text" placeholder="Pesquisar estatísticas..."
+               class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 w-64 text-sm focus:ring-2 focus:ring-primary transition-all">
+      </div>
+      <a href="{% url 'iniciar_quiz' %}?modo=todas" class="flex items-center gap-1.5 text-primary hover:text-secondary transition-colors bg-surface-container rounded-full px-3 py-1">
+        <span class="material-symbols-outlined active-icon" style="color:#f97316;font-size:20px;">local_fire_department</span>
+        <span class="text-xs font-bold">{{ meta.streak_atual|default:0 }}</span>
+      </a>
+      <a href="{% url 'preferencias_notificacao' %}" class="relative text-on-surface-variant hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">notifications</span>
+      </a>
+      <a href="{% url 'perfil' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+        <span class="material-symbols-outlined" style="font-size:28px;">account_circle</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="flex-1 px-6 lg:px-12 py-8 max-w-[1280px] mx-auto w-full space-y-8">
+
+    <!-- KPI Row -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+
+      <div class="paper-card p-6 rounded-xl">
+        <div class="flex justify-between items-start mb-3">
+          <span class="p-2 bg-primary/5 text-primary rounded-lg">
+            <span class="material-symbols-outlined">task_alt</span>
+          </span>
+          {% if questoes_hoje > 0 %}
+          <span class="text-secondary text-xs font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size:14px;">trending_up</span>
+            +{{ questoes_hoje }} hoje
+          </span>
+          {% endif %}
+        </div>
+        <p class="text-on-surface-variant text-sm">Total respondidas</p>
+        <h3 class="font-serif text-4xl font-bold text-primary mt-1 tabular-nums">{{ total|default:0 }}</h3>
+      </div>
+
+      <div class="paper-card p-6 rounded-xl">
+        <div class="flex justify-between items-start mb-3">
+          <span class="p-2 bg-secondary/10 text-secondary rounded-lg">
+            <span class="material-symbols-outlined">percent</span>
+          </span>
+          {% if aproveitamento >= 70 %}
+          <span class="text-secondary text-xs font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size:14px;">trending_up</span>
+            Bom desempenho
+          </span>
+          {% elif aproveitamento >= 50 %}
+          <span class="text-primary text-xs font-semibold">Em progresso</span>
+          {% elif total > 0 %}
+          <span class="text-error text-xs font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size:14px;">trending_down</span>
+            Reforce
+          </span>
+          {% endif %}
+        </div>
+        <p class="text-on-surface-variant text-sm">Taxa de acerto</p>
+        <h3 class="font-serif text-4xl font-bold text-primary mt-1 tabular-nums">{{ aproveitamento|default:0 }}%</h3>
+      </div>
+
+      <div class="paper-card p-6 rounded-xl">
+        <div class="flex justify-between items-start mb-3">
+          <span class="p-2 bg-primary-fixed text-primary-container rounded-lg">
+            <span class="material-symbols-outlined">timer</span>
+          </span>
+          <span class="text-on-surface-variant text-xs font-semibold">{{ total_sessoes|default:0 }} sessões</span>
+        </div>
+        <p class="text-on-surface-variant text-sm">Tempo médio/sessão</p>
+        <h3 class="font-serif text-4xl font-bold text-primary mt-1 tabular-nums">{{ media_minutos|default:0 }}<span class="text-lg text-on-surface-variant"> min</span></h3>
+      </div>
+
+      <div class="paper-card p-6 rounded-xl">
+        <div class="flex justify-between items-start mb-3">
+          <span class="p-2 bg-secondary-container/50 text-on-secondary-container rounded-lg">
+            <span class="material-symbols-outlined">emoji_events</span>
+          </span>
+          <span class="text-secondary text-xs font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size:14px;">verified</span>
+            {{ nivel_obj.rank_nome|default:"Iniciante" }}
+          </span>
+        </div>
+        <p class="text-on-surface-variant text-sm">Nível atual</p>
+        <h3 class="font-serif text-4xl font-bold text-primary mt-1 tabular-nums">{{ nivel_obj.nivel|default:1 }}</h3>
+      </div>
+    </section>
+
+    <!-- Bento grid principal -->
+    <section class="grid grid-cols-12 gap-4 fade-in" style="animation-delay:.1s;">
+
+      <!-- Progresso Temporal (8) -->
+      <div class="col-span-12 lg:col-span-8 paper-card p-6 lg:p-8 rounded-xl">
+        <div class="flex justify-between items-start mb-8">
+          <div>
+            <h4 class="font-serif text-xl font-semibold text-primary">Progresso temporal</h4>
+            <p class="text-sm text-on-surface-variant">Volume de questões resolvidas por dia</p>
+          </div>
+          <select id="chart-range" class="bg-surface-container-low border border-outline-variant/40 rounded-lg text-sm py-1.5 px-3 focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+            <option value="7">Últimos 7 dias</option>
+            <option value="14">Últimos 14 dias</option>
+            <option value="30" selected>Últimos 30 dias</option>
+          </select>
+        </div>
+        <div class="h-64 w-full flex items-end justify-between gap-1.5" id="temporal-bars"></div>
+        <div class="flex justify-between mt-3 text-[10px] text-on-surface-variant uppercase tracking-wider" id="temporal-labels"></div>
+      </div>
+
+      <!-- Áreas de Conhecimento — Radar (4) -->
+      <div class="col-span-12 lg:col-span-4 paper-card p-6 lg:p-8 rounded-xl flex flex-col items-center">
+        <h4 class="font-serif text-xl font-semibold text-primary w-full mb-4">Áreas de conhecimento</h4>
+        {% if categorias_stats %}
+        <div class="relative w-48 h-48 mb-4">
+          <div class="absolute inset-0 border-2 border-outline-variant/20 rounded-full"></div>
+          <div class="absolute inset-4 border-2 border-outline-variant/20 rounded-full"></div>
+          <div class="absolute inset-8 border-2 border-outline-variant/20 rounded-full"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-full h-px bg-outline-variant/30 rotate-45"></div>
+            <div class="w-full h-px bg-outline-variant/30 -rotate-45"></div>
+            <div class="h-full w-px bg-outline-variant/30"></div>
+          </div>
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+            <polygon id="radar-poly" fill="rgba(0,108,77,0.2)" stroke="#006c4d" stroke-width="2" points=""/>
+          </svg>
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2 w-full text-xs" id="radar-legend"></div>
+        {% else %}
+        <div class="text-center py-8 text-on-surface-variant">
+          <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">radar</span>
+          <p class="text-sm mt-2">Responda questões para ver seu radar</p>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Sucesso por Categoria (7) -->
+      <div class="col-span-12 lg:col-span-7 paper-card p-6 lg:p-8 rounded-xl">
+        <h4 class="font-serif text-xl font-semibold text-primary mb-6">Sucesso por categoria</h4>
+        {% if categorias_stats %}
+        <div class="space-y-5">
+          {% for c in categorias_stats|slice:":6" %}
+          <div>
+            <div class="flex justify-between text-sm mb-2 gap-3">
+              <span class="text-on-surface truncate">{{ c.nome }}</span>
+              <span class="font-bold text-primary tabular-nums flex-shrink-0">{{ c.pct }}% <span class="text-outline text-xs font-normal">({{ c.acertos }}/{{ c.total }})</span></span>
+            </div>
+            <div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full transition-all duration-700
+                {% if c.pct >= 75 %}bg-secondary
+                {% elif c.pct >= 55 %}bg-primary
+                {% elif c.pct >= 35 %}bg-orange-500
+                {% else %}bg-error/70{% endif %}"
+                style="width: {{ c.pct }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% if categorias_stats|length > 6 %}
+        <p class="mt-6 text-xs text-on-surface-variant text-center">Mostrando 6 de {{ categorias_stats|length }} categorias — <a href="{% url 'analise_erros' %}" class="text-secondary font-semibold hover:underline">ver todas</a></p>
+        {% endif %}
+        {% else %}
+        <div class="text-center py-10 text-on-surface-variant">
+          <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">bar_chart</span>
+          <p class="text-sm mt-2">Sem dados ainda. Responda algumas questões para começar.</p>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Linha do tempo (5) -->
+      <div class="col-span-12 lg:col-span-5 paper-card p-6 lg:p-8 rounded-xl">
+        <h4 class="font-serif text-xl font-semibold text-primary mb-6">Linha do tempo</h4>
+        <div class="relative pl-8 space-y-6">
+          <div class="absolute left-[11px] top-2 bottom-4 w-0.5 bg-outline-variant/30"></div>
+
+          {% if total >= 100 %}
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1 w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-white">
+              <span class="material-symbols-outlined text-on-secondary-fixed active-icon" style="font-size:14px;">star</span>
+            </div>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Marco</p>
+            <p class="text-sm text-primary mt-1">🎯 <span class="ai-highlight font-semibold italic">{{ total }} questões</span> respondidas no total!</p>
+          </div>
+          {% endif %}
+
+          {% if total_minutos > 0 %}
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-white">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:14px;">auto_stories</span>
+            </div>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">{{ total_sessoes }} sessões</p>
+            <p class="text-sm text-primary mt-1">{{ total_minutos }} min estudados. Média de <span class="font-semibold">{{ media_minutos }} min/sessão</span>.</p>
+          </div>
+          {% endif %}
+
+          {% if nivel_obj.nivel > 1 %}
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1 w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-white">
+              <span class="material-symbols-outlined text-on-secondary active-icon" style="font-size:14px;">military_tech</span>
+            </div>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Ranking</p>
+            <p class="text-sm text-primary mt-1">Você está no <span class="font-semibold">Nível {{ nivel_obj.nivel }} · {{ nivel_obj.rank_nome }}</span>.</p>
+          </div>
+          {% endif %}
+
+          {% if meta.streak_atual >= 3 %}
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1 w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center border-4 border-white">
+              <span class="material-symbols-outlined text-orange-600 active-icon" style="font-size:14px;">local_fire_department</span>
+            </div>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Streak ativo</p>
+            <p class="text-sm text-primary mt-1"><span class="font-semibold">{{ meta.streak_atual }} dias</span> seguidos. Recorde: {{ meta.streak_maximo|default:meta.streak_atual }} dias.</p>
+          </div>
+          {% endif %}
+
+          {% if mais_erradas %}
+          <div class="relative opacity-80">
+            <div class="absolute -left-[31px] top-1 w-6 h-6 rounded-full bg-error-container flex items-center justify-center border-4 border-white">
+              <span class="material-symbols-outlined text-on-error-container active-icon" style="font-size:14px;">error</span>
+            </div>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Ponto de atenção</p>
+            <p class="text-sm text-primary mt-1">
+              Mais erros em: <span class="font-semibold">{{ mais_erradas.0.questao__categoria__nome|default:"—" }}</span>
+              ({{ mais_erradas.0.erros }} erros). <a href="{% url 'caderno_erros' %}" class="text-secondary hover:underline">Revisar →</a>
+            </p>
+          </div>
+          {% endif %}
+
+          {% if total == 0 %}
+          <div class="text-center py-4 text-on-surface-variant">
+            <p class="text-sm">Sua jornada ainda vai começar!</p>
+            <a href="{% url 'iniciar_quiz' %}?modo=todas" class="inline-block mt-3 text-secondary text-sm font-semibold hover:underline">Responder primeira questão →</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CTA relatório PDF -->
+    <div class="paper-card rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 fade-in" style="animation-delay:.2s;">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+        </div>
+        <div>
+          <h5 class="font-serif text-lg font-semibold text-primary">Relatório semanal em PDF</h5>
+          <p class="text-sm text-on-surface-variant">Baixe um resumo detalhado dos seus últimos 7 dias.</p>
+        </div>
+      </div>
+      <a href="{% url 'relatorio_semanal' %}" target="_blank"
+         class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary-container transition-colors flex items-center gap-2">
+        Gerar relatório
+        <span class="material-symbols-outlined" style="font-size:16px;">download</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#e5e1d8] w-full py-6 px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center text-sm">
+    <div class="mb-3 md:mb-0">
+      <span class="font-serif font-semibold text-primary">SantuarioEdu</span>
+      <p class="text-xs text-on-surface-variant opacity-70">© {% now "Y" %} SantuarioEdu. Todos os direitos reservados.</p>
+    </div>
+    <div class="flex gap-6 text-xs">
+      <a href="{% url 'termos_uso' %}" class="text-on-surface-variant hover:text-secondary">Termos</a>
+      <a href="{% url 'politica_privacidade' %}" class="text-on-surface-variant hover:text-secondary">Privacidade</a>
+      <a href="{% url 'suporte_lista' %}" class="text-on-surface-variant hover:text-secondary">Suporte</a>
+    </div>
+  </footer>
+
+</main>
+
+{{ categorias_stats|json_script:"data-categorias" }}
+
+<script>
+  // serie_dias_json já vem como string JSON do backend
+  const serieDias = {{ serie_dias_json|safe }};
+  const categoriasStats = JSON.parse(document.getElementById('data-categorias').textContent || '[]');
+
+  // ══ Bar chart temporal ═════════════════════════════════════════════
+  function renderBars(days) {
+    const container = document.getElementById('temporal-bars');
+    const labels = document.getElementById('temporal-labels');
+    if (!container) return;
+
+    const slice = serieDias.slice(-days);
+    const max = Math.max(1, ...slice.map(d => d.total || 0));
+    container.innerHTML = '';
+    labels.innerHTML = '';
+
+    slice.forEach((d) => {
+      const pct = Math.round(((d.total || 0) / max) * 100);
+      const bar = document.createElement('div');
+      bar.className = 'bar-col flex-1';
+      bar.innerHTML = `
+        <div class="bar-fill" style="height:${pct}%"></div>
+        <div class="bar-cap" style="bottom:${pct}%"></div>
+      `;
+      bar.title = `${d.dia}: ${d.total || 0} questões`;
+      container.appendChild(bar);
+    });
+
+    const N = slice.length;
+    const step = Math.max(1, Math.ceil(N / 7));
+    slice.forEach((d, i) => {
+      const span = document.createElement('span');
+      span.textContent = (i % step === 0 || i === N - 1) ? d.dia : '';
+      labels.appendChild(span);
+    });
+  }
+
+  const rangeSel = document.getElementById('chart-range');
+  if (rangeSel) rangeSel.addEventListener('change', (e) => renderBars(parseInt(e.target.value)));
+  renderBars(30);
+
+  // ══ Radar ═════════════════════════════════════════════════════════
+  (function() {
+    const poly = document.getElementById('radar-poly');
+    const legend = document.getElementById('radar-legend');
+    if (!poly || !legend) return;
+
+    const top = categoriasStats.slice(0, 6);
+    if (!top.length) return;
+
+    const cx = 50, cy = 50, R = 42;
+    const points = top.map((c, i) => {
+      const angle = (Math.PI * 2 * i / top.length) - Math.PI / 2;
+      const r = ((c.pct || 0) / 100) * R;
+      const x = cx + Math.cos(angle) * r;
+      const y = cy + Math.sin(angle) * r;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(' ');
+    poly.setAttribute('points', points);
+
+    legend.innerHTML = top.map(c => `
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></span>
+        <span class="truncate" title="${c.nome} — ${c.pct}%">${c.nome}</span>
+      </div>
+    `).join('');
+  })();
+</script>
+</body>
+</html>

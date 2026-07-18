@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Novo ticket — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .cat-card {
+    transition:all .15s; cursor:pointer;
+    background:#ffffff; border:1px solid rgba(229,225,216,.8);
+    border-radius:12px; padding:12px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .cat-card:hover { border-color:#002046; }
+  .cat-card.selected {
+    background:linear-gradient(135deg, rgba(214,227,255,.5), #ffffff);
+    border-color:#002046; box-shadow:0 4px 12px rgba(0,32,70,.1);
+  }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <a href="{% url 'suporte_lista' %}" class="text-on-surface-variant hover:text-primary p-2 -ml-2 rounded-full hover:bg-surface-container">
+    <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+  </a>
+  <h1 class="font-serif text-lg font-semibold text-primary">Novo ticket de suporte</h1>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+
+    {% if messages %}
+      {% for m in messages %}
+      <div class="p-3 mb-4 rounded-lg bg-error-container/40 border border-error/20 text-on-error-container text-sm">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" class="space-y-6 fade-in">
+      {% csrf_token %}
+      <input type="hidden" name="url_origem" value="{{ url_origem|default:'' }}"/>
+
+      <!-- Categoria -->
+      <section>
+        <p class="text-xs font-bold uppercase tracking-widest text-outline mb-3">1. Qual o assunto?</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5" id="cat-grid">
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="bug" class="hidden">
+            <span>🐛</span><span class="text-xs font-semibold text-primary">Bug ou erro</span>
+          </label>
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="duvida" checked class="hidden">
+            <span>❓</span><span class="text-xs font-semibold text-primary">Dúvida</span>
+          </label>
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="questao" class="hidden">
+            <span>📝</span><span class="text-xs font-semibold text-primary">Erro em questão</span>
+          </label>
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="pagamento" class="hidden">
+            <span>💳</span><span class="text-xs font-semibold text-primary">Pagamento</span>
+          </label>
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="sugestao" class="hidden">
+            <span>💡</span><span class="text-xs font-semibold text-primary">Sugestão</span>
+          </label>
+          <label class="cat-card">
+            <input type="radio" name="categoria" value="outro" class="hidden">
+            <span>📌</span><span class="text-xs font-semibold text-primary">Outro</span>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <label class="block text-xs font-bold uppercase tracking-widest text-outline mb-2" for="assunto">2. Resuma em uma frase</label>
+        <input type="text" name="assunto" id="assunto" required minlength="5" maxlength="200"
+          placeholder="Ex: Botão de iniciar simulado não funciona no celular"
+          value="{{ request.GET.assunto|default:'' }}"
+          class="w-full px-4 py-3 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none text-sm bg-white"/>
+      </section>
+
+      <section>
+        <label class="block text-xs font-bold uppercase tracking-widest text-outline mb-2" for="mensagem">3. Conta o que aconteceu</label>
+        <textarea name="mensagem" id="mensagem" required minlength="10" rows="6"
+          placeholder="Descreve com detalhes: o que estava fazendo, o que esperava, o que aconteceu de fato. Quanto mais info, mais rápido resolvemos."
+          class="w-full px-4 py-3 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none text-sm bg-white resize-y"></textarea>
+        <p class="text-[11px] text-on-surface-variant mt-1">
+          💡 Dica: se for bug, conta o navegador (Chrome, Safari…) e o dispositivo (PC, celular).
+        </p>
+      </section>
+
+      <section>
+        <label class="block text-xs font-bold uppercase tracking-widest text-outline mb-2" for="email_contato">
+          4. E-mail pra resposta <span class="font-normal lowercase text-on-surface-variant">(opcional)</span>
+        </label>
+        <input type="email" name="email_contato" id="email_contato"
+          placeholder="{{ request.user.email|default:'seu@email.com' }}"
+          class="w-full px-4 py-3 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none text-sm bg-white"/>
+        <p class="text-[11px] text-on-surface-variant mt-1">
+          Se vazio, usamos o e-mail da sua conta.
+        </p>
+      </section>
+
+      <div class="flex flex-col-reverse sm:flex-row gap-2.5">
+        <a href="{% url 'suporte_lista' %}" class="flex-1 text-center bg-white border border-[#e5e1d8] text-on-surface-variant px-5 py-3 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">
+          Cancelar
+        </a>
+        <button type="submit" class="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">send</span>
+          Enviar ticket
+        </button>
+      </div>
+    </form>
+
+  </div>
+</main>
+
+<script>
+const cards = document.querySelectorAll('.cat-card');
+cards.forEach(c => {
+  const radio = c.querySelector('input[type=radio]');
+  if (radio.checked) c.classList.add('selected');
+  c.addEventListener('click', () => {
+    cards.forEach(x => x.classList.remove('selected'));
+    radio.checked = true;
+    c.classList.add('selected');
+  });
+});
+</script>
+</body>
+</html>

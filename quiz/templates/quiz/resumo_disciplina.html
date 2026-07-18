@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ categoria.nome }} — Resumo IA — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" integrity="sha384-odPBjvtXVM/5hOYIr3A1dB+flh0c3wAT3bSesIOqEGmyUA4JoKf/YTWy0XKOYAY7" crossorigin="anonymous"></script>
+<style>
+  #resumo-content { color:#1c1b1b; line-height:1.7; font-size:15px; }
+  #resumo-content h1 { font-size:1.75rem; font-weight:700; color:#002046; margin:1.8rem 0 .8rem; font-family:'Source Serif 4', serif; line-height:1.3; }
+  #resumo-content h2 {
+    font-size:1.35rem; font-weight:700; color:#002046; margin:1.6rem 0 .6rem;
+    font-family:'Source Serif 4', serif; line-height:1.35;
+    padding-bottom:.4rem; border-bottom:2px solid #d6e3ff;
+    display:flex; align-items:center; gap:.5rem;
+  }
+  #resumo-content h2::before { content:""; display:inline-block; width:4px; height:1.3rem; background:#006c4d; border-radius:2px; }
+  #resumo-content h3 { font-size:1.15rem; font-weight:600; color:#1b365d; margin:1.2rem 0 .4rem; font-family:'Source Serif 4', serif; line-height:1.4; }
+  #resumo-content h4 { font-size:1rem; font-weight:600; color:#44474e; margin:.8rem 0 .3rem; }
+  #resumo-content p  { color:#1c1b1b; line-height:1.7; margin-bottom:.85rem; }
+  #resumo-content ul, #resumo-content ol { padding-left:1.5rem; margin-bottom:.85rem; }
+  #resumo-content ul li { color:#1c1b1b; margin-bottom:.4rem; line-height:1.65; list-style:none; position:relative; padding-left:1.4rem; }
+  #resumo-content ul li::before { content:""; position:absolute; left:0; top:.65rem; width:6px; height:6px; border-radius:50%; background:#006c4d; }
+  #resumo-content ol li { color:#1c1b1b; margin-bottom:.4rem; line-height:1.65; }
+  #resumo-content strong { color:#002046; font-weight:700; }
+  #resumo-content em { color:#006c4d; font-style:normal; font-weight:600; }
+  #resumo-content code { background:#f0eded; color:#006c4d; padding:2px 6px; border-radius:5px; font-size:.88em; font-family:'Courier New', monospace; }
+  #resumo-content blockquote { border-left:3px solid #006c4d; padding:.6rem 1rem; background:rgba(157,244,204,.15); border-radius:0 8px 8px 0; margin:1rem 0; color:#0f7253; font-style:italic; }
+  #resumo-content blockquote p { margin-bottom:0; color:#0f7253; }
+  #resumo-content hr { border:none; border-top:1px solid #e5e1d8; margin:1.5rem 0; }
+  #resumo-content table { width:100%; border-collapse:collapse; margin:1rem 0; }
+  #resumo-content th, #resumo-content td { padding:.6rem .8rem; border:1px solid #e5e1d8; text-align:left; font-size:.9rem; }
+  #resumo-content th { background:#f6f3f2; font-weight:700; color:#002046; }
+
+  @media print {
+    aside, nav, header, .no-print { display:none !important; }
+    main { margin-left:0 !important; padding-top:0 !important; }
+    body { background:#fff !important; }
+    .paper-card { box-shadow:none !important; }
+    #resumo-content { font-size:11pt; }
+  }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3 min-w-0">
+    <a href="{% url 'resumos_lista' %}" class="text-on-surface-variant hover:text-primary p-2 -ml-2 rounded-full hover:bg-surface-container transition-colors shrink-0">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+    </a>
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">auto_stories</span>
+    <div class="min-w-0">
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none truncate">{{ categoria.nome }}</h1>
+      <p class="text-[11px] text-on-surface-variant">Gerado em {{ resumo.gerado_em|date:"d/m/Y H:i" }}</p>
+    </div>
+  </div>
+  <div class="flex gap-1.5 no-print shrink-0">
+    <a href="?regenerar=1" title="Regenerar" class="hidden sm:flex items-center gap-1 text-xs font-semibold text-primary bg-primary-fixed hover:bg-primary-fixed/70 px-3 py-1.5 rounded-lg transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">refresh</span>
+      Regenerar
+    </a>
+    <button onclick="window.print()" title="Imprimir" class="hidden sm:flex items-center gap-1 text-xs font-semibold text-on-surface-variant hover:text-primary bg-white border border-[#e5e1d8] hover:bg-surface-container-low px-3 py-1.5 rounded-lg transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">print</span>
+      Imprimir
+    </button>
+    <a href="{% url 'iniciar_quiz_categoria' categoria.id %}" class="flex items-center gap-1.5 bg-primary hover:bg-primary-container text-on-primary px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">quiz</span>
+      Praticar
+    </a>
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-4 no-print">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Resumo IA · Disciplina</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary leading-tight">{{ categoria.nome }}</h2>
+    </section>
+
+    <section class="grid grid-cols-3 gap-3 no-print">
+      <div class="paper-card rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">quiz</span>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Respondidas</p>
+        </div>
+        <p class="font-serif text-2xl font-bold text-primary">{{ total }}</p>
+      </div>
+      <div class="paper-card rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="material-symbols-outlined text-secondary" style="font-size:14px;">check_circle</span>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Acertos</p>
+        </div>
+        <p class="font-serif text-2xl font-bold text-secondary">{{ acertos }}</p>
+      </div>
+      <div class="paper-card rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="material-symbols-outlined {% if pct >= 70 %}text-secondary{% elif pct >= 50 %}text-amber-500{% else %}text-error{% endif %}" style="font-size:14px;">trending_up</span>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Aproveitamento</p>
+        </div>
+        <p class="font-serif text-2xl font-bold {% if pct >= 70 %}text-secondary{% elif pct >= 50 %}text-amber-600{% else %}text-error{% endif %}">{{ pct }}%</p>
+      </div>
+    </section>
+
+    {% include "includes/disclaimer_ia.html" %}
+
+    <article class="paper-card rounded-2xl p-6 sm:p-10">
+      <div id="resumo-raw" class="hidden">{{ resumo.conteudo }}</div>
+      <div id="resumo-content"></div>
+
+      <div class="mt-8 pt-6 border-t border-[#e5e1d8] flex items-center justify-between text-[11px] text-on-surface-variant no-print">
+        <p class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-primary active-icon" style="font-size:14px;">smart_toy</span>
+          Gerado por IA
+        </p>
+        <p>{{ resumo.gerado_em|date:"d/m/Y H:i" }}</p>
+      </div>
+    </article>
+
+    <section class="grid sm:grid-cols-2 gap-3 no-print">
+      <a href="{% url 'iniciar_quiz_categoria' categoria.id %}" class="flex items-center justify-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold py-4 rounded-lg text-sm transition-colors shadow-md">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">quiz</span>
+        Praticar questões
+      </a>
+      <a href="?regenerar=1" class="ai-btn flex items-center justify-center gap-2 text-white font-semibold py-4 rounded-lg text-sm transition-colors relative z-10">
+        <span class="material-symbols-outlined relative z-10" style="font-size:18px;">refresh</span>
+        <span class="relative z-10">Gerar novo resumo</span>
+      </a>
+    </section>
+
+  </div>
+</main>
+
+<script>
+const raw = document.getElementById('resumo-raw').textContent;
+document.getElementById('resumo-content').innerHTML = marked.parse(raw);
+</script>
+
+{% include "quiz/includes/tutor_ia.html" %}
+</body>
+</html>

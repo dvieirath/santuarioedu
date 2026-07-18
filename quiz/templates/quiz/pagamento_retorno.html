@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ titulo }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<main class="md:ml-64 min-h-screen flex items-center justify-center p-6">
+  <div class="paper-card rounded-3xl p-10 max-w-lg w-full text-center">
+
+    {% if resultado == 'sucesso' %}
+    <div class="w-20 h-20 mx-auto mb-5 rounded-2xl bg-secondary-container/60 flex items-center justify-center">
+      <span class="material-symbols-outlined text-secondary active-icon" style="font-size:42px;">check_circle</span>
+    </div>
+    <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-secondary mb-2">Aprovado</p>
+    {% elif resultado == 'falha' %}
+    <div class="w-20 h-20 mx-auto mb-5 rounded-2xl bg-error-container/60 flex items-center justify-center">
+      <span class="material-symbols-outlined text-error active-icon" style="font-size:42px;">cancel</span>
+    </div>
+    <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-error mb-2">Não aprovado</p>
+    {% else %}
+    <div class="w-20 h-20 mx-auto mb-5 rounded-2xl bg-amber-100 flex items-center justify-center">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:42px;">hourglass_top</span>
+    </div>
+    <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-amber-600 mb-2">Aguardando</p>
+    {% endif %}
+
+    <h1 class="font-serif italic text-3xl font-bold text-primary mb-3 leading-tight">{{ titulo }}</h1>
+    <p class="text-sm text-on-surface-variant mb-7 leading-relaxed">{{ descricao }}</p>
+
+    {% if plano_obj and plano_obj.plano != 'gratuito' %}
+    <div class="paper-card rounded-2xl p-4 mb-6 text-left" style="background:rgba(157,244,204,.2);border-color:rgba(0,108,77,.3);">
+      <p class="text-xs font-bold text-secondary uppercase tracking-wider mb-1">Seu plano ativo</p>
+      <p class="font-serif text-lg font-bold text-primary">{{ plano_obj.get_plano_display }}</p>
+      {% if plano_obj.expira_em %}
+      <p class="text-xs text-on-surface-variant mt-1">Válido até {{ plano_obj.expira_em|date:"d/m/Y" }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <a href="{% url 'minha_assinatura' %}" class="flex-1 flex items-center justify-center gap-1.5 bg-primary text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-container transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">credit_card</span>
+        Minha assinatura
+      </a>
+      <a href="{% url 'dashboard' %}" class="flex-1 flex items-center justify-center gap-1.5 bg-white border border-[#e5e1d8] text-on-surface px-5 py-3 rounded-full text-sm font-semibold hover:bg-surface-container-low transition-colors">
+        <span class="material-symbols-outlined" style="font-size:16px;">dashboard</span>
+        Ir ao painel
+      </a>
+    </div>
+
+    {% if resultado == 'falha' %}
+    <a href="{% url 'planos' %}" class="mt-4 inline-block text-xs text-primary underline hover:text-primary-container">
+      Tentar novamente
+    </a>
+    {% endif %}
+
+  </div>
+</main>
+
+</body>
+</html>

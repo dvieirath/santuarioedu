@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<title>Limite atingido | SantuarioEdu</title>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<style>body{font-family:'Inter',sans-serif}h1{font-family:'Manrope',sans-serif}</style>
+</head>
+<body class="bg-white min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-md w-full text-center">
+    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+      <span class="material-symbols-outlined text-amber-500" style="font-size:32px;">hourglass_top</span>
+    </div>
+    <h1 class="text-2xl font-extrabold text-[#002046] mb-2">Limite de IA atingido</h1>
+    <p class="text-sm text-slate-600 mb-6">{{ mensagem }}</p>
+    <a href="/" class="inline-flex items-center gap-2 bg-[#002046] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors">
+      <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+      Voltar
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ alvo.get_full_name|default:alvo.username }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<main class="md:ml-64 min-h-screen">
+  <header class="sticky top-0 z-40 flex items-center justify-between px-6 lg:px-10 h-16 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] gap-3">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:24px;">account_circle</span>
+      <div>
+        <h1 class="font-serif text-lg font-semibold text-primary leading-none">{{ alvo.get_full_name|default:alvo.username }}</h1>
+        <p class="text-xs text-on-surface-variant">@{{ alvo.username }}</p>
+      </div>
+    </div>
+    {% if sou_eu %}
+    <a href="{% url 'perfil' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary-fixed px-3 py-1.5 rounded-lg hover:bg-primary-fixed/60 transition-all">
+      <span class="material-symbols-outlined" style="font-size:14px;">edit</span>
+      Editar perfil
+    </a>
+    {% endif %}
+  </header>
+
+  <div class="p-6 lg:p-10 max-w-2xl mx-auto pb-24 md:pb-8">
+
+    <div class="paper-card rounded-2xl p-6 mb-6 flex flex-col sm:flex-row items-center sm:items-start gap-5 fade-in">
+      <div class="shrink-0">
+        {% if perfil_obj.foto %}
+        <img src="{{ perfil_obj.foto.url }}" class="w-20 h-20 rounded-full object-cover ring-4 ring-primary/10" alt="Foto"/>
+        {% else %}
+        <div class="w-20 h-20 rounded-full bg-primary-fixed ring-4 ring-primary/10 flex items-center justify-center font-serif text-3xl font-bold text-primary">
+          {{ alvo.get_full_name|default:alvo.username|slice:":1"|upper }}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="flex-1 text-center sm:text-left">
+        <h2 class="font-serif text-2xl font-bold text-on-surface">{{ alvo.get_full_name|default:alvo.username }}</h2>
+        <p class="text-sm text-on-surface-variant">@{{ alvo.username }}</p>
+        {% if perfil_obj.bio %}<p class="text-sm text-on-surface mt-2">{{ perfil_obj.bio }}</p>{% endif %}
+        {% if meta %}
+        <div class="mt-3 flex flex-wrap justify-center sm:justify-start gap-2">
+          <span class="inline-flex items-center gap-1 text-xs bg-orange-50 text-orange-600 px-2.5 py-1 rounded-full font-semibold border border-orange-100">
+            🔥 {{ meta.streak_atual }} dias
+          </span>
+          {% if meta.streak_maximo > meta.streak_atual %}
+          <span class="inline-flex items-center gap-1 text-xs bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full font-semibold border border-amber-100">
+            🏆 Recorde: {{ meta.streak_maximo }} dias
+          </span>
+          {% endif %}
+          <span class="inline-flex items-center gap-1 text-xs bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2.5 py-1 rounded-full font-semibold">
+            📅 {{ meta.total_dias }} dias estudados
+          </span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 mb-6">
+      <div class="paper-card rounded-xl p-4 text-center">
+        <p class="font-serif text-2xl font-bold text-on-surface">{{ total }}</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold mt-1">Questões</p>
+      </div>
+      <div class="paper-card rounded-xl p-4 text-center">
+        <p class="font-serif text-2xl font-bold {% if pct >= 70 %}text-secondary{% elif pct >= 50 %}text-primary{% else %}text-error{% endif %}">{{ pct }}%</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold mt-1">Acerto</p>
+      </div>
+      <div class="paper-card rounded-xl p-4 text-center">
+        <p class="font-serif text-2xl font-bold text-amber-500">{{ conquistas|length }}</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold mt-1">Conquistas</p>
+      </div>
+    </div>
+
+    {% if conquistas %}
+    <div class="paper-card rounded-2xl p-5 mb-6">
+      <h3 class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-3">Conquistas desbloqueadas</h3>
+      <div class="flex flex-wrap gap-2">
+        {% for c in conquistas %}
+        <div class="flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2" title="{{ c.get_codigo_display }} — {{ c.desbloqueado_em|date:'d/m/Y' }}">
+          <span class="text-lg">{{ c.get_codigo_display|slice:":2" }}</span>
+          <div>
+            <p class="text-xs font-bold text-amber-700">{{ c.get_codigo_display|slice:"3:" }}</p>
+            <p class="text-[9px] text-amber-500">{{ c.desbloqueado_em|date:"d/m/Y" }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if por_cat %}
+    <div class="paper-card rounded-2xl p-5">
+      <h3 class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-4">Desempenho por disciplina</h3>
+      <div class="space-y-3">
+        {% for cat in por_cat %}
+        <div>
+          <div class="flex justify-between text-xs mb-1">
+            <span class="text-on-surface font-medium truncate max-w-[60%]">{{ cat.nome }}</span>
+            <span class="font-mono text-on-surface-variant">{{ cat.pct }}% <span class="text-[10px] opacity-60">({{ cat.total }})</span></span>
+          </div>
+          <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+            <div class="h-full rounded-full transition-all duration-700 {% if cat.pct >= 70 %}bg-secondary{% elif cat.pct >= 50 %}bg-primary{% else %}bg-error{% endif %}" style="width:{{ cat.pct }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <div class="paper-card rounded-2xl p-8 text-center">
+      <span class="material-symbols-outlined text-outline-variant block mb-2" style="font-size:40px;">bar_chart</span>
+      <p class="text-sm text-on-surface-variant">Nenhuma estatística disponível ainda.</p>
+    </div>
+    {% endif %}
+
+  </div>
+</main>
+
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#e5e1d8] h-16 flex items-center justify-around px-2 z-50">
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'dashboard' %}">
+    <span class="material-symbols-outlined">dashboard</span><span class="text-[10px]">Painel</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'escolher_tema' %}">
+    <span class="material-symbols-outlined">menu_book</span><span class="text-[10px]">Questões</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-on-surface-variant" href="{% url 'ranking' %}">
+    <span class="material-symbols-outlined">leaderboard</span><span class="text-[10px]">Ranking</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 text-primary" href="{% url 'perfil' %}">
+    <span class="material-symbols-outlined active-icon">account_circle</span>
+    <span class="text-[10px] font-bold">Perfil</span>
+  </a>
+</nav>
+
+</body>
+</html>

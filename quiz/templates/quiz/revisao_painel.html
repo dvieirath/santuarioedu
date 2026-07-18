@@ -1,0 +1,647 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Revisar questões — SantuarioEdu Admin</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .alt-row { transition: background .15s; }
+  .alt-correta { background: linear-gradient(90deg, rgba(157,244,204,.35) 0%, #ffffff 60%); border-left: 4px solid #006c4d; }
+  kbd { background:#f0eded; border:1px solid #c4c6cf; padding:1px 5px; border-radius:4px; font-size:10px; font-family: monospace; color:#44474e; }
+  .action-btn { transition: all .15s; }
+  .action-btn:hover { transform: translateY(-1px); }
+  .action-btn:active { transform: translateY(1px); }
+
+  .justif-md h2 { font-size:0.78rem; font-weight:800; color:#002046; margin:1.1rem 0 0.4rem; padding:6px 12px; background:linear-gradient(90deg, #d6e3ff 0%, transparent 100%); border-left:3px solid #1b365d; border-radius:0 8px 8px 0; letter-spacing:0.01em; display:flex; align-items:center; gap:6px; }
+  .justif-md h2:first-child { margin-top:0; }
+  .justif-md p  { font-size:0.85rem; color:#1c1b1b; line-height:1.65; margin-bottom:0.55rem; padding-left:0.5rem; }
+  .justif-md ul { padding-left:1.5rem; margin-bottom:0.55rem; }
+  .justif-md li { font-size:0.85rem; color:#1c1b1b; line-height:1.55; margin-bottom:0.4rem; list-style:none; position:relative; padding-left:0.5rem; }
+  .justif-md li::before { content:"▸"; color:#006c4d; position:absolute; left:-0.9rem; font-weight:bold; }
+  .justif-md strong { color:#1b365d; font-weight:700; }
+  .justif-md em { font-style:normal; color:#006c4d; font-weight:600; }
+  .justif-md code { background:#f0eded; color:#006c4d; padding:1px 5px; border-radius:4px; font-size:0.8rem; font-family:'Courier New', monospace; }
+
+  .card-anim { animation: cardIn .25s cubic-bezier(.16,1,.3,1); }
+  @keyframes cardIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+  .toast { position:fixed; bottom:24px; right:24px; z-index:200; opacity:0; transform:translateY(10px); transition:all .25s; pointer-events:none; }
+  .toast.show { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='painel' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">fact_check</span>
+  <div>
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none">Revisão de questões</h1>
+    <p class="text-[11px] text-on-surface-variant">
+      <strong class="text-amber-600" id="hdr-pendentes">{{ total_pendentes }}</strong> pendentes ·
+      <span class="text-secondary" id="hdr-aprovadas">{{ total_aprovadas }}</span> aprovadas ·
+      <span class="text-error" id="hdr-rejeitadas">{{ total_rejeitadas }}</span> rejeitadas
+    </p>
+  </div>
+  <a href="{% url 'admin_metricas' %}" class="ml-auto text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1">
+    <span class="material-symbols-outlined" style="font-size:16px;">leaderboard</span>
+    Métricas
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 space-y-4">
+
+    <!-- Filtros + bulk approve -->
+    <section class="paper-card rounded-2xl p-4 flex flex-wrap items-center gap-3 fade-in">
+      <form id="filtros-form" method="get" class="flex flex-wrap gap-2 items-center text-xs flex-1">
+        <select name="cat" id="filtro-cat" onchange="onFiltroChange()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Todas categorias</option>
+          {% for c in categorias %}
+          <option value="{{ c.id }}" data-count="{{ c.pendentes }}" {% if cat_atual == c.id %}selected{% endif %}>{{ c.nome }} ({{ c.pendentes }})</option>
+          {% endfor %}
+        </select>
+        <select name="problema" id="filtro-problema" onchange="proximaAJAX()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Qualquer questão pendente</option>
+          <option value="ok">Sem problemas detectados (pronta pra aprovar)</option>
+          <option value="qualquer">Com qualquer problema grave</option>
+          <option value="sem_justificativa">Sem justificativa</option>
+          <option value="sem_gabarito">Sem gabarito (ou múltiplos)</option>
+          <option value="incompleto">Enunciado incompleto</option>
+          <option value="referencia_apoio">Cita texto/imagem ausente (ambos)</option>
+          <option value="referencia_texto">Cita texto/trecho ausente</option>
+          <option value="referencia_imagem">Cita imagem/figura ausente</option>
+          <option value="alternativas">Problema nas alternativas</option>
+        </select>
+        <select name="ordem" id="filtro-ordem" onchange="onFiltroChange()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="-id" {% if ordem == '-id' %}selected{% endif %}>Mais recente</option>
+          <option value="id"  {% if ordem == 'id' %}selected{% endif %}>Mais antiga</option>
+          <option value="?"   {% if ordem == '?' %}selected{% endif %}>Aleatória</option>
+        </select>
+        <label class="flex items-center gap-1.5 text-on-surface-variant">
+          <input type="checkbox" name="ia" id="filtro-ia" value="1" {% if apenas_ia %}checked{% endif %} onchange="onFiltroChange()">
+          só geradas por IA
+        </label>
+      </form>
+      <div class="flex items-center gap-1.5">
+        <input type="number" id="busca-id" placeholder="Ir p/ questão #ID"
+               min="1" step="1"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();buscarPorId();}"
+               class="w-32 px-2.5 py-1.5 text-xs bg-white border border-outline-variant/40 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+        <button onclick="buscarPorId()" type="button"
+                class="flex items-center gap-1 text-xs font-semibold bg-white border border-[#e5e1d8] text-on-surface px-2.5 py-1.5 rounded-lg hover:bg-surface-container-low transition-colors"
+                title="Ir para questão específica (útil pra tickets de erro)">
+          <span class="material-symbols-outlined" style="font-size:14px;">search</span>
+          Ir
+        </button>
+      </div>
+      <button onclick="abrirBulkApprove()" class="flex items-center gap-1.5 text-xs font-semibold bg-primary text-on-primary px-3 py-2 rounded-lg hover:bg-primary-container transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:14px;">done_all</span>
+        Aprovar em lote…
+      </button>
+      <div class="w-full text-xs text-on-surface-variant flex flex-wrap gap-x-3 gap-y-1">
+        <span>Atalhos:</span>
+        <span><kbd>A</kbd> aprovar</span>
+        <span><kbd>R</kbd> reprovar</span>
+        <span><kbd>X</kbd> excluir</span>
+        <span><kbd>J</kbd> justif.</span>
+        <span><kbd>→</kbd> próxima</span>
+        <span><kbd>B</kbd> bulk approve</span>
+        <span><kbd>G</kbd> ir para ID</span>
+      </div>
+    </section>
+
+    {% if total_pendentes > 5 %}
+    <div class="paper-card rounded-2xl p-4 flex items-center gap-3" style="background:linear-gradient(90deg, #eef2ff, #f0fdf4);">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:24px;">auto_awesome</span>
+      <p class="flex-1 text-sm text-primary-container">
+        <strong>Dica:</strong> muitas questões sem justificativa? Rode a IA em massa:
+      </p>
+      <code class="text-[10px] bg-white text-primary px-2 py-1 rounded font-mono border border-primary/20">python manage.py gerar_justificativas_ia --limit 100</code>
+    </div>
+    {% endif %}
+
+    <!-- Container principal — atualizado dinamicamente via JS -->
+    <div id="q-container">
+      {% if questao %}
+      {% include "quiz/includes/revisao_questao_card.html" with questao=questao %}
+      {% else %}
+      <div class="paper-card rounded-2xl p-12 text-center fade-in">
+        <div class="scale-in w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-on-secondary-container active-icon" style="font-size:32px;">task_alt</span>
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-primary mb-2">Tudo revisado!</h2>
+        <p class="text-sm text-on-surface-variant mb-4">Nenhuma questão pendente com os filtros atuais.</p>
+        <a href="?" class="inline-flex items-center gap-1.5 bg-primary text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+          Limpar filtros
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</main>
+
+<!-- Modal reprovar -->
+<div id="modal-reprovar" class="hidden fixed inset-0 z-[80] bg-black/55 backdrop-blur-sm flex items-center justify-center p-6">
+  <div class="paper-card rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden">
+    <div class="px-6 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="material-symbols-outlined text-amber-500 active-icon">edit_note</span>
+      <h3 class="font-serif text-lg font-semibold text-primary">Reprovar e mandar pra IA refazer</h3>
+    </div>
+    <div class="p-6">
+      <p class="text-sm text-on-surface-variant mb-4">
+        Escreva o <strong>que está errado</strong> ou <strong>o que precisa melhorar</strong>. Quanto mais específico, melhor a IA corrige.
+      </p>
+      <textarea id="motivo-input" rows="4" placeholder="Ex: A alternativa B também está correta. Refaça com gabarito único e cite o artigo da CF/88."
+        class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 text-sm resize-y bg-white"></textarea>
+      <p class="text-[11px] text-on-surface-variant mt-2">Se deixar em branco, usa motivo genérico padrão.</p>
+    </div>
+    <div class="bg-surface-container-low px-6 py-4 flex justify-end gap-2">
+      <button onclick="fecharReprovar()" class="px-4 py-2 bg-white border border-[#e5e1d8] text-on-surface rounded-lg text-sm font-semibold hover:bg-surface-container-low">Cancelar</button>
+      <button onclick="confirmarReprovar()" class="px-5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-sm font-semibold">Reprovar e processar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal bulk approve -->
+<div id="modal-bulk" class="hidden fixed inset-0 z-[80] bg-black/55 backdrop-blur-sm flex items-center justify-center p-6">
+  <div class="paper-card rounded-2xl max-w-md w-full shadow-2xl overflow-hidden">
+    <div class="px-6 py-4 border-b border-[#e5e1d8] flex items-center gap-2 ai-glow">
+      <span class="material-symbols-outlined text-primary active-icon relative z-10">done_all</span>
+      <h3 class="font-serif text-lg font-semibold text-primary relative z-10">Aprovar em lote</h3>
+    </div>
+    <div class="p-6 space-y-4">
+      <p class="text-sm text-on-surface-variant">
+        Aprova em massa as questões pendentes que <strong>já têm justificativa</strong> e alternativa correta.
+        Aplica os filtros abaixo:
+      </p>
+
+      <label class="flex items-start gap-2 text-sm">
+        <input type="checkbox" id="bulk-apenas-cat" class="mt-1"/>
+        <div>
+          <span class="font-medium">Só desta categoria</span>
+          <p class="text-[11px] text-on-surface-variant" id="bulk-cat-label">— nenhuma selecionada</p>
+        </div>
+      </label>
+
+      <label class="flex items-start gap-2 text-sm">
+        <input type="checkbox" id="bulk-apenas-ia" class="mt-1" checked/>
+        <div>
+          <span class="font-medium">Só geradas por IA</span>
+          <p class="text-[11px] text-on-surface-variant">Descarta questões manuais/legacy</p>
+        </div>
+      </label>
+
+      <div>
+        <label class="text-sm font-medium">Limite máximo</label>
+        <input type="number" id="bulk-limite" value="50" min="1" max="200"
+               class="mt-1 w-full px-3 py-2 rounded-lg border border-outline-variant/40 text-sm bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+        <p class="text-[11px] text-on-surface-variant mt-1">Máximo 200. Recomendado começar com 20-50 pra revisar o resultado.</p>
+      </div>
+
+      <div id="bulk-result" class="hidden rounded-lg p-3 text-xs border"></div>
+    </div>
+    <div class="bg-surface-container-low px-6 py-4 flex justify-end gap-2">
+      <button onclick="fecharBulk()" class="px-4 py-2 bg-white border border-[#e5e1d8] text-on-surface rounded-lg text-sm font-semibold hover:bg-surface-container-low">Cancelar</button>
+      <button id="btn-bulk-confirm" onclick="confirmarBulk()" class="ai-btn px-5 py-2 text-white rounded-lg text-sm font-semibold">
+        <span class="relative z-10">Aprovar em lote</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast paper-card rounded-xl px-4 py-3 flex items-center gap-2 shadow-2xl">
+  <span class="material-symbols-outlined active-icon text-secondary" id="toast-icon">check_circle</span>
+  <span class="text-sm font-semibold" id="toast-msg">OK</span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" integrity="sha384-odPBjvtXVM/5hOYIr3A1dB+flh0c3wAT3bSesIOqEGmyUA4JoKf/YTWy0XKOYAY7" crossorigin="anonymous"></script>
+<script>
+// ═════════════════════════ Estado + helpers ═════════════════════════
+function csrfHeader() {
+  const m = document.cookie.match(/csrftoken=([^;]+)/);
+  return m ? { 'X-CSRFToken': m[1] } : {};
+}
+function toast(msg, tipo='ok') {
+  const t = document.getElementById('toast');
+  const icon = document.getElementById('toast-icon');
+  document.getElementById('toast-msg').textContent = msg;
+  if (tipo === 'ok')   { icon.textContent = 'check_circle'; icon.className = 'material-symbols-outlined active-icon text-secondary'; }
+  if (tipo === 'warn') { icon.textContent = 'warning';      icon.className = 'material-symbols-outlined active-icon text-amber-500'; }
+  if (tipo === 'err')  { icon.textContent = 'error';        icon.className = 'material-symbols-outlined active-icon text-error'; }
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+let currentQuestaoId = {% if questao %}{{ questao.id }}{% else %}null{% endif %};
+
+function filtroParams() {
+  const cat      = document.getElementById('filtro-cat').value;
+  const ordem    = document.getElementById('filtro-ordem').value;
+  const ia       = document.getElementById('filtro-ia').checked ? '1' : '0';
+  const problema = document.getElementById('filtro-problema')?.value || '';
+  const p = new URLSearchParams();
+  if (cat)      p.set('cat', cat);
+  if (ordem)    p.set('ordem', ordem);
+  if (problema) p.set('problema', problema);
+  p.set('apenas_ia', ia);
+  return p;
+}
+
+function onFiltroChange() {
+  // Reload da página com os filtros — mais simples que refazer render do zero via JS
+  const p = filtroParams();
+  p.delete('apenas_ia');
+  if (document.getElementById('filtro-ia').checked) p.set('ia', '1');
+  window.location.href = '?' + p.toString();
+}
+
+// ═════════════════════════ Renderização card ═════════════════════════
+function renderQuestao(q, restantes) {
+  const container = document.getElementById('q-container');
+  if (!q) {
+    container.innerHTML = `
+      <div class="paper-card rounded-2xl p-12 text-center card-anim">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-on-secondary-container active-icon" style="font-size:32px;">task_alt</span>
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-primary mb-2">Tudo revisado!</h2>
+        <p class="text-sm text-on-surface-variant mb-4">Nenhuma questão pendente com os filtros atuais.</p>
+        <a href="?" class="inline-flex items-center gap-1.5 bg-primary text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">Limpar filtros</a>
+      </div>`;
+    currentQuestaoId = null;
+    return;
+  }
+  currentQuestaoId = q.id;
+  const chips = [];
+  chips.push(`<span class="text-[10px] uppercase tracking-wider font-bold bg-primary-fixed text-primary-container px-2 py-0.5 rounded-full">${q.categoria}</span>`);
+  if (q.banca)   chips.push(`<span class="text-[10px] uppercase tracking-wider font-bold bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2 py-0.5 rounded-full">${q.banca}</span>`);
+  if (q.ano)     chips.push(`<span class="text-[10px] uppercase tracking-wider font-bold bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2 py-0.5 rounded-full">${q.ano}</span>`);
+  if (q.assunto) chips.push(`<span class="text-[10px] uppercase tracking-wider font-bold bg-primary-fixed text-primary-container px-2 py-0.5 rounded-full">${escapeHtml(q.assunto)}</span>`);
+  if (q.gerada_por_ia) chips.push(`<span class="text-[10px] uppercase tracking-wider font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">🤖 IA</span>`);
+
+  // Widget de flags de qualidade detectadas
+  const flagsHtml = (q.flags && q.flags.length) ? `
+    <div class="mb-4 rounded-xl p-3 border" style="background:rgba(255,218,214,.25);border-color:rgba(186,26,26,.35);">
+      <p class="text-[10px] font-bold text-error uppercase tracking-wider mb-2 flex items-center gap-1.5">
+        <span class="material-symbols-outlined active-icon" style="font-size:14px;">warning</span>
+        ${q.flags.length} problema(s) detectado(s) pelo auditor
+      </p>
+      <ul class="text-xs text-error space-y-1">
+        ${q.flags.map(f => `<li>${f.grave ? '⚠' : '·'} ${escapeHtml(f.label)}</li>`).join('')}
+      </ul>
+      <p class="text-[10px] text-on-surface-variant mt-2 italic">Corrija clicando em "Editar no admin Django" abaixo, ou reprove pra IA refazer.</p>
+    </div>
+  ` : '';
+
+  const alts = q.alternativas.map(a => `
+    <div class="alt-row ${a.correta ? 'alt-correta' : ''} p-3 rounded-xl border border-[#e5e1d8] flex items-start gap-3">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${a.correta ? 'bg-secondary text-white' : 'bg-surface-container text-on-surface-variant'}">
+        ${a.correta ? '✓' : ''}
+      </div>
+      <p class="text-sm text-on-surface leading-relaxed flex-1">${escapeHtml(a.texto)}</p>
+      ${a.correta ? '<span class="text-[10px] font-bold text-secondary uppercase tracking-wider">Correta</span>' : ''}
+    </div>
+  `).join('');
+
+  const justifHtml = q.justificativa
+    ? `<div class="bg-primary-fixed/40 border-l-4 border-primary-fixed-dim rounded-r-xl p-5">
+         <div class="flex items-center justify-between mb-3">
+           <p class="text-[10px] uppercase tracking-widest font-bold text-primary">Gabarito comentado</p>
+           <button onclick="gerarJustificativaIA(true)" class="text-[10px] text-primary hover:text-primary-container underline font-semibold">🔄 Regerar com IA</button>
+         </div>
+         <div class="justif-md">${marked.parse(q.justificativa)}</div>
+       </div>`
+    : `<div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4">
+         <div class="flex items-start gap-3">
+           <span class="material-symbols-outlined text-amber-600 shrink-0" style="font-size:22px;">warning</span>
+           <div class="flex-1">
+             <p class="text-sm font-semibold text-amber-900 mb-1">⚠ Sem justificativa — aprovar bloqueado</p>
+             <p class="text-xs text-amber-800 mb-3">Gere agora com IA (1 clique):</p>
+             <button onclick="gerarJustificativaIA(false)" class="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
+               <span class="material-symbols-outlined active-icon" style="font-size:14px;">auto_awesome</span>
+               Gerar justificativa com IA
+             </button>
+           </div>
+         </div>
+       </div>`;
+
+  const motivoHtml = q.motivo_rejeicao
+    ? `<div class="bg-error-container/40 border-l-4 border-error rounded-r-xl p-4 mb-5">
+         <p class="text-[10px] uppercase tracking-widest font-bold text-on-error-container mb-1.5">Reprovação anterior (tentativa ${q.tentativas_correcao})</p>
+         <p class="text-sm text-on-error-container italic">"${escapeHtml(q.motivo_rejeicao)}"</p>
+       </div>`
+    : '';
+
+  container.innerHTML = `
+    <article id="card-questao" class="paper-card rounded-2xl p-6 md:p-8 card-anim">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        ${chips.join('')}
+        <span class="ml-auto text-[10px] text-on-surface-variant font-mono">#${q.id}</span>
+      </div>
+      <div class="mb-5">
+        <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">${escapeHtml(q.texto)}</p>
+      </div>
+      ${flagsHtml}
+      <div class="space-y-2 mb-5">${alts}</div>
+      <div id="dup-container" class="mb-5"></div>
+      <div id="justif-container" class="mb-5">${justifHtml}</div>
+      ${motivoHtml}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <button onclick="acao('aprovar')" class="action-btn flex items-center justify-center gap-1.5 bg-secondary hover:opacity-90 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">check_circle</span>
+          Aprovar <kbd class="bg-white/20 border-white/30 text-white">A</kbd>
+        </button>
+        <button onclick="abrirReprovar()" class="action-btn flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">edit_note</span>
+          Reprovar p/ IA <kbd class="bg-white/20 border-white/30 text-white">R</kbd>
+        </button>
+        <button onclick="acao('rejeitar')" class="action-btn flex items-center justify-center gap-1.5 bg-error hover:opacity-90 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+          <span class="material-symbols-outlined active-icon" style="font-size:18px;">block</span>
+          Rejeitar def.
+        </button>
+        <button onclick="confirmarExcluir()" class="action-btn flex items-center justify-center gap-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface px-4 py-3 rounded-lg text-sm font-semibold">
+          <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+          Excluir <kbd>X</kbd>
+        </button>
+      </div>
+      <div class="mt-3 flex justify-between items-center text-xs text-on-surface-variant">
+        <a href="/admin/quiz/questao/${q.id}/change/" target="_blank" class="hover:text-primary flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:14px;">edit</span> Editar no admin Django
+        </a>
+        <div class="flex items-center gap-3">
+          <span>${restantes} restante(s)</span>
+          <button onclick="proximaAJAX()" class="font-semibold text-primary hover:underline flex items-center gap-1">
+            Próxima <kbd>→</kbd>
+          </button>
+        </div>
+      </div>
+    </article>`;
+
+  // Carrega duplicatas em background
+  carregarDuplicatas(q.id);
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ═════════════════════════ Busca por ID (admin) ═════════════════════════
+async function buscarPorId() {
+  const input = document.getElementById('busca-id');
+  const id = parseInt(input.value);
+  if (!id || id < 1) { toast('Digite um ID válido', 'warn'); return; }
+
+  try {
+    const r = await fetch(`/api/admin/revisao/por-id/${id}/`);
+    if (r.status === 404) { toast(`Questão #${id} não encontrada`, 'err'); return; }
+    const j = await r.json();
+    if (!j.ok) { toast(j.erro || 'erro', 'err'); return; }
+
+    document.getElementById('hdr-pendentes').textContent = '—';
+    renderQuestao(j.questao, 0);
+
+    // Aviso de status atual
+    const statusMsg = j.status_atual === 'aprovada'
+      ? `Questão #${id} já está APROVADA. Aprovar de novo é no-op; rejeitar/reprovar voltará pra pendente.`
+      : j.status_atual === 'rejeitada'
+      ? `Questão #${id} está REJEITADA DEFINITIVAMENTE. Ações não terão efeito.`
+      : `Questão #${id} está pendente.`;
+    toast(statusMsg, j.status_atual === 'aprovada' ? 'ok' : (j.status_atual === 'rejeitada' ? 'err' : 'warn'));
+
+    input.value = '';
+  } catch(e) {
+    toast('Erro de conexão', 'err');
+  }
+}
+
+// ═════════════════════════ AJAX próxima ═════════════════════════
+async function proximaAJAX() {
+  const p = filtroParams();
+  if (currentQuestaoId) p.set('skip_id', currentQuestaoId);
+  try {
+    const r = await fetch('/api/admin/revisao/proxima/?' + p.toString());
+    const j = await r.json();
+    document.getElementById('hdr-pendentes').textContent = j.total_restantes;
+    renderQuestao(j.vazio ? null : j.questao, j.total_restantes);
+  } catch(e) {
+    toast('Erro ao buscar próxima', 'err');
+  }
+}
+
+// ═════════════════════════ Duplicatas ═════════════════════════
+async function carregarDuplicatas(qid) {
+  const cont = document.getElementById('dup-container');
+  if (!cont) return;
+  try {
+    const r = await fetch(`/api/admin/revisao/duplicatas/${qid}/`);
+    const j = await r.json();
+    if (!j.ok || !j.duplicatas || !j.duplicatas.length) { cont.innerHTML = ''; return; }
+    const items = j.duplicatas.map(d => `
+      <div class="flex items-start gap-2 p-2 border-b border-amber-200 last:border-0">
+        <span class="text-[10px] font-bold text-amber-700 mt-0.5 shrink-0">${d.similaridade}%</span>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs text-amber-900 truncate">${escapeHtml(d.texto)}</p>
+          <div class="flex items-center gap-2 mt-0.5">
+            <span class="text-[10px] text-amber-700">#${d.id}</span>
+            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded ${d.status==='aprovada'?'bg-secondary-container/50 text-secondary':d.status==='rejeitada'?'bg-error-container/50 text-error':'bg-amber-100 text-amber-800'}">${d.status}</span>
+            <a href="/admin/quiz/questao/${d.id}/change/" target="_blank" class="text-[10px] text-amber-700 hover:underline">abrir</a>
+          </div>
+        </div>
+      </div>`).join('');
+    cont.innerHTML = `
+      <div class="bg-amber-50 border border-amber-300 rounded-xl p-3">
+        <p class="text-[10px] font-bold text-amber-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+          <span class="material-symbols-outlined active-icon" style="font-size:14px;">content_copy</span>
+          ${j.duplicatas.length} possível(is) duplicata(s) na mesma disciplina
+        </p>
+        ${items}
+      </div>`;
+  } catch(e) { /* silencioso */ }
+}
+
+// ═════════════════════════ Ações ═════════════════════════
+const URL_ACAO_BASE = '{% url "api_revisar_acao" 0 %}';
+async function acao(tipo, motivo='') {
+  if (!currentQuestaoId) return;
+  const fd = new FormData();
+  fd.append('acao', tipo);
+  if (motivo) fd.append('motivo', motivo);
+  try {
+    const r = await fetch(URL_ACAO_BASE.replace('/0/', `/${currentQuestaoId}/`), {
+      method:'POST', body: fd, headers: csrfHeader(),
+    });
+    const j = await r.json();
+    if (j.ok) {
+      if (tipo === 'aprovar')      toast('Aprovada ✓', 'ok');
+      else if (tipo === 'reprovar') toast('Reprovada — IA vai refazer', 'warn');
+      else if (tipo === 'rejeitar') toast('Rejeitada definitivamente', 'err');
+      else if (tipo === 'excluir')  toast('Excluída', 'err');
+      // Atualiza contador do header
+      if (tipo === 'aprovar') {
+        const el = document.getElementById('hdr-aprovadas');
+        el.textContent = parseInt(el.textContent) + 1;
+      }
+      const elp = document.getElementById('hdr-pendentes');
+      elp.textContent = Math.max(0, parseInt(elp.textContent) - 1);
+      // Vai pra próxima
+      proximaAJAX();
+    } else if (j.erro === 'sem_justificativa') {
+      if (confirm(j.msg + '\n\nGerar automaticamente agora?')) {
+        await gerarJustificativaIA(false);
+      }
+    } else {
+      toast(j.msg || j.erro || 'erro', 'err');
+    }
+  } catch(e) { toast('Erro de conexão', 'err'); }
+}
+
+async function gerarJustificativaIA(regenerar) {
+  if (!currentQuestaoId) return;
+  const container = document.getElementById('justif-container');
+  container.innerHTML = `
+    <div class="bg-primary-fixed/40 border-l-4 border-primary-fixed-dim rounded-r-xl p-4">
+      <div class="flex items-center gap-3">
+        <div class="animate-spin w-5 h-5 border-2 border-primary border-t-transparent rounded-full"></div>
+        <p class="text-sm text-primary">🤖 IA gerando justificativa… (~10s)</p>
+      </div>
+    </div>`;
+
+  const fd = new FormData();
+  fd.append('acao', 'gerar_justificativa');
+  try {
+    const r = await fetch(URL_ACAO_BASE.replace('/0/', `/${currentQuestaoId}/`), {
+      method:'POST', body: fd, headers: csrfHeader(),
+    });
+    const j = await r.json();
+    if (j.ok) {
+      container.innerHTML = `
+        <div class="bg-primary-fixed/40 border-l-4 border-primary-fixed-dim rounded-r-xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-[10px] uppercase tracking-widest font-bold text-primary">✓ Gabarito comentado · ${j.chars} chars</p>
+            <button onclick="gerarJustificativaIA(true)" class="text-[10px] text-primary hover:text-primary-container underline font-semibold">🔄 Regerar</button>
+          </div>
+          <div class="justif-md">${marked.parse(j.justificativa)}</div>
+        </div>`;
+    } else {
+      container.innerHTML = `
+        <div class="bg-error-container/40 border-l-4 border-error rounded-r-xl p-4">
+          <p class="text-xs text-on-error-container">❌ ${j.msg || j.erro}</p>
+          <button onclick="gerarJustificativaIA(false)" class="mt-2 text-xs font-semibold text-error underline">Tentar novamente</button>
+        </div>`;
+    }
+  } catch(e) {
+    container.innerHTML = `<p class="text-xs text-error">Erro de conexão: ${e}</p>`;
+  }
+}
+
+// ═════════════════════════ Modais ═════════════════════════
+function abrirReprovar() {
+  document.getElementById('motivo-input').value = '';
+  document.getElementById('modal-reprovar').classList.remove('hidden');
+  setTimeout(() => document.getElementById('motivo-input').focus(), 50);
+}
+function fecharReprovar() { document.getElementById('modal-reprovar').classList.add('hidden'); }
+function confirmarReprovar() {
+  const m = document.getElementById('motivo-input').value.trim();
+  fecharReprovar();
+  acao('reprovar', m);
+}
+function confirmarExcluir() {
+  if (confirm('Excluir DEFINITIVAMENTE esta questão?')) acao('excluir');
+}
+
+// Bulk approve
+function abrirBulkApprove() {
+  const catSel = document.getElementById('filtro-cat');
+  const catNome = catSel.value ? catSel.options[catSel.selectedIndex].text : '';
+  const chkCat = document.getElementById('bulk-apenas-cat');
+  document.getElementById('bulk-cat-label').textContent = catNome ? `Categoria: ${catNome}` : '— selecione uma categoria no filtro primeiro';
+  chkCat.disabled = !catSel.value;
+  chkCat.checked = !!catSel.value;
+  document.getElementById('bulk-result').classList.add('hidden');
+  document.getElementById('btn-bulk-confirm').disabled = false;
+  document.getElementById('modal-bulk').classList.remove('hidden');
+}
+function fecharBulk() { document.getElementById('modal-bulk').classList.add('hidden'); }
+
+async function confirmarBulk() {
+  const btn = document.getElementById('btn-bulk-confirm');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Processando…';
+
+  const catSel   = document.getElementById('filtro-cat');
+  const usarCat  = document.getElementById('bulk-apenas-cat').checked && catSel.value;
+  const apenasIa = document.getElementById('bulk-apenas-ia').checked;
+  const limite   = parseInt(document.getElementById('bulk-limite').value) || 50;
+
+  const payload = { apenas_com_justif: true, apenas_ia: apenasIa, limite: limite };
+  if (usarCat) payload.cat_id = parseInt(catSel.value);
+
+  try {
+    const r = await fetch('/api/admin/revisao/bulk-approve/', {
+      method:'POST',
+      headers: { 'Content-Type': 'application/json', ...csrfHeader() },
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json();
+    const res = document.getElementById('bulk-result');
+    res.classList.remove('hidden');
+    if (j.ok) {
+      res.className = 'rounded-lg p-3 text-xs border bg-secondary-container/40 border-secondary/30 text-secondary';
+      res.innerHTML = `<strong>${j.aprovadas} questão(ões) aprovada(s)</strong> de ${j.total_candidatas} candidatas elegíveis.`;
+      // Atualiza contadores do header
+      const elap = document.getElementById('hdr-aprovadas');
+      const elpe = document.getElementById('hdr-pendentes');
+      elap.textContent = parseInt(elap.textContent) + j.aprovadas;
+      elpe.textContent = Math.max(0, parseInt(elpe.textContent) - j.aprovadas);
+      toast(`${j.aprovadas} aprovadas em lote`, 'ok');
+      btn.querySelector('span').textContent = 'Aprovar em lote';
+      setTimeout(() => { fecharBulk(); proximaAJAX(); }, 1800);
+    } else {
+      res.className = 'rounded-lg p-3 text-xs border bg-error-container/40 border-error/30 text-error';
+      res.textContent = j.erro || 'Erro ao processar';
+      btn.disabled = false;
+      btn.querySelector('span').textContent = 'Aprovar em lote';
+    }
+  } catch(e) {
+    toast('Erro de conexão', 'err');
+    btn.disabled = false;
+    btn.querySelector('span').textContent = 'Aprovar em lote';
+  }
+}
+
+// ═════════════════════════ Atalhos teclado ═════════════════════════
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  if (k === 'a') { e.preventDefault(); acao('aprovar'); }
+  else if (k === 'r') { e.preventDefault(); abrirReprovar(); }
+  else if (k === 'x') { e.preventDefault(); confirmarExcluir(); }
+  else if (k === 'j') { e.preventDefault(); gerarJustificativaIA(false); }
+  else if (k === 'b') { e.preventDefault(); abrirBulkApprove(); }
+  else if (k === 'g') { e.preventDefault(); document.getElementById('busca-id')?.focus(); }
+  else if (e.key === 'ArrowRight') { e.preventDefault(); proximaAJAX(); }
+  else if (e.key === 'Escape') { fecharReprovar(); fecharBulk(); }
+});
+
+// Renderiza markdown da justificativa inicial (SSR-rendered)
+document.addEventListener('DOMContentLoaded', function() {
+  const raw = document.getElementById('justif-raw');
+  const md = document.getElementById('justif-md');
+  if (raw && md && typeof marked !== 'undefined') {
+    md.innerHTML = marked.parse(raw.textContent);
+  }
+  // Carrega duplicatas da primeira questão
+  if (currentQuestaoId) carregarDuplicatas(currentQuestaoId);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | SantuarioEdu Admin{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'admin/css/custom_admin.css' %}">
+  <link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}">
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+  <a href="{% url 'admin:index' %}">SantuarioEdu</a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

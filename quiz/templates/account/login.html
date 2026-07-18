@@ -1,0 +1,190 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Entrar — SantuarioEdu</title>
+{% load static %}<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/source-serif-4.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary":"#002046","primary-container":"#1b365d","on-primary":"#ffffff",
+        "secondary":"#006c4d","on-secondary":"#ffffff","secondary-container":"#9df4cc","secondary-fixed-dim":"#81d7b1",
+        "surface":"#fcf9f8","background":"#f6f1e7",
+        "surface-container-lowest":"#ffffff","surface-container-low":"#f6f3f2",
+        "surface-container":"#f0eded","surface-container-high":"#eae7e7",
+        "on-surface":"#1c1b1b","on-surface-variant":"#44474e",
+        "outline":"#74777f","outline-variant":"#c4c6cf",
+        "error":"#ba1a1a","error-container":"#ffdad6","on-error-container":"#93000a",
+        "primary-fixed":"#d6e3ff","primary-fixed-dim":"#aec7f6",
+      },
+      fontFamily: {
+        serif: ["'Source Serif 4'", "Georgia", "serif"],
+        body: ["Inter", "sans-serif"],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background:#f6f1e7; font-family:'Inter',sans-serif; color:#1c1b1b; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  h1,h2,h3,.font-serif { font-family:'Source Serif 4', Georgia, serif; }
+  .premium-card { box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+
+  input[type="checkbox"] {
+    appearance:none; width:16px; height:16px;
+    border-radius:4px; border:1.5px solid #c4c6cf; background:#fff;
+    cursor:pointer; transition:all .15s; flex-shrink:0;
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  input[type="checkbox"]:checked {
+    background:#006c4d; border-color:#006c4d;
+  }
+  input[type="checkbox"]:checked::after {
+    content:''; display:block;
+    width:5px; height:9px;
+    border:solid #fff; border-width:0 2px 2px 0;
+    transform:rotate(45deg) translateY(-1px);
+  }
+
+  input[type="text"], input[type="password"], input[type="email"] {
+    transition:all .15s;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    outline:none; border-color:#002046; box-shadow:0 0 0 3px rgba(0,32,70,0.10);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .fade-in { animation:fadeInUp .5s cubic-bezier(.16,1,.3,1) both; }
+</style>
+</head>
+<body class="flex flex-col min-h-screen items-center justify-center p-5 md:p-10">
+
+<!-- Subtle background blobs -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden opacity-25">
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-secondary-fixed-dim blur-3xl" id="blob1"></div>
+  <div class="absolute top-1/2 -right-48 w-[500px] h-[500px] rounded-full bg-primary-fixed-dim blur-[120px]" id="blob2"></div>
+</div>
+
+<main class="relative z-10 w-full flex flex-col items-center fade-in">
+
+  <!-- Brand -->
+  <div class="mb-8 text-center">
+    <h1 class="font-serif text-3xl font-bold text-primary tracking-tight mb-2">SantuarioEdu</h1>
+    <p class="text-sm text-on-surface-variant max-w-[320px]">Acesse sua biblioteca digital e retome seus estudos com foco.</p>
+  </div>
+
+  <!-- Login Card -->
+  <section class="premium-card bg-white w-full max-w-[440px] rounded-xl border border-outline-variant/30 p-8 md:p-10 flex flex-col">
+    <h2 class="font-serif text-xl font-semibold text-on-surface mb-8">Entrar na plataforma</h2>
+
+    {% if form.errors %}
+    <div class="mb-6 px-4 py-3 rounded-lg bg-error-container/40 border border-error/20 text-on-error-container text-xs font-semibold flex items-start gap-2">
+      <span class="material-symbols-outlined" style="font-size:18px;">error</span>
+      <span>Usuário ou senha incorretos. Tente novamente.</span>
+    </div>
+    {% endif %}
+
+    <!-- Google (ação primária) -->
+    <a href="{% url 'google_login' %}"
+       class="flex items-center justify-center gap-3 w-full py-3 px-6 bg-primary text-on-primary rounded-lg font-semibold text-sm hover:opacity-90 transition-all active:scale-[0.98]">
+      <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      Continuar com Google
+    </a>
+
+    <div class="flex items-center my-6">
+      <div class="flex-grow h-px bg-outline-variant/40"></div>
+      <span class="px-4 text-xs text-on-surface-variant/70 uppercase tracking-widest font-semibold">ou</span>
+      <div class="flex-grow h-px bg-outline-variant/40"></div>
+    </div>
+
+    <!-- Form -->
+    <form method="POST" action="{% url 'account_login' %}" class="flex flex-col space-y-5" id="loginForm">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+
+      <div>
+        <label for="id_login" class="block text-xs font-semibold text-on-surface-variant mb-2">Usuário</label>
+        <input type="text" name="login" id="id_login" required autocomplete="username"
+               placeholder="Seu nome de usuário"
+               class="w-full h-12 px-4 bg-white border border-outline-variant/60 rounded-lg text-sm placeholder:text-on-surface-variant/40"/>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label for="id_password" class="block text-xs font-semibold text-on-surface-variant">Senha</label>
+          <a href="{% url 'account_reset_password' %}" class="text-xs text-secondary hover:underline font-semibold">Esqueceu a senha?</a>
+        </div>
+        <div class="relative">
+          <input type="password" name="password" id="id_password" required autocomplete="current-password"
+                 placeholder="••••••••"
+                 class="w-full h-12 px-4 pr-12 bg-white border border-outline-variant/60 rounded-lg text-sm placeholder:text-on-surface-variant/40"/>
+          <button type="button" onclick="togglePassword()"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-on-surface transition-colors">
+            <span class="material-symbols-outlined" id="eyeIcon" style="font-size:20px;">visibility</span>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit"
+              class="w-full h-12 bg-white border border-secondary text-secondary font-semibold text-sm rounded-lg hover:bg-secondary/5 transition-colors active:scale-[0.98] mt-2 flex items-center justify-center gap-2">
+        Entrar com usuário e senha
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </button>
+    </form>
+
+    <footer class="mt-8 pt-6 border-t border-outline-variant/30 text-center">
+      <p class="text-sm text-on-surface-variant">
+        Novo no SantuarioEdu? <a href="{% url 'cadastro' %}" class="text-primary font-semibold hover:underline">Crie sua conta agora</a>
+      </p>
+    </footer>
+  </section>
+
+  <!-- Seal -->
+  <div class="mt-8 text-center">
+    <p class="text-xs text-on-surface-variant/60 flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">verified_user</span>
+      Ambiente de aprendizagem seguro &amp; criptografado
+    </p>
+  </div>
+</main>
+
+<script>
+  function togglePassword() {
+    const p = document.getElementById('id_password');
+    const eye = document.getElementById('eyeIcon');
+    if (p.type === 'password') { p.type = 'text'; eye.innerText = 'visibility_off'; }
+    else { p.type = 'password'; eye.innerText = 'visibility'; }
+  }
+
+  // Parallax sutil dos blobs
+  document.addEventListener('mousemove', (e) => {
+    const moveX = (e.clientX - window.innerWidth / 2) / 60;
+    const moveY = (e.clientY - window.innerHeight / 2) / 60;
+    const b1 = document.getElementById('blob1');
+    const b2 = document.getElementById('blob2');
+    if (b1) b1.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    if (b2) b2.style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+  });
+</script>
+
+{% include "includes/cookie_banner.html" %}
+</body>
+</html>

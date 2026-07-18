@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Métricas do negócio — SantuarioEdu Admin</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>.kpi-card { transition: transform .15s; } .kpi-card:hover { transform: translateY(-2px); }</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='painel' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">leaderboard</span>
+  <div>
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none">Métricas do negócio</h1>
+    <p class="text-[11px] text-on-surface-variant">KPIs em tempo real · acesso restrito</p>
+  </div>
+  <a href="{% url 'dashboard' %}" class="ml-auto text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1">
+    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+    Voltar
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 space-y-8">
+
+    <section>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Usuários</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Total cadastrados</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ total_usuarios }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Novos (7 dias)</p>
+          <p class="font-serif text-3xl font-bold text-primary">+{{ novos_7d }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Novos (30 dias)</p>
+          <p class="font-serif text-3xl font-bold text-primary">+{{ novos_30d }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Ativos (7 dias)</p>
+          <p class="font-serif text-3xl font-bold text-secondary">{{ ativos_7d }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Receita & conversão</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Pagantes ativos</p>
+          <p class="font-serif text-3xl font-bold text-secondary">{{ pagantes }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Taxa conversão</p>
+          <p class="font-serif text-3xl font-bold {% if taxa_conversao >= 3 %}text-secondary{% else %}text-amber-600{% endif %}">{{ taxa_conversao }}%</p>
+          <p class="text-[10px] text-on-surface-variant mt-1">Meta: 3-5%</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Plano PRO</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ plano_pro }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Plano Premium</p>
+          <p class="font-serif text-3xl font-bold text-amber-600">{{ plano_premium }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Engajamento</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Respostas totais</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ total_respostas }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Respostas (7d)</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ respostas_7d }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Simulados</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ total_simulados }}</p>
+        </div>
+        <div class="kpi-card paper-card rounded-xl p-5">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Simulados (7d)</p>
+          <p class="font-serif text-3xl font-bold text-primary">{{ simulados_7d }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6">
+      <div class="paper-card rounded-2xl p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Banco de questões</h3>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-on-surface-variant">Total</span>
+            <span class="font-serif text-2xl font-bold text-primary">{{ questoes_total }}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-on-surface-variant">Aprovadas</span>
+            <span class="font-serif text-xl font-bold text-secondary">{{ questoes_aprov }}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-on-surface-variant">Aguardando revisão</span>
+            <span class="font-serif text-xl font-bold text-amber-600">{{ questoes_pend }}</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-[#e5e1d8]">
+          <a href="/admin/quiz/questao/?revisada__exact=0&gerada_por_ia__exact=1" class="text-xs font-semibold text-primary hover:underline">Ir revisar pendentes →</a>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6">
+      <div class="paper-card rounded-2xl p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Disciplinas mais respondidas (30d)</h3>
+        {% for c in top_cats %}
+        <div class="flex justify-between items-center py-2 border-b border-[#e5e1d8] last:border-0">
+          <span class="text-sm text-on-surface truncate pr-2">{{ c.questao__categoria__nome|default:"(sem)" }}</span>
+          <span class="text-sm font-bold text-primary">{{ c.n }}</span>
+        </div>
+        {% empty %}<p class="text-sm text-on-surface-variant py-4 text-center">Sem dados ainda.</p>{% endfor %}
+      </div>
+
+      <div class="paper-card rounded-2xl p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Últimos eventos</h3>
+        <div class="space-y-2 max-h-72 overflow-y-auto">
+          {% for e in eventos %}
+          <div class="flex items-start gap-2 py-1.5 border-b border-[#e5e1d8] last:border-0">
+            <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider shrink-0
+              {% if e.nivel == 'ERRO' or e.nivel == 'CRITICO' %}bg-error-container/60 text-on-error-container
+              {% elif e.nivel == 'AVISO' %}bg-amber-100 text-amber-700
+              {% else %}bg-primary-fixed text-primary-container{% endif %}">{{ e.nivel }}</span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs text-on-surface truncate">{{ e.mensagem }}</p>
+              <p class="text-[10px] text-on-surface-variant">{{ e.criado_em|date:"d/m H:i" }} · {{ e.origem }}</p>
+            </div>
+          </div>
+          {% empty %}<p class="text-sm text-on-surface-variant text-center py-4">Sem eventos recentes.</p>{% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Uso de IA (hoje + tendência) ──────────────────────────────── -->
+    <section>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:16px;">auto_awesome</span>
+        Uso de IA hoje
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {% for prov, s in ia_hoje.items %}
+        <div class="paper-card rounded-2xl p-5
+          {% if s.status == 'critico' %}border-error/50{% elif s.status == 'atencao' %}border-amber-400{% endif %}">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full
+                {% if s.status == 'critico' %}bg-error animate-pulse
+                {% elif s.status == 'atencao' %}bg-amber-500
+                {% else %}bg-secondary{% endif %}"></span>
+              <p class="font-serif font-semibold text-primary text-base capitalize">{{ prov }}</p>
+              {% if prov == 'groq' %}
+              <span class="text-[9px] font-bold bg-primary-fixed text-primary-container px-1.5 py-0.5 rounded-full uppercase">Primary</span>
+              {% else %}
+              <span class="text-[9px] font-bold bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full uppercase">Fallback</span>
+              {% endif %}
+            </div>
+            <p class="text-[10px] text-on-surface-variant font-mono">
+              {% if s.status == 'critico' %}⚠ CRÍTICO
+              {% elif s.status == 'atencao' %}⚠ ATENÇÃO
+              {% else %}✓ OK{% endif %}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 mb-4">
+            <div>
+              <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Chamadas OK</p>
+              <p class="font-serif text-xl font-bold text-on-surface">{{ s.ok }}</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Quota 429</p>
+              <p class="font-serif text-xl font-bold {% if s.quota > 0 %}text-error{% else %}text-on-surface-variant{% endif %}">{{ s.quota }}</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Outros erros</p>
+              <p class="font-serif text-xl font-bold {% if s.err > 0 %}text-amber-600{% else %}text-on-surface-variant{% endif %}">{{ s.err }}</p>
+            </div>
+          </div>
+
+          <!-- Barra de tokens -->
+          <div class="mb-2">
+            <div class="flex justify-between text-[10px] mb-1">
+              <span class="text-on-surface-variant font-bold uppercase">Tokens hoje</span>
+              <span class="font-mono text-on-surface">{{ s.tokens }} / {{ s.cap_tokens }} ({{ s.pct_tokens }}%)</span>
+            </div>
+            <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full rounded-full transition-all
+                {% if s.pct_tokens >= 90 %}bg-error
+                {% elif s.pct_tokens >= 70 %}bg-amber-500
+                {% else %}bg-secondary{% endif %}"
+                style="width:{{ s.pct_tokens }}%"></div>
+            </div>
+          </div>
+
+          <!-- Barra de requests -->
+          <div>
+            <div class="flex justify-between text-[10px] mb-1">
+              <span class="text-on-surface-variant font-bold uppercase">Requests hoje</span>
+              <span class="font-mono text-on-surface">{{ s.ok }} / {{ s.cap_req }} ({{ s.pct_req }}%)</span>
+            </div>
+            <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full rounded-full transition-all
+                {% if s.pct_req >= 90 %}bg-error
+                {% elif s.pct_req >= 70 %}bg-amber-500
+                {% else %}bg-secondary{% endif %}"
+                style="width:{{ s.pct_req }}%"></div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Tendência 7 dias -->
+      <div class="paper-card rounded-2xl p-5 mt-4">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Tendência (últimos 7 dias)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs">
+            <thead>
+              <tr class="border-b border-[#e5e1d8]">
+                <th class="text-left py-2 font-bold text-on-surface-variant uppercase text-[10px] tracking-wider">Dia</th>
+                <th class="text-right py-2 font-bold text-primary uppercase text-[10px] tracking-wider">Groq (ok/tokens)</th>
+                <th class="text-right py-2 font-bold text-on-surface-variant uppercase text-[10px] tracking-wider">Gemini (ok/tokens)</th>
+                <th class="text-right py-2 font-bold text-error uppercase text-[10px] tracking-wider">Erros/Quota</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for d in ia_semana %}
+              <tr class="border-b border-[#e5e1d8] last:border-0 hover:bg-surface-container-low">
+                <td class="py-2 font-mono text-on-surface">{{ d.dia }}</td>
+                <td class="py-2 text-right font-mono">
+                  <span class="text-primary">{{ d.stats.groq.ok }}</span>
+                  <span class="text-on-surface-variant text-[10px]"> / {{ d.stats.groq.tokens }}</span>
+                </td>
+                <td class="py-2 text-right font-mono">
+                  <span class="text-on-surface">{{ d.stats.gemini.ok }}</span>
+                  <span class="text-on-surface-variant text-[10px]"> / {{ d.stats.gemini.tokens }}</span>
+                </td>
+                <td class="py-2 text-right font-mono text-error">
+                  {% widthratio d.stats.groq.err|add:d.stats.gemini.err|add:d.stats.groq.quota|add:d.stats.gemini.quota 1 1 %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-[10px] text-on-surface-variant mt-3 italic">
+          Contadores em cache (24h TTL). Reset ~00:00 UTC. Groq tokens do endpoint /usage; Gemini estimado (chars ÷ 4).
+          Cap teórico free tier: Groq 100k tokens · 6k req/dia · Gemini 1M tokens · 1.5k req/dia.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

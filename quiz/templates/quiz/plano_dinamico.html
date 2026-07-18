@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Plano dinâmico — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+  .slide-down { animation: slideDown .35s ease forwards; }
+  @keyframes barGrow { from { width:0 } }
+  .bar-grow { animation: barGrow .9s cubic-bezier(.4,0,.2,1) forwards; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='planejamento' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary active-icon" style="font-size:22px;">auto_fix_high</span>
+      Plano dinâmico
+    </h1>
+    <p class="text-xs text-on-surface-variant">
+      {% if plano.data_recalculo %}Atualizado {{ plano.data_recalculo|timesince }} atrás{% else %}Recalcula automaticamente pelo desempenho{% endif %}
+    </p>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-4xl mx-auto px-6 py-8 space-y-6">
+
+  {% if plano.recalculado_hoje and diff %}
+  <div class="slide-down paper-card rounded-2xl p-5" style="background:rgba(157,244,204,.2); border-color:rgba(0,108,77,.3);">
+    <h2 class="font-serif text-base font-semibold text-secondary flex items-center gap-2 mb-3">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">update</span>
+      Plano recalculado hoje — mudanças desta semana
+    </h2>
+    <div class="flex flex-wrap gap-2">
+      {% for d in diff %}
+      <div class="flex items-center gap-1.5 bg-white rounded-lg px-3 py-1.5 text-xs font-semibold border {% if d.up %}border-secondary/30 text-secondary{% else %}border-error/30 text-error{% endif %}">
+        <span>{% if d.up %}🔺{% else %}🔻{% endif %}</span>
+        <span>{{ d.nome|truncatechars:22 }}</span>
+        <span class="font-bold">{% if d.up %}+{% endif %}{{ d.delta }}h</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="paper-card rounded-2xl overflow-hidden">
+      <div class="px-5 py-4 border-b border-[#e5e1d8]">
+        <h2 class="font-serif text-base font-semibold text-primary flex items-center gap-2">
+          <span class="material-symbols-outlined text-on-surface-variant active-icon" style="font-size:18px;">tune</span>
+          Configurar plano
+        </h2>
+      </div>
+      <form method="post" class="p-5 space-y-4">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="recalcular">
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface-variant mb-1">Concurso alvo</label>
+          <input type="text" name="concurso" value="{{ plano.concurso_alvo }}" class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20"/>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface-variant mb-1">Data da prova</label>
+          <input type="date" name="data_prova" value="{% if plano.data_prova %}{{ plano.data_prova|date:'Y-m-d' }}{% endif %}" class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20"/>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-on-surface-variant mb-1">Horas / dia</label>
+            <select name="horas_dia" class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20">
+              {% for h in "12345" %}<option value="{{ h }}" {% if plano.horas_por_dia == h|add:0 %}selected{% endif %}>{{ h }}h</option>{% endfor %}
+              <option value="6" {% if plano.horas_por_dia == 6 %}selected{% endif %}>6h</option>
+              <option value="8" {% if plano.horas_por_dia == 8 %}selected{% endif %}>8h</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface-variant mb-1">Dias / semana</label>
+            <select name="dias_semana" class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20">
+              {% for d in "34567" %}<option value="{{ d }}" {% if plano.dias_por_semana == d|add:0 %}selected{% endif %}>{{ d }} dias</option>{% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full flex items-center justify-center gap-2 bg-secondary text-white py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">refresh</span>
+          Salvar e recalcular
+        </button>
+      </form>
+    </div>
+
+    <div class="space-y-3">
+      <div class="paper-card rounded-2xl p-5">
+        <div class="grid grid-cols-3 gap-3 text-center">
+          <div>
+            <p class="font-serif text-3xl font-bold text-secondary">{{ plano.horas_semana_total }}h</p>
+            <p class="text-[10px] text-on-surface-variant">por semana</p>
+          </div>
+          <div>
+            <p class="font-serif text-3xl font-bold text-primary">{{ plano.horas_por_dia }}h</p>
+            <p class="text-[10px] text-on-surface-variant">por dia</p>
+          </div>
+          <div>
+            {% if plano.semanas_restantes is not None %}
+            <p class="font-serif text-3xl font-bold text-primary">{{ plano.semanas_restantes }}</p>
+            <p class="text-[10px] text-on-surface-variant">semanas</p>
+            {% else %}
+            <p class="font-serif text-3xl font-bold text-outline">—</p>
+            <p class="text-[10px] text-on-surface-variant">sem prazo</p>
+            {% endif %}
+          </div>
+        </div>
+        {% if plano.data_prova %}
+        <div class="mt-3 pt-3 border-t border-[#e5e1d8] text-center">
+          <p class="text-xs text-on-surface-variant">🎯 <strong class="text-on-surface">{{ plano.concurso_alvo }}</strong> · {{ plano.data_prova|date:"d/m/Y" }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="paper-card rounded-2xl p-4">
+        <h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-3">Como o algoritmo distribui</h3>
+        <div class="space-y-1.5 text-xs">
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-error shrink-0"></div>
+            <span class="text-on-surface-variant">Crítico (&lt;30%) → <strong class="text-error">+220% do tempo</strong></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0"></div>
+            <span class="text-on-surface-variant">Atenção (30–49%) → <strong class="text-orange-600">+120%</strong></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></div>
+            <span class="text-on-surface-variant">Desenvolvendo (50–69%) → <strong class="text-yellow-600">+40%</strong></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0"></div>
+            <span class="text-on-surface-variant">Dominando (≥70%) → <strong class="text-secondary">reduzido</strong></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-outline shrink-0"></div>
+            <span class="text-on-surface-variant">Não iniciado → tempo médio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if distribuicao %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center justify-between">
+      <h2 class="font-serif text-base font-semibold text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:18px;">bar_chart</span>
+        Horas por disciplina esta semana
+      </h2>
+      <span class="text-xs text-on-surface-variant">Total: {{ plano.horas_semana_total }}h</span>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for cat in distribuicao %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <div class="w-2.5 h-2.5 rounded-full shrink-0
+          {% if cat.status == 'verde' %}bg-secondary
+          {% elif cat.status == 'amarelo' %}bg-yellow-500
+          {% elif cat.status == 'vermelho' %}bg-error
+          {% else %}bg-outline{% endif %}"></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between mb-1">
+            <p class="text-xs font-semibold truncate text-on-surface">{{ cat.nome }}</p>
+            <div class="flex items-center gap-2 shrink-0 ml-2">
+              {% if cat.pct is not None %}<span class="text-[10px] text-on-surface-variant">{{ cat.pct }}% acerto</span>
+              {% else %}<span class="text-[10px] text-on-surface-variant">não iniciado</span>{% endif %}
+              <span class="text-xs font-bold {% if cat.status == 'vermelho' %}text-error{% elif cat.status == 'amarelo' %}text-yellow-600{% elif cat.status == 'verde' %}text-secondary{% else %}text-on-surface-variant{% endif %}">{{ cat.horas_semana }}h</span>
+            </div>
+          </div>
+          <div class="h-2 bg-surface-container rounded-full overflow-hidden">
+            <div class="bar-grow h-full rounded-full {% if cat.status == 'vermelho' %}bg-error{% elif cat.status == 'amarelo' %}bg-yellow-500{% elif cat.status == 'verde' %}bg-secondary{% else %}bg-outline{% endif %}" style="width:{% widthratio cat.horas_semana plano.horas_semana_total 100 %}%"></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <h2 class="font-serif text-base font-semibold text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:18px;">calendar_month</span>
+        Sugestão de calendário semanal
+      </h2>
+      <p class="text-xs text-on-surface-variant mt-0.5">Distribuição automática pela carga por disciplina</p>
+    </div>
+    <div class="grid grid-cols-7 divide-x divide-[#e5e1d8] min-h-[180px]">
+      {% for dia in calendario %}
+      <div class="flex flex-col {% if not dia.estudo %}opacity-40{% endif %}">
+        <div class="text-center py-2 border-b border-[#e5e1d8] {% if dia.estudo %}bg-surface-container-low{% endif %}">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase">{{ dia.dia }}</p>
+          {% if dia.estudo %}<p class="text-[9px] text-on-surface-variant">{{ dia.horas_total }}h</p>
+          {% else %}<p class="text-[9px] text-outline-variant">Folga</p>{% endif %}
+        </div>
+        <div class="flex-1 p-1 space-y-1">
+          {% if dia.estudo %}
+            {% for c in dia.categorias %}
+            <div class="rounded px-1 py-0.5 text-[8px] font-semibold leading-tight
+              {% if c.status == 'vermelho' %}bg-error-container/60 text-on-error-container
+              {% elif c.status == 'amarelo' %}bg-yellow-100 text-yellow-700
+              {% elif c.status == 'verde' %}bg-secondary-container text-on-secondary-container
+              {% else %}bg-surface-container text-on-surface-variant{% endif %}">
+              <span class="block truncate" title="{{ c.nome }}">{{ c.nome|truncatechars:14 }}</span>
+              <span class="opacity-70">{{ c.horas }}h</span>
+            </div>
+            {% empty %}<p class="text-[8px] text-outline-variant text-center pt-2">—</p>{% endfor %}
+          {% else %}<div class="flex items-center justify-center h-full"><span class="text-base">😴</span></div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% else %}
+  <div class="paper-card rounded-2xl p-12 text-center">
+    <span class="material-symbols-outlined text-outline-variant block mb-3" style="font-size:48px;">pending</span>
+    <p class="font-serif text-lg font-semibold text-primary mb-2">Calculando seu plano…</p>
+    <p class="text-xs text-on-surface-variant">Responda algumas questões para o algoritmo personalizar.</p>
+    <a href="{% url 'iniciar_quiz' %}?modo=todas" class="mt-4 inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>
+      Começar a estudar
+    </a>
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-2 gap-3">
+    <a href="{% url 'iniciar_quiz' %}?modo=todas" class="flex items-center justify-center gap-2 bg-secondary text-white py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>Estudar agora
+    </a>
+    <a href="{% url 'mapa_conhecimento' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface py-3 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined" style="font-size:16px;">map</span>Ver mapa
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

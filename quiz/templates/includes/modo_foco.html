@@ -1,0 +1,65 @@
+{% comment %}
+  Modo foco — tela cheia, esconde sidebar/header.
+  Inclui botão flutuante de toggle. Atalho: F
+{% endcomment %}
+
+<button id="foco-toggle" onclick="alternarFoco()"
+        title="Modo foco (F)" aria-label="Modo foco"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#002046] text-white shadow-xl flex items-center justify-center hover:scale-105 transition-transform">
+  <span id="foco-icon" class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">fullscreen</span>
+</button>
+
+<style>
+  body.modo-foco aside,
+  body.modo-foco header,
+  body.modo-foco #tutor-floating-btn,
+  body.modo-foco #pomo-fab,
+  body.modo-foco nav.md\:hidden {
+    display: none !important;
+  }
+  body.modo-foco main {
+    margin-left: 0 !important;
+    padding-top: 1rem !important;
+  }
+  body.modo-foco .modo-foco-hint {
+    display: block !important;
+  }
+</style>
+
+<div class="modo-foco-hint hidden fixed top-3 right-3 z-50 text-[10px] text-slate-400 bg-white/80 backdrop-blur px-2 py-1 rounded-full">
+  Modo foco · F pra sair
+</div>
+
+<script>
+(function() {
+  const KEY = 'modo_foco_v1';
+
+  function aplicar(estado) {
+    document.body.classList.toggle('modo-foco', estado);
+    const icon = document.getElementById('foco-icon');
+    if (icon) icon.textContent = estado ? 'fullscreen_exit' : 'fullscreen';
+    localStorage.setItem(KEY, estado ? '1' : '0');
+  }
+
+  window.alternarFoco = function() {
+    aplicar(!document.body.classList.contains('modo-foco'));
+  };
+
+  // Atalho F
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key.toLowerCase() === 'f') {
+      e.preventDefault();
+      alternarFoco();
+    }
+  });
+
+  // Restaura estado salvo
+  if (localStorage.getItem(KEY) === '1') {
+    document.body.classList.add('modo-foco');
+    const icon = document.getElementById('foco-icon');
+    if (icon) icon.textContent = 'fullscreen_exit';
+  }
+})();
+</script>

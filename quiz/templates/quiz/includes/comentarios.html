@@ -1,0 +1,150 @@
+{% comment %}
+Sprint 13C — Seção de comentários de uma questão.
+Uso: {% include "quiz/includes/comentarios.html" with questao=questao %}
+{% endcomment %}
+
+<div id="comentarios-section" class="mt-6 border-t border-slate-800 pt-5">
+  <h3 class="text-sm font-bold text-slate-300 flex items-center gap-2 mb-4">
+    <span class="material-symbols-outlined text-base text-blue-400">forum</span>
+    Comentários
+    <span id="coment-count" class="bg-slate-800 text-slate-400 text-xs font-semibold px-2 py-0.5 rounded-full">0</span>
+  </h3>
+
+  <!-- Lista de comentários -->
+  <div id="coment-lista" class="space-y-3 mb-4">
+    <p class="text-xs text-slate-600 text-center py-3" id="coment-vazio">Carregando comentários…</p>
+  </div>
+
+  <!-- Formulário novo comentário -->
+  <div class="flex gap-2 items-end">
+    <textarea id="coment-input"
+      placeholder="Tire uma dúvida ou comente sobre esta questão…"
+      rows="2"
+      class="flex-1 resize-none rounded-xl border border-slate-700 bg-slate-800 text-slate-100
+             text-sm px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500
+             max-h-24 overflow-y-auto"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,96)+'px'"
+    ></textarea>
+    <button onclick="enviarComentario()"
+      class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-600 hover:bg-blue-700
+             text-white flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-lg">send</span>
+    </button>
+  </div>
+</div>
+
+<script>
+(function() {
+  const QID   = {{ questao.id }};
+  const CSRF  = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+  const BASE  = `/api/comentarios/${QID}/`;
+
+  async function carregarComentarios() {
+    try {
+      const r = await fetch(BASE);
+      const d = await r.json();
+      renderComentarios(d.comentarios || []);
+    } catch(e) {
+      document.getElementById('coment-vazio').textContent = 'Erro ao carregar comentários.';
+    }
+  }
+
+  function renderComentarios(lista) {
+    const container = document.getElementById('coment-lista');
+    const vazio     = document.getElementById('coment-vazio');
+    const count     = document.getElementById('coment-count');
+
+    count.textContent = lista.length;
+
+    if (lista.length === 0) {
+      container.innerHTML = '';
+      vazio.textContent = 'Seja o primeiro a comentar!';
+      vazio.style.display = 'block';
+      return;
+    }
+    vazio.style.display = 'none';
+    container.innerHTML = lista.map(c => `
+      <div class="bg-slate-800/60 rounded-xl px-3 py-2.5 border border-slate-700/50" id="coment-${c.id}">
+        <div class="flex items-start justify-between gap-2 mb-1">
+          <p class="text-xs font-bold text-slate-300">@${escH(c.usuario)}
+            <span class="font-normal text-slate-600 ml-1">${escH(c.criado_em)}</span>
+          </p>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <button onclick="toggleUpvote(${c.id})"
+              class="flex items-center gap-0.5 text-xs transition-colors
+                     ${c.meu_upvote ? 'text-blue-400' : 'text-slate-600 hover:text-blue-400'}"
+              id="upvote-btn-${c.id}">
+              <span class="material-symbols-outlined text-sm">${c.meu_upvote ? 'thumb_up' : 'thumb_up_off_alt'}</span>
+              <span id="upvote-num-${c.id}">${c.upvotes}</span>
+            </button>
+            ${c.sou_autor ? `<button onclick="deletarComentario(${c.id})" class="text-slate-700 hover:text-red-400 transition-colors">
+              <span class="material-symbols-outlined text-sm">delete</span>
+            </button>` : ''}
+          </div>
+        </div>
+        <p class="text-sm text-slate-300 leading-snug">${escH(c.texto)}</p>
+      </div>
+    `).join('');
+  }
+
+  function escH(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  window.enviarComentario = async function() {
+    const input = document.getElementById('coment-input');
+    const texto = input.value.trim();
+    if (!texto) return;
+    input.disabled = true;
+    try {
+      const r = await fetch(BASE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+        body: JSON.stringify({ texto }),
+      });
+      if (!r.ok) {
+        const d = await r.json();
+        alert(d.erro || 'Erro ao enviar.');
+        return;
+      }
+      input.value = '';
+      input.style.height = 'auto';
+      await carregarComentarios();
+    } finally {
+      input.disabled = false;
+      input.focus();
+    }
+  };
+
+  window.toggleUpvote = async function(id) {
+    const r = await fetch(`/api/comentario/${id}/upvote/`, {
+      method: 'POST', headers: { 'X-CSRFToken': CSRF },
+    });
+    const d = await r.json();
+    const btn = document.getElementById(`upvote-btn-${id}`);
+    const num = document.getElementById(`upvote-num-${id}`);
+    if (btn) {
+      btn.className = `flex items-center gap-0.5 text-xs transition-colors ${d.ativo ? 'text-blue-400' : 'text-slate-600 hover:text-blue-400'}`;
+      btn.querySelector('.material-symbols-outlined').textContent = d.ativo ? 'thumb_up' : 'thumb_up_off_alt';
+    }
+    if (num) num.textContent = d.upvotes;
+  };
+
+  window.deletarComentario = async function(id) {
+    if (!confirm('Excluir comentário?')) return;
+    await fetch(`/api/comentario/${id}/deletar/`, {
+      method: 'POST', headers: { 'X-CSRFToken': CSRF },
+    });
+    document.getElementById(`coment-${id}`)?.remove();
+    const count = document.getElementById('coment-count');
+    if (count) count.textContent = Math.max(0, parseInt(count.textContent) - 1);
+  };
+
+  // Enter sem Shift envia
+  document.getElementById('coment-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviarComentario(); }
+  });
+
+  carregarComentarios();
+})();
+</script>

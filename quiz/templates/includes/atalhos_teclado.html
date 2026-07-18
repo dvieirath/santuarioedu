@@ -1,0 +1,96 @@
+{% comment %}
+  Atalhos globais de teclado. Inclui o painel de ajuda (?).
+{% endcomment %}
+
+<!-- Modal de ajuda -->
+<div id="atalhos-modal" class="fixed inset-0 z-[90] hidden bg-black/55 backdrop-blur-sm flex items-center justify-center p-6">
+  <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl overflow-hidden">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+      <h3 class="font-headline font-extrabold text-[#002046]">Atalhos de teclado</h3>
+      <button onclick="fecharAtalhos()" class="text-slate-400 hover:text-slate-700">
+        <span class="material-symbols-outlined" style="font-size:20px;">close</span>
+      </button>
+    </div>
+    <div class="p-6">
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between items-center"><span class="text-slate-700">Mostrar este menu</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">?</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Pomodoro</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">P</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Ir pro dashboard</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">G D</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Praticar / Escolher tema</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">G P</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Revisão SRS</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">G R</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Questão do dia</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">G Q</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Perfil</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">G U</kbd></div>
+        <div class="flex justify-between items-center pt-2 border-t border-slate-100"><span class="text-slate-700">Próxima questão</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">→ ou J</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Anterior</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">← ou K</kbd></div>
+        <div class="flex justify-between items-center"><span class="text-slate-700">Marcar A/B/C/D/E</span><kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">1-5</kbd></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  let chord = null;
+  let chordTimer = null;
+
+  function abrirAtalhos(){ document.getElementById('atalhos-modal').classList.remove('hidden'); }
+  window.fecharAtalhos = function(){ document.getElementById('atalhos-modal').classList.add('hidden'); };
+
+  function emInputAtivo(e) {
+    const t = e.target;
+    return t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable;
+  }
+
+  function navegar(url){ window.location.href = url; }
+
+  const navs = {
+    'd': '/dashboard/',
+    'p': '/escolher-tema/',
+    'r': '/revisao-srs/',
+    'q': '/questao-do-dia/',
+    'u': '/perfil/',
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (emInputAtivo(e)) return;
+
+    // ?
+    if (e.key === '?') { e.preventDefault(); abrirAtalhos(); return; }
+    if (e.key === 'Escape') { fecharAtalhos(); return; }
+
+    // Chord g+_
+    if (chord === 'g') {
+      const dest = navs[e.key.toLowerCase()];
+      chord = null; clearTimeout(chordTimer);
+      if (dest) { e.preventDefault(); navegar(dest); }
+      return;
+    }
+    if (e.key.toLowerCase() === 'g') {
+      chord = 'g';
+      chordTimer = setTimeout(() => chord = null, 1500);
+      return;
+    }
+
+    // Navegação de questão — só se houver botões de questão na página
+    const proximo = document.querySelector('a[data-key="proxima"], button[data-key="proxima"]');
+    const anterior = document.querySelector('a[data-key="anterior"], button[data-key="anterior"]');
+    if ((e.key === 'ArrowRight' || e.key.toLowerCase() === 'j') && proximo) {
+      e.preventDefault(); proximo.click(); return;
+    }
+    if ((e.key === 'ArrowLeft' || e.key.toLowerCase() === 'k') && anterior) {
+      e.preventDefault(); anterior.click(); return;
+    }
+
+    // Marcar A/B/C/D/E pelas teclas 1-5
+    if (['1','2','3','4','5'].includes(e.key)) {
+      const radios = document.querySelectorAll('input[type=radio][name=alternativa_id]');
+      const idx = parseInt(e.key, 10) - 1;
+      if (radios[idx]) {
+        e.preventDefault();
+        radios[idx].click();
+      }
+    }
+  });
+})();
+</script>

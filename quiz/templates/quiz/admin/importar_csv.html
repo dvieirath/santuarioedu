@@ -1,0 +1,145 @@
+{% extends "quiz/admin/base.html" %}
+{% block title %}Importar Questões CSV{% endblock %}
+{% block content %}
+<div class="max-w-3xl mx-auto">
+
+  <div class="flex items-center gap-3 mb-8">
+    <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1;">upload_file</span>
+    <div>
+      <h1 class="text-xl font-headline font-bold text-primary">Importar Questões em Lote</h1>
+      <p class="text-xs text-on-surface-variant">Faça upload de um arquivo CSV para adicionar múltiplas questões de uma vez</p>
+    </div>
+  </div>
+
+  <!-- Resultado do upload -->
+  {% if resultado is not None %}
+  <div class="mb-6 p-4 rounded-2xl border {% if resultado > 0 %}bg-emerald-50 border-emerald-200{% else %}bg-red-50 border-red-200{% endif %}">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">{% if resultado > 0 %}✅{% else %}⚠️{% endif %}</span>
+      <div>
+        <p class="font-bold text-sm {% if resultado > 0 %}text-emerald-700{% else %}text-red-700{% endif %}">
+          {% if resultado > 0 %}{{ resultado }} questão{{ resultado|pluralize:"ões" }} importada{{ resultado|pluralize:"s" }} com sucesso!
+          {% else %}Nenhuma questão importada.{% endif %}
+        </p>
+        {% if erros %}
+        <p class="text-xs text-on-surface-variant mt-0.5">{{ erros|length }} linha{{ erros|length|pluralize:"s" }} com erro.</p>
+        {% endif %}
+      </div>
+    </div>
+    {% if erros %}
+    <details class="mt-3">
+      <summary class="text-xs font-bold text-red-600 cursor-pointer">Ver erros ({{ erros|length }})</summary>
+      <ul class="mt-2 space-y-1">
+        {% for e in erros %}<li class="text-xs text-red-600 bg-red-50 px-2 py-1 rounded">{{ e }}</li>{% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Upload form -->
+  <div class="bg-surface-container-lowest rounded-2xl border border-surface-container p-6 shadow-sm mb-6">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label class="block mb-6">
+        <span class="text-sm font-bold text-primary block mb-2">Arquivo CSV</span>
+        <div id="drop-zone"
+             class="border-2 border-dashed border-surface-container-high rounded-2xl p-10 text-center cursor-pointer hover:border-primary/40 hover:bg-primary/5 transition-all"
+             ondragover="event.preventDefault(); this.classList.add('border-primary','bg-primary/10')"
+             ondragleave="this.classList.remove('border-primary','bg-primary/10')"
+             ondrop="handleDrop(event)">
+          <span class="material-symbols-outlined text-5xl text-on-surface-variant/40 block mb-3" style="font-variation-settings:'FILL' 1;">cloud_upload</span>
+          <p class="text-sm font-bold text-on-surface-variant">Arraste o CSV aqui ou</p>
+          <label class="mt-2 inline-block cursor-pointer px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:bg-primary/90">
+            Selecionar arquivo
+            <input type="file" name="arquivo" accept=".csv" class="hidden" id="file-input" onchange="showFileName(this)"/>
+          </label>
+          <p id="file-name" class="mt-2 text-xs text-secondary font-medium"></p>
+        </div>
+      </label>
+      <button type="submit" class="w-full py-3 bg-primary text-white font-bold text-sm rounded-xl hover:bg-primary/90 transition-all">
+        <span class="material-symbols-outlined text-sm align-middle mr-1" style="font-variation-settings:'FILL' 1;">upload</span>
+        Importar Questões
+      </button>
+    </form>
+  </div>
+
+  <!-- Formato esperado -->
+  <div class="bg-surface-container-lowest rounded-2xl border border-surface-container p-6 shadow-sm mb-6">
+    <h2 class="text-sm font-bold text-primary mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined text-sm">table_chart</span>
+      Formato do CSV
+    </h2>
+    <p class="text-xs text-on-surface-variant mb-3">O arquivo deve ter as colunas abaixo (a primeira linha é o cabeçalho):</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs border-collapse">
+        <thead>
+          <tr class="bg-surface-container">
+            <th class="text-left px-3 py-2 border border-surface-container-high font-bold text-primary">Coluna</th>
+            <th class="text-left px-3 py-2 border border-surface-container-high font-bold text-primary">Obrigatório</th>
+            <th class="text-left px-3 py-2 border border-surface-container-high font-bold text-primary">Descrição</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-surface-container">
+          {% for row in formato %}
+          <tr class="hover:bg-surface-container/50">
+            <td class="px-3 py-2 border border-surface-container font-mono font-bold text-secondary">{{ row.0 }}</td>
+            <td class="px-3 py-2 border border-surface-container">{% if row.1 %}<span class="text-red-500 font-bold">Sim</span>{% else %}<span class="text-on-surface-variant">Não</span>{% endif %}</td>
+            <td class="px-3 py-2 border border-surface-container text-on-surface-variant">{{ row.2 }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Exemplo -->
+  <div class="bg-surface-container-lowest rounded-2xl border border-surface-container p-6 shadow-sm">
+    <h2 class="text-sm font-bold text-primary mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined text-sm">code</span>
+      Exemplo de CSV
+    </h2>
+    <pre class="bg-[#1e1e2e] text-green-400 rounded-xl p-4 text-xs overflow-x-auto leading-relaxed">categoria,texto,tipo,alt_a,alt_b,alt_c,alt_d,correta,justificativa,banca,ano
+Direito Constitucional,O Brasil é uma República Federativa. Certo ou errado?,CE,Certo,Errado,,,a,O Brasil é uma Rep. Fed. conforme CF/88 Art. 1,CESPE,2023
+Matemática,Quanto é 2+2?,ME,3,4,5,6,b,,FCC,2022</pre>
+    <p class="text-xs text-on-surface-variant mt-3">
+      💡 A coluna <code class="bg-surface-container px-1 rounded">correta</code> deve conter a letra da alternativa correta: <strong>a, b, c, d</strong> ou <strong>e</strong>.
+    </p>
+    <a href="#" onclick="baixarModelo()" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-secondary hover:underline">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">download</span>
+      Baixar modelo CSV
+    </a>
+  </div>
+
+</div>
+
+<script>
+function showFileName(input) {
+  const name = input.files[0]?.name || '';
+  document.getElementById('file-name').textContent = name ? `📄 ${name}` : '';
+}
+function handleDrop(e) {
+  e.preventDefault();
+  const dz = document.getElementById('drop-zone');
+  dz.classList.remove('border-primary','bg-primary/10');
+  const file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.csv')) {
+    const input = document.getElementById('file-input');
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    showFileName(input);
+  }
+}
+function baixarModelo() {
+  const csv = `categoria,texto,tipo,alt_a,alt_b,alt_c,alt_d,correta,justificativa,banca,ano
+Direito Constitucional,O Brasil é uma República Federativa. Certo ou errado?,CE,Certo,Errado,,,a,O Brasil é uma Rep. Fed. conforme CF/88 Art. 1,CESPE,2023
+Matemática,Quanto é 2+2?,ME,3,4,5,6,b,,FCC,2022`;
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'modelo_questoes.csv';
+  a.click();
+}
+</script>
+{% endblock %}

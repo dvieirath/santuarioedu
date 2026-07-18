@@ -1,0 +1,220 @@
+{% comment %}
+  Tutor IA Drawer — Sprint 20
+  Inclua este partial UMA VEZ por página que precise do botão "Explicar com IA".
+  Ative chamando: abrirTutorIA(questaoId, alternativaId)
+{% endcomment %}
+
+<!-- Overlay -->
+<div id="tutor-overlay"
+     onclick="fecharTutorIA()"
+     class="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+</div>
+
+<!-- Drawer -->
+<aside id="tutor-drawer"
+       class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md
+              bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-700
+              flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+
+  <!-- Header -->
+  <div class="flex items-center gap-3 px-5 py-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
+    <div class="w-9 h-9 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center shrink-0">
+      <span class="text-lg">🤖</span>
+    </div>
+    <div class="flex-1">
+      <h2 class="font-bold text-sm text-slate-800 dark:text-slate-100">Tutor IA</h2>
+      <p class="text-[10px] text-slate-400" id="tutor-cota-label">carregando…</p>
+    </div>
+    <button onclick="fecharTutorIA()"
+            class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+      <span class="material-symbols-outlined text-sm">close</span>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div class="flex-1 overflow-y-auto px-5 py-5 space-y-4">
+
+    <!-- Estado: carregando -->
+    <div id="tutor-loading" class="hidden flex-col items-center justify-center gap-4 py-16 text-center">
+      <div class="w-12 h-12 rounded-full border-4 border-violet-200 border-t-violet-500 animate-spin"></div>
+      <p class="text-sm text-slate-500">Analisando a questão…</p>
+      <p class="text-xs text-slate-400">Personalizando para o seu nível</p>
+    </div>
+
+    <!-- Estado: erro -->
+    <div id="tutor-erro" class="hidden rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 p-5 text-center">
+      <span class="text-3xl block mb-2">⚠️</span>
+      <p id="tutor-erro-msg" class="text-sm font-semibold text-red-700 dark:text-red-400"></p>
+    </div>
+
+    <!-- Estado: explicação -->
+    <div id="tutor-conteudo" class="hidden space-y-4">
+      <!-- Texto em Markdown renderizado -->
+      <div id="tutor-texto"
+           class="prose prose-sm dark:prose-invert max-w-none
+                  text-slate-700 dark:text-slate-300
+                  [&_strong]:text-slate-900 dark:[&_strong]:text-white
+                  [&_p]:leading-relaxed [&_p]:mb-3">
+      </div>
+
+      <!-- Feedback 👍/👎 -->
+      <div id="tutor-feedback" class="pt-3 border-t border-slate-100 dark:border-slate-800">
+        <p class="text-xs text-slate-400 mb-2 text-center">Esta explicação foi útil?</p>
+        <div class="flex gap-2 justify-center">
+          <button id="btn-util-sim"
+                  onclick="enviarFeedback(true)"
+                  class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold
+                         bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300
+                         border border-emerald-200 dark:border-emerald-700
+                         hover:bg-emerald-100 dark:hover:bg-emerald-800 transition-colors">
+            👍 Sim
+          </button>
+          <button id="btn-util-nao"
+                  onclick="enviarFeedback(false)"
+                  class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold
+                         bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400
+                         border border-slate-200 dark:border-slate-700
+                         hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+            👎 Não
+          </button>
+        </div>
+        <p id="tutor-feedback-ok" class="hidden text-xs text-center text-emerald-600 dark:text-emerald-400 mt-2 font-semibold">
+          ✅ Obrigado pelo feedback!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer: botões de ação -->
+  <div class="px-5 py-4 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 shrink-0" id="tutor-footer" style="display:none!important">
+    <button onclick="fecharTutorIA()"
+            class="flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold py-2.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+      Fechar
+    </button>
+    <a id="tutor-link-questao" href="#"
+       class="flex items-center justify-center gap-2 bg-violet-600 text-white text-xs font-bold py-2.5 rounded-xl hover:bg-violet-700 transition-colors">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">quiz</span>
+      Praticar
+    </a>
+  </div>
+</aside>
+
+<script>
+(function() {
+  // ── Estado ─────────────────────────────────────────────────────────────────
+  let _explicacaoId = null;
+  const CSRF = document.querySelector('meta[name="csrf-token"]')?.content
+            || '{{ csrf_token }}';
+  const EXPLICAR_URL  = '{% url "api_explicar_questao" %}';
+  const FEEDBACK_BASE = '/api/explicacao/';   // + id + /feedback/
+
+  // ── Utilitários de UI ───────────────────────────────────────────────────────
+  function show(id) {
+    ['tutor-loading','tutor-erro','tutor-conteudo'].forEach(n =>
+      document.getElementById(n)?.classList.add('hidden')
+    );
+    document.getElementById(id)?.classList.remove('hidden');
+  }
+
+  // ── Markdown simples ────────────────────────────────────────────────────────
+  function renderMd(txt) {
+    return txt
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+      .replace(/^#{1,3}\s+(.+)$/gm, '<h3 class="font-bold text-base text-slate-800 dark:text-slate-100 mt-3 mb-1">$1</h3>')
+      .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc">$1</li>')
+      .replace(/\n\n/g, '</p><p class="mb-2">')
+      .replace(/^(?!<[hli])(.+)$/gm, '<p class="mb-2">$1</p>')
+      .replace(/<\/li>\s*<li/g, '</li><li')
+      .replace(/(<li.*<\/li>)/s, '<ul class="space-y-1 mb-2">$1</ul>');
+  }
+
+  // ── Abrir drawer ────────────────────────────────────────────────────────────
+  window.abrirTutorIA = async function(questaoId, altId) {
+    _explicacaoId = null;
+    document.getElementById('tutor-feedback-ok').classList.add('hidden');
+    document.getElementById('btn-util-sim').disabled = false;
+    document.getElementById('btn-util-nao').disabled = false;
+
+    // Abre drawer
+    document.getElementById('tutor-drawer').classList.remove('translate-x-full');
+    document.getElementById('tutor-overlay').classList.remove('opacity-0','pointer-events-none');
+    document.getElementById('tutor-overlay').classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+
+    show('tutor-loading');
+
+    try {
+      const resp = await fetch(EXPLICAR_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+        body:    JSON.stringify({ questao_id: questaoId, alternativa_id: altId }),
+      });
+      const data = await resp.json();
+
+      // Cota
+      const cotaLabel = document.getElementById('tutor-cota-label');
+      if (data.usadas_hoje !== undefined) {
+        cotaLabel.textContent = `${data.usadas_hoje}/${data.cota_max} explicações hoje`;
+      }
+
+      if (data.erro) {
+        document.getElementById('tutor-erro-msg').textContent = data.erro;
+        show('tutor-erro');
+        return;
+      }
+
+      // Renderiza markdown
+      document.getElementById('tutor-texto').innerHTML = renderMd(data.texto);
+      _explicacaoId = data.explicacao_id;
+
+      // Feedback já dado?
+      if (data.util !== null && data.util !== undefined) {
+        document.getElementById('tutor-feedback-ok').classList.remove('hidden');
+        document.getElementById('btn-util-sim').disabled = true;
+        document.getElementById('btn-util-nao').disabled = true;
+      }
+
+      // Footer link para praticar
+      document.getElementById('tutor-link-questao').href = '/quiz/?categoria=&q=' + questaoId;
+      document.getElementById('tutor-footer').style.display = '';
+
+      show('tutor-conteudo');
+    } catch (e) {
+      document.getElementById('tutor-erro-msg').textContent = 'Erro de conexão. Tente novamente.';
+      show('tutor-erro');
+    }
+  };
+
+  // ── Fechar ──────────────────────────────────────────────────────────────────
+  window.fecharTutorIA = function() {
+    document.getElementById('tutor-drawer').classList.add('translate-x-full');
+    document.getElementById('tutor-overlay').classList.add('opacity-0','pointer-events-none');
+    document.getElementById('tutor-overlay').classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  };
+
+  // ── Feedback ────────────────────────────────────────────────────────────────
+  window.enviarFeedback = async function(util) {
+    if (!_explicacaoId) return;
+    document.getElementById('btn-util-sim').disabled = true;
+    document.getElementById('btn-util-nao').disabled = true;
+    try {
+      await fetch(`${FEEDBACK_BASE}${_explicacaoId}/feedback/`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+        body:    JSON.stringify({ util }),
+      });
+    } catch {}
+    document.getElementById('tutor-feedback-ok').classList.remove('hidden');
+  };
+
+  // ── Fechar com ESC ──────────────────────────────────────────────────────────
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharTutorIA(); });
+})();
+</script>
+
+<!-- CSRF meta tag para o drawer (caso a página não tenha) -->
+{% if not request.META.HTTP_X_REQUESTED_WITH %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+{% endif %}

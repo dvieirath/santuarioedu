@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Simulado por edital — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .edital-amber   .edital-icon-wrap { background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%); }
+  .edital-blue    .edital-icon-wrap { background:linear-gradient(135deg,#60a5fa 0%,#2563eb 100%); }
+  .edital-emerald .edital-icon-wrap { background:linear-gradient(135deg,#34d399 0%,#059669 100%); }
+  .edital-violet  .edital-icon-wrap { background:linear-gradient(135deg,#a78bfa 0%,#7c3aed 100%); }
+  .edital-rose    .edital-icon-wrap { background:linear-gradient(135deg,#fb7185 0%,#e11d48 100%); }
+  .edital-amber   .edital-btn { background:#d97706; }   .edital-amber   .edital-btn:hover { background:#b45309; }
+  .edital-blue    .edital-btn { background:#2563eb; }   .edital-blue    .edital-btn:hover { background:#1d4ed8; }
+  .edital-emerald .edital-btn { background:#006c4d; }   .edital-emerald .edital-btn:hover { background:#004d38; }
+  .edital-violet  .edital-btn { background:#7c3aed; }   .edital-violet  .edital-btn:hover { background:#6d28d9; }
+  .edital-rose    .edital-btn { background:#e11d48; }   .edital-rose    .edital-btn:hover { background:#be123c; }
+
+  details.disc-details > summary { list-style:none; cursor:pointer; }
+  details.disc-details > summary::-webkit-details-marker { display:none; }
+  details.disc-details[open] .chev { transform:rotate(180deg); }
+  .chev { transition:transform .2s; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='simulados' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">assignment</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Simulado por edital</h1>
+      <p class="text-[11px] text-on-surface-variant">Escolha o edital de um concurso oficial</p>
+    </div>
+  </div>
+  <a href="{% url 'simulado_personalizado' %}" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-full hover:bg-surface-container transition-colors">
+    <span class="material-symbols-outlined" style="font-size:16px;">tune</span>
+    Personalizar
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 space-y-8">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Avaliação · Concursos</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Simule o concurso real</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        Cada edital abaixo replica a <strong class="text-on-surface font-semibold">distribuição oficial</strong> de questões,
+        <strong class="text-on-surface font-semibold">duração</strong> e <strong class="text-on-surface font-semibold">banca</strong> do concurso real.
+      </p>
+    </section>
+
+    {% if messages %}
+    <div class="space-y-2 fade-in">
+      {% for msg in messages %}
+      <div class="rounded-lg px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border-error/20
+        {% else %}bg-secondary-container/40 text-on-secondary-container border-secondary/30{% endif %}">
+        {{ msg }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <section class="space-y-4 fade-in" style="animation-delay:.1s;">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline">Editais disponíveis</h3>
+        <span class="text-[11px] text-on-surface-variant">{{ editais|length }} editais · {{ total_categorias }} disciplinas</span>
+      </div>
+
+      {% for ed in editais %}
+      <article class="edital-{{ ed.cor }} paper-card rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3 p-6 flex flex-col items-start">
+            <div class="edital-icon-wrap w-14 h-14 rounded-xl flex items-center justify-center shadow-md mb-3">
+              <span class="material-symbols-outlined text-white active-icon" style="font-size:28px;">{{ ed.icone }}</span>
+            </div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{{ ed.orgao }}</p>
+            <h3 class="font-serif text-lg font-semibold text-primary leading-tight mt-1 mb-2">{{ ed.nome }}</h3>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-surface-container-low border border-[#e5e1d8] px-2 py-0.5 rounded-full text-on-surface-variant">{{ ed.banca }}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-surface-container-low border border-[#e5e1d8] px-2 py-0.5 rounded-full text-on-surface-variant">{{ ed.ano }}</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-3 leading-relaxed">{{ ed.descricao }}</p>
+          </div>
+
+          <div class="flex-1 p-6 bg-surface-container-low/50 border-t md:border-t-0 md:border-l border-[#e5e1d8]">
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Questões</p>
+                <p class="font-serif text-xl font-bold text-primary mt-0.5">{{ ed.total }}</p>
+              </div>
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Duração</p>
+                <p class="font-serif text-xl font-bold text-primary mt-0.5">{{ ed.duracao_min }}min</p>
+              </div>
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Cobertura</p>
+                <p class="font-serif text-xl font-bold mt-0.5
+                  {% if ed.cobertura_pct >= 70 %}text-secondary{% elif ed.cobertura_pct >= 40 %}text-amber-600{% else %}text-error{% endif %}">
+                  {{ ed.cobertura_pct }}%
+                </p>
+              </div>
+            </div>
+
+            <details class="disc-details bg-white border border-[#e5e1d8] rounded-lg overflow-hidden mb-4">
+              <summary class="flex items-center justify-between px-4 py-2.5 hover:bg-surface-container-low transition-colors">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-on-surface-variant" style="font-size:16px;">list</span>
+                  <span class="text-xs font-semibold text-on-surface">Ver distribuição oficial</span>
+                </div>
+                <span class="material-symbols-outlined chev text-on-surface-variant" style="font-size:18px;">expand_more</span>
+              </summary>
+              <div class="border-t border-[#e5e1d8] divide-y divide-[#e5e1d8]">
+                {% for c in ed.cobertas %}
+                <div class="flex items-center justify-between px-4 py-2 text-xs">
+                  <span class="text-on-surface flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    {{ c.nome }}
+                  </span>
+                  <span class="text-on-surface-variant font-mono">
+                    {{ c.disponivel }}/{{ c.pedido }}q
+                    {% if c.disponivel < c.pedido %}<span class="text-amber-600">(banco: {{ c.max }})</span>{% endif %}
+                  </span>
+                </div>
+                {% endfor %}
+                {% for nc in ed.nao_cobertas %}
+                <div class="flex items-center justify-between px-4 py-2 text-xs">
+                  <span class="text-on-surface-variant flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-error/60"></span>
+                    {{ nc.nome }}
+                    <span class="text-[10px] italic">(sem questões)</span>
+                  </span>
+                  <span class="text-on-surface-variant/60 font-mono">0/{{ nc.pedido }}q</span>
+                </div>
+                {% endfor %}
+              </div>
+            </details>
+
+            <form method="POST" class="flex flex-col gap-2">
+              {% csrf_token %}
+              <input type="hidden" name="edital_id" value="{{ ed.id }}"/>
+              {% if ed.cobertura_pct >= 30 %}
+              <button type="submit" class="edital-btn flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-lg text-sm transition-colors shadow-md">
+                <span class="material-symbols-outlined active-icon" style="font-size:18px;">play_arrow</span>
+                Iniciar este simulado
+              </button>
+              {% else %}
+              <button type="button" disabled class="flex items-center justify-center gap-2 bg-surface-container text-on-surface-variant font-semibold py-3 rounded-lg text-sm cursor-not-allowed">
+                <span class="material-symbols-outlined" style="font-size:18px;">block</span>
+                Banco insuficiente
+              </button>
+              <p class="text-[11px] text-on-surface-variant text-center">
+                Apenas {{ ed.total_real }} de {{ ed.total }} disponíveis.
+              </p>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <div class="paper-card rounded-2xl p-12 text-center border-dashed">
+        <span class="material-symbols-outlined block mx-auto mb-3 text-outline-variant" style="font-size:48px;">assignment</span>
+        <p class="font-serif text-lg font-semibold text-primary mb-1">Nenhum edital configurado</p>
+        <p class="text-xs text-on-surface-variant">Configure editais oficiais no painel de admin.</p>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="paper-card rounded-2xl p-6 fade-in" style="animation-delay:.2s;">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-primary" style="font-size:20px;">tune</span>
+        </div>
+        <div class="flex-1">
+          <p class="font-serif text-base font-semibold text-primary">Quer montar um simulado do seu jeito?</p>
+          <p class="text-xs text-on-surface-variant mt-1 mb-3">
+            Use o <strong>Simulado personalizado</strong> para definir manualmente a quantidade de questões por disciplina e a duração.
+          </p>
+          <a href="{% url 'simulado_personalizado' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary hover:underline">
+            <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+            Ir para simulado personalizado
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

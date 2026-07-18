@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Simulado coletivo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='competicao' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">groups</span>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary leading-tight">Simulado coletivo</h1>
+    <p class="text-xs text-on-surface-variant">Estude junto em tempo real</p>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-6">
+
+  {% if messages %}{% for msg in messages %}
+  <div class="rounded-lg px-4 py-3 text-sm font-medium
+    {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border border-error/20
+    {% else %}bg-secondary-container/40 text-on-secondary-container border border-secondary/30{% endif %}">{{ msg }}</div>
+  {% endfor %}{% endif %}
+
+  <!-- Hero -->
+  <div class="rounded-2xl p-6 text-white shadow-xl relative overflow-hidden fade-in" style="background:linear-gradient(135deg, #002046, #1b365d);">
+    <div class="absolute -right-4 -top-4 w-28 h-28 bg-white/5 rounded-full"></div>
+    <div class="absolute right-8 bottom-2 w-16 h-16 bg-white/5 rounded-full"></div>
+    <span class="text-5xl">🏟️</span>
+    <h2 class="font-serif text-3xl font-bold mt-3">Simulado em grupo</h2>
+    <p class="text-white/70 text-sm mt-1">Crie uma sala, chame os amigos e compita pelo topo do ranking.</p>
+    <div class="flex flex-wrap gap-2 mt-4 text-xs">
+      <span class="bg-white/15 rounded-full px-3 py-1">👥 Até 50 jogadores</span>
+      <span class="bg-white/15 rounded-full px-3 py-1">⏱ Timer por questão</span>
+      <span class="bg-white/15 rounded-full px-3 py-1">🏆 Ranking ao vivo</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    <!-- Criar -->
+    <div class="paper-card rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">add_circle</span>
+        <h2 class="font-serif font-semibold text-base text-primary">Criar sala</h2>
+      </div>
+      <form method="post" action="{% url 'coletivo_criar' %}" class="space-y-3">
+        {% csrf_token %}
+        <div>
+          <label class="text-xs text-on-surface-variant font-semibold block mb-1">Disciplina (opcional)</label>
+          <select name="categoria_id" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+            <option value="">Todas as disciplinas</option>
+            {% for cat in categorias %}<option value="{{ cat.pk }}">{{ cat.nome }}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="text-xs text-on-surface-variant font-semibold block mb-1">Questões</label>
+            <select name="n_questoes" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="5">5</option><option value="10" selected>10</option><option value="20">20</option><option value="30">30</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-on-surface-variant font-semibold block mb-1">Tempo/Q</label>
+            <select name="tempo_por_q" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="15">15s</option><option value="30" selected>30s</option><option value="45">45s</option><option value="60">60s</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-on-surface-variant font-semibold block mb-1">Máx.</label>
+            <select name="max_jogadores" class="w-full text-sm rounded-lg border border-outline-variant/40 bg-white px-3 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="10">10</option><option value="20" selected>20</option><option value="50">50</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">add</span>
+          Criar sala
+        </button>
+      </form>
+    </div>
+
+    <!-- Entrar -->
+    <div class="paper-card rounded-2xl p-5 flex flex-col">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:20px;">login</span>
+        <h2 class="font-serif font-semibold text-base text-primary">Entrar com código</h2>
+      </div>
+      <p class="text-xs text-on-surface-variant mb-4 flex-1">Recebeu o código de uma sala? Entre diretamente!</p>
+      <input id="inp-codigo" type="text" placeholder="XZ7K3Q" maxlength="6"
+             class="w-full text-center font-serif text-2xl font-bold tracking-widest uppercase rounded-lg border border-outline-variant/40 bg-white px-3 py-3 mb-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20"/>
+      <button onclick="entrarSala()" class="w-full bg-secondary hover:opacity-90 text-white font-semibold text-sm py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">arrow_forward</span>
+        Entrar na sala
+      </button>
+      <p id="msg-entrar" class="text-xs text-center text-error mt-2 hidden"></p>
+    </div>
+
+  </div>
+
+  {% if salas_abertas %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+      <h2 class="font-serif font-semibold text-base text-primary">Salas abertas</h2>
+      <span class="ml-auto text-xs text-on-surface-variant">{{ salas_abertas|length }} disponível(is)</span>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for sala in salas_abertas %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-on-surface">{{ sala.criador.username }}
+            <span class="text-xs text-on-surface-variant font-normal">· {{ sala.categoria.nome|default:"Todas" }}</span>
+          </p>
+          <p class="text-xs text-on-surface-variant">
+            {{ sala.n_questoes }}Q · {{ sala.tempo_por_q }}s · {{ sala.participantes.count }}/{{ sala.max_jogadores }} jogadores
+          </p>
+        </div>
+        <a href="{% url 'coletivo_sala' sala.codigo %}" class="text-xs bg-primary text-on-primary px-3 py-1.5 rounded-lg font-semibold hover:bg-primary-container transition-colors">Entrar</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if minhas_salas %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px;">history</span>
+      <h2 class="font-serif font-semibold text-base text-primary">Minhas salas recentes</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for sala in minhas_salas %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <div class="flex-1">
+          <p class="text-sm font-medium text-on-surface">
+            {{ sala.categoria.nome|default:"Todas as disciplinas" }}
+            <span class="text-xs text-on-surface-variant">· {{ sala.criado_em|date:"d/m/Y" }}</span>
+          </p>
+          <p class="text-xs text-on-surface-variant">{{ sala.n_questoes }}Q · {{ sala.participantes.count }} participantes</p>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full
+          {% if sala.status == 'aguardando' %}bg-amber-100 text-amber-700
+          {% elif sala.status == 'em_andamento' %}bg-secondary-container text-on-secondary-container
+          {% else %}bg-surface-container text-on-surface-variant{% endif %}">
+          {% if sala.status == 'aguardando' %}Aguardando
+          {% elif sala.status == 'em_andamento' %}Jogando
+          {% else %}Encerrado{% endif %}
+        </span>
+        {% if sala.status == 'finalizado' %}
+        <a href="{% url 'coletivo_resultado' sala.pk %}" class="text-xs text-primary hover:underline font-semibold">Ver ranking</a>
+        {% elif sala.status == 'em_andamento' %}
+        <a href="{% url 'coletivo_jogar' sala.pk %}" class="text-xs bg-primary text-on-primary px-3 py-1.5 rounded-lg font-semibold hover:bg-primary-container transition-colors">Entrar</a>
+        {% else %}
+        <a href="{% url 'coletivo_sala' sala.codigo %}" class="text-xs text-on-surface-variant hover:underline">Sala</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+async function entrarSala() {
+  const codigo = document.getElementById('inp-codigo').value.trim().toUpperCase();
+  const msg = document.getElementById('msg-entrar');
+  if (codigo.length < 4) { msg.textContent='Código inválido.'; msg.classList.remove('hidden'); return; }
+  if (codigo) window.location.href = '/coletivo/sala/' + codigo + '/';
+}
+document.getElementById('inp-codigo').addEventListener('keydown', e => { if (e.key==='Enter') entrarSala(); });
+</script>
+
+</body>
+</html>

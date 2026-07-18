@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Metas de estudo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .meta-card { transition: all .18s; }
+  .meta-card:hover { box-shadow: 0 12px 28px rgba(25,28,29,.08); transform: translateY(-1px); }
+  .meta-card.atingida { background: linear-gradient(135deg, rgba(157,244,204,.35) 0%, #fff 70%) !important; border-color: rgba(0,108,77,.35) !important; }
+  .periodo-card { transition: all .15s; }
+  .periodo-card:has(input:checked) { background: rgba(157,244,204,.25) !important; border-color: #002046 !important; box-shadow: 0 6px 20px rgba(0,32,70,.12) !important; }
+  @keyframes shine { 0%,100%{box-shadow:0 0 0 0 rgba(0,108,77,.4)} 50%{box-shadow:0 0 0 8px rgba(0,108,77,0)} }
+  .shine { animation: shine 2.5s infinite; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='planejamento' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 md:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">track_changes</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Metas de estudo</h1>
+      <p class="text-[11px] text-on-surface-variant">Defina e acompanhe metas semanais e mensais</p>
+    </div>
+  </div>
+  <a href="{% url 'metas_semanais' %}" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-primary px-3 py-1.5 rounded-full hover:bg-surface-container-low transition-colors">
+    <span class="material-symbols-outlined" style="font-size:14px;">event_available</span>
+    Metas semanais
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 md:px-10 space-y-8">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Planejamento · Metas</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">
+        Defina onde quer chegar
+      </h2>
+      <p class="text-base text-on-surface-variant leading-relaxed max-w-2xl">
+        Crie metas de <strong class="text-on-surface font-semibold">quantidade de questões</strong> e
+        <strong class="text-on-surface font-semibold">aproveitamento mínimo</strong> por semana ou mês.
+        O sistema acompanha em tempo real.
+      </p>
+    </section>
+
+    {% if messages %}
+    <div class="space-y-2">
+      {% for msg in messages %}
+      <div class="rounded-xl px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border-error/30
+        {% else %}bg-secondary-container/40 text-on-secondary-container border-secondary/30{% endif %}">
+        {{ msg }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if metas_ativas %}
+    <section>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:16px;">flag</span>
+        Metas ativas
+      </h3>
+      <div class="space-y-3">
+        {% for item in metas_ativas %}
+        {% with m=item.meta p=item.prog %}
+        <article class="meta-card paper-card {% if p.meta_atingida %}atingida{% endif %} rounded-2xl p-5">
+          <div class="flex items-start justify-between mb-4 gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0
+                {% if p.meta_atingida %}bg-secondary text-white shine{% else %}bg-primary/10 text-primary{% endif %}">
+                <span class="material-symbols-outlined active-icon" style="font-size:22px;">
+                  {% if m.periodo == 'semanal' %}date_range{% else %}calendar_month{% endif %}
+                </span>
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h4 class="font-serif font-semibold text-base text-primary capitalize">Meta {{ m.periodo }}</h4>
+                  {% if p.meta_atingida %}
+                  <span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined active-icon" style="font-size:11px;">check_circle</span>
+                    Atingida
+                  </span>
+                  {% endif %}
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-0.5 font-mono">
+                  {{ m.inicio|date:"d/m/Y" }} → {{ m.fim|date:"d/m/Y" }}
+                </p>
+              </div>
+            </div>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="acao" value="desativar"/>
+              <input type="hidden" name="meta_id" value="{{ m.id }}"/>
+              <button type="submit" title="Remover meta"
+                      class="w-8 h-8 rounded-lg text-on-surface-variant hover:text-error hover:bg-error/5 flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="bg-surface-container-low/60 rounded-xl p-3">
+              <div class="flex items-center justify-between text-[11px] mb-1.5">
+                <span class="font-bold uppercase tracking-wider text-on-surface-variant">Questões</span>
+                <span class="font-serif font-bold {% if p.total >= m.questoes_alvo %}text-secondary{% else %}text-primary{% endif %}">
+                  {{ p.total }}<span class="text-on-surface-variant font-normal font-sans">/{{ m.questoes_alvo }}</span>
+                </span>
+              </div>
+              <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                <div class="h-2 rounded-full transition-all duration-700 {% if p.pct_questoes >= 100 %}bg-secondary{% else %}bg-primary{% endif %}"
+                     style="width: {% if p.pct_questoes > 100 %}100{% else %}{{ p.pct_questoes }}{% endif %}%"></div>
+              </div>
+              <p class="text-[10px] text-on-surface-variant mt-1.5 font-mono">
+                {% if p.pct_questoes >= 100 %}✓ Concluído{% else %}{{ p.pct_questoes }}% concluído{% endif %}
+              </p>
+            </div>
+
+            <div class="bg-surface-container-low/60 rounded-xl p-3">
+              <div class="flex items-center justify-between text-[11px] mb-1.5">
+                <span class="font-bold uppercase tracking-wider text-on-surface-variant">Aproveitamento</span>
+                <span class="font-serif font-bold {% if p.pct_aproveitamento >= m.aproveitamento_alvo %}text-secondary{% elif p.pct_aproveitamento >= 50 %}text-amber-600{% else %}text-error{% endif %}">
+                  {{ p.pct_aproveitamento }}%
+                </span>
+              </div>
+              <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                <div class="h-2 rounded-full transition-all duration-700
+                  {% if p.pct_aproveitamento >= m.aproveitamento_alvo %}bg-secondary
+                  {% elif p.pct_aproveitamento >= 50 %}bg-amber-500
+                  {% else %}bg-error{% endif %}"
+                  style="width: {% if p.pct_aproveitamento > 100 %}100{% else %}{{ p.pct_aproveitamento }}{% endif %}%"></div>
+              </div>
+              <p class="text-[10px] text-on-surface-variant mt-1.5 font-mono">Meta: {{ m.aproveitamento_alvo }}%</p>
+            </div>
+          </div>
+
+          {% if p.meta_atingida %}
+          <div class="text-xs bg-secondary-container/50 border border-secondary/30 text-on-secondary-container rounded-xl px-3 py-2 flex items-center gap-2">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">workspace_premium</span>
+            <span>Parabéns! Você bateu essa meta. Continue assim 🎉</span>
+          </div>
+          {% endif %}
+        </article>
+        {% endwith %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Criar nova meta</h3>
+      <details class="paper-card rounded-2xl overflow-hidden" {% if not metas_ativas %}open{% endif %}>
+        <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-surface-container-low transition-colors select-none">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">add_circle</span>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-primary leading-tight">Adicionar meta</p>
+              <p class="text-[11px] text-on-surface-variant">Configure período + alvo de questões e aproveitamento</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant transition-transform" style="font-size:22px;">expand_more</span>
+        </summary>
+
+        <form method="post" class="px-5 pb-5 border-t border-[#e5e1d8] pt-5 space-y-5">
+          {% csrf_token %}
+          <input type="hidden" name="acao" value="criar"/>
+
+          <div>
+            <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Período</p>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="periodo-card cursor-pointer p-4 rounded-xl border-2 border-[#e5e1d8] bg-white hover:border-primary/40 transition-all flex flex-col items-center gap-1.5">
+                <input type="radio" name="periodo" value="semanal" checked class="sr-only">
+                <span class="material-symbols-outlined text-primary" style="font-size:24px;">date_range</span>
+                <span class="text-sm font-bold text-on-surface">Semanal</span>
+                <span class="text-[10px] text-on-surface-variant">Segunda a domingo</span>
+              </label>
+              <label class="periodo-card cursor-pointer p-4 rounded-xl border-2 border-[#e5e1d8] bg-white hover:border-primary/40 transition-all flex flex-col items-center gap-1.5">
+                <input type="radio" name="periodo" value="mensal" class="sr-only">
+                <span class="material-symbols-outlined text-primary" style="font-size:24px;">calendar_month</span>
+                <span class="text-sm font-bold text-on-surface">Mensal</span>
+                <span class="text-[10px] text-on-surface-variant">Do dia 1º ao último</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Meta de questões</label>
+              <input type="number" name="questoes_alvo" value="50" min="1" max="9999"
+                     class="w-full bg-white border border-[#e5e1d8] rounded-xl px-4 py-2.5 text-sm font-semibold focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+              <p class="text-[10px] text-on-surface-variant mt-1">Quantas questões você quer responder</p>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5">Aproveitamento mínimo</label>
+              <div class="relative">
+                <input type="number" name="aproveitamento_alvo" value="70" min="0" max="100"
+                       class="w-full bg-white border border-[#e5e1d8] rounded-xl px-4 py-2.5 pr-8 text-sm font-semibold focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"/>
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm font-bold">%</span>
+              </div>
+              <p class="text-[10px] text-on-surface-variant mt-1">% mínimo de acertos para a meta</p>
+            </div>
+          </div>
+
+          <button type="submit"
+                  class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold py-3 rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined active-icon" style="font-size:18px;">flag</span>
+            Criar meta
+          </button>
+        </form>
+      </details>
+    </section>
+
+    {% if metas_hist %}
+    <section>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px;">history</span>
+        Histórico
+      </h3>
+      <div class="paper-card rounded-2xl overflow-hidden">
+        <div class="divide-y divide-[#e5e1d8]">
+          {% for m in metas_hist %}
+          <div class="flex items-center gap-3 px-5 py-3.5 hover:bg-surface-container-low transition-colors">
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+              <span class="material-symbols-outlined" style="font-size:18px;">
+                {% if m.periodo == 'semanal' %}date_range{% else %}calendar_month{% endif %}
+              </span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-on-surface capitalize">Meta {{ m.periodo }}</p>
+              <p class="text-[11px] text-on-surface-variant font-mono">
+                {{ m.inicio|date:"d/m/Y" }} – {{ m.fim|date:"d/m/Y" }} · Alvo: {{ m.questoes_alvo }}q · {{ m.aproveitamento_alvo }}%
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if not metas_ativas and not metas_hist %}
+    <section class="paper-card rounded-3xl border-dashed p-10 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">flag</span>
+      </div>
+      <h3 class="font-serif font-semibold text-primary text-lg mb-1">Nenhuma meta criada</h3>
+      <p class="text-sm text-on-surface-variant max-w-md mx-auto">
+        Crie sua primeira meta acima — defina uma quantidade de questões para a semana e o aproveitamento desejado.
+      </p>
+    </section>
+    {% endif %}
+
+  </div>
+</main>
+
+</body>
+</html>

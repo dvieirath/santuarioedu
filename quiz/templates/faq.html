@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Perguntas Frequentes | SantuarioEdu</title>
+<meta name="description" content="Respostas para as dúvidas mais comuns sobre a plataforma SantuarioEdu."/>
+{% include "includes/favicon.html" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é o SantuarioEdu?","acceptedAnswer":{"@type":"Answer","text":"Plataforma online de estudos com IA: banco de questões, simulados cronometrados, revisão espaçada e tutor inteligente."}},
+    {"@type":"Question","name":"Para que tipo de estudo serve?","acceptedAnswer":{"@type":"Answer","text":"Serve para qualquer objetivo de estudo baseado em questões: vestibular, ENEM, provas técnicas, aprendizado contínuo. Você define seu próprio ritmo e conteúdo."}},
+    {"@type":"Question","name":"Preciso pagar para usar?","acceptedAnswer":{"@type":"Answer","text":"Não. Existe plano gratuito com acesso ao banco. Para recursos ilimitados, há planos PRO e Premium."}},
+    {"@type":"Question","name":"Como funciona a revisão espaçada (SRS)?","acceptedAnswer":{"@type":"Answer","text":"Quando você erra, a questão entra em fila com intervalos crescentes de revisão, maximizando retenção."}},
+    {"@type":"Question","name":"Tem app mobile?","acceptedAnswer":{"@type":"Answer","text":"Sim, é PWA — acesse pelo navegador e instale na tela inicial. Funciona offline."}},
+    {"@type":"Question","name":"Como cancelo minha assinatura?","acceptedAnswer":{"@type":"Answer","text":"Em Conta > Minha Assinatura. Após cancelar, mantém acesso até o fim do ciclo pago."}},
+    {"@type":"Question","name":"Posso pedir reembolso?","acceptedAnswer":{"@type":"Answer","text":"Sim. CDC garante 7 dias corridos após contratação para reembolso integral."}},
+    {"@type":"Question","name":"Como excluo minha conta?","acceptedAnswer":{"@type":"Answer","text":"Em /perfil/excluir/ — exclusão imediata em conformidade com a LGPD."}}
+  ]
+}
+</script>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<style>
+  body { font-family:'Inter',sans-serif; background:#fff; color:#191c1d; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chevron { transform: rotate(180deg); }
+  .chevron { transition: transform 0.2s ease; }
+  .faq-item { transition: border-color 0.2s; }
+  .faq-item:hover { border-color: #1b365d40; }
+  .faq-item[open] { border-color: #1b365d; background:linear-gradient(180deg,#fff,#fafbff); }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-4xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      {% include "quiz/includes/brand_mark.html" with size="30" %}
+      <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <a href="/" class="text-xs font-bold text-slate-600 hover:text-[#002046] flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
+      Voltar
+    </a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 md:px-8 py-12 md:py-16">
+
+  <div class="text-center mb-12">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">Central de Ajuda</p>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-[#002046] tracking-tight mb-3">Perguntas frequentes</h1>
+    <p class="text-slate-600 text-base">Tudo o que você precisa saber sobre o SantuarioEdu.</p>
+  </div>
+
+  <!-- ─── Plataforma ─────────────────────────────────────────────────────── -->
+  <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 mt-10">Sobre a plataforma</h2>
+  <div class="space-y-3">
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">O que é o SantuarioEdu?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Plataforma online de estudos com IA. Você responde questões catalogadas por disciplina
+        e assunto, faz simulados cronometrados, recebe revisões espaçadas automáticas e conta
+        com tutor por IA disponível 24/7. Tudo num único lugar.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Que tipo de estudo é indicado?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Qualquer estudo que se beneficie de <strong>prática ativa</strong> — responder questões,
+        revisitar conteúdo em intervalos e acompanhar evolução. As disciplinas do banco cobrem
+        Língua Portuguesa, Raciocínio Lógico, Matemática, Direito, Informática, Ciências,
+        Enfermagem, Medicina, entre outras. Você escolhe o que estudar.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Preciso pagar para usar?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Não. Existe um <strong>plano gratuito</strong> com acesso ao banco de questões e simulados limitados.
+        Quem quiser recursos ilimitados (mais questões/dia, IA sem limite, simulados ilimitados) pode
+        assinar PRO ou Premium. Veja todos os detalhes na página <a href="/#planos" class="text-[#006c4d] font-semibold underline">Planos</a>.
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ─── Estudo ─────────────────────────────────────────────────────────── -->
+  <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 mt-10">Estudo e recursos</h2>
+  <div class="space-y-3">
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Como funciona a revisão espaçada (SRS)?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Quando você erra uma questão, ela entra no algoritmo de revisão espaçada (parecido com o
+        Anki). A questão volta para você em intervalos crescentes — primeiro no dia seguinte, depois
+        em 3 dias, depois em 1 semana, etc. Isso aproveita o efeito da
+        <strong>curva de esquecimento de Ebbinghaus</strong> e maximiza retenção com mínimo tempo
+        de estudo.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">O que é o Simulado Cronometrado?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        É um simulado completo com <strong>tempo real</strong>, distribuição por disciplina configurável
+        e correção automática ao final. Você recebe um laudo com sua performance por matéria,
+        assunto e tempo médio por questão.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">A IA pode errar?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Sim. A IA (Groq/Gemini) é poderosa mas pode ocasionalmente errar análises, resumos ou
+        explicações. Use-a como <strong>ferramenta de apoio</strong>, nunca como fonte definitiva.
+        Sempre cruze informações importantes com fontes oficiais (livros, manuais, legislação).
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Tem app mobile?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Sim — o SantuarioEdu é um <strong>PWA (Progressive Web App)</strong>. No celular, acesse pelo
+        navegador e clique em "Instalar app" ou "Adicionar à tela inicial". Funciona offline para
+        questões já carregadas e envia notificações de revisão.
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ─── Conta & Privacidade ────────────────────────────────────────────── -->
+  <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 mt-10">Conta e privacidade</h2>
+  <div class="space-y-3">
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Como cancelo minha assinatura?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Você pode cancelar a qualquer momento em <strong>Conta → Minha Assinatura</strong>. Após o
+        cancelamento, mantém o acesso ao plano pago até o fim do ciclo já pago. Nada de fidelidade.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Posso pedir reembolso?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Sim. Conforme o Código de Defesa do Consumidor (Art. 49), você tem <strong>7 dias corridos</strong>
+        após a contratação para desistir e receber reembolso integral, sem precisar justificar.
+        Solicite via <a href="mailto:financeiro@santuarioedu.com.br" class="text-[#006c4d] font-semibold underline">financeiro@santuarioedu.com.br</a>.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Como excluo minha conta?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Em <strong>Perfil → Excluir conta</strong>, ou direto em
+        <a href="/perfil/excluir/" class="text-[#006c4d] font-semibold underline">/perfil/excluir/</a>.
+        Conforme a LGPD (Art. 18, VI), seus dados pessoais são excluídos imediatamente.
+        Backups podem manter o registro por até 30 dias antes da remoção definitiva.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Vocês vendem meus dados?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        <strong>Não. Nunca.</strong> Nossos dados são usados exclusivamente para operar a plataforma.
+        Não fazemos publicidade direcionada e não compartilhamos com brokers de dados.
+        Detalhes completos na <a href="/legal/privacidade/" class="text-[#006c4d] font-semibold underline">Política de Privacidade</a>.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Esqueci minha senha. E agora?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Na tela de login, clique em <strong>"Esqueci minha senha"</strong>. Você receberá um e-mail
+        com link de redefinição. Se não chegar em 5 minutos, verifique a pasta de spam ou
+        entre em contato pelo nosso suporte.
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ─── Suporte ────────────────────────────────────────────────────────── -->
+  <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 mt-10">Suporte</h2>
+  <div class="space-y-3">
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Como reporto um bug?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Mande um e-mail para <a href="mailto:suporte@santuarioedu.com.br" class="text-[#006c4d] font-semibold underline">suporte@santuarioedu.com.br</a>
+        descrevendo o problema, o navegador que está usando e — se possível — anexando um print.
+        Resposta em até 48 horas úteis.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Encontrei um erro em uma questão. O que faço?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Dentro da tela de revisão da questão, clique em <strong>"Reportar erro"</strong> e nos diga
+        o que está errado (alternativa, gabarito, enunciado). Revisamos manualmente e corrigimos
+        em poucos dias.
+      </div>
+    </details>
+
+    <details class="faq-item bg-white rounded-2xl border border-[#edeeef] p-5">
+      <summary class="flex items-center justify-between gap-4">
+        <span class="font-headline font-bold text-[#002046] text-base">Posso sugerir uma feature?</span>
+        <span class="material-symbols-outlined chevron text-slate-400">expand_more</span>
+      </summary>
+      <div class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+        Adoramos! Mande sua sugestão para <a href="mailto:produto@santuarioedu.com.br" class="text-[#006c4d] font-semibold underline">produto@santuarioedu.com.br</a>
+        ou marque no formulário de feedback dentro do app. Avaliamos cada sugestão e várias features
+        do app vieram da comunidade.
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ─── CTA Suporte ────────────────────────────────────────────────────── -->
+  <div class="mt-14 bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-200 rounded-3xl p-8 text-center">
+    <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+      <span class="material-symbols-outlined text-violet-600" style="font-size:28px;font-variation-settings:'FILL' 1;">support_agent</span>
+    </div>
+    <h2 class="font-headline font-extrabold text-[#002046] text-xl mb-2">Não encontrou o que procurava?</h2>
+    <p class="text-sm text-slate-600 mb-5">Nossa equipe de suporte responde em até 48h.</p>
+    <a href="mailto:suporte@santuarioedu.com.br" class="inline-flex items-center gap-2 bg-[#002046] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">mail</span>
+      Falar com o suporte
+    </a>
+  </div>
+
+</main>
+
+<footer class="bg-[#0a1929] text-blue-300 py-8 mt-12 text-center text-xs">
+  © SantuarioEdu · <a href="/legal/termos/" class="hover:text-white">Termos</a> · <a href="/legal/privacidade/" class="hover:text-white">Privacidade</a> · <a href="/faq/" class="hover:text-white">FAQ</a>
+</footer>
+</body>
+</html>

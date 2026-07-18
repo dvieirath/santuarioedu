@@ -1,0 +1,185 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Entrar | SantuarioEdu</title>
+{% load static %}<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary:'#002046', secondary:'#006c4d',
+        'primary-container':'#1b365d',
+        surface:'#f8f9fa','surface-container':'#edeeef',
+        'surface-container-high':'#e7e8e9','surface-container-highest':'#e1e3e4',
+        'surface-container-lowest':'#ffffff','on-surface':'#191c1d',
+        'on-surface-variant':'#44474e','surface-tint':'#465f88',
+      },
+      fontFamily:{ headline:['Manrope'], body:['Inter'] }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+</style>
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex items-center justify-center p-4">
+
+<!-- Fundo decorativo -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden">
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/5 rounded-full"></div>
+  <div class="absolute bottom-0 right-0 w-[60vw] h-[50vh] bg-secondary/5 rounded-tl-full"></div>
+</div>
+
+<div class="relative w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+  <!-- Lado esquerdo — branding -->
+  <div class="hidden lg:flex flex-col gap-8">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center">
+        {% include "quiz/includes/brand_mark.html" with size="30" variant="white" %}
+      </div>
+      <span class="text-2xl font-headline font-extrabold text-primary uppercase tracking-widest">SantuarioEdu</span>
+    </div>
+    <div>
+      <h1 class="text-5xl font-headline font-extrabold text-primary leading-tight mb-4">
+        Sua aprovação<br/>
+        <span class="text-secondary">começa aqui.</span>
+      </h1>
+      <p class="text-on-surface-variant text-lg leading-relaxed">
+        Milhares de questões de concursos públicos organizadas por disciplina,
+        com revisão espaçada, simulados e análise de desempenho.
+      </p>
+    </div>
+    <!-- Features -->
+    <div class="space-y-3">
+      {% for feat in "🎯 Questões comentadas por IA|📊 Analytics de desempenho|🧠 Revisão espaçada SM-2|🏆 Sistema de conquistas"|split:"|" %}
+      <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+        <span class="text-base">{{ feat }}</span>
+      </div>
+      {% endfor %}
+      <div class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="text-base">🎯 Questões comentadas por IA</span></div>
+      <div class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="text-base">📊 Analytics de desempenho em tempo real</span></div>
+      <div class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="text-base">🧠 Revisão espaçada (algoritmo SM-2)</span></div>
+      <div class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="text-base">🏆 Ranking e sistema de conquistas</span></div>
+    </div>
+  </div>
+
+  <!-- Lado direito — card de login -->
+  <div class="w-full max-w-md mx-auto">
+    <div class="bg-surface-container-lowest rounded-3xl shadow-[0_20px_60px_rgba(25,28,29,0.08)] p-8 md:p-10">
+
+      <!-- Header mobile -->
+      <div class="flex items-center gap-2 mb-8 lg:hidden">
+        {% include "quiz/includes/brand_mark.html" with size="28" %}
+        <span class="font-headline font-extrabold text-primary uppercase tracking-widest text-lg">SantuarioEdu</span>
+      </div>
+
+      <h2 class="text-2xl font-headline font-extrabold text-on-surface mb-1">Bem-vindo de volta</h2>
+      <p class="text-sm text-on-surface-variant mb-8">Entre para continuar seus estudos.</p>
+
+      {% if form.errors %}
+      <div class="mb-5 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 font-medium text-center">
+        ❌ Usuário ou senha incorretos.
+      </div>
+      {% endif %}
+
+      <!-- Login com Google -->
+      <a href="{% url 'google_login' %}"
+         class="w-full flex items-center justify-center gap-3 py-3 px-5 bg-white border border-surface-container-highest rounded-2xl hover:bg-surface-container transition-all shadow-sm text-sm font-semibold text-on-surface mb-6 group">
+        <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Entrar com Google
+      </a>
+
+      <!-- Separador -->
+      <div class="relative mb-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-surface-container-highest"></div>
+        </div>
+        <div class="relative flex justify-center text-xs">
+          <span class="bg-surface-container-lowest px-3 text-on-surface-variant font-medium">ou entre com usuário e senha</span>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        <div>
+          <label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5" for="id_username">Usuário</label>
+          <input id="id_username" name="username" type="text" required autocomplete="username"
+            placeholder="Seu nome de usuário"
+            class="w-full px-4 py-3 bg-surface-container border border-surface-container-highest rounded-xl
+                   focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40
+                   text-on-surface placeholder:text-on-surface-variant/50 text-sm transition-all"/>
+        </div>
+        <div>
+          <label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5" for="id_password">Senha</label>
+          <div class="relative">
+            <input id="id_password" name="password" type="password" required autocomplete="current-password"
+              placeholder="••••••••"
+              class="w-full px-4 py-3 bg-surface-container border border-surface-container-highest rounded-xl
+                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40
+                     text-on-surface placeholder:text-on-surface-variant/50 text-sm pr-12 transition-all"/>
+            <button type="button" onclick="const p=document.getElementById('id_password');p.type=p.type==='password'?'text':'password';"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            </button>
+          </div>
+        </div>
+        <button type="submit"
+          class="w-full py-3.5 bg-primary text-white font-bold text-sm rounded-2xl hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm mt-2">
+          Entrar
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-on-surface-variant">
+        Não tem conta?
+        <a href="{% url 'cadastro' %}" class="font-bold text-primary hover:underline ml-1">Cadastrar-se</a>
+      </p>
+
+    </div>
+
+    <!-- Toggle dark mode (fora do card) -->
+    <div class="mt-4 flex justify-center">
+      <button onclick="window._prf_toggleTheme()" class="flex items-center gap-2 text-xs text-on-surface-variant hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined text-base" id="theme-icon-main">dark_mode</span>
+        Alternar tema
+      </button>
+    </div>
+    <script>
+    window._prf_toggleTheme=function(){
+      var html=document.documentElement;
+      var isDark=html.classList.contains('dark');
+      var next=isDark?'light':'dark';
+      html.className=next;
+      localStorage.setItem('prf_theme',next);
+      var ic=document.getElementById('theme-icon-main');
+      if(ic)ic.textContent=isDark?'dark_mode':'light_mode';
+    };
+    (function(){
+      var t=localStorage.getItem('prf_theme')||'light';
+      var ic=document.getElementById('theme-icon-main');
+      if(ic)ic.textContent=t==='dark'?'light_mode':'dark_mode';
+    })();
+    </script>
+
+  </div>
+</div>
+
+{% include "includes/cookie_banner.html" %}
+
+</body>
+</html>

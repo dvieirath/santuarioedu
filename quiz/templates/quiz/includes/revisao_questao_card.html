@@ -1,0 +1,103 @@
+{% comment %}
+Card SSR da questão em revisão. Idêntico ao markup que renderQuestao() gera
+via JS — usa Django templating para o primeiro paint sem esperar JS.
+Espera: questao (obj), com atributos habituais.
+{% endcomment %}
+<article id="card-questao" class="paper-card rounded-2xl p-6 md:p-8 fade-in">
+
+  <div class="flex flex-wrap items-center gap-2 mb-4">
+    <span class="text-[10px] uppercase tracking-wider font-bold bg-primary-fixed text-primary-container px-2 py-0.5 rounded-full">{{ questao.categoria.nome }}</span>
+    {% if questao.banca %}<span class="text-[10px] uppercase tracking-wider font-bold bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2 py-0.5 rounded-full">{{ questao.banca }}</span>{% endif %}
+    {% if questao.ano %}<span class="text-[10px] uppercase tracking-wider font-bold bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2 py-0.5 rounded-full">{{ questao.ano }}</span>{% endif %}
+    {% if questao.assunto %}<span class="text-[10px] uppercase tracking-wider font-bold bg-primary-fixed text-primary-container px-2 py-0.5 rounded-full">{{ questao.assunto }}</span>{% endif %}
+    {% if questao.gerada_por_ia %}<span class="text-[10px] uppercase tracking-wider font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">🤖 IA</span>{% endif %}
+    <span class="ml-auto text-[10px] text-on-surface-variant font-mono">#{{ questao.id }}</span>
+  </div>
+
+  <div class="mb-5">
+    <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">{{ questao.texto }}</p>
+  </div>
+
+  <div class="space-y-2 mb-5">
+    {% for alt in questao.alternativa_set.all %}
+    <div class="alt-row {% if alt.correta %}alt-correta{% endif %} p-3 rounded-xl border border-[#e5e1d8] flex items-start gap-3">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0
+        {% if alt.correta %}bg-secondary text-white{% else %}bg-surface-container text-on-surface-variant{% endif %}">
+        {% if alt.correta %}✓{% endif %}
+      </div>
+      <p class="text-sm text-on-surface leading-relaxed flex-1">{{ alt.texto }}</p>
+      {% if alt.correta %}<span class="text-[10px] font-bold text-secondary uppercase tracking-wider">Correta</span>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="dup-container" class="mb-5"></div>
+
+  <div id="justif-container" class="mb-5">
+    {% if questao.justificativa %}
+    <div class="bg-primary-fixed/40 border-l-4 border-primary-fixed-dim rounded-r-xl p-5">
+      <div class="flex items-center justify-between mb-3">
+        <p class="text-[10px] uppercase tracking-widest font-bold text-primary">Gabarito comentado</p>
+        <button onclick="gerarJustificativaIA(true)" class="text-[10px] text-primary hover:text-primary-container underline font-semibold" title="Substituir por nova versão">
+          🔄 Regerar com IA
+        </button>
+      </div>
+      <div id="justif-raw" class="hidden">{{ questao.justificativa }}</div>
+      <div id="justif-md" class="justif-md"></div>
+    </div>
+    {% else %}
+    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4">
+      <div class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-amber-600 shrink-0" style="font-size:22px;">warning</span>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-amber-900 mb-1">⚠ Sem justificativa — aprovar bloqueado</p>
+          <p class="text-xs text-amber-800 mb-3">Gere agora com IA (1 clique):</p>
+          <button onclick="gerarJustificativaIA(false)" class="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">auto_awesome</span>
+            Gerar justificativa com IA
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if questao.motivo_rejeicao %}
+  <div class="bg-error-container/40 border-l-4 border-error rounded-r-xl p-4 mb-5">
+    <p class="text-[10px] uppercase tracking-widest font-bold text-on-error-container mb-1.5">Reprovação anterior (tentativa {{ questao.tentativas_correcao }})</p>
+    <p class="text-sm text-on-error-container italic">"{{ questao.motivo_rejeicao }}"</p>
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+    <button onclick="acao('aprovar')" class="action-btn flex items-center justify-center gap-1.5 bg-secondary hover:opacity-90 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">check_circle</span>
+      Aprovar <kbd class="bg-white/20 border-white/30 text-white">A</kbd>
+    </button>
+    <button onclick="abrirReprovar()" class="action-btn flex items-center justify-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">edit_note</span>
+      Reprovar p/ IA <kbd class="bg-white/20 border-white/30 text-white">R</kbd>
+    </button>
+    <button onclick="acao('rejeitar')" class="action-btn flex items-center justify-center gap-1.5 bg-error hover:opacity-90 text-white px-4 py-3 rounded-lg text-sm font-semibold shadow-md">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">block</span>
+      Rejeitar def.
+    </button>
+    <button onclick="confirmarExcluir()" class="action-btn flex items-center justify-center gap-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface px-4 py-3 rounded-lg text-sm font-semibold">
+      <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+      Excluir <kbd>X</kbd>
+    </button>
+  </div>
+
+  <div class="mt-3 flex justify-between items-center text-xs text-on-surface-variant">
+    <a href="/admin/quiz/questao/{{ questao.id }}/change/" target="_blank" class="hover:text-primary flex items-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:14px;">edit</span>
+      Editar no admin Django
+    </a>
+    <div class="flex items-center gap-3">
+      <span>{{ total_pendentes }} restante(s)</span>
+      <button onclick="proximaAJAX()" class="font-semibold text-primary hover:underline flex items-center gap-1">
+        Próxima <kbd>→</kbd>
+      </button>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,175 @@
+{% comment %}
+  Widget de Pomodoro flutuante. Aparece em todas as páginas logadas.
+  Foco: 25min · Pausa: 5min · Pausa longa: 15min (a cada 4 sessões).
+  Estado persiste em localStorage.
+{% endcomment %}
+
+<div id="pomo-fab" class="fixed bottom-24 right-5 md:bottom-6 md:right-6 z-50 hidden md:flex flex-col items-end gap-2">
+  <!-- Painel expandido -->
+  <div id="pomo-panel" class="hidden bg-white rounded-2xl shadow-2xl border border-slate-200 p-5 w-72">
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-red-500" style="font-size:18px;font-variation-settings:'FILL' 1;">timer</span>
+        <p class="text-sm font-bold text-[#002046]">Pomodoro</p>
+      </div>
+      <button onclick="pomoToggle()" class="text-slate-400 hover:text-slate-700">
+        <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+      </button>
+    </div>
+
+    <!-- Display -->
+    <div class="text-center my-4">
+      <p id="pomo-mode" class="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-1">Foco</p>
+      <p id="pomo-display" class="text-5xl font-extrabold text-[#002046] font-mono tabular-nums">25:00</p>
+      <p class="text-[10px] text-slate-500 mt-1">Sessão <span id="pomo-count">1</span> de 4</p>
+    </div>
+
+    <!-- Progresso -->
+    <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden mb-4">
+      <div id="pomo-bar" class="h-full bg-gradient-to-r from-red-500 to-orange-500 transition-all" style="width:0%"></div>
+    </div>
+
+    <!-- Controles -->
+    <div class="grid grid-cols-3 gap-2">
+      <button onclick="pomoStartPause()" id="pomo-btn-play" class="bg-[#002046] text-white px-3 py-2 rounded-lg text-xs font-bold hover:bg-[#1b365d] transition-colors col-span-2">
+        Iniciar
+      </button>
+      <button onclick="pomoReset()" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">
+        ↺
+      </button>
+    </div>
+
+    <!-- Configuração rápida -->
+    <details class="mt-4 text-xs">
+      <summary class="text-slate-500 cursor-pointer hover:text-slate-700">Configurar tempos</summary>
+      <div class="mt-2 space-y-1.5">
+        <label class="flex items-center justify-between gap-2">
+          <span class="text-slate-600">Foco (min)</span>
+          <input type="number" min="1" max="60" id="cfg-foco" class="w-16 px-2 py-1 border border-slate-300 rounded text-xs" value="25">
+        </label>
+        <label class="flex items-center justify-between gap-2">
+          <span class="text-slate-600">Pausa curta</span>
+          <input type="number" min="1" max="30" id="cfg-pausa" class="w-16 px-2 py-1 border border-slate-300 rounded text-xs" value="5">
+        </label>
+        <label class="flex items-center justify-between gap-2">
+          <span class="text-slate-600">Pausa longa</span>
+          <input type="number" min="5" max="60" id="cfg-pausa-longa" class="w-16 px-2 py-1 border border-slate-300 rounded text-xs" value="15">
+        </label>
+      </div>
+    </details>
+  </div>
+
+  <!-- Botão flutuante -->
+  <button onclick="pomoToggle()" id="pomo-fab-btn"
+          class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-orange-600 shadow-xl text-white flex items-center justify-center hover:scale-105 transition-transform"
+          title="Pomodoro (P)">
+    <span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 1;">timer</span>
+  </button>
+</div>
+
+<script>
+(function() {
+  const STATE_KEY = 'pomo_state_v1';
+
+  let total = 25 * 60;
+  let restante = 25 * 60;
+  let modo = 'foco';   // foco | pausa | pausa_longa
+  let sessao = 1;
+  let rodando = false;
+  let intervalo = null;
+
+  function carregar() {
+    try {
+      const raw = localStorage.getItem(STATE_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      modo = s.modo || 'foco'; sessao = s.sessao || 1;
+      restante = s.restante || 25*60; total = s.total || 25*60;
+    } catch(e) {}
+  }
+  function salvar() {
+    localStorage.setItem(STATE_KEY, JSON.stringify({modo, sessao, restante, total}));
+  }
+
+  function render() {
+    const mm = Math.floor(restante / 60).toString().padStart(2, '0');
+    const ss = (restante % 60).toString().padStart(2, '0');
+    document.getElementById('pomo-display').textContent = `${mm}:${ss}`;
+    document.getElementById('pomo-count').textContent = sessao;
+    const pct = ((total - restante) / total) * 100;
+    document.getElementById('pomo-bar').style.width = pct + '%';
+    const mapa = {foco:'Foco', pausa:'Pausa', pausa_longa:'Pausa longa'};
+    document.getElementById('pomo-mode').textContent = mapa[modo];
+    document.getElementById('pomo-btn-play').textContent = rodando ? 'Pausar' : 'Iniciar';
+
+    // Atualiza title da página
+    if (rodando) document.title = `${mm}:${ss} · ${mapa[modo]}`;
+  }
+
+  function getMinutos(modo) {
+    const c = {
+      foco: parseInt(document.getElementById('cfg-foco')?.value) || 25,
+      pausa: parseInt(document.getElementById('cfg-pausa')?.value) || 5,
+      pausa_longa: parseInt(document.getElementById('cfg-pausa-longa')?.value) || 15,
+    };
+    return c[modo];
+  }
+
+  function avancarModo() {
+    rodando = false; clearInterval(intervalo);
+    try { new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=').play(); } catch(e){}
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('SantuarioEdu · Pomodoro', {
+        body: modo === 'foco' ? 'Sessão de foco completa! Hora da pausa.' : 'Pausa terminada. Volta a estudar!',
+        icon: '/static/quiz/icon-192.svg',
+      });
+    }
+    if (modo === 'foco') {
+      modo = (sessao % 4 === 0) ? 'pausa_longa' : 'pausa';
+    } else {
+      modo = 'foco';
+      if (modo === 'foco') sessao = (sessao % 4) + 1;
+    }
+    total = restante = getMinutos(modo) * 60;
+    salvar(); render();
+  }
+
+  window.pomoStartPause = function() {
+    rodando = !rodando;
+    if (rodando) {
+      intervalo = setInterval(() => {
+        restante--;
+        if (restante <= 0) avancarModo();
+        else { salvar(); render(); }
+      }, 1000);
+      if ('Notification' in window && Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+    } else { clearInterval(intervalo); }
+    render();
+  };
+
+  window.pomoReset = function() {
+    rodando = false; clearInterval(intervalo);
+    modo = 'foco'; sessao = 1; total = restante = getMinutos('foco') * 60;
+    salvar(); render();
+  };
+
+  window.pomoToggle = function() {
+    document.getElementById('pomo-panel').classList.toggle('hidden');
+  };
+
+  carregar();
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('pomo-fab').classList.remove('hidden');
+    render();
+    // Atalho P para abrir/fechar
+    document.addEventListener('keydown', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'p' && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault(); window.pomoToggle();
+      }
+    });
+  });
+})();
+</script>

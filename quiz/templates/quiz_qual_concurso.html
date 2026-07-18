@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Descubra sua área de estudo | SantuarioEdu</title>
+<meta name="description" content="Quiz rápido de 5 perguntas que descobre qual concurso público combina com o seu perfil."/>
+<meta property="og:title" content="Descubra sua área de estudo | SantuarioEdu"/>
+<meta property="og:description" content="Em 60 segundos a gente recomenda o concurso ideal pro seu perfil."/>
+{% include "includes/favicon.html" %}
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<style>
+  body { font-family:'Inter',sans-serif; background:linear-gradient(135deg, #002046, #1b365d); min-height:100vh; }
+  h1,h2,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0; }
+  .opt-card { transition:all .15s; cursor:pointer; }
+  .opt-card:hover { transform:translateX(4px); border-color:#1b365d; }
+  .opt-card.selected { background:linear-gradient(135deg,#e0e7ff,#dbeafe); border-color:#1b365d; }
+</style>
+</head>
+<body class="antialiased">
+
+<main class="min-h-screen flex items-center justify-center p-4 md:p-8">
+  <div class="bg-white text-slate-900 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden">
+
+    <!-- Header -->
+    <div class="px-6 pt-6 pb-2 flex items-center gap-2">
+      {% include "quiz/includes/brand_mark.html" with size="30" %}
+      <span class="text-sm font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </div>
+
+    <!-- Barra de progresso -->
+    <div class="h-1.5 bg-slate-100 mx-6">
+      <div id="progress-bar" class="h-full bg-gradient-to-r from-violet-500 to-indigo-600 transition-all" style="width:20%"></div>
+    </div>
+
+    <div class="p-7 md:p-10">
+
+      <!-- Tela 1 -->
+      <section id="tela-1" class="space-y-4">
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-violet-600">Quiz · 60 segundos</p>
+        <h1 class="text-3xl md:text-4xl font-headline font-extrabold text-[#002046] tracking-tight">Qual é o seu perfil de estudo?</h1>
+        <p class="text-slate-600">Responde 5 perguntinhas e a gente recomenda o concurso público que mais combina com o seu perfil.</p>
+        <button onclick="iniciar()" class="w-full bg-[#002046] text-white py-4 rounded-2xl text-sm font-bold hover:bg-[#1b365d] transition-colors mt-4 flex items-center justify-center gap-2">
+          Começar agora <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+        </button>
+        <p class="text-[11px] text-slate-400 text-center">Sem cadastro · 100% grátis · resultado imediato</p>
+      </section>
+
+      <!-- Telas de pergunta (geradas via JS) -->
+      <section id="tela-pergunta" class="hidden space-y-4"></section>
+
+      <!-- Tela final -->
+      <section id="tela-resultado" class="hidden space-y-5 text-center">
+        <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+          <span id="result-emoji" class="text-4xl">🎯</span>
+        </div>
+        <p class="text-xs font-bold uppercase tracking-widest text-violet-600">Sua recomendação</p>
+        <h2 id="result-titulo" class="text-3xl font-headline font-extrabold text-[#002046]">PRF</h2>
+        <p id="result-desc" class="text-slate-600 max-w-md mx-auto leading-relaxed"></p>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mt-6 text-left">
+          <p class="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">🎁 Bônus</p>
+          <p class="text-sm text-amber-900">
+            Crie sua conta agora e ganhe <strong>7 dias de PRO grátis</strong>: simulados ilimitados, IA sem limite e revisão espaçada.
+          </p>
+        </div>
+
+        <a href="{% url 'cadastro' %}" class="block w-full bg-[#002046] text-white py-4 rounded-2xl text-sm font-bold hover:bg-[#1b365d] transition-colors mt-2">
+          Começar a estudar grátis
+        </a>
+        <a href="{% url 'home' %}" class="block text-xs text-slate-500 hover:text-slate-700">Voltar pra home</a>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<script>
+const perguntas = [
+  {
+    txt: 'Que tipo de trabalho te atrai mais?',
+    opts: [
+      {emoji:'🚓', label:'Ação na rua, fiscalização, segurança', tags:['prf','pf']},
+      {emoji:'📋', label:'Atendimento ao público, processos', tags:['inss','camara']},
+      {emoji:'⚖️', label:'Justiça, processos jurídicos', tags:['tjdf','trf']},
+      {emoji:'🎓', label:'Universidade pública / faculdade', tags:['enem']},
+    ],
+  },
+  {
+    txt: 'Sua escolaridade atual:',
+    opts: [
+      {emoji:'🏫', label:'Ensino médio (cursando ou completo)', tags:['inss','prf','enem']},
+      {emoji:'📚', label:'Cursando faculdade', tags:['enem','tjdf']},
+      {emoji:'🎓', label:'Faculdade completa', tags:['pf','tjdf','trf']},
+    ],
+  },
+  {
+    txt: 'Quanto você espera ganhar (salário inicial)?',
+    opts: [
+      {emoji:'💰', label:'R$ 3.000 a R$ 5.000', tags:['inss','camara']},
+      {emoji:'💰', label:'R$ 5.000 a R$ 10.000', tags:['prf','tjdf']},
+      {emoji:'💰', label:'Acima de R$ 15.000', tags:['pf','trf']},
+      {emoji:'🎓', label:'Não busco salário, quero entrar na faculdade', tags:['enem']},
+    ],
+  },
+  {
+    txt: 'Você topa trabalhar com…',
+    opts: [
+      {emoji:'🚗', label:'Rodovias federais (viajando)', tags:['prf']},
+      {emoji:'🏢', label:'Escritório, em ambiente fechado', tags:['inss','camara','tjdf']},
+      {emoji:'🔍', label:'Investigação criminal', tags:['pf']},
+      {emoji:'📖', label:'Estudo / pesquisa acadêmica', tags:['enem']},
+    ],
+  },
+  {
+    txt: 'Quanto tempo você consegue se dedicar pros estudos?',
+    opts: [
+      {emoji:'🐢', label:'1-2 horas por dia', tags:['inss','enem']},
+      {emoji:'🚶', label:'3-4 horas por dia', tags:['prf','tjdf','camara']},
+      {emoji:'🏃', label:'6+ horas por dia', tags:['pf','trf']},
+    ],
+  },
+];
+
+const concursos = {
+  prf:   {emoji:'🚓', titulo:'PRF — Polícia Rodoviária Federal',
+          desc:'Patrulhamento das rodovias federais, fiscalização de trânsito e combate ao crime nas estradas. Salário inicial ~R$ 10.500. Provas: Cebraspe.'},
+  pf:    {emoji:'🛡️', titulo:'Polícia Federal',
+          desc:'Investigação de crimes federais, controle migratório, segurança institucional. Carreira mais prestigiada. Salário inicial ~R$ 12.500. Provas: Cebraspe.'},
+  inss:  {emoji:'📋', titulo:'INSS — Técnico do Seguro Social',
+          desc:'Análise de benefícios previdenciários (aposentadoria, auxílios, BPC). Estabilidade total. Salário inicial ~R$ 5.900. Provas: Cesgranrio.'},
+  enem:  {emoji:'🎓', titulo:'ENEM',
+          desc:'Porta de entrada pra universidades públicas e ProUni. Áreas: Linguagens, Matemática, Ciências da Natureza, Humanas e Redação.'},
+  tjdf:  {emoji:'⚖️', titulo:'TJ-DF — Tribunal de Justiça',
+          desc:'Apoio à atividade jurisdicional do TJ-DF (cartório, secretaria, técnico). Salário inicial ~R$ 8.000. Provas: FGV.'},
+  trf:   {emoji:'🏛️', titulo:'TRF — Tribunais Regionais Federais',
+          desc:'Atuação junto a tribunais federais, com excelente remuneração e estabilidade. Salário inicial ~R$ 13.000. Provas: variadas.'},
+  camara:{emoji:'🏢', titulo:'Câmara/Senado',
+          desc:'Carreiras legislativas — assessoria, processos. Salários competitivos. Provas: FGV/Cebraspe.'},
+};
+
+const escolhasIdx = [];
+let atual = 0;
+
+function iniciar() {
+  document.getElementById('tela-1').classList.add('hidden');
+  document.getElementById('tela-pergunta').classList.remove('hidden');
+  render();
+}
+
+function render() {
+  if (atual >= perguntas.length) {
+    mostrarResultado();
+    return;
+  }
+  const p = perguntas[atual];
+  const opts = p.opts.map((o,i) => `
+    <div class="opt-card flex items-center gap-3 p-4 bg-white border-2 border-slate-200 rounded-2xl"
+         onclick="escolher(${i})">
+      <span class="text-2xl">${o.emoji}</span>
+      <span class="text-sm font-semibold text-[#002046]">${o.label}</span>
+    </div>
+  `).join('');
+  document.getElementById('tela-pergunta').innerHTML = `
+    <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-violet-600">
+      Pergunta ${atual+1} de ${perguntas.length}
+    </p>
+    <h2 class="text-xl md:text-2xl font-headline font-extrabold text-[#002046]">${p.txt}</h2>
+    <div class="space-y-2.5">${opts}</div>
+  `;
+  document.getElementById('progress-bar').style.width = ((atual+1)/perguntas.length*100) + '%';
+}
+
+function escolher(idx) {
+  escolhasIdx.push(idx);
+  atual++;
+  render();
+}
+
+function mostrarResultado() {
+  // Conta tags
+  const scores = {};
+  for (let i = 0; i < perguntas.length; i++) {
+    const opt = perguntas[i].opts[escolhasIdx[i]];
+    for (const tag of opt.tags) scores[tag] = (scores[tag] || 0) + 1;
+  }
+  // Pega o vencedor
+  let melhor = 'prf', maxScore = 0;
+  for (const [tag, s] of Object.entries(scores)) {
+    if (s > maxScore) { maxScore = s; melhor = tag; }
+  }
+  const info = concursos[melhor] || concursos['prf'];
+
+  document.getElementById('tela-pergunta').classList.add('hidden');
+  const tr = document.getElementById('tela-resultado');
+  tr.classList.remove('hidden');
+  document.getElementById('result-emoji').textContent = info.emoji;
+  document.getElementById('result-titulo').textContent = info.titulo;
+  document.getElementById('result-desc').textContent = info.desc;
+  document.getElementById('progress-bar').style.width = '100%';
+}
+</script>
+</body>
+</html>

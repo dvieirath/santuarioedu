@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Estudar flashcards — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  .card-container { perspective: 1200px; cursor: pointer; }
+  .card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    transition: transform 0.55s cubic-bezier(.4,2,.6,1);
+    transform-style: preserve-3d;
+  }
+  .card-inner.flipped { transform: rotateY(180deg); }
+  .card-front, .card-back {
+    position: absolute; inset: 0;
+    border-radius: 1.25rem;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 2.5rem; text-align: center;
+  }
+  .card-back { transform: rotateY(180deg); }
+  .btn-difficulty { transition: all .15s; }
+  .btn-difficulty:active { transform: scale(.95); }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<nav class="sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-4 py-3 flex items-center gap-3">
+  <a href="{% url 'flashcards' %}{% if cat_id %}?categoria={{ cat_id }}{% endif %}"
+     class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary leading-tight">Modo memorização</h1>
+    <p class="text-xs text-on-surface-variant">Clique no card para revelar a resposta</p>
+  </div>
+  <div class="paper-card rounded-full px-3 py-1 text-xs font-semibold text-amber-600">
+    {{ restantes }} restantes
+  </div>
+</nav>
+
+<div class="flex-1 flex flex-col items-center justify-center px-4 py-8">
+
+  <!-- Card flip -->
+  <div class="card-container w-full max-w-lg mb-8 fade-in" onclick="flipCard()" id="card-wrapper">
+    <div class="card-inner" id="card-inner">
+
+      <!-- Frente -->
+      <div class="card-front bg-gradient-to-br from-primary to-primary-container text-white shadow-xl">
+        {% if fc.categoria %}
+        <span class="absolute top-4 left-4 text-xs bg-white/20 text-white px-3 py-1 rounded-full font-semibold">{{ fc.categoria.nome }}</span>
+        {% endif %}
+        <div class="absolute top-4 right-4 text-white/40 text-[10px] uppercase tracking-widest font-bold">Pergunta</div>
+        <p class="font-serif text-white text-2xl font-semibold leading-relaxed mt-6">{{ fc.frente }}</p>
+        <div class="absolute bottom-4 text-white/60 text-xs flex items-center gap-1">
+          <span class="material-symbols-outlined" style="font-size:16px;">touch_app</span>
+          Toque para revelar
+        </div>
+      </div>
+
+      <!-- Verso -->
+      <div class="card-back bg-white border-2 border-secondary/40 shadow-xl">
+        <div class="absolute top-4 right-4 text-on-surface-variant text-[10px] uppercase tracking-widest font-bold">Resposta</div>
+        <p class="text-on-surface text-base leading-relaxed mt-6">{{ fc.verso }}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <p id="flip-hint" class="text-on-surface-variant text-sm mb-6 transition-opacity duration-300">
+    Toque no card para ver a resposta
+  </p>
+
+  <!-- Dificuldade -->
+  <div id="difficulty-btns" class="hidden w-full max-w-lg">
+    <p class="text-center text-sm text-on-surface-variant mb-4 font-medium">Como foi? Escolha a dificuldade:</p>
+    <form method="post" id="fc-form">
+      {% csrf_token %}
+      <input type="hidden" name="flashcard_id" value="{{ fc.id }}"/>
+      <input type="hidden" name="dificuldade" id="dif-input" value="2"/>
+      <div class="grid grid-cols-3 gap-3">
+        <button type="button" onclick="escolherDif(3)" id="btn-dif-3"
+          class="btn-difficulty flex flex-col items-center gap-2 bg-error-container/40 hover:bg-error-container/70 border border-error/30 rounded-xl py-4 text-on-error-container transition-all">
+          <span class="material-symbols-outlined active-icon" style="font-size:24px;">sentiment_very_dissatisfied</span>
+          <span class="font-semibold text-sm">Difícil</span>
+          <span class="text-xs opacity-70">Revisar amanhã</span>
+        </button>
+        <button type="button" onclick="escolherDif(2)" id="btn-dif-2"
+          class="btn-difficulty flex flex-col items-center gap-2 bg-amber-100 hover:bg-amber-200 border border-amber-300 rounded-xl py-4 text-amber-700 transition-all">
+          <span class="material-symbols-outlined active-icon" style="font-size:24px;">sentiment_neutral</span>
+          <span class="font-semibold text-sm">Médio</span>
+          <span class="text-xs opacity-70">Revisar em 3 dias</span>
+        </button>
+        <button type="button" onclick="escolherDif(1)" id="btn-dif-1"
+          class="btn-difficulty flex flex-col items-center gap-2 bg-secondary-container/50 hover:bg-secondary-container border border-secondary/30 rounded-xl py-4 text-on-secondary-container transition-all">
+          <span class="material-symbols-outlined active-icon" style="font-size:24px;">sentiment_very_satisfied</span>
+          <span class="font-semibold text-sm">Fácil</span>
+          <span class="text-xs opacity-70">Revisar em 7 dias</span>
+        </button>
+      </div>
+    </form>
+    <div class="mt-4 text-center text-xs text-on-surface-variant">
+      Atalhos: <kbd class="px-2 py-0.5 bg-primary-container rounded text-white font-mono">Espaço</kbd> vira · <kbd class="px-2 py-0.5 bg-primary-container rounded text-white font-mono">1</kbd> <kbd class="px-2 py-0.5 bg-primary-container rounded text-white font-mono">2</kbd> <kbd class="px-2 py-0.5 bg-primary-container rounded text-white font-mono">3</kbd> dificuldade
+    </div>
+  </div>
+
+</div>
+
+<script>
+let flipped = false;
+
+function flipCard() {
+  const inner = document.getElementById('card-inner');
+  const hint = document.getElementById('flip-hint');
+  const btns = document.getElementById('difficulty-btns');
+
+  flipped = !flipped;
+  if (flipped) {
+    inner.classList.add('flipped');
+    hint.style.opacity = '0';
+    setTimeout(() => { btns.classList.remove('hidden'); hint.style.display = 'none'; }, 300);
+  } else {
+    inner.classList.remove('flipped');
+    btns.classList.add('hidden');
+    hint.style.display = 'block';
+    hint.style.opacity = '1';
+  }
+}
+
+function escolherDif(n) {
+  document.getElementById('dif-input').value = n;
+  [1,2,3].forEach(d => {
+    const btn = document.getElementById(`btn-dif-${d}`);
+    btn.style.opacity = d === n ? '1' : '0.4';
+    btn.style.transform = d === n ? 'scale(1.05)' : 'scale(1)';
+  });
+  setTimeout(() => document.getElementById('fc-form').submit(), 200);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === ' ' || e.key === 'ArrowRight') { e.preventDefault(); flipCard(); }
+  if (e.key === '1') escolherDif(3);
+  if (e.key === '2') escolherDif(2);
+  if (e.key === '3') escolherDif(1);
+});
+</script>
+
+</body>
+</html>

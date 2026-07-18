@@ -1,0 +1,23 @@
+<!-- Dark mode toggle button (drop inside header) -->
+<button onclick="window._prf_toggleTheme()" id="theme-toggle-btn"
+  title="Alternar tema claro/escuro"
+  class="ml-auto flex items-center justify-center w-9 h-9 rounded-xl text-on-surface-variant
+         hover:bg-surface-container-high transition-all shrink-0">
+  <span class="material-symbols-outlined text-xl" id="theme-icon-main">dark_mode</span>
+</button>
+<script>
+window._prf_toggleTheme = function(){
+  var html=document.documentElement;
+  var isDark=html.classList.contains('dark');
+  var next=isDark?'light':'dark';
+  html.className=next;
+  localStorage.setItem('prf_theme',next);
+  var ic=document.getElementById('theme-icon-main');
+  if(ic) ic.textContent=isDark?'dark_mode':'light_mode';
+};
+(function(){
+  var t=localStorage.getItem('prf_theme')||'light';
+  var ic=document.getElementById('theme-icon-main');
+  if(ic) ic.textContent=t==='dark'?'light_mode':'dark_mode';
+})();
+</script>

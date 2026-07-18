@@ -1,0 +1,773 @@
+{% extends "quiz/admin/base.html" %}
+
+{% block title %}Painel do Sistema{% endblock %}
+{% block nav_sistema %}active{% endblock %}
+{% block topbar_icon %}settings{% endblock %}
+{% block topbar_title %}Configurações do Sistema{% endblock %}
+
+{% block extra_head %}
+<style>
+  .nivel-badge { display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em; }
+  .nivel-INFO    { background:rgba(79,142,247,.15);color:#93c5fd; }
+  .nivel-AVISO   { background:rgba(245,158,11,.15);color:#fcd34d; }
+  .nivel-ERRO    { background:rgba(239,68,68,.15);color:#fca5a5; }
+  .nivel-CRITICO { background:rgba(220,38,38,.25);color:#f87171;border:1px solid rgba(220,38,38,.4); }
+  .tab-btn { padding:6px 14px;border-radius:7px;font-size:12px;font-weight:600;transition:all .15s;cursor:pointer;border:none;background:transparent;color:#555e72; }
+  .tab-btn.active { background:rgba(79,142,247,.15);color:#93c5fd; }
+  .tab-btn:hover:not(.active) { background:rgba(255,255,255,.05);color:#f1f3f7; }
+  .section { display:none; }
+  .section.active { display:block; }
+  .mono { font-family:'Courier New',monospace;font-size:11px; }
+  .q-card { background:#1e2330;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px 16px;transition:border-color .15s; }
+  .q-card:hover { border-color:rgba(79,142,247,.3); }
+  .tag { display:inline-flex;align-items:center;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:700; }
+  .tag-me { background:rgba(139,92,246,.15);color:#c4b5fd; }
+  .tag-ce { background:rgba(16,185,129,.15);color:#6ee7b7; }
+  .tag-rev { background:rgba(34,197,94,.15);color:#86efac; }
+  .tag-nrev { background:rgba(245,158,11,.15);color:#fcd34d; }
+  /* Inline editor */
+  #editor-panel { display:none; }
+  #editor-panel.open { display:block; }
+  .alt-edit-row { display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.07);background:#252a38;margin-bottom:6px; }
+  .alt-edit-row.correta { border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.04); }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Tabs de navegação do sistema -->
+<div class="flex items-center gap-1 mb-6 p-1 bg-[#181c24] border border-[rgba(255,255,255,.07)] rounded-xl w-fit">
+  <button class="tab-btn active" data-tab="info">
+    <span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;">info</span> Sistema
+  </button>
+  <button class="tab-btn" data-tab="logs">
+    <span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;">bug_report</span>
+    Logs
+    {% if contagem_nivel.ERRO or contagem_nivel.CRITICO %}
+    <span class="ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full bg-red/30 text-red text-[9px] font-bold">
+      {{ contagem_nivel.ERRO|add:contagem_nivel.CRITICO }}
+    </span>
+    {% endif %}
+  </button>
+  <button class="tab-btn" data-tab="questoes">
+    <span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;">edit_note</span> Editar Questões
+  </button>
+  <button class="tab-btn" data-tab="usuarios">
+    <span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;">manage_accounts</span> Usuários
+  </button>
+</div>
+
+<!-- ══════════════════════════ TAB: SISTEMA ══════════════════════════ -->
+<div id="tab-info" class="section active space-y-6">
+
+  <!-- KPIs rápidos -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="card p-5">
+      <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Questões</p>
+      <p class="font-headline font-extrabold text-3xl text-text-1">{{ info.total_questoes }}</p>
+      <p class="text-xs text-text-3 mt-1">{{ info.nao_revisadas }} não revisadas</p>
+    </div>
+    <div class="card p-5">
+      <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Usuários</p>
+      <p class="font-headline font-extrabold text-3xl text-text-1">{{ info.total_usuarios }}</p>
+      <p class="text-xs text-text-3 mt-1">{{ info.staff_users }} com acesso staff</p>
+    </div>
+    <div class="card p-5">
+      <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Respostas</p>
+      <p class="font-headline font-extrabold text-3xl text-text-1">{{ info.total_respostas }}</p>
+    </div>
+    <div class="card p-5">
+      <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Logs</p>
+      <p class="font-headline font-extrabold text-3xl {% if contagem_nivel.ERRO or contagem_nivel.CRITICO %}text-red{% else %}text-green{% endif %}">{{ total_logs }}</p>
+      <p class="text-xs text-text-3 mt-1">{{ contagem_nivel.ERRO }} erros · {{ contagem_nivel.CRITICO }} críticos</p>
+    </div>
+  </div>
+
+  <!-- Info técnica -->
+  <div class="card overflow-hidden">
+    <div class="px-5 py-4 border-b border-[rgba(255,255,255,.07)]">
+      <h2 class="font-semibold text-sm text-text-1 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px;">terminal</span>
+        Informações Técnicas
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[rgba(255,255,255,.06)]">
+      <div class="p-5 space-y-3">
+        {% for label, val in info.items %}
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-text-3 font-medium uppercase tracking-wide">{{ label }}</span>
+          <span class="mono text-text-2
+            {% if label == 'debug' %}{% if val %}text-amber{% else %}text-green{% endif %}{% endif %}">
+            {% if label == 'debug' %}{% if val %}ATIVO — não use em produção!{% else %}Desativado{% endif %}
+            {% else %}{{ val }}{% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="p-5">
+        <p class="text-xs font-semibold text-text-3 uppercase tracking-wide mb-4">Questões sem imagem por disciplina</p>
+        {% for cat in categorias %}
+        {% with sem_img=cat.questao_set.count %}
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs text-text-2 truncate max-w-[180px]">{{ cat.nome }}</span>
+          <span class="text-xs text-text-3 font-mono">{{ cat.questao_set.filter.count }}</span>
+        </div>
+        {% endwith %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Ações de manutenção -->
+  <div class="card overflow-hidden">
+    <div class="px-5 py-4 border-b border-[rgba(255,255,255,.07)]">
+      <h2 class="font-semibold text-sm text-text-1 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px;">build</span>
+        Ações de Manutenção
+      </h2>
+    </div>
+    <div class="p-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <a href="{% url 'admin_questoes' %}?revisada=0" class="btn btn-ghost text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">pending_actions</span>
+        Ver questões não revisadas ({{ info.nao_revisadas }})
+      </a>
+      <a href="{% url 'admin_questao_criar' %}" class="btn btn-ghost text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">add_circle</span>
+        Nova questão manual
+      </a>
+      <a href="{% url 'admin_importar_csv' %}" class="btn btn-ghost text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">upload_file</span>
+        Importar CSV
+      </a>
+      <a href="{% url 'admin_importar_ia' %}" class="btn btn-ghost text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">auto_awesome</span>
+        Importar via IA
+      </a>
+      <a href="{% url 'admin_stats' %}" class="btn btn-ghost text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">monitoring</span>
+        Estatísticas da plataforma
+      </a>
+      <button id="btn-limpar-todos-logs" class="btn btn-danger text-xs justify-start gap-2">
+        <span class="material-symbols-outlined" style="font-size:15px;">delete_sweep</span>
+        Limpar todos os logs
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════ TAB: LOGS ══════════════════════════ -->
+<div id="tab-logs" class="section space-y-4">
+
+  <!-- Filtros + contadores -->
+  <div class="flex flex-wrap items-center gap-3">
+    <button class="tab-btn {% if not nivel_filtro %}active{% endif %}" onclick="filtrarLogs('')">
+      Todos <span class="ml-1 opacity-60 text-[10px]">{{ total_logs }}</span>
+    </button>
+    <button class="tab-btn {% if nivel_filtro == 'INFO' %}active{% endif %}" onclick="filtrarLogs('INFO')">
+      <span class="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"></span> Info
+      <span class="ml-1 opacity-60 text-[10px]">{{ contagem_nivel.INFO }}</span>
+    </button>
+    <button class="tab-btn {% if nivel_filtro == 'AVISO' %}active{% endif %}" onclick="filtrarLogs('AVISO')">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber inline-block"></span> Aviso
+      <span class="ml-1 opacity-60 text-[10px]">{{ contagem_nivel.AVISO }}</span>
+    </button>
+    <button class="tab-btn {% if nivel_filtro == 'ERRO' %}active{% endif %}" onclick="filtrarLogs('ERRO')">
+      <span class="w-1.5 h-1.5 rounded-full bg-red inline-block"></span> Erro
+      <span class="ml-1 opacity-60 text-[10px]">{{ contagem_nivel.ERRO }}</span>
+    </button>
+    <button class="tab-btn {% if nivel_filtro == 'CRITICO' %}active{% endif %}" onclick="filtrarLogs('CRITICO')">
+      <span class="w-1.5 h-1.5 rounded-full bg-red-600 inline-block"></span> Crítico
+      <span class="ml-1 opacity-60 text-[10px]">{{ contagem_nivel.CRITICO }}</span>
+    </button>
+    <div class="ml-auto flex gap-2">
+      <button onclick="abrirModalLog()" class="btn btn-ghost text-xs gap-1.5">
+        <span class="material-symbols-outlined" style="font-size:14px;">add</span> Registro Manual
+      </button>
+      <button id="btn-limpar-nivel" class="btn btn-danger text-xs gap-1.5" {% if not nivel_filtro %}onclick="limparLogs('')"{% else %}onclick="limparLogs('{{ nivel_filtro }}')"{% endif %}>
+        <span class="material-symbols-outlined" style="font-size:14px;">delete_sweep</span>
+        {% if nivel_filtro %}Limpar {{ nivel_filtro }}{% else %}Limpar Todos{% endif %}
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabela de logs -->
+  <div class="card overflow-hidden">
+    {% if logs %}
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="border-b border-[rgba(255,255,255,.07)]">
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide w-20">Nível</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide w-28">Origem</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Mensagem</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide w-24">Usuário</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide w-32">Data</th>
+            <th class="px-4 py-3 w-8"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for log in logs %}
+          <tr class="table-row" id="log-row-{{ log.id }}">
+            <td class="px-4 py-3">
+              <span class="nivel-badge nivel-{{ log.nivel }}">{{ log.nivel }}</span>
+            </td>
+            <td class="px-4 py-3 text-text-3 mono">{{ log.origem|truncatechars:20 }}</td>
+            <td class="px-4 py-3 text-text-2">
+              {{ log.mensagem|truncatechars:120 }}
+              {% if log.detalhe %}
+              <details class="mt-1">
+                <summary class="text-text-3 cursor-pointer hover:text-text-2">ver detalhe</summary>
+                <pre class="mono text-text-3 bg-[#0f1117] rounded p-2 mt-1 overflow-x-auto whitespace-pre-wrap">{{ log.detalhe|truncatechars:800 }}</pre>
+              </details>
+              {% endif %}
+            </td>
+            <td class="px-4 py-3 text-text-3">{{ log.usuario.username|default:"—" }}</td>
+            <td class="px-4 py-3 text-text-3 mono">{{ log.criado_em|date:"d/m H:i" }}</td>
+            <td class="px-4 py-3">
+              <button onclick="deletarLog({{ log.id }})"
+                class="p-1 rounded hover:bg-red-bg text-text-3 hover:text-red transition-colors">
+                <span class="material-symbols-outlined" style="font-size:14px;">close</span>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="flex flex-col items-center justify-center py-16 text-text-3">
+      <span class="material-symbols-outlined mb-3" style="font-size:36px;opacity:.3;">task_alt</span>
+      <p class="text-sm font-medium">Nenhum log encontrado</p>
+      {% if nivel_filtro %}<p class="text-xs mt-1">para o nível {{ nivel_filtro }}</p>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Modal: Registro Manual -->
+  <div id="modal-log" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" style="display:none!important">
+    <div class="card w-full max-w-lg p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold text-sm text-text-1">Novo Registro Manual</h3>
+        <button onclick="fecharModalLog()" class="text-text-3 hover:text-text-1">
+          <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="label">Nível</label>
+          <select id="log-nivel" class="input">
+            <option value="INFO">Informação</option>
+            <option value="AVISO">Aviso</option>
+            <option value="ERRO">Erro</option>
+            <option value="CRITICO">Crítico</option>
+          </select>
+        </div>
+        <div>
+          <label class="label">Origem</label>
+          <input id="log-origem" type="text" class="input" placeholder="ex: importação, auth" value="manual">
+        </div>
+      </div>
+      <div>
+        <label class="label">Mensagem</label>
+        <input id="log-mensagem" type="text" class="input" placeholder="Descrição do evento">
+      </div>
+      <div>
+        <label class="label">Detalhe (opcional)</label>
+        <textarea id="log-detalhe" class="input" rows="3" placeholder="Traceback, JSON, contexto adicional..."></textarea>
+      </div>
+      <div class="flex gap-3 justify-end pt-2">
+        <button onclick="fecharModalLog()" class="btn btn-ghost text-xs">Cancelar</button>
+        <button onclick="salvarLog()" class="btn btn-primary text-xs">Salvar Registro</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════ TAB: EDITAR QUESTÕES ══════════════════════════ -->
+<div id="tab-questoes" class="section space-y-4">
+
+  <!-- Busca -->
+  <div class="card p-4">
+    <div class="flex gap-3">
+      <div class="flex-1">
+        <input id="busca-questao-input" type="text" class="input" placeholder="Buscar por texto ou ID da questão...">
+      </div>
+      <select id="busca-cat-select" class="input w-48">
+        <option value="">Todas as disciplinas</option>
+        {% for cat in categorias %}
+        <option value="{{ cat.id }}">{{ cat.nome }}</option>
+        {% endfor %}
+      </select>
+      <button onclick="buscarQuestoes()" class="btn btn-primary text-xs px-5">
+        <span class="material-symbols-outlined" style="font-size:14px;">search</span> Buscar
+      </button>
+    </div>
+  </div>
+
+  <!-- Resultados da busca -->
+  <div id="busca-resultados" class="space-y-2"></div>
+
+  <!-- Editor inline -->
+  <div id="editor-panel" class="card overflow-hidden">
+    <div class="px-5 py-4 border-b border-[rgba(255,255,255,.07)] flex items-center justify-between">
+      <h3 class="font-semibold text-sm text-text-1 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px;">edit_note</span>
+        Editando Questão <span id="editor-qid" class="text-accent">#—</span>
+      </h3>
+      <button onclick="fecharEditor()" class="btn btn-ghost text-xs">
+        <span class="material-symbols-outlined" style="font-size:14px;">close</span> Fechar
+      </button>
+    </div>
+    <div class="p-6 space-y-5">
+      <input type="hidden" id="editor-id">
+
+      <!-- Preview da imagem (se houver) -->
+      <div id="editor-imagem-wrap" class="hidden">
+        <label class="label">Imagem vinculada</label>
+        <div class="flex items-start gap-3 p-3 bg-black/20 border border-white/5 rounded-lg">
+          <button type="button" id="editor-imagem-btn" class="shrink-0 cursor-zoom-in" title="Ampliar">
+            <img id="editor-imagem-thumb" src="" alt="imagem da questão"
+                 class="w-32 h-32 object-contain bg-white rounded-md p-1 border border-white/10 hover:ring-2 hover:ring-blue-400/40 transition-all">
+          </button>
+          <div class="flex-1 min-w-0 text-xs text-text-3">
+            <p id="editor-imagem-nome" class="font-mono break-all"></p>
+            <p class="mt-1 opacity-60">Clique no thumbnail para visualizar em tamanho real.</p>
+            <a id="editor-imagem-link" href="#" target="_blank" class="inline-flex items-center gap-1 mt-2 text-accent hover:underline">
+              <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span>
+              Abrir em nova aba
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="editor-imagem-vazio" class="hidden flex items-center gap-2 p-3 bg-black/20 border border-dashed border-white/10 rounded-lg text-xs text-text-3">
+        <span class="material-symbols-outlined" style="font-size:16px;">image_not_supported</span>
+        Esta questão não tem imagem vinculada.
+      </div>
+
+      <div>
+        <label class="label">Texto da Questão</label>
+        <textarea id="editor-texto" class="input font-mono text-xs" rows="6"></textarea>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div>
+          <label class="label">Banca</label>
+          <input id="editor-banca" type="text" class="input" placeholder="Ex: CEBRASPE">
+        </div>
+        <div>
+          <label class="label">Ano</label>
+          <input id="editor-ano" type="number" class="input" placeholder="Ex: 2025">
+        </div>
+        <div>
+          <label class="label">Assunto</label>
+          <input id="editor-assunto" type="text" class="input" placeholder="Ex: Direito Constitucional">
+        </div>
+      </div>
+
+      <div>
+        <label class="label">Justificativa / Gabarito comentado</label>
+        <textarea id="editor-justificativa" class="input text-xs" rows="3" placeholder="Explicação da resposta correta..."></textarea>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input id="editor-revisada" type="checkbox" class="w-4 h-4 accent-accent rounded">
+          <span class="text-xs text-text-2 font-medium">Questão revisada</span>
+        </label>
+      </div>
+
+      <!-- Alternativas -->
+      <div>
+        <label class="label">Alternativas</label>
+        <div id="editor-alts" class="space-y-2"></div>
+      </div>
+
+      <!-- Ações -->
+      <div class="flex gap-3 pt-2 border-t border-[rgba(255,255,255,.07)]">
+        <button onclick="salvarQuestao()" class="btn btn-primary text-sm gap-2">
+          <span class="material-symbols-outlined" style="font-size:15px;">save</span> Salvar Alterações
+        </button>
+        <a id="editor-link-completo" href="#" target="_blank" class="btn btn-ghost text-xs gap-1.5">
+          <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span> Abrir editor completo
+        </a>
+        <span id="editor-status" class="text-xs text-text-3 self-center ml-auto"></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════ TAB: USUÁRIOS ══════════════════════════ -->
+<div id="tab-usuarios" class="section">
+  <div class="card overflow-hidden">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-[rgba(255,255,255,.07)]">
+      <h2 class="font-semibold text-sm text-text-1">Gerenciamento de Usuários</h2>
+      <span class="text-xs text-text-3">{{ info.total_usuarios }} usuários</span>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="border-b border-[rgba(255,255,255,.07)]">
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Usuário</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Email</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Cadastro</th>
+            <th class="text-left px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Último login</th>
+            <th class="text-center px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Staff</th>
+            <th class="text-center px-4 py-3 text-text-3 font-semibold uppercase tracking-wide">Superuser</th>
+            <th class="px-4 py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for u in usuarios %}
+          <tr class="table-row" id="user-row-{{ u.id }}">
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                  <span class="text-accent font-bold text-[9px] uppercase">{{ u.username|slice:":2" }}</span>
+                </div>
+                <span class="font-medium text-text-1">{{ u.username }}</span>
+                {% if u == request.user %}
+                <span class="tag" style="background:rgba(79,142,247,.15);color:#93c5fd">você</span>
+                {% endif %}
+              </div>
+            </td>
+            <td class="px-4 py-3 text-text-3">{{ u.email|default:"—" }}</td>
+            <td class="px-4 py-3 text-text-3 mono">{{ u.date_joined|date:"d/m/y" }}</td>
+            <td class="px-4 py-3 text-text-3 mono">{{ u.last_login|date:"d/m H:i"|default:"nunca" }}</td>
+            <td class="px-4 py-3 text-center" id="staff-cell-{{ u.id }}">
+              {% if u.is_staff %}
+              <span class="tag" style="background:rgba(34,197,94,.15);color:#86efac">Staff</span>
+              {% else %}
+              <span class="tag" style="background:rgba(255,255,255,.05);color:#555e72">Não</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-3 text-center">
+              {% if u.is_superuser %}
+              <span class="tag" style="background:rgba(245,158,11,.15);color:#fcd34d">Super</span>
+              {% else %}
+              <span class="tag" style="background:rgba(255,255,255,.05);color:#555e72">Não</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-3">
+              {% if u != request.user %}
+              <button onclick="toggleStaff({{ u.id }})"
+                id="btn-staff-{{ u.id }}"
+                class="btn btn-ghost text-[10px] py-1 px-2 gap-1">
+                <span class="material-symbols-outlined" style="font-size:12px;">admin_panel_settings</span>
+                {% if u.is_staff %}Remover Staff{% else %}Tornar Staff{% endif %}
+              </button>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── Visualizador de imagem fullscreen ─────────────────────────────── -->
+<div id="imgViewerSys"
+     style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.94);backdrop-filter:blur(8px);"
+     class="items-center justify-center p-8"
+     onclick="if(event.target===this) fecharImagemSistema()">
+  <div class="relative max-w-5xl max-h-full flex flex-col items-center">
+    <div id="imgViewerSysCaption" class="text-white text-sm font-semibold mb-3"></div>
+    <img id="imgViewerSysImg" src="" alt=""
+         class="max-w-full max-h-[78vh] object-contain rounded-lg shadow-2xl bg-white">
+    <a id="imgViewerSysDl" href="" download
+       class="mt-4 inline-flex items-center gap-2 text-white/80 hover:text-white text-xs font-semibold border border-white/20 hover:border-white/40 rounded-full px-4 py-2 transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">download</span>
+      Baixar imagem original
+    </a>
+  </div>
+  <button onclick="fecharImagemSistema()"
+          class="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
+          title="Fechar (ESC)">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const CSRF = '{{ csrf_token }}';
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn[data-tab]').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Se URL tem hash, ativa a tab certa
+const hash = location.hash.replace('#', '');
+if (hash) {
+  const btn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+  if (btn) btn.click();
+}
+
+// ── Logs ──────────────────────────────────────────────────────────────────────
+function filtrarLogs(nivel) {
+  const url = new URL(location.href);
+  if (nivel) url.searchParams.set('nivel', nivel);
+  else url.searchParams.delete('nivel');
+  url.hash = 'logs';
+  location.href = url.toString();
+}
+
+async function deletarLog(id) {
+  if (!confirm('Remover este registro?')) return;
+  const r = await fetch(`/api/admin/log/${id}/deletar/`, {
+    method: 'POST', headers: { 'X-CSRFToken': CSRF }
+  });
+  if ((await r.json()).ok) {
+    const row = document.getElementById(`log-row-${id}`);
+    row.style.opacity = '0';
+    row.style.transition = 'opacity .3s';
+    setTimeout(() => row.remove(), 300);
+  }
+}
+
+async function limparLogs(nivel) {
+  const msg = nivel ? `Limpar todos os logs de nível ${nivel}?` : 'Limpar TODOS os registros de log?';
+  if (!confirm(msg)) return;
+  const r = await fetch('/api/admin/logs/limpar/', {
+    method: 'POST', headers: { 'X-CSRFToken': CSRF, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nivel })
+  });
+  const d = await r.json();
+  if (d.ok) { alert(`${d.deletados} registros removidos.`); location.reload(); }
+}
+
+document.getElementById('btn-limpar-todos-logs')?.addEventListener('click', () => limparLogs(''));
+
+// Modal: registro manual
+function abrirModalLog() {
+  const m = document.getElementById('modal-log');
+  m.style.removeProperty('display');
+  m.style.display = 'flex';
+}
+function fecharModalLog() {
+  document.getElementById('modal-log').style.display = 'none';
+}
+async function salvarLog() {
+  const nivel    = document.getElementById('log-nivel').value;
+  const origem   = document.getElementById('log-origem').value;
+  const mensagem = document.getElementById('log-mensagem').value.trim();
+  const detalhe  = document.getElementById('log-detalhe').value.trim();
+  if (!mensagem) { alert('Mensagem obrigatória.'); return; }
+  const r = await fetch('/api/admin/log/criar/', {
+    method: 'POST', headers: { 'X-CSRFToken': CSRF, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nivel, origem, mensagem, detalhe })
+  });
+  if ((await r.json()).ok) { fecharModalLog(); location.reload(); }
+}
+
+// ── Editor de Questões ────────────────────────────────────────────────────────
+let _questaoAtual = null;
+
+async function buscarQuestoes() {
+  const q   = document.getElementById('busca-questao-input').value.trim();
+  const cat = document.getElementById('busca-cat-select').value;
+  if (!q && !cat) { alert('Digite um termo ou selecione uma disciplina.'); return; }
+
+  const url = `/api/admin/questoes/busca/?q=${encodeURIComponent(q)}&cat=${cat}`;
+  const r   = await fetch(url);
+  const d   = await r.json();
+
+  const container = document.getElementById('busca-resultados');
+  container.innerHTML = '';
+
+  if (!d.questoes.length) {
+    container.innerHTML = '<p class="text-sm text-text-3 text-center py-6">Nenhuma questão encontrada.</p>';
+    return;
+  }
+
+  d.questoes.forEach(q => {
+    const el = document.createElement('div');
+    el.className = 'q-card';
+    const thumb = q.imagem_url
+      ? `<button type="button" onclick="abrirImagemSistema('${q.imagem_url}', 'Questão #${q.id}')"
+             class="shrink-0 w-16 h-16 rounded-lg overflow-hidden border border-white/10 bg-white hover:ring-2 hover:ring-blue-400/50 cursor-zoom-in transition-all"
+             title="Ampliar imagem">
+           <img src="${q.imagem_url}" alt="thumb #${q.id}" class="w-full h-full object-contain p-0.5" loading="lazy">
+         </button>`
+      : `<div class="shrink-0 w-16 h-16 rounded-lg border border-dashed border-white/10 flex flex-col items-center justify-center text-text-3 bg-black/20" title="Sem imagem">
+           <span class="material-symbols-outlined" style="font-size:16px;">image_not_supported</span>
+           <span class="text-[8px] font-bold mt-0.5">sem img</span>
+         </div>`;
+    el.innerHTML = `
+      <div class="flex items-start gap-3">
+        ${thumb}
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+            <span class="text-xs font-bold text-accent">#${q.id}</span>
+            <span class="tag ${q.tipo === 'ME' ? 'tag-me' : 'tag-ce'}">${q.tipo}</span>
+            <span class="tag ${q.revisada ? 'tag-rev' : 'tag-nrev'}">${q.revisada ? 'Revisada' : 'Não revisada'}</span>
+            <span class="text-xs text-text-3">${q.categoria}</span>
+            ${q.banca ? `<span class="text-xs text-text-3">· ${q.banca} ${q.ano || ''}</span>` : ''}
+          </div>
+          <p class="text-xs text-text-2 leading-relaxed">${q.texto}</p>
+        </div>
+        <button class="btn btn-ghost text-xs shrink-0" onclick='abrirEditor(${JSON.stringify(q).replace(/'/g, "&#39;")})'>
+          <span class="material-symbols-outlined" style="font-size:14px;">edit</span> Editar
+        </button>
+      </div>
+    `;
+    container.appendChild(el);
+  });
+}
+
+// Viewer de imagem
+function abrirImagemSistema(src, caption) {
+  document.getElementById('imgViewerSysImg').src = src;
+  document.getElementById('imgViewerSysCaption').textContent = caption || '';
+  document.getElementById('imgViewerSysDl').href = src;
+  document.getElementById('imgViewerSys').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function fecharImagemSistema() {
+  document.getElementById('imgViewerSys').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('imgViewerSys').style.display === 'flex') fecharImagemSistema();
+});
+
+document.getElementById('busca-questao-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') buscarQuestoes();
+});
+
+function abrirEditor(q) {
+  _questaoAtual = q;
+  document.getElementById('editor-id').value   = q.id;
+  document.getElementById('editor-qid').textContent = '#' + q.id;
+  document.getElementById('editor-texto').value = q.texto;
+  document.getElementById('editor-banca').value = q.banca || '';
+  document.getElementById('editor-ano').value   = q.ano || '';
+  document.getElementById('editor-assunto').value = q.assunto || '';
+  document.getElementById('editor-revisada').checked = q.revisada;
+  document.getElementById('editor-justificativa').value = '';
+  document.getElementById('editor-link-completo').href = `/admin-questoes/${q.id}/editar/`;
+  document.getElementById('editor-status').textContent = '';
+
+  // Mostra a imagem da questão (se houver)
+  const wrap   = document.getElementById('editor-imagem-wrap');
+  const vazio  = document.getElementById('editor-imagem-vazio');
+  if (q.imagem_url) {
+    document.getElementById('editor-imagem-thumb').src = q.imagem_url;
+    document.getElementById('editor-imagem-link').href = q.imagem_url;
+    document.getElementById('editor-imagem-nome').textContent = q.imagem_url.split('/').pop();
+    document.getElementById('editor-imagem-btn').onclick = () => abrirImagemSistema(q.imagem_url, `Questão #${q.id}`);
+    wrap.classList.remove('hidden');
+    wrap.classList.add('block');
+    vazio.classList.add('hidden');
+  } else {
+    wrap.classList.add('hidden');
+    wrap.classList.remove('block');
+    vazio.classList.remove('hidden');
+    vazio.classList.add('flex');
+  }
+
+  const altsDiv = document.getElementById('editor-alts');
+  altsDiv.innerHTML = '';
+  q.alternativas.forEach(a => {
+    const row = document.createElement('div');
+    row.className = 'alt-edit-row' + (a.correta ? ' correta' : '');
+    row.dataset.id = a.id;
+    row.innerHTML = `
+      <label class="flex items-center gap-2 shrink-0 cursor-pointer select-none">
+        <input type="checkbox" class="alt-correta w-3.5 h-3.5 accent-green rounded" ${a.correta ? 'checked' : ''}>
+        <span class="text-[10px] font-bold text-text-3">CORRETA</span>
+      </label>
+      <textarea class="alt-texto flex-1 input text-xs py-1.5 min-h-[36px]" rows="1">${a.texto}</textarea>
+    `;
+    row.querySelector('input.alt-correta').addEventListener('change', function() {
+      row.classList.toggle('correta', this.checked);
+    });
+    altsDiv.appendChild(row);
+  });
+
+  const panel = document.getElementById('editor-panel');
+  panel.classList.add('open');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function fecharEditor() {
+  document.getElementById('editor-panel').classList.remove('open');
+  _questaoAtual = null;
+}
+
+async function salvarQuestao() {
+  const id = document.getElementById('editor-id').value;
+  if (!id) return;
+
+  const alts = [];
+  document.querySelectorAll('#editor-alts .alt-edit-row').forEach(row => {
+    alts.push({
+      id:      parseInt(row.dataset.id),
+      texto:   row.querySelector('.alt-texto').value,
+      correta: row.querySelector('.alt-correta').checked,
+    });
+  });
+
+  const payload = {
+    texto:         document.getElementById('editor-texto').value,
+    banca:         document.getElementById('editor-banca').value,
+    ano:           document.getElementById('editor-ano').value,
+    assunto:       document.getElementById('editor-assunto').value,
+    revisada:      document.getElementById('editor-revisada').checked,
+    justificativa: document.getElementById('editor-justificativa').value,
+    alternativas:  alts,
+  };
+
+  const status = document.getElementById('editor-status');
+  status.textContent = 'Salvando...';
+
+  const r = await fetch(`/api/admin/questao/${id}/salvar/`, {
+    method: 'POST', headers: { 'X-CSRFToken': CSRF, 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const d = await r.json();
+  if (d.ok) {
+    status.textContent = '✓ Salvo com sucesso!';
+    status.style.color = '#86efac';
+  } else {
+    status.textContent = 'Erro ao salvar.';
+    status.style.color = '#fca5a5';
+  }
+}
+
+// ── Usuários ──────────────────────────────────────────────────────────────────
+async function toggleStaff(userId) {
+  const btn = document.getElementById(`btn-staff-${userId}`);
+  btn.disabled = true;
+  const r = await fetch(`/api/admin/usuario/${userId}/toggle-staff/`, {
+    method: 'POST', headers: { 'X-CSRFToken': CSRF }
+  });
+  const d = await r.json();
+  if (d.ok) {
+    const cell = document.getElementById(`staff-cell-${userId}`);
+    if (d.is_staff) {
+      cell.innerHTML = `<span class="tag" style="background:rgba(34,197,94,.15);color:#86efac">Staff</span>`;
+      btn.innerHTML = `<span class="material-symbols-outlined" style="font-size:12px;">admin_panel_settings</span> Remover Staff`;
+    } else {
+      cell.innerHTML = `<span class="tag" style="background:rgba(255,255,255,.05);color:#555e72">Não</span>`;
+      btn.innerHTML = `<span class="material-symbols-outlined" style="font-size:12px;">admin_panel_settings</span> Tornar Staff`;
+    }
+    btn.disabled = false;
+  }
+}
+</script>
+{% endblock %}

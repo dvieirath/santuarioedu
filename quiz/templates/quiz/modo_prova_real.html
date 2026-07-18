@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Modo prova real — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .concurso-amber   .iconwrap { background:linear-gradient(135deg,#fbbf24,#d97706); }
+  .concurso-blue    .iconwrap { background:linear-gradient(135deg,#60a5fa,#2563eb); }
+  .concurso-emerald .iconwrap { background:linear-gradient(135deg,#34d399,#059669); }
+  .concurso-violet  .iconwrap { background:linear-gradient(135deg,#a78bfa,#7c3aed); }
+  .concurso-rose    .iconwrap { background:linear-gradient(135deg,#fb7185,#e11d48); }
+  .btnstart { background:#dc2626; }
+  .btnstart:hover { background:#b91c1c; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.5} }
+  .blink { animation:blink 1.5s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='simulados' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-error active-icon" style="font-size:22px;">military_tech</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Modo prova real</h1>
+      <p class="text-[11px] text-on-surface-variant">Cronômetro estrito · condições oficiais</p>
+    </div>
+  </div>
+  <span class="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest bg-error-container/60 text-on-error-container px-2.5 py-1 rounded-full">
+    <span class="material-symbols-outlined" style="font-size:13px;">verified</span>
+    Modo oficial
+  </span>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 space-y-8">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-error mb-2">Avaliação · Modo oficial</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Encare como no dia da prova</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        Enfrente o simulado em <strong class="text-on-surface font-semibold">condições reais</strong>: distribuição oficial, banca correspondente, cronômetro estrito e sem pausa.
+      </p>
+    </section>
+
+    {% if messages %}
+    <div class="space-y-2">
+      {% for msg in messages %}
+      <div class="rounded-lg px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border-error/20
+        {% else %}bg-secondary-container/40 text-on-secondary-container border-secondary/30{% endif %}">
+        {{ msg }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <section class="paper-card rounded-2xl p-6 fade-in" style="background:linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%); border-color:#fecaca;">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-error active-icon blink" style="font-size:24px;">warning</span>
+        <h3 class="font-serif text-lg font-semibold text-on-error-container">Regras do modo prova real</h3>
+      </div>
+      <ul class="space-y-2 text-sm text-on-error-container">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-error mt-0.5" style="font-size:16px;">timer</span>
+          <span>Cronômetro <strong>oficial do concurso</strong>. Quando zerar, encerra automaticamente.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-error mt-0.5" style="font-size:16px;">do_not_disturb_on</span>
+          <span>Sem pausas — cronômetro não para durante a prova.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-error mt-0.5" style="font-size:16px;">checklist</span>
+          <span>Distribuição oficial do edital — mesma proporção de matérias da prova real.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-error mt-0.5" style="font-size:16px;">analytics</span>
+          <span>Ao final, você recebe um <strong>laudo de desempenho</strong> completo com nota predita.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="space-y-4 fade-in" style="animation-delay:.1s;">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline">Concursos disponíveis</h3>
+        <span class="text-[11px] text-on-surface-variant">{{ concursos|length }} concursos configurados</span>
+      </div>
+
+      {% for c in concursos %}
+      <article class="concurso-{{ c.cor }} paper-card rounded-2xl overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3 p-6 flex flex-col items-start">
+            <div class="iconwrap w-14 h-14 rounded-xl flex items-center justify-center shadow-md mb-3">
+              <span class="material-symbols-outlined text-white active-icon" style="font-size:28px;">{{ c.icone }}</span>
+            </div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{{ c.orgao }}</p>
+            <h3 class="font-serif text-lg font-semibold text-primary leading-tight mt-1 mb-2">{{ c.nome }}</h3>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-error-container/60 text-on-error-container px-2 py-0.5 rounded-full">Banca: {{ c.banca }}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant px-2 py-0.5 rounded-full">{{ c.ano }}</span>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">{{ c.descricao }}</p>
+          </div>
+
+          <div class="flex-1 p-6 bg-surface-container-low/50 border-t md:border-t-0 md:border-l border-[#e5e1d8]">
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Questões</p>
+                <p class="font-serif text-xl font-bold text-primary mt-0.5">{{ c.total }}</p>
+              </div>
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Duração</p>
+                <p class="font-serif text-xl font-bold text-primary mt-0.5">{{ c.duracao_min }}min</p>
+              </div>
+              <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Cobertura</p>
+                <p class="font-serif text-xl font-bold mt-0.5
+                  {% if c.cobertura_pct >= 70 %}text-secondary{% elif c.cobertura_pct >= 40 %}text-amber-600{% else %}text-error{% endif %}">
+                  {{ c.cobertura_pct }}%
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white border border-[#e5e1d8] rounded-lg p-3 mb-4">
+              <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Distribuição</p>
+              <div class="space-y-1">
+                {% for d in c.cobertas|slice:":4" %}
+                <div class="flex items-center justify-between text-xs">
+                  <span class="text-on-surface truncate">{{ d.nome }}</span>
+                  <span class="text-on-surface-variant font-mono shrink-0 ml-2">{{ d.disponivel }}/{{ d.pedido }}q</span>
+                </div>
+                {% endfor %}
+                {% if c.cobertas|length > 4 %}
+                <p class="text-[10px] text-on-surface-variant italic">+ {{ c.cobertas|length|add:"-4" }} outras disciplinas</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <form method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="edital_id" value="{{ c.id }}"/>
+              {% if c.cobertura_pct >= 30 %}
+              <button type="submit" onclick="return confirm('Iniciar Modo Prova Real?\n\n• {{ c.duracao_min }} min sem pausa\n• Distribuição oficial da banca {{ c.banca }}\n• Cronômetro estrito\n\nTem certeza?')"
+                      class="btnstart w-full flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-lg text-sm transition-colors shadow-md">
+                <span class="material-symbols-outlined active-icon" style="font-size:18px;">play_circle</span>
+                Iniciar prova real
+              </button>
+              <p class="text-[11px] text-on-surface-variant text-center mt-2">⚠️ Modo oficial — sem segunda chance.</p>
+              {% else %}
+              <button type="button" disabled class="w-full flex items-center justify-center gap-2 bg-surface-container text-on-surface-variant font-semibold py-3 rounded-lg text-sm cursor-not-allowed">
+                <span class="material-symbols-outlined" style="font-size:18px;">block</span>
+                Banco insuficiente
+              </button>
+              <p class="text-[11px] text-on-surface-variant text-center mt-1">Cobertura mínima 30%.</p>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <div class="paper-card rounded-2xl p-12 text-center border-dashed">
+        <span class="material-symbols-outlined block mx-auto mb-3 text-outline-variant" style="font-size:48px;">military_tech</span>
+        <p class="font-serif text-lg font-semibold text-primary mb-1">Nenhum concurso configurado</p>
+        <p class="text-xs text-on-surface-variant">Configure editais no painel de admin.</p>
+      </div>
+      {% endfor %}
+    </section>
+
+    {% if historico %}
+    <section class="fade-in" style="animation-delay:.2s;">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Suas provas reais anteriores</h3>
+      <div class="paper-card rounded-2xl overflow-hidden">
+        <div class="divide-y divide-[#e5e1d8]">
+          {% for h in historico %}
+          <div class="flex items-center gap-4 px-5 py-4 hover:bg-surface-container-low transition-colors">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0
+              {% if h.pct >= 70 %}bg-secondary-container text-on-secondary-container
+              {% elif h.pct >= 50 %}bg-amber-100 text-amber-700
+              {% else %}bg-error-container/60 text-on-error-container{% endif %}">
+              <span class="font-serif font-bold text-sm">{{ h.pct }}%</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-on-surface">Simulado #{{ h.id }}</p>
+              <p class="text-[11px] text-on-surface-variant">{{ h.data }} · {{ h.total }} questões</p>
+            </div>
+            <a href="{% url 'laudo_desempenho' h.id %}" class="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1">
+              Ver laudo
+              <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+  </div>
+</main>
+
+</body>
+</html>

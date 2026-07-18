@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ meta.label }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  @keyframes pop { 0%{transform:scale(.7);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+  .pop-in { animation: pop .55s cubic-bezier(.34,1.56,.64,1) forwards; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+
+<a href="{% url 'conquistas' %}" class="absolute top-4 left-4 text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1.5 text-sm font-semibold">
+  <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+  Conquistas
+</a>
+
+<div class="w-full max-w-sm space-y-6 text-center">
+
+  <div class="pop-in">
+    <canvas id="conquista-canvas" class="w-full rounded-2xl shadow-2xl" style="aspect-ratio:1/1;max-width:360px;margin:0 auto;display:block;"></canvas>
+  </div>
+
+  <div>
+    <h1 class="font-serif text-3xl font-bold text-primary mb-1">{{ meta.label }}</h1>
+    <p class="text-on-surface-variant text-sm">{{ meta.desc }}</p>
+    {% if not desbloqueada %}
+    <p class="mt-2 text-amber-600 text-xs font-semibold">⚠️ Conquista ainda não desbloqueada</p>
+    {% else %}
+    <p class="mt-2 text-secondary text-xs font-semibold">
+      ✅ Desbloqueada em {{ desbloqueada.desbloqueado_em|date:"d/m/Y" }}
+    </p>
+    {% endif %}
+  </div>
+
+  <div class="flex gap-3 justify-center">
+    <button onclick="compartilharCard()" class="flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">share</span>
+      Compartilhar
+    </button>
+    <button onclick="baixarCard()" class="flex items-center gap-2 bg-white border border-[#e5e1d8] text-on-surface hover:bg-surface-container-low px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">download</span>
+      Baixar
+    </button>
+  </div>
+
+</div>
+
+<script>
+const CONQUISTA = {
+  emoji:   '{{ meta.emoji }}',
+  label:   '{{ meta.label }}',
+  desc:    '{{ meta.desc }}',
+  usuario: '@{{ usuario.username }}',
+  pct:     {{ pct }},
+  total:   {{ total }},
+  streak:  {{ streak }},
+  desbloqueada: {% if desbloqueada %}true{% else %}false{% endif %},
+};
+
+function desenharCard() {
+  const canvas = document.getElementById('conquista-canvas');
+  const ctx = canvas.getContext('2d');
+  const S = 720;
+  canvas.width = S;
+  canvas.height = S;
+
+  const bg = ctx.createLinearGradient(0, 0, S, S);
+  bg.addColorStop(0, '#002046');
+  bg.addColorStop(0.5, '#1b365d');
+  bg.addColorStop(1, '#004d38');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, S, S);
+
+  const glow = ctx.createRadialGradient(S/2, S/2, 0, S/2, S/2, S*.6);
+  glow.addColorStop(0, 'rgba(157,244,204,0.18)');
+  glow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, S, S);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.03)';
+  for (let x = 30; x < S; x += 36) {
+    for (let y = 30; y < S; y += 36) {
+      ctx.beginPath();
+      ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  const cx = S/2, cy = S*.42, R = 140;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(157,244,204,0.25)';
+  ctx.lineWidth = 16;
+  ctx.stroke();
+
+  if (CONQUISTA.pct > 0) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, -Math.PI/2, -Math.PI/2 + (CONQUISTA.pct/100)*Math.PI*2);
+    ctx.strokeStyle = CONQUISTA.desbloqueada ? '#9df4cc' : '#475569';
+    ctx.lineWidth = 16;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+  }
+
+  ctx.font = `${R*.75}px serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(CONQUISTA.emoji, cx, cy);
+
+  const shine = ctx.createRadialGradient(cx - R*.3, cy - R*.35, 0, cx, cy, R);
+  shine.addColorStop(0, 'rgba(255,255,255,0.12)');
+  shine.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.beginPath();
+  ctx.arc(cx, cy, R - 10, 0, Math.PI*2);
+  ctx.fillStyle = shine;
+  ctx.fill();
+
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold 38px "Source Serif 4", serif`;
+  ctx.textAlign = 'center';
+  ctx.fillText(CONQUISTA.label, S/2, cy + R + 52);
+
+  ctx.font = `18px Inter, sans-serif`;
+  ctx.fillStyle = 'rgba(255,255,255,0.55)';
+  ctx.fillText(CONQUISTA.desc, S/2, cy + R + 88);
+
+  ctx.strokeStyle = 'rgba(157,244,204,0.3)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(S*.2, cy + R + 110);
+  ctx.lineTo(S*.8, cy + R + 110);
+  ctx.stroke();
+
+  ctx.fillStyle = '#9df4cc';
+  ctx.font = `bold 16px Inter, sans-serif`;
+  ctx.fillText(CONQUISTA.usuario, S/2, cy + R + 138);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.font = `13px Inter, sans-serif`;
+  ctx.fillText(`${CONQUISTA.pct}% aproveitamento  •  ${CONQUISTA.total} questões`, S/2, cy + R + 165);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.07)';
+  roundRect(ctx, S/2 - 80, S - 56, 160, 30, 8);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '12px Inter, sans-serif';
+  ctx.fillText('SantuarioEdu', S/2, S - 36);
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+function baixarCard() {
+  const canvas = document.getElementById('conquista-canvas');
+  const link = document.createElement('a');
+  link.download = `conquista-${CONQUISTA.label.toLowerCase().replace(/\s/g,'-')}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+async function compartilharCard() {
+  const canvas = document.getElementById('conquista-canvas');
+  canvas.toBlob(async function(blob) {
+    const file = new File([blob], 'conquista-santuarioedu.png', { type: 'image/png' });
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          title: `Conquistei: ${CONQUISTA.label}`,
+          text: `${CONQUISTA.emoji} Desbloqueei "${CONQUISTA.label}" no SantuarioEdu!`,
+          files: [file],
+        });
+        return;
+      } catch (e) {}
+    }
+    baixarCard();
+  });
+}
+
+window.addEventListener('load', desenharCard);
+</script>
+</body>
+</html>

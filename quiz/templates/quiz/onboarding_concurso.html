@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Personalize seus estudos — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  body { background:linear-gradient(135deg, #f6f1e7 0%, #d6e3ff 100%); min-height:100vh; }
+  .concurso-card { transition:all .15s; cursor:pointer; }
+  .concurso-card:hover { transform:translateY(-2px); border-color:#002046; }
+  .concurso-card.selected {
+    background:linear-gradient(135deg, rgba(157,244,204,.4), rgba(157,244,204,.1));
+    border-color:#006c4d;
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(0,108,77,.18);
+  }
+</style>
+</head>
+<body>
+
+<main class="min-h-screen flex items-center justify-center p-4 md:p-8">
+  <div class="paper-card rounded-2xl max-w-2xl w-full shadow-xl overflow-hidden fade-in">
+
+    <div class="h-1.5 bg-surface-container">
+      <div id="progress-bar" class="h-full bg-gradient-to-r from-primary to-secondary transition-all" style="width:33%"></div>
+    </div>
+
+    <form method="post" id="ob-form" class="p-7 md:p-10">
+      {% csrf_token %}
+
+      <!-- Passo 1 -->
+      <section id="passo-1">
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-secondary mb-2">Passo 1 de 3</p>
+        <h1 class="font-serif text-3xl font-bold text-primary mb-2 leading-tight">Qual seu objetivo de estudo?</h1>
+        <p class="text-sm text-on-surface-variant mb-6">Personalizamos o app com base nisso.</p>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="prf" class="hidden"><span>🚓</span><span class="text-xs font-semibold text-primary">PRF</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="pf" class="hidden"><span>🛡️</span><span class="text-xs font-semibold text-primary">Polícia Federal</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="inss" class="hidden"><span>📋</span><span class="text-xs font-semibold text-primary">INSS</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="enem" class="hidden"><span>🎓</span><span class="text-xs font-semibold text-primary">ENEM</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="tjdf" class="hidden"><span>⚖️</span><span class="text-xs font-semibold text-primary">TJ-DF</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="trf" class="hidden"><span>🏛️</span><span class="text-xs font-semibold text-primary">TRF</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="estadual" class="hidden"><span>🏛️</span><span class="text-xs font-semibold text-primary">Estadual</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="municipal" class="hidden"><span>🏙️</span><span class="text-xs font-semibold text-primary">Municipal</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="camara" class="hidden"><span>🏢</span><span class="text-xs font-semibold text-primary">Câmara/Senado</span></label>
+          <label class="concurso-card flex items-center gap-2 p-3 bg-white border-2 border-outline-variant/40 rounded-xl">
+            <input type="radio" name="concurso" value="outro" class="hidden"><span>📌</span><span class="text-xs font-semibold text-primary">Outro</span></label>
+        </div>
+      </section>
+
+      <section id="passo-2" class="hidden">
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-secondary mb-2">Passo 2 de 3</p>
+        <h1 class="font-serif text-3xl font-bold text-primary mb-2 leading-tight">Você tem uma data-alvo?</h1>
+        <p class="text-sm text-on-surface-variant mb-6">Não sabe ainda? Tudo bem, pode deixar em branco.</p>
+        <input type="date" name="data_prova_esperada"
+          class="w-full px-4 py-3 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none text-base bg-white"/>
+        <p class="text-xs text-on-surface-variant mt-3">
+          💡 Vamos mostrar contagem regressiva e ajustar a intensidade dos lembretes.
+        </p>
+      </section>
+
+      <section id="passo-3" class="hidden">
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-secondary mb-2">Passo 3 de 3</p>
+        <h1 class="font-serif text-3xl font-bold text-primary mb-2 leading-tight">Quanto tempo por dia?</h1>
+        <p class="text-sm text-on-surface-variant mb-6">Seja realista. Vale mais 1h focada que 5h dispersas.</p>
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 p-4 bg-surface-container-low hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+            <input type="radio" name="horas_por_dia" value="1"><span class="text-sm font-semibold text-on-surface">1 hora — começando devagar</span></label>
+          <label class="flex items-center gap-3 p-4 bg-surface-container-low hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+            <input type="radio" name="horas_por_dia" value="2" checked><span class="text-sm font-semibold text-on-surface">2 horas — equilibrado</span></label>
+          <label class="flex items-center gap-3 p-4 bg-surface-container-low hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+            <input type="radio" name="horas_por_dia" value="4"><span class="text-sm font-semibold text-on-surface">4 horas — focado</span></label>
+          <label class="flex items-center gap-3 p-4 bg-surface-container-low hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+            <input type="radio" name="horas_por_dia" value="6"><span class="text-sm font-semibold text-on-surface">6 horas — intensivo</span></label>
+          <label class="flex items-center gap-3 p-4 bg-surface-container-low hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+            <input type="radio" name="horas_por_dia" value="8"><span class="text-sm font-semibold text-on-surface">8 horas — dedicação integral</span></label>
+        </div>
+
+        <div class="mt-6 rounded-xl p-4 text-center" style="background:linear-gradient(135deg, rgba(214,227,255,.5), rgba(157,244,204,.3)); border:1px solid rgba(0,108,77,.2);">
+          <p class="text-xs text-secondary font-bold mb-1">🎁 BÔNUS</p>
+          <p class="text-sm text-primary">Você ganha <strong>7 dias de PRO grátis</strong> ao concluir o setup!</p>
+        </div>
+      </section>
+
+      <div class="flex justify-between items-center mt-7">
+        <button type="button" onclick="voltar()" id="btn-back" class="hidden text-sm text-on-surface-variant hover:text-primary font-semibold">← Voltar</button>
+        <span></span>
+        <button type="button" onclick="avancar()" id="btn-next" class="bg-primary text-on-primary px-6 py-3 rounded-lg font-semibold text-sm hover:bg-primary-container transition-colors flex items-center gap-2">
+          Próximo
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+let passo = 1;
+const total = 3;
+
+function mostrar() {
+  for (let i = 1; i <= total; i++) {
+    document.getElementById('passo-' + i).classList.toggle('hidden', i !== passo);
+  }
+  document.getElementById('progress-bar').style.width = (passo / total * 100) + '%';
+  document.getElementById('btn-back').classList.toggle('hidden', passo === 1);
+  const btn = document.getElementById('btn-next');
+  if (passo === total) {
+    btn.innerHTML = 'Começar a estudar <span class="material-symbols-outlined" style="font-size:16px;">rocket_launch</span>';
+    btn.type = 'submit';
+    btn.setAttribute('form', 'ob-form');
+  } else {
+    btn.innerHTML = 'Próximo <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>';
+    btn.type = 'button';
+  }
+}
+
+function avancar() {
+  if (passo === 1) {
+    const c = document.querySelector('input[name=concurso]:checked');
+    if (!c) { alert('Escolha um objetivo pra continuar.'); return; }
+  }
+  if (passo < total) { passo++; mostrar(); }
+  else { document.getElementById('ob-form').submit(); }
+}
+function voltar() { if (passo > 1) { passo--; mostrar(); } }
+
+document.querySelectorAll('.concurso-card').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.concurso-card').forEach(x => x.classList.remove('selected'));
+    c.querySelector('input').checked = true;
+    c.classList.add('selected');
+  });
+});
+
+mostrar();
+</script>
+</body>
+</html>

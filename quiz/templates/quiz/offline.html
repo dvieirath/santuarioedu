@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sem conexão — SantuarioEdu</title>
+{% include "quiz/includes/design_tokens.html" %}
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+<div class="text-center max-w-sm fade-in">
+  <div class="scale-in text-7xl mb-6">📡</div>
+  <h1 class="font-serif text-3xl font-bold text-primary mb-3">Sem conexão</h1>
+  <p class="text-on-surface-variant mb-8 leading-relaxed">
+    Você está offline. Verifique sua conexão e tente novamente.<br/>
+    Páginas visitadas recentemente podem estar disponíveis em cache.
+  </p>
+  <button onclick="window.location.reload()"
+    class="px-6 py-3 bg-primary text-on-primary font-semibold rounded-lg hover:bg-primary-container transition-all mr-2">
+    Tentar novamente
+  </button>
+  <button onclick="history.back()"
+    class="px-6 py-3 bg-white border border-[#e5e1d8] text-on-surface font-semibold rounded-lg hover:bg-surface-container-low transition-all">
+    Voltar
+  </button>
+  <p class="mt-8 text-xs text-on-surface-variant/70">SantuarioEdu — Estude com inteligência</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "errors/_base.html" %}
+{% block title %}Página não encontrada{% endblock %}
+{% block icon %}search_off{% endblock %}
+{% block icon_bg %}bg-blue-50{% endblock %}
+{% block icon_color %}text-blue-500{% endblock %}
+{% block code_color %}text-blue-600{% endblock %}
+{% block code %}Erro 404{% endblock %}
+{% block headline %}Página não encontrada{% endblock %}
+{% block message %}
+  O endereço que você acessou não existe ou foi removido.
+  Veja se algum destes caminhos te ajuda:
+{% endblock %}
+
+{% block extra %}
+{% if user.is_authenticated %}
+<div class="grid grid-cols-2 gap-2 mb-7 text-left">
+  <a href="/dashboard/" class="flex items-center gap-2 bg-[#f6f3f2] hover:bg-[#eae7e7] rounded-xl px-3 py-2.5 text-xs font-semibold text-[#1c1b1b] transition-colors">
+    <span class="material-symbols-outlined text-[#002046]" style="font-size:16px;">dashboard</span>
+    Painel
+  </a>
+  <a href="/quiz/" class="flex items-center gap-2 bg-[#f6f3f2] hover:bg-[#eae7e7] rounded-xl px-3 py-2.5 text-xs font-semibold text-[#1c1b1b] transition-colors">
+    <span class="material-symbols-outlined text-[#002046]" style="font-size:16px;">menu_book</span>
+    Estudar
+  </a>
+  <a href="/simulado/edital/" class="flex items-center gap-2 bg-[#f6f3f2] hover:bg-[#eae7e7] rounded-xl px-3 py-2.5 text-xs font-semibold text-[#1c1b1b] transition-colors">
+    <span class="material-symbols-outlined text-[#002046]" style="font-size:16px;">assignment</span>
+    Simulados
+  </a>
+  <a href="/analytics/" class="flex items-center gap-2 bg-[#f6f3f2] hover:bg-[#eae7e7] rounded-xl px-3 py-2.5 text-xs font-semibold text-[#1c1b1b] transition-colors">
+    <span class="material-symbols-outlined text-[#002046]" style="font-size:16px;">insights</span>
+    Análise
+  </a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Revisão do simulado — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='simulados' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 py-3 flex items-center gap-3">
+  <a href="{% url 'simulado_resultado' simulado.id %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary">Revisão do simulado</h1>
+    <p class="text-xs text-on-surface-variant">{{ simulado.iniciado_em|date:"d/m/Y" }}</p>
+  </div>
+  <div class="flex gap-1 bg-surface-container-low rounded-lg p-1">
+    <a href="?modo=erros&q=0" class="px-3 py-1 rounded-md text-xs font-semibold transition-colors
+      {% if modo == 'erros' %}bg-error text-white{% else %}text-on-surface-variant hover:bg-surface-container{% endif %}">Erros</a>
+    <a href="?modo=todas&q=0" class="px-3 py-1 rounded-md text-xs font-semibold transition-colors
+      {% if modo == 'todas' %}bg-primary text-on-primary{% else %}text-on-surface-variant hover:bg-surface-container{% endif %}">Todas</a>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-2xl mx-auto px-6 lg:px-10 py-6 space-y-5">
+
+  {% if sem_erros %}
+  <div class="paper-card rounded-2xl p-10 text-center fade-in" style="background:linear-gradient(180deg, rgba(157,244,204,.2) 0%, #ffffff 60%);">
+    <div class="scale-in text-6xl mb-3">🎯</div>
+    <h2 class="font-serif text-2xl font-bold text-secondary mb-2">Perfeito!</h2>
+    <p class="text-on-surface-variant text-sm">Você não errou nenhuma questão neste simulado.</p>
+    <a href="{% url 'simulado_resultado' simulado.id %}" class="mt-5 inline-flex items-center gap-2 bg-secondary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-colors">
+      Voltar ao resultado
+    </a>
+  </div>
+
+  {% else %}
+
+  <!-- Navegação -->
+  <div class="flex items-center justify-between paper-card rounded-xl p-4">
+    {% if prev_idx is not None %}
+    <a href="?modo={{ modo }}&q={{ prev_idx }}" class="flex items-center gap-1.5 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">chevron_left</span> Anterior
+    </a>
+    {% else %}<span></span>{% endif %}
+
+    <span class="text-sm font-semibold text-on-surface">
+      {{ idx|add:1 }} / {{ total }}
+      <span class="text-xs font-normal text-outline ml-1">({% if modo == 'erros' %}erros{% else %}todas{% endif %})</span>
+    </span>
+
+    {% if next_idx is not None %}
+    <a href="?modo={{ modo }}&q={{ next_idx }}" class="flex items-center gap-1.5 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">
+      Próxima <span class="material-symbols-outlined" style="font-size:18px;">chevron_right</span>
+    </a>
+    {% else %}<span class="text-xs text-outline">Última</span>{% endif %}
+  </div>
+
+  <!-- Questão -->
+  <div class="paper-card rounded-2xl overflow-hidden fade-in">
+    <div class="bg-primary px-5 py-3 flex items-center justify-between">
+      <span class="text-xs font-bold text-white/70 uppercase tracking-widest">{{ questao.categoria.nome }}</span>
+      {% if atual.acertou is False %}
+      <span class="bg-error/25 text-white text-xs font-bold px-2 py-0.5 rounded-full border border-error/40">Errou</span>
+      {% elif atual.acertou %}
+      <span class="bg-secondary/25 text-white text-xs font-bold px-2 py-0.5 rounded-full border border-secondary/40">Acertou</span>
+      {% else %}
+      <span class="bg-white/15 text-white text-xs font-bold px-2 py-0.5 rounded-full">Não respondeu</span>
+      {% endif %}
+    </div>
+
+    <div class="p-5">
+      <p class="font-serif text-base leading-relaxed mb-5">{{ questao.texto }}</p>
+
+      <div class="space-y-2.5 mb-5">
+        {% for alt in questao.alternativa_set.all %}
+        <div class="flex items-start gap-3 p-3.5 rounded-lg border text-sm
+                    {% if alt.correta %}border-secondary bg-secondary-container/25
+                    {% elif atual.alternativa_escolhida and alt.id == atual.alternativa_escolhida.id and not alt.correta %}border-error bg-error-container/40
+                    {% else %}border-outline-variant/30 bg-white{% endif %}">
+          <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5
+                      {% if alt.correta %}bg-secondary text-white
+                      {% elif atual.alternativa_escolhida and alt.id == atual.alternativa_escolhida.id and not alt.correta %}bg-error text-white
+                      {% else %}bg-surface-container{% endif %}">
+            {% if alt.correta %}<span class="material-symbols-outlined active-icon" style="font-size:12px;">check</span>
+            {% elif atual.alternativa_escolhida and alt.id == atual.alternativa_escolhida.id %}<span class="material-symbols-outlined active-icon" style="font-size:12px;">close</span>{% endif %}
+          </div>
+          <span class="{% if alt.correta %}font-semibold text-on-secondary-container{% elif atual.alternativa_escolhida and alt.id == atual.alternativa_escolhida.id and not alt.correta %}text-on-error-container{% else %}text-on-surface-variant{% endif %}">
+            {{ alt.texto }}
+            {% if alt.correta %}<span class="ml-1 text-[10px] font-bold text-secondary uppercase">✓ Correta</span>{% endif %}
+            {% if atual.alternativa_escolhida and alt.id == atual.alternativa_escolhida.id and not alt.correta %}<span class="ml-1 text-[10px] font-bold text-error uppercase">← sua resposta</span>{% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% if questao.justificativa %}
+      <div class="bg-primary-fixed/40 border-l-4 border-primary-fixed-dim rounded-lg p-4">
+        <p class="text-xs font-bold text-primary uppercase tracking-wide mb-2 flex items-center gap-1.5">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">lightbulb</span>
+          Análise da questão
+        </p>
+        <p class="text-sm text-on-surface leading-relaxed">{{ questao.justificativa }}</p>
+      </div>
+      {% endif %}
+
+      {% if questao.assunto %}
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant text-xs px-2.5 py-1 rounded-full font-medium">{{ questao.assunto }}</span>
+        {% if questao.banca %}<span class="bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant text-xs px-2.5 py-1 rounded-full font-medium">{{ questao.banca }}</span>{% endif %}
+        {% if questao.ano %}<span class="bg-surface-container-low border border-[#e5e1d8] text-on-surface-variant text-xs px-2.5 py-1 rounded-full font-medium">{{ questao.ano }}</span>{% endif %}
+      </div>
+      {% endif %}
+
+      {% if atual.acertou is False %}
+      <div class="mt-4">
+        <button onclick="abrirTutorIA({{ questao.id }}, {% if atual.alternativa_escolhida %}{{ atual.alternativa_escolhida.id }}{% else %}null{% endif %})"
+                class="ai-btn w-full flex items-center justify-center gap-2 text-white font-semibold text-sm py-3 rounded-lg transition-colors relative z-10">
+          <span class="material-symbols-outlined active-icon relative z-10" style="font-size:18px;">smart_toy</span>
+          <span class="relative z-10">Explicar com Tutor IA</span>
+        </button>
+      </div>
+      {% endif %}
+
+      <div class="mt-4 pt-4 border-t border-[#e5e1d8]">
+        <p class="text-xs font-semibold text-on-surface-variant mb-2">Como foi essa questão para você?</p>
+        <div id="dif-container" class="flex gap-2">
+          <button onclick="avaliar(1)" data-d="1" class="dif-btn flex-1 py-2 rounded-lg text-xs font-semibold border transition-all border-secondary/30 text-secondary hover:bg-secondary-container/30 {% if avaliacao.dificuldade == 1 %}bg-secondary-container/40 border-secondary{% endif %}">😌 Fácil</button>
+          <button onclick="avaliar(2)" data-d="2" class="dif-btn flex-1 py-2 rounded-lg text-xs font-semibold border transition-all border-amber-300 text-amber-700 hover:bg-amber-50 {% if avaliacao.dificuldade == 2 %}bg-amber-100 border-amber-500{% endif %}">😐 Médio</button>
+          <button onclick="avaliar(3)" data-d="3" class="dif-btn flex-1 py-2 rounded-lg text-xs font-semibold border transition-all border-error/30 text-error hover:bg-error-container/40 {% if avaliacao.dificuldade == 3 %}bg-error-container/40 border-error{% endif %}">😓 Difícil</button>
+        </div>
+        <p id="dif-msg" class="text-[10px] text-on-surface-variant mt-1 text-center min-h-[14px]"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-3">
+    {% if prev_idx is not None %}
+    <a href="?modo={{ modo }}&q={{ prev_idx }}" class="flex-1 flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface py-3 rounded-lg font-semibold text-sm hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">chevron_left</span> Anterior
+    </a>
+    {% endif %}
+    {% if next_idx is not None %}
+    <a href="?modo={{ modo }}&q={{ next_idx }}" class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg font-semibold text-sm hover:bg-primary-container transition-colors">
+      Próxima <span class="material-symbols-outlined" style="font-size:18px;">chevron_right</span>
+    </a>
+    {% else %}
+    <a href="{% url 'simulado_resultado' simulado.id %}" class="flex-1 flex items-center justify-center gap-2 bg-secondary text-white py-3 rounded-lg font-semibold text-sm hover:opacity-90 transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">check_circle</span> Concluir revisão
+    </a>
+    {% endif %}
+  </div>
+
+  {% endif %}
+</div>
+
+{% include "quiz/includes/tutor_ia_drawer.html" %}
+
+<script>
+const CSRF = '{{ csrf_token }}';
+const QUESTAO_ID = {{ questao.id|default:0 }};
+
+async function avaliar(dif) {
+  if (!QUESTAO_ID) return;
+  document.querySelectorAll('.dif-btn').forEach(b => b.classList.remove('ring-2','ring-primary/40'));
+  const target = document.querySelector(`.dif-btn[data-d="${dif}"]`);
+  if (target) target.classList.add('ring-2','ring-primary/40');
+  try {
+    const r = await fetch(`/api/avaliar/${QUESTAO_ID}/`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({ dificuldade: dif }),
+    });
+    const d = await r.json();
+    document.getElementById('dif-msg').textContent = `${d.label || 'Avaliação'} salvo! Próxima: ${d.proxima_revisao || '—'}`;
+  } catch {}
+}
+</script>
+</body>
+</html>

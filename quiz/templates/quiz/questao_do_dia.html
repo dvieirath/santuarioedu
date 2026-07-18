@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Questão do Dia — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .alt-card {
+    position:relative; display:flex; align-items:flex-start; gap:16px;
+    padding:16px 18px; border-radius:12px; cursor:pointer;
+    background:#ffffff; border:1px solid rgba(196,198,207,.55);
+    transition:all .18s ease;
+  }
+  .alt-card:hover { border-color:#aec7f6; transform:translateY(-1px); }
+  .alt-num {
+    flex-shrink:0; width:32px; height:32px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:14px;
+    background:#f0eded; color:#44474e;
+    transition:all .15s;
+  }
+  .alt-card:hover .alt-num { background:#d6e3ff; color:#002046; }
+  .alt-card:has(input:checked) {
+    border-color:#006c4d;
+    background:linear-gradient(135deg, rgba(157,244,204,.10) 0%, #ffffff 100%);
+    box-shadow:0 6px 18px rgba(0,108,77,.10);
+  }
+  .alt-card:has(input:checked) .alt-num { background:#006c4d; color:#ffffff; }
+
+  @keyframes glow-extrema {
+    0%,100% { box-shadow:0 0 0 0 rgba(220,38,38,.4); }
+    50%     { box-shadow:0 0 0 6px rgba(220,38,38,0); }
+  }
+  .badge-extrema { animation:glow-extrema 2.5s infinite; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='praticar' %}
+
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] flex justify-between items-center w-full px-6 lg:px-10 h-16 md:ml-64" style="width:calc(100% - 16rem);">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:22px;">today</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Questão do Dia</h1>
+      <p class="text-[11px] text-on-surface-variant">{{ hoje|date:"l, d \d\e F"|capfirst }}</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.5 paper-card rounded-full px-3 py-1.5" title="Dias consecutivos">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:14px;">local_fire_department</span>
+      <span class="text-xs font-bold text-on-surface">{{ dias_concluidos }}</span>
+      <span class="text-[10px] text-on-surface-variant">dia{{ dias_concluidos|pluralize }}</span>
+    </div>
+    <a href="{% url 'dashboard' %}" class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" title="Sair">close</a>
+  </div>
+</header>
+
+<main class="md:ml-64 py-8 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto min-h-screen">
+
+  {% if registro.concluido %}
+  <!-- ════ CONCLUÍDO ════ -->
+  <div class="paper-card rounded-2xl p-8 md:p-10 relative overflow-hidden fade-in">
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 text-center max-w-md mx-auto">
+      {% if registro.acertos %}
+      <div class="scale-in w-20 h-20 rounded-2xl bg-secondary-container flex items-center justify-center mb-4 mx-auto">
+        <span class="material-symbols-outlined text-on-secondary-container active-icon" style="font-size:40px;">workspace_premium</span>
+      </div>
+      <h2 class="font-serif text-3xl font-bold text-secondary mb-2">Acertou em cheio!</h2>
+      <p class="text-on-surface-variant mb-4">
+        Você dominou o desafio extremo de hoje e ganhou
+        <span class="font-bold text-secondary">+{{ registro.pontuacao }} pontos</span>.
+      </p>
+      {% else %}
+      <div class="scale-in w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center mb-4 mx-auto">
+        <span class="material-symbols-outlined text-on-surface-variant active-icon" style="font-size:40px;">replay</span>
+      </div>
+      <h2 class="font-serif text-3xl font-bold text-on-surface mb-2">Não foi dessa vez</h2>
+      <p class="text-on-surface-variant mb-4">Esse era pesado. Revise a justificativa e volte amanhã.</p>
+      {% endif %}
+
+      <div class="grid grid-cols-3 gap-2 mb-6">
+        <div class="bg-surface-container-low rounded-xl p-3">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pontos</p>
+          <p class="font-serif text-xl font-bold text-primary mt-0.5">{{ registro.pontuacao }}</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-3">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Streak</p>
+          <p class="font-serif text-xl font-bold text-amber-500 mt-0.5">{{ dias_concluidos }}🔥</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-3">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">{% if media_plat %}Média{% else %}Hoje{% endif %}</p>
+          <p class="font-serif text-xl font-bold text-on-surface mt-0.5">{% if media_plat %}{{ media_plat|floatformat:0 }}%{% else %}✓{% endif %}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-2">
+        <a href="{% url 'escolher_tema' %}" class="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+          <span class="material-symbols-outlined" style="font-size:18px;">play_arrow</span>
+          Continuar estudando
+        </a>
+        <a href="{% url 'modo_desafio' %}" class="flex-1 inline-flex items-center justify-center gap-2 bg-secondary text-white px-5 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-all">
+          <span class="material-symbols-outlined" style="font-size:18px;">bolt</span>
+          Modo desafio
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% elif proxima %}
+  <!-- ════ QUESTÃO ATIVA ════ -->
+  <article class="paper-card rounded-2xl overflow-hidden fade-in">
+
+    <div class="bg-gradient-to-r from-primary to-primary-container p-6 relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10 flex flex-wrap items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 bg-error text-white px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide badge-extrema">
+          <span class="material-symbols-outlined" style="font-size:13px;">whatshot</span>
+          EXTREMAMENTE DIFÍCIL
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-white/15 text-white px-3 py-1.5 rounded-full text-[11px] font-semibold backdrop-blur">
+          <span class="material-symbols-outlined" style="font-size:13px;">menu_book</span>
+          {{ proxima.categoria.nome }}
+        </span>
+        {% if proxima.assunto %}
+        <span class="inline-flex items-center gap-1.5 bg-white/10 text-amber-200 px-3 py-1.5 rounded-full text-[11px] font-semibold backdrop-blur">
+          <span class="material-symbols-outlined" style="font-size:12px;">label</span>
+          {{ proxima.assunto }}
+        </span>
+        {% endif %}
+        <span class="ml-auto text-white/60 text-[10px] font-mono">#{{ proxima.id }}</span>
+      </div>
+      <h2 class="font-serif text-2xl font-semibold text-white mt-4">Desafio de hoje</h2>
+      <p class="text-white/70 text-sm mt-1">Uma questão. 100 pontos. Sem limite de tempo — pense com calma.</p>
+    </div>
+
+    <form method="post" class="p-6 sm:p-8">
+      {% csrf_token %}
+
+      {% if proxima.imagem %}
+      <figure class="mb-5 rounded-xl overflow-hidden bg-surface-container-low border border-[#e5e1d8]">
+        <img src="{{ proxima.imagem.url }}" alt="Figura da questão" class="w-full max-h-[420px] object-contain bg-white p-2">
+      </figure>
+      {% endif %}
+
+      <div class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line mb-6">{{ proxima.texto|safe }}</div>
+
+      <div class="flex items-center justify-between mb-3">
+        <p class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Selecione uma alternativa</p>
+        <span class="text-[10px] text-on-surface-variant font-mono">{{ proxima.alternativa_set.count }} opções</span>
+      </div>
+
+      <div class="space-y-3 mb-6">
+        {% for alt in proxima.alternativa_set.all %}
+        <label class="alt-card">
+          <input type="radio" name="alternativa_id" value="{{ alt.id }}" required class="sr-only">
+          <span class="alt-num">{{ forloop.counter }}</span>
+          <span class="flex-1 text-[15px] leading-relaxed text-on-surface">{{ alt.texto }}</span>
+        </label>
+        {% endfor %}
+      </div>
+
+      <button type="submit"
+              class="w-full bg-primary text-on-primary font-semibold py-4 rounded-lg hover:bg-primary-container active:scale-[.99] transition-all flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:18px;">send</span>
+        Confirmar resposta
+      </button>
+
+      <p class="text-center text-[11px] text-on-surface-variant mt-3">
+        ⚠️ Você só pode responder uma vez. Pense bem antes de enviar.
+      </p>
+    </form>
+  </article>
+
+  {% else %}
+  <div class="paper-card rounded-2xl p-8 text-center">
+    <span class="material-symbols-outlined text-outline-variant block mb-3" style="font-size:48px;">event_busy</span>
+    <p class="font-serif text-lg font-semibold text-primary mb-2">Sem questão disponível hoje</p>
+    <p class="text-xs text-on-surface-variant">Volte amanhã para um novo desafio.</p>
+  </div>
+  {% endif %}
+
+  <!-- Histórico -->
+  {% if historico %}
+  <section class="mt-8 fade-in" style="animation-delay:.15s;">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:20px;">history</span>
+        Últimos 7 dias
+      </h2>
+      {% if media_plat %}<p class="text-[10px] text-on-surface-variant font-mono">Média geral: {{ media_plat|floatformat:0 }}%</p>{% endif %}
+    </div>
+
+    <div class="grid grid-cols-7 gap-2">
+      {% for h in historico %}
+      <div class="flex flex-col items-center gap-1.5 group" title="{{ h.data|date:"d/m/Y" }}">
+        <div class="w-full aspect-square rounded-xl flex items-center justify-center text-xl transition-all
+                    {% if h.concluido and h.acertos %}bg-secondary text-white shadow-md
+                    {% elif h.concluido %}bg-outline text-white
+                    {% else %}bg-surface-container-low border border-[#e5e1d8] text-outline{% endif %}
+                    group-hover:scale-110">
+          {% if h.concluido %}{% if h.acertos %}🏆{% else %}—{% endif %}{% else %}·{% endif %}
+        </div>
+        <span class="text-[10px] text-on-surface-variant font-medium">{{ h.data|date:"d/m" }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Como funciona -->
+  <section class="mt-8 paper-card rounded-2xl p-6 fade-in" style="animation-delay:.2s;">
+    <h3 class="font-serif text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:20px;">info</span>
+      Como funciona
+    </h3>
+    <div class="grid sm:grid-cols-3 gap-4 text-sm">
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:18px;">whatshot</span>
+        <div>
+          <p class="font-semibold text-on-surface text-sm">Uma questão por dia</p>
+          <p class="text-on-surface-variant text-xs mt-0.5">Selecionada a dedo. Sem repetição em 30 dias.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:18px;">workspace_premium</span>
+        <div>
+          <p class="font-semibold text-on-surface text-sm">100 pontos por acerto</p>
+          <p class="text-on-surface-variant text-xs mt-0.5">Errou? Estude a justificativa.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-orange-500 active-icon" style="font-size:18px;">local_fire_department</span>
+        <div>
+          <p class="font-semibold text-on-surface text-sm">Streak diário</p>
+          <p class="text-on-surface-variant text-xs mt-0.5">Responda todo dia para manter a sequência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

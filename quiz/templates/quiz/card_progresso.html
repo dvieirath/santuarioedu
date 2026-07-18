@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Compartilhar progresso — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>#card-preview { aspect-ratio: 1/1; }</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">share</span>
+  <div>
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none">Compartilhar progresso</h1>
+    <p class="text-[11px] text-on-surface-variant">Mostre sua evolução nas redes sociais</p>
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-4 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Sua semana em destaque</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary leading-tight mb-2">
+        Compartilhe o que conquistou
+      </h2>
+      <p class="text-on-surface-variant max-w-xl">
+        Card 1080×1080 pronto pra Instagram, Stories e WhatsApp.
+      </p>
+    </section>
+
+    <div class="mx-auto max-w-md">
+      <div id="card-preview" class="rounded-2xl overflow-hidden shadow-2xl text-white relative" style="background:linear-gradient(135deg,#002046 0%,#1b365d 60%,#006c4d 100%);">
+        <div class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-12 translate-x-12"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-20 -translate-x-20"></div>
+
+        <div class="relative h-full flex flex-col p-8 md:p-10">
+          <div class="flex items-center gap-2">
+            {% include "quiz/includes/brand_mark.html" with size="28" variant="white" %}
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-secondary-fixed">SantuarioEdu</span>
+          </div>
+
+          <div class="mt-8 flex-1 flex flex-col justify-center">
+            <p class="text-xs uppercase tracking-widest font-bold text-secondary-fixed mb-1">Minha semana</p>
+            <h2 class="font-serif text-4xl font-bold leading-tight mb-6">
+              {% if total_semana >= 50 %}🔥 Arrebentei essa semana!
+              {% elif total_semana >= 20 %}📈 Avançando firme
+              {% elif total_semana >= 5 %}💪 Tô no ritmo
+              {% else %}🎯 Acabei de começar{% endif %}
+            </h2>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-white/70 mb-1">Questões</p>
+                <p class="font-serif text-4xl font-bold">{{ total_semana }}</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-white/70 mb-1">Acerto</p>
+                <p class="font-serif text-4xl font-bold text-secondary-fixed">{{ pct }}%</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-white/70 mb-1">Simulados</p>
+                <p class="font-serif text-4xl font-bold">{{ sims_semana }}</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-amber-300 mb-1">🔥 Streak</p>
+                <p class="font-serif text-4xl font-bold">{{ streak }}d</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/15 flex items-center justify-between">
+            <p class="text-xs text-white/70">@{{ request.user.username }}</p>
+            <p class="text-[10px] text-white/60">santuarioedu.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-3 max-w-md mx-auto">
+      <button onclick="baixarCard()" class="flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">download</span>
+        Baixar PNG
+      </button>
+      <button onclick="compartilharNativo()" class="flex items-center justify-center gap-2 bg-secondary text-white px-5 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">share</span>
+        Compartilhar
+      </button>
+    </div>
+
+    <div class="grid grid-cols-4 gap-2 max-w-md mx-auto">
+      <a id="share-wa" target="_blank" class="flex items-center justify-center bg-secondary hover:opacity-90 text-white text-xs font-semibold py-2.5 rounded-lg">WhatsApp</a>
+      <a id="share-tg" target="_blank" class="flex items-center justify-center bg-sky-500 hover:bg-sky-600 text-white text-xs font-semibold py-2.5 rounded-lg">Telegram</a>
+      <a id="share-tw" target="_blank" class="flex items-center justify-center bg-tertiary hover:opacity-90 text-white text-xs font-semibold py-2.5 rounded-lg">X</a>
+      <button onclick="copiarLink()" class="bg-white border border-[#e5e1d8] hover:bg-surface-container-low text-on-surface text-xs font-semibold py-2.5 rounded-lg">Copiar</button>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"></script>
+
+<script>
+const msg = '🚀 Minha semana no SantuarioEdu: {{ total_semana }} questões, {{ pct }}% de acerto! 💪 Estuda comigo: ';
+const link = '{{ request.scheme }}://{{ request.get_host }}/cadastro/';
+const enc = encodeURIComponent(msg + link);
+
+document.getElementById('share-wa').href = 'https://wa.me/?text=' + enc;
+document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(link) + '&text=' + encodeURIComponent(msg);
+document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + enc;
+
+async function _gerarBlob() {
+  const el = document.getElementById('card-preview');
+  const canvas = await html2canvas(el, { backgroundColor: null, scale: 2, useCORS: true, logging: false });
+  return new Promise(r => canvas.toBlob(b => r(b), 'image/png'));
+}
+
+async function baixarCard() {
+  const blob = await _gerarBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `santuarioedu-progresso-${Date.now()}.png`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function compartilharNativo() {
+  if (!navigator.share || !navigator.canShare) return baixarCard();
+  const blob = await _gerarBlob();
+  const file = new File([blob], 'progresso.png', {type:'image/png'});
+  if (!navigator.canShare({files:[file]})) return baixarCard();
+  try { await navigator.share({title:'Meu progresso', text: msg + link, files:[file]}); } catch(e){}
+}
+
+function copiarLink() { navigator.clipboard.writeText(msg + link); alert('Link copiado!'); }
+</script>
+
+</body>
+</html>

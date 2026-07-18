@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Revisão Espaçada — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='revisao' %}
+
+<main class="md:ml-64 min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-lg w-full fade-in">
+
+    <div class="paper-card rounded-2xl p-8 text-center mb-6">
+      <div class="scale-in w-20 h-20 rounded-2xl bg-secondary-container flex items-center justify-center mx-auto mb-5">
+        <span class="material-symbols-outlined text-on-secondary-container active-icon" style="font-size:40px;">neurology</span>
+      </div>
+      <h1 class="font-serif text-2xl font-semibold text-primary mb-2">Revisão espaçada</h1>
+      <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+        O sistema SM-2 agenda as questões que você mais precisa revisar no momento certo —
+        aumentando o intervalo conforme você acerta, reduzindo quando erra.
+      </p>
+
+      {% if pendentes %}
+      <div class="bg-secondary-container/40 border border-secondary/30 rounded-xl p-4 mb-6">
+        <p class="font-serif text-4xl font-bold text-secondary">{{ pendentes }}</p>
+        <p class="text-sm text-on-surface-variant mt-1">questão{{ pendentes|pluralize:"ões" }} para revisar hoje</p>
+      </div>
+      <a href="{% url 'revisao_srs' %}?start=1"
+         class="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white font-semibold text-base rounded-lg hover:opacity-90 transition-all shadow-md">
+        <span class="material-symbols-outlined active-icon" style="font-size:20px;">play_arrow</span>
+        Iniciar revisão
+      </a>
+      {% else %}
+      <div class="bg-surface-container-low rounded-xl p-4 mb-6">
+        <p class="font-serif text-xl font-semibold text-on-surface">🎉 Tudo em dia!</p>
+        <p class="text-sm text-on-surface-variant mt-1">Nenhuma revisão pendente hoje.</p>
+      </div>
+      <a href="{% url 'dashboard' %}"
+         class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-on-primary font-semibold text-base rounded-lg hover:bg-primary-container transition-all">
+        <span class="material-symbols-outlined" style="font-size:18px;">home</span>
+        Voltar ao painel
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="paper-card rounded-2xl p-5 text-left">
+      <h2 class="font-serif text-base font-semibold text-primary mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px;">info</span>
+        Como funciona
+      </h2>
+      <ul class="space-y-2 text-xs text-on-surface-variant">
+        <li class="flex items-start gap-2">
+          <span class="text-secondary font-bold mt-0.5">✓</span>
+          <span>Cada questão tem um intervalo de revisão que cresce conforme você acerta.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-error font-bold mt-0.5">✗</span>
+          <span>Se errar, o intervalo reinicia e a questão volta em breve.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">→</span>
+          <span>Questões são agendadas automaticamente toda vez que você responde no quiz normal.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

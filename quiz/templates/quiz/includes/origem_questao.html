@@ -1,0 +1,30 @@
+{% comment %}
+Chip que mostra a ORIGEM da questão pro aluno:
+  - Se banca + ano E não é IA  → 📜 Prova {banca} {ano}  (destaque VERDE = confiável)
+  - Se gerada_por_ia            → 🤖 Gerada por IA + banca (se houver) como "estilo"  (chip AMBAR)
+  - Se não tem nada             → chip neutro genérico
+
+Uso: {% include "quiz/includes/origem_questao.html" with q=questao %}
+      → variável esperada: 'q' (a questão)
+{% endcomment %}
+{% if not q.gerada_por_ia and q.banca and q.ano %}
+  <span class="inline-flex items-center gap-1.5 bg-secondary-container/60 border border-secondary/40 text-secondary px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" title="Questão originada de prova oficial">
+    <span class="material-symbols-outlined active-icon" style="font-size:12px;">verified</span>
+    Prova {{ q.banca }} · {{ q.ano }}
+  </span>
+{% elif not q.gerada_por_ia and q.banca %}
+  <span class="inline-flex items-center gap-1.5 bg-secondary-container/60 border border-secondary/40 text-secondary px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" title="Questão de prova anterior">
+    <span class="material-symbols-outlined active-icon" style="font-size:12px;">verified</span>
+    Prova {{ q.banca }}
+  </span>
+{% elif q.gerada_por_ia %}
+  <span class="inline-flex items-center gap-1.5 bg-amber-100 border border-amber-300 text-amber-800 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" title="Questão gerada por IA para treino — não é de prova oficial{% if q.banca %} (imita estilo {{ q.banca }}){% endif %}">
+    <span class="material-symbols-outlined active-icon" style="font-size:12px;">smart_toy</span>
+    Gerada por IA{% if q.banca %} · estilo {{ q.banca }}{% endif %}
+  </span>
+{% else %}
+  <span class="inline-flex items-center gap-1.5 bg-surface-container border border-[#e5e1d8] text-on-surface-variant px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+    <span class="material-symbols-outlined" style="font-size:12px;">help</span>
+    Origem não identificada
+  </span>
+{% endif %}

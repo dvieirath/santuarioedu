@@ -1,0 +1,208 @@
+{% extends "quiz/admin/base.html" %}
+
+{% block title %}{% if modo == 'criar' %}Nova Questão{% else %}Editar #{{ questao.id }}{% endif %}{% endblock %}
+{% block nav_criar %}{% if modo == 'criar' %}active{% endif %}{% endblock %}
+{% block topbar_icon %}{% if modo == 'criar' %}add_circle{% else %}edit{% endif %}{% endblock %}
+{% block topbar_title %}{% if modo == 'criar' %}Nova Questão{% else %}Editar Questão #{{ questao.id }}{% endif %}{% endblock %}
+
+{% block extra_head %}
+<style>
+  .alt-row { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.08); background:#1e2330; transition:all 0.15s; }
+  .alt-row.is-correta { border-color:rgba(34,197,94,0.35); background:rgba(34,197,94,0.06); }
+  .alt-letra { width:26px; height:26px; border-radius:6px; background:rgba(255,255,255,0.07); color:#8b93a7; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Manrope',sans-serif; }
+  .alt-row.is-correta .alt-letra { background:rgba(34,197,94,0.2); color:#4ade80; }
+  .check-correta { display:none; }
+  .check-label { display:flex; align-items:center; gap:5px; cursor:pointer; font-size:12px; font-weight:600; color:#555e72; transition:color 0.15s; white-space:nowrap; flex-shrink:0; }
+  .check-label:has(input:checked) { color:#4ade80; }
+  .remove-btn { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:6px; border:none; background:transparent; color:#555e72; cursor:pointer; transition:all 0.15s; flex-shrink:0; }
+  .remove-btn:hover { background:rgba(239,68,68,0.15); color:#f87171; }
+  .section-card { background:#181c24; border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:24px; margin-bottom:16px; }
+  .section-title { font-size:11px; font-weight:700; color:#555e72; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:16px; display:flex; align-items:center; gap:6px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl">
+
+  <!-- Erros -->
+  {% if erros %}
+  <div class="notification error mb-5">
+    <div>
+      <p class="font-semibold mb-1">Corrija os erros abaixo:</p>
+      {% for e in erros %}<p class="text-xs opacity-80">• {{ e }}</p>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <form method="post" id="form-questao">
+    {% csrf_token %}
+
+    <!-- Enunciado -->
+    <div class="section-card">
+      <p class="section-title"><span class="material-symbols-outlined" style="font-size:14px;">subject</span> Configuração</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="label">Disciplina <span class="text-red" style="font-size:14px;">*</span></label>
+          <select name="categoria" required class="input">
+            <option value="">Selecionar...</option>
+            {% for cat in categorias %}
+              <option value="{{ cat.id }}"
+                {% if modo == 'editar' and questao.categoria_id == cat.id %}selected
+                {% elif request.GET.categoria == cat.id|stringformat:"s" %}selected{% endif %}>
+                {{ cat.nome }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label class="label">Tipo <span class="text-red" style="font-size:14px;">*</span></label>
+          <div class="flex gap-2 mt-1">
+            <label class="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border cursor-pointer transition-all text-xs font-semibold
+                          border-[rgba(255,255,255,0.1)] text-text-2 has-[:checked]:border-[rgba(79,142,247,0.5)] has-[:checked]:bg-[rgba(79,142,247,0.08)] has-[:checked]:text-accent">
+              <input type="radio" name="tipo" value="ME" class="hidden"
+                     {% if modo == 'criar' or questao.tipo == 'ME' %}checked{% endif %}>
+              Múltipla Escolha
+            </label>
+            <label class="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border cursor-pointer transition-all text-xs font-semibold
+                          border-[rgba(255,255,255,0.1)] text-text-2 has-[:checked]:border-[rgba(34,197,94,0.4)] has-[:checked]:bg-[rgba(34,197,94,0.07)] has-[:checked]:text-green">
+              <input type="radio" name="tipo" value="CE" class="hidden"
+                     {% if modo == 'editar' and questao.tipo == 'CE' %}checked{% endif %}>
+              Certo / Errado
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="label">Enunciado <span class="text-red" style="font-size:14px;">*</span></label>
+        <textarea name="texto" rows="5" required placeholder="Digite o enunciado completo da questão..."
+                  class="input resize-y">{% if modo == 'editar' %}{{ questao.texto }}{% endif %}</textarea>
+      </div>
+    </div>
+
+    <!-- Alternativas -->
+    <div class="section-card">
+      <div class="flex items-center justify-between mb-4">
+        <p class="section-title mb-0"><span class="material-symbols-outlined" style="font-size:14px;">checklist</span> Alternativas</p>
+        <button type="button" onclick="adicionarAlternativa()" class="btn btn-ghost text-xs py-1.5">
+          <span class="material-symbols-outlined" style="font-size:14px;">add</span> Adicionar
+        </button>
+      </div>
+      <p class="text-xs text-text-3 mb-3">Marque ✓ na alternativa <strong class="text-green">correta</strong>. Mínimo 2 alternativas.</p>
+
+      <div id="alternativas-container" class="space-y-2">
+        {% if modo == 'editar' and alternativas %}
+          {% for alt in alternativas %}
+          <div class="alt-row {% if alt.correta %}is-correta{% endif %}">
+            <span class="alt-letra">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% elif forloop.counter == 5 %}E{% else %}{{ forloop.counter }}{% endif %}</span>
+            <input type="text" name="alternativa_texto" value="{{ alt.texto }}" required
+                   placeholder="Texto da alternativa..." class="input flex-1"/>
+            <label class="check-label">
+              <input type="checkbox" name="alternativa_correta" value="{{ forloop.counter0 }}"
+                     class="check-correta" {% if alt.correta %}checked{% endif %}
+                     onchange="toggleCorreta(this)"/>
+              <span class="material-symbols-outlined" style="font-size:16px;{% if alt.correta %}color:#4ade80{% endif %}">{% if alt.correta %}check_circle{% else %}radio_button_unchecked{% endif %}</span>
+              Correta
+            </label>
+            <button type="button" onclick="removerAlternativa(this)" class="remove-btn">
+              <span class="material-symbols-outlined" style="font-size:15px;">close</span>
+            </button>
+          </div>
+          {% endfor %}
+        {% else %}
+          {% for letra in "ABCD" %}
+          <div class="alt-row">
+            <span class="alt-letra">{{ letra }}</span>
+            <input type="text" name="alternativa_texto" required
+                   placeholder="Alternativa {{ letra }}..." class="input flex-1"/>
+            <label class="check-label">
+              <input type="checkbox" name="alternativa_correta" value="{{ forloop.counter0 }}"
+                     class="check-correta" onchange="toggleCorreta(this)"/>
+              <span class="material-symbols-outlined" style="font-size:16px;">radio_button_unchecked</span>
+              Correta
+            </label>
+            <button type="button" onclick="removerAlternativa(this)" class="remove-btn">
+              <span class="material-symbols-outlined" style="font-size:15px;">close</span>
+            </button>
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Ações -->
+    <div class="flex items-center gap-3 flex-wrap">
+      <button type="submit" class="btn btn-primary">
+        <span class="material-symbols-outlined" style="font-size:15px;font-variation-settings:'FILL' 1;">save</span>
+        {% if modo == 'criar' %}Salvar Questão{% else %}Salvar Alterações{% endif %}
+      </button>
+      <a href="{% url 'admin_questoes' %}" class="btn btn-ghost">Cancelar</a>
+      {% if modo == 'editar' %}
+        <a href="{% url 'admin_questao_excluir' questao.id %}" class="btn btn-danger ml-auto">
+          <span class="material-symbols-outlined" style="font-size:14px;">delete</span> Excluir
+        </a>
+      {% endif %}
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const LETRAS = ['A','B','C','D','E','F','G'];
+
+function toggleCorreta(cb) {
+  const row = cb.closest('.alt-row');
+  const icon = row.querySelector('label .material-symbols-outlined');
+  if (cb.checked) {
+    row.classList.add('is-correta');
+    icon.textContent = 'check_circle';
+    icon.style.color = '#4ade80';
+  } else {
+    row.classList.remove('is-correta');
+    icon.textContent = 'radio_button_unchecked';
+    icon.style.color = '';
+  }
+}
+
+function reindexar() {
+  document.querySelectorAll('#alternativas-container .alt-row').forEach((row, i) => {
+    const letraEl = row.querySelector('.alt-letra');
+    if (letraEl) letraEl.textContent = LETRAS[i] || String(i+1);
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.value = String(i);
+  });
+}
+
+function adicionarAlternativa() {
+  const container = document.getElementById('alternativas-container');
+  const count = container.querySelectorAll('.alt-row').length;
+  if (count >= 7) { alert('Máximo de 7 alternativas.'); return; }
+  const div = document.createElement('div');
+  div.className = 'alt-row';
+  div.innerHTML = `
+    <span class="alt-letra">${LETRAS[count] || String(count+1)}</span>
+    <input type="text" name="alternativa_texto" required placeholder="Alternativa ${LETRAS[count] || String(count+1)}..." class="input flex-1"/>
+    <label class="check-label">
+      <input type="checkbox" name="alternativa_correta" value="${count}" class="check-correta" onchange="toggleCorreta(this)"/>
+      <span class="material-symbols-outlined" style="font-size:16px;">radio_button_unchecked</span>
+      Correta
+    </label>
+    <button type="button" onclick="removerAlternativa(this)" class="remove-btn">
+      <span class="material-symbols-outlined" style="font-size:15px;">close</span>
+    </button>`;
+  container.appendChild(div);
+  div.querySelector('input[type=text]').focus();
+}
+
+function removerAlternativa(btn) {
+  const container = document.getElementById('alternativas-container');
+  if (container.querySelectorAll('.alt-row').length <= 2) {
+    alert('São necessárias pelo menos 2 alternativas.'); return;
+  }
+  btn.closest('.alt-row').remove();
+  reindexar();
+}
+</script>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ mensagem|default:"Sem questões"|truncatechars:40 }} — SantuarioEdu</title>
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='praticar' %}
+
+<main class="md:ml-64 min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-lg w-full text-center fade-in">
+    <div class="paper-card rounded-2xl p-8 sm:p-10">
+      <div class="scale-in w-20 h-20 rounded-2xl bg-secondary-container flex items-center justify-center mx-auto mb-6">
+        <span class="material-symbols-outlined text-on-secondary-container active-icon" style="font-size:40px;">task_alt</span>
+      </div>
+
+      <h1 class="font-serif text-2xl sm:text-3xl font-semibold text-primary mb-3 leading-tight">
+        {{ mensagem|default:"Você concluiu todas as questões disponíveis!" }}
+      </h1>
+
+      <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
+        {% if subtexto %}{{ subtexto }}{% else %}Continue estudando outros temas para garantir seu progresso.{% endif %}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="{% url 'escolher_tema' %}"
+           class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-lg font-semibold text-sm hover:bg-primary-container transition-colors">
+          <span class="material-symbols-outlined" style="font-size:18px;">menu_book</span>
+          Estudar disciplinas
+        </a>
+        <a href="{% url 'favoritas' %}"
+           class="inline-flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-5 py-3 rounded-lg font-semibold text-sm hover:bg-surface-container-low transition-colors">
+          <span class="material-symbols-outlined" style="font-size:18px;">bookmark</span>
+          Favoritas
+        </a>
+        <a href="{% url 'dashboard' %}"
+           class="inline-flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-5 py-3 rounded-lg font-semibold text-sm hover:bg-surface-container-low transition-colors">
+          <span class="material-symbols-outlined" style="font-size:18px;">dashboard</span>
+          Painel
+        </a>
+      </div>
+    </div>
+
+    <p class="text-xs text-on-surface-variant/70 mt-4 flex items-center justify-center gap-1">
+      <span class="material-symbols-outlined" style="font-size:14px;">info</span>
+      Use o menu lateral para navegar entre as opções disponíveis.
+    </p>
+  </div>
+</main>
+
+</body>
+</html>

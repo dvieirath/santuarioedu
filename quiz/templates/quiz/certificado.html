@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certificado de progresso — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  @media print {
+    .no-print { display:none!important; }
+    body { background:#fff; }
+    .cert-page { box-shadow:none!important; border:3px solid #002046; }
+  }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-8 px-4">
+
+  <div class="no-print flex gap-3 mb-6 w-full max-w-3xl justify-end">
+    <a href="{% url 'exportar_historico_csv' %}" class="flex items-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-4 py-2 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined" style="font-size:16px;">download</span>
+      Baixar CSV
+    </a>
+    <button onclick="window.print()" class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:16px;">print</span>
+      Salvar PDF
+    </button>
+    <a href="{% url 'dashboard' %}" class="flex items-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-4 py-2 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+      Painel
+    </a>
+  </div>
+
+  <div class="cert-page w-full max-w-3xl paper-card shadow-2xl rounded-2xl overflow-hidden fade-in">
+
+    <div class="bg-primary text-white px-10 py-7 flex items-center gap-5">
+      <div class="w-14 h-14 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center">
+        {% include "quiz/includes/brand_mark.html" with size="40" %}
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.25em] text-white/70">SantuarioEdu</p>
+        <h1 class="font-serif text-2xl font-bold mt-0.5">Certificado de progresso</h1>
+      </div>
+    </div>
+
+    <div class="px-10 py-8 space-y-6">
+
+      <div class="text-center pb-4 border-b border-[#e5e1d8]">
+        <p class="text-sm text-on-surface-variant mb-1">Certificamos que</p>
+        <p class="font-serif text-3xl font-bold text-primary italic">
+          {{ usuario.get_full_name|default:usuario.username }}
+        </p>
+        <p class="text-sm text-outline mt-1">@{{ usuario.username }}</p>
+      </div>
+
+      <p class="text-on-surface-variant text-sm leading-relaxed text-center max-w-xl mx-auto">
+        dedicou-se ao estudo por meio da plataforma <strong class="text-primary">SantuarioEdu</strong>,
+        demonstrando os seguintes resultados:
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-surface-container-low rounded-xl p-4 text-center border border-[#e5e1d8]">
+          <p class="font-serif text-2xl font-bold text-primary">{{ total }}</p>
+          <p class="text-xs text-on-surface-variant mt-1 font-medium">Questões respondidas</p>
+        </div>
+        <div class="bg-secondary-container/40 rounded-xl p-4 text-center border border-secondary/30">
+          <p class="font-serif text-2xl font-bold text-secondary">{{ pct }}%</p>
+          <p class="text-xs text-on-surface-variant mt-1 font-medium">Aproveitamento geral</p>
+        </div>
+        <div class="bg-primary-fixed/50 rounded-xl p-4 text-center border border-primary/20">
+          <p class="font-serif text-2xl font-bold text-primary">{{ horas }}h{{ minutos }}m</p>
+          <p class="text-xs text-on-surface-variant mt-1 font-medium">Horas de estudo</p>
+        </div>
+        <div class="bg-amber-50 rounded-xl p-4 text-center border border-amber-200">
+          <p class="font-serif text-2xl font-bold text-amber-700">{{ streak_max }}</p>
+          <p class="text-xs text-on-surface-variant mt-1 font-medium">Dias consecutivos</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 justify-center">
+        {% if simulados > 0 %}
+        <span class="flex items-center gap-1.5 bg-surface-container-low border border-[#e5e1d8] text-on-surface px-3 py-1.5 rounded-full text-xs font-semibold">
+          🏅 {{ simulados }} simulado{{ simulados|pluralize:"s" }} completo{{ simulados|pluralize:"s" }}
+        </span>
+        {% endif %}
+        {% for c in conquistas %}
+        <span class="flex items-center gap-1.5 bg-surface-container-low border border-[#e5e1d8] text-on-surface px-3 py-1.5 rounded-full text-xs font-semibold">
+          {{ c.get_codigo_display }}
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="bg-surface-container-low border-t border-[#e5e1d8] px-10 py-5 flex items-center justify-between">
+      <div>
+        <p class="text-xs text-outline">Emitido em {{ data_hoje|date:"d \d\e F \d\e Y" }}</p>
+        <p class="text-xs text-outline mt-0.5">santuarioedu.com.br</p>
+      </div>
+      <div class="text-right">
+        <div class="w-20 h-[2px] bg-outline mb-1 ml-auto"></div>
+        <p class="text-xs text-on-surface-variant font-semibold">SantuarioEdu</p>
+        <p class="text-xs text-outline">Plataforma de estudos</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

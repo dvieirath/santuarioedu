@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Relatório de desempenho — SantuarioEdu</title>
+{% include "quiz/includes/design_tokens.html" %}
+<style>
+  @media print {
+    .no-print { display:none !important; }
+    body { background:white !important; }
+    .page-break { page-break-before:always; }
+    .paper-card { box-shadow:none !important; border:1px solid #e5e1d8; }
+  }
+  .bar-fill { transition:width 1s ease; }
+</style>
+</head>
+<body>
+
+<div class="no-print fixed top-4 right-4 z-50 flex gap-2">
+  <button onclick="window.print()" class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-semibold shadow-md hover:bg-primary-container transition-all">
+    <span class="material-symbols-outlined active-icon" style="font-size:16px;">print</span>
+    Imprimir / Salvar PDF
+  </button>
+  <a href="{% url 'analytics' %}" class="flex items-center gap-2 bg-white border border-[#e5e1d8] text-on-surface px-4 py-2 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-all">
+    <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+    Voltar
+  </a>
+</div>
+
+<div class="max-w-3xl mx-auto px-6 py-8 space-y-8">
+
+  <header class="flex items-start justify-between border-b-2 border-primary pb-6">
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        {% include "quiz/includes/brand_mark.html" with size="28" %}
+        <span class="text-sm font-bold text-primary uppercase tracking-widest font-serif">SantuarioEdu</span>
+      </div>
+      <h1 class="font-serif text-3xl font-bold text-primary">Relatório de desempenho</h1>
+      <p class="text-on-surface-variant text-sm mt-1">{{ usuario.username }} · Gerado em {{ hoje }}</p>
+    </div>
+    <div class="text-right">
+      <div class="text-[10px] text-outline uppercase tracking-widest">Aproveitamento geral</div>
+      <div class="font-serif text-5xl font-bold {% if aproveitamento >= 70 %}text-secondary{% elif aproveitamento >= 50 %}text-primary{% else %}text-error{% endif %}">{{ aproveitamento }}%</div>
+      <span class="inline-block bg-primary text-on-primary px-3 py-0.5 rounded-full text-xs font-bold mt-1">{{ nivel.rank_nome }} · Nível {{ nivel.nivel }}</span>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-4 gap-4">
+    <div class="bg-primary-fixed/40 rounded-xl p-4 text-center">
+      <div class="font-serif text-3xl font-bold text-primary">{{ total }}</div>
+      <div class="text-[11px] text-on-surface-variant mt-1">Respondidas</div>
+    </div>
+    <div class="bg-secondary-container/40 rounded-xl p-4 text-center">
+      <div class="font-serif text-3xl font-bold text-secondary">{{ acertos }}</div>
+      <div class="text-[11px] text-on-surface-variant mt-1">Acertos</div>
+    </div>
+    <div class="bg-error-container/50 rounded-xl p-4 text-center">
+      <div class="font-serif text-3xl font-bold text-error">{{ erros }}</div>
+      <div class="text-[11px] text-on-surface-variant mt-1">Erros</div>
+    </div>
+    <div class="bg-primary-fixed/40 rounded-xl p-4 text-center">
+      <div class="font-serif text-3xl font-bold text-primary">{{ nivel.xp_total }}</div>
+      <div class="text-[11px] text-on-surface-variant mt-1">XP total</div>
+    </div>
+  </section>
+
+  <section class="grid grid-cols-2 gap-4">
+    <div class="paper-card rounded-xl p-4">
+      <div class="text-[10px] text-outline uppercase tracking-widest mb-2">Streak atual</div>
+      <div class="font-serif text-2xl font-bold text-primary">{{ streak }} 🔥</div>
+      <div class="text-xs text-on-surface-variant">dias consecutivos</div>
+    </div>
+    <div class="paper-card rounded-xl p-4">
+      <div class="text-[10px] text-outline uppercase tracking-widest mb-2">Conquistas</div>
+      <div class="font-serif text-2xl font-bold text-primary">{{ conquistas }} 🏆</div>
+      <div class="text-xs text-on-surface-variant">desbloqueadas</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-serif text-xl font-semibold text-primary mb-4 border-b border-[#e5e1d8] pb-2">
+      Desempenho por disciplina
+    </h2>
+    <div class="space-y-3">
+      {% for cat in cats %}
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-on-surface">{{ cat.nome }}</span>
+          <span class="text-sm font-bold {% if cat.pct >= 70 %}text-secondary{% elif cat.pct >= 50 %}text-primary{% else %}text-error{% endif %}">
+            {{ cat.pct }}% · {{ cat.acertos }}/{{ cat.total }}
+          </span>
+        </div>
+        <div class="h-2.5 bg-surface-container rounded-full overflow-hidden">
+          <div class="bar-fill h-full rounded-full {% if cat.pct >= 70 %}bg-secondary{% elif cat.pct >= 50 %}bg-primary{% else %}bg-error{% endif %}" style="width:{{ cat.pct }}%"></div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-on-surface-variant text-sm">Nenhuma disciplina respondida ainda.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if cats %}
+  <section class="grid grid-cols-2 gap-4">
+    <div class="bg-error-container/40 border-l-4 border-error rounded-lg p-4">
+      <div class="text-xs font-bold text-error uppercase tracking-widest mb-2">⚠️ Pontos fracos</div>
+      {% for cat in cats|slice:":3" %}
+      <div class="text-sm text-on-surface mb-1">• {{ cat.nome }} ({{ cat.pct }}%)</div>
+      {% endfor %}
+    </div>
+    <div class="bg-secondary-container/40 border-l-4 border-secondary rounded-lg p-4">
+      <div class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">✓ Pontos fortes</div>
+      {% for cat in cats reversed %}
+        {% if cat.pct >= 60 %}
+        <div class="text-sm text-on-surface mb-1">• {{ cat.nome }} ({{ cat.pct }}%)</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <footer class="border-t border-[#e5e1d8] pt-4 flex justify-between items-center">
+    <div class="text-[11px] text-outline">🎓 SantuarioEdu · santuarioedu.com.br</div>
+    <div class="text-[11px] text-outline">Relatório gerado em {{ hoje }}</div>
+  </footer>
+
+</div>
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (new URLSearchParams(location.search).get('print') === '1') { window.print(); }
+  }, 500);
+});
+</script>
+
+</body>
+</html>

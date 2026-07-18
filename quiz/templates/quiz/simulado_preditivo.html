@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Simulado preditivo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+{% if predicao and predicao.historico|length > 1 %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endif %}
+<style>
+  .mode-card.active > div,
+  input[type="radio"]:checked + div { background:rgba(214,227,255,.4); border-color:#002046; color:#002046; }
+  @keyframes pulseRing {
+    0% { box-shadow:0 0 0 0 rgba(255,255,255,.5); }
+    100% { box-shadow:0 0 0 20px rgba(255,255,255,0); }
+  }
+  .pulse-ring { animation:pulseRing 2s infinite; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='simulados' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">rocket_launch</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Simulado preditivo</h1>
+      <p class="text-[11px] text-on-surface-variant">Predição de nota + simulado inteligente</p>
+    </div>
+  </div>
+  <span class="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest bg-primary-fixed text-primary-container px-2.5 py-1 rounded-full">
+    <span class="material-symbols-outlined" style="font-size:13px;">auto_awesome</span>
+    IA
+  </span>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 space-y-8">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Inteligência IA · Preditivo</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Sua nota predita, em tempo real</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        A IA analisa seu histórico e estima qual seria sua nota se o concurso fosse hoje.
+        Em seguida, monta um simulado focado nos <strong class="text-on-surface font-semibold">pontos críticos</strong>.
+      </p>
+    </section>
+
+    {% if messages %}
+    <div class="space-y-2">
+      {% for msg in messages %}
+      <div class="rounded-lg px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'error' %}bg-error-container/40 text-on-error-container border-error/20
+        {% else %}bg-secondary-container/40 text-on-secondary-container border-secondary/30{% endif %}">{{ msg }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if predicao %}
+    <!-- Painel de predição -->
+    <section class="ai-glow rounded-2xl p-6 sm:p-8 text-primary shadow-xl relative overflow-hidden fade-in" style="animation-delay:.1s;">
+      <div class="relative z-10">
+        <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-4">Sua nota predita</p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div class="relative shrink-0">
+            <div class="pulse-ring w-28 h-28 rounded-full bg-white/40 flex items-center justify-center">
+              <div class="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
+                <span class="font-serif text-4xl font-bold">{{ predicao.nota_predita|floatformat:0 }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="flex items-center gap-2">
+              {% if predicao.tendencia > 0 %}
+              <span class="flex items-center gap-1 text-secondary text-sm font-bold">
+                <span class="material-symbols-outlined active-icon" style="font-size:16px;">trending_up</span>
+                +{{ predicao.tendencia }}% de tendência
+              </span>
+              {% elif predicao.tendencia < 0 %}
+              <span class="flex items-center gap-1 text-error text-sm font-bold">
+                <span class="material-symbols-outlined active-icon" style="font-size:16px;">trending_down</span>
+                {{ predicao.tendencia }}% de tendência
+              </span>
+              {% else %}
+              <span class="text-sm opacity-80">Tendência estável</span>
+              {% endif %}
+            </div>
+            <div class="text-xs opacity-80">
+              Confiança: <span class="font-bold text-primary">{{ predicao.confianca }}%</span>
+              &nbsp;·&nbsp; {{ predicao.total_simulados }} simulado{{ predicao.total_simulados|pluralize }} analisado{{ predicao.total_simulados|pluralize }}
+            </div>
+            <div class="mt-2">
+              {% if predicao.nota_predita >= 70 %}
+              <span class="bg-white/60 text-secondary text-xs font-bold px-3 py-1 rounded-full border border-secondary/30">
+                ✓ Acima da meta (70%)
+              </span>
+              {% elif predicao.nota_predita >= 55 %}
+              <span class="bg-white/60 text-amber-700 text-xs font-bold px-3 py-1 rounded-full border border-amber-400/40">
+                ⚠️ Próximo da meta — continue evoluindo
+              </span>
+              {% else %}
+              <span class="bg-white/60 text-error text-xs font-bold px-3 py-1 rounded-full border border-error/40">
+                🔴 Abaixo da meta — foco nas críticas
+              </span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% if predicao.historico|length > 1 %}
+    <section class="paper-card rounded-2xl p-6 fade-in" style="animation-delay:.15s;">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-9 h-9 rounded-xl bg-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;">show_chart</span>
+        </div>
+        <div>
+          <h3 class="font-serif text-base font-semibold text-primary">Evolução dos simulados</h3>
+          <p class="text-[11px] text-on-surface-variant">Histórico de aproveitamento</p>
+        </div>
+      </div>
+      <div class="relative mt-4" style="height:220px">
+        <canvas id="grafico-evolucao"></canvas>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if cats %}
+    <section class="paper-card rounded-2xl p-6 fade-in" style="animation-delay:.2s;">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-9 h-9 rounded-xl bg-error-container/60 flex items-center justify-center">
+          <span class="material-symbols-outlined text-error" style="font-size:18px;">warning</span>
+        </div>
+        <div>
+          <h3 class="font-serif text-base font-semibold text-primary">Disciplinas críticas</h3>
+          <p class="text-[11px] text-on-surface-variant">Áreas que mais impactam sua nota</p>
+        </div>
+      </div>
+      <div class="space-y-2.5">
+        {% for cat in cats %}
+        <div class="flex items-center gap-3">
+          <div class="w-2 h-2 rounded-full shrink-0
+            {% if cat.pct < 50 %}bg-error{% elif cat.pct < 70 %}bg-amber-500{% else %}bg-secondary{% endif %}"></div>
+          <p class="text-xs font-medium text-on-surface flex-1 truncate">{{ cat.nome }}</p>
+          <div class="w-32 sm:w-48 bg-surface-container h-2 rounded-full overflow-hidden">
+            <div class="h-2 rounded-full transition-all duration-700
+              {% if cat.pct < 50 %}bg-error
+              {% elif cat.pct < 70 %}bg-amber-500
+              {% else %}bg-secondary{% endif %}" style="width:{{ cat.pct }}%"></div>
+          </div>
+          <span class="text-xs font-bold w-10 text-right
+            {% if cat.pct < 50 %}text-error{% elif cat.pct < 70 %}text-amber-600{% else %}text-secondary{% endif %}">
+            {{ cat.pct }}%
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% else %}
+    <section class="paper-card rounded-2xl p-8 text-center fade-in" style="background:linear-gradient(135deg, #eff6ff, #ede9fe);">
+      <div class="scale-in text-6xl mb-3">🔮</div>
+      <h3 class="font-serif text-2xl font-semibold text-primary mb-2">Ainda sem predição</h3>
+      <p class="text-sm text-on-surface-variant max-w-md mx-auto mb-5">
+        Faça pelo menos <strong>1 simulado</strong> para a IA começar a estimar sua nota.
+      </p>
+      <a href="{% url 'simulado_edital' %}" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors">
+        <span class="material-symbols-outlined" style="font-size:16px;">play_arrow</span>
+        Fazer primeiro simulado
+      </a>
+    </section>
+    {% endif %}
+
+    <!-- Iniciar simulado preditivo -->
+    <section class="paper-card rounded-2xl p-6 fade-in" style="animation-delay:.25s;">
+      <h3 class="font-serif text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">auto_awesome</span>
+        Iniciar simulado inteligente
+      </h3>
+
+      <form method="post" class="space-y-5">
+        {% csrf_token %}
+
+        <div>
+          <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Modo de seleção</p>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="cursor-pointer mode-card">
+              <input type="radio" name="modo" value="fraco" checked class="sr-only peer">
+              <div class="rounded-xl p-4 text-center transition-all bg-white border border-outline-variant/40 peer-checked:bg-primary-fixed/40 peer-checked:border-primary">
+                <span class="text-2xl block mb-1">🎯</span>
+                <p class="text-xs font-bold">Foco nas fracas</p>
+                <p class="text-[10px] text-on-surface-variant">70% em pontos críticos</p>
+              </div>
+            </label>
+            <label class="cursor-pointer mode-card">
+              <input type="radio" name="modo" value="balanceado" class="sr-only peer">
+              <div class="rounded-xl p-4 text-center transition-all bg-white border border-outline-variant/40 peer-checked:bg-primary-fixed/40 peer-checked:border-primary">
+                <span class="text-2xl block mb-1">⚖️</span>
+                <p class="text-xs font-bold">Balanceado</p>
+                <p class="text-[10px] text-on-surface-variant">Distribui por edital</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5" for="n_questoes">Questões</label>
+            <select name="n_questoes" id="n_questoes" class="w-full px-3 py-2.5 text-sm rounded-lg border border-outline-variant/40 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="10">10 questões — rápido</option>
+              <option value="20">20 questões — médio</option>
+              <option value="30" selected>30 questões — padrão</option>
+              <option value="50">50 questões — completo</option>
+              <option value="80">80 questões — extensivo</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1.5" for="tempo_min">Duração</label>
+            <select name="tempo_min" id="tempo_min" class="w-full px-3 py-2.5 text-sm rounded-lg border border-outline-variant/40 bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+              <option value="20">20 min</option>
+              <option value="40">40 min</option>
+              <option value="60" selected>1 hora</option>
+              <option value="90">1h30</option>
+              <option value="120">2 horas</option>
+              <option value="180">3 horas</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="ai-btn w-full text-white font-semibold py-3 rounded-lg text-sm transition-all hover:scale-[1.005] flex items-center justify-center gap-2 shadow-md relative z-10">
+          <span class="material-symbols-outlined active-icon relative z-10" style="font-size:18px;">rocket_launch</span>
+          <span class="relative z-10">Gerar simulado preditivo</span>
+        </button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  {% if predicao and predicao.historico|length > 1 %}
+  const histData = {{ predicao_json|safe }}.historico || [];
+  const ctx = document.getElementById('grafico-evolucao').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: histData.map((h, i) => 'Sim. ' + (i + 1)),
+      datasets: [{
+        label: 'Aproveitamento (%)',
+        data: histData.map(h => h.pct),
+        borderColor: '#002046',
+        backgroundColor: 'rgba(0,32,70,.1)',
+        fill: true, tension: .4,
+        pointBackgroundColor: histData.map(h => h.pct >= 70 ? '#006c4d' : h.pct >= 55 ? '#f59e0b' : '#ba1a1a'),
+        pointRadius: 6, pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: {
+        y: { min: 0, max: 100, ticks: { color: '#64748b', callback: v => v + '%' }, grid: { color: '#f1f5f9' } },
+        x: { ticks: { color: '#64748b' }, grid: { display: false } }
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + c.raw + '%' } } }
+    }
+  });
+  {% endif %}
+</script>
+
+</body>
+</html>

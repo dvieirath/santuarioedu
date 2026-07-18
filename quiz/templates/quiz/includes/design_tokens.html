@@ -1,0 +1,207 @@
+{% load static %}{% comment %}
+Partial de design tokens — inclua no <head> de cada tela nova.
+Traz: Tailwind config, fontes (Source Serif 4 + Inter + Material Symbols),
+cores da paleta bege/navy/sage, e CSS compartilhado (paper-card, ai-glow, etc).
+
+Tailwind é servido LOCALMENTE (não pelo CDN) — evita bloqueio por ad blockers
+e rede corporativa, e garante que o site funciona offline no PWA.
+{% endcomment %}
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/source-serif-4.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary":"#002046","primary-container":"#1b365d","on-primary":"#ffffff","on-primary-container":"#7089b4",
+        "secondary":"#006c4d","on-secondary":"#ffffff","secondary-container":"#9df4cc","on-secondary-container":"#0f7253",
+        "tertiary":"#0b0a05","tertiary-container":"#22211b","on-tertiary-container":"#8b8880",
+        "surface":"#fcf9f8","background":"#f6f1e7",
+        "surface-container":"#f0eded","surface-container-low":"#f6f3f2","surface-container-high":"#eae7e7",
+        "surface-container-highest":"#e5e2e1","surface-container-lowest":"#ffffff",
+        "on-surface":"#1c1b1b","on-surface-variant":"#44474e",
+        "outline":"#74777f","outline-variant":"#c4c6cf",
+        "error":"#ba1a1a","error-container":"#ffdad6","on-error-container":"#93000a",
+        "primary-fixed":"#d6e3ff","primary-fixed-dim":"#aec7f6",
+        "secondary-fixed":"#9df4cc","secondary-fixed-dim":"#81d7b1",
+      },
+      fontFamily: {
+        serif: ["'Source Serif 4'", "Georgia", "serif"],
+        body: ["Inter", "sans-serif"],
+        headline: ["'Source Serif 4'", "Georgia", "serif"],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background:#f6f1e7; font-family:'Inter',sans-serif; color:#1c1b1b; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .active-icon { font-variation-settings:'FILL' 1; }
+  h1,h2,h3,h4,h5,.font-serif { font-family:'Source Serif 4', Georgia, serif; }
+
+  .paper-card {
+    background:#ffffff;
+    border:1px solid #e5e1d8;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+    transition:box-shadow .2s ease;
+  }
+  .paper-card:hover { box-shadow:0 4px 6px rgba(0,0,0,0.07); }
+
+  .ai-glow {
+    background:linear-gradient(135deg, #aec7f6 0%, #81d7b1 100%);
+    position:relative; overflow:hidden;
+  }
+  .ai-glow::after {
+    content:''; position:absolute; top:-50%; left:-50%;
+    width:200%; height:200%;
+    background:radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation:pulse 6s infinite linear;
+  }
+  @keyframes pulse {
+    0% { transform:translate(0,0); }
+    50% { transform:translate(5%, 5%); }
+    100% { transform:translate(0,0); }
+  }
+
+  .ai-btn {
+    background:linear-gradient(135deg, #002046 0%, #006c4d 100%);
+    position:relative; overflow:hidden;
+  }
+  .ai-btn::after {
+    content:''; position:absolute; inset:-50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation:aiPulse 4s infinite linear;
+  }
+  @keyframes aiPulse {
+    0%,100% { transform:translate(0,0); }
+    50%     { transform:translate(6%, 4%); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .fade-in { animation:fadeInUp .5s cubic-bezier(.16,1,.3,1) both; }
+
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(.85); }
+    to   { opacity:1; transform:scale(1); }
+  }
+  .scale-in { animation:scaleIn .4s cubic-bezier(.16,1,.3,1) both; }
+
+  /* Chip helper */
+  .chip {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 12px; border-radius:9999px;
+    font-size:11px; font-weight:600;
+    background:#ffffff; border:1px solid rgba(229,225,216,.8);
+    color:#44474e;
+  }
+  .chip-primary { background:#d6e3ff; color:#1b365d; border-color:transparent; }
+  .chip-secondary { background:rgba(157,244,204,.5); color:#0f7253; border-color:transparent; }
+  .chip-error { background:rgba(255,218,214,.5); color:#93000a; border-color:transparent; }
+
+  /* ═══ AI Loader ═══ Loader compartilhado para requisições IA (3-8s típico).
+     Uso:
+       <div class="ai-loader" data-message="Analisando seus padrões..." hidden></div>
+     Ou via JS: aiLoader.show(el, 'Mensagem'); aiLoader.hide(el);
+  */
+  .ai-loader {
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    padding:28px 20px; text-align:center;
+  }
+  .ai-loader[hidden] { display:none; }
+  .ai-loader__ring {
+    width:52px; height:52px; border-radius:50%;
+    background:conic-gradient(from 0deg, #002046, #006c4d, #002046);
+    -webkit-mask: radial-gradient(circle 18px at center, transparent 98%, black 100%);
+            mask: radial-gradient(circle 18px at center, transparent 98%, black 100%);
+    animation: aiRingSpin 1.1s linear infinite;
+  }
+  .ai-loader__msg {
+    font-size:13px; color:#44474e; font-weight:500;
+    min-height:1.2em; letter-spacing:.01em;
+  }
+  .ai-loader__msg::after {
+    content:''; display:inline-block; width:.9em;
+    animation: aiDots 1.4s steps(4, end) infinite;
+  }
+  @keyframes aiRingSpin { to { transform: rotate(360deg); } }
+  @keyframes aiDots {
+    0%   { content:''; }
+    25%  { content:'·'; }
+    50%  { content:'··'; }
+    75%  { content:'···'; }
+    100% { content:''; }
+  }
+  /* Variante compacta (inline em cards pequenos) */
+  .ai-loader--sm { padding:14px 12px; gap:8px; }
+  .ai-loader--sm .ai-loader__ring { width:32px; height:32px; }
+  .ai-loader--sm .ai-loader__msg { font-size:11px; }
+</style>
+
+<script>
+  /* ═══ Auto-recovery de Service Worker antigo ═══
+     Se o browser tem um SW cacheado com versão pré-'santuario-v4', a navegação
+     pode servir HTML/JS obsoleto (referências a rotas deletadas, endpoints
+     antigos, etc). Este bloco força desregistro do SW velho e limpa caches. */
+  (function() {
+    const CACHE_ATUAL = 'santuario-v4';
+    const KEY = 'santuario:sw-check';
+    if (!('serviceWorker' in navigator)) return;
+    // Só roda 1x por sessão de browser (evita loop de reload)
+    try {
+      if (sessionStorage.getItem(KEY) === CACHE_ATUAL) return;
+      sessionStorage.setItem(KEY, CACHE_ATUAL);
+    } catch(e) {}
+
+    navigator.serviceWorker.getRegistrations().then(regs => {
+      if (!regs.length) return;
+      // Verifica os caches ativos
+      if (!window.caches) return;
+      caches.keys().then(keys => {
+        const temAntigo = keys.some(k => k !== CACHE_ATUAL && !k.startsWith('workbox-'));
+        if (!temAntigo) return;
+        console.info('[SW] Cache antigo detectado — limpando e recarregando');
+        Promise.all([
+          ...keys.filter(k => k !== CACHE_ATUAL).map(k => caches.delete(k)),
+          ...regs.map(r => r.unregister()),
+        ]).then(() => {
+          // Reload sem cache
+          setTimeout(() => window.location.reload(), 300);
+        });
+      });
+    });
+  })();
+
+  /* Utilitário global — usa dentro de qualquer template.
+     aiLoader.show(container, 'Consultando IA')  → injeta loader dentro do container
+     aiLoader.hide(container)                    → remove
+     aiLoader.replace(container, htmlPronto)     → troca loader por conteúdo final  */
+  (function() {
+    if (window.aiLoader) return;
+    const HTML = (msg) => `
+      <div class="ai-loader" role="status" aria-live="polite">
+        <div class="ai-loader__ring" aria-hidden="true"></div>
+        <p class="ai-loader__msg">${msg || 'Consultando IA'}</p>
+      </div>`;
+    window.aiLoader = {
+      show(container, msg) {
+        if (!container) return;
+        container.innerHTML = HTML(msg);
+      },
+      hide(container) {
+        if (!container) return;
+        const l = container.querySelector('.ai-loader');
+        if (l) l.remove();
+      },
+      replace(container, html) {
+        if (!container) return;
+        container.innerHTML = html;
+      },
+    };
+  })();
+</script>

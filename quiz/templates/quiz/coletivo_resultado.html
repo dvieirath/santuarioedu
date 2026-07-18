@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Resultado coletivo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  @keyframes pop-in { 0%{transform:scale(.5);opacity:0} 70%{transform:scale(1.12)} 100%{transform:scale(1);opacity:1} }
+  .pop-in { animation: pop-in .5s cubic-bezier(.34,1.56,.64,1) forwards; }
+</style>
+</head>
+<body>
+
+<nav class="sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'coletivo_home' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <h1 class="font-serif text-lg font-semibold text-primary flex-1">🏟️ Resultado do simulado coletivo</h1>
+</nav>
+
+<div class="max-w-2xl mx-auto px-6 py-8 space-y-6">
+
+  <div class="rounded-2xl p-8 text-white text-center shadow-2xl relative overflow-hidden fade-in
+    {% if minha_posicao == 1 %}bg-gradient-to-br from-amber-400 to-yellow-500
+    {% elif minha_posicao == 2 %}bg-gradient-to-br from-outline to-outline-variant
+    {% elif minha_posicao == 3 %}bg-gradient-to-br from-orange-400 to-amber-600
+    {% else %}bg-gradient-to-br from-primary to-primary-container{% endif %}">
+    <div class="absolute -right-6 -top-6 w-32 h-32 bg-white/5 rounded-full"></div>
+    <div class="pop-in inline-block">
+      <span class="text-7xl leading-none">
+        {% if minha_posicao == 1 %}🏆
+        {% elif minha_posicao == 2 %}🥈
+        {% elif minha_posicao == 3 %}🥉
+        {% else %}🎯{% endif %}
+      </span>
+    </div>
+    <h2 class="font-serif text-4xl font-bold mt-3">
+      {% if minha_posicao == 1 %}1º Lugar!
+      {% elif minha_posicao %}{{ minha_posicao }}º Lugar{% else %}Resultado{% endif %}
+    </h2>
+    <p class="text-white/80 text-sm mt-1">
+      {{ meus_pontos }} ponto{{ meus_pontos|pluralize }} de {{ sala.n_questoes }} · {{ total_participantes }} participante{{ total_participantes|pluralize }}
+    </p>
+    <p class="text-white/60 text-xs mt-2">
+      {{ sala.categoria.nome|default:"Todas as disciplinas" }} · {{ sala.criado_em|date:"d/m/Y" }}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <a href="{% url 'coletivo_criar' %}" class="flex items-center justify-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm py-3 rounded-lg transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">replay</span>
+      Nova sala
+    </a>
+    <a href="{% url 'coletivo_home' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] hover:bg-surface-container-low text-on-surface font-semibold text-sm py-3 rounded-lg transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">home</span>
+      Lobby
+    </a>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:18px;">leaderboard</span>
+      <h2 class="font-serif font-semibold text-base text-primary">Ranking final</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for p in ranking %}
+      <div class="px-5 py-3 flex items-center gap-3 {% if p.usuario == request.user %}bg-primary-fixed/30{% endif %}">
+        <div class="shrink-0 w-8 text-center">
+          {% if forloop.counter == 1 %}<span class="text-xl">🥇</span>
+          {% elif forloop.counter == 2 %}<span class="text-xl">🥈</span>
+          {% elif forloop.counter == 3 %}<span class="text-xl">🥉</span>
+          {% else %}<span class="text-sm font-bold text-outline">{{ forloop.counter }}º</span>{% endif %}
+        </div>
+        <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0
+          {% if p.usuario == request.user %}bg-primary-fixed text-primary{% else %}bg-surface-container text-on-surface-variant{% endif %}">
+          {{ p.usuario.username|slice:":1"|upper }}
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold truncate {% if p.usuario == request.user %}text-primary{% endif %}">
+            {{ p.usuario.username }}
+            {% if p.usuario == request.user %}<span class="text-xs font-normal text-on-surface-variant">(você)</span>{% endif %}
+            {% if p.usuario == sala.criador %}<span class="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full font-bold ml-1">criador</span>{% endif %}
+          </p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="font-serif font-bold text-base {% if forloop.counter == 1 %}text-amber-500{% elif p.usuario == request.user %}text-primary{% else %}text-on-surface-variant{% endif %}">{{ p.pontos }}</p>
+          <p class="text-[10px] text-on-surface-variant">pts</p>
+        </div>
+        {% if sala.n_questoes > 0 %}
+        <div class="w-16 shrink-0">
+          <div class="h-1.5 bg-surface-container rounded-full overflow-hidden">
+            <div class="h-1.5 rounded-full {% if forloop.counter == 1 %}bg-amber-400{% elif p.usuario == request.user %}bg-primary{% else %}bg-outline{% endif %}" style="width:{% widthratio p.pontos sala.n_questoes 100 %}%"></div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% empty %}
+      <div class="px-5 py-8 text-center text-on-surface-variant text-sm">Nenhum participante.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px;">fact_check</span>
+        <h2 class="font-serif font-semibold text-base text-primary">Gabarito + Desempenho da turma</h2>
+      </div>
+      <button onclick="toggleGabarito()" id="btn-gabarito" class="text-xs text-primary hover:underline font-semibold">Mostrar</button>
+    </div>
+    <div id="gabarito-body" class="hidden divide-y divide-[#e5e1d8]">
+      {% for g in gabarito %}
+      <div class="px-4 py-3">
+        <div class="flex items-start gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold
+            {% if g.minha_resp and g.minha_resp.acertou %}bg-secondary-container text-on-secondary-container
+            {% elif g.minha_resp %}bg-error-container/60 text-on-error-container
+            {% else %}bg-surface-container text-on-surface-variant{% endif %}">{{ g.numero }}</span>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">{{ g.questao.enunciado|truncatechars:110 }}</p>
+            <div class="flex items-center gap-3 mt-1.5">
+              {% if g.minha_resp %}
+                {% if g.minha_resp.acertou %}
+                <span class="text-xs text-secondary font-semibold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined active-icon" style="font-size:14px;">check_circle</span>Acertou
+                </span>
+                {% else %}
+                <span class="text-xs text-error font-semibold flex items-center gap-0.5">
+                  <span class="material-symbols-outlined active-icon" style="font-size:14px;">cancel</span>Errou
+                </span>
+                {% endif %}
+              {% else %}
+                <span class="text-xs text-on-surface-variant">Não respondeu</span>
+              {% endif %}
+              <span class="text-xs text-on-surface-variant">Turma: {{ g.pct_acerto }}% acertou</span>
+              <div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden max-w-20">
+                <div class="h-1.5 rounded-full {% if g.pct_acerto >= 60 %}bg-secondary{% elif g.pct_acerto >= 30 %}bg-amber-400{% else %}bg-error{% endif %}" style="width:{{ g.pct_acerto }}%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleGabarito() {
+  const body = document.getElementById('gabarito-body');
+  const btn = document.getElementById('btn-gabarito');
+  if (body.classList.contains('hidden')) { body.classList.remove('hidden'); btn.textContent = 'Ocultar'; }
+  else { body.classList.add('hidden'); btn.textContent = 'Mostrar'; }
+}
+</script>
+
+</body>
+</html>

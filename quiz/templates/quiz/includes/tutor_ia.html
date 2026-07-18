@@ -1,0 +1,205 @@
+{% comment %}
+Sprint 11A — Tutor IA: botão flutuante + modal de chat.
+Inclua em qualquer template: {% include "quiz/includes/tutor_ia.html" %}
+Aceita variável opcional: questao.id para contextualizar o tutor.
+{% endcomment %}
+
+<!-- Botão flutuante Tutor IA -->
+<button id="tutor-btn"
+  onclick="abrirTutor()"
+  title="Tutor IA — tire suas dúvidas"
+  class="fixed bottom-24 right-5 z-40 w-14 h-14 rounded-full shadow-2xl
+         bg-gradient-to-br from-violet-600 to-purple-700 text-white
+         flex items-center justify-center hover:scale-110 transition-transform
+         focus:outline-none focus:ring-4 focus:ring-violet-400">
+  <span class="material-symbols-outlined text-2xl">smart_toy</span>
+</button>
+
+<!-- Modal Tutor IA -->
+<div id="tutor-modal"
+  class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center sm:justify-end sm:pr-6 sm:pb-6">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm sm:hidden" onclick="fecharTutor()"></div>
+
+  <!-- Painel -->
+  <div class="relative z-10 w-full sm:w-96 bg-white dark:bg-slate-900
+              rounded-t-3xl sm:rounded-2xl shadow-2xl flex flex-col
+              max-h-[85vh] sm:max-h-[70vh]">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 p-4 border-b border-slate-200 dark:border-slate-700
+                bg-gradient-to-r from-violet-600 to-purple-700 rounded-t-3xl sm:rounded-t-2xl">
+      <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
+        <span class="material-symbols-outlined text-white text-xl">smart_toy</span>
+      </div>
+      <div class="flex-1">
+        <p class="text-white font-bold text-sm leading-tight">Tutor IA</p>
+        <p class="text-violet-200 text-xs">Especialista em concursos • Online</p>
+      </div>
+      <button onclick="fecharTutor()" class="text-white/70 hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+
+    <!-- Mensagens -->
+    <div id="tutor-msgs" class="flex-1 overflow-y-auto p-4 space-y-3 scroll-smooth">
+      <!-- Mensagem inicial -->
+      <div class="flex gap-2">
+        <div class="w-7 h-7 rounded-full bg-violet-100 flex-shrink-0 flex items-center justify-center mt-0.5">
+          <span class="material-symbols-outlined text-violet-600 text-sm">smart_toy</span>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            Olá! Sou o Tutor IA do SantuarioEdu. 👋<br>
+            Pode me perguntar sobre qualquer matéria do seu concurso alvo, tirar dúvidas sobre questões ou pedir explicações de conceitos.
+          </p>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5 italic">
+            ⚠ Sou uma IA e posso errar. Sempre confira em fontes oficiais.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-t border-slate-200 dark:border-slate-700">
+      <div class="flex gap-2 items-end">
+        <textarea id="tutor-input"
+          placeholder="Digite sua dúvida…"
+          rows="1"
+          class="flex-1 resize-none rounded-xl border border-slate-300 dark:border-slate-600
+                 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100
+                 text-sm px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-violet-400
+                 max-h-24 overflow-y-auto"
+          onkeydown="tutorKeydown(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button onclick="enviarPergunta()"
+          id="tutor-send-btn"
+          class="flex-shrink-0 w-10 h-10 rounded-xl bg-violet-600 hover:bg-violet-700
+                 text-white flex items-center justify-center transition-colors
+                 disabled:opacity-40 disabled:cursor-not-allowed">
+          <span class="material-symbols-outlined text-lg" id="tutor-send-icon">send</span>
+        </button>
+      </div>
+      {% if questao %}
+      <p class="text-xs text-slate-400 mt-1 ml-1">
+        <span class="material-symbols-outlined text-xs align-middle">bolt</span>
+        Contextualizado com a questão atual
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+const TUTOR_QUESTAO_ID = {% if questao %}{{ questao.id }}{% else %}null{% endif %};
+const TUTOR_URL = '{% url "api_tutor_ia" %}';
+
+function abrirTutor() {
+  const modal = document.getElementById('tutor-modal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  setTimeout(() => document.getElementById('tutor-input').focus(), 100);
+}
+function fecharTutor() {
+  const modal = document.getElementById('tutor-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+function tutorKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    enviarPergunta();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 96) + 'px';
+}
+
+function adicionarMsg(texto, tipo) {
+  const msgs = document.getElementById('tutor-msgs');
+  const isBot = tipo === 'bot';
+  const div = document.createElement('div');
+  div.className = 'flex gap-2' + (isBot ? '' : ' justify-end');
+
+  if (isBot) {
+    div.innerHTML = `
+      <div class="w-7 h-7 rounded-full bg-violet-100 flex-shrink-0 flex items-center justify-center mt-0.5">
+        <span class="material-symbols-outlined text-violet-600 text-sm">smart_toy</span>
+      </div>
+      <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%]">
+        <p class="text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap">${escapeHtml(texto)}</p>
+      </div>`;
+  } else {
+    div.innerHTML = `
+      <div class="bg-violet-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%]">
+        <p class="text-sm whitespace-pre-wrap">${escapeHtml(texto)}</p>
+      </div>`;
+  }
+
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function enviarPergunta() {
+  const input = document.getElementById('tutor-input');
+  const btn   = document.getElementById('tutor-send-btn');
+  const icon  = document.getElementById('tutor-send-icon');
+  const pergunta = input.value.trim();
+  if (!pergunta) return;
+
+  adicionarMsg(pergunta, 'user');
+  input.value = '';
+  input.style.height = 'auto';
+
+  btn.disabled = true;
+  icon.textContent = 'hourglass_empty';
+
+  // Indicador de digitação
+  const typingId = 'typing-' + Date.now();
+  const typingDiv = document.createElement('div');
+  typingDiv.id = typingId;
+  typingDiv.className = 'flex gap-2';
+  typingDiv.innerHTML = `
+    <div class="w-7 h-7 rounded-full bg-violet-100 flex-shrink-0 flex items-center justify-center mt-0.5">
+      <span class="material-symbols-outlined text-violet-600 text-sm">smart_toy</span>
+    </div>
+    <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-2.5">
+      <div class="flex gap-1 items-center h-5">
+        <span class="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style="animation-delay:0ms"></span>
+        <span class="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style="animation-delay:150ms"></span>
+        <span class="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style="animation-delay:300ms"></span>
+      </div>
+    </div>`;
+  document.getElementById('tutor-msgs').appendChild(typingDiv);
+  document.getElementById('tutor-msgs').scrollTop = 99999;
+
+  try {
+    const resp = await fetch(TUTOR_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '',
+      },
+      body: JSON.stringify({ pergunta, questao_id: TUTOR_QUESTAO_ID }),
+    });
+    const data = await resp.json();
+    document.getElementById(typingId)?.remove();
+    adicionarMsg(data.resposta || data.erro || 'Erro desconhecido.', 'bot');
+  } catch(e) {
+    document.getElementById(typingId)?.remove();
+    adicionarMsg('Erro de conexão. Tente novamente.', 'bot');
+  } finally {
+    btn.disabled = false;
+    icon.textContent = 'send';
+    input.focus();
+  }
+}
+</script>

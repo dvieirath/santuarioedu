@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Performance comparativa — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'analytics' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">compare_arrows</span>
+      Você vs. plataforma
+    </h1>
+    <p class="text-xs text-on-surface-variant">Comparação anônima com {{ total_usuarios }} usuário{{ total_usuarios|pluralize:"s" }}</p>
+  </div>
+</nav>
+
+<div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-6">
+
+  <div class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-container rounded-2xl p-7 text-white shadow-xl fade-in">
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image:radial-gradient(circle at 80% 20%, #aec7f6 0%, transparent 60%)"></div>
+    <div class="relative z-10 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+
+      <div class="shrink-0 w-28 h-28 relative">
+        <svg viewBox="0 0 100 100" class="w-full h-full">
+          <path d="M 10 70 A 40 40 0 0 1 90 70" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="10" stroke-linecap="round"/>
+          {% with dash=percentil|floatformat:0 %}
+          <path d="M 10 70 A 40 40 0 0 1 90 70" fill="none" stroke="#aec7f6" stroke-width="10" stroke-linecap="round" stroke-dasharray="{{ dash }} 100" pathLength="100"/>
+          {% endwith %}
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-end pb-2">
+          <span class="font-serif text-2xl font-bold leading-none">{{ percentil }}%</span>
+          <span class="text-[9px] text-white/50">percentil</span>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <h2 class="font-serif text-2xl font-bold mb-1">
+          {% if percentil >= 80 %}🏆 Top {{ percentil|floatformat:"0" }}%
+          {% elif percentil >= 60 %}⭐ Acima da média
+          {% elif percentil >= 40 %}📊 Na média
+          {% else %}📚 Abaixo da média{% endif %}
+        </h2>
+        <p class="text-white/70 text-sm mb-3">
+          Você está acima de <strong class="text-secondary-fixed">{{ percentil }}%</strong> dos usuários.
+        </p>
+        <div class="flex gap-4 flex-wrap justify-center sm:justify-start">
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <div class="font-serif text-lg font-bold text-secondary-fixed">{{ aprov_user }}%</div>
+            <div class="text-[10px] text-white/50">Seu aproveitamento</div>
+          </div>
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <div class="font-serif text-lg font-bold text-white/70">{{ aprov_plat }}%</div>
+            <div class="text-[10px] text-white/50">Média da plataforma</div>
+          </div>
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <div class="font-serif text-lg font-bold text-secondary-fixed">{{ total_user }}</div>
+            <div class="text-[10px] text-white/50">Questões respondidas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if comparativo %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <h2 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">bar_chart</span>
+        Aproveitamento por disciplina
+      </h2>
+      <p class="text-xs text-on-surface-variant mt-0.5">Navy = você · Cinza = média da plataforma</p>
+    </div>
+    <div class="p-5">
+      <canvas id="compare-chart" height="260"></canvas>
+    </div>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <h2 class="font-serif text-lg font-semibold text-primary">Diferença por disciplina</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for c in comparativo %}
+      <div class="px-5 py-3 flex items-center gap-3">
+        <span class="text-base shrink-0">
+          {% if c.diff >= 10 %}🚀{% elif c.diff >= 0 %}✅{% elif c.diff >= -10 %}⚠️{% else %}🔴{% endif %}
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">{{ c.categoria }}</p>
+          <div class="flex items-center gap-3 mt-1">
+            <div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden relative">
+              <div class="absolute inset-y-0 left-0 bg-outline-variant rounded-full" style="width:{{ c.plat }}%"></div>
+              <div class="absolute inset-y-0 left-0 rounded-full opacity-80 {% if c.user >= c.plat %}bg-primary{% else %}bg-error{% endif %}" style="width:{{ c.user }}%"></div>
+            </div>
+          </div>
+          <div class="flex gap-3 text-[10px] mt-0.5">
+            <span class="text-primary font-bold">Você: {{ c.user }}%</span>
+            <span class="text-on-surface-variant">Plat: {{ c.plat }}%</span>
+            <span class="font-bold {% if c.diff >= 0 %}text-secondary{% else %}text-error{% endif %}">{% if c.diff >= 0 %}+{% endif %}{{ c.diff }}pp</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="paper-card rounded-2xl p-10 text-center">
+    <span class="material-symbols-outlined text-outline-variant block mb-3" style="font-size:48px;">compare_arrows</span>
+    <p class="font-serif text-lg font-semibold text-primary mb-2">Dados insuficientes</p>
+    <p class="text-xs text-on-surface-variant">Responda pelo menos 2 questões por disciplina para ver a comparação.</p>
+    <a href="{% url 'iniciar_quiz' %}?modo=todas" class="mt-4 inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">Estudar agora</a>
+  </div>
+  {% endif %}
+
+  {% if comparativo %}
+  <div class="paper-card rounded-2xl p-5" style="background:rgba(251,191,36,.08); border-color:rgba(251,191,36,.3);">
+    <h2 class="font-serif text-lg font-semibold text-amber-700 mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined active-icon" style="font-size:20px;">tips_and_updates</span>
+      Recomendações
+    </h2>
+    <ul class="space-y-2 text-sm text-amber-800">
+      {% for c in comparativo|slice:":3" %}
+      {% if c.diff < 0 %}
+      <li class="flex items-start gap-2">
+        <span class="text-amber-500 mt-0.5">•</span>
+        Estude mais <strong>{{ c.categoria }}</strong> — você está abaixo da média
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% for c in comparativo reversed %}
+      {% if c.diff >= 10 %}
+      <li class="flex items-start gap-2">
+        <span class="text-secondary mt-0.5">•</span>
+        <strong>{{ c.categoria }}</strong> é seu ponto forte (+{{ c.diff }}pp acima da média)
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+{% if comparativo %}
+const labels = [{% for c in comparativo %}'{{ c.categoria|truncatechars:20 }}',{% endfor %}];
+const user = [{% for c in comparativo %}{{ c.user }},{% endfor %}];
+const plat = [{% for c in comparativo %}{{ c.plat }},{% endfor %}];
+const gridColor = 'rgba(0,0,0,0.06)';
+const labelColor = '#44474e';
+
+new Chart(document.getElementById('compare-chart'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Você', data: user, backgroundColor: '#002046', borderRadius: 6 },
+      { label: 'Plataforma', data: plat, backgroundColor: '#c4c6cf', borderRadius: 6 },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: labelColor, font: { family: 'Inter', size: 11 }, boxWidth: 12 } },
+      tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}%` } },
+    },
+    scales: {
+      y: { min: 0, max: 100, grid: { color: gridColor }, ticks: { color: labelColor, callback: v => v + '%' } },
+      x: { grid: { display: false }, ticks: { color: labelColor, font: { size: 9 }, maxRotation: 35 } },
+    },
+  },
+});
+{% endif %}
+</script>
+</body>
+</html>

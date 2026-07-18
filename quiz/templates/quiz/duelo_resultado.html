@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Resultado do duelo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  @keyframes pop-in { 0%{transform:scale(.5);opacity:0} 70%{transform:scale(1.15)} 100%{transform:scale(1);opacity:1} }
+  .pop-in { animation: pop-in .5s cubic-bezier(.34,1.56,.64,1) forwards; }
+  @keyframes confetti-fall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+</style>
+</head>
+<body>
+
+{% if resultado == 'vitoria' %}
+<div id="confetti-container" class="fixed inset-0 pointer-events-none overflow-hidden z-50"></div>
+{% endif %}
+
+<nav class="sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3">
+  <a href="{% url 'duelo_home' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <h1 class="font-serif text-lg font-semibold text-primary flex-1">⚔️ Resultado do duelo</h1>
+</nav>
+
+<div class="max-w-2xl mx-auto px-6 py-8 space-y-6">
+
+  <div class="rounded-2xl p-8 text-white text-center shadow-2xl
+    {% if resultado == 'vitoria' %}bg-gradient-to-br from-secondary to-[#004d38]
+    {% elif resultado == 'derrota' %}bg-gradient-to-br from-error to-[#8b1e1e]
+    {% else %}bg-gradient-to-br from-amber-500 to-orange-600{% endif %}">
+    <div class="pop-in inline-block">
+      <span class="text-8xl leading-none">
+        {% if resultado == 'vitoria' %}🏆{% elif resultado == 'derrota' %}💀{% else %}🤝{% endif %}
+      </span>
+    </div>
+    <h2 class="font-serif text-4xl font-bold mt-4">
+      {% if resultado == 'vitoria' %}Vitória!{% elif resultado == 'derrota' %}Derrota{% else %}Empate!{% endif %}
+    </h2>
+    <p class="text-white/80 text-sm mt-1">
+      {% if resultado == 'vitoria' %}Você venceu o duelo!
+      {% elif resultado == 'derrota' %}Tente novamente — você vai melhorar!
+      {% else %}Um ponto cada — joguem de novo!{% endif %}
+    </p>
+
+    <div class="flex items-center justify-center gap-6 mt-6">
+      <div class="text-center">
+        <p class="font-serif text-5xl font-bold">{{ meus_pts }}</p>
+        <p class="text-white/70 text-xs mt-1">{{ request.user.username }}</p>
+      </div>
+      <div class="text-white/50 font-serif font-bold text-3xl">×</div>
+      <div class="text-center">
+        <p class="font-serif text-5xl font-bold">{{ pts_oponente }}</p>
+        <p class="text-white/70 text-xs mt-1">{{ oponente.username|default:"?" }}</p>
+      </div>
+    </div>
+
+    <p class="text-white/60 text-xs mt-4">{{ total }} questões · {{ duelo.categoria.nome|default:"Todas as disciplinas" }}</p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <a href="{% url 'duelo_home' %}" class="flex items-center justify-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm py-3 rounded-lg transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:18px;">replay</span>
+      Novo duelo
+    </a>
+    <a href="{% url 'duelo_home' %}" class="flex items-center justify-center gap-2 bg-white border border-[#e5e1d8] hover:bg-surface-container-low text-on-surface font-semibold text-sm py-3 rounded-lg transition-colors">
+      <span class="material-symbols-outlined" style="font-size:18px;">home</span>
+      Início
+    </a>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <h2 class="font-serif font-semibold text-base text-primary flex items-center gap-2">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:18px;">fact_check</span>
+        Gabarito questão a questão
+      </h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for d in detalhes %}
+      <div class="px-4 py-3">
+        <div class="flex items-start gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold
+            {% if d.minha_resp and d.minha_resp.acertou %}bg-secondary-container text-on-secondary-container
+            {% else %}bg-error-container/60 text-on-error-container{% endif %}">{{ d.numero }}</span>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">{{ d.questao.enunciado|truncatechars:120 }}</p>
+            <div class="flex items-center gap-4 mt-2 text-xs">
+              <span class="flex items-center gap-1">
+                <span class="font-semibold text-on-surface-variant">Você:</span>
+                {% if d.minha_resp %}
+                  {% if d.minha_resp.acertou %}
+                  <span class="text-secondary font-bold flex items-center gap-0.5">
+                    <span class="material-symbols-outlined active-icon" style="font-size:14px;">check_circle</span>Acertou
+                  </span>
+                  {% else %}
+                  <span class="text-error font-bold flex items-center gap-0.5">
+                    <span class="material-symbols-outlined active-icon" style="font-size:14px;">cancel</span>Errou
+                  </span>
+                  {% endif %}
+                {% else %}<span class="text-on-surface-variant">Não respondeu</span>{% endif %}
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="font-semibold text-on-surface-variant">{{ oponente.username|default:"?" }}:</span>
+                {% if d.resp_oponente %}
+                  {% if d.resp_oponente.acertou %}
+                  <span class="text-secondary font-bold flex items-center gap-0.5">
+                    <span class="material-symbols-outlined active-icon" style="font-size:14px;">check_circle</span>Acertou
+                  </span>
+                  {% else %}
+                  <span class="text-error font-bold flex items-center gap-0.5">
+                    <span class="material-symbols-outlined active-icon" style="font-size:14px;">cancel</span>Errou
+                  </span>
+                  {% endif %}
+                {% else %}<span class="text-on-surface-variant">—</span>{% endif %}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{% if resultado == 'vitoria' %}
+<script>
+const container = document.getElementById('confetti-container');
+const colors = ['#002046','#006c4d','#f59e0b','#ba1a1a','#aec7f6','#9df4cc'];
+for (let i = 0; i < 60; i++) {
+  const el = document.createElement('div');
+  const size = 6 + Math.random() * 8;
+  el.style.cssText = `position:absolute;left:${Math.random()*100}%;top:-10px;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'2px'};animation:confetti-fall ${2+Math.random()*3}s ${Math.random()*2}s linear forwards;opacity:0;`;
+  container.appendChild(el);
+}
+</script>
+{% endif %}
+
+</body>
+</html>

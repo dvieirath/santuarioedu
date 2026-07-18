@@ -1,0 +1,545 @@
+/* ═════════════════════════════════════════════════════════════════════
+   SantuarioEdu — Tema do Painel Admin
+   Design alinhado com a aplicação (primary #002046, Manrope/Inter)
+   ═════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1');
+
+:root {
+  --primary: #002046;
+  --primary-container: #1b365d;
+  --on-primary: #ffffff;
+  --on-primary-container: #87a0cd;
+  --secondary: #006c4d;
+  --secondary-container: #86f8c8;
+  --tertiary: #35b0a3;
+  --surface: #f8f9fa;
+  --surface-container: #edeeef;
+  --surface-container-low: #f3f4f5;
+  --surface-container-high: #e7e8e9;
+  --on-surface: #191c1d;
+  --on-surface-variant: #44474e;
+  --outline: #74777f;
+  --outline-variant: #c4c6cf;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --violet: #7c3aed;
+  --violet-container: #ede9fe;
+  --amber-container: #fef3c7;
+  --amber-on: #92400e;
+  --green-container: #dcfce7;
+  --green-on: #166534;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  background: var(--surface) !important;
+  color: var(--on-surface);
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, .font-headline {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+}
+
+a:link, a:visited { color: var(--secondary); }
+a:hover { color: var(--primary); }
+
+/* ── Header ───────────────────────────────────────────────────────── */
+#header {
+  background: var(--primary) !important;
+  color: var(--on-primary) !important;
+  padding: 14px 32px !important;
+  border-bottom: none;
+  box-shadow: 0 4px 16px rgba(0, 32, 70, 0.18);
+}
+
+#branding h1 {
+  color: #fff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  font-size: 16px !important;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#branding h1::before {
+  content: '⚑';
+  font-size: 22px;
+  color: var(--secondary-container);
+}
+
+#branding h1 a:link, #branding h1 a:visited {
+  color: #fff !important;
+}
+
+#user-tools {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500;
+  color: var(--on-primary-container) !important;
+}
+#user-tools a {
+  color: var(--secondary-container) !important;
+  border-bottom: 1px dashed transparent;
+}
+#user-tools a:hover {
+  border-bottom-color: var(--secondary-container);
+}
+
+/* ── Breadcrumbs ──────────────────────────────────────────────────── */
+div.breadcrumbs {
+  background: #fff !important;
+  color: var(--on-surface-variant) !important;
+  border-bottom: 1px solid var(--surface-container) !important;
+  padding: 14px 32px !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+div.breadcrumbs a {
+  color: var(--secondary) !important;
+}
+
+/* ── Container ────────────────────────────────────────────────────── */
+#content {
+  padding: 28px 32px !important;
+  background: var(--surface);
+}
+
+#content-main {
+  max-width: 1400px;
+}
+
+/* ── Módulos / Caixas ─────────────────────────────────────────────── */
+.module {
+  background: #fff !important;
+  border: 1px solid var(--surface-container) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(25, 28, 29, 0.04);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.module h2, .module caption, .inline-group h2 {
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 18px !important;
+  border-bottom: 1px solid var(--primary-container) !important;
+}
+
+.module h3 {
+  color: var(--primary);
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 14px;
+  padding: 8px 18px;
+}
+
+/* ── Dashboard (lista de apps) ────────────────────────────────────── */
+#content-main .module table {
+  width: 100%;
+}
+#content-main .module table tr th,
+#content-main .module table tr td {
+  padding: 12px 18px !important;
+  border-bottom: 1px solid var(--surface-container) !important;
+}
+#content-main .module tr:last-child th,
+#content-main .module tr:last-child td {
+  border-bottom: none !important;
+}
+
+#content-main .module table tr a {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.app-quiz .module h2,
+.app-auth .module h2,
+.app-axes .module h2,
+.app-account .module h2 {
+  background: var(--primary) !important;
+}
+
+/* Coluna "Adicionar" / "Modificar" no dashboard */
+.addlink, .changelink, .viewlink, .deletelink {
+  background: var(--surface-container-low) !important;
+  color: var(--secondary) !important;
+  padding: 4px 12px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+.addlink:hover, .changelink:hover {
+  background: var(--secondary-container) !important;
+  color: var(--secondary) !important;
+}
+
+/* ── Tabelas / Listas ─────────────────────────────────────────────── */
+#changelist table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+}
+
+#changelist table thead th {
+  background: var(--surface-container-low) !important;
+  color: var(--primary) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 14px !important;
+  border-bottom: 2px solid var(--surface-container) !important;
+}
+
+#changelist table thead th a:link, #changelist table thead th a:visited {
+  color: var(--primary) !important;
+}
+
+#changelist table tbody tr td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--surface-container) !important;
+  font-size: 13px;
+  color: var(--on-surface);
+}
+
+#changelist table tbody tr:hover {
+  background: var(--surface-container-low) !important;
+}
+
+#changelist table tbody tr.row1,
+#changelist table tbody tr.row2 {
+  background: transparent !important;
+}
+
+/* ── Filtros laterais ─────────────────────────────────────────────── */
+#changelist-filter {
+  background: #fff !important;
+  border: 1px solid var(--surface-container) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(25, 28, 29, 0.04);
+  padding: 0 !important;
+  margin-left: 16px !important;
+  font-size: 12px;
+  width: 240px;
+}
+
+#changelist-filter h2 {
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-family: 'Manrope', sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px !important;
+  border-radius: 16px 16px 0 0 !important;
+  font-size: 12px !important;
+}
+
+#changelist-filter h3 {
+  font-family: 'Manrope', sans-serif !important;
+  color: var(--on-surface-variant) !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 16px 6px !important;
+  border-top: 1px solid var(--surface-container);
+  margin: 0;
+}
+
+#changelist-filter h3:first-of-type { border-top: none; }
+
+#changelist-filter ul {
+  padding: 0 16px 12px !important;
+  margin: 0;
+}
+
+#changelist-filter li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#changelist-filter li a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--on-surface-variant) !important;
+  font-weight: 500;
+}
+
+#changelist-filter li a:hover {
+  background: var(--surface-container-low);
+  color: var(--primary) !important;
+}
+
+#changelist-filter li.selected a {
+  background: var(--secondary-container) !important;
+  color: var(--secondary) !important;
+  font-weight: 700;
+}
+
+/* ── Botões ───────────────────────────────────────────────────────── */
+.button, input[type=submit], input[type=button],
+.submit-row input, a.button {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 10px 22px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: none !important;
+  letter-spacing: 0;
+  box-shadow: 0 2px 8px rgba(0, 32, 70, 0.15);
+}
+
+.button:hover, input[type=submit]:hover {
+  background: var(--primary-container) !important;
+  box-shadow: 0 4px 14px rgba(0, 32, 70, 0.22);
+}
+
+.button.default, input[type=submit].default {
+  background: var(--secondary) !important;
+}
+.button.default:hover, input[type=submit].default:hover {
+  background: #005a40 !important;
+}
+
+a.deletelink, .deletelink-box a {
+  background: var(--error) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 10px 22px !important;
+}
+a.deletelink:hover { background: #93000a !important; }
+
+/* ── Botão "Adicionar" no topo ────────────────────────────────────── */
+.object-tools a {
+  background: var(--secondary) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+.object-tools a:hover {
+  background: #005a40 !important;
+}
+
+/* ── Formulários ──────────────────────────────────────────────────── */
+.form-row {
+  padding: 14px 18px !important;
+  border-bottom: 1px solid var(--surface-container);
+}
+
+.form-row label, .aligned label {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--primary) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+input[type=text], input[type=email], input[type=password],
+input[type=number], input[type=url], input[type=search],
+textarea, select {
+  border: 1px solid var(--outline-variant) !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  background: #fff !important;
+  color: var(--on-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input[type=text]:focus, input[type=email]:focus,
+input[type=password]:focus, textarea:focus, select:focus {
+  outline: none !important;
+  border-color: var(--secondary) !important;
+  box-shadow: 0 0 0 3px var(--secondary-container) !important;
+}
+
+/* Help text */
+.help, p.help, .help-tooltip {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--on-surface-variant) !important;
+  font-size: 11px !important;
+  padding-top: 4px;
+}
+
+/* Submit row */
+.submit-row {
+  background: var(--surface-container-low) !important;
+  border-top: 1px solid var(--surface-container) !important;
+  padding: 16px 20px !important;
+  display: flex;
+  gap: 8px;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Inlines (alternativas) */
+.inline-group {
+  background: #fff !important;
+  border: 1px solid var(--surface-container) !important;
+  border-radius: 16px !important;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.inline-related {
+  border: none !important;
+  border-bottom: 1px solid var(--surface-container) !important;
+}
+
+.inline-related h3 {
+  background: var(--surface-container-low) !important;
+  color: var(--primary) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 12px !important;
+  padding: 8px 18px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Messages (success/warning/error) ─────────────────────────────── */
+ul.messagelist li {
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  margin: 0 0 12px 0 !important;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ul.messagelist li.success {
+  background: var(--green-container) !important;
+  color: var(--green-on) !important;
+  border: 1px solid #86efac !important;
+}
+ul.messagelist li.warning {
+  background: var(--amber-container) !important;
+  color: var(--amber-on) !important;
+  border: 1px solid #fbbf24 !important;
+}
+ul.messagelist li.error {
+  background: var(--error-container) !important;
+  color: var(--on-error-container) !important;
+  border: 1px solid #fca5a5 !important;
+}
+ul.messagelist li.info {
+  background: var(--violet-container) !important;
+  color: var(--violet) !important;
+  border: 1px solid #c4b5fd !important;
+}
+
+/* ── Pagination ───────────────────────────────────────────────────── */
+.paginator {
+  padding: 14px 0 !important;
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  border-top: 1px solid var(--surface-container);
+}
+.paginator a, .paginator .this-page {
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  margin: 0 2px;
+}
+.paginator .this-page {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+.paginator a {
+  background: var(--surface-container-low) !important;
+  color: var(--primary) !important;
+  border: none !important;
+}
+.paginator a:hover { background: var(--surface-container-high) !important; }
+
+/* ── Actions select ───────────────────────────────────────────────── */
+#changelist .actions {
+  background: var(--surface-container-low) !important;
+  padding: 12px 16px !important;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid var(--surface-container);
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+#changelist .actions select {
+  margin-right: 8px;
+}
+
+/* ── Login screen ─────────────────────────────────────────────────── */
+body.login {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+body.login #container {
+  background: #fff;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+body.login #header {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 0 24px !important;
+  text-align: center;
+}
+body.login #branding h1 {
+  color: var(--primary) !important;
+  justify-content: center;
+  font-size: 18px !important;
+}
+body.login #branding h1::before { color: var(--primary); }
+body.login #user-tools { display: none; }
+body.login .submit-row {
+  border-radius: 12px;
+  background: transparent !important;
+  border-top: none !important;
+  padding: 0 !important;
+  margin-top: 16px;
+}
+body.login .submit-row input {
+  width: 100%;
+}
+
+/* ── Scrollbar fina ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--surface-container-low); }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--outline); }
+
+/* ── Help footer ─────────────────────────────────────────────────── */
+#footer { display: none; }

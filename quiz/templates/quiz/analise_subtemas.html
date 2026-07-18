@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Análise por subtema — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">analytics</span>
+  <div>
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none">Análise por subtema</h1>
+    <p class="text-[11px] text-on-surface-variant">Onde você está fraco, no detalhe</p>
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 space-y-8">
+
+    <section class="pt-4 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Granularidade total</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Não é só "Constitucional"</h2>
+      <p class="text-on-surface-variant max-w-2xl leading-relaxed">
+        Ver disciplina é fácil. A gente quebra por <strong class="text-on-surface">tópico</strong> — Controle de Constitucionalidade, Direitos Fundamentais… — pra mostrar exatamente onde focar.
+      </p>
+    </section>
+
+    {% if not dados %}
+    <div class="paper-card rounded-2xl p-8 text-center" style="background:linear-gradient(135deg, rgba(214,227,255,.4), rgba(157,244,204,.15));">
+      <div class="w-14 h-14 mx-auto mb-3 rounded-xl bg-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:28px;">insights</span>
+      </div>
+      <p class="font-serif text-xl font-semibold text-primary mb-1">Sem dados ainda</p>
+      <p class="text-xs text-on-surface-variant mb-4 max-w-sm mx-auto leading-relaxed">
+        Responda questões com <strong>assunto definido</strong> e a gente quebra o resultado por tópico aqui.
+      </p>
+      <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-container text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">Responder questões</a>
+    </div>
+    {% else %}
+
+    {% if fracos %}
+    <section>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-error active-icon" style="font-size:20px;">trending_down</span>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline">Foque aqui ({{ fracos|length }} pontos fracos)</h3>
+      </div>
+      <p class="text-xs text-on-surface-variant mb-4">Tópicos com menos de 60% de acerto. Comece por aqui.</p>
+      <div class="space-y-2.5">
+        {% for f in fracos %}
+        <div class="paper-card rounded-2xl p-4 border-error/30">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <div class="flex-1 min-w-0">
+              <p class="text-[10px] uppercase tracking-wider font-bold text-error mb-0.5">{{ f.categoria }}</p>
+              <p class="font-serif text-base font-semibold text-primary">{{ f.assunto }}</p>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="font-serif text-2xl font-bold text-error">{{ f.pct }}%</p>
+              <p class="text-[10px] text-on-surface-variant">{{ f.acertos }}/{{ f.total }}</p>
+            </div>
+          </div>
+          <div class="h-1.5 bg-error-container/40 rounded-full overflow-hidden">
+            <div class="h-full bg-error rounded-full transition-all" style="width:{{ f.pct }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if fortes %}
+    <section>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:20px;">trending_up</span>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-outline">Domínio sólido ({{ fortes|length }} pontos fortes)</h3>
+      </div>
+      <p class="text-xs text-on-surface-variant mb-4">Tópicos com 75%+ de acerto. Mantenha com revisão espaçada.</p>
+      <div class="space-y-2.5">
+        {% for f in fortes %}
+        <div class="paper-card rounded-2xl p-4 border-secondary/30">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <div class="flex-1 min-w-0">
+              <p class="text-[10px] uppercase tracking-wider font-bold text-secondary mb-0.5">{{ f.categoria }}</p>
+              <p class="font-serif text-base font-semibold text-primary">{{ f.assunto }}</p>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="font-serif text-2xl font-bold text-secondary">{{ f.pct }}%</p>
+              <p class="text-[10px] text-on-surface-variant">{{ f.acertos }}/{{ f.total }}</p>
+            </div>
+          </div>
+          <div class="h-1.5 bg-secondary-container/50 rounded-full overflow-hidden">
+            <div class="h-full bg-secondary rounded-full transition-all" style="width:{{ f.pct }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Lista completa ({{ total_subtemas }} subtemas)</h3>
+      <div class="paper-card rounded-2xl overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-surface-container-low">
+            <tr>
+              <th class="text-left p-3 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Disciplina</th>
+              <th class="text-left p-3 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Tópico</th>
+              <th class="text-center p-3 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Resp.</th>
+              <th class="text-center p-3 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Acerto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in dados %}
+            <tr class="border-t border-[#e5e1d8] hover:bg-surface-container-low transition-colors">
+              <td class="p-3 text-[11px] text-on-surface-variant">{{ d.categoria }}</td>
+              <td class="p-3 text-xs text-on-surface font-medium">{{ d.assunto }}</td>
+              <td class="p-3 text-center text-xs text-on-surface">{{ d.total }}</td>
+              <td class="p-3 text-center">
+                <span class="text-xs font-bold {% if d.cor == 'emerald' %}text-secondary{% elif d.cor == 'amber' %}text-amber-600{% else %}text-error{% endif %}">{{ d.pct }}%</span>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {% endif %}
+  </div>
+</main>
+
+{% include "includes/suporte_fab.html" %}
+
+</body>
+</html>

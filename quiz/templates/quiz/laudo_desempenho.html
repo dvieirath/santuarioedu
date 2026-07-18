@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Laudo de desempenho — Simulado #{{ simulado.id }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+  @media print {
+    nav, .no-print { display: none !important; }
+    body { background: white !important; }
+    .print-break { page-break-before: always; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='simulados' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 lg:px-10 h-16 flex items-center gap-3 no-print">
+  <a href="{% url 'simulado_resultado' simulado.id %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary">📋 Laudo de desempenho</h1>
+    <p class="text-xs text-on-surface-variant">Simulado #{{ simulado.id }}
+      {% if simulado.modo == 'prova_real' %} · <span class="text-error font-bold">Modo prova real</span>{% endif %}
+    </p>
+  </div>
+  <button onclick="window.print()" class="flex items-center gap-1.5 text-xs font-semibold text-on-surface border border-[#e5e1d8] bg-white px-3 py-1.5 rounded-lg hover:bg-surface-container-low transition-colors">
+    <span class="material-symbols-outlined" style="font-size:14px;">print</span>
+    Imprimir
+  </button>
+</nav>
+
+<div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-6">
+
+  <div class="paper-card rounded-2xl p-6 fade-in">
+    <div class="flex items-start justify-between">
+      <div>
+        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">SantuarioEdu — Laudo de desempenho</p>
+        <h2 class="font-serif text-3xl font-bold text-primary">{{ request.user.get_full_name|default:request.user.username }}</h2>
+        <p class="text-sm text-on-surface-variant mt-1">
+          {{ simulado.finalizado_em|date:"d \d\e F \d\e Y, H:i" }} · Simulado #{{ simulado.id }}
+          {% if simulado.modo == 'prova_real' %}· <span class="font-bold text-error">Prova real</span>{% endif %}
+        </p>
+      </div>
+      {% if aprovado_simulado %}
+      <div class="flex flex-col items-center justify-center w-24 h-24 rounded-xl bg-secondary-container border-2 border-secondary/50 text-center">
+        <span class="material-symbols-outlined text-secondary active-icon" style="font-size:28px;">verified</span>
+        <p class="text-xs font-bold text-secondary leading-tight mt-1">APROVADO</p>
+        <p class="text-[10px] text-on-secondary-container">na simulação</p>
+      </div>
+      {% else %}
+      <div class="flex flex-col items-center justify-center w-24 h-24 rounded-xl bg-error-container/60 border-2 border-error/40 text-center">
+        <span class="material-symbols-outlined text-error active-icon" style="font-size:28px;">cancel</span>
+        <p class="text-xs font-bold text-error leading-tight mt-1">REPROVADO</p>
+        <p class="text-[10px] text-on-error-container">na simulação</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-3xl font-bold {% if aprov >= 70 %}text-secondary{% elif aprov >= 55 %}text-amber-600{% else %}text-error{% endif %}">{{ aprov|floatformat:1 }}%</p>
+      <p class="text-xs text-on-surface-variant mt-1">Aproveitamento</p>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-3xl font-bold text-secondary">{{ acertos }}</p>
+      <p class="text-xs text-on-surface-variant mt-1">Acertos</p>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-3xl font-bold text-error">{{ erros }}</p>
+      <p class="text-xs text-on-surface-variant mt-1">Erros</p>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-3xl font-bold text-on-surface">{{ total }}</p>
+      <p class="text-xs text-on-surface-variant mt-1">Questões</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3">
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-xl font-bold text-primary">Top {{ percentil }}%</p>
+      <p class="text-xs text-on-surface-variant mt-1">Percentil estimado</p>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-xl font-bold text-on-surface">{{ tempo_fmt }}</p>
+      <p class="text-xs text-on-surface-variant mt-1">Tempo gasto</p>
+    </div>
+    <div class="paper-card rounded-xl p-4 text-center">
+      <p class="font-serif text-xl font-bold text-on-surface-variant">{{ em_branco }}</p>
+      <p class="text-xs text-on-surface-variant mt-1">Em branco</p>
+    </div>
+  </div>
+
+  {% if nota_ce is not None %}
+  <div class="paper-card rounded-xl p-4 flex items-center gap-3" style="background:rgba(214,227,255,.4); border-color:rgba(0,32,70,.2);">
+    <span class="material-symbols-outlined text-primary" style="font-size:24px;">calculate</span>
+    <div>
+      <p class="text-sm font-semibold text-primary">Pontuação CESPE (Certo/Errado)</p>
+      <p class="text-xs text-primary-container">Acerto +1 · Erro −0,5 · Branco 0 → <strong>{{ nota_ce }} pontos</strong></p>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="paper-card rounded-2xl p-5">
+    <h2 class="font-serif text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:20px;">bar_chart</span>
+      Desempenho por disciplina
+    </h2>
+    <div style="height:{{ cats_list|length|add:2 }}0px; max-height:360px;">
+      <canvas id="grafico-cats"></canvas>
+    </div>
+  </div>
+
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <h2 class="font-serif text-lg font-semibold text-primary">Análise detalhada por disciplina</h2>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for cat in cats_list reversed %}
+      <div class="px-5 py-3">
+        <div class="flex items-center justify-between mb-1.5">
+          <div class="flex items-center gap-2 min-w-0">
+            {% if cat.pct >= 70 %}
+            <span class="material-symbols-outlined text-secondary active-icon shrink-0" style="font-size:18px;">check_circle</span>
+            {% elif cat.pct >= 50 %}
+            <span class="material-symbols-outlined text-amber-500 active-icon shrink-0" style="font-size:18px;">warning</span>
+            {% else %}
+            <span class="material-symbols-outlined text-error active-icon shrink-0" style="font-size:18px;">cancel</span>
+            {% endif %}
+            <p class="text-sm font-medium truncate text-on-surface">{{ cat.nome }}</p>
+            {% if cat.pct < 50 and cat.total >= 3 %}
+            <span class="shrink-0 text-[9px] bg-error-container/60 text-on-error-container font-bold px-1.5 py-0.5 rounded-full">eliminatória</span>
+            {% endif %}
+          </div>
+          <span class="font-bold text-sm shrink-0 ml-3 {% if cat.pct >= 70 %}text-secondary{% elif cat.pct >= 50 %}text-amber-600{% else %}text-error{% endif %}">{{ cat.pct }}%</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="flex-1 bg-surface-container rounded-full h-1.5">
+            <div class="h-1.5 rounded-full {% if cat.pct >= 70 %}bg-secondary{% elif cat.pct >= 50 %}bg-amber-400{% else %}bg-error{% endif %}" style="width:{{ cat.pct }}%"></div>
+          </div>
+          <p class="text-xs text-on-surface-variant shrink-0 w-32 text-right">
+            {{ cat.acertos }}✓ {{ cat.erros }}✗
+            {% if cat.branco %}<span class="text-outline">{{ cat.branco }}—</span>{% endif %} / {{ cat.total }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if cats_eliminatorias %}
+  <div class="paper-card rounded-2xl p-5" style="background:rgba(255,218,214,.3); border-color:rgba(186,26,26,.3);">
+    <h2 class="font-serif text-lg font-semibold text-error mb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined text-error active-icon" style="font-size:20px;">emergency</span>
+      Disciplinas eliminatórias — atenção máxima
+    </h2>
+    <div class="space-y-2">
+      {% for cat in cats_eliminatorias %}
+      <div class="flex items-center justify-between text-sm">
+        <span class="font-semibold text-on-error-container">{{ cat.nome }}</span>
+        <div class="flex items-center gap-3">
+          <span class="text-error font-bold">{{ cat.pct }}%</span>
+          <a href="{% url 'iniciar_quiz' %}?categoria={{ cat.nome|urlencode }}" class="text-xs font-bold text-white bg-error hover:opacity-90 px-3 py-1 rounded-lg transition-colors">Estudar →</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if relatorio_ia %}
+  <div class="paper-card rounded-2xl p-5 border-primary/20">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+        <span class="text-base">🤖</span>
+      </div>
+      <div>
+        <h2 class="font-serif text-lg font-semibold text-primary">Análise IA — Nota predita: {{ relatorio_ia.nota_predita|floatformat:0 }}%</h2>
+        <p class="text-[10px] text-on-surface-variant">{{ relatorio_ia.criado_em|date:"d/m/Y H:i" }}</p>
+      </div>
+    </div>
+    <div id="ia-texto" class="text-sm text-on-surface leading-relaxed space-y-2"></div>
+  </div>
+  {% else %}
+  <div class="paper-card rounded-xl p-4 flex items-center justify-between no-print" style="background:rgba(214,227,255,.4); border-color:rgba(0,32,70,.2);">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">🤖</span>
+      <div>
+        <p class="text-sm font-semibold text-primary">Adicionar análise IA</p>
+        <p class="text-xs text-primary-container">Gera nota predita + recomendações táticas personalizadas</p>
+      </div>
+    </div>
+    <a href="{% url 'relatorio_simulado_ia' simulado.id %}" class="shrink-0 text-xs font-semibold text-white bg-primary hover:bg-primary-container px-4 py-2 rounded-lg transition-colors">Gerar →</a>
+  </div>
+  {% endif %}
+
+  <div class="paper-card rounded-2xl p-5 no-print">
+    <h2 class="font-serif text-lg font-semibold text-primary mb-4">📌 Próximos passos</h2>
+    <div class="grid grid-cols-2 gap-3">
+      <a href="{% url 'simulado_revisao' simulado.id %}?modo=erros&q=0" class="flex items-center gap-2 text-sm font-semibold text-error bg-error-container/40 border border-error/20 px-4 py-3 rounded-lg hover:bg-error-container/60 transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">manage_search</span>
+        Revisar erros
+      </a>
+      <a href="{% url 'previsao_topicos' %}" class="flex items-center gap-2 text-sm font-semibold text-primary bg-primary-fixed/40 border border-primary/20 px-4 py-3 rounded-lg hover:bg-primary-fixed/60 transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">travel_explore</span>
+        Ver previsão
+      </a>
+      <a href="{% url 'modo_prova_real' %}" class="flex items-center gap-2 text-sm font-semibold text-on-surface bg-white border border-[#e5e1d8] px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">replay</span>
+        Nova prova real
+      </a>
+      <a href="{% url 'simulado_preditivo' %}" class="flex items-center gap-2 text-sm font-semibold text-on-surface bg-white border border-[#e5e1d8] px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">rocket_launch</span>
+        Simulado inteligente
+      </a>
+    </div>
+  </div>
+
+  <div class="text-center text-xs text-on-surface-variant/60 py-4">
+    SantuarioEdu · Laudo gerado em {{ simulado.finalizado_em|date:"d/m/Y H:i" }} · Uso exclusivo do candidato
+  </div>
+
+</div>
+
+<script>
+const catsData = {{ cats_json|safe }};
+{% if relatorio_ia %}
+const iaTexto = `{{ relatorio_ia.texto|escapejs }}`;
+(function renderMd(txt) {
+  const el = document.getElementById('ia-texto');
+  if (!el) return;
+  el.innerHTML = txt
+    .replace(/## (.+)/g, '<h3 class="font-serif font-semibold text-base mt-3 mb-1 text-primary">$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc">$1</li>')
+    .replace(/\n\n/g, '</p><p class="mb-2">')
+    .replace(/^(?!<[hplu])(.+)$/gm, '<p class="mb-2">$1</p>');
+})(iaTexto);
+{% endif %}
+
+if (catsData.length) {
+  const ctx = document.getElementById('grafico-cats').getContext('2d');
+  const tickColor = '#64748b';
+  const gridColor = '#f1f5f9';
+  const sorted = [...catsData].sort((a, b) => a.pct - b.pct);
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: sorted.map(c => c.nome.length > 24 ? c.nome.slice(0, 22) + '…' : c.nome),
+      datasets: [
+        {
+          label: 'Aproveitamento (%)',
+          data: sorted.map(c => c.pct),
+          backgroundColor: sorted.map(c =>
+            c.pct >= 70 ? 'rgba(0,108,77,.75)' : c.pct >= 50 ? 'rgba(245,158,11,.75)' : 'rgba(186,26,26,.75)'),
+          borderRadius: 5,
+        },
+        { label: 'Meta 70%', data: sorted.map(() => 70), type: 'line', borderColor: 'rgba(0,108,77,.5)', borderDash: [5,5], fill: false, pointRadius: 0 },
+      ],
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      scales: {
+        x: { min: 0, max: 100, ticks: { color: tickColor, callback: v => v + '%' }, grid: { color: gridColor } },
+        y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { display: false } },
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.raw}%` } } },
+    },
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% comment %}
+  Tour guiado pro novo usuário.
+  Aparece automaticamente na primeira visita ao dashboard.
+  Skippable; estado salvo em localStorage.
+{% endcomment %}
+
+<div id="onboarding-tour" class="hidden fixed inset-0 z-[80] bg-black/55 backdrop-blur-sm flex items-center justify-center p-6">
+  <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl overflow-hidden">
+    <!-- Progresso -->
+    <div class="h-1.5 bg-slate-100">
+      <div id="tour-progress" class="h-full bg-gradient-to-r from-violet-500 to-indigo-600 transition-all duration-300" style="width:20%"></div>
+    </div>
+
+    <div class="p-7">
+      <!-- Conteúdo dinâmico -->
+      <div id="tour-content">
+        <div class="w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+          <span class="material-symbols-outlined text-white" style="font-size:32px;font-variation-settings:'FILL' 1;">celebration</span>
+        </div>
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">Bem-vindo</p>
+        <h2 class="text-2xl font-extrabold text-[#002046] font-headline tracking-tight mb-3">
+          Você está pronto para começar?
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Em 30 segundos vou te mostrar como aproveitar o app ao máximo.
+        </p>
+      </div>
+
+      <!-- Botões -->
+      <div class="flex items-center justify-between mt-7">
+        <button onclick="pularTour()" class="text-xs font-bold text-slate-500 hover:text-slate-700">Pular tour</button>
+        <div class="flex items-center gap-2">
+          <button id="tour-prev" onclick="tourPrev()" class="hidden px-4 py-2 bg-slate-100 text-slate-700 text-sm font-bold rounded-full hover:bg-slate-200 transition-colors">
+            Voltar
+          </button>
+          <button id="tour-next" onclick="tourNext()" class="px-5 py-2 bg-[#002046] text-white text-sm font-bold rounded-full hover:bg-[#1b365d] transition-colors flex items-center gap-1">
+            Começar
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const KEY = 'onboarding_v1_done';
+  if (localStorage.getItem(KEY) === 'true') return;
+
+  const passos = [
+    {
+      icon:'celebration', bg:'from-violet-500 to-indigo-600',
+      tag:'Bem-vindo',
+      title:'Você está pronto para começar?',
+      body:'Em 30 segundos vou te mostrar como aproveitar o app ao máximo.',
+      cta:'Começar',
+    },
+    {
+      icon:'menu_book', bg:'from-blue-500 to-blue-700',
+      tag:'Passo 1 de 4',
+      title:'Banco com milhares de questões',
+      body:'Acesse questões por disciplina, banca ou edital. Use o menu <strong>Praticar</strong> na lateral pra escolher o que estudar.',
+    },
+    {
+      icon:'rocket_launch', bg:'from-emerald-500 to-emerald-700',
+      tag:'Passo 2 de 4',
+      title:'Faça simulados de verdade',
+      body:'Em <strong>Simulados</strong>, monte seu próprio ou use o "Modo Prova Real" com a distribuição exata do seu edital.',
+    },
+    {
+      icon:'psychology', bg:'from-amber-500 to-orange-600',
+      tag:'Passo 3 de 4',
+      title:'A IA entende seus erros',
+      body:'Em <strong>Inteligência IA</strong>, gere resumos, peça análises e descubra os tópicos com maior chance de cair.',
+    },
+    {
+      icon:'local_fire_department', bg:'from-rose-500 to-pink-600',
+      tag:'Passo 4 de 4',
+      title:'Construa o hábito',
+      body:'Defina sua meta diária, mantenha o <strong>streak</strong> aceso e a revisão espaçada te lembra na hora certa.',
+      cta:'Vamos lá!',
+    },
+  ];
+
+  let idx = 0;
+
+  function renderPasso() {
+    const p = passos[idx];
+    const total = passos.length;
+    document.getElementById('tour-progress').style.width = (((idx+1)/total)*100) + '%';
+    document.getElementById('tour-content').innerHTML = `
+      <div class="w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br ${p.bg} flex items-center justify-center">
+        <span class="material-symbols-outlined text-white" style="font-size:32px;font-variation-settings:'FILL' 1;">${p.icon}</span>
+      </div>
+      <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">${p.tag}</p>
+      <h2 class="text-2xl font-extrabold text-[#002046] font-headline tracking-tight mb-3">${p.title}</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">${p.body}</p>
+    `;
+    document.getElementById('tour-prev').classList.toggle('hidden', idx === 0);
+    const next = document.getElementById('tour-next');
+    next.innerHTML = (idx === passos.length - 1)
+      ? `${p.cta || 'Começar a estudar'} <span class="material-symbols-outlined" style="font-size:16px;">check</span>`
+      : `${p.cta || 'Próximo'} <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>`;
+  }
+
+  window.tourNext = function() {
+    if (idx >= passos.length - 1) {
+      finalizar();
+      return;
+    }
+    idx++; renderPasso();
+  };
+  window.tourPrev = function() {
+    if (idx > 0) { idx--; renderPasso(); }
+  };
+  window.pularTour = finalizar;
+
+  function finalizar() {
+    localStorage.setItem(KEY, 'true');
+    document.getElementById('onboarding-tour').classList.add('hidden');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      document.getElementById('onboarding-tour').classList.remove('hidden');
+      renderPasso();
+    }, 800);
+  });
+})();
+</script>

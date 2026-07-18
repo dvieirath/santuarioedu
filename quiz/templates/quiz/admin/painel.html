@@ -1,0 +1,138 @@
+{% extends "quiz/admin/base.html" %}
+
+{% block title %}Visão Geral{% endblock %}
+{% block nav_painel %}active{% endblock %}
+{% block topbar_icon %}grid_view{% endblock %}
+{% block topbar_title %}Visão Geral{% endblock %}
+
+{% block topbar_actions %}
+  <a href="{% url 'admin_questao_criar' %}" class="btn btn-primary text-xs py-1.5 px-3">
+    <span class="material-symbols-outlined" style="font-size:14px;">add</span> Nova Questão
+  </a>
+{% endblock %}
+
+{% block content %}
+
+<!-- Stats row -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+  <div class="card p-5">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Total de Questões</p>
+    <p class="font-headline font-extrabold text-3xl text-text-1">{{ total_geral }}</p>
+  </div>
+  <div class="card p-5">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Disciplinas</p>
+    <p class="font-headline font-extrabold text-3xl text-text-1">{{ categorias|length }}</p>
+  </div>
+  <a href="{% url 'admin_questao_criar' %}" class="card p-5 hover:border-[rgba(79,142,247,0.4)] hover:bg-[rgba(79,142,247,0.05)] transition-all group cursor-pointer">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Ação rápida</p>
+    <div class="flex items-center gap-2 text-accent group-hover:text-accent-hover font-semibold text-sm">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 500;">add_circle</span>
+      Nova Questão
+    </div>
+  </a>
+  <a href="{% url 'admin_questoes' %}" class="card p-5 hover:border-[rgba(34,197,94,0.3)] hover:bg-[rgba(34,197,94,0.04)] transition-all group cursor-pointer">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Ação rápida</p>
+    <div class="flex items-center gap-2 text-green group-hover:opacity-80 font-semibold text-sm">
+      <span class="material-symbols-outlined" style="font-size:16px;">manage_search</span>
+      Ver Questões
+    </div>
+  </a>
+  <a href="{% url 'admin_importar_csv' %}" class="card p-5 hover:border-[rgba(249,115,22,0.3)] hover:bg-[rgba(249,115,22,0.04)] transition-all group cursor-pointer">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Ação rápida</p>
+    <div class="flex items-center gap-2 text-orange-400 group-hover:opacity-80 font-semibold text-sm">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 500;font-size:16px;">upload_file</span>
+      Importar CSV
+    </div>
+  </a>
+  <a href="{% url 'admin_importar_ia' %}" class="card p-5 hover:border-[rgba(139,92,246,0.3)] hover:bg-[rgba(139,92,246,0.04)] transition-all group cursor-pointer">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Ação rápida</p>
+    <div class="flex items-center gap-2 text-violet-400 group-hover:opacity-80 font-semibold text-sm">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 500;font-size:16px;">auto_awesome</span>
+      Importar via IA
+    </div>
+  </a>
+  <a href="{% url 'admin_gerar_questoes_ia' %}" class="card p-5 hover:border-[rgba(16,185,129,0.3)] hover:bg-[rgba(16,185,129,0.04)] transition-all group cursor-pointer">
+    <p class="text-text-3 text-xs font-semibold uppercase tracking-wider mb-2">Novo — Sprint 23</p>
+    <div class="flex items-center gap-2 text-emerald-400 group-hover:opacity-80 font-semibold text-sm">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 500;font-size:16px;">robot_2</span>
+      Gerar Questões com IA
+    </div>
+  </a>
+</div>
+
+{% if user.is_superuser %}
+<!-- Widget de Sistema (superuser only) -->
+<div class="mb-8 card overflow-hidden" style="border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.03);">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-[rgba(245,158,11,.15)]">
+    <div class="flex items-center gap-2.5">
+      <span class="material-symbols-outlined" style="font-size:16px;color:#fcd34d;">admin_panel_settings</span>
+      <h2 class="font-semibold text-sm text-text-1">Configurações do Sistema</h2>
+      <span class="text-[9px] font-bold bg-amber/20 text-amber px-1.5 py-0.5 rounded-full uppercase tracking-wide">Superuser</span>
+    </div>
+    <a href="{% url 'admin_sistema' %}" class="btn btn-ghost text-xs py-1.5 px-3" style="border-color:rgba(245,158,11,.25);color:#fcd34d;">
+      <span class="material-symbols-outlined" style="font-size:13px;">open_in_new</span> Abrir painel
+    </a>
+  </div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-[rgba(255,255,255,.06)]">
+    <a href="{% url 'admin_sistema' %}#questoes" class="flex flex-col items-center justify-center gap-1.5 py-5 hover:bg-white/[.03] transition-colors group">
+      <span class="material-symbols-outlined text-text-3 group-hover:text-text-1 transition-colors" style="font-size:22px;">edit_note</span>
+      <span class="text-xs font-semibold text-text-2 group-hover:text-text-1 transition-colors">Editar Questões</span>
+      <span class="text-[10px] text-text-3">editor inline</span>
+    </a>
+    <a href="{% url 'admin_sistema' %}#logs" class="flex flex-col items-center justify-center gap-1.5 py-5 hover:bg-white/[.03] transition-colors group">
+      <span class="material-symbols-outlined text-text-3 group-hover:text-text-1 transition-colors" style="font-size:22px;">bug_report</span>
+      <span class="text-xs font-semibold text-text-2 group-hover:text-text-1 transition-colors">Logs de Erros</span>
+      <span class="text-[10px] text-text-3">monitoramento</span>
+    </a>
+    <a href="{% url 'admin_sistema' %}#usuarios" class="flex flex-col items-center justify-center gap-1.5 py-5 hover:bg-white/[.03] transition-colors group">
+      <span class="material-symbols-outlined text-text-3 group-hover:text-text-1 transition-colors" style="font-size:22px;">manage_accounts</span>
+      <span class="text-xs font-semibold text-text-2 group-hover:text-text-1 transition-colors">Usuários</span>
+      <span class="text-[10px] text-text-3">permissões e staff</span>
+    </a>
+    <a href="{% url 'admin_sistema' %}#info" class="flex flex-col items-center justify-center gap-1.5 py-5 hover:bg-white/[.03] transition-colors group">
+      <span class="material-symbols-outlined text-text-3 group-hover:text-text-1 transition-colors" style="font-size:22px;">info</span>
+      <span class="text-xs font-semibold text-text-2 group-hover:text-text-1 transition-colors">Status</span>
+      <span class="text-[10px] text-text-3">info técnica</span>
+    </a>
+  </div>
+</div>
+{% endif %}
+
+<!-- Disciplinas table -->
+<div class="card overflow-hidden">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-[rgba(255,255,255,0.07)]">
+    <h2 class="font-semibold text-sm text-text-1">Questões por Disciplina</h2>
+    <a href="{% url 'admin_questao_criar' %}" class="btn btn-primary text-xs py-1.5">
+      <span class="material-symbols-outlined" style="font-size:14px;">add</span> Adicionar
+    </a>
+  </div>
+
+  <div>
+    {% for cat in categorias %}
+    <div class="table-row flex items-center gap-4 px-5 py-3.5">
+      <!-- Nome -->
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium text-text-1 truncate">{{ cat.nome }}</p>
+      </div>
+      <!-- Barra de progresso -->
+      <div class="hidden sm:flex items-center gap-3 w-48">
+        <div class="flex-1 h-1 bg-[rgba(255,255,255,0.06)] rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-accent/60" style="width: {% widthratio cat.total total_geral 100 %}%"></div>
+        </div>
+        <span class="text-xs text-text-3 font-mono w-8 text-right">{{ cat.total }}</span>
+      </div>
+      <!-- Ações -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <a href="{% url 'admin_questoes' %}?categoria={{ cat.id }}" class="btn btn-ghost text-xs py-1 px-2.5">
+          <span class="material-symbols-outlined" style="font-size:13px;">list</span> Ver
+        </a>
+        <a href="{% url 'admin_questao_criar' %}?categoria={{ cat.id }}" class="btn btn-primary text-xs py-1 px-2.5">
+          <span class="material-symbols-outlined" style="font-size:13px;">add</span> Add
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

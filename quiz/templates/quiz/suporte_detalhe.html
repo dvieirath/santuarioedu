@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ticket #{{ ticket.id }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .msg-user  { background:#d6e3ff; color:#1b365d; border-bottom-right-radius:4px; }
+  .msg-staff { background:#ffffff; border:1px solid #e5e1d8; border-bottom-left-radius:4px; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='conta' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center gap-3 px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <a href="{% url 'suporte_lista' %}" class="text-on-surface-variant hover:text-primary p-2 -ml-2 rounded-full hover:bg-surface-container">
+    <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+  </a>
+  <div class="flex-1 min-w-0">
+    <h1 class="font-serif text-lg font-semibold text-primary leading-none truncate">#{{ ticket.id }} · {{ ticket.assunto }}</h1>
+    <p class="text-[11px] text-on-surface-variant">{{ ticket.get_categoria_display }} · aberto em {{ ticket.criado_em|date:"d/m/Y H:i" }}</p>
+  </div>
+  <span class="text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full shrink-0
+    {% if ticket.status == 'aberto' %}bg-amber-100 text-amber-700
+    {% elif ticket.status == 'respondido' %}bg-secondary-container text-on-secondary-container
+    {% elif ticket.status == 'fechado' %}bg-surface-container text-on-surface-variant
+    {% else %}bg-primary-fixed text-primary-container{% endif %}">{{ ticket.get_status_display }}</span>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 space-y-6">
+
+    {% if messages %}
+      {% for m in messages %}
+      <div class="p-3 rounded-lg bg-secondary-container/40 border border-secondary/30 text-on-secondary-container text-sm">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- Mensagem inicial -->
+    <article class="paper-card rounded-2xl p-5 fade-in">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-9 h-9 rounded-full bg-primary text-on-primary text-xs font-bold flex items-center justify-center font-serif">{{ ticket.usuario.username|slice:":2"|upper }}</div>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-primary">{{ ticket.usuario.username }}</p>
+          <p class="text-[11px] text-on-surface-variant">{{ ticket.criado_em|date:"d/m/Y · H:i" }}</p>
+        </div>
+      </div>
+      <p class="font-serif text-base text-on-surface leading-relaxed whitespace-pre-wrap">{{ ticket.mensagem }}</p>
+      {% if ticket.url_origem %}
+      <p class="text-[11px] text-on-surface-variant mt-3 pt-3 border-t border-[#e5e1d8]">
+        🔗 Página de origem: <a href="{{ ticket.url_origem }}" class="text-secondary font-semibold underline">{{ ticket.url_origem|truncatechars:60 }}</a>
+      </p>
+      {% endif %}
+    </article>
+
+    {% if respostas %}
+    <section class="space-y-3">
+      <p class="text-xs font-bold uppercase tracking-widest text-outline">Conversa</p>
+      {% for r in respostas %}
+      <div class="flex {% if r.eh_staff %}justify-start{% else %}justify-end{% endif %}">
+        <div class="max-w-[80%] {% if r.eh_staff %}msg-staff{% else %}msg-user{% endif %} px-4 py-3 rounded-2xl">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-bold {% if r.eh_staff %}text-secondary{% else %}text-primary{% endif %}">
+              {% if r.eh_staff %}🛟 Equipe SantuarioEdu{% else %}Você{% endif %}
+            </span>
+            <span class="text-[10px] opacity-70">{{ r.criado_em|date:"d/m H:i" }}</span>
+          </div>
+          <p class="text-sm leading-relaxed whitespace-pre-wrap">{{ r.mensagem }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if ticket.status != 'fechado' %}
+    <form method="post" class="paper-card rounded-2xl p-5">
+      {% csrf_token %}
+      <label class="block text-xs font-bold uppercase tracking-widest text-outline mb-2">Adicionar mensagem</label>
+      <textarea name="mensagem" required rows="4"
+        placeholder="Tire dúvidas, adicione informações ou comente o que faltou…"
+        class="w-full px-3 py-2 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none text-sm resize-y bg-white"></textarea>
+      <div class="flex justify-end mt-3">
+        <button type="submit" class="inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">send</span>
+          Enviar
+        </button>
+      </div>
+    </form>
+    {% else %}
+    <div class="paper-card rounded-2xl p-5 text-center text-sm text-on-surface-variant">
+      Este ticket foi <strong>fechado</strong> em {{ ticket.fechado_em|date:"d/m/Y" }}.
+      Precisa de mais ajuda? <a href="{% url 'suporte_novo' %}" class="text-secondary font-semibold underline">Abra um novo ticket</a>.
+    </div>
+    {% endif %}
+
+  </div>
+</main>
+
+</body>
+</html>
