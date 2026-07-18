@@ -392,6 +392,8 @@ if not DEBUG:
     # Força HTTPS
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Healthcheck do Railway/Render bate por HTTP interno — não pode ser redirecionado
+    SECURE_REDIRECT_EXEMPT = [r'^health/$']
 
     # HSTS — força o navegador a usar somente HTTPS por 1 ano
     SECURE_HSTS_SECONDS = 31536000
