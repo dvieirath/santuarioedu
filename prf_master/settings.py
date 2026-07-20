@@ -419,3 +419,19 @@ if not DEBUG:
     if _hosts:
         ALLOWED_HOSTS = [h.strip() for h in _hosts.split(',') if h.strip()]
 
+    # CSRF_TRUSTED_ORIGINS — OBRIGATÓRIO no Django 4+ para POST cross-origin
+    # (login, signup, admin form). Sem isso, tudo dá 403 Forbidden CSRF.
+    # Aceita lista com esquema (https://) separada por vírgula, ou usa fallback
+    # inteligente derivado de ALLOWED_HOSTS.
+    _csrf_env = _os.environ.get('CSRF_TRUSTED_ORIGINS', '')
+    if _csrf_env:
+        CSRF_TRUSTED_ORIGINS = [o.strip() for o in _csrf_env.split(',') if o.strip()]
+    else:
+        # Fallback: para cada ALLOWED_HOST, adiciona https://<host>
+        CSRF_TRUSTED_ORIGINS = [
+            f'https://{h.lstrip(".")}' if not h.startswith('.')
+            else f'https://*{h}'  # wildcard subdomain
+            for h in ALLOWED_HOSTS
+            if h not in ('localhost', '127.0.0.1', 'testserver')
+        ]
+
