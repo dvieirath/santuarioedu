@@ -35,6 +35,14 @@ backups/
 *.dump
 *.sql
 
+# ─── PDFs de provas oficiais (uso local pra importação) ──────────────────────
+provas_pdf/
+!provas_pdf/.gitkeep
+
+# ─── Dumps de BD ──────────────────────────────────────────────────────────────
+# Guarda só o .gz (menor); o .json descompactado é gerado no release em prod
+data_export/*.json
+
 # ─── Virtualenvs ─────────────────────────────────────────────────────────────
 venv/
 env/
