@@ -219,8 +219,13 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'account_login'
 
 # Configuração django-allauth
-ACCOUNT_LOGIN_METHODS = {'username'}
-ACCOUNT_SIGNUP_FIELDS = ['username*', 'password1*', 'password2*']
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
+ACCOUNT_UNIQUE_EMAIL = True
+# 'optional' = pede confirmação mas nao trava login antes.
+# 'mandatory' = trava login até user confirmar email (mais rigoroso).
+# Deixamos optional pra não atrapalhar UX; trial PRO 7d só é concedido após confirmar.
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
