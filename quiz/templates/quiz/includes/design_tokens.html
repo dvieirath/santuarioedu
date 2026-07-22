@@ -149,7 +149,7 @@ tailwind.config = {
      pode servir HTML/JS obsoleto (referências a rotas deletadas, endpoints
      antigos, etc). Este bloco força desregistro do SW velho e limpa caches. */
   (function() {
-    const CACHE_ATUAL = 'santuario-v4';
+    const CACHE_ATUAL = 'santuario-v5';
     const KEY = 'santuario:sw-check';
     if (!('serviceWorker' in navigator)) return;
     // Só roda 1x por sessão de browser (evita loop de reload)

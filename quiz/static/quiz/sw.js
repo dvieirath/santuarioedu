@@ -2,7 +2,7 @@
 // IMPORTANTE: sempre que HTML/JS/CSS mudar significativamente, bump CACHE_VERSION
 // pra invalidar cache antigo do browser. O activate handler apaga todos os caches
 // de versões anteriores automaticamente.
-const CACHE_VERSION = 'santuario-v4';
+const CACHE_VERSION = 'santuario-v5';
 const CACHE_NAME    = CACHE_VERSION;
 const OFFLINE_URL   = '/offline/';
 
