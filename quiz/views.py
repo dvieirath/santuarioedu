@@ -411,6 +411,12 @@ def dashboard(request):
         _log_falha('respostas', e)
         respostas = RespostaUsuario.objects.none()
 
+    # ── Novo usuario (0 respostas) → pula direto pro fluxo de estudo ──────
+    # Dashboard cheio de estatisticas nao faz sentido pra quem acabou de cadastrar
+    # e evita edge cases de render no primeiro acesso pos-signup.
+    if ctx['total_respondidas'] == 0:
+        return redirect('escolher_tema')
+
     # ── Meta / streak ────────────────────────────────────────────────
     try:
         meta, _created = MetaEstudo.objects.get_or_create(usuario=request.user)
@@ -490,7 +496,12 @@ def dashboard(request):
     except Exception as e:
         _log_falha('uso_plano', e)
 
-    return render(request, 'quiz/dashboard.html', ctx)
+    # ── Render blindado: se ate o template crashar, redireciona ─────────
+    try:
+        return render(request, 'quiz/dashboard.html', ctx)
+    except Exception as e:
+        _log_falha('template_render', e)
+        return redirect('escolher_tema')
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
