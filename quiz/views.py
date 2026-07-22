@@ -375,82 +375,122 @@ def iniciar_quiz(request, categoria_id=None):
 
 @login_required(login_url='account_login')
 def dashboard(request):
-    respostas = RespostaUsuario.objects.filter(usuario=request.user)
-    total_respondidas = respostas.count()
-    total_acertos = respostas.filter(acertou=True).count()
-    aproveitamento = round((total_acertos / total_respondidas * 100), 1) if total_respondidas else 0
+    """Dashboard blindado: cada bloco tem try/except pra nunca crashar a pagina.
+    Se algo falha, seta valor default e loga em LogSistema pra investigar depois."""
+    import json as _json
+    from .models import LogSistema
 
-    # Streak e meta
-    meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
-    hoje = timezone.localdate()
-    questoes_hoje = respostas.filter(data__date=hoje).count()
-    pct_meta = min(100, round(questoes_hoje / meta.questoes_por_dia * 100)) if meta.questoes_por_dia else 0
+    def _log_falha(bloco, exc):
+        try:
+            LogSistema.objects.create(
+                nivel='ERRO', origem='dashboard',
+                mensagem=f'Bloco "{bloco}" falhou pra {request.user.username}',
+                detalhe=f'{type(exc).__name__}: {exc}',
+                usuario=request.user,
+            )
+        except Exception:
+            pass  # nunca deixa o log matar a resposta
 
-    # Últimos 3 simulados
-    ultimos_simulados = Simulado.objects.filter(
-        usuario=request.user, finalizado=True
-    ).order_by('-finalizado_em')[:3]
+    # ── Defaults seguros ─────────────────────────────────────────────
+    ctx = {
+        'total_respondidas': 0, 'total_acertos': 0, 'aproveitamento': 0,
+        'foto_google': '', 'meta': None, 'questoes_hoje': 0, 'pct_meta': 0,
+        'ultimos_simulados': [], 'melhores': [], 'piores': [], 'srs_pendentes': 0,
+        'uso_plano': None, 'heatmap_json': '[]',
+        'nivel_obj': None, 'subiu_nivel': None, 'rank_novo': '', 'plano_din': None,
+    }
 
-    # Melhores e piores disciplinas (min 5 respostas)
-    por_cat = []
-    for cat in Categoria.objects.all():
-        r = respostas.filter(questao__categoria=cat)
-        t = r.count()
-        if t >= 5:
-            a = r.filter(acertou=True).count()
-            por_cat.append({'nome': cat.nome, 'pct': round(a/t*100), 'total': t})
-    por_cat.sort(key=lambda x: x['pct'], reverse=True)
-    melhores = por_cat[:3]
-    piores   = sorted(por_cat, key=lambda x: x['pct'])[:3]
+    # ── Respostas / aproveitamento ──────────────────────────────────
+    try:
+        respostas = RespostaUsuario.objects.filter(usuario=request.user)
+        ctx['total_respondidas'] = respostas.count()
+        ctx['total_acertos'] = respostas.filter(acertou=True).count()
+        if ctx['total_respondidas']:
+            ctx['aproveitamento'] = round((ctx['total_acertos'] / ctx['total_respondidas'] * 100), 1)
+    except Exception as e:
+        _log_falha('respostas', e)
+        respostas = RespostaUsuario.objects.none()
 
-    # Questões de revisão espaçada pendentes hoje
-    srs_pendentes = RevisaoEspacada.objects.filter(
-        usuario=request.user,
-        proxima_revisao__lte=timezone.localdate()
-    ).count()
+    # ── Meta / streak ────────────────────────────────────────────────
+    try:
+        meta, _created = MetaEstudo.objects.get_or_create(usuario=request.user)
+        ctx['meta'] = meta
+        ctx['questoes_hoje'] = respostas.filter(data__date=timezone.localdate()).count()
+        if meta.questoes_por_dia:
+            ctx['pct_meta'] = min(100, round(ctx['questoes_hoje'] / meta.questoes_por_dia * 100))
+    except Exception as e:
+        _log_falha('meta', e)
 
-    foto_google = ''
+    # ── Últimos simulados ───────────────────────────────────────────
+    try:
+        ctx['ultimos_simulados'] = list(Simulado.objects.filter(
+            usuario=request.user, finalizado=True
+        ).order_by('-finalizado_em')[:3])
+    except Exception as e:
+        _log_falha('ultimos_simulados', e)
+
+    # ── Melhores / piores disciplinas ────────────────────────────────
+    try:
+        por_cat = []
+        for cat in Categoria.objects.all():
+            r = respostas.filter(questao__categoria=cat)
+            t = r.count()
+            if t >= 5:
+                a = r.filter(acertou=True).count()
+                por_cat.append({'nome': cat.nome, 'pct': round(a / t * 100), 'total': t})
+        por_cat.sort(key=lambda x: x['pct'], reverse=True)
+        ctx['melhores'] = por_cat[:3]
+        ctx['piores'] = sorted(por_cat, key=lambda x: x['pct'])[:3]
+    except Exception as e:
+        _log_falha('melhores_piores', e)
+
+    # ── Revisão espaçada pendente ────────────────────────────────────
+    try:
+        ctx['srs_pendentes'] = RevisaoEspacada.objects.filter(
+            usuario=request.user, proxima_revisao__lte=timezone.localdate()
+        ).count()
+    except Exception as e:
+        _log_falha('srs', e)
+
+    # ── Foto Google (só se tiver login social) ───────────────────────
     if _has_allauth:
         try:
             social = SocialAccount.objects.get(user=request.user, provider='google')
-            foto_google = social.extra_data.get('picture', '')
+            ctx['foto_google'] = social.extra_data.get('picture', '')
         except SocialAccount.DoesNotExist:
             pass
+        except Exception as e:
+            _log_falha('foto_google', e)
 
-    import json as _json
-    heatmap_data = _heatmap_data(request.user)
+    # ── Heatmap ──────────────────────────────────────────────────────
+    try:
+        ctx['heatmap_json'] = _json.dumps(_heatmap_data(request.user))
+    except Exception as e:
+        _log_falha('heatmap', e)
 
-    # Sprint 16 — nível e toast de level-up
-    nivel_obj, _ = NivelUsuario.objects.get_or_create(usuario=request.user)
-    subiu_nivel  = request.session.pop('subiu_nivel', None)
-    rank_novo    = request.session.pop('rank_nome', '')
+    # ── Nível ────────────────────────────────────────────────────────
+    try:
+        nivel_obj, _created = NivelUsuario.objects.get_or_create(usuario=request.user)
+        ctx['nivel_obj'] = nivel_obj
+        ctx['subiu_nivel'] = request.session.pop('subiu_nivel', None)
+        ctx['rank_novo'] = request.session.pop('rank_nome', '')
+    except Exception as e:
+        _log_falha('nivel', e)
 
-    # Sprint 18 — plano dinâmico (badge "atualizado")
-    plano_din = PlanoEstudoDinamico.objects.filter(usuario=request.user).first()
+    # ── Plano dinâmico ───────────────────────────────────────────────
+    try:
+        ctx['plano_din'] = PlanoEstudoDinamico.objects.filter(usuario=request.user).first()
+    except Exception as e:
+        _log_falha('plano_din', e)
 
-    # Status de uso do plano (Free/PRO/Premium)
-    from .limits import status_uso
-    uso = status_uso(request.user)
+    # ── Status de uso (Free/PRO/Premium) ─────────────────────────────
+    try:
+        from .limits import status_uso
+        ctx['uso_plano'] = status_uso(request.user)
+    except Exception as e:
+        _log_falha('uso_plano', e)
 
-    return render(request, 'quiz/dashboard.html', {
-        'total_respondidas': total_respondidas,
-        'total_acertos': total_acertos,
-        'aproveitamento': aproveitamento,
-        'foto_google': foto_google,
-        'meta': meta,
-        'questoes_hoje': questoes_hoje,
-        'pct_meta': pct_meta,
-        'ultimos_simulados': ultimos_simulados,
-        'melhores': melhores,
-        'piores': piores,
-        'srs_pendentes': srs_pendentes,
-        'uso_plano': uso,
-        'heatmap_json': _json.dumps(heatmap_data),
-        'nivel_obj':    nivel_obj,
-        'subiu_nivel':  subiu_nivel,
-        'rank_novo':    rank_novo,
-        'plano_din':    plano_din,
-    })
+    return render(request, 'quiz/dashboard.html', ctx)
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
@@ -7452,7 +7492,7 @@ def revisao_questoes_painel(request):
 
     # Filtros
     cat_id      = request.GET.get('cat', '')
-    apenas_ia   = request.GET.get('ia', '1') == '1'
+    apenas_ia   = request.GET.get('ia', '0') == '1'
     ordem       = request.GET.get('ordem', '-id')  # -id, id, ?
 
     qs = Questao.objects.filter(revisada=False, rejeitada_definitiva=False)
@@ -7600,7 +7640,7 @@ def api_revisao_proxima(request):
     from .auditoria import detectar_flags, label_flag, FLAGS_GRAVES
 
     cat_id     = request.GET.get('cat', '')
-    apenas_ia  = request.GET.get('apenas_ia', '1') == '1'
+    apenas_ia  = request.GET.get('apenas_ia', '0') == '1'
     ordem      = request.GET.get('ordem', '-id')
     skip_id    = request.GET.get('skip_id', '')
     problema   = request.GET.get('problema', '')  # opcional
@@ -7647,6 +7687,24 @@ def api_revisao_proxima(request):
             return True
         if problema == 'ok':
             return not detectar_flags(q, alts)
+        if problema == 'com_imagem_arquivo':
+            # So questoes com arquivo de imagem anexado (renderiza <img> real)
+            return bool(getattr(q, 'imagem', None))
+        if problema == 'com_figura_descrita':
+            # So questoes com [FIGURA:...] no texto mas SEM arquivo anexado
+            if getattr(q, 'imagem', None):
+                return False
+            texto = (q.texto or '')
+            import re as _re
+            return bool(_re.search(r'\[(?:FIGURA|IMAGEM|GR[AÁ]FICO|TABELA|MAPA):', texto, _re.I))
+        # Backward-compat: alias antigo
+        if problema == 'com_imagem':
+            return bool(getattr(q, 'imagem', None))
+        if problema == 'com_texto_apoio':
+            # Heuristica: enunciado com separador "---" (colocado pela Vision entre
+            # texto de apoio e enunciado) OU muito longo (> 500 chars indica apoio)
+            texto = (q.texto or '')
+            return '---' in texto or len(texto) > 500
         alvo = PROBLEMA_MAP.get(problema)
         if not alvo:
             return True
@@ -7692,6 +7750,7 @@ def api_revisao_proxima(request):
         'questao': {
             'id':                  q.id,
             'texto':               q.texto,
+            'imagem':              q.imagem.url if q.imagem else '',
             'assunto':             q.assunto or '',
             'banca':               q.banca or '',
             'ano':                 q.ano,
