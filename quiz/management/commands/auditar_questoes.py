@@ -35,6 +35,7 @@ from quiz.models import Questao, Alternativa, Categoria
 from quiz.auditoria import (
     detectar_flags, label_flag,
     FLAGS_GRAVES, CARS_CONTROLE, BACKSLASH_N_LITERAL,
+    RE_LETRAS_FLUTUANTES_LONGAS, RE_WATERMARKS,
 )
 
 
@@ -45,6 +46,20 @@ from quiz.auditoria import (
 def _autofix_texto(texto):
     original = texto
     fixes = set()
+
+    # Watermarks residuais (PCI Concursos, Q-concursos etc)
+    if RE_WATERMARKS.search(texto):
+        texto = RE_WATERMARKS.sub('', texto)
+        fixes.add('watermark_residual')
+
+    # Sequências longas de letras flutuantes (5+ letras isoladas: "d o m i c")
+    # Só cola sequências grandes — 3-4 letras podem ser acrônimo (PRF, CNH).
+    def _cola_flutuantes(match):
+        return match.group(0).replace(' ', '')
+    novo = RE_LETRAS_FLUTUANTES_LONGAS.sub(_cola_flutuantes, texto)
+    if novo != texto:
+        texto = novo
+        fixes.add('letras_flutuantes_longas')
 
     # Escapes literais → caractere real
     if BACKSLASH_N_LITERAL.search(texto):

@@ -3157,6 +3157,262 @@ def resumo_disciplina(request, categoria_id):
     })
 
 
+# ─── MAPAS MENTAIS ────────────────────────────────────────────────────────────
+
+@login_required(login_url='account_login')
+def mapas_lista(request):
+    """Lista disciplinas com opção de gerar mapa mental."""
+    from .models import MapaMental
+    categorias = Categoria.objects.all().order_by('nome')
+    mapas_existentes = {m.categoria_id: m for m in MapaMental.objects.all()}
+    dados = []
+    for cat in categorias:
+        dados.append({
+            'id': cat.id,
+            'nome': cat.nome,
+            'tem_mapa': cat.id in mapas_existentes,
+            'gerado_em': mapas_existentes[cat.id].gerado_em if cat.id in mapas_existentes else None,
+        })
+    return render(request, 'quiz/mapas_lista.html', {'categorias': dados})
+
+
+@login_required(login_url='account_login')
+@ratelimit(key='user', rate='15/h', method='GET', block=True)
+def mapa_mental(request, categoria_id):
+    """Exibe (ou gera) mapa mental Mermaid de uma disciplina."""
+    from .models import MapaMental
+    from .ai_service import ai_mapa_mental as _gerar_mapa
+
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    regenerar = request.GET.get('regenerar') == '1'
+
+    mapa = None
+    try:
+        mapa = MapaMental.objects.get(categoria=categoria)
+    except MapaMental.DoesNotExist:
+        pass
+
+    if mapa is None or regenerar:
+        codigo = _gerar_mapa(categoria.nome, usuario=request.user)
+        mapa, _ = MapaMental.objects.update_or_create(
+            categoria=categoria,
+            defaults={'mermaid': codigo},
+        )
+
+    return render(request, 'quiz/mapa_mental.html', {
+        'categoria': categoria,
+        'mapa':      mapa,
+    })
+
+
+# ─── ESTATISTICAS DE INCIDENCIA ──────────────────────────────────────────────
+
+@login_required(login_url='account_login')
+def estatisticas_incidencia(request):
+    """Painel de estatisticas: incidencia de temas por banca/ano.
+    Usa apenas Questao (dados que ja temos), zero IA."""
+    from django.db.models import Count
+    import json as _json
+
+    cat_id     = request.GET.get('cat', '')
+    banca_flt  = request.GET.get('banca', '')
+
+    qs = Questao.objects.all()
+    if cat_id.isdigit():
+        qs = qs.filter(categoria_id=int(cat_id))
+    if banca_flt:
+        qs = qs.filter(banca__iexact=banca_flt)
+
+    # Por categoria (top 15)
+    por_cat = list(qs.values('categoria__nome')
+                   .annotate(total=Count('id'))
+                   .order_by('-total')[:15])
+
+    # Por ano (todos os anos com >= 1 questao)
+    por_ano = list(qs.exclude(ano__isnull=True)
+                   .values('ano')
+                   .annotate(total=Count('id'))
+                   .order_by('ano'))
+
+    # Por banca (top 10)
+    por_banca = list(qs.exclude(banca__isnull=True).exclude(banca='')
+                     .values('banca')
+                     .annotate(total=Count('id'))
+                     .order_by('-total')[:10])
+
+    # Distribuicao ME vs CE
+    por_tipo = list(qs.values('tipo').annotate(total=Count('id')))
+
+    return render(request, 'quiz/estatisticas_incidencia.html', {
+        'categorias':    Categoria.objects.all().order_by('nome'),
+        'bancas_disp':   [b['banca'] for b in Questao.objects.exclude(banca='').exclude(banca__isnull=True)
+                          .values('banca').annotate(n=Count('id')).order_by('-n')[:15]],
+        'cat_atual':     int(cat_id) if cat_id.isdigit() else None,
+        'banca_atual':   banca_flt,
+        'total_geral':   qs.count(),
+        'por_cat_json':   _json.dumps(por_cat),
+        'por_ano_json':   _json.dumps(por_ano),
+        'por_banca_json': _json.dumps(por_banca),
+        'por_tipo_json':  _json.dumps(por_tipo),
+    })
+
+
+# ─── TIMELINE DE LEIS ────────────────────────────────────────────────────────
+
+@login_required(login_url='account_login')
+def timelines_lista(request):
+    """Lista todas as timelines de leis cadastradas."""
+    from .models import TimelineLei
+    timelines = TimelineLei.objects.all().prefetch_related('categorias')
+    return render(request, 'quiz/timelines_lista.html', {
+        'timelines': timelines,
+    })
+
+
+@login_required(login_url='account_login')
+@ratelimit(key='user', rate='15/h', method='GET', block=True)
+def timeline_lei_detalhe(request, slug):
+    """Exibe timeline de uma lei. Se ?regenerar=1, chama IA de novo."""
+    from .models import TimelineLei
+    from .ai_service import ai_timeline_lei
+
+    tl = get_object_or_404(TimelineLei, slug=slug)
+    regenerar = request.GET.get('regenerar') == '1'
+
+    if regenerar or not tl.mudancas_json:
+        dados = ai_timeline_lei(tl.titulo, usuario=request.user)
+        tl.resumo = dados.get('resumo', tl.resumo)
+        tl.mudancas_json = dados.get('mudancas', [])
+        if dados.get('ano_original'):
+            tl.ano_original = int(dados['ano_original'])
+        tl.save()
+
+    return render(request, 'quiz/timeline_lei_detalhe.html', {
+        'timeline': tl,
+    })
+
+
+# ─── COMPARATIVO ENTRE BANCAS ────────────────────────────────────────────────
+
+@login_required(login_url='account_login')
+def comparativo_lista(request):
+    """Lista disciplinas que tem comparativo ou permite gerar."""
+    from .models import ComparativoBanca
+    categorias = Categoria.objects.all().order_by('nome')
+    tem_comp = set(ComparativoBanca.objects.values_list('categoria_id', flat=True).distinct())
+    dados = [{
+        'id': c.id, 'nome': c.nome,
+        'tem_comparativo': c.id in tem_comp,
+        'total_bancas': ComparativoBanca.objects.filter(categoria=c).count() if c.id in tem_comp else 0,
+    } for c in categorias]
+    return render(request, 'quiz/comparativo_lista.html', {'categorias': dados})
+
+
+@login_required(login_url='account_login')
+@ratelimit(key='user', rate='15/h', method='GET', block=True)
+def comparativo_categoria(request, categoria_id):
+    """Comparativo de todas as bancas relevantes num tema."""
+    from .models import ComparativoBanca
+    from .ai_service import ai_comparativo_banca
+    from django.db.models import Count
+
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    regenerar = request.GET.get('regenerar') == '1'
+
+    # Descobre quais bancas ja tem questoes desse tema no BD
+    bancas_com_q = (Questao.objects
+                    .filter(categoria=categoria)
+                    .exclude(banca='').exclude(banca__isnull=True)
+                    .values('banca')
+                    .annotate(n=Count('id'))
+                    .order_by('-n')[:6])
+    bancas = [b['banca'] for b in bancas_com_q]
+
+    if not bancas:
+        # Fallback: bancas mais comuns em geral
+        bancas = ['Cebraspe', 'CESPE', 'FGV', 'FCC']
+
+    comparativos = []
+    for banca_nome in bancas:
+        cb, created = ComparativoBanca.objects.get_or_create(
+            categoria=categoria, banca=banca_nome,
+        )
+        if created or regenerar or not cb.estilo:
+            dados = ai_comparativo_banca(categoria.nome, banca_nome, usuario=request.user)
+            cb.estilo      = dados.get('estilo', '')
+            cb.dificuldade = dados.get('dificuldade', '')
+            cb.pegadinhas  = dados.get('pegadinhas', '')
+            cb.formato     = dados.get('formato', '')
+            cb.save()
+        comparativos.append(cb)
+
+    return render(request, 'quiz/comparativo_categoria.html', {
+        'categoria': categoria,
+        'comparativos': comparativos,
+    })
+
+
+# ─── GLOSSARIO ───────────────────────────────────────────────────────────────
+
+@login_required(login_url='account_login')
+def glossario_lista(request):
+    """Glossario de termos. Suporta ?q=busca e ?cat=id."""
+    from .models import TermoGlossario
+    from django.db.models import Q
+
+    q_str  = request.GET.get('q', '').strip()
+    cat_id = request.GET.get('cat', '')
+
+    qs = TermoGlossario.objects.all().prefetch_related('categorias')
+    if q_str:
+        qs = qs.filter(Q(termo__icontains=q_str) | Q(definicao__icontains=q_str))
+    if cat_id.isdigit():
+        qs = qs.filter(categorias__id=int(cat_id)).distinct()
+
+    return render(request, 'quiz/glossario_lista.html', {
+        'termos':     qs[:200],
+        'categorias': Categoria.objects.all().order_by('nome'),
+        'q':          q_str,
+        'cat_atual':  int(cat_id) if cat_id.isdigit() else None,
+        'total':      qs.count(),
+    })
+
+
+@login_required(login_url='account_login')
+@ratelimit(key='user', rate='6/h', method='POST', block=True)
+def glossario_gerar_categoria(request, categoria_id):
+    """Gera 30 termos de uma categoria via IA e salva (usado por staff)."""
+    from .models import TermoGlossario
+    from .ai_service import ai_glossario_termos
+
+    if not request.user.is_staff:
+        return JsonResponse({'ok': False, 'erro': 'so staff'}, status=403)
+    if request.method != 'POST':
+        return JsonResponse({'ok': False, 'erro': 'metodo invalido'}, status=405)
+
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    termos = ai_glossario_termos(categoria.nome, qtd=30, usuario=request.user)
+
+    criados = 0
+    for t in termos:
+        termo = (t.get('termo') or '').strip()
+        definicao = (t.get('definicao') or '').strip()
+        if not termo or not definicao:
+            continue
+        obj, created = TermoGlossario.objects.get_or_create(
+            termo=termo,
+            defaults={
+                'definicao': definicao,
+                'exemplo_uso': (t.get('exemplo_uso') or '').strip(),
+            },
+        )
+        obj.categorias.add(categoria)
+        if created:
+            criados += 1
+
+    return JsonResponse({'ok': True, 'criados': criados, 'total_recebido': len(termos)})
+
+
 # ─── 12B — GRUPOS DE ESTUDO ──────────────────────────────────────────────────
 
 @login_required(login_url='account_login')

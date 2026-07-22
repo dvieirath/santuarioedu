@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Glossário — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">menu_book</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Glossário</h1>
+      <p class="text-[11px] text-on-surface-variant">Termos técnicos com definição rápida</p>
+    </div>
+  </div>
+  <span class="text-[10px] font-bold text-on-surface-variant">{{ total }} termo(s)</span>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Consulta</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Traduza o juridiquês</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        Definições curtas e diretas dos termos técnicos que aparecem nas questões.
+      </p>
+    </section>
+
+    <section class="paper-card rounded-2xl p-4 fade-in">
+      <form method="get" class="flex flex-wrap gap-2 items-center text-xs">
+        <input type="text" name="q" value="{{ q }}" placeholder="Buscar termo..."
+               class="flex-1 min-w-[200px] bg-white border border-outline-variant/40 rounded-lg px-3 py-2 focus:outline-none focus:border-primary"/>
+        <select name="cat" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-2">
+          <option value="">Todas categorias</option>
+          {% for c in categorias %}
+          <option value="{{ c.id }}" {% if c.id == cat_atual %}selected{% endif %}>{{ c.nome }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-semibold">Buscar</button>
+        {% if q or cat_atual %}
+        <a href="?" class="text-on-surface-variant hover:text-primary px-2">Limpar</a>
+        {% endif %}
+      </form>
+    </section>
+
+    <section>
+      {% if termos %}
+      <div class="space-y-3">
+        {% for t in termos %}
+        <article class="paper-card rounded-2xl p-4 fade-in hover:border-primary transition-all">
+          <header class="flex items-start justify-between gap-3 mb-2">
+            <p class="font-serif font-bold text-base text-primary">{{ t.termo }}</p>
+            <div class="flex flex-wrap gap-1">
+              {% for cat in t.categorias.all %}
+              <span class="text-[9px] font-bold uppercase tracking-widest bg-primary-fixed text-primary-container px-1.5 py-0.5 rounded-full">{{ cat.nome }}</span>
+              {% endfor %}
+            </div>
+          </header>
+          <p class="text-sm text-on-surface leading-relaxed">{{ t.definicao }}</p>
+          {% if t.exemplo_uso %}
+          <p class="text-[11px] text-on-surface-variant italic mt-2 pt-2 border-t border-outline-variant/30">
+            <span class="material-symbols-outlined align-middle" style="font-size:12px;">format_quote</span>
+            {{ t.exemplo_uso }}
+          </p>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="paper-card rounded-2xl p-12 text-center border-dashed">
+        <span class="material-symbols-outlined block mx-auto mb-3 text-outline-variant" style="font-size:48px;">search_off</span>
+        <p class="font-serif text-lg font-semibold text-primary mb-1">
+          {% if q or cat_atual %}Nenhum termo encontrado{% else %}Glossário vazio{% endif %}
+        </p>
+        <p class="text-xs text-on-surface-variant">
+          {% if not q and not cat_atual %}
+          Rode <code class="bg-white px-1 rounded">POST /glossario/gerar/&lt;categoria_id&gt;/</code> como staff para popular termos via IA.
+          {% endif %}
+        </p>
+      </div>
+      {% endif %}
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

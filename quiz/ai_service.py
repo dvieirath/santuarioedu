@@ -247,6 +247,188 @@ Seja objetivo, mas completo. Máximo de 600 palavras."""
         return f"⚠️ Não foi possível gerar o resumo: {e}"
 
 
+def ai_mapa_mental(nome_disciplina: str, usuario=None) -> str:
+    """Gera um mapa mental em sintaxe Mermaid `mindmap` para renderizar no browser.
+    Retorna string com o codigo Mermaid pronto pra colocar num <pre class="mermaid">."""
+    api_key = getattr(settings, 'GROQ_API_KEY', '') or getattr(settings, 'GEMINI_API_KEY', '')
+    if not api_key:
+        return "mindmap\n  root((IA indisponivel))\n    Configure GROQ_API_KEY ou GEMINI_API_KEY"
+
+    contexto = _contexto_concurso(usuario)
+    try:
+        prompt = f"""Voce e especialista em {contexto}.
+Crie um MAPA MENTAL sobre "{nome_disciplina}" no formato Mermaid `mindmap`.
+
+REGRAS ESTRITAS:
+- Retorne SOMENTE o codigo Mermaid, sem texto antes ou depois, sem markdown fences (```)
+- Comece com a linha "mindmap"
+- Root com formato: root(({nome_disciplina}))
+- Use ate 3 niveis de profundidade
+- 4 a 6 galhos principais (topicos-chave da materia)
+- Cada galho principal tem 3-6 sub-topicos
+- Textos curtos (max 4 palavras por no)
+- Nao use aspas, parenteses aninhados, colchetes ou caracteres especiais nos textos
+- Nao use emojis
+- Foco em {contexto}
+
+Exemplo do formato exato:
+mindmap
+  root((Direito Constitucional))
+    Principios Fundamentais
+      Republica
+      Federacao
+      Democracia
+    Direitos e Garantias
+      Art 5 CF
+      Direitos Sociais
+      Nacionalidade
+    Organizacao do Estado
+      Uniao
+      Estados
+      Municipios
+    Poder Judiciario
+      STF
+      STJ
+      TRFs
+
+Agora gere o mapa mental de "{nome_disciplina}":"""
+
+        response = _call_ia(prompt)
+        texto = response.text.strip()
+        # Limpa markdown fences se a IA errou
+        import re as _re
+        texto = _re.sub(r'^```(?:mermaid|mindmap)?\s*', '', texto)
+        texto = _re.sub(r'\s*```$', '', texto)
+        # Garante que comeca com "mindmap"
+        if not texto.startswith('mindmap'):
+            texto = 'mindmap\n' + texto
+        return texto
+
+    except Exception as e:
+        logger.error(f"ai_mapa_mental error: {e}")
+        return f"mindmap\n  root(({nome_disciplina}))\n    Erro ao gerar mapa"
+
+
+def ai_timeline_lei(titulo_lei: str, usuario=None) -> dict:
+    """Gera timeline de alteracoes de uma lei. Retorna dict:
+    {'resumo': str, 'ano_original': int, 'mudancas': [{ano, lei_alteradora, descricao}]}"""
+    import json as _json, re as _re
+    api_key = getattr(settings, 'GROQ_API_KEY', '') or getattr(settings, 'GEMINI_API_KEY', '')
+    if not api_key:
+        return {'resumo': 'IA indisponivel', 'ano_original': 2000, 'mudancas': []}
+
+    contexto = _contexto_concurso(usuario)
+    try:
+        prompt = f"""Voce e especialista em legislacao brasileira aplicada a {contexto}.
+Analise a seguinte lei: "{titulo_lei}"
+
+Retorne SOMENTE JSON valido no formato:
+{{
+  "resumo": "2-3 paragrafos sobre o que a lei regula, sua importancia e escopo",
+  "ano_original": 1997,
+  "mudancas": [
+    {{
+      "ano": 2016,
+      "lei_alteradora": "13.281/2016",
+      "descricao": "O que essa alteracao mudou, em 1-2 frases",
+      "artigos_afetados": "Art. X, Y, Z (opcional)"
+    }}
+  ]
+}}
+
+REGRAS:
+- Liste as alteracoes MAIS RELEVANTES ordenadas por ano
+- Foque em mudancas com impacto pratico em concursos
+- Se a lei nao foi alterada, deixe "mudancas": []
+- Nao invente numeros de leis alteradoras — se nao souber, use "" no campo
+- Nao inclua texto fora do JSON
+- Nao use markdown fences (```)
+"""
+        response = _call_ia(prompt)
+        raw = response.text.strip()
+        raw = _re.sub(r'^```(?:json)?\s*', '', raw)
+        raw = _re.sub(r'\s*```$', '', raw)
+        return _json.loads(raw)
+    except Exception as e:
+        logger.error(f"ai_timeline_lei error: {e}")
+        return {'resumo': f'Erro: {e}', 'ano_original': 2000, 'mudancas': []}
+
+
+def ai_comparativo_banca(categoria_nome: str, banca: str, usuario=None) -> dict:
+    """Gera comparativo de como uma banca especifica aborda um tema.
+    Retorna dict {'estilo', 'dificuldade', 'pegadinhas', 'formato'}."""
+    import json as _json, re as _re
+    api_key = getattr(settings, 'GROQ_API_KEY', '') or getattr(settings, 'GEMINI_API_KEY', '')
+    if not api_key:
+        return {'estilo': 'IA indisponivel', 'dificuldade': '', 'pegadinhas': '', 'formato': ''}
+
+    contexto = _contexto_concurso(usuario)
+    try:
+        prompt = f"""Voce e especialista em concursos publicos brasileiros focado em {contexto}.
+Analise: como a banca "{banca}" costuma abordar o tema "{categoria_nome}"?
+
+Retorne SOMENTE JSON valido:
+{{
+  "estilo": "3-5 frases sobre o padrao caracteristico dessa banca no tema (linguagem, foco, profundidade)",
+  "dificuldade": "baixa" ou "media" ou "alta",
+  "pegadinhas": "As 2-3 pegadinhas mais tipicas dessa banca neste tema",
+  "formato": "Formato dominante ex: 'CE dominante', 'ME 5-alt com texto de apoio', 'Mescla CE+ME'"
+}}
+
+REGRAS: sem markdown fences, sem texto fora do JSON.
+"""
+        response = _call_ia(prompt)
+        raw = response.text.strip()
+        raw = _re.sub(r'^```(?:json)?\s*', '', raw)
+        raw = _re.sub(r'\s*```$', '', raw)
+        return _json.loads(raw)
+    except Exception as e:
+        logger.error(f"ai_comparativo_banca error: {e}")
+        return {'estilo': f'Erro: {e}', 'dificuldade': '', 'pegadinhas': '', 'formato': ''}
+
+
+def ai_glossario_termos(categoria_nome: str, qtd: int = 30, usuario=None) -> list:
+    """Gera lista de termos tecnicos de uma disciplina com definicao curta.
+    Retorna lista: [{'termo', 'definicao', 'exemplo_uso'}]"""
+    import json as _json, re as _re
+    api_key = getattr(settings, 'GROQ_API_KEY', '') or getattr(settings, 'GEMINI_API_KEY', '')
+    if not api_key:
+        return []
+
+    contexto = _contexto_concurso(usuario)
+    try:
+        prompt = f"""Voce e especialista em {contexto}.
+Liste os {qtd} termos tecnicos mais IMPORTANTES da disciplina "{categoria_nome}"
+que costumam aparecer em questoes de prova.
+
+Retorne SOMENTE JSON valido no formato:
+{{
+  "termos": [
+    {{
+      "termo": "Nome exato do termo (curto, max 3 palavras)",
+      "definicao": "Definicao clara em 1-2 frases",
+      "exemplo_uso": "Como o termo aparece em contexto de prova (1 frase)"
+    }}
+  ]
+}}
+
+REGRAS:
+- Termos objetivos, tecnicos, comuns em concursos
+- Nao inclua sinonimos redundantes
+- Definicoes originais (nao copia de dicionario/lei literal)
+- Sem markdown fences, sem texto fora do JSON
+"""
+        response = _call_ia(prompt)
+        raw = response.text.strip()
+        raw = _re.sub(r'^```(?:json)?\s*', '', raw)
+        raw = _re.sub(r'\s*```$', '', raw)
+        dados = _json.loads(raw)
+        return dados.get('termos', []) if isinstance(dados, dict) else []
+    except Exception as e:
+        logger.error(f"ai_glossario_termos error: {e}")
+        return []
+
+
 def ai_tutor_responder(pergunta: str, contexto_questao: str = '', usuario=None) -> str:
     """
     Responde uma dúvida do aluno sobre matéria de concursos públicos.

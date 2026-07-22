@@ -40,7 +40,8 @@ Para CADA questão:
 - Aborde temas RELEVANTES e ATUAIS, frequentemente cobrados em provas reais
 - Varie a dificuldade (algumas fáceis, médias e difíceis)
 - Enunciado deve ser COMPLETO — não termine em conjunção, vírgula, dois-pontos ou reticências. Nada de "[...]" ou "___".
-- NUNCA referencie imagens, figuras, tabelas ou "abaixo/acima" (não temos essas imagens).
+- NUNCA referencie IMAGENS/FIGURAS/GRÁFICOS (não temos imagens). Se citar visualmente, é proibido.
+- {texto_apoio_instrucao}
 - NÃO use a mesma questão duas vezes
 - Para múltipla escolha (ME): SEMPRE 5 alternativas (A, B, C, D, E), apenas 1 correta
 - Para certo/errado (CE): NÃO inclua alternativas, use "resposta_ce": "C" ou "E"
@@ -76,6 +77,9 @@ class Command(BaseCommand):
                             help='Segundos entre chamadas (default 1s)')
         parser.add_argument('--criar-se-necessario', action='store_true',
                             help='Cria a categoria se não existir')
+        parser.add_argument('--com_texto_apoio', type=float, default=0.0,
+                            help='Fração 0-1 de questões que devem ter texto de apoio '
+                                 'INTEGRADO no enunciado (default 0.0 = nenhuma)')
 
     def handle(self, *args, **opts):
         nome_cat = opts['categoria']
@@ -127,10 +131,29 @@ class Command(BaseCommand):
                 else '"resposta_ce": "C"'
             )
 
+            pct_apoio = float(opts.get('com_texto_apoio') or 0.0)
+            if pct_apoio > 0:
+                n_apoio = max(1, round(falta * pct_apoio))
+                texto_apoio_instrucao = (
+                    f'Em EXATAMENTE {n_apoio} das {falta} questões deste lote, '
+                    'inclua um TEXTO DE APOIO integrado no próprio enunciado — mini-narrativa, '
+                    'situação hipotética descrita, notícia fictícia ou paragrafo teórico '
+                    '(150-300 palavras) escrito ANTES da pergunta, todo dentro do campo '
+                    '"texto". A pergunta então faz referência a esse texto ("Considerando '
+                    'o texto acima..." é OK PORQUE o texto está incluso). NUNCA cite texto '
+                    'externo que não esteja no campo "texto".'
+                )
+            else:
+                texto_apoio_instrucao = (
+                    'NÃO cite "texto acima/abaixo" nem trechos externos. '
+                    'Enunciado é auto-contido.'
+                )
+
             prompt = PROMPT_TEMPLATE.format(
                 qtd=falta, categoria=categoria.nome, banca=banca,
                 tipo=tipo, tipo_desc=tipo_desc,
                 assunto_extra=assunto_extra, alternativas_fmt=alternativas_fmt,
+                texto_apoio_instrucao=texto_apoio_instrucao,
             )
 
             self.stdout.write(f'  Lote {lote+1}/{n_lotes} ({falta}) → ', ending='')

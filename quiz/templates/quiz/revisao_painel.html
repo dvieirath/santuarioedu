@@ -68,6 +68,9 @@
         <select name="problema" id="filtro-problema" onchange="proximaAJAX()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
           <option value="">Qualquer questão pendente</option>
           <option value="ok">Sem problemas detectados (pronta pra aprovar)</option>
+          <option value="com_imagem_arquivo">📷 Com imagem anexada (arquivo)</option>
+          <option value="com_figura_descrita">📝 Com figura só descrita (sem arquivo)</option>
+          <option value="com_texto_apoio">📄 Com texto de apoio</option>
           <option value="qualquer">Com qualquer problema grave</option>
           <option value="sem_justificativa">Sem justificativa</option>
           <option value="sem_gabarito">Sem gabarito (ou múltiplos)</option>
@@ -82,10 +85,6 @@
           <option value="id"  {% if ordem == 'id' %}selected{% endif %}>Mais antiga</option>
           <option value="?"   {% if ordem == '?' %}selected{% endif %}>Aleatória</option>
         </select>
-        <label class="flex items-center gap-1.5 text-on-surface-variant">
-          <input type="checkbox" name="ia" id="filtro-ia" value="1" {% if apenas_ia %}checked{% endif %} onchange="onFiltroChange()">
-          só geradas por IA
-        </label>
       </form>
       <div class="flex items-center gap-1.5">
         <input type="number" id="busca-id" placeholder="Ir p/ questão #ID"
@@ -220,8 +219,20 @@
   <span class="text-sm font-semibold" id="toast-msg">OK</span>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" integrity="sha384-odPBjvtXVM/5hOYIr3A1dB+flh0c3wAT3bSesIOqEGmyUA4JoKf/YTWy0XKOYAY7" crossorigin="anonymous"></script>
+<script src="{% static 'js/marked.min.js' %}"></script>
 <script>
+// Fallback: se marked falhou por qualquer motivo, evita quebrar toda a UI
+if (typeof marked === 'undefined') {
+  window.marked = {
+    parse: function(txt) {
+      return String(txt || '')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')
+        .replace(/^/, '<p>').replace(/$/, '</p>');
+    }
+  };
+  console.warn('marked.min.js falhou ao carregar — usando fallback plain-text');
+}
 // ═════════════════════════ Estado + helpers ═════════════════════════
 function csrfHeader() {
   const m = document.cookie.match(/csrftoken=([^;]+)/);
@@ -243,21 +254,18 @@ let currentQuestaoId = {% if questao %}{{ questao.id }}{% else %}null{% endif %}
 function filtroParams() {
   const cat      = document.getElementById('filtro-cat').value;
   const ordem    = document.getElementById('filtro-ordem').value;
-  const ia       = document.getElementById('filtro-ia').checked ? '1' : '0';
   const problema = document.getElementById('filtro-problema')?.value || '';
   const p = new URLSearchParams();
   if (cat)      p.set('cat', cat);
   if (ordem)    p.set('ordem', ordem);
   if (problema) p.set('problema', problema);
-  p.set('apenas_ia', ia);
+  p.set('apenas_ia', '0');
   return p;
 }
 
 function onFiltroChange() {
-  // Reload da página com os filtros — mais simples que refazer render do zero via JS
+  // Reload da página com os filtros — filtro apenas_ia foi removido da UI
   const p = filtroParams();
-  p.delete('apenas_ia');
-  if (document.getElementById('filtro-ia').checked) p.set('ia', '1');
   window.location.href = '?' + p.toString();
 }
 
@@ -346,6 +354,12 @@ function renderQuestao(q, restantes) {
       </div>
       <div class="mb-5">
         <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">${escapeHtml(q.texto)}</p>
+        ${q.imagem ? `
+          <div class="mt-4 flex justify-center bg-surface-container-low rounded-xl p-4 border border-outline-variant/30">
+            <img src="${q.imagem}" alt="Figura da questão"
+                 class="max-w-full max-h-[400px] object-contain rounded"
+                 onerror="this.style.opacity=0.2;this.title='Erro ao carregar imagem'"/>
+          </div>` : ''}
       </div>
       ${flagsHtml}
       <div class="space-y-2 mb-5">${alts}</div>

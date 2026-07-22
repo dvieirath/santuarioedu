@@ -204,6 +204,10 @@
           <span class="material-symbols-outlined">auto_stories</span><span>Resumos</span>
           <span class="nav-chip chip-ai">IA</span>
         </a>
+        <a class="nav-link" href="{% url 'mapas_lista' %}">
+          <span class="material-symbols-outlined">account_tree</span><span>Mapas mentais</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
         <a class="nav-link" href="{% url 'analise_banca' %}">
           <span class="material-symbols-outlined">analytics</span><span>Análise da banca</span>
           <span class="nav-chip chip-ai">IA</span>
@@ -221,7 +225,23 @@
           <span class="nav-chip chip-ai">IA</span>
         </a>
 
+        <p class="nav-subheader">Materiais de apoio</p>
+        <a class="nav-link" href="{% url 'timelines_lista' %}">
+          <span class="material-symbols-outlined">timeline</span><span>Timelines de leis</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
+        <a class="nav-link" href="{% url 'comparativo_lista' %}">
+          <span class="material-symbols-outlined">compare</span><span>Comparativo bancas</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
+        <a class="nav-link" href="{% url 'glossario_lista' %}">
+          <span class="material-symbols-outlined">menu_book</span><span>Glossário</span>
+        </a>
+
         <p class="nav-subheader">Meu desempenho</p>
+        <a class="nav-link" href="{% url 'estatisticas_incidencia' %}">
+          <span class="material-symbols-outlined">bar_chart</span><span>Estatísticas</span>
+        </a>
         <a class="nav-link" href="{% url 'analise_subtemas' %}">
           <span class="material-symbols-outlined">insights</span><span>Análise por subtema</span>
         </a>

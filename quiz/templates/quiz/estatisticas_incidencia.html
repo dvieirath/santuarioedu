@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Estatísticas de Incidência — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  canvas { max-width: 100%; }
+  .chart-card { background:#fff; border:1px solid #e5e1d8; border-radius:16px; padding:20px; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">bar_chart</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Estatísticas de Incidência</h1>
+      <p class="text-[11px] text-on-surface-variant">O que cai — dados reais da nossa base</p>
+    </div>
+  </div>
+  <span class="text-[10px] font-bold text-on-surface-variant">{{ total_geral }} questões</span>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Dados</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Onde investir tempo</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        Gráficos com a distribuição real das questões: por disciplina, por banca, por ano, por formato.
+      </p>
+    </section>
+
+    <section class="paper-card rounded-2xl p-4 flex flex-wrap gap-3 items-center fade-in">
+      <form method="get" class="flex flex-wrap gap-2 text-xs">
+        <select name="cat" onchange="this.form.submit()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5">
+          <option value="">Todas categorias</option>
+          {% for c in categorias %}
+          <option value="{{ c.id }}" {% if c.id == cat_atual %}selected{% endif %}>{{ c.nome }}</option>
+          {% endfor %}
+        </select>
+        <select name="banca" onchange="this.form.submit()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5">
+          <option value="">Todas bancas</option>
+          {% for b in bancas_disp %}
+          <option value="{{ b }}" {% if b == banca_atual %}selected{% endif %}>{{ b }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </section>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="chart-card fade-in">
+        <p class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Por disciplina (top 15)</p>
+        <canvas id="chart-cat" height="220"></canvas>
+      </div>
+      <div class="chart-card fade-in">
+        <p class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Por banca (top 10)</p>
+        <canvas id="chart-banca" height="220"></canvas>
+      </div>
+      <div class="chart-card fade-in">
+        <p class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Por ano</p>
+        <canvas id="chart-ano" height="220"></canvas>
+      </div>
+      <div class="chart-card fade-in">
+        <p class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Formato (ME × CE)</p>
+        <canvas id="chart-tipo" height="220"></canvas>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const porCat   = {{ por_cat_json|safe }};
+  const porAno   = {{ por_ano_json|safe }};
+  const porBanca = {{ por_banca_json|safe }};
+  const porTipo  = {{ por_tipo_json|safe }};
+</script>
+<script src="{% static 'js/chart.min.js' %}"></script>
+<script>
+  function make(id, type, labels, data, label){
+    if (typeof Chart === 'undefined') return;
+    new Chart(document.getElementById(id), {
+      type: type,
+      data: { labels: labels, datasets: [{ label: label, data: data,
+        backgroundColor: ['#002046','#00695c','#7b8db3','#9df4cc','#d6e3ff','#fef3c7','#a78bfa','#f472b6','#fca5a5','#fbbf24','#22c55e','#3b82f6','#8b5cf6','#ec4899','#10b981'] }] },
+      options: { plugins: { legend: { display: type === 'pie' || type === 'doughnut' } },
+                 scales: type === 'pie' || type === 'doughnut' ? {} :
+                         { y: { beginAtZero: true } } }
+    });
+  }
+  make('chart-cat', 'bar',
+       porCat.map(x => x.categoria__nome || '?'),
+       porCat.map(x => x.total), 'Questões');
+  make('chart-banca', 'bar',
+       porBanca.map(x => x.banca),
+       porBanca.map(x => x.total), 'Questões');
+  make('chart-ano', 'line',
+       porAno.map(x => x.ano),
+       porAno.map(x => x.total), 'Questões por ano');
+  make('chart-tipo', 'doughnut',
+       porTipo.map(x => x.tipo || '?'),
+       porTipo.map(x => x.total), 'Formato');
+</script>
+
+</body>
+</html>

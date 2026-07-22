@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ categoria.nome }} · Comparativo — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <a href="{% url 'comparativo_lista' %}" class="p-2 rounded-lg hover:bg-surface-container">
+      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:20px;">arrow_back</span>
+    </a>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">{{ categoria.nome }}</h1>
+      <p class="text-[11px] text-on-surface-variant">Comparativo entre bancas</p>
+    </div>
+  </div>
+  <a href="?regenerar=1" onclick="return confirm('Regenerar todos os comparativos?')"
+     class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:bg-primary-fixed px-3 py-1.5 rounded-lg">
+    <span class="material-symbols-outlined" style="font-size:14px;">refresh</span>
+    Regenerar
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 space-y-4">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Comparativo</p>
+      <h2 class="font-serif italic text-2xl md:text-3xl font-bold text-primary">{{ categoria.nome }}</h2>
+    </section>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      {% for c in comparativos %}
+      <article class="paper-card rounded-2xl p-5 fade-in">
+        <header class="flex items-center justify-between mb-3">
+          <p class="font-serif text-lg font-bold text-primary">{{ c.banca }}</p>
+          {% if c.dificuldade %}
+          <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full
+            {% if c.dificuldade == 'alta' %}bg-error-container text-on-error-container
+            {% elif c.dificuldade == 'media' %}bg-amber-100 text-amber-800
+            {% else %}bg-secondary-container text-on-secondary-container{% endif %}">
+            {{ c.dificuldade }}
+          </span>
+          {% endif %}
+        </header>
+
+        {% if c.formato %}
+        <p class="text-[11px] text-on-surface-variant mb-3">
+          <span class="material-symbols-outlined align-middle" style="font-size:12px;">format_list_numbered</span>
+          {{ c.formato }}
+        </p>
+        {% endif %}
+
+        <div class="text-sm text-on-surface leading-relaxed mb-4">
+          <p class="text-[10px] font-bold uppercase text-outline mb-1">Estilo</p>
+          <p>{{ c.estilo }}</p>
+        </div>
+
+        {% if c.pegadinhas %}
+        <div class="text-sm text-on-surface leading-relaxed pt-3 border-t border-outline-variant/30">
+          <p class="text-[10px] font-bold uppercase text-error mb-1">⚠ Pegadinhas</p>
+          <p>{{ c.pegadinhas }}</p>
+        </div>
+        {% endif %}
+      </article>
+      {% empty %}
+      <div class="paper-card rounded-2xl p-8 text-center col-span-2 border-dashed">
+        <p class="text-sm text-on-surface-variant">Nenhuma banca ainda com questões desse tema no BD.</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

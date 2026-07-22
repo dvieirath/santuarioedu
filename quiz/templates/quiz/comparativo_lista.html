@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Comparativo de Bancas — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">compare_arrows</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Comparativo de Bancas</h1>
+      <p class="text-[11px] text-on-surface-variant">Como cada banca aborda cada tema</p>
+    </div>
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Estratégia</p>
+      <h2 class="font-serif italic text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">Conheça o padrão de cada banca</h2>
+      <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+        Escolha uma disciplina — a IA gera um comparativo das principais bancas que a cobram, com estilo, pegadinhas e formato dominante.
+      </p>
+    </section>
+
+    <section>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {% for cat in categorias %}
+        <a href="{% url 'comparativo_categoria' cat.id %}"
+           class="group flex items-center gap-4 paper-card rounded-2xl p-5 hover:border-primary transition-all
+                  {% if cat.tem_comparativo %}bg-gradient-to-br from-primary-fixed/30 to-white{% endif %}">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0
+            {% if cat.tem_comparativo %}bg-gradient-to-br from-primary to-secondary text-white{% else %}bg-surface-container text-on-surface-variant{% endif %}">
+            <span class="material-symbols-outlined {% if cat.tem_comparativo %}active-icon{% endif %}" style="font-size:22px;">compare</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-serif font-semibold text-base text-primary truncate">{{ cat.nome }}</p>
+            {% if cat.tem_comparativo %}
+            <p class="text-[11px] text-secondary font-semibold mt-1">✓ {{ cat.total_bancas }} banca(s) analisada(s)</p>
+            {% else %}
+            <p class="text-[11px] text-on-surface-variant mt-1">Clique para gerar com IA</p>
+            {% endif %}
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" style="font-size:18px;">chevron_right</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ timeline.titulo }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .tl { position: relative; padding-left: 32px; }
+  .tl::before { content:''; position:absolute; left:11px; top:8px; bottom:8px; width:2px; background:linear-gradient(to bottom,#002046,#9df4cc); }
+  .tl-item { position:relative; margin-bottom:24px; }
+  .tl-item::before { content:''; position:absolute; left:-27px; top:6px; width:14px; height:14px; border-radius:50%; background:#002046; border:3px solid #fff; box-shadow:0 0 0 2px #002046; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <a href="{% url 'timelines_lista' %}" class="p-2 rounded-lg hover:bg-surface-container">
+      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:20px;">arrow_back</span>
+    </a>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">{{ timeline.titulo }}</h1>
+      <p class="text-[11px] text-on-surface-variant">Original {{ timeline.ano_original }}</p>
+    </div>
+  </div>
+  <a href="?regenerar=1"
+     onclick="return confirm('Regenerar? A versão atual será substituída.')"
+     class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:bg-primary-fixed px-3 py-1.5 rounded-lg">
+    <span class="material-symbols-outlined" style="font-size:14px;">refresh</span>
+    Regenerar
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="paper-card rounded-2xl p-6 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Sobre a lei</p>
+      <div class="prose prose-sm max-w-none text-on-surface leading-relaxed whitespace-pre-line">{{ timeline.resumo }}</div>
+    </section>
+
+    <section class="fade-in">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Linha do tempo</h3>
+
+      <div class="tl">
+        <div class="tl-item">
+          <span class="inline-flex items-center gap-1 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full">
+            {{ timeline.ano_original }} · original
+          </span>
+          <p class="mt-2 text-sm text-on-surface">Publicação da lei.</p>
+        </div>
+
+        {% for m in timeline.mudancas_json %}
+        <div class="tl-item">
+          <span class="inline-flex items-center gap-1 bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+            {{ m.ano }}{% if m.lei_alteradora %} · {{ m.lei_alteradora }}{% endif %}
+          </span>
+          <p class="mt-2 text-sm text-on-surface leading-relaxed">{{ m.descricao }}</p>
+          {% if m.artigos_afetados %}
+          <p class="text-[11px] text-on-surface-variant mt-1 italic">{{ m.artigos_afetados }}</p>
+          {% endif %}
+        </div>
+        {% empty %}
+        <div class="tl-item">
+          <p class="text-xs text-on-surface-variant italic">Nenhuma alteração registrada. Clique em Regenerar pra puxar da IA.</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

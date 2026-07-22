@@ -38,7 +38,22 @@ FLAGS_GRAVES = {
     'alternativas_duplicadas',
     'aspa_desbalanceada',
     'sem_justificativa',
+    'letras_flutuantes',
+    'watermark_residual',
 }
+
+# Detecta 3+ letras isoladas em sequência: "d o m" ou "P R F" — típico erro de
+# extração de PDF. Pode ser acrônimo legítimo, por isso é flag (não auto-fix
+# em curto). Autofix só cola sequências de 5+ letras.
+RE_LETRAS_FLUTUANTES = re.compile(r'(?:\b[A-Za-zÀ-ÿ]\s){2,}[A-Za-zÀ-ÿ]\b')
+RE_LETRAS_FLUTUANTES_LONGAS = re.compile(r'(?:\b[A-Za-zÀ-ÿ]\s){4,}[A-Za-zÀ-ÿ]\b')
+
+# Watermarks conhecidos que podem ter sobrevivido à extração
+RE_WATERMARKS = re.compile(
+    r'pcimarkpci\s*\S*|www\.pciconcursos\.com\.br|www\.qconcursos\.com'
+    r'|www\.tecconcursos\.com\.br|www\.gran\.com\.br',
+    re.I,
+)
 
 # Labels legíveis para UI/CLI
 LABEL_FLAG = {
@@ -65,6 +80,8 @@ LABEL_FLAG = {
     'numero_alts_invalido_ce':                     'CE deve ter 2 alternativas',
     'numero_alts_invalido_me':                     'ME deve ter 4 ou 5 alternativas',
     'sem_justificativa':                            'Sem justificativa (ou < 50 chars)',
+    'letras_flutuantes':                            'Letras isoladas em sequência (PDF quebrado)',
+    'watermark_residual':                           'Watermark de PCI/Q-concursos no texto',
 }
 
 
@@ -86,8 +103,13 @@ def detectar_flags(q, alts=None):
         flags.append('marcador_conteudo_faltando')
     if re.search(r'_{3,}', texto):
         flags.append('marcador_conteudo_faltando')
+    # Se a questao ja tem [FIGURA: ...] ou [IMAGEM: ...] com descricao textual,
+    # NAO precisa da imagem anexada — a descricao cumpre o papel.
+    _tem_descricao_textual = bool(re.search(r'\[(?:FIGURA|IMAGEM|GR[AÁ]FICO|TABELA|MAPA):', texto, re.I))
+    # Regex ignora ocorrencias dentro do marcador [FIGURA: ...] pra nao dar falso positivo
+    _texto_fora_marcador = re.sub(r'\[(?:FIGURA|IMAGEM|GR[AÁ]FICO|TABELA|MAPA):[^\]]*\]', '', texto, flags=re.I)
     if re.search(r'\b(figura|quadro|imagem|gr[aá]fico|infogr[aá]fico|mapa|desenho|ilustra[cç][aã]o|foto)\b',
-                 texto, re.I) and not getattr(q, 'imagem', None):
+                 _texto_fora_marcador, re.I) and not getattr(q, 'imagem', None) and not _tem_descricao_textual:
         flags.append('referencia_a_imagem_sem_imagem')
 
     # Referência a texto/trecho de apoio que NÃO está no enunciado.
@@ -184,6 +206,11 @@ def detectar_flags(q, alts=None):
 
     if re.search(r'\b(\w{3,})\s+\1\b', texto, re.I):
         flags.append('palavras_duplicadas')
+
+    if RE_LETRAS_FLUTUANTES.search(texto):
+        flags.append('letras_flutuantes')
+    if RE_WATERMARKS.search(texto):
+        flags.append('watermark_residual')
 
     n_corretas = sum(1 for a in alts if a.correta)
     if n_corretas == 0:

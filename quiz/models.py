@@ -376,6 +376,100 @@ class ResumoIA(models.Model):
         return f'Resumo IA — {self.categoria.nome}'
 
 
+class MapaMental(models.Model):
+    """Mapa mental (Mermaid mindmap syntax) por categoria, gerado pela IA."""
+    categoria   = models.OneToOneField(Categoria, on_delete=models.CASCADE,
+                                       related_name='mapa_mental')
+    mermaid     = models.TextField(help_text='Codigo mermaid mindmap (root -> ramos)')
+    gerado_em   = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Mapa mental — {self.categoria.nome}'
+
+
+class TimelineLei(models.Model):
+    """Timeline de alteracoes historicas de uma lei relevante para concursos.
+    Ex: CTB (Lei 9.503/97), Lei de Drogas, CF/88.  Nao especifico a PRF."""
+    titulo         = models.CharField(max_length=200,
+        help_text='Ex: "CTB — Lei 9.503/1997"')
+    slug           = models.SlugField(max_length=140, unique=True, blank=True)
+    ano_original   = models.PositiveSmallIntegerField()
+    resumo         = models.TextField(
+        help_text='O que a lei regula, em 2-3 paragrafos')
+    # Lista JSON: [{ano, lei_alteradora, descricao, artigos_afetados}]
+    mudancas_json  = models.JSONField(default=list, blank=True)
+    categorias     = models.ManyToManyField(Categoria, blank=True,
+                                            related_name='timelines')
+    gerado_em      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['titulo']
+        verbose_name = 'Timeline de Lei'
+        verbose_name_plural = 'Timelines de Leis'
+
+    def __str__(self):
+        return self.titulo
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            self.slug = slugify(self.titulo)[:140]
+        super().save(*args, **kwargs)
+
+
+class ComparativoBanca(models.Model):
+    """Como uma banca especifica aborda um tema.  Uma linha por (categoria, banca)."""
+    categoria      = models.ForeignKey(Categoria, on_delete=models.CASCADE,
+                                       related_name='comparativos')
+    banca          = models.CharField(max_length=60)
+    estilo         = models.TextField(
+        help_text='Como essa banca costuma abordar este tema')
+    dificuldade    = models.CharField(max_length=20, blank=True,
+        help_text='baixa | media | alta')
+    pegadinhas     = models.TextField(blank=True,
+        help_text='Pegadinhas tipicas usadas por esta banca no tema')
+    formato        = models.CharField(max_length=60, blank=True,
+        help_text='Ex: "CE dominante", "ME 5-alt com texto de apoio"')
+    gerado_em      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = [('categoria', 'banca')]
+        ordering = ['categoria__nome', 'banca']
+        verbose_name = 'Comparativo por Banca'
+        verbose_name_plural = 'Comparativos por Banca'
+
+    def __str__(self):
+        return f'{self.categoria.nome} · {self.banca}'
+
+
+class TermoGlossario(models.Model):
+    """Termo tecnico com definicao curta para consulta rapida.
+    Usado tanto em pagina propria quanto em tooltips nas questoes."""
+    termo          = models.CharField(max_length=120, unique=True)
+    slug           = models.SlugField(max_length=140, unique=True, blank=True)
+    definicao      = models.TextField(help_text='Definicao curta e clara')
+    exemplo_uso    = models.TextField(blank=True,
+        help_text='Como o termo aparece em contexto de prova')
+    categorias     = models.ManyToManyField(Categoria, blank=True,
+                                            related_name='termos_glossario',
+                                            help_text='Disciplinas onde o termo se aplica')
+    gerado_em      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['termo']
+        verbose_name = 'Termo do Glossario'
+        verbose_name_plural = 'Termos do Glossario'
+
+    def __str__(self):
+        return self.termo
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            self.slug = slugify(self.termo)[:140]
+        super().save(*args, **kwargs)
+
+
 # ─── SPRINT 12B — GRUPOS DE ESTUDO ───────────────────────────────────────────
 
 import secrets as _secrets

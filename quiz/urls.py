@@ -102,6 +102,16 @@ urlpatterns = [
     # Sprint 12 — Resumos IA, Grupos, Notificações, Export, Revisão Inteligente
     path('resumos/',                             views.resumos_lista,           name='resumos_lista'),
     path('resumos/<int:categoria_id>/',          views.resumo_disciplina,       name='resumo_disciplina'),
+    path('mapas/',                               views.mapas_lista,             name='mapas_lista'),
+    path('mapas/<int:categoria_id>/',            views.mapa_mental,             name='mapa_mental'),
+    # Materiais de apoio (agnostico de concurso)
+    path('estatisticas/',                        views.estatisticas_incidencia, name='estatisticas_incidencia'),
+    path('timelines/',                           views.timelines_lista,         name='timelines_lista'),
+    path('timelines/<slug:slug>/',               views.timeline_lei_detalhe,    name='timeline_lei_detalhe'),
+    path('comparativo/',                         views.comparativo_lista,       name='comparativo_lista'),
+    path('comparativo/<int:categoria_id>/',      views.comparativo_categoria,   name='comparativo_categoria'),
+    path('glossario/',                           views.glossario_lista,         name='glossario_lista'),
+    path('glossario/gerar/<int:categoria_id>/',  views.glossario_gerar_categoria, name='glossario_gerar_categoria'),
     path('grupos/',                              views.grupos_lista,            name='grupos_lista'),
     path('grupos/<int:grupo_id>/',               views.grupo_detalhe_v2,        name='grupo_detalhe'),
     path('grupos/<int:grupo_id>/sair/',          views.sair_grupo,              name='sair_grupo'),

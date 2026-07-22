@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ categoria.nome }} · Mapa Mental — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .mermaid-wrap {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    overflow: auto;
+    min-height: 480px;
+    box-shadow: 0 4px 12px rgba(0,32,70,.06);
+    border: 1px solid #e5e1d8;
+  }
+  .mermaid { min-width: 100%; }
+  .mermaid svg { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='ia' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <a href="{% url 'mapas_lista' %}" class="p-2 rounded-lg hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined text-on-surface-variant" style="font-size:20px;">arrow_back</span>
+    </a>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">{{ categoria.nome }}</h1>
+      <p class="text-[11px] text-on-surface-variant">Mapa mental interativo</p>
+    </div>
+  </div>
+  <a href="?regenerar=1"
+     onclick="return confirm('Regenerar o mapa mental? A versão atual será substituída.')"
+     class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:bg-primary-fixed px-3 py-1.5 rounded-lg transition-colors">
+    <span class="material-symbols-outlined" style="font-size:14px;">refresh</span>
+    Regenerar
+  </a>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <section class="pt-6 fade-in flex items-center justify-between">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Mapa Mental</p>
+        <h2 class="font-serif italic text-2xl md:text-3xl font-bold text-primary leading-tight">{{ categoria.nome }}</h2>
+        <p class="text-xs text-on-surface-variant mt-1">
+          Gerado em {{ mapa.gerado_em|date:"d/m/Y H:i" }}
+        </p>
+      </div>
+    </section>
+
+    <section class="mermaid-wrap fade-in">
+      <pre class="mermaid">{{ mapa.mermaid }}</pre>
+    </section>
+
+    <section class="paper-card rounded-2xl p-4 flex items-start gap-3 fade-in bg-surface-container-low">
+      <span class="material-symbols-outlined text-primary active-icon shrink-0" style="font-size:20px;">tips_and_updates</span>
+      <div class="text-xs text-on-surface-variant leading-relaxed">
+        <strong class="text-on-surface">Dica:</strong> use o mapa como visão geral antes de mergulhar no
+        <a href="{% url 'resumo_disciplina' categoria.id %}" class="text-primary hover:underline font-semibold">resumo escrito</a>
+        e nas <a href="{% url 'iniciar_quiz_categoria' categoria.id %}" class="text-primary hover:underline font-semibold">questões da disciplina</a>.
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script src="{% static 'js/mermaid.min.js' %}"></script>
+<script>
+  if (typeof mermaid !== 'undefined') {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      themeVariables: {
+        primaryColor: '#d6e3ff',
+        primaryTextColor: '#002046',
+        primaryBorderColor: '#002046',
+        lineColor: '#7b8db3',
+        secondaryColor: '#9df4cc',
+        tertiaryColor: '#fef3c7',
+        fontFamily: 'Inter, system-ui, sans-serif',
+      },
+      mindmap: { padding: 20, maxNodeWidth: 200 },
+      securityLevel: 'loose',
+    });
+  } else {
+    document.querySelector('.mermaid-wrap').innerHTML =
+      '<p style="text-align:center;padding:40px;color:#666;">Erro ao carregar biblioteca mermaid. Recarregue a página.</p>';
+  }
+</script>
+
+</body>
+</html>
