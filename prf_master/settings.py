@@ -200,14 +200,38 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # destino do collectstatic em prod
 STATICFILES_DIRS = [BASE_DIR / 'quiz' / 'static']
 
-# WhiteNoise: compressão + cache-busting hash
-STORAGES = {
-    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
-    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
-}
+# ── Storage: local em dev, Cloudflare R2 (S3-compat) em prod ────────────────
+# R2 grátis 10GB + zero egress fees. Ativa automaticamente quando
+# AWS_ACCESS_KEY_ID é setada (nao precisa mexer no codigo dev).
+AWS_ACCESS_KEY_ID       = config('AWS_ACCESS_KEY_ID', default='')
+AWS_SECRET_ACCESS_KEY   = config('AWS_SECRET_ACCESS_KEY', default='')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='')
+AWS_S3_ENDPOINT_URL     = config('AWS_S3_ENDPOINT_URL', default='')
+AWS_S3_REGION_NAME      = config('AWS_S3_REGION_NAME', default='auto')
+AWS_S3_ADDRESSING_STYLE = config('AWS_S3_ADDRESSING_STYLE', default='path')
+AWS_S3_SIGNATURE_VERSION= config('AWS_S3_SIGNATURE_VERSION', default='s3v4')
+AWS_DEFAULT_ACL         = config('AWS_DEFAULT_ACL', default='public-read')
+AWS_QUERYSTRING_AUTH    = config('AWS_QUERYSTRING_AUTH', default=False, cast=bool)
+AWS_S3_FILE_OVERWRITE   = False  # nao sobrescreve arquivos com mesmo nome
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+_USA_S3 = bool(AWS_ACCESS_KEY_ID and AWS_STORAGE_BUCKET_NAME)
+
+if _USA_S3:
+    STORAGES = {
+        'default': {'BACKEND': 'storages.backends.s3.S3Storage'},
+        'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
+    }
+    # MEDIA_URL vem do endpoint publico do R2 (setado tambem via env pra flexibilidade)
+    MEDIA_URL = config('MEDIA_URL',
+        default=f'{AWS_S3_ENDPOINT_URL.rstrip("/")}/{AWS_STORAGE_BUCKET_NAME}/')
+    MEDIA_ROOT = None  # nao usado quando S3 esta ativo
+else:
+    STORAGES = {
+        'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+        'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
+    }
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # Limite de upload — protege contra abuso e OOM
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024   # 10 MB por request (form + arquivo)
