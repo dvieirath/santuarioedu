@@ -203,14 +203,18 @@ STATICFILES_DIRS = [BASE_DIR / 'quiz' / 'static']
 # ── Storage: local em dev, Cloudflare R2 (S3-compat) em prod ────────────────
 # R2 grátis 10GB + zero egress fees. Ativa automaticamente quando
 # AWS_ACCESS_KEY_ID é setada (nao precisa mexer no codigo dev).
-AWS_ACCESS_KEY_ID       = config('AWS_ACCESS_KEY_ID', default='')
-AWS_SECRET_ACCESS_KEY   = config('AWS_SECRET_ACCESS_KEY', default='')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='')
-AWS_S3_ENDPOINT_URL     = config('AWS_S3_ENDPOINT_URL', default='')
-AWS_S3_REGION_NAME      = config('AWS_S3_REGION_NAME', default='auto')
-AWS_S3_ADDRESSING_STYLE = config('AWS_S3_ADDRESSING_STYLE', default='path')
-AWS_S3_SIGNATURE_VERSION= config('AWS_S3_SIGNATURE_VERSION', default='s3v4')
-AWS_DEFAULT_ACL         = config('AWS_DEFAULT_ACL', default='public-read')
+# .strip() defensivo: env vars coladas com \n no fim quebram o boto3
+def _env_clean(key, default=''):
+    return (config(key, default=default) or '').strip()
+
+AWS_ACCESS_KEY_ID       = _env_clean('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY   = _env_clean('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = _env_clean('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL     = _env_clean('AWS_S3_ENDPOINT_URL')
+AWS_S3_REGION_NAME      = _env_clean('AWS_S3_REGION_NAME', 'auto')
+AWS_S3_ADDRESSING_STYLE = _env_clean('AWS_S3_ADDRESSING_STYLE', 'path')
+AWS_S3_SIGNATURE_VERSION= _env_clean('AWS_S3_SIGNATURE_VERSION', 's3v4')
+AWS_DEFAULT_ACL         = _env_clean('AWS_DEFAULT_ACL', 'public-read')
 AWS_QUERYSTRING_AUTH    = config('AWS_QUERYSTRING_AUTH', default=False, cast=bool)
 AWS_S3_FILE_OVERWRITE   = False  # nao sobrescreve arquivos com mesmo nome
 
