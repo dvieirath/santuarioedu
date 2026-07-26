@@ -18,10 +18,16 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Instalar client Postgres 17
+      - name: Instalar client Postgres 18 (bate a versao do servidor Railway)
         run: |
+          # Repo oficial PostgreSQL — traz clients ate a versao mais recente
+          sudo apt-get install -y postgresql-common
+          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
           sudo apt-get update
-          sudo apt-get install -y postgresql-client-17 || sudo apt-get install -y postgresql-client
+          # Tenta versoes decrescentes: 18 (atual Railway), 17 (proxima), fallback pra padrao
+          sudo apt-get install -y postgresql-client-18 \
+            || sudo apt-get install -y postgresql-client-17 \
+            || sudo apt-get install -y postgresql-client
           pg_dump --version
 
       - name: Instalar AWS CLI v2 (compat R2)
