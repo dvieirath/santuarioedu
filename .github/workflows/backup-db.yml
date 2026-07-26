@@ -33,8 +33,10 @@ jobs:
 
       - name: Fazer pg_dump comprimido
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_PUBLIC_URL }}
+          DATABASE_URL_RAW: ${{ secrets.DATABASE_PUBLIC_URL }}
         run: |
+          # Strip defensivo: secrets pastados com \n ao final quebram pg_dump
+          DATABASE_URL=$(echo -n "$DATABASE_URL_RAW" | tr -d '\n\r' | xargs)
           STAMP=$(date -u +'%Y-%m-%d_%H%M')
           FILE="backup_${STAMP}.sql.gz"
           echo "Fazendo dump para $FILE..."
