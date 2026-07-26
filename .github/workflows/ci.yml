@@ -29,6 +29,10 @@ jobs:
           DEBUG: 'False'
           ALLOWED_HOSTS: localhost,127.0.0.1,testserver
           GEMINI_API_KEY: dummy
+          GROQ_API_KEY: dummy
+          MP_ACCESS_TOKEN: dummy
+          MP_PUBLIC_KEY: dummy
+          MP_WEBHOOK_SECRET: dummy
         run: python manage.py check
 
       - name: Run migrations check
@@ -37,6 +41,10 @@ jobs:
           DEBUG: 'True'
           ALLOWED_HOSTS: localhost,127.0.0.1,testserver
           GEMINI_API_KEY: dummy
+          GROQ_API_KEY: dummy
+          MP_ACCESS_TOKEN: dummy
+          MP_PUBLIC_KEY: dummy
+          MP_WEBHOOK_SECRET: dummy
         run: python manage.py migrate --noinput
 
       - name: Run tests
@@ -45,6 +53,10 @@ jobs:
           DEBUG: 'True'
           ALLOWED_HOSTS: localhost,127.0.0.1,testserver
           GEMINI_API_KEY: dummy
+          GROQ_API_KEY: dummy
+          MP_ACCESS_TOKEN: dummy
+          MP_PUBLIC_KEY: dummy
+          MP_WEBHOOK_SECRET: dummy
         run: python manage.py test quiz.tests --verbosity=1
 
   security:
