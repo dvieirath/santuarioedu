@@ -32,7 +32,9 @@ jobs:
           GROQ_API_KEY: dummy
           MP_ACCESS_TOKEN: dummy
           MP_PUBLIC_KEY: dummy
-          MP_WEBHOOK_SECRET: dummy
+          # MP_WEBHOOK_SECRET intencionalmente vazio: com secret setado, o
+          # webhook exige HMAC valido e retorna 403 sem assinatura — quebra o
+          # teste de payload invalido que espera 400.
         run: python manage.py check
 
       - name: Run migrations check
@@ -44,7 +46,9 @@ jobs:
           GROQ_API_KEY: dummy
           MP_ACCESS_TOKEN: dummy
           MP_PUBLIC_KEY: dummy
-          MP_WEBHOOK_SECRET: dummy
+          # MP_WEBHOOK_SECRET intencionalmente vazio: com secret setado, o
+          # webhook exige HMAC valido e retorna 403 sem assinatura — quebra o
+          # teste de payload invalido que espera 400.
         run: python manage.py migrate --noinput
 
       - name: Collect static (necessario pro manifest do whitenoise)
@@ -63,7 +67,9 @@ jobs:
           GROQ_API_KEY: dummy
           MP_ACCESS_TOKEN: dummy
           MP_PUBLIC_KEY: dummy
-          MP_WEBHOOK_SECRET: dummy
+          # MP_WEBHOOK_SECRET intencionalmente vazio: com secret setado, o
+          # webhook exige HMAC valido e retorna 403 sem assinatura — quebra o
+          # teste de payload invalido que espera 400.
         run: python manage.py test quiz.tests --verbosity=1
 
   security:
