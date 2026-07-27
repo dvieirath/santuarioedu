@@ -1,6 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm as _BaseUserCreationForm
+from django import forms as _dj_forms
+
+
+class UserCreationForm(_BaseUserCreationForm):
+    """Estende UserCreationForm exigindo email valido + unico."""
+    email = _dj_forms.EmailField(
+        required=True,
+        label='Email',
+        help_text='Usaremos para confirmacao de conta e nota fiscal.',
+    )
+
+    class Meta(_BaseUserCreationForm.Meta):
+        fields = ('username', 'email')
+
+    def clean_email(self):
+        email = (self.cleaned_data.get('email') or '').strip().lower()
+        from django.contrib.auth.models import User as _User
+        if _User.objects.filter(email__iexact=email).exists():
+            raise _dj_forms.ValidationError('Ja existe uma conta com esse email.')
+        return email
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
 from django.contrib.auth import login
 from django.contrib import messages
 from django.http import JsonResponse
