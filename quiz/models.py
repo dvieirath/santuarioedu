@@ -394,8 +394,8 @@ class TimelineLei(models.Model):
         help_text='Ex: "CTB — Lei 9.503/1997"')
     slug           = models.SlugField(max_length=140, unique=True, blank=True)
     ano_original   = models.PositiveSmallIntegerField()
-    resumo         = models.TextField(
-        help_text='O que a lei regula, em 2-3 paragrafos')
+    resumo         = models.TextField(blank=True, default='',
+        help_text='Deixe vazio no cadastro — IA popula no primeiro acesso')
     # Lista JSON: [{ano, lei_alteradora, descricao, artigos_afetados}]
     mudancas_json  = models.JSONField(default=list, blank=True)
     categorias     = models.ManyToManyField(Categoria, blank=True,

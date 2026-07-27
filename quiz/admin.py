@@ -4,7 +4,9 @@ from django.urls import path, reverse
 from django.utils.html import format_html
 from .models import (Categoria, Questao, Alternativa, RespostaUsuario,
                      CupomDesconto, UsoCupom,
-                     PlanoUsuario, LogSistema, PagamentoMP)
+                     PlanoUsuario, LogSistema, PagamentoMP,
+                     ResumoIA, MapaMental, TimelineLei, ComparativoBanca,
+                     TermoGlossario)
 
 
 # ── Branding do Admin ──────────────────────────────────────────────────────
@@ -19,11 +21,30 @@ class AlternativaInline(admin.TabularInline):
     extra = 4
 
 
+class TemImagemFilter(admin.SimpleListFilter):
+    """Filtro admin: questao tem imagem anexada?"""
+    title = 'Tem imagem'
+    parameter_name = 'tem_imagem'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('sim', 'Com imagem'),
+            ('nao', 'Sem imagem'),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'sim':
+            return queryset.exclude(imagem='').exclude(imagem__isnull=True)
+        if self.value() == 'nao':
+            return queryset.filter(imagem='') | queryset.filter(imagem__isnull=True)
+        return queryset
+
+
 @admin.register(Questao)
 class QuestaoAdmin(admin.ModelAdmin):
     inlines = [AlternativaInline]
-    list_display = ('preview', 'categoria', 'tipo', 'banca', 'badge_status', 'tentativas_correcao')
-    list_filter = ('revisada', 'gerada_por_ia', 'rejeitada_definitiva', 'categoria', 'tipo', 'banca')
+    list_display = ('preview', 'categoria', 'tipo', 'banca', 'badge_imagem', 'badge_status', 'tentativas_correcao')
+    list_filter = ('revisada', 'gerada_por_ia', 'rejeitada_definitiva', 'categoria', 'tipo', 'banca', TemImagemFilter)
     search_fields = ('texto', 'assunto', 'justificativa', 'motivo_rejeicao')
     list_per_page = 30
     actions = [
@@ -58,6 +79,16 @@ class QuestaoAdmin(admin.ModelAdmin):
     def preview(self, obj):
         return (obj.texto[:90] + '...') if len(obj.texto) > 90 else obj.texto
     preview.short_description = 'Enunciado'
+
+    def badge_imagem(self, obj):
+        from django.utils.safestring import mark_safe
+        if obj.imagem:
+            return mark_safe(
+                '<span style="background:#dcfce7;color:#166534;padding:2px 8px;'
+                'border-radius:8px;font-weight:bold;font-size:11px;">&#128247; sim</span>'
+            )
+        return mark_safe('<span style="color:#9ca3af;font-size:11px;">&mdash;</span>')
+    badge_imagem.short_description = 'Imagem'
 
     def badge_status(self, obj):
         status = obj.status_revisao
@@ -298,3 +329,78 @@ class ConcursoPreferidoAdmin(admin.ModelAdmin):
     list_display = ('usuario', 'concurso', 'data_prova_esperada', 'horas_por_dia', 'atualizado_em')
     list_filter = ('concurso',)
     search_fields = ('usuario__username',)
+
+
+# ─── Materiais de apoio ──────────────────────────────────────────────────────
+
+@admin.register(ResumoIA)
+class ResumoIAAdmin(admin.ModelAdmin):
+    list_display = ('categoria', 'preview_conteudo', 'gerado_em')
+    search_fields = ('categoria__nome', 'conteudo')
+    readonly_fields = ('gerado_em',)
+
+    def preview_conteudo(self, obj):
+        return (obj.conteudo[:80] + '...') if len(obj.conteudo) > 80 else obj.conteudo
+    preview_conteudo.short_description = 'Prévia'
+
+
+@admin.register(MapaMental)
+class MapaMentalAdmin(admin.ModelAdmin):
+    list_display = ('categoria', 'gerado_em')
+    search_fields = ('categoria__nome',)
+    readonly_fields = ('gerado_em',)
+
+
+@admin.register(TimelineLei)
+class TimelineLeiAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'ano_original', 'qtd_mudancas', 'gerado_em')
+    search_fields = ('titulo', 'resumo')
+    filter_horizontal = ('categorias',)
+    prepopulated_fields = {'slug': ('titulo',)}
+    readonly_fields = ('gerado_em',)
+    fieldsets = (
+        (None, {
+            'fields': ('titulo', 'slug', 'ano_original', 'categorias'),
+            'description': (
+                'Preencha apenas <strong>título</strong> + <strong>ano_original</strong>. '
+                'Deixe <em>resumo</em> e <em>mudanças_json</em> vazios — a IA popula '
+                'automaticamente na primeira visita a <code>/timelines/&lt;slug&gt;/</code>. '
+                'Para forçar regeneração, adicione <code>?regenerar=1</code> na URL.'
+            ),
+        }),
+        ('Conteúdo (populado por IA)', {
+            'fields': ('resumo', 'mudancas_json', 'gerado_em'),
+            'classes': ('collapse',),
+        }),
+    )
+
+    def qtd_mudancas(self, obj):
+        return len(obj.mudancas_json or [])
+    qtd_mudancas.short_description = 'Mudanças'
+
+
+@admin.register(ComparativoBanca)
+class ComparativoBancaAdmin(admin.ModelAdmin):
+    list_display = ('categoria', 'banca', 'dificuldade', 'formato', 'gerado_em')
+    list_filter = ('banca', 'dificuldade', 'categoria')
+    search_fields = ('categoria__nome', 'banca', 'estilo', 'pegadinhas')
+    readonly_fields = ('gerado_em',)
+
+
+@admin.register(TermoGlossario)
+class TermoGlossarioAdmin(admin.ModelAdmin):
+    list_display = ('termo', 'preview_def', 'lista_categorias', 'gerado_em')
+    list_filter = ('categorias',)
+    search_fields = ('termo', 'definicao', 'exemplo_uso')
+    filter_horizontal = ('categorias',)
+    prepopulated_fields = {'slug': ('termo',)}
+    readonly_fields = ('gerado_em',)
+
+    def preview_def(self, obj):
+        return (obj.definicao[:60] + '...') if len(obj.definicao) > 60 else obj.definicao
+    preview_def.short_description = 'Definição'
+
+    def lista_categorias(self, obj):
+        cats = obj.categorias.all()[:3]
+        return ', '.join(c.nome for c in cats) + ('...' if obj.categorias.count() > 3 else '')
+    lista_categorias.short_description = 'Categorias'
