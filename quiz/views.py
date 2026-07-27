@@ -148,7 +148,9 @@ def cadastro(request):
                 perfil.save()
             except Exception:
                 pass
-            login(request, user)
+            # Django com allauth tem 2 backends configurados; login() precisa
+            # saber qual usar. ModelBackend eh o certo pra signup username+senha.
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('iniciar_quiz')
     else:
         form = UserCreationForm()
