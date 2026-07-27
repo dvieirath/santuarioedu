@@ -250,10 +250,10 @@ LOGOUT_REDIRECT_URL = 'account_login'
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
 ACCOUNT_UNIQUE_EMAIL = True
-# 'optional' = pede confirmação mas nao trava login antes.
-# 'mandatory' = trava login até user confirmar email (mais rigoroso).
-# Deixamos optional pra não atrapalhar UX; trial PRO 7d só é concedido após confirmar.
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+# TEMPORARIAMENTE 'none' pra destravar signup em prod (SMTP sync estava
+# fazendo gunicorn worker timeout). TODO: mover envio de email pra
+# background (Celery/RQ) e voltar pra 'optional'.
+ACCOUNT_EMAIL_VERIFICATION = config('ACCOUNT_EMAIL_VERIFICATION', default='none')
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
@@ -278,13 +278,14 @@ AI_PROVIDER_ORDER = config('AI_PROVIDER_ORDER', default='groq,gemini', cast=Csv(
 
 # Groq — recomendado. 30 req/min grátis, super rápido.
 # Pegue chave em: https://console.groq.com/keys
-GROQ_API_KEY = config('GROQ_API_KEY', default='')
-GROQ_MODEL   = config('GROQ_MODEL', default='llama-3.3-70b-versatile')
+# .strip() defensivo: env vars coladas com \n no fim causam HTTP 401
+GROQ_API_KEY = (config('GROQ_API_KEY', default='') or '').strip()
+GROQ_MODEL   = (config('GROQ_MODEL', default='llama-3.3-70b-versatile') or '').strip()
 
 # Gemini — fallback. 1500 req/dia grátis.
 # Pegue chave em: https://aistudio.google.com/app/apikey
-GEMINI_API_KEY = config('GEMINI_API_KEY', default='')
-GEMINI_MODEL   = config('GEMINI_MODEL', default='gemini-3.1-flash-lite')
+GEMINI_API_KEY = (config('GEMINI_API_KEY', default='') or '').strip()
+GEMINI_MODEL   = (config('GEMINI_MODEL', default='gemini-3.1-flash-lite') or '').strip()
 
 # Timeout de chamadas IA em segundos. Em web requests, 30s evita DoS gratuito
 # (gunicorn worker travado). Em management commands longos você pode
@@ -337,14 +338,15 @@ PRIVACIDADE_EMAIL = config('PRIVACIDADE_EMAIL', default='privacidade@santuarioed
 
 # ── E-mail (SMTP em produção, console em dev) ───────────────────────────────
 # Controla via .env: se EMAIL_HOST estiver definido → usa SMTP. Senão → console.
-EMAIL_HOST          = config('EMAIL_HOST', default='')
-EMAIL_HOST_USER     = config('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+# .strip() defensivo: env vars coladas com \n no fim quebram SMTP auth
+EMAIL_HOST          = (config('EMAIL_HOST', default='') or '').strip()
+EMAIL_HOST_USER     = (config('EMAIL_HOST_USER', default='') or '').strip()
+EMAIL_HOST_PASSWORD = (config('EMAIL_HOST_PASSWORD', default='') or '').strip()
 EMAIL_PORT          = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS       = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_USE_SSL       = config('EMAIL_USE_SSL', default=False, cast=bool)
-DEFAULT_FROM_EMAIL  = config('DEFAULT_FROM_EMAIL', default='SantuarioEdu <noreply@santuarioedu.com.br>')
-SERVER_EMAIL        = config('SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
+DEFAULT_FROM_EMAIL  = (config('DEFAULT_FROM_EMAIL', default='SantuarioEdu <noreply@santuarioedu.com.br>') or '').strip()
+SERVER_EMAIL        = (config('SERVER_EMAIL', default=DEFAULT_FROM_EMAIL) or '').strip()
 
 if EMAIL_HOST:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
