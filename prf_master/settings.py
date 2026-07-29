@@ -253,7 +253,11 @@ ACCOUNT_UNIQUE_EMAIL = True
 # TEMPORARIAMENTE 'none' pra destravar signup em prod (SMTP sync estava
 # fazendo gunicorn worker timeout). TODO: mover envio de email pra
 # background (Celery/RQ) e voltar pra 'optional'.
-ACCOUNT_EMAIL_VERIFICATION = config('ACCOUNT_EMAIL_VERIFICATION', default='none')
+ACCOUNT_EMAIL_VERIFICATION = config('ACCOUNT_EMAIL_VERIFICATION', default='mandatory')
+# Envia código de 6 dígitos por email em vez de link clicável.
+ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True
+# Auto-loga após confirmar o email (evita pedir senha de novo).
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
 

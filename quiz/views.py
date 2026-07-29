@@ -135,8 +135,15 @@ def verificar_conquistas(user):
     return novas
 
 
-@ratelimit(key='ip', rate='5/h', method='POST', block=True)
 def cadastro(request):
+    """Rota antiga /cadastro/ — redireciona pro fluxo unificado do allauth
+    (/accounts/signup/) que ja tem email obrigatorio + verificacao por codigo."""
+    from django.shortcuts import redirect as _redirect
+    return _redirect('account_signup', permanent=False)
+
+
+@ratelimit(key='ip', rate='5/h', method='POST', block=True)
+def _cadastro_legacy_deprecated(request):
     from django.utils import timezone as _tz
     erros_legais = []
     if request.method == 'POST':
