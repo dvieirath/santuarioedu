@@ -22,7 +22,7 @@
 
     <h2 class="font-serif text-xl font-semibold text-on-surface mb-3 text-center">Confirme seu email</h2>
     <p class="text-sm text-on-surface-variant mb-6 leading-relaxed text-center">
-      Enviamos um código de 6 dígitos para o seu email. Digite abaixo para ativar sua conta.
+      Enviamos um código de 6 dígitos {% if email %}para <strong class="text-primary">{{ email }}</strong>{% else %}para o seu email{% endif %}. Digite abaixo para ativar sua conta.
     </p>
 
     {% if form.errors %}
