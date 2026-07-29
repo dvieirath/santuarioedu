@@ -348,7 +348,17 @@ EMAIL_USE_SSL       = config('EMAIL_USE_SSL', default=False, cast=bool)
 DEFAULT_FROM_EMAIL  = (config('DEFAULT_FROM_EMAIL', default='SantuarioEdu <noreply@santuarioedu.com.br>') or '').strip()
 SERVER_EMAIL        = (config('SERVER_EMAIL', default=DEFAULT_FROM_EMAIL) or '').strip()
 
-if EMAIL_HOST:
+# Prefere HTTP API do Resend (Railway bloqueia SMTP outbound; HTTPS passa).
+# Se RESEND_API_KEY setada -> usa anymail.backends.resend
+# Senao, se EMAIL_HOST setado -> tenta SMTP tradicional
+# Senao -> console (dev)
+RESEND_API_KEY = (config('RESEND_API_KEY', default='') or config('EMAIL_HOST_PASSWORD', default='') or '').strip()
+
+if RESEND_API_KEY and 're_' in RESEND_API_KEY:
+    EMAIL_BACKEND = 'anymail.backends.resend.EmailBackend'
+    ANYMAIL = {'RESEND_API_KEY': RESEND_API_KEY}
+    INSTALLED_APPS = list(INSTALLED_APPS) + ['anymail']
+elif EMAIL_HOST:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
