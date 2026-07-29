@@ -266,8 +266,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # Cole aqui seu Client ID e Secret do Google Cloud Console
         # https://console.cloud.google.com → APIs & Services → Credentials
         'APP': {
-            'client_id': '684467409724-d83uneocrojsgg06o32iauvis6n3ebs4.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': (config('GOOGLE_OAUTH_CLIENT_ID', default='') or '').strip(),
+            'secret':    (config('GOOGLE_OAUTH_SECRET', default='') or '').strip(),
             'key': '',
         },
         'SCOPE': ['profile', 'email'],
@@ -358,7 +358,13 @@ SERVER_EMAIL        = (config('SERVER_EMAIL', default=DEFAULT_FROM_EMAIL) or '')
 # Senao -> console (dev)
 RESEND_API_KEY = (config('RESEND_API_KEY', default='') or config('EMAIL_HOST_PASSWORD', default='') or '').strip()
 
-if RESEND_API_KEY and 're_' in RESEND_API_KEY:
+try:
+    import anymail as _anymail_check  # noqa: F401
+    _ANYMAIL_INSTALADO = True
+except ImportError:
+    _ANYMAIL_INSTALADO = False
+
+if RESEND_API_KEY and 're_' in RESEND_API_KEY and _ANYMAIL_INSTALADO:
     EMAIL_BACKEND = 'anymail.backends.resend.EmailBackend'
     ANYMAIL = {'RESEND_API_KEY': RESEND_API_KEY}
     INSTALLED_APPS = list(INSTALLED_APPS) + ['anymail']
@@ -396,6 +402,8 @@ CONTENT_SECURITY_POLICY = {
             "'unsafe-eval'",    # Alpine/marked usam eval em alguns lugares
             'https://cdn.tailwindcss.com',
             'https://cdn.jsdelivr.net',
+            'https://www.googletagmanager.com',  # GA4
+            'https://plausible.io',              # Plausible
         ],
         'style-src': [
             "'self'",
@@ -413,8 +421,14 @@ CONTENT_SECURITY_POLICY = {
             'data:',
             'https://lh3.googleusercontent.com',  # avatares do Google OAuth
             'https://*.googleusercontent.com',
+            'https://www.google-analytics.com',   # pixel do GA4
         ],
-        'connect-src': ["'self'"],
+        'connect-src': [
+            "'self'",
+            'https://www.google-analytics.com',   # beacons do GA4
+            'https://*.analytics.google.com',
+            'https://plausible.io',               # beacons Plausible
+        ],
         'frame-ancestors': ["'none'"],  # equivalente a X-Frame-Options: DENY
         'base-uri': ["'self'"],
         'form-action': ["'self'", 'https://accounts.google.com'],
