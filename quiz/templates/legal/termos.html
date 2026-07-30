@@ -40,7 +40,7 @@
 <main class="max-w-3xl mx-auto px-6 md:px-8 py-12 doc">
   <p class="text-xs font-bold uppercase tracking-[0.25em] text-violet-600 mb-2">Documento Legal</p>
   <h1 class="text-3xl md:text-4xl font-extrabold text-[#002046] mb-2 tracking-tight">Termos de Uso</h1>
-  <p class="text-sm text-slate-500 mb-8">Última atualização: <strong>{{ data_atualizacao|default:"15 de janeiro de 2025" }}</strong></p>
+  <p class="text-sm text-slate-500 mb-8">Última atualização: <strong>{{ data_atualizacao|default:"30 de julho de 2026" }}</strong></p>
 
   <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 text-sm">
     <p class="font-bold text-amber-900 flex items-center gap-2 mb-2">
@@ -53,11 +53,18 @@
     </p>
   </div>
 
-  <h2>1. Sobre a plataforma</h2>
+  <h2>1. Sobre a plataforma e o fornecedor</h2>
   <p>
     A <strong>SantuarioEdu</strong> é uma plataforma online de estudos com IA
     que oferece banco de questões, simulados, revisão espaçada, análises de desempenho e
     tutoria por inteligência artificial.
+  </p>
+  <p>
+    O serviço é oferecido por <strong>Davi Vieira de Souza</strong>, pessoa física,
+    com sede em QR 208 Conjunto 09 Casa 27, Samambaia Sul, Brasília — DF, CEP 72316-110.
+    Contato oficial: <a href="mailto:{{ SUPORTE_EMAIL|default:"contato@santuarioedu.com.br" }}">{{ SUPORTE_EMAIL|default:"contato@santuarioedu.com.br" }}</a>.
+    CPF do titular disponível mediante solicitação formal por e-mail
+    (identificação prevista pelo CDC — Lei nº 8.078/1990, Art. 6º, III).
   </p>
   <p>
     O serviço é prestado em formato <strong>"como está"</strong>, como ferramenta de apoio ao aprendizado.
@@ -133,7 +140,7 @@
   <p>
     Você tem <strong>7 dias corridos</strong> após a contratação para desistir e receber reembolso integral,
     independentemente do motivo. Solicite via
-    <a href="mailto:financeiro@santuarioedu.com.br">financeiro@santuarioedu.com.br</a>.
+    <a href="mailto:{{ FINANCEIRO_EMAIL|default:"financeiro@santuarioedu.com.br" }}">{{ FINANCEIRO_EMAIL|default:"financeiro@santuarioedu.com.br" }}</a>.
   </p>
 
   <h3>6.2 Cancelamento</h3>
@@ -191,8 +198,11 @@
   <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mt-10 text-sm">
     <p class="font-bold text-slate-900 mb-1">Contato</p>
     <p class="text-slate-700">
-      📧 <a href="mailto:contato@santuarioedu.com.br">contato@santuarioedu.com.br</a><br/>
-      Para questões legais: <a href="mailto:juridico@santuarioedu.com.br">juridico@santuarioedu.com.br</a>
+      <strong>Davi Vieira de Souza</strong> — titular e responsável legal.<br/>
+      📧 <a href="mailto:{{ SUPORTE_EMAIL|default:"contato@santuarioedu.com.br" }}">{{ SUPORTE_EMAIL|default:"contato@santuarioedu.com.br" }}</a><br/>
+      💰 Financeiro/reembolsos: <a href="mailto:{{ FINANCEIRO_EMAIL|default:"financeiro@santuarioedu.com.br" }}">{{ FINANCEIRO_EMAIL|default:"financeiro@santuarioedu.com.br" }}</a><br/>
+      🔒 LGPD/Privacidade: <a href="mailto:{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}">{{ PRIVACIDADE_EMAIL|default:"privacidade@santuarioedu.com.br" }}</a><br/>
+      📍 QR 208 Conjunto 09 Casa 27 — Samambaia Sul, Brasília/DF — CEP 72316-110
     </p>
   </div>
 </main>
