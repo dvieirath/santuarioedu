@@ -1,24 +1,25 @@
 {% comment %}
-  Botão flutuante de suporte (FAB).
-  Aparece em todas as páginas logadas.
-  Clique abre menu com opção de novo ticket ou ver tickets.
+  Botao flutuante de suporte/feedback (FAB).
+  Aparece em todas as paginas logadas (desktop + mobile).
+  Beta testers usam pra reportar bug/sugerir feature sem sair da tela.
 {% endcomment %}
 
-<div id="sos-fab" class="fixed bottom-6 left-6 z-40 md:hidden">
+<div id="sos-fab" class="fixed bottom-6 right-6 z-40">
   <button id="sos-btn" onclick="toggleSOS()"
-          class="w-12 h-12 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center hover:scale-105 transition-transform"
-          title="Suporte" aria-label="Abrir suporte">
-    <span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 1;">support_agent</span>
+          class="flex items-center gap-2 px-4 h-12 rounded-full bg-secondary text-white shadow-xl hover:scale-105 transition-transform"
+          title="Feedback / Suporte" aria-label="Abrir feedback ou suporte">
+    <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">support_agent</span>
+    <span class="hidden sm:inline text-sm font-bold">Feedback</span>
   </button>
 
-  <div id="sos-menu" class="hidden absolute bottom-16 left-0 bg-white rounded-2xl shadow-2xl border border-slate-200 w-56 overflow-hidden">
-    <div class="px-4 py-3 border-b border-slate-100 flex items-center gap-2">
+  <div id="sos-menu" class="hidden absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl border border-slate-200 w-64 overflow-hidden">
+    <div class="px-4 py-3 border-b border-slate-100 flex items-center gap-2 bg-gradient-to-r from-blue-50 to-emerald-50">
       <span class="material-symbols-outlined text-secondary" style="font-size:18px;font-variation-settings:'FILL' 1;">support_agent</span>
-      <p class="text-sm font-bold text-primary">Precisa de ajuda?</p>
+      <p class="text-sm font-bold text-primary">Como podemos ajudar?</p>
     </div>
     <a href="{% url 'suporte_novo' %}?origem={{ request.path|urlencode }}" class="flex items-center gap-2 px-4 py-3 text-sm text-on-surface hover:bg-slate-50 transition-colors">
-      <span class="material-symbols-outlined text-primary" style="font-size:16px;">add_comment</span>
-      Abrir novo ticket
+      <span class="material-symbols-outlined text-blue-600" style="font-size:16px;">bug_report</span>
+      Reportar bug ou sugerir
     </a>
     <a href="{% url 'suporte_lista' %}" class="flex items-center gap-2 px-4 py-3 text-sm text-on-surface hover:bg-slate-50 transition-colors border-t border-slate-100">
       <span class="material-symbols-outlined text-primary" style="font-size:16px;">forum</span>
