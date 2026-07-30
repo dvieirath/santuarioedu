@@ -54,14 +54,70 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A SantuarioEdu é realmente grátis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O plano Gratuito é permanente, sem prazo de expiração e sem exigir cartão de crédito. Oferece acesso ao banco de questões (até 30 por dia) e 1 simulado por semana. Você só precisa fazer upgrade se quiser recursos ilimitados, IA avançada e análises detalhadas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Serve para qual concurso público?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A plataforma cobre disciplinas gerais presentes em provas de concursos federais e estaduais brasileiros: Português, Direito Constitucional, Direito Administrativo, Raciocínio Lógico, Informática, Legislação Específica, entre outras. As questões são organizadas por banca (Cebraspe, FGV, FUNCAB, etc.) e por ano, permitindo estudo direcionado ao seu concurso alvo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A inteligência artificial pode errar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, IA generativa pode ter imprecisões ocasionais. Por isso a IA é uma ferramenta de apoio ao seu estudo — nunca a única fonte. Todas as questões e gabaritos oficiais vêm de provas reais das bancas. Recomendamos sempre confirmar informações críticas com fontes oficiais (leis, doutrina, jurisprudência)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como faço para cancelar minha assinatura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cancele a qualquer momento na área 'Minha Assinatura' dentro da plataforma — sem burocracia, sem fidelidade, sem taxas de cancelamento. Você continua com acesso ao plano pago até o fim do ciclo já pago. Pelo CDC (Art. 49), nos primeiros 7 dias você pode desistir e receber reembolso integral."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Meus dados de estudo são seguros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Operamos em conformidade com a LGPD (Lei nº 13.709/2018). Senhas armazenadas com hash irreversível (PBKDF2 + SHA256), transmissão criptografada via HTTPS/TLS, backups criptografados e nenhum compartilhamento de dados com terceiros para fins publicitários. Você pode exportar ou excluir todos os seus dados a qualquer momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso instalar um aplicativo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A SantuarioEdu funciona 100% no navegador (Chrome, Firefox, Safari, Edge). Também é um PWA — você pode instalar como app no celular (Android/iOS) ou desktop com 1 clique, sem passar pela Play Store ou App Store. Funciona parcialmente offline após o primeiro acesso."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "Product",
   "name": "SantuarioEdu PRO",
   "description": "Acesso ilimitado a questões, simulados cronometrados, IA e revisão espaçada.",
   "brand": {"@type": "Brand", "name": "SantuarioEdu"},
   "offers": [
     {"@type": "Offer", "name": "Gratuito", "price": "0", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"},
-    {"@type": "Offer", "name": "PRO", "price": "29.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"},
-    {"@type": "Offer", "name": "Premium", "price": "49.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"}
+    {"@type": "Offer", "name": "PRO", "price": "14.90", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"},
+    {"@type": "Offer", "name": "Premium", "price": "29.90", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"}
   ]
 }
 </script>
@@ -102,6 +158,7 @@ tailwind.config = {
       <a href="#recursos" class="hover:text-primary transition-colors">Recursos</a>
       <a href="#como-funciona" class="hover:text-primary transition-colors">Como funciona</a>
       <a href="#planos" class="hover:text-primary transition-colors">Planos</a>
+      <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="{% url 'account_login' %}" class="hidden sm:inline-flex text-sm font-bold text-slate-700 hover:text-primary px-4 py-2 transition-colors">Entrar</a>
@@ -201,7 +258,6 @@ tailwind.config = {
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {% for f in '12345678'|make_list %}{% endfor %}
       <!-- 1 -->
       <div class="feature-card bg-white rounded-2xl border border-[#edeeef] p-6 editorial-shadow-soft">
         <div class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
@@ -286,7 +342,6 @@ tailwind.config = {
       <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight">Como funciona</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
-      {% for step in '123'|make_list %}{% endfor %}
       <div class="text-center">
         <div class="w-14 h-14 mx-auto rounded-full bg-primary text-white flex items-center justify-center text-xl font-extrabold font-headline mb-4">1</div>
         <h3 class="font-headline font-extrabold text-primary mb-2">Crie sua conta</h3>
@@ -402,6 +457,100 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ─── FAQ ────────────────────────────────────────────────────────────────── -->
+<section id="faq" class="py-20 md:py-28 bg-white">
+  <div class="max-w-3xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Perguntas frequentes</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-3">Tire suas dúvidas</h2>
+      <p class="text-slate-600 text-base">
+        As respostas mais comuns antes de você começar. Não achou o que procurava?
+        <a href="mailto:{{ SUPORTE_EMAIL|default:'contato@santuarioedu.com.br' }}" class="text-primary hover:underline font-semibold">Escreva pra gente</a>.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">A SantuarioEdu é realmente grátis?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          Sim. O plano <strong class="text-primary">Gratuito é permanente</strong>, sem prazo de expiração e sem exigir cartão de crédito.
+          Oferece acesso ao banco de questões (até 30 por dia) e 1 simulado por semana. Você só precisa fazer
+          upgrade se quiser recursos ilimitados, IA avançada e análises detalhadas.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">Serve pra qual concurso público?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          A plataforma cobre disciplinas gerais presentes em provas de concursos federais e estaduais brasileiros:
+          <strong class="text-primary">Português, Direito Constitucional, Direito Administrativo, Raciocínio Lógico,
+          Informática, Legislação Específica</strong>, entre outras.
+          Questões organizadas por <strong class="text-primary">banca (Cebraspe, FGV, FUNCAB, etc.)</strong>
+          e por ano, permitindo estudo direcionado ao seu concurso alvo.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">A inteligência artificial pode errar?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          Sim, IA generativa pode ter imprecisões ocasionais. Por isso a IA é uma
+          <strong class="text-primary">ferramenta de apoio</strong> ao seu estudo — nunca a única fonte.
+          Todas as questões e gabaritos oficiais vêm de provas reais das bancas.
+          Recomendamos sempre confirmar informações críticas com fontes oficiais (leis, doutrina, jurisprudência).
+        </p>
+      </details>
+
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">Como faço para cancelar minha assinatura?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          Cancele a qualquer momento na área <strong class="text-primary">"Minha Assinatura"</strong> dentro da plataforma
+          — sem burocracia, sem fidelidade, sem taxas de cancelamento. Você continua com acesso ao plano pago até o fim
+          do ciclo já pago. Pelo <strong class="text-primary">CDC (Art. 49)</strong>, nos primeiros 7 dias você pode
+          desistir e receber reembolso integral.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">Meus dados de estudo são seguros?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          Sim. Operamos em conformidade com a <strong class="text-primary">LGPD (Lei nº 13.709/2018)</strong>.
+          Senhas com hash irreversível (PBKDF2 + SHA256), transmissão criptografada via HTTPS/TLS,
+          backups criptografados e <strong class="text-primary">nenhum compartilhamento de dados com terceiros</strong>
+          para fins publicitários. Você pode exportar ou excluir todos os seus dados a qualquer momento —
+          ver <a href="{% url 'politica_privacidade' %}" class="text-primary hover:underline font-semibold">Política de Privacidade</a>.
+        </p>
+      </details>
+
+      <details class="group bg-white border border-[#edeeef] rounded-2xl p-5 md:p-6 editorial-shadow-soft open:border-primary/30 transition-all">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline font-extrabold text-primary text-base md:text-lg pr-4">Preciso instalar um aplicativo?</span>
+          <span class="material-symbols-outlined text-slate-400 shrink-0 transition-transform group-open:rotate-45" style="font-size:24px;">add</span>
+        </summary>
+        <p class="text-sm text-slate-600 leading-relaxed mt-4 pt-4 border-t border-[#edeeef]">
+          Não. A SantuarioEdu funciona 100% no navegador (Chrome, Firefox, Safari, Edge). Também é um
+          <strong class="text-primary">PWA</strong> — você pode instalar como app no celular (Android/iOS) ou desktop
+          com 1 clique, sem passar pela Play Store ou App Store. Funciona parcialmente offline após o primeiro acesso.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CTA final ──────────────────────────────────────────────────────────── -->
 <section class="py-20 md:py-28 bg-primary text-white text-center relative overflow-hidden">
   <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
@@ -457,7 +606,7 @@ tailwind.config = {
       <ul class="space-y-2 text-xs">
         <li><a href="{% url 'politica_privacidade' %}" class="hover:text-white transition-colors">Política de Privacidade</a></li>
         <li><a href="{% url 'termos_uso' %}" class="hover:text-white transition-colors">Termos de Uso</a></li>
-        <li><a href="mailto:contato@santuarioedu.com.br" class="hover:text-white transition-colors">Contato</a></li>
+        <li><a href="mailto:{{ SUPORTE_EMAIL|default:'contato@santuarioedu.com.br' }}" class="hover:text-white transition-colors">Contato</a></li>
       </ul>
     </div>
   </div>
