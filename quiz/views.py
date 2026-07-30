@@ -447,10 +447,17 @@ def dashboard(request):
         _log_falha('respostas', e)
         respostas = RespostaUsuario.objects.none()
 
-    # ── Novo usuario (0 respostas) → pula direto pro fluxo de estudo ──────
-    # Dashboard cheio de estatisticas nao faz sentido pra quem acabou de cadastrar
-    # e evita edge cases de render no primeiro acesso pos-signup.
+    # ── Novo usuario (0 respostas) → onboarding ou fluxo de estudo ──────
+    # Dashboard cheio de estatisticas nao faz sentido pra quem acabou de cadastrar.
+    # Se ainda nao personalizou concurso, manda pro onboarding (ativa trial PRO 7 dias);
+    # se ja personalizou (mas ainda nao respondeu), vai direto escolher tema.
     if ctx['total_respondidas'] == 0:
+        try:
+            from .models import ConcursoPreferido
+            if not ConcursoPreferido.objects.filter(usuario=request.user).exists():
+                return redirect('onboarding_concurso')
+        except Exception as e:
+            _log_falha('onboarding_check', e)
         return redirect('escolher_tema')
 
     # ── Meta / streak ────────────────────────────────────────────────
@@ -7687,7 +7694,8 @@ def onboarding_concurso(request):
                 '🎁 Você ganhou 7 dias de PRO grátis! Aproveite recursos ilimitados.'
             )
 
-        return redirect('dashboard')
+        # Vai direto pra escolher tema (nao pra dashboard vazio) — 1o clique real
+        return redirect('escolher_tema')
 
     return render(request, 'quiz/onboarding_concurso.html')
 
