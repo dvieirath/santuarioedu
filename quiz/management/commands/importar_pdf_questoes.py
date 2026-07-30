@@ -166,6 +166,9 @@ class Command(BaseCommand):
                             help='Tamanho maximo de cada chunk em chars (default 6000)')
         parser.add_argument('--com_justificativa', action='store_true',
                             help='Gera justificativa da IA para cada questao (dobra chamadas)')
+        parser.add_argument('--com_figuras', action='store_true',
+                            help='Depois de extrair texto, roda extrair_figuras_vision pra '
+                                 'anexar figuras precisas via Gemini Vision + PyMuPDF crop')
         parser.add_argument('--dry_run', action='store_true',
                             help='Mostra o que extraiu, nao salva')
         parser.add_argument('--max_questoes', type=int, default=0,
@@ -204,6 +207,19 @@ class Command(BaseCommand):
             criadas, ignoradas = self._processar_pdf(pdf, categoria, opts)
             total_criadas += criadas
             total_ignoradas += ignoradas
+
+            # Fase pos-texto: extrai figuras via Vision + crop se pedido
+            if opts.get('com_figuras') and criadas > 0 and not opts.get('dry_run'):
+                self.stdout.write(self.style.HTTP_INFO(
+                    f'\n  ▷ [--com_figuras] Extraindo figuras de {pdf.name}...'
+                ))
+                try:
+                    from django.core.management import call_command
+                    call_command('extrair_figuras_vision', arquivo=str(pdf))
+                except Exception as e:
+                    self.stdout.write(self.style.WARNING(
+                        f'  Falha extraindo figuras: {type(e).__name__}: {str(e)[:120]}'
+                    ))
 
         self.stdout.write(self.style.SUCCESS(
             f'\n{"=" * 60}\nTOTAL: {total_criadas} questoes salvas'
