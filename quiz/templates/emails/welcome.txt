@@ -1,0 +1,37 @@
+Olá, {{ nome }}!
+
+Seja bem-vindo(a) ao SantuarioEdu — sua nova plataforma de estudos com IA
+para concursos públicos brasileiros.
+
+Sua conta foi confirmada com sucesso. 🎉
+
+╔════════════════════════════════════════════╗
+║  🎁 GRÁTIS: 7 DIAS DE PRO LIBERADOS        ║
+║  Aproveite recursos ilimitados agora       ║
+╚════════════════════════════════════════════╝
+
+O que fazer nos próximos 5 minutos:
+
+1️⃣  Escolha seu concurso alvo
+    👉 {{ url_onboarding }}
+    (Personaliza a plataforma e ativa seu trial PRO)
+
+2️⃣  Responda sua primeira questão
+    👉 {{ url_estudar }}
+    (Escolha uma disciplina e comece — 30 questões grátis/dia)
+
+3️⃣  Configure sua meta diária
+    👉 {{ url_perfil }}
+    (Streak diário mantém você constante)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Precisa de ajuda? Responda este email ou escreva pra:
+📧 {{ suporte_email }}
+
+Bom estudo!
+— Equipe SantuarioEdu
+
+--
+{{ site_url }}
+Sem fidelidade · LGPD compliance · PWA (Web + Mobile)
