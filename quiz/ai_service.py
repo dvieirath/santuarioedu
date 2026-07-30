@@ -248,65 +248,65 @@ Seja objetivo, mas completo. Máximo de 600 palavras."""
 
 
 def ai_mapa_mental(nome_disciplina: str, usuario=None) -> str:
-    """Gera um mapa mental em sintaxe Mermaid `mindmap` para renderizar no browser.
-    Retorna string com o codigo Mermaid pronto pra colocar num <pre class="mermaid">."""
+    """Gera um mapa mental em MARKDOWN hierarquico (# H1 raiz, ## H2 galhos, ...).
+    Renderizado no browser via markmap (biblioteca JS). Formato markdown escolhido
+    porque markmap suporta expand/collapse nativo por no."""
     api_key = getattr(settings, 'GROQ_API_KEY', '') or getattr(settings, 'GEMINI_API_KEY', '')
     if not api_key:
-        return "mindmap\n  root((IA indisponivel))\n    Configure GROQ_API_KEY ou GEMINI_API_KEY"
+        return f"# {nome_disciplina}\n## IA indisponivel\n- Configure GROQ_API_KEY ou GEMINI_API_KEY"
 
     contexto = _contexto_concurso(usuario)
     try:
         prompt = f"""Voce e especialista em {contexto}.
-Crie um MAPA MENTAL sobre "{nome_disciplina}" no formato Mermaid `mindmap`.
+Crie um MAPA MENTAL sobre "{nome_disciplina}" em MARKDOWN hierarquico.
 
 REGRAS ESTRITAS:
-- Retorne SOMENTE o codigo Mermaid, sem texto antes ou depois, sem markdown fences (```)
-- Comece com a linha "mindmap"
-- Root com formato: root(({nome_disciplina}))
-- Use ate 3 niveis de profundidade
-- 4 a 6 galhos principais (topicos-chave da materia)
-- Cada galho principal tem 3-6 sub-topicos
-- Textos curtos (max 4 palavras por no)
-- Nao use aspas, parenteses aninhados, colchetes ou caracteres especiais nos textos
-- Nao use emojis
+- Retorne SOMENTE markdown, sem texto antes ou depois, sem cercas de codigo (```)
+- Comece com "# {nome_disciplina}" (uma unica linha H1 = raiz)
+- Nivel 2 (##): 4 a 6 topicos principais da materia
+- Nivel 3 (###): 3 a 6 sub-topicos dentro de cada topico principal
+- Nivel 4 (####): OPCIONAL, so use quando houver detalhamento util (leis especificas, artigos, prazos)
+- Textos curtos e claros (2 a 6 palavras por no)
+- Nao use emojis, aspas, parenteses aninhados nem caracteres especiais
 - Foco em {contexto}
 
-Exemplo do formato exato:
-mindmap
-  root((Direito Constitucional))
-    Principios Fundamentais
-      Republica
-      Federacao
-      Democracia
-    Direitos e Garantias
-      Art 5 CF
-      Direitos Sociais
-      Nacionalidade
-    Organizacao do Estado
-      Uniao
-      Estados
-      Municipios
-    Poder Judiciario
-      STF
-      STJ
-      TRFs
+Exemplo do formato EXATO:
+# Direito Constitucional
+## Principios Fundamentais
+### Republica Federativa
+### Estado Democratico
+### Separacao dos Poderes
+## Direitos e Garantias
+### Direitos Individuais Art 5
+### Direitos Sociais Art 6
+### Direitos Politicos
+### Nacionalidade
+## Organizacao do Estado
+### Uniao
+### Estados membros
+### Municipios
+### Distrito Federal
+## Poder Judiciario
+### STF competencia
+### STJ competencia
+### TRFs
 
 Agora gere o mapa mental de "{nome_disciplina}":"""
 
         response = _call_ia(prompt)
         texto = response.text.strip()
-        # Limpa markdown fences se a IA errou
+        # Limpa cercas de codigo se a IA errou
         import re as _re
-        texto = _re.sub(r'^```(?:mermaid|mindmap)?\s*', '', texto)
+        texto = _re.sub(r'^```(?:markdown|md)?\s*', '', texto)
         texto = _re.sub(r'\s*```$', '', texto)
-        # Garante que comeca com "mindmap"
-        if not texto.startswith('mindmap'):
-            texto = 'mindmap\n' + texto
+        # Garante que comeca com H1 (raiz)
+        if not texto.startswith('#'):
+            texto = f'# {nome_disciplina}\n' + texto
         return texto
 
     except Exception as e:
         logger.error(f"ai_mapa_mental error: {e}")
-        return f"mindmap\n  root(({nome_disciplina}))\n    Erro ao gerar mapa"
+        return f"# {nome_disciplina}\n## Erro ao gerar\n- Tente novamente em alguns instantes"
 
 
 def ai_timeline_lei(titulo_lei: str, usuario=None) -> dict:

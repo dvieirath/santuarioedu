@@ -3242,9 +3242,15 @@ def mapa_mental(request, categoria_id):
             defaults={'mermaid': codigo},
         )
 
+    # Formato antigo (Mermaid): comeca com "mindmap" ou "graph".
+    # Formato novo (Markdown pra markmap): comeca com "#".
+    conteudo = (mapa.mermaid or '').lstrip()
+    formato_antigo = not conteudo.startswith('#')
+
     return render(request, 'quiz/mapa_mental.html', {
-        'categoria': categoria,
-        'mapa':      mapa,
+        'categoria':      categoria,
+        'mapa':           mapa,
+        'formato_antigo': formato_antigo,
     })
 
 
