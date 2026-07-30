@@ -30,10 +30,84 @@ VALIDADORES_MATERIAL = [
 
 
 class Categoria(models.Model):
+    """Categoria hierarquica de conteudo. Ex: Ciencias > Biologia > Taxonomia.
+
+    O campo parent auto-referencial permite arvore de profundidade arbitraria.
+    Questao.categoria pode apontar pra qualquer nivel (folha ou intermediario).
+    """
     nome = models.CharField(max_length=100)
+    parent = models.ForeignKey(
+        'self', null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name='filhos',
+        help_text='Categoria pai. Deixe vazio pra raiz (ex: Ciencias, Direito).',
+    )
+
+    class Meta:
+        ordering = ['nome']
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
+        # Nome unico dentro do mesmo pai — permite "Taxonomia" em Biologia E em Geologia
+        constraints = [
+            models.UniqueConstraint(
+                fields=['parent', 'nome'],
+                name='unique_categoria_por_parent',
+            ),
+        ]
 
     def __str__(self):
-        return self.nome
+        return self.caminho
+
+    @property
+    def caminho(self) -> str:
+        """Ex: 'Ciencias > Biologia > Taxonomia'. Percorre ate a raiz."""
+        partes = [self.nome]
+        no = self.parent
+        # Guard contra ciclo — max 10 niveis
+        for _ in range(10):
+            if not no:
+                break
+            partes.append(no.nome)
+            no = no.parent
+        return ' > '.join(reversed(partes))
+
+    @property
+    def profundidade(self) -> int:
+        """0 pra raiz, 1 pra filho direto, etc."""
+        n = 0
+        no = self.parent
+        for _ in range(10):
+            if not no:
+                break
+            n += 1
+            no = no.parent
+        return n
+
+    @property
+    def raiz(self) -> 'Categoria':
+        """Retorna a categoria raiz desta arvore (ela mesma se ja for raiz)."""
+        no = self
+        for _ in range(10):
+            if not no.parent:
+                return no
+            no = no.parent
+        return no
+
+    def descendentes_ids(self) -> list:
+        """IDs de todas as sub-categorias recursivamente (nao inclui self).
+        Usado pra filtrar questoes de toda uma subarvore."""
+        ids = []
+        pilha = list(self.filhos.all())
+        while pilha:
+            cat = pilha.pop()
+            ids.append(cat.id)
+            pilha.extend(list(cat.filhos.all()))
+        return ids
+
+    def subarvore_ids(self) -> list:
+        """IDs de self + todos descendentes. Usado pra queries tipo
+        Questao.objects.filter(categoria_id__in=raiz.subarvore_ids())."""
+        return [self.id] + self.descendentes_ids()
 
 class Questao(models.Model):
     TIPO_CHOICES = [

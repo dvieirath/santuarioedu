@@ -156,19 +156,51 @@ class QuestaoAdmin(admin.ModelAdmin):
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'qtd_questoes', 'qtd_revisadas')
+    list_display = ('caminho_display', 'nivel_display', 'qtd_questoes_direto',
+                    'qtd_questoes_subarvore', 'qtd_revisadas')
     search_fields = ('nome',)
+    list_filter = ('parent',)
+    autocomplete_fields = ('parent',)  # Combobox com busca em vez de dropdown gigante
+    fields = ('nome', 'parent')
 
-    def qtd_questoes(self, obj):
+    def caminho_display(self, obj):
+        """Mostra 'Ciencias > Biologia > Taxonomia' com indent visual."""
+        prof = obj.profundidade
+        indent = '&nbsp;' * (prof * 4)
+        prefixo = '↳ ' if prof > 0 else ''
+        return format_html('{}<strong>{}{}</strong>', indent, prefixo, obj.nome)
+    caminho_display.short_description = 'Categoria'
+    caminho_display.admin_order_field = 'nome'
+
+    def nivel_display(self, obj):
+        """Nivel na arvore (0=raiz, 1=filho direto, ...)."""
+        prof = obj.profundidade
+        emoji = ['🌳', '🌿', '🍃', '·'][min(prof, 3)]
+        return format_html('{} nivel {}', emoji, prof)
+    nivel_display.short_description = 'Nivel'
+
+    def qtd_questoes_direto(self, obj):
+        """Questoes diretamente nesta categoria (sem contar filhos)."""
         return obj.questao_set.count()
-    qtd_questoes.short_description = 'Total'
+    qtd_questoes_direto.short_description = 'Diretas'
+
+    def qtd_questoes_subarvore(self, obj):
+        """Questoes desta categoria + todas as sub-categorias descendentes."""
+        ids = obj.subarvore_ids()
+        return Questao.objects.filter(categoria_id__in=ids).count()
+    qtd_questoes_subarvore.short_description = 'Total (subarvore)'
 
     def qtd_revisadas(self, obj):
+        """Questoes revisadas / total desta categoria (somente diretas)."""
         rev = obj.questao_set.filter(revisada=True).count()
         total = obj.questao_set.count()
         cor = '#16a34a' if total > 0 and rev == total else '#f59e0b' if rev else '#dc2626'
         return format_html('<span style="color:{};font-weight:bold;">{}/{}</span>', cor, rev, total)
     qtd_revisadas.short_description = 'Revisadas'
+
+    def get_queryset(self, request):
+        """Ordena por hierarquia (raiz primeiro, filhos abaixo do pai)."""
+        return super().get_queryset(request).select_related('parent')
 
 
 admin.site.register(RespostaUsuario)
