@@ -54,7 +54,7 @@
   </div>
 
   <div id="card-questao" class="paper-card rounded-2xl p-5 fade-in">
-    <p class="font-serif text-base leading-relaxed text-on-surface">{{ questao_atual.enunciado }}</p>
+    <p class="font-serif text-base leading-relaxed text-on-surface">{{ questao_atual.texto|linebreaksbr }}</p>
   </div>
 
   <div id="alternativas" class="space-y-3">
@@ -63,7 +63,7 @@
       {% if ja_respondi %}disabled{% endif %}
       onclick="responder({{ alt.pk }}, this)"
       class="alt-btn w-full flex items-center gap-3 bg-white border border-outline-variant/40 rounded-lg px-4 py-3 text-left text-sm font-medium text-on-surface {% if ja_respondi %}opacity-60 cursor-not-allowed{% endif %}">
-      <span class="shrink-0 w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-xs font-bold text-on-surface-variant">{{ alt.letra }}</span>
+      <span class="shrink-0 w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-xs font-bold text-on-surface-variant">{% cycle 'A' 'B' 'C' 'D' 'E' 'F' %}</span>
       <span>{{ alt.texto }}</span>
     </button>
     {% endfor %}

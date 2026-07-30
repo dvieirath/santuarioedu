@@ -35,13 +35,30 @@
 <div class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-8">
 
   {% if not previsoes %}
-  <div class="flex flex-col items-center justify-center py-24 text-center">
-    <div class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center mb-5">
-      <span class="material-symbols-outlined text-primary active-icon" style="font-size:40px;">psychology</span>
+  <div class="paper-card rounded-2xl p-8 text-center max-w-xl mx-auto mt-8">
+    <div class="w-16 h-16 mx-auto rounded-2xl bg-primary-fixed flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">insights</span>
     </div>
-    <h2 class="font-serif text-xl font-semibold text-primary mb-2">Sem dados suficientes ainda</h2>
-    <p class="text-sm text-on-surface-variant max-w-xs mb-6">Responda mais questões para que a IA gere uma previsão personalizada.</p>
-    <a href="{% url 'iniciar_quiz' %}?modo=todas" class="px-6 py-3 bg-primary text-on-primary font-semibold text-sm rounded-lg hover:bg-primary-container transition-colors">Responder questões</a>
+    <h2 class="font-serif text-2xl font-bold text-primary mb-2">Alimentando a previsão IA</h2>
+    <p class="text-on-surface-variant mb-6">
+      A IA cruza seu histórico com padrões das bancas para prever quais tópicos têm maior chance de cair.
+      Precisa de <strong>pelo menos 15 respostas</strong> pra gerar previsões confiáveis.
+    </p>
+
+    <div class="text-left bg-surface-container-low rounded-xl p-4 mb-6">
+      <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-2">Ao alimentar dados você desbloqueia:</p>
+      <ul class="text-sm text-on-surface space-y-1.5">
+        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Ranking de disciplinas por probabilidade (alta/média/baixa)</li>
+        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Gráfico visual comparativo</li>
+        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Justificativa da IA pra cada previsão</li>
+        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Sugestão de foco pra revisar antes da prova</li>
+      </ul>
+    </div>
+
+    <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-full font-bold text-sm hover:bg-primary-container transition-colors editorial-shadow">
+      <span class="material-symbols-outlined" style="font-size:18px;">play_arrow</span>
+      Responder questões
+    </a>
   </div>
 
   {% else %}

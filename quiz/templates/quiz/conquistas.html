@@ -44,6 +44,20 @@
       </p>
     </div>
 
+    <!-- Certificado de progresso — gera PDF via impressão do navegador -->
+    <a href="{% url 'certificado_progresso' %}"
+       class="paper-card rounded-2xl p-5 mb-8 flex items-center gap-4 hover:border-primary/40 transition-all group fade-in"
+       style="background:linear-gradient(135deg, rgba(255,241,196,.4) 0%, rgba(255,255,255,.9) 100%);animation-delay:.05s;">
+      <div class="shrink-0 w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center">
+        <span class="material-symbols-outlined text-amber-600 active-icon" style="font-size:28px;font-variation-settings:'FILL' 1;">workspace_premium</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="font-serif text-base font-bold text-primary">Certificado de progresso</p>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Baixe seu certificado com horas estudadas, aproveitamento e simulados feitos. Ideal pra levar pro coach ou juntar ao portfólio.</p>
+      </div>
+      <span class="material-symbols-outlined text-primary shrink-0 group-hover:translate-x-1 transition-transform" style="font-size:24px;">arrow_forward</span>
+    </a>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in" style="animation-delay:.1s;">
       {% for c in todas %}
       <div class="paper-card rounded-2xl relative overflow-hidden {% if c.desbloqueada %}ring-2 ring-amber-200{% endif %}">

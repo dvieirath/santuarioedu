@@ -6213,7 +6213,8 @@ def duelo_criar(request):
         except Categoria.DoesNotExist:
             pass
 
-    qs = Questao.objects.filter(ativo=True)
+    # Usa questoes ja revisadas (aprovadas). Campo 'ativo' nao existe em Questao.
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
     if categoria:
         qs = qs.filter(categoria=categoria)
 
@@ -6313,7 +6314,8 @@ def duelo_jogar(request, duelo_id):
 
     questoes_lista = list(duelo.questoes_lista)
     questao_atual  = questoes_lista[duelo.questao_atual] if duelo.questao_atual < len(questoes_lista) else None
-    alternativas   = list(questao_atual.alternativas.order_by('letra')) if questao_atual else []
+    # Alternativa nao tem related_name nem campo 'letra' — usa accessor default e ordena por id
+    alternativas   = list(questao_atual.alternativa_set.order_by('id')) if questao_atual else []
 
     ja_respondi = False
     if questao_atual:
@@ -6380,7 +6382,7 @@ def api_duelo_responder(request, duelo_id):
     alternativa = None
     if alt_id:
         try:
-            alternativa = questao.alternativas.get(pk=alt_id)
+            alternativa = questao.alternativa_set.get(pk=alt_id)
             acertou     = alternativa.correta
         except Exception:
             pass
@@ -6574,7 +6576,8 @@ def coletivo_criar(request):
         except Categoria.DoesNotExist:
             pass
 
-    qs = Questao.objects.filter(ativo=True)
+    # Usa questoes ja revisadas (aprovadas). Campo 'ativo' nao existe em Questao.
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
     if categoria:
         qs = qs.filter(categoria=categoria)
 
@@ -6671,7 +6674,8 @@ def coletivo_jogar(request, sala_id):
     questoes_lista = list(sala.questoes_lista)
     idx = sala.questao_atual
     questao_atual = questoes_lista[idx] if idx < len(questoes_lista) else None
-    alternativas  = list(questao_atual.alternativas.order_by('letra')) if questao_atual else []
+    # Alternativa nao tem related_name nem campo 'letra' — usa accessor default e ordena por id
+    alternativas  = list(questao_atual.alternativa_set.order_by('id')) if questao_atual else []
 
     ja_respondi = False
     if questao_atual:
@@ -6740,7 +6744,7 @@ def api_coletivo_responder(request, sala_id):
     alternativa = None
     if alt_id:
         try:
-            alternativa = questao.alternativas.get(pk=alt_id)
+            alternativa = questao.alternativa_set.get(pk=alt_id)
             acertou     = alternativa.correta
         except Exception:
             pass

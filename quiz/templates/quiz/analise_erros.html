@@ -33,12 +33,36 @@
     {% include "includes/disclaimer_ia.html" %}
 
     {% if dados_insuficientes %}
-    <div class="paper-card rounded-2xl p-8 text-center" style="background:rgba(251,191,36,.1); border-color:rgba(251,191,36,.4);">
-      <span class="material-symbols-outlined text-amber-500 block mb-3" style="font-size:48px;">info</span>
-      <h2 class="font-serif text-xl font-semibold text-amber-800 mb-2">Dados insuficientes</h2>
-      <p class="text-amber-700 mb-4">Você tem apenas {{ total }} respostas. Responda pelo menos 10 questões para gerar a análise.</p>
-      <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-amber-700 transition-colors">
-        <span class="material-symbols-outlined" style="font-size:16px;">play_arrow</span>Começar a estudar
+    <div class="paper-card rounded-2xl p-8 text-center max-w-xl mx-auto">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-primary-fixed flex items-center justify-center mb-4">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">psychology</span>
+      </div>
+      <h2 class="font-serif text-2xl font-bold text-primary mb-2">Quase lá!</h2>
+      <p class="text-on-surface-variant mb-6">
+        A IA precisa de <strong>10 respostas</strong> pra mapear seus pontos fracos com precisão.
+      </p>
+
+      <div class="mb-2 flex items-center justify-between text-xs font-semibold">
+        <span class="text-primary">{{ total }} respondida{{ total|pluralize }}</span>
+        <span class="text-on-surface-variant">{{ total }}/10</span>
+      </div>
+      <div class="w-full h-3 rounded-full bg-surface-container overflow-hidden mb-6">
+        <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all" style="width:{% widthratio total 10 100 %}%;"></div>
+      </div>
+
+      <div class="text-left bg-surface-container-low rounded-xl p-4 mb-6">
+        <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-2">Ao completar 10 questões você desbloqueia:</p>
+        <ul class="text-sm text-on-surface space-y-1.5">
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Diagnóstico IA das suas dificuldades</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Ranking de disciplinas pior → melhor</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Gráficos de tendência e frequência de erro</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary shrink-0" style="font-size:16px;">check_circle</span>Sugestões acionáveis do Tutor IA</li>
+        </ul>
+      </div>
+
+      <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-full font-bold text-sm hover:bg-primary-container transition-colors editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:18px;">play_arrow</span>
+        Responder questões
       </a>
     </div>
     {% else %}
