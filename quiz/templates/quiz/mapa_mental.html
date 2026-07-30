@@ -66,14 +66,41 @@
 <main class="md:ml-64 pt-20 min-h-screen pb-20">
   <div class="max-w-6xl mx-auto px-6 lg:px-10 space-y-6">
 
-    <section class="pt-6 fade-in flex items-center justify-between">
+    <section class="pt-6 fade-in flex items-start justify-between gap-3 flex-wrap">
       <div>
-        <p class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Mapa Mental IA</p>
+        <div class="flex items-center gap-2 mb-1">
+          <p class="text-xs font-bold uppercase tracking-widest text-secondary">Mapa Mental</p>
+          {% if fonte_usada == 'bd' %}
+            <span class="inline-flex items-center gap-1 bg-primary-fixed text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              <span class="material-symbols-outlined" style="font-size:10px;">database</span>
+              Do banco de dados
+            </span>
+          {% else %}
+            <span class="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              <span class="material-symbols-outlined" style="font-size:10px;">smart_toy</span>
+              Gerado por IA
+            </span>
+          {% endif %}
+        </div>
         <h2 class="font-serif italic text-2xl md:text-3xl font-bold text-primary leading-tight">{{ categoria.nome }}</h2>
         <p class="text-xs text-on-surface-variant mt-1">
-          Gerado em {{ mapa.gerado_em|date:"d/m/Y H:i" }}
+          {% if fonte_usada == 'bd' %}
+            Estrutura extraída ao vivo da sua hierarquia de categorias
+          {% else %}
+            Gerado em {{ mapa.gerado_em|date:"d/m/Y H:i" }}
+          {% endif %}
         </p>
       </div>
+      {% if tem_hierarquia_bd %}
+      <div class="flex gap-1 bg-surface-container-low p-1 rounded-lg text-[11px] font-semibold">
+        <a href="?fonte=bd" class="{% if fonte_usada == 'bd' %}bg-white text-primary shadow-sm{% else %}text-on-surface-variant hover:text-primary{% endif %} px-3 py-1.5 rounded-md transition-all">
+          Banco
+        </a>
+        <a href="?fonte=ia" class="{% if fonte_usada == 'ia' %}bg-white text-primary shadow-sm{% else %}text-on-surface-variant hover:text-primary{% endif %} px-3 py-1.5 rounded-md transition-all">
+          IA
+        </a>
+      </div>
+      {% endif %}
     </section>
 
     {% if formato_antigo %}

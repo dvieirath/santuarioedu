@@ -229,18 +229,50 @@ def listar_materiais(request):
 
 @login_required(login_url='account_login')
 def escolher_tema(request):
-    categorias = Categoria.objects.all()
+    """Navegacao hierarquica de categorias. ?parent=<id> mostra filhos daquele
+    no; sem parent mostra as raizes. Categoria sem filhos leva pra iniciar_quiz;
+    categoria com filhos abre a sub-arvore."""
+    parent_id = request.GET.get('parent', '').strip()
+    parent = None
+    breadcrumb = []
+
+    if parent_id.isdigit():
+        try:
+            parent = Categoria.objects.get(pk=int(parent_id))
+            # Monta breadcrumb subindo ate a raiz
+            no = parent
+            for _ in range(10):
+                if not no:
+                    break
+                breadcrumb.insert(0, {'id': no.id, 'nome': no.nome})
+                no = no.parent
+        except Categoria.DoesNotExist:
+            parent = None
+
+    # Categorias a exibir: filhos do parent (ou raizes se parent=None)
+    if parent:
+        cats_visiveis = parent.filhos.all().order_by('nome')
+    else:
+        cats_visiveis = Categoria.objects.filter(parent__isnull=True).order_by('nome')
+
     dados_categorias = []
-    for cat in categorias:
-        total = Questao.objects.filter(categoria=cat).count()
+    for cat in cats_visiveis:
+        # Total = questoes diretas + de toda a subarvore
+        ids_subarvore = cat.subarvore_ids()
+        total = Questao.objects.filter(categoria_id__in=ids_subarvore).count()
         # Prova real: banca preenchida E não foi gerada por IA
         de_prova = Questao.objects.filter(
-            categoria=cat, gerada_por_ia=False,
+            categoria_id__in=ids_subarvore, gerada_por_ia=False,
         ).exclude(banca='').exclude(banca__isnull=True).count()
-        por_ia = Questao.objects.filter(categoria=cat, gerada_por_ia=True).count()
+        por_ia = Questao.objects.filter(
+            categoria_id__in=ids_subarvore, gerada_por_ia=True,
+        ).count()
         respondidas = RespostaUsuario.objects.filter(
-            usuario=request.user, questao__categoria=cat
+            usuario=request.user, questao__categoria_id__in=ids_subarvore,
         ).values('questao').distinct().count()
+        # Sub-categorias (nivel imediato)
+        n_filhos = cat.filhos.count()
+
         dados_categorias.append({
             'id': cat.id,
             'nome': cat.nome,
@@ -249,9 +281,24 @@ def escolher_tema(request):
             'por_ia': por_ia,
             'respondidas': respondidas,
             'concluido': respondidas >= total and total > 0,
+            'n_filhos': n_filhos,
+            'tem_filhos': n_filhos > 0,
         })
 
-    return render(request, 'quiz/escolher_tema.html', {'categorias': dados_categorias})
+    contexto = {
+        'categorias': dados_categorias,
+        'parent': parent,
+        'breadcrumb': breadcrumb,
+    }
+    # Se estamos DENTRO de uma categoria com filhos, oferece tambem
+    # opcao de estudar toda a subarvore (categoria pai + todos descendentes)
+    if parent:
+        total_subarvore = Questao.objects.filter(
+            categoria_id__in=parent.subarvore_ids()
+        ).count()
+        contexto['parent_total_subarvore'] = total_subarvore
+
+    return render(request, 'quiz/escolher_tema.html', contexto)
 
 @login_required(login_url='account_login') # Redireciona para a página de login correta
 def iniciar_quiz(request, categoria_id=None):
@@ -3222,25 +3269,52 @@ def mapas_lista(request):
 @login_required(login_url='account_login')
 @ratelimit(key='user', rate='15/h', method='GET', block=True)
 def mapa_mental(request, categoria_id):
-    """Exibe (ou gera) mapa mental Mermaid de uma disciplina."""
+    """Exibe mapa mental de uma disciplina — 2 fontes possiveis:
+    1. **Hierarquia real** do banco (Categoria.filhos + Questao.assunto) —
+       gerado localmente, sempre disponivel, sempre atualizado. Preferido
+       quando a categoria tem sub-categorias reais no BD.
+    2. **IA** — fallback pra categorias sem hierarquia estruturada ou quando
+       o usuario forca via ?fonte=ia.
+
+    Query params:
+    - ?regenerar=1 -> se fonte IA, chama IA de novo
+    - ?fonte=ia   -> forca uso da IA mesmo se hierarquia existe
+    - ?fonte=bd   -> forca uso do BD (default se hierarquia disponivel)
+    """
     from .models import MapaMental
-    from .ai_service import ai_mapa_mental as _gerar_mapa
+    from .ai_service import ai_mapa_mental as _gerar_mapa_ia
 
     categoria = get_object_or_404(Categoria, id=categoria_id)
+    fonte_pedida = request.GET.get('fonte', '').strip().lower()
     regenerar = request.GET.get('regenerar') == '1'
 
-    mapa = None
-    try:
-        mapa = MapaMental.objects.get(categoria=categoria)
-    except MapaMental.DoesNotExist:
-        pass
+    # Se categoria tem descendentes, prefere hierarquia real do BD
+    tem_hierarquia_bd = bool(categoria.descendentes_ids())
+    usar_bd = fonte_pedida == 'bd' or (tem_hierarquia_bd and fonte_pedida != 'ia')
 
-    if mapa is None or regenerar:
-        codigo = _gerar_mapa(categoria.nome, usuario=request.user)
+    if usar_bd:
+        markdown = _mapa_mental_do_bd(categoria)
+        # Cria/atualiza registro pra manter historico
         mapa, _ = MapaMental.objects.update_or_create(
             categoria=categoria,
-            defaults={'mermaid': codigo},
+            defaults={'mermaid': markdown},
         )
+        fonte_usada = 'bd'
+    else:
+        # Fallback IA (comportamento antigo)
+        mapa = None
+        try:
+            mapa = MapaMental.objects.get(categoria=categoria)
+        except MapaMental.DoesNotExist:
+            pass
+
+        if mapa is None or regenerar:
+            codigo = _gerar_mapa_ia(categoria.nome, usuario=request.user)
+            mapa, _ = MapaMental.objects.update_or_create(
+                categoria=categoria,
+                defaults={'mermaid': codigo},
+            )
+        fonte_usada = 'ia'
 
     # Formato antigo (Mermaid): comeca com "mindmap" ou "graph".
     # Formato novo (Markdown pra markmap): comeca com "#".
@@ -3248,10 +3322,60 @@ def mapa_mental(request, categoria_id):
     formato_antigo = not conteudo.startswith('#')
 
     return render(request, 'quiz/mapa_mental.html', {
-        'categoria':      categoria,
-        'mapa':           mapa,
-        'formato_antigo': formato_antigo,
+        'categoria':         categoria,
+        'mapa':              mapa,
+        'formato_antigo':    formato_antigo,
+        'fonte_usada':       fonte_usada,
+        'tem_hierarquia_bd': tem_hierarquia_bd,
     })
+
+
+def _mapa_mental_do_bd(categoria):
+    """Constroi markdown do mapa mental usando a arvore real de Categoria
+    + assuntos das questoes. Formato compativel com markmap."""
+    linhas = [f'# {categoria.nome}']
+
+    def _adicionar_sub(cat, nivel):
+        """Recursivo — nivel 2 = ##, nivel 3 = ###, ate nivel 5."""
+        prefixo = '#' * min(nivel, 5)
+        # Filhos diretos
+        filhos = list(cat.filhos.all().order_by('nome'))
+        # Contagem de questoes diretas desta categoria (sem filhos)
+        n_diretas = Questao.objects.filter(categoria=cat).count()
+
+        if filhos:
+            for f in filhos:
+                # Header + contagem de questoes na subarvore
+                ids_sub = f.subarvore_ids()
+                n_total = Questao.objects.filter(categoria_id__in=ids_sub).count()
+                if n_total:
+                    linhas.append(f'{prefixo} {f.nome} ({n_total})')
+                else:
+                    linhas.append(f'{prefixo} {f.nome}')
+                _adicionar_sub(f, nivel + 1)
+
+        # Se tem questoes diretas e ainda ha espaco (max nivel 4 pra assuntos),
+        # inclui top 6 assuntos distintos
+        if n_diretas and nivel < 4:
+            from django.db.models import Count
+            top_assuntos = (Questao.objects.filter(categoria=cat)
+                            .exclude(assunto__isnull=True).exclude(assunto='')
+                            .values('assunto')
+                            .annotate(n=Count('id'))
+                            .order_by('-n')[:6])
+            prefixo_assunto = '#' * min(nivel + 1, 5)
+            for a in top_assuntos:
+                linhas.append(f'{prefixo_assunto} {a["assunto"]} ({a["n"]})')
+
+    _adicionar_sub(categoria, 2)
+
+    # Se resultou apenas no header (nao tem nada abaixo), adiciona
+    # placeholder pro markmap nao renderizar so um circulo
+    if len(linhas) == 1:
+        linhas.append('## Sem sub-categorias ainda')
+        linhas.append('### Adicione hierarquia via admin ou use IA')
+
+    return '\n'.join(linhas)
 
 
 # ─── ESTATISTICAS DE INCIDENCIA ──────────────────────────────────────────────
