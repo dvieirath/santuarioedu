@@ -229,49 +229,79 @@ def listar_materiais(request):
 
 @login_required(login_url='account_login')
 def escolher_tema(request):
-    """Navegacao hierarquica de categorias. ?parent=<id> mostra filhos daquele
-    no; sem parent mostra as raizes. Categoria sem filhos leva pra iniciar_quiz;
-    categoria com filhos abre a sub-arvore."""
+    """Navegacao hierarquica de categorias. Otimizado pra evitar N+1:
+    - Todas Categoria carregadas de uma vez (~24 registros)
+    - Contagens de Questao agregadas em 1 query
+    - Respondidas do usuario em 1 query
+    Total: ~4-5 queries independente de N categorias. Antes: 100+."""
     parent_id = request.GET.get('parent', '').strip()
+
+    # Load all Categoria em memoria (baixa cardinalidade, ~24 no total)
+    todas_cats = list(Categoria.objects.all())
+    filhos_map = {}  # {parent_id: [filhos_da_categoria]}
+    id_map = {c.id: c for c in todas_cats}
+    for c in todas_cats:
+        filhos_map.setdefault(c.parent_id, []).append(c)
+
+    def _subarvore_ids(cat_id):
+        """BFS in-memory — evita queries recursivas ao BD."""
+        resultado = [cat_id]
+        pilha = list(filhos_map.get(cat_id, []))
+        while pilha:
+            f = pilha.pop()
+            resultado.append(f.id)
+            pilha.extend(filhos_map.get(f.id, []))
+        return resultado
+
     parent = None
     breadcrumb = []
-
     if parent_id.isdigit():
-        try:
-            parent = Categoria.objects.get(pk=int(parent_id))
-            # Monta breadcrumb subindo ate a raiz
+        parent = id_map.get(int(parent_id))
+        if parent:
             no = parent
-            for _ in range(10):
-                if not no:
-                    break
+            while no:
                 breadcrumb.insert(0, {'id': no.id, 'nome': no.nome})
-                no = no.parent
-        except Categoria.DoesNotExist:
-            parent = None
+                no = id_map.get(no.parent_id) if no.parent_id else None
 
-    # Categorias a exibir: filhos do parent (ou raizes se parent=None)
+    # Categorias visiveis (filhos do parent OU raizes)
     if parent:
-        cats_visiveis = parent.filhos.all().order_by('nome')
+        cats_visiveis = sorted(filhos_map.get(parent.id, []), key=lambda c: c.nome)
     else:
-        cats_visiveis = Categoria.objects.filter(parent__isnull=True).order_by('nome')
+        cats_visiveis = sorted(filhos_map.get(None, []), key=lambda c: c.nome)
+
+    # Pra cada categoria visivel, resolve sua subarvore (in-memory)
+    subarvores = {c.id: _subarvore_ids(c.id) for c in cats_visiveis}
+
+    # Query 1: contagem de questoes por categoria_id (uma unica query)
+    from django.db.models import Q as _Q
+    todos_ids_relevantes = set()
+    for ids in subarvores.values():
+        todos_ids_relevantes.update(ids)
+
+    counts_qs = (Questao.objects.filter(categoria_id__in=todos_ids_relevantes)
+                 .values('categoria_id')
+                 .annotate(
+                     total=Count('id'),
+                     de_prova=Count('id', filter=_Q(gerada_por_ia=False) & ~_Q(banca__isnull=True) & ~_Q(banca='')),
+                     por_ia=Count('id', filter=_Q(gerada_por_ia=True)),
+                 ))
+    counts_map = {c['categoria_id']: c for c in counts_qs}
+
+    # Query 2: respondidas do usuario por categoria_id
+    resp_qs = (RespostaUsuario.objects
+               .filter(usuario=request.user, questao__categoria_id__in=todos_ids_relevantes)
+               .values('questao__categoria_id')
+               .annotate(n=Count('questao_id', distinct=True)))
+    resp_map = {r['questao__categoria_id']: r['n'] for r in resp_qs}
 
     dados_categorias = []
     for cat in cats_visiveis:
-        # Total = questoes diretas + de toda a subarvore
-        ids_subarvore = cat.subarvore_ids()
-        total = Questao.objects.filter(categoria_id__in=ids_subarvore).count()
-        # Prova real: banca preenchida E não foi gerada por IA
-        de_prova = Questao.objects.filter(
-            categoria_id__in=ids_subarvore, gerada_por_ia=False,
-        ).exclude(banca='').exclude(banca__isnull=True).count()
-        por_ia = Questao.objects.filter(
-            categoria_id__in=ids_subarvore, gerada_por_ia=True,
-        ).count()
-        respondidas = RespostaUsuario.objects.filter(
-            usuario=request.user, questao__categoria_id__in=ids_subarvore,
-        ).values('questao').distinct().count()
-        # Sub-categorias (nivel imediato)
-        n_filhos = cat.filhos.count()
+        ids_sub = subarvores[cat.id]
+        total = sum(counts_map.get(cid, {}).get('total', 0) for cid in ids_sub)
+        de_prova = sum(counts_map.get(cid, {}).get('de_prova', 0) for cid in ids_sub)
+        por_ia = sum(counts_map.get(cid, {}).get('por_ia', 0) for cid in ids_sub)
+        respondidas = sum(resp_map.get(cid, 0) for cid in ids_sub)
+        n_filhos = len(filhos_map.get(cat.id, []))
 
         dados_categorias.append({
             'id': cat.id,
@@ -290,13 +320,11 @@ def escolher_tema(request):
         'parent': parent,
         'breadcrumb': breadcrumb,
     }
-    # Se estamos DENTRO de uma categoria com filhos, oferece tambem
-    # opcao de estudar toda a subarvore (categoria pai + todos descendentes)
     if parent:
-        total_subarvore = Questao.objects.filter(
-            categoria_id__in=parent.subarvore_ids()
-        ).count()
-        contexto['parent_total_subarvore'] = total_subarvore
+        parent_sub_ids = _subarvore_ids(parent.id)
+        contexto['parent_total_subarvore'] = sum(
+            counts_map.get(cid, {}).get('total', 0) for cid in parent_sub_ids
+        )
 
     return render(request, 'quiz/escolher_tema.html', contexto)
 
@@ -450,7 +478,16 @@ def iniciar_quiz(request, categoria_id=None):
         ).values_list('questao_id', flat=True)
         questoes = questoes.exclude(id__in=respondidas_ids)
 
-    questao = questoes.order_by('?').first()
+    # Substitui .order_by('?') (full table scan + sort — 200-500ms em bancos
+    # grandes) por sampling via random offset. Uma query pra count e outra
+    # pra fetch — total O(1) em vez de O(n log n).
+    _count = questoes.count()
+    if _count:
+        import random as _random
+        _offset = _random.randrange(_count)
+        questao = questoes[_offset:_offset + 1].first()
+    else:
+        questao = None
 
     if not questao:
         msg = 'Nenhuma questão encontrada com esses filtros.' if (f_banca or f_ano or f_tipo) else (
