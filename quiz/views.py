@@ -1076,12 +1076,32 @@ def simulado_questao(request, simulado_id, numero):
 
     if request.method == 'POST':
         alt_id = request.POST.get('alternativa_id')
+        primeira_resposta = resposta_atual.alternativa_escolhida is None
         if alt_id:
             try:
                 alternativa = Alternativa.objects.get(id=alt_id, questao=questao)
                 resposta_atual.alternativa_escolhida = alternativa
                 resposta_atual.acertou = alternativa.correta
                 resposta_atual.save()
+
+                # Gamificacao: streak/XP/SRS/conquistas so na 1a resposta
+                # (evita farm via trocar-resposta N vezes na mesma questao).
+                if primeira_resposta and simulado.modo != 'prova_real':
+                    try:
+                        meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
+                        meta.atualizar_streak()
+                        srs, _ = RevisaoEspacada.objects.get_or_create(
+                            usuario=request.user, questao=questao,
+                            defaults={'proxima_revisao': timezone.localdate()},
+                        )
+                        srs.atualizar(alternativa.correta)
+                        if alternativa.correta:
+                            _dar_xp(request.user, 10, request.session)
+                        novas = verificar_conquistas(request.user)
+                        if novas:
+                            request.session['novas_conquistas'] = novas
+                    except Exception:
+                        pass  # nunca deixa a gamificacao bloquear o simulado
             except Alternativa.DoesNotExist:
                 pass
 
@@ -1835,17 +1855,20 @@ def caderno_erros(request):
     cat_id = request.GET.get('categoria', '')
     busca  = request.GET.get('q', '').strip()
 
-    # Subquery: questões que o usuário errou na ÚLTIMA tentativa
-    erros_qs = (
+    # Erros de estudo livre (RespostaUsuario)
+    erros_estudo = set(
         RespostaUsuario.objects
         .filter(usuario=request.user, acertou=False)
-        .values('questao')
-        .annotate(
-            total_erros=Count('id'),
-            ultima=Count('id')   # reaproveitamos o annotate para filtrar
-        )
-        .values_list('questao', flat=True)
+        .values_list('questao_id', flat=True)
     )
+    # Erros de simulados (RespostaSimulado) — antes ficavam invisiveis
+    # aqui, mesmo que fossem os erros mais relevantes do concurseiro.
+    erros_simulado = set(
+        RespostaSimulado.objects
+        .filter(simulado__usuario=request.user, acertou=False)
+        .values_list('questao_id', flat=True)
+    )
+    erros_qs = list(erros_estudo | erros_simulado)
 
     questoes = (
         Questao.objects
