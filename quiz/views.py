@@ -460,11 +460,40 @@ def iniciar_quiz(request, categoria_id=None):
         return render(request, 'quiz/sem_questoes.html', {'mensagem': msg})
 
     filtros = {'banca': f_banca, 'ano': f_ano, 'tipo': f_tipo, 'modo': f_modo, 'origem': f_origem}
-    return render(request, 'quiz/responder.html', {
+
+    # Progresso real do usuario na categoria/filtro atual (X/N no card lateral)
+    progresso_ctx = {}
+    if categoria_id:
+        try:
+            cat = Categoria.objects.get(pk=categoria_id)
+            ids_sub = cat.subarvore_ids()  # inclui sub-categorias na contagem
+            total_cat = Questao.objects.filter(categoria_id__in=ids_sub).count()
+            resp_cat = RespostaUsuario.objects.filter(
+                usuario=request.user, questao__categoria_id__in=ids_sub,
+            ).values('questao').distinct().count()
+            progresso_ctx = {
+                'categoria_nome':       cat.nome,
+                'total_categoria':      total_cat,
+                'respondidas_categoria':resp_cat,
+                'restam_categoria':     max(0, total_cat - resp_cat),
+            }
+        except Categoria.DoesNotExist:
+            pass
+
+    # Estado de favorita/anotacao pra questao atual — vinha vazio antes,
+    # entao icones nao refletiam estado real
+    is_favorita_atual = QuestaoFavorita.objects.filter(
+        usuario=request.user, questao=questao,
+    ).exists()
+
+    contexto = {
         'questao': questao,
         'categoria_id': categoria_id,
         'filtros': filtros,
-    })
+        'is_favorita_atual': is_favorita_atual,
+        **progresso_ctx,
+    }
+    return render(request, 'quiz/responder.html', contexto)
 
 @login_required(login_url='account_login')
 def dashboard(request):

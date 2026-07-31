@@ -295,9 +295,9 @@ tailwind.config = {
               <p class="text-4xl font-serif font-bold text-primary tabular-nums" id="timer-panel-display">00:00</p>
             </div>
             <button type="button" onclick="favoritarQuestao()" id="btn-fav"
-                    class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-primary-fixed text-on-surface hover:text-primary transition-all"
+                    class="w-12 h-12 flex items-center justify-center rounded-full {% if is_favorita_atual %}bg-amber-100 text-amber-500{% else %}bg-surface-container-high text-on-surface{% endif %} hover:bg-primary-fixed hover:text-primary transition-all"
                     title="Favoritar (F)">
-              <span class="material-symbols-outlined" style="font-size:28px;" id="star-icon">star</span>
+              <span class="material-symbols-outlined {% if is_favorita_atual %}active-icon{% endif %}" style="font-size:28px;" id="star-icon">star</span>
             </button>
           </div>
           <div class="space-y-3 border-t border-outline-variant/30 pt-4">
@@ -366,19 +366,27 @@ tailwind.config = {
           </ul>
         </div>
 
-        <!-- Card: Progresso hoje (atmosférico) -->
-        {% if user.is_authenticated %}
+        <!-- Card: Progresso real na categoria (X/N) -->
+        {% if total_categoria %}
         <div class="relative overflow-hidden rounded-xl bg-surface-container-highest p-6">
-          <p class="font-bold text-primary">Seu progresso hoje</p>
-          <p class="text-xs text-on-surface-variant mb-3" id="prog-tag">Continue estudando</p>
-          <div class="flex items-end gap-2 h-16" id="prog-bars">
-            <div class="w-full bg-secondary/50 rounded-t-sm" style="height:40%"></div>
-            <div class="w-full bg-secondary/70 rounded-t-sm" style="height:60%"></div>
-            <div class="w-full bg-secondary/50 rounded-t-sm" style="height:30%"></div>
-            <div class="w-full bg-secondary/80 rounded-t-sm" style="height:80%"></div>
-            <div class="w-full bg-secondary/60 rounded-t-sm" style="height:55%"></div>
-            <div class="w-full bg-primary rounded-t-sm" style="height:90%"></div>
-            <div class="w-full bg-outline-variant rounded-t-sm" style="height:12%"></div>
+          <div class="flex items-baseline justify-between mb-2">
+            <p class="font-bold text-primary">Nesta categoria</p>
+            <p class="text-xs text-on-surface-variant">{{ categoria_nome|truncatechars:20 }}</p>
+          </div>
+          <p class="font-serif text-3xl font-bold text-primary tabular-nums">
+            {{ respondidas_categoria }}<span class="text-lg text-on-surface-variant">/{{ total_categoria }}</span>
+          </p>
+          <p class="text-xs text-on-surface-variant mb-3">
+            {% if restam_categoria %}
+              {{ restam_categoria }} questã{{ restam_categoria|pluralize:"o,ões" }} restante{{ restam_categoria|pluralize }}
+            {% else %}
+              🎉 Você já respondeu todas!
+            {% endif %}
+          </p>
+          <!-- Barra de progresso real -->
+          <div class="w-full h-2.5 rounded-full bg-surface-container overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-700"
+                 style="width:{% widthratio respondidas_categoria total_categoria 100 %}%;"></div>
           </div>
           <div class="absolute -bottom-16 -right-16 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
         </div>
