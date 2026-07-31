@@ -195,18 +195,24 @@ tailwind.config = {
       </div>
       {% endif %}
 
-      <!-- Análise da Questão -->
-      {% if escolha.questao.justificativa %}
-      <div class="rounded-xl p-5 bg-primary-fixed/40 border-l-4 border-primary-fixed-dim">
+      <!-- Análise da Questão (IA — carrega async se ainda nao existe) -->
+      <div id="analise-questao-wrap" class="rounded-xl p-5 bg-primary-fixed/40 border-l-4 border-primary-fixed-dim">
         <div class="flex items-center gap-2 mb-3">
           <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">lightbulb</span>
           <h3 class="font-serif text-lg font-semibold text-primary">Análise da questão</h3>
+          <span id="analise-status" class="text-xs text-primary/70 ml-auto"></span>
         </div>
-        <div class="markdown-content text-sm text-on-surface">
-          {{ escolha.questao.justificativa|markdown|safe }}
+        <div id="analise-conteudo" class="markdown-content text-sm text-on-surface">
+          {% if escolha.questao.justificativa %}
+            {{ escolha.questao.justificativa|markdown|safe }}
+          {% else %}
+            <div id="analise-loading" class="flex items-center gap-2 py-3 text-primary/70 text-sm">
+              <span class="material-symbols-outlined animate-spin" style="font-size:18px;">sync</span>
+              <span>Gerando análise com IA... (pode levar até 15s)</span>
+            </div>
+          {% endif %}
         </div>
       </div>
-      {% endif %}
 
       <!-- Tutor IA (se errou) — gradiente navy→sage do padrão -->
       {% if not escolha.correta %}
@@ -370,33 +376,107 @@ tailwind.config = {
 </div>
 {% endif %}
 
-<!-- Toasts de conquista -->
-{% if novas_conquistas %}
-<div id="conquista-toasts" class="fixed top-6 right-6 z-[110] flex flex-col gap-3 max-w-xs">
-  {% for c in novas_conquistas %}
-  <div class="conquista-toast flex items-center gap-3 bg-white border border-secondary/30 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
-    <span class="text-3xl shrink-0">{{ c.emoji }}</span>
+<!-- Toasts XP + streak + level-up + conquistas (canto superior direito) -->
+<div id="gamif-toasts" class="fixed top-6 right-6 z-[110] flex flex-col gap-3 max-w-xs">
+  {% if xp_ganho %}
+  <div class="gamif-toast flex items-center gap-3 bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-300 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
+    <span class="text-3xl shrink-0">⚡</span>
     <div>
-      <p class="text-[10px] font-bold uppercase tracking-wider text-secondary">Conquista desbloqueada</p>
-      <p class="text-sm font-bold text-primary">{{ c.label }}</p>
-      <p class="text-xs text-on-surface-variant">{{ c.desc }}</p>
+      <p class="text-[10px] font-bold uppercase tracking-wider text-amber-700">Acerto!</p>
+      <p class="text-sm font-bold text-primary">+{{ xp_ganho }} XP</p>
+      <p class="text-xs text-on-surface-variant">Continua assim!</p>
     </div>
   </div>
-  {% endfor %}
+  {% endif %}
+  {% if subiu_nivel %}
+  <div class="gamif-toast flex items-center gap-3 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-400 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
+    <span class="text-3xl shrink-0">🎉</span>
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-wider text-purple-700">Subiu de nível!</p>
+      <p class="text-sm font-bold text-primary">Nível {{ subiu_nivel }}</p>
+      <p class="text-xs text-on-surface-variant">Novo rank desbloqueado</p>
+    </div>
+  </div>
+  {% endif %}
+  {% if streak_atual and streak_atual > 1 %}
+  <div class="gamif-toast flex items-center gap-3 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-300 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
+    <span class="text-3xl shrink-0">🔥</span>
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-wider text-orange-700">Sequência ativa</p>
+      <p class="text-sm font-bold text-primary">{{ streak_atual }} dia{{ streak_atual|pluralize }} seguido{{ streak_atual|pluralize }}</p>
+      <p class="text-xs text-on-surface-variant">Volte amanhã pra manter</p>
+    </div>
+  </div>
+  {% endif %}
+  {% if novas_conquistas %}
+    {% for c in novas_conquistas %}
+    <div class="gamif-toast flex items-center gap-3 bg-white border border-secondary/30 shadow-2xl rounded-2xl px-4 py-3 opacity-0 translate-y-4 transition-all duration-500">
+      <span class="text-3xl shrink-0">{{ c.emoji }}</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-wider text-secondary">Conquista desbloqueada</p>
+        <p class="text-sm font-bold text-primary">{{ c.label }}</p>
+        <p class="text-xs text-on-surface-variant">{{ c.desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.conquista-toast').forEach((t, i) => {
+  // Anima toasts sequencialmente (600ms entre cada)
+  document.querySelectorAll('.gamif-toast').forEach((t, i) => {
     setTimeout(() => {
       t.classList.remove('opacity-0', 'translate-y-4');
       setTimeout(() => {
         t.classList.add('opacity-0', 'translate-y-4');
         setTimeout(() => t.remove(), 500);
-      }, 4000);
-    }, i * 600);
+      }, 4500);
+    }, i * 500);
   });
 });
 </script>
+
+<!-- Justificativa IA — carrega async se ainda nao existe -->
+{% if not escolha.questao.justificativa %}
+<script>
+(function() {
+  const wrap = document.getElementById('analise-questao-wrap');
+  const conteudo = document.getElementById('analise-conteudo');
+  const status = document.getElementById('analise-status');
+  if (!wrap || !conteudo) return;
+
+  const url = "{% url 'api_justificativa_questao' escolha.questao.id %}";
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': '{{ csrf_token }}',
+    },
+    body: JSON.stringify({}),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.justificativa) {
+      // Converte quebras de linha basicas em HTML (justificativa vem em plain text)
+      const html = data.justificativa
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n\n/g, '</p><p class="mt-2">')
+        .replace(/\n/g, '<br>');
+      conteudo.innerHTML = '<p>' + html + '</p>';
+      if (status) status.textContent = data.gerado_agora ? 'Gerado agora' : '';
+    } else {
+      conteudo.innerHTML = '<p class="text-on-surface-variant italic text-sm">Não foi possível gerar a análise no momento. Tente recarregar a página.</p>';
+    }
+  })
+  .catch(err => {
+    conteudo.innerHTML = '<p class="text-on-surface-variant italic text-sm">Erro ao carregar análise. Verifique sua conexão.</p>';
+  });
+})();
+</script>
+{% endif %}
 {% endif %}
 
 <script>
