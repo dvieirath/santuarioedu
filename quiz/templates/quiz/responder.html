@@ -269,14 +269,15 @@ tailwind.config = {
 
           <!-- Ações no rodapé do card -->
           <div class="mt-8 pt-6 border-t border-[rgba(229,225,216,.7)] flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3">
-            <a href="{% url 'iniciar_quiz' %}" class="text-primary font-semibold text-sm hover:underline text-center sm:text-left flex items-center justify-center sm:justify-start gap-1">
+            <a href="{% if categoria_id %}{% url 'iniciar_quiz_categoria' categoria_id %}{% else %}{% url 'iniciar_quiz' %}{% endif %}{% if filtros %}?banca={{ filtros.banca }}&ano={{ filtros.ano }}&tipo={{ filtros.tipo }}&modo={{ filtros.modo }}&origem={{ filtros.origem }}{% endif %}"
+               class="text-primary font-semibold text-sm hover:underline text-center sm:text-left flex items-center justify-center sm:justify-start gap-1">
               <span class="material-symbols-outlined" style="font-size:16px;">skip_next</span>
               Pular questão
             </a>
-            <button type="submit"
-                    class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold shadow-md hover:bg-primary-container hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
-              Confirmar resposta
-              <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+            <button type="submit" id="btn-confirmar"
+                    class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold shadow-md hover:bg-primary-container hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
+              <span id="btn-confirmar-label">Confirmar resposta</span>
+              <span class="material-symbols-outlined" id="btn-confirmar-icon" style="font-size:18px;">arrow_forward</span>
             </button>
           </div>
         </section>
@@ -506,10 +507,32 @@ document.addEventListener('keydown', function(e) {
   if (k === 'c' && radios.length === 2) radios[0].checked = true;
   if (k === 'e' && radios.length === 2) radios[1].checked = true;
   // Atalhos utilitários
-  if (k === 'j') window.location.href = "{% url 'iniciar_quiz' %}";
+  if (k === 'j') {
+    {% if categoria_id %}
+    window.location.href = "{% url 'iniciar_quiz_categoria' categoria_id %}";
+    {% else %}
+    window.location.href = "{% url 'iniciar_quiz' %}";
+    {% endif %}
+  }
   if (k === 'f') favoritarQuestao();
   if (k === 't') cycleTimerMode();
 });
+</script>
+
+<!-- ─── Travar botao "Confirmar" apos primeiro click (evita double-submit) ─── -->
+<script>
+(function() {
+  const form = document.querySelector('form[method="POST"]');
+  const btn = document.getElementById('btn-confirmar');
+  const label = document.getElementById('btn-confirmar-label');
+  const icon = document.getElementById('btn-confirmar-icon');
+  if (!form || !btn) return;
+  form.addEventListener('submit', function() {
+    btn.disabled = true;
+    if (label) label.textContent = 'Enviando...';
+    if (icon) icon.textContent = 'hourglass_top';
+  });
+})();
 </script>
 
 <!-- ─── Timer por questão ───────────────────────────────────────────────── -->
@@ -606,10 +629,19 @@ document.addEventListener('keydown', function(e) {
     if (duracao < 10) return;
     const csrf = document.querySelector('[name=csrfmiddlewaretoken]');
     if (!csrf) return;
-    navigator.sendBeacon('{% url "api_sessao" %}', JSON.stringify({
-      duracao_seg: duracao, questoes: questoes,
-      csrfmiddlewaretoken: csrf.value,
-    }));
+    // fetch(..., {keepalive:true}) equivale a sendBeacon mas permite headers
+    // customizados (incluindo CSRF token, que sendBeacon nao consegue mandar).
+    try {
+      fetch('{% url "api_sessao" %}', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrf.value,
+        },
+        body: JSON.stringify({duracao_seg: duracao, questoes: questoes}),
+        keepalive: true,
+      });
+    } catch (e) {}
     sessionStorage.removeItem(SESSION_KEY);
     sessionStorage.removeItem(QUESTOES_KEY);
   }

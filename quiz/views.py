@@ -31,7 +31,7 @@ class UserCreationForm(_BaseUserCreationForm):
 from django.contrib.auth import login
 from django.contrib import messages
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_http_methods
 from django_ratelimit.decorators import ratelimit
 from django.utils import timezone
 from django.db.models import Count, Q, Avg, Sum, F, FloatField
@@ -300,9 +300,8 @@ def escolher_tema(request):
 
     return render(request, 'quiz/escolher_tema.html', contexto)
 
-@login_required(login_url='account_login') # Redireciona para a página de login correta
+@login_required(login_url='account_login')
 def iniciar_quiz(request, categoria_id=None):
-    # LÓGICA DO POST (CORREÇÃO)
     if request.method == 'POST':
         # ── Limite de plano: questões/dia ──
         from .limits import pode_responder_questao, get_plano
@@ -317,65 +316,65 @@ def iniciar_quiz(request, categoria_id=None):
             messages.warning(request, 'Limite diário de questões atingido.')
             return redirect('dashboard')
 
-        # 1. Pega o ID da alternativa que veio do HTML
-        alternativa_id = request.POST.get('alternativa_id')
-        cat_id_post = request.POST.get('categoria_id') # Recupera o ID da categoria do form
+        # Valida alternativa_id (evita 500 se payload malformado)
+        alternativa_id = request.POST.get('alternativa_id', '').strip()
+        if not alternativa_id.isdigit():
+            messages.error(request, 'Selecione uma alternativa antes de confirmar.')
+            return redirect('escolher_tema')
 
-        # 2. Busca o objeto Alternativa no banco de dados
-        escolha = Alternativa.objects.get(id=alternativa_id)
+        escolha = get_object_or_404(Alternativa, id=int(alternativa_id))
+        cat_id_post = request.POST.get('categoria_id')
 
-        # 3. Salva no histórico (BD) se o usuário acertou ou não
-        RespostaUsuario.objects.create(
-            usuario=request.user,
-            questao=escolha.questao,
-            acertou=escolha.correta
-        )
+        # ── Idempotencia: se ja respondeu essa questao HOJE, nao duplica ──
+        # Protege contra: double-click, F5 na pagina de resultado, back-button.
+        hoje = timezone.localdate()
+        ja_respondeu = RespostaUsuario.objects.filter(
+            usuario=request.user, questao=escolha.questao, data__date=hoje,
+        ).exists()
 
-        # Atualiza streak e meta diária
-        meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
-        meta.atualizar_streak()
+        xp_ganho = 0
+        subiu_nivel = None
+        novas_conquistas_qs = []
 
-        # Atualiza revisão espaçada (SRS)
-        srs, _ = RevisaoEspacada.objects.get_or_create(
-            usuario=request.user,
-            questao=escolha.questao,
-            defaults={'proxima_revisao': timezone.localdate()}
-        )
-        srs.atualizar(escolha.correta)
+        if not ja_respondeu:
+            RespostaUsuario.objects.create(
+                usuario=request.user,
+                questao=escolha.questao,
+                acertou=escolha.correta,
+            )
 
-        # Verifica conquistas e guarda novas na sessão para exibir toast
-        novas_conquistas = verificar_conquistas(request.user)
-        if novas_conquistas:
-            request.session['novas_conquistas'] = novas_conquistas
+            # Atualiza streak e meta diária
+            meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
+            meta.atualizar_streak()
 
-        # ── Sprint 16: XP por questão respondida ──
-        if escolha.correta:
-            _dar_xp(request.user, 10, request.session)
+            # SRS
+            srs, _ = RevisaoEspacada.objects.get_or_create(
+                usuario=request.user,
+                questao=escolha.questao,
+                defaults={'proxima_revisao': timezone.localdate()},
+            )
+            srs.atualizar(escolha.correta)
 
-        # TENTATIVA DE GERAR JUSTIFICATIVA COM IA (SE NÃO EXISTIR)
-        if not escolha.questao.justificativa:
-            try:
-                resultado_ia = gerar_justificativa_ia(escolha.questao)
-                if resultado_ia:
-                    # Verifica se veio como dicionário (novo formato) ou string (antigo/fallback)
-                    if isinstance(resultado_ia, dict):
-                        escolha.questao.justificativa = resultado_ia.get('justificativa', '')
-                        escolha.questao.assunto = resultado_ia.get('assunto', '')
-                    else:
-                        escolha.questao.justificativa = str(resultado_ia)
-                    
-                    escolha.questao.save()
-            except Exception as e:
-                print(f"Erro ao gerar justificativa IA: {e}")
-        
-        # 4. Manda para a tela de resultado
+            # Conquistas
+            novas_conquistas_qs = verificar_conquistas(request.user)
+            if novas_conquistas_qs:
+                request.session['novas_conquistas'] = novas_conquistas_qs
+
+            # XP (so pra acerto)
+            if escolha.correta:
+                xp_ganho = 10
+                _dar_xp(request.user, xp_ganho, request.session)
+                subiu_nivel = request.session.pop('subiu_nivel', None)
+
+        # Justificativa IA — chamada assincrona via fetch no resultado.html
+        # (antes era sincrona, bloqueava request ate 30s sem feedback visual)
+
         is_favorita = QuestaoFavorita.objects.filter(
             usuario=request.user, questao=escolha.questao
         ).exists()
         anotacao = AnotacaoUsuario.objects.filter(
             usuario=request.user, questao=escolha.questao
         ).first()
-        # Repassar filtros para o resultado poder construir URL da próxima questão
         filtros = {
             'banca':  request.POST.get('f_banca', ''),
             'ano':    request.POST.get('f_ano', ''),
@@ -386,6 +385,13 @@ def iniciar_quiz(request, categoria_id=None):
         avaliacao_obj = AvaliacaoQuestao.objects.filter(
             usuario=request.user, questao=escolha.questao
         ).first()
+
+        # Streak atual pra mostrar no toast do resultado
+        try:
+            streak_atual = request.user.metaestudo.streak_atual
+        except Exception:
+            streak_atual = 0
+
         return render(request, 'quiz/resultado.html', {
             'escolha': escolha,
             'categoria_id': cat_id_post,
@@ -393,6 +399,10 @@ def iniciar_quiz(request, categoria_id=None):
             'anotacao': anotacao,
             'filtros': filtros,
             'avaliacao_dificuldade': avaliacao_obj.dificuldade if avaliacao_obj else None,
+            'ja_respondeu_antes': ja_respondeu,
+            'xp_ganho': xp_ganho,
+            'streak_atual': streak_atual,
+            'subiu_nivel': subiu_nivel,
             'novas_conquistas': [
                 {'codigo': c, **CONQUISTAS_META.get(c, {'label': c, 'emoji': '🏆', 'desc': ''})}
                 for c in request.session.pop('novas_conquistas', [])
@@ -1836,7 +1846,9 @@ def favoritas(request):
 
 
 @login_required(login_url='account_login')
+@require_POST
 def toggle_favorita(request, questao_id):
+    """Alterna favorita. Exige POST — nunca GET (evita prefetch acidental)."""
     questao = get_object_or_404(Questao, id=questao_id)
     fav, criada = QuestaoFavorita.objects.get_or_create(
         usuario=request.user, questao=questao
@@ -2063,10 +2075,16 @@ def conquistas(request):
 # ─── ANOTAÇÕES PESSOAIS ───────────────────────────────────────────────────────
 
 @login_required(login_url='account_login')
+@require_http_methods(['GET', 'POST'])
 def api_anotacao(request, questao_id):
+    """GET: le anotacao. POST: salva/deleta. Bloqueia outros metodos (PUT/DELETE
+    acidentais). Prefetch do browser usa GET, entao mantido — mas so leitura."""
     questao = get_object_or_404(Questao, id=questao_id)
     if request.method == 'POST':
-        data  = json.loads(request.body)
+        try:
+            data  = json.loads(request.body)
+        except ValueError:
+            return JsonResponse({'status': 'error', 'msg': 'JSON invalido'}, status=400)
         texto = data.get('texto', '').strip()
         if texto:
             obj, _ = AnotacaoUsuario.objects.update_or_create(
