@@ -2006,22 +2006,80 @@ def plano_estudos(request):
 
 @login_required(login_url='account_login')
 def quiz_revisao(request, categoria_id=None):
-    """Modo revisão: mostra questões priorizando as mais erradas pelo usuário."""
+    """Modo revisão: mostra questões priorizando as mais erradas pelo usuário.
+    Segue mesma logica de iniciar_quiz POST — limits, idempotencia, XP, SRS,
+    conquistas — pra evitar farm de estatisticas via /revisao/."""
     if request.method == 'POST':
-        alternativa_id = request.POST.get('alternativa_id')
-        cat_id_post    = request.POST.get('categoria_id')
-        escolha = get_object_or_404(Alternativa, id=alternativa_id)
-        RespostaUsuario.objects.create(
-            usuario=request.user, questao=escolha.questao, acertou=escolha.correta
-        )
-        meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
-        meta.atualizar_streak()
+        # Limite de plano (revisao tambem conta pro limite diario)
+        from .limits import pode_responder_questao, get_plano
+        if not pode_responder_questao(request.user):
+            if get_plano(request.user) == 'gratuito':
+                messages.warning(
+                    request,
+                    'Você atingiu o limite diário de questões do plano Gratuito. '
+                    'Faça upgrade para PRO e tenha questões ilimitadas.'
+                )
+                return redirect('planos')
+            messages.warning(request, 'Limite diário de questões atingido.')
+            return redirect('dashboard')
+
+        # Validacao de alternativa_id
+        alternativa_id = request.POST.get('alternativa_id', '').strip()
+        if not alternativa_id.isdigit():
+            messages.error(request, 'Selecione uma alternativa antes de confirmar.')
+            return redirect('quiz_revisao')
+
+        escolha = get_object_or_404(Alternativa, id=int(alternativa_id))
+        cat_id_post = request.POST.get('categoria_id')
+
+        # Idempotencia — nao duplica se ja respondeu hoje
+        hoje = timezone.localdate()
+        ja_respondeu = RespostaUsuario.objects.filter(
+            usuario=request.user, questao=escolha.questao, data__date=hoje,
+        ).exists()
+
+        xp_ganho = 0
+        subiu_nivel = None
+        novas_conquistas_qs = []
+
+        if not ja_respondeu:
+            RespostaUsuario.objects.create(
+                usuario=request.user, questao=escolha.questao, acertou=escolha.correta,
+            )
+            meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
+            meta.atualizar_streak()
+            srs, _ = RevisaoEspacada.objects.get_or_create(
+                usuario=request.user, questao=escolha.questao,
+                defaults={'proxima_revisao': timezone.localdate()},
+            )
+            srs.atualizar(escolha.correta)
+            novas_conquistas_qs = verificar_conquistas(request.user)
+            if novas_conquistas_qs:
+                request.session['novas_conquistas'] = novas_conquistas_qs
+            if escolha.correta:
+                xp_ganho = 10
+                _dar_xp(request.user, xp_ganho, request.session)
+                subiu_nivel = request.session.pop('subiu_nivel', None)
+
         is_favorita = QuestaoFavorita.objects.filter(
             usuario=request.user, questao=escolha.questao
         ).exists()
+        try:
+            streak_atual = request.user.metaestudo.streak_atual
+        except Exception:
+            streak_atual = 0
+
         return render(request, 'quiz/resultado.html', {
             'escolha': escolha, 'categoria_id': cat_id_post,
             'is_favorita': is_favorita, 'modo_revisao': True,
+            'ja_respondeu_antes': ja_respondeu,
+            'xp_ganho': xp_ganho,
+            'streak_atual': streak_atual,
+            'subiu_nivel': subiu_nivel,
+            'novas_conquistas': [
+                {'codigo': c, **CONQUISTAS_META.get(c, {'label': c, 'emoji': '🏆', 'desc': ''})}
+                for c in request.session.pop('novas_conquistas', [])
+            ],
         })
 
     # Questões com mais erros do usuário nessa categoria
