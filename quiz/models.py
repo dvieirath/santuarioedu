@@ -193,7 +193,7 @@ class Perfil(models.Model):
 
 
 class Simulado(models.Model):
-    DURACAO_SEGUNDOS = 5 * 3600  # 5 horas
+    DURACAO_SEGUNDOS = 5 * 3600  # fallback quando duracao_segundos nao populado
     TOTAL_QUESTOES = 50
 
     MODO_NORMAL     = 'normal'
@@ -209,13 +209,21 @@ class Simulado(models.Model):
     finalizado  = models.BooleanField(default=False)
     modo        = models.CharField(max_length=20, choices=MODO_CHOICES,
                                    default='normal')  # Sprint 24
+    # Duracao configuravel por simulado (antes: hardcoded 5h ignorando request.session).
+    # Null = usa fallback DURACAO_SEGUNDOS (5h) — pra retrocompatibilidade com
+    # simulados criados antes da migration 0043.
+    duracao_segundos = models.PositiveIntegerField(
+        null=True, blank=True,
+        help_text='Duracao em segundos. Se null, usa Simulado.DURACAO_SEGUNDOS (5h).',
+    )
 
     def segundos_restantes(self):
         from django.utils import timezone
         if self.finalizado:
             return 0
+        duracao = self.duracao_segundos or self.DURACAO_SEGUNDOS
         decorrido = (timezone.now() - self.iniciado_em).total_seconds()
-        return max(0, self.DURACAO_SEGUNDOS - int(decorrido))
+        return max(0, duracao - int(decorrido))
 
     def __str__(self):
         return f'Simulado de {self.usuario.username} em {self.iniciado_em:%d/%m/%Y %H:%M}'

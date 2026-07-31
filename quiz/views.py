@@ -975,9 +975,10 @@ def simulado_edital(request):
 
         random.shuffle(questoes_selecionadas)
 
-        simulado = Simulado.objects.create(usuario=request.user)
-        # Duração específica do edital
-        request.session[f'simulado_{simulado.id}_duracao'] = edital['duracao_min'] * 60
+        simulado = Simulado.objects.create(
+            usuario=request.user,
+            duracao_segundos=edital['duracao_min'] * 60,
+        )
         # Salva o edital usado pra exibir no resultado
         request.session[f'simulado_{simulado.id}_edital'] = edital['nome']
 
@@ -4022,8 +4023,10 @@ def simulado_personalizado(request):
         import random
         random.shuffle(questoes_selecionadas)
 
-        simulado = Simulado.objects.create(usuario=request.user)
-        request.session[f'simulado_{simulado.id}_duracao'] = tempo_min * 60
+        simulado = Simulado.objects.create(
+            usuario=request.user,
+            duracao_segundos=tempo_min * 60,
+        )
 
         RespostaSimulado.objects.bulk_create([
             RespostaSimulado(simulado=simulado, questao=q, ordem=i + 1)
@@ -5932,8 +5935,10 @@ def simulado_preditivo(request):
 
         import random
         random.shuffle(questoes)
-        simulado = Simulado.objects.create(usuario=request.user)
-        request.session[f'simulado_{simulado.id}_duracao'] = tempo_min * 60
+        simulado = Simulado.objects.create(
+            usuario=request.user,
+            duracao_segundos=tempo_min * 60,
+        )
         for i, q in enumerate(questoes, 1):
             RespostaSimulado.objects.create(simulado=simulado, questao=q, ordem=i)
 
@@ -6309,8 +6314,11 @@ def modo_prova_real(request):
 
         _random.shuffle(questoes_selecionadas)
 
-        simulado = Simulado.objects.create(usuario=request.user, modo='prova_real')
-        request.session[f'simulado_{simulado.id}_duracao'] = edital['duracao_min'] * 60
+        simulado = Simulado.objects.create(
+            usuario=request.user,
+            modo='prova_real',
+            duracao_segundos=edital['duracao_min'] * 60,
+        )
         request.session[f'simulado_{simulado.id}_edital']  = edital['nome']
         request.session[f'simulado_{simulado.id}_banca']   = edital.get('banca', '')
 
