@@ -81,10 +81,17 @@
       <span class="text-sm font-bold text-primary uppercase tracking-widest hidden sm:inline font-serif">SantuarioEdu</span>
     </a>
     <span class="text-on-surface-variant text-xs hidden md:inline">·</span>
+    {% if simulado.modo == 'prova_real' %}
+    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600 text-white shadow-md">
+      <span class="material-symbols-outlined active-icon" style="font-size:14px;">gavel</span>
+      <span class="text-xs font-bold uppercase tracking-wider">Modo Prova Real</span>
+    </div>
+    {% else %}
     <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 text-amber-700">
       <span class="material-symbols-outlined" style="font-size:14px;">assignment</span>
       <span class="text-xs font-bold">Simulado</span>
     </div>
+    {% endif %}
     <span class="text-xs font-medium text-on-surface-variant">
       <span class="font-serif text-primary font-bold text-lg">{{ numero }}</span>
       <span class="text-on-surface-variant">/ {{ total }}</span>
@@ -97,14 +104,23 @@
     <span class="font-serif font-bold text-base tabular-nums text-on-surface" id="timer-display">--:--:--</span>
   </div>
 
-  <form method="post" id="form-finalizar" onsubmit="return confirmarFinalizar()" class="shrink-0">
-    {% csrf_token %}
-    <input type="hidden" name="acao" value="finalizar"/>
-    <button type="submit" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-error border border-error/30 rounded-full hover:bg-error/5 transition-colors">
-      <span class="material-symbols-outlined" style="font-size:14px;">stop_circle</span>
-      <span class="hidden sm:inline">Finalizar</span>
-    </button>
-  </form>
+  <div class="flex items-center gap-2 shrink-0">
+    <a href="{% url 'dashboard' %}"
+       onclick="return confirm('Sair do simulado? Seu progresso fica salvo mas o cronometro continua rodando.')"
+       class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-on-surface-variant border border-outline-variant/40 rounded-full hover:bg-surface-container-low transition-colors"
+       title="Sair (progresso salvo)">
+      <span class="material-symbols-outlined" style="font-size:14px;">logout</span>
+      <span class="hidden sm:inline">Sair</span>
+    </a>
+    <form method="post" id="form-finalizar" onsubmit="return confirmarFinalizar()">
+      {% csrf_token %}
+      <input type="hidden" name="acao" value="finalizar"/>
+      <button type="submit" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-error border border-error/30 rounded-full hover:bg-error/5 transition-colors">
+        <span class="material-symbols-outlined" style="font-size:14px;">stop_circle</span>
+        <span class="hidden sm:inline">Finalizar</span>
+      </button>
+    </form>
+  </div>
 </header>
 
 <!-- Barra de progresso -->
@@ -176,7 +192,9 @@
         {% if questao.tipo == 'CE' %}
         <div class="flex gap-3 mb-5">
           {% for alt in alternativas %}
-          {% if alt.texto|lower == 'certo' or alt.texto|lower == 'c' %}
+          {# CE parsing robusto: aceita "certo/c/verdadeiro/v/sim" (case-insensitive) #}
+          {% with txt=alt.texto|lower %}
+          {% if txt == 'certo' or txt == 'c' or txt == 'verdadeiro' or txt == 'v' or txt == 'sim' or txt|slice:':6' == 'certo ' or txt|slice:':11' == 'verdadeiro ' %}
           <label class="ce-card ce-c">
             <input type="radio" name="alternativa_id" value="{{ alt.id }}" {% if resposta_atual.alternativa_escolhida.id == alt.id %}checked{% endif %} class="sr-only" required>
             <div class="ce-icon"><span class="material-symbols-outlined active-icon">check</span></div>
@@ -191,6 +209,7 @@
             <span class="text-[11px] text-on-surface-variant">A afirmativa está incorreta</span>
           </label>
           {% endif %}
+          {% endwith %}
           {% endfor %}
         </div>
         {% else %}

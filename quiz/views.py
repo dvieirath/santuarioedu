@@ -979,14 +979,26 @@ def simulado_edital(request):
             usuario=request.user,
             duracao_segundos=edital['duracao_min'] * 60,
         )
-        # Salva o edital usado pra exibir no resultado
         request.session[f'simulado_{simulado.id}_edital'] = edital['nome']
 
         RespostaSimulado.objects.bulk_create([
             RespostaSimulado(simulado=simulado, questao=q, ordem=i + 1)
             for i, q in enumerate(questoes_selecionadas)
         ])
-        messages.success(request, f'Simulado "{edital["nome"]}" criado com {len(questoes_selecionadas)} questões.')
+
+        # Aviso claro se o banco nao cobre 100% da distribuicao do edital
+        pedido_total = edital.get('total', 0)
+        entregue = len(questoes_selecionadas)
+        if pedido_total and entregue < pedido_total:
+            cobertura_pct = round(entregue / pedido_total * 100)
+            messages.warning(
+                request,
+                f'Simulado "{edital["nome"]}" criado com {entregue} de {pedido_total} '
+                f'questoes ({cobertura_pct}% de cobertura). O banco ainda nao tem cobertura '
+                f'completa desse edital — algumas disciplinas foram reduzidas.'
+            )
+        else:
+            messages.success(request, f'Simulado "{edital["nome"]}" criado com {entregue} questões.')
         return redirect('simulado_questao', simulado_id=simulado.id, numero=1)
 
     return render(request, 'quiz/simulado_edital.html', {
