@@ -947,6 +947,9 @@ def simulado_edital(request):
         })
 
     if request.method == 'POST':
+        resp = _check_pode_criar_simulado(request, fallback_url='simulado_edital')
+        if resp: return resp
+
         edital_id = request.POST.get('edital_id', '')
         edital = next((e for e in EDITAIS_OFICIAIS if e['id'] == edital_id), None)
         if not edital:
@@ -961,7 +964,9 @@ def simulado_edital(request):
             if not cat:
                 continue
             disponivel = min(qtd, cat.qtd)
-            qs = list(Questao.objects.filter(categoria_id=cat.id, revisada=True).order_by('?')[:disponivel])
+            qs = list(Questao.objects.filter(
+                categoria_id=cat.id, revisada=True, rejeitada_definitiva=False,
+            ).order_by('?')[:disponivel])
             questoes_selecionadas.extend(qs)
 
         if len(questoes_selecionadas) < 5:
@@ -989,31 +994,42 @@ def simulado_edital(request):
     })
 
 
+def _check_pode_criar_simulado(request, fallback_url='escolher_tema'):
+    """Helper compartilhado pelos 5 modos (edital, personalizado, preditivo,
+    prova_real, iniciar_simulado) — verifica simulado ativo + limite do plano.
+    Retorna HttpResponse (redirect) se NAO pode criar; None se pode."""
+    # 1. Simulado ativo? Manda pro simulado em andamento em vez de criar orfaos
+    simulado_ativo = Simulado.objects.filter(
+        usuario=request.user, finalizado=False,
+    ).first()
+    if simulado_ativo and simulado_ativo.segundos_restantes() > 0:
+        messages.info(request, 'Voce ja tem um simulado em andamento. Finalize ou aguarde o timer.')
+        return redirect('simulado_questao', simulado_id=simulado_ativo.id, numero=1)
+
+    # 2. Limite semanal (gratuito 1/sem, PRO ilimitado)
+    from .limits import pode_iniciar_simulado as _pode, get_plano
+    if not _pode(request.user):
+        plano = get_plano(request.user)
+        if plano == 'gratuito':
+            messages.warning(
+                request,
+                'Voce atingiu o limite de simulados da semana no plano Gratuito. '
+                'Faca upgrade para PRO e tenha simulados ilimitados.'
+            )
+            return redirect('planos')
+        messages.warning(request, 'Limite de simulados atingido nesta semana.')
+        return redirect(fallback_url)
+
+    return None  # pode criar
+
+
 @login_required(login_url='account_login')
 def iniciar_simulado(request):
     if request.method != 'POST':
         return redirect('escolher_tema')
 
-    # Verifica se já existe simulado ativo
-    simulado_ativo = Simulado.objects.filter(
-        usuario=request.user, finalizado=False
-    ).first()
-    if simulado_ativo and simulado_ativo.segundos_restantes() > 0:
-        return redirect('simulado_questao', simulado_id=simulado_ativo.id, numero=1)
-
-    # ── Limite de plano ──
-    from .limits import pode_iniciar_simulado, get_plano
-    if not pode_iniciar_simulado(request.user):
-        plano = get_plano(request.user)
-        if plano == 'gratuito':
-            messages.warning(
-                request,
-                'Você atingiu o limite de simulados da semana no plano Gratuito. '
-                'Faça upgrade para PRO e tenha simulados ilimitados.'
-            )
-            return redirect('planos')
-        messages.warning(request, 'Limite de simulados atingido nesta semana.')
-        return redirect('escolher_tema')
+    resp = _check_pode_criar_simulado(request)
+    if resp: return resp
 
     # Sorteio considera apenas questões revisadas (geradas por IA ainda não aprovadas ficam de fora)
     pool_pub = Questao.objects.filter(revisada=True)
@@ -1070,7 +1086,9 @@ def simulado_questao(request, simulado_id, numero):
 
         acao = request.POST.get('acao', 'proxima')
         if acao == 'finalizar':
-            return redirect('finalizar_simulado', simulado_id=simulado.id)
+            # Chama a view finalizar direto (request.method eh POST, passa
+            # pelo @require_POST). Retorna o redirect pra resultado.
+            return finalizar_simulado(request, simulado.id)
         proximo = numero + 1 if numero < total else numero
         return redirect('simulado_questao', simulado_id=simulado.id, numero=proximo)
 
@@ -1094,15 +1112,24 @@ def simulado_questao(request, simulado_id, numero):
 
 
 @login_required(login_url='account_login')
+@require_POST
 def finalizar_simulado(request, simulado_id):
+    """Finaliza simulado. Somente POST (evita CSRF via <img src=/finalizar/>).
+    Usa select_for_update pra evitar race no XP quando F5 duplo ou timer-JS
+    dispara em paralelo."""
     from django.utils import timezone
-    simulado = Simulado.objects.filter(id=simulado_id, usuario=request.user).first()
-    if simulado and not simulado.finalizado:
-        simulado.finalizado = True
-        simulado.finalizado_em = timezone.now()
-        simulado.save()
-        # ── Sprint 16: XP por completar simulado ──
-        _dar_xp(request.user, 50, request.session)
+    from django.db import transaction as _tx
+
+    with _tx.atomic():
+        simulado = (Simulado.objects
+                    .select_for_update()
+                    .filter(id=simulado_id, usuario=request.user)
+                    .first())
+        if simulado and not simulado.finalizado:
+            simulado.finalizado = True
+            simulado.finalizado_em = timezone.now()
+            simulado.save(update_fields=['finalizado', 'finalizado_em'])
+            _dar_xp(request.user, 50, request.session)  # so 1x graças ao lock
     return redirect('simulado_resultado', simulado_id=simulado_id)
 
 
@@ -1112,7 +1139,10 @@ def simulado_resultado(request, simulado_id):
     if not simulado:
         return redirect('escolher_tema')
 
-    respostas = simulado.respostas.select_related('questao__categoria', 'alternativa_escolhida')
+    # prefetch_related pra evitar N+1: template itera alternativa_set por questao
+    respostas = simulado.respostas.select_related(
+        'questao__categoria', 'alternativa_escolhida',
+    ).prefetch_related('questao__alternativa_set')
     respondidas = [r for r in respostas if r.acertou is not None]
     acertos = sum(1 for r in respondidas if r.acertou)
     total_respondidas = len(respondidas)
@@ -3959,6 +3989,9 @@ def simulado_personalizado(request):
     categorias = Categoria.objects.annotate(qtd=Count('questao')).filter(qtd__gt=0).order_by('nome')
 
     if request.method == 'POST':
+        resp = _check_pode_criar_simulado(request, fallback_url='simulado_personalizado')
+        if resp: return resp
+
         # Coleta distribuição categoria → quantidade
         distribuicao = {}
         for cat in categorias:
@@ -3977,10 +4010,13 @@ def simulado_personalizado(request):
         # Tempo: padrão 3 min/questão, mínimo 15min, máximo 6h
         tempo_min = max(15, min(int(request.POST.get('tempo_min', total_questoes * 3)), 360))
 
-        # Sample questões por categoria
+        # Sample questões por categoria — filtra apenas revisadas (consistente
+        # com os outros modos; antes vazava IA nao aprovada)
         questoes_selecionadas = []
         for cat_id, qtd in distribuicao.items():
-            qs = list(Questao.objects.filter(categoria_id=cat_id).order_by('?')[:qtd])
+            qs = list(Questao.objects.filter(
+                categoria_id=cat_id, revisada=True, rejeitada_definitiva=False,
+            ).order_by('?')[:qtd])
             questoes_selecionadas.extend(qs)
 
         import random
@@ -5861,9 +5897,15 @@ def simulado_preditivo(request):
     ]
 
     if request.method == 'POST':
+        resp = _check_pode_criar_simulado(request, fallback_url='simulado_preditivo')
+        if resp: return resp
+
         modo        = request.POST.get('modo', 'fraco')   # 'fraco' | 'balanceado' | 'livre'
         n_questoes  = max(10, min(int(request.POST.get('n_questoes', 30)), 80))
         tempo_min   = max(20, min(int(request.POST.get('tempo_min', 60)), 180))
+
+        # Pool base: sempre filtrado por revisada (consistencia com outros modos)
+        base_qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
 
         # Seleciona categorias com pior desempenho para ponderar seleção
         if modo == 'fraco' and cats_com_dados:
@@ -5875,14 +5917,14 @@ def simulado_preditivo(request):
             n_foco   = max(1, int(n_questoes * 0.70))
             n_livre  = n_questoes - n_foco
             qs_foco  = list(
-                Questao.objects.filter(categoria_id__in=fracas).order_by('?')[:n_foco]
+                base_qs.filter(categoria_id__in=fracas).order_by('?')[:n_foco]
             )
             qs_livre = list(
-                Questao.objects.exclude(id__in=[q.id for q in qs_foco]).order_by('?')[:n_livre]
+                base_qs.exclude(id__in=[q.id for q in qs_foco]).order_by('?')[:n_livre]
             )
             questoes = qs_foco + qs_livre
         else:
-            questoes = list(Questao.objects.order_by('?')[:n_questoes])
+            questoes = list(base_qs.order_by('?')[:n_questoes])
 
         if len(questoes) < 5:
             messages.error(request, 'Questões insuficientes. Tente outro modo.')
@@ -6239,6 +6281,9 @@ def modo_prova_real(request):
         })
 
     if request.method == 'POST':
+        resp = _check_pode_criar_simulado(request, fallback_url='modo_prova_real')
+        if resp: return resp
+
         edital_id = request.POST.get('edital_id', '')
         edital = next((e for e in EDITAIS_OFICIAIS if e['id'] == edital_id), None)
         if not edital:
@@ -6253,7 +6298,9 @@ def modo_prova_real(request):
             if not cat:
                 continue
             disponivel = min(qtd, cat.qtd)
-            qs = list(Questao.objects.filter(categoria_id=cat.id, revisada=True).order_by('?')[:disponivel])
+            qs = list(Questao.objects.filter(
+                categoria_id=cat.id, revisada=True, rejeitada_definitiva=False,
+            ).order_by('?')[:disponivel])
             questoes_selecionadas.extend(qs)
 
         if len(questoes_selecionadas) < 10:
