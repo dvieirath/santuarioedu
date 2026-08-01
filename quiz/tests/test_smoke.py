@@ -174,14 +174,18 @@ class TestSmokeSidebarConsistente(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = User.objects.create_user('sidebaruser', password='senha123')
+        # ConcursoPreferido eh necessario — sem ele, dashboard redireciona
+        # pra /onboarding/ (que nao usa sidebar). Simula user ja onboardado.
+        from quiz.models import ConcursoPreferido
+        ConcursoPreferido.objects.create(usuario=cls.user, concurso='prf')
 
     def setUp(self):
         self.c = Client()
         self.c.force_login(self.user)
 
     def test_dashboard_usa_sidebar_novo(self):
-        # follow=True: novo usuario (0 respostas) e redirecionado pra /estudar/
-        # que tambem usa o sidebar. Testa o comportamento efetivo pra qualquer user.
+        # follow=True: user com onboarding feito (0 respostas) e redirecionado
+        # pra /estudar/ que tambem usa o sidebar.
         r = self.c.get(reverse('dashboard'), follow=True)
         self.assertIn(
             b'data-nav-key', r.content,

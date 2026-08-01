@@ -196,7 +196,9 @@ def _enviar_email_pagamento_aprovado(user, pagamento, nova_expira):
         site_url = getattr(settings, 'SITE_URL', 'https://santuarioedu.com.br').rstrip('/')
         nome = user.first_name or user.username or 'estudante'
         plano_display = 'PRO' if pagamento.plano_alvo == 'pro' else 'Premium'
-        valor_str = f'R$ {pagamento.valor:.2f}'.replace('.', ',')
+        # PagamentoMP guarda valor em centavos (valor_centavos), nao em reais
+        valor_reais = pagamento.valor_centavos / 100
+        valor_str = f'R$ {valor_reais:.2f}'.replace('.', ',')
         send_mail(
             subject=f'✅ Pagamento aprovado — plano {plano_display} ativado',
             message=(

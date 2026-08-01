@@ -207,6 +207,16 @@ class Command(BaseCommand):
         aplicar = opts['aplicar']
         so_mapear = opts['so_mapear']
 
+        # SNAPSHOT: captura IDs de raizes SEM FILHOS antes da FASE 1.
+        # Heuristica: raiz canonica sempre tem filhos (definida em ARVORE).
+        # "Legada" (categoria plana antiga) nao tem filhos ainda.
+        # Isso evita FASE 2 tentar absorver raizes canonicas recem criadas
+        # (bug antes do fix: absorvia raiz Adm Pub -> filhos viravam orfaos).
+        raizes_legadas_ids = set(
+            Categoria.objects.filter(parent__isnull=True, filhos__isnull=True)
+            .values_list('id', flat=True).distinct()
+        )
+
         # Fase 1: cria arvore canonica (idempotente via get_or_create)
         criadas_novas = []
         existentes = []
@@ -217,13 +227,18 @@ class Command(BaseCommand):
                 self._criar_no(entrada, parent=None, criadas=criadas_novas,
                                existentes=existentes, aplicar=aplicar, prefixo='')
 
-        # Fase 2: mover categorias planas existentes
+        # Fase 2: mover SOMENTE categorias planas legadas (nao as canonicas criadas na FASE 1)
         self.stdout.write(self.style.HTTP_INFO('\n═══ FASE 2: Mapeando categorias existentes ═══'))
         movidas = 0
         skipped = 0
         nao_mapeadas = []
 
         for cat in Categoria.objects.filter(parent__isnull=True).order_by('nome'):
+            # So processa categorias que ja eram raizes ANTES da FASE 1.
+            # Raizes canonicas recem criadas nao devem ser tratadas como "plana legada".
+            if cat.id not in raizes_legadas_ids:
+                continue
+
             nome_lower = cat.nome.lower().strip()
             caminho_novo = MAPEAMENTO_EXISTENTES.get(nome_lower)
 
