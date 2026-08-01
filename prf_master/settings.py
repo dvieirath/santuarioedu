@@ -23,14 +23,47 @@ from decouple import config, Csv
 # Cadastre-se grátis em https://sentry.io (5k erros/mês free tier).
 _sentry_dsn = config('SENTRY_DSN', default='')
 if _sentry_dsn:
+    import re as _re
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
+
+    # ── PII scrub em exception messages ──
+    # send_default_pii=False protege metadata do request (headers, IP), mas
+    # NAO scruba PII que aparece na mensagem de exception. Ex:
+    # IntegrityError: duplicate key value violates unique constraint ...
+    # DETAIL: Key (email)=(usuario@gmail.com) already exists.
+    # Precisamos scrubbar isso antes de enviar pro Sentry (LGPD).
+    _RE_EMAIL = _re.compile(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
+    _RE_CPF   = _re.compile(r'\b\d{3}\.?\d{3}\.?\d{3}[-.]?\d{2}\b')
+    _RE_CARD  = _re.compile(r'\b(?:\d{4}[- ]?){3}\d{4}\b')
+
+    def _scrub_pii(text):
+        if not text:
+            return text
+        text = _RE_EMAIL.sub('<email>', text)
+        text = _RE_CPF.sub('<cpf>', text)
+        text = _RE_CARD.sub('<cartao>', text)
+        return text
+
+    def _sentry_before_send(event, hint):
+        # Scrub message + exception values
+        try:
+            if event.get('message'):
+                event['message'] = _scrub_pii(event['message'])
+            for exc in (event.get('exception', {}).get('values') or []):
+                if exc.get('value'):
+                    exc['value'] = _scrub_pii(exc['value'])
+        except Exception:
+            pass
+        return event
+
     sentry_sdk.init(
         dsn=_sentry_dsn,
         integrations=[DjangoIntegration()],
         traces_sample_rate=config('SENTRY_TRACES_RATE', default=0.1, cast=float),
         profiles_sample_rate=config('SENTRY_PROFILES_RATE', default=0.0, cast=float),
         send_default_pii=False,                                  # LGPD — não envia dados pessoais por padrão
+        before_send=_sentry_before_send,                          # scrub PII de exception messages
         environment=config('SENTRY_ENV', default='production'),
         release=config('SENTRY_RELEASE', default=None),
     )

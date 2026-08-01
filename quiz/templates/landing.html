@@ -162,7 +162,7 @@ tailwind.config = {
     </nav>
     <div class="flex items-center gap-2">
       <a href="{% url 'account_login' %}" class="hidden sm:inline-flex text-sm font-bold text-slate-700 hover:text-primary px-4 py-2 transition-colors">Entrar</a>
-      <a href="{% url 'cadastro' %}" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow-soft">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_header" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow-soft">
         Começar grátis
         <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
       </a>
@@ -189,7 +189,7 @@ tailwind.config = {
         caminhos de estudo.
       </p>
       <div class="flex flex-wrap gap-3 mb-6">
-        <a href="{% url 'cadastro' %}" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
+        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_hero" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
           <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">rocket_launch</span>
           Criar conta grátis
         </a>
@@ -434,7 +434,7 @@ tailwind.config = {
           <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>IA + Revisão espaçada</li>
           <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Análises avançadas</li>
         </ul>
-        <a href="{% url 'cadastro' %}" class="block text-center bg-white text-primary px-5 py-3 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors">Experimentar grátis</a>
+        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_planos_pro" class="block text-center bg-white text-primary px-5 py-3 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors">Experimentar grátis</a>
       </div>
 
       <!-- Premium -->

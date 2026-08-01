@@ -142,57 +142,6 @@ def cadastro(request):
     return _redirect('account_signup', permanent=False)
 
 
-@ratelimit(key='ip', rate='5/h', method='POST', block=True)
-def _cadastro_legacy_deprecated(request):
-    from django.utils import timezone as _tz
-    erros_legais = []
-    if request.method == 'POST':
-        # ── Honeypot anti-bot (campo escondido que humano não vê) ──
-        if request.POST.get('nome_meio_bot', '').strip():
-            # Bot preencheu o campo hidden — bloqueia silenciosamente
-            from .models import LogSistema as _Log
-            _Log.objects.create(
-                nivel='AVISO', origem='auth',
-                mensagem='Cadastro bloqueado por honeypot (bot detectado)',
-                detalhe=f'IP={request.META.get("REMOTE_ADDR", "")} UA={request.META.get("HTTP_USER_AGENT", "")[:200]}',
-            )
-            # Retorna sucesso fake pra não indicar que detectou
-            return redirect('home')
-        # ── Validação legal obrigatória ──
-        aceite_termos = request.POST.get('aceite_termos') == 'on'
-        if not aceite_termos:
-            erros_legais.append(
-                'Você precisa aceitar os Termos de Uso e a Política de Privacidade.'
-            )
-        opt_marketing = request.POST.get('aceita_marketing') == 'on'
-
-        form = UserCreationForm(request.POST)
-        if form.is_valid() and not erros_legais:
-            user = form.save()
-            # Registra aceite + opt-in no Perfil (evidência LGPD/CDC)
-            try:
-                from .models import Perfil
-                perfil, _ = Perfil.objects.get_or_create(usuario=user)
-                perfil.aceite_termos = True
-                perfil.aceite_termos_em = _tz.now()
-                perfil.aceite_termos_ip = request.META.get('REMOTE_ADDR', '')
-                if opt_marketing:
-                    perfil.aceita_marketing = True
-                    perfil.aceita_marketing_em = _tz.now()
-                perfil.save()
-            except Exception:
-                pass
-            # Django com allauth tem 2 backends configurados; login() precisa
-            # saber qual usar. ModelBackend eh o certo pra signup username+senha.
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('iniciar_quiz')
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/cadastro.html', {
-        'form': form,
-        'erros_legais': erros_legais,
-    })
-
 def politica_privacidade(request):
     """Página pública: Política de Privacidade (LGPD)."""
     return render(request, 'legal/privacidade.html')
@@ -3381,10 +3330,13 @@ def push_unsubscribe(request):
 @login_required(login_url='account_login')
 @require_POST
 def push_test(request):
-    """Envia uma notificação de teste para o usuário atual."""
+    """Envia uma notificacao de teste. Limpa subscriptions invalidas (410 Gone)
+    automaticamente — sem isso acumulava lixo com o tempo (browser desinstalou
+    PWA ou desativou permissoes, mas row ficava viva)."""
     from pywebpush import webpush, WebPushException
-    subs = PushSubscription.objects.filter(usuario=request.user)
+    subs = list(PushSubscription.objects.filter(usuario=request.user))
     erros = []
+    invalidas = []
     for sub in subs:
         try:
             webpush(
@@ -3401,10 +3353,19 @@ def push_test(request):
                 vapid_claims=django_settings.VAPID_CLAIMS,
             )
         except WebPushException as e:
-            erros.append(str(e))
+            # 410 Gone = subscription expirou/foi revogada no browser; deleta
+            status = getattr(e.response, 'status_code', None) if e.response else None
+            if status in (404, 410):
+                invalidas.append(sub.pk)
+            else:
+                erros.append(str(e))
+
+    if invalidas:
+        PushSubscription.objects.filter(pk__in=invalidas).delete()
+
     if erros:
-        return JsonResponse({'ok': False, 'erros': erros}, status=207)
-    return JsonResponse({'ok': True, 'enviadas': subs.count()})
+        return JsonResponse({'ok': False, 'erros': erros, 'limpas': len(invalidas)}, status=207)
+    return JsonResponse({'ok': True, 'enviadas': len(subs) - len(invalidas), 'limpas': len(invalidas)})
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -3674,9 +3635,10 @@ def timelines_lista(request):
 
 
 @login_required(login_url='account_login')
-@ratelimit(key='user', rate='15/h', method='GET', block=True)
 def timeline_lei_detalhe(request, slug):
-    """Exibe timeline de uma lei. Se ?regenerar=1, chama IA de novo."""
+    """Exibe timeline de uma lei. Se ?regenerar=1, chama IA de novo.
+    Rate limit aplicado SO no branch de regenerar (era global, contava
+    leitura pura de timeline ja gerada — 15 leituras/hora bloqueava user PRO)."""
     from .models import TimelineLei
     from .ai_service import ai_timeline_lei
 
@@ -3684,6 +3646,16 @@ def timeline_lei_detalhe(request, slug):
     regenerar = request.GET.get('regenerar') == '1'
 
     if regenerar or not tl.mudancas_json:
+        # Aplica rate limit manualmente so quando chama IA
+        from django_ratelimit.core import is_ratelimited
+        limited = is_ratelimited(
+            request=request, group='timeline_lei_regenerar',
+            key='user', rate='15/h', method='GET', increment=True,
+        )
+        if limited:
+            messages.error(request, 'Muitas regeracoes por hora. Aguarde 60min.')
+            return redirect('timelines_lista')
+
         dados = ai_timeline_lei(tl.titulo, usuario=request.user)
         tl.resumo = dados.get('resumo', tl.resumo)
         tl.mudancas_json = dados.get('mudancas', [])
@@ -7521,52 +7493,6 @@ def minha_assinatura(request):
         'limite_diario': limite_diario,
         'pct_uso':       pct_uso,
         'uso_semana':    list(uso_semana),
-    })
-
-
-@login_required
-@require_POST
-def aplicar_cupom(request):
-    """Aplica um cupom de desconto/trial."""
-    import json as _json
-    from django.utils import timezone as _tz
-    from datetime import timedelta as _td
-
-    try:
-        body   = _json.loads(request.body)
-        codigo = body.get('codigo', '').strip().upper()
-    except Exception:
-        return JsonResponse({'erro': 'Payload invalido'}, status=400)
-
-    try:
-        cupom = CupomDesconto.objects.get(codigo=codigo)
-    except CupomDesconto.DoesNotExist:
-        return JsonResponse({'erro': 'Cupom nao encontrado'}, status=404)
-
-    if not cupom.disponivel:
-        return JsonResponse({'erro': 'Cupom esgotado ou inativo'}, status=400)
-
-    plano_obj = _get_plano_usuario(request.user)
-
-    # Não fazer downgrade
-    ordem = ['gratuito', 'pro', 'premium']
-    if ordem.index(cupom.plano_alvo) <= ordem.index(plano_obj.plano) and plano_obj.plano != 'gratuito':
-        return JsonResponse({'erro': 'Seu plano atual ja e superior a este cupom'}, status=400)
-
-    expira = _tz.now() + _td(days=cupom.dias)
-    plano_obj.plano     = cupom.plano_alvo
-    plano_obj.ativo     = True
-    plano_obj.expira_em = expira
-    plano_obj.save(update_fields=['plano', 'ativo', 'expira_em'])
-
-    cupom.usos_feitos += 1
-    cupom.save(update_fields=['usos_feitos'])
-
-    return JsonResponse({
-        'ok':        True,
-        'plano':     cupom.get_plano_alvo_display(),
-        'expira_em': expira.strftime('%d/%m/%Y'),
-        'dias':      cupom.dias,
     })
 
 

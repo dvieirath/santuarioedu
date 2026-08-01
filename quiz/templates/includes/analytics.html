@@ -45,5 +45,42 @@ Uso: incluir uma vez no <head> ou fim de <body> das páginas relevantes
   document.addEventListener('DOMContentLoaded', checkAndLoad);
   document.addEventListener('cookieConsentChange', checkAndLoad);
 })();
+
+/* ═══ Events customizados via data-attributes ═══
+   Uso no template: <button data-ga-event="upgrade_clicked" data-ga-value="pro">
+   Dispara gtag('event', 'upgrade_clicked', {plano: 'pro'}) quando clicado.
+   Se GA nao carregou (consent nao dado, ou sem GA_MEASUREMENT_ID), no-op silencioso. */
+(function() {
+  document.addEventListener('click', function(e) {
+    const el = e.target.closest('[data-ga-event]');
+    if (!el || typeof window.gtag !== 'function') return;
+    const eventName = el.dataset.gaEvent;
+    if (!eventName) return;
+    const params = {};
+    // Copia todos os data-ga-* (exceto ga-event) como parametros
+    for (const key in el.dataset) {
+      if (key === 'gaEvent') continue;
+      if (key.startsWith('ga')) {
+        const paramName = key.slice(2).replace(/^./, c => c.toLowerCase());
+        params[paramName] = el.dataset[key];
+      }
+    }
+    window.gtag('event', eventName, params);
+  }, true);
+
+  /* Server-side events: template pode setar window._gaServerEvents = [{name, params}, ...]
+     ANTES de incluir esse partial. Auto-dispatch quando GA carregar. */
+  function flushServerEvents() {
+    const evts = window._gaServerEvents || [];
+    if (typeof window.gtag !== 'function') return;
+    evts.forEach(function(e) {
+      window.gtag('event', e.name, e.params || {});
+    });
+    window._gaServerEvents = [];
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(flushServerEvents, 500);  // espera GA carregar
+  });
+})();
 </script>
 {% endif %}
