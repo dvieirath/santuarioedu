@@ -195,6 +195,16 @@ class Command(BaseCommand):
             raise CommandError('Use --dry_run pra preview ou --aplicar pra executar.')
 
         aplicar = opts['aplicar']
+
+        # Wrap em atomic pra rollback total se algo falhar no meio
+        if aplicar:
+            with transaction.atomic():
+                self._executar(opts)
+        else:
+            self._executar(opts)
+
+    def _executar(self, opts):
+        aplicar = opts['aplicar']
         so_mapear = opts['so_mapear']
 
         # Fase 1: cria arvore canonica (idempotente via get_or_create)
@@ -230,21 +240,40 @@ class Command(BaseCommand):
                 continue
 
             # Caso 2: caminho termina com o proprio nome (ex: 'Direito > Direito Constitucional')
-            # -> mover cat como filha do path[-2]
+            # -> mover cat como filha do path[-2]. Se pai ja tem filho com mesmo
+            # nome (criado na FASE 1), ABSORVE.
             if partes[-1].lower() == cat.nome.lower():
                 pai_path = ' > '.join(partes[:-1])
-                self.stdout.write(self.style.SUCCESS(
-                    f'  ↳ {cat.nome} -> filho de "{pai_path}"'
-                ))
                 if aplicar:
                     pai = self._buscar_por_caminho(partes[:-1])
-                    if pai and cat.parent_id != pai.id:
+                    if not pai:
+                        self.stdout.write(self.style.ERROR(
+                            f'  ⚠ {cat.nome} -> pai "{pai_path}" nao existe'
+                        ))
+                        continue
+
+                    # Ja existe filho com mesmo nome (criado na FASE 1)? ABSORVE.
+                    conflito = Categoria.objects.filter(
+                        parent=pai, nome__iexact=cat.nome,
+                    ).exclude(pk=cat.pk).first()
+                    if conflito:
+                        n = Questao.objects.filter(categoria=cat).update(categoria=conflito)
+                        cat.delete()
+                        self.stdout.write(self.style.SUCCESS(
+                            f'  ↳ {cat.nome} -> ABSORVIDO por filho ja existente em "{pai_path}" ({n} questoes)'
+                        ))
+                    elif cat.parent_id != pai.id:
                         cat.parent = pai
                         cat.save(update_fields=['parent'])
-                    elif not pai:
-                        self.stdout.write(self.style.ERROR(
-                            f'    ⚠ pai "{pai_path}" nao existe (crie a arvore primeiro)'
+                        self.stdout.write(self.style.SUCCESS(
+                            f'  ↳ {cat.nome} -> filho de "{pai_path}"'
                         ))
+                    else:
+                        self.stdout.write(f'  = {cat.nome} (ja e filho de "{pai_path}")')
+                else:
+                    self.stdout.write(self.style.SUCCESS(
+                        f'  ↳ {cat.nome} -> filho de "{pai_path}"'
+                    ))
                 movidas += 1
             else:
                 # Caso 3: renomeacao (ex: 'Conhecimentos Gerais' -> 'Ciências Humanas > Atualidades')
