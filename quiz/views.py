@@ -459,13 +459,16 @@ def iniciar_quiz(request, categoria_id=None):
     # Substitui .order_by('?') (full table scan + sort — 200-500ms em bancos
     # grandes) por sampling via random offset. Uma query pra count e outra
     # pra fetch — total O(1) em vez de O(n log n).
+    # BUG anterior: usava .first() apos slice — Django adiciona order_by('pk')
+    # internamente em .first() e nao pode reordenar apos slice. Fix: iter ou index.
     _count = questoes.count()
+    questao = None
     if _count:
         import random as _random
         _offset = _random.randrange(_count)
-        questao = questoes[_offset:_offset + 1].first()
-    else:
-        questao = None
+        _slice = list(questoes[_offset:_offset + 1])
+        if _slice:
+            questao = _slice[0]
 
     if not questao:
         msg = 'Nenhuma questão encontrada com esses filtros.' if (f_banca or f_ano or f_tipo) else (
