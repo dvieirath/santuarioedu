@@ -2,7 +2,7 @@
 // IMPORTANTE: sempre que HTML/JS/CSS mudar significativamente, bump CACHE_VERSION
 // pra invalidar cache antigo do browser. O activate handler apaga todos os caches
 // de versões anteriores automaticamente.
-const CACHE_VERSION = 'santuario-v6';  // v6: nao intercepta CDN externo (bug markmap)
+const CACHE_VERSION = 'santuario-v7';  // v7: push icon .png -> .svg (arquivo nao existia)
 const CACHE_NAME    = CACHE_VERSION;
 const OFFLINE_URL   = '/offline/';
 
@@ -103,8 +103,8 @@ self.addEventListener('push', event => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: '/static/quiz/icon-192.png',
-      badge: '/static/quiz/icon-192.png',
+      icon: '/static/quiz/icon-192.svg',  // era .png (nao existe no repo)
+      badge: '/static/quiz/icon-192.svg',
       data: { url: data.url || '/' },
       vibrate: [200, 100, 200],
     })

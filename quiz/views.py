@@ -7496,9 +7496,15 @@ def aplicar_cupom(request):
 @require_POST
 def simular_upgrade(request):
     """
-    Simula um upgrade de plano (sem pagamento real).
-    Em produção substituir por redirect para checkout do Stripe.
+    DESATIVADO em producao — dava PRO/Premium GRATIS a qualquer usuario logado.
+    Substituido pelo fluxo real via /api/checkout/mp/ (Mercado Pago).
+    Mantido acessivel APENAS em DEBUG=True pra testes locais rapidos.
     """
+    from django.conf import settings as _s
+    from django.http import Http404
+    if not _s.DEBUG:
+        raise Http404('Endpoint desativado em producao. Use o checkout real.')
+
     import json as _json
     from django.utils import timezone as _tz
     from datetime import timedelta as _td
@@ -7515,14 +7521,10 @@ def simular_upgrade(request):
     plano_obj = _get_plano_usuario(request.user)
     plano_obj.plano     = plano
     plano_obj.ativo     = True
-    # Simulação: 30 dias de acesso
     plano_obj.expira_em = _tz.now() + _td(days=30)
     plano_obj.save(update_fields=['plano', 'ativo', 'expira_em'])
 
-    messages.success(
-        request,
-        f'Plano {plano.upper()} ativado com sucesso! (modo demonstração — 30 dias)'
-    )
+    messages.success(request, f'[DEV MODE] Plano {plano.upper()} ativado por 30 dias')
     return JsonResponse({'ok': True, 'redirect': '/minha-assinatura/'})
 
 
@@ -7947,11 +7949,15 @@ def suporte_novo(request):
         except Exception:
             pass
 
-        # E-mail para equipe de suporte (só envia se SMTP estiver configurado)
+        # E-mail para equipe de suporte. Antes o check era `if EMAIL_HOST` que
+        # so funcionava com SMTP — mas usamos Resend HTTP API via Anymail
+        # (EMAIL_HOST fica vazio), entao nenhum email chegava em prod.
         try:
             from django.core.mail import send_mail
             from django.conf import settings as _s
-            if getattr(_s, 'EMAIL_HOST', ''):
+            _backend = getattr(_s, 'EMAIL_BACKEND', '')
+            _pode_enviar = _backend and 'console' not in _backend and 'dummy' not in _backend
+            if _pode_enviar:
                 send_mail(
                     subject=f'[SantuarioEdu] Ticket #{ticket.id} · {ticket.get_categoria_display()}',
                     message=(
@@ -8912,10 +8918,14 @@ def mp_webhook(request):
         # Ainda persistimos o webhook pra debug
         return JsonResponse({'ok': True, 'ignored': 'external_reference desconhecido'})
 
-    # Atualiza registro
+    # IDEMPOTENCIA: guarda status anterior ANTES do update. Se pagamento ja
+    # estava aprovado e MP reenvia notification (retries ou merchant_order +
+    # payment em paralelo), nao processa de novo — evita empilhar +30d dias
+    # multiplos com um unico pagamento.
+    status_anterior = pagamento.status
+
     pagamento.payment_id  = str(payment.get('id') or '')
     pagamento.payload_raw = payment
-    # Mapeia status do MP para o nosso
     mapa = {
         'approved':     'approved',
         'in_process':   'pending',
@@ -8928,14 +8938,17 @@ def mp_webhook(request):
     pagamento.status = mapa.get(status_mp, pagamento.status)
     pagamento.save(update_fields=['payment_id', 'payload_raw', 'status', 'atualizado_em'])
 
-    # Se aprovado, ativa o plano (idempotente)
-    if pagamento.status == 'approved':
+    # Ativa plano SOMENTE se aprovado agora (nao era approved antes).
+    if pagamento.status == 'approved' and status_anterior != 'approved':
         try:
             processar_pagamento_aprovado(pagamento)
         except Exception as e:
             import logging as _log
             _log.getLogger(__name__).exception('Erro ativando plano do pagamento %s: %s', pagamento.id, e)
             return JsonResponse({'erro': 'Falha interna ao ativar plano'}, status=500)
+    elif pagamento.status == 'approved' and status_anterior == 'approved':
+        # Notification duplicada — ja processada, retorna OK sem re-ativar
+        return JsonResponse({'ok': True, 'status': pagamento.status, 'skipped': 'ja_processado'})
 
     return JsonResponse({'ok': True, 'status': pagamento.status})
 

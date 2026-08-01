@@ -107,7 +107,9 @@ try:
 
     @receiver(email_confirmed)
     def conceder_trial_ao_confirmar(request, email_address, **kwargs):
-        """Só concede PRO 7d quando o usuário CONFIRMA o e-mail."""
+        """Concede PRO 7d na PRIMEIRA confirmacao de email.
+        NAO sobrescreve plano pago vigente (nem PRO nem Premium ativos), nem
+        concede trial 2x quando user confirma email secundario do allauth."""
         from datetime import timedelta
         from django.utils import timezone as _tz
         from .models import PlanoUsuario
@@ -116,9 +118,19 @@ try:
         if not user:
             return
 
-        # Não sobrescreve se já tem plano pago vigente
         existente = PlanoUsuario.objects.filter(usuario=user).first()
-        if existente and existente.plano == 'premium':
+
+        # Guard 1: NAO sobrescreve assinatura paga vigente (PRO ou Premium).
+        # Bug anterior checkava so 'premium' — user PRO 30d que confirmava
+        # email secundario perdia dias que ja pagou.
+        if existente and existente.plano in ('pro', 'premium') and existente.ativo:
+            if not existente.expirado:
+                return
+
+        # Guard 2: NAO concede trial 2x pro mesmo user (email primario ja
+        # confirmado ou trial ja usado).
+        if existente and existente.plano != 'gratuito':
+            # ja teve algum plano (mesmo expirado); trial ja foi usado
             return
 
         PlanoUsuario.objects.update_or_create(

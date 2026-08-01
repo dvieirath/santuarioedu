@@ -149,7 +149,7 @@ tailwind.config = {
      constante nao bate com a do SW, o codigo detecta cache antigo,
      desregistra o SW velho, limpa todos caches e recarrega. */
   (function() {
-    const CACHE_ATUAL = 'santuario-v6';  // bate com sw.js CACHE_VERSION
+    const CACHE_ATUAL = 'santuario-v7';  // bate com sw.js CACHE_VERSION
     const KEY = 'santuario:sw-check';
     if (!('serviceWorker' in navigator)) return;
     // Só roda 1x por sessão de browser (evita loop de reload)
