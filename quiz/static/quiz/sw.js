@@ -2,7 +2,7 @@
 // IMPORTANTE: sempre que HTML/JS/CSS mudar significativamente, bump CACHE_VERSION
 // pra invalidar cache antigo do browser. O activate handler apaga todos os caches
 // de versões anteriores automaticamente.
-const CACHE_VERSION = 'santuario-v5';
+const CACHE_VERSION = 'santuario-v6';  // v6: nao intercepta CDN externo (bug markmap)
 const CACHE_NAME    = CACHE_VERSION;
 const OFFLINE_URL   = '/offline/';
 
@@ -40,17 +40,25 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET, cross-origin API calls, admin panel
+  // Skip non-GET, API, admin — deixa passar direto
   if (request.method !== 'GET') return;
   if (url.pathname.startsWith('/admin/')) return;
   if (url.pathname.startsWith('/api/')) return;
 
-  // For HTML navigation requests: network-first, fall back to cache
+  // CRITICAL: NAO intercepta requests cross-origin (CDN, fontes google, etc).
+  // O SW tentando clonar Response de CDN dava "Failed to execute 'clone'" e
+  // quebrava scripts tipo markmap-autoloader. Deixa o browser cuidar sozinho —
+  // ele ja faz cache-http padrao com Cache-Control (jsdelivr serve immutable
+  // com max-age=1 ano, entao browser cacheia com eficiencia total).
+  if (url.origin !== self.location.origin) return;
+
+  // A partir daqui: SO same-origin (santuarioedu.com.br)
+
+  // HTML navigation: network-first, fallback cache -> offline
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
         .then(response => {
-          // Cache successful HTML responses
           if (response.ok) {
             const clone = response.clone();
             caches.open(CACHE_NAME).then(c => c.put(request, clone));
@@ -64,42 +72,25 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // For static assets: stale-while-revalidate (serve cache imediato, atualiza em bg)
-  // Fontes/CDN: cache-first (raramente mudam)
-  const isFonteOuCdn = (
-    url.hostname.includes('cdn.tailwindcss.com') ||
-    url.hostname.includes('fonts.googleapis.com') ||
-    url.hostname.includes('fonts.gstatic.com') ||
-    url.hostname.includes('cdn.jsdelivr.net') ||
-    url.pathname.match(/\.(woff2?|ttf|ico)$/)
-  );
-  const isAssetLocal = url.pathname.match(/\.(css|js|svg|png|jpg)$/);
-
-  if (isFonteOuCdn) {
-    event.respondWith(
-      caches.match(request).then(cached => cached || fetch(request).then(response => {
-        if (response.ok) caches.open(CACHE_NAME).then(c => c.put(request, response.clone()));
-        return response;
-      }))
-    );
-    return;
-  }
-
+  // Assets locais (css/js/svg/img): stale-while-revalidate
+  const isAssetLocal = url.pathname.match(/\.(css|js|svg|png|jpg|woff2?|ttf|ico)$/);
   if (isAssetLocal) {
     event.respondWith(
       caches.match(request).then(cached => {
         const rede = fetch(request).then(response => {
-          if (response.ok) caches.open(CACHE_NAME).then(c => c.put(request, response.clone()));
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then(c => c.put(request, clone));
+          }
           return response;
         }).catch(() => cached);
-        // Serve cache imediato (se existe) enquanto atualiza em background
         return cached || rede;
       })
     );
     return;
   }
 
-  // Default: network-first
+  // Default same-origin: network-first
   event.respondWith(
     fetch(request).catch(() => caches.match(request))
   );
