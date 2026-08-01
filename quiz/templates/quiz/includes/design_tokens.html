@@ -145,11 +145,11 @@ tailwind.config = {
 
 <script>
   /* ═══ Auto-recovery de Service Worker antigo ═══
-     Se o browser tem um SW cacheado com versão pré-'santuario-v4', a navegação
-     pode servir HTML/JS obsoleto (referências a rotas deletadas, endpoints
-     antigos, etc). Este bloco força desregistro do SW velho e limpa caches. */
+     IMPORTANTE: mantem em sync com CACHE_VERSION no sw.js. Quando essa
+     constante nao bate com a do SW, o codigo detecta cache antigo,
+     desregistra o SW velho, limpa todos caches e recarrega. */
   (function() {
-    const CACHE_ATUAL = 'santuario-v5';
+    const CACHE_ATUAL = 'santuario-v6';  // bate com sw.js CACHE_VERSION
     const KEY = 'santuario:sw-check';
     if (!('serviceWorker' in navigator)) return;
     // Só roda 1x por sessão de browser (evita loop de reload)
@@ -160,7 +160,6 @@ tailwind.config = {
 
     navigator.serviceWorker.getRegistrations().then(regs => {
       if (!regs.length) return;
-      // Verifica os caches ativos
       if (!window.caches) return;
       caches.keys().then(keys => {
         const temAntigo = keys.some(k => k !== CACHE_ATUAL && !k.startsWith('workbox-'));
@@ -170,7 +169,6 @@ tailwind.config = {
           ...keys.filter(k => k !== CACHE_ATUAL).map(k => caches.delete(k)),
           ...regs.map(r => r.unregister()),
         ]).then(() => {
-          // Reload sem cache
           setTimeout(() => window.location.reload(), 300);
         });
       });
