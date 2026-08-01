@@ -123,9 +123,13 @@
         <span class="material-symbols-outlined" style="font-size:14px;">touch_app</span>
         Clique nos nós pra expandir/recolher
       </div>
-      <svg id="mm-svg" class="mm-svg"></svg>
-      <!-- Markdown do mapa (escondido — markmap lê daqui) -->
-      <script type="text/template" id="mm-source">{{ mapa.mermaid }}</script>
+      <!-- markmap-autoloader busca elementos .markmap e renderiza o markdown
+           dentro do <script type="text/template">. Autoloader carrega
+           d3+markmap-lib+markmap-view sozinho — nao precisa dos 3 scripts
+           separados que quebravam antes. -->
+      <div class="markmap" style="width:100%;height:640px;">
+        <script type="text/template">{{ mapa.mermaid|safe }}</script>
+      </div>
     </section>
     {% endif %}
 
@@ -142,46 +146,24 @@
 </main>
 
 {% if not formato_antigo %}
-<!-- markmap: parser + renderer. jsdelivr ja liberado na CSP -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.18/dist/browser/index.js"></script>
+<!-- markmap-autoloader: um script so, gerencia dependencias, procura .markmap
+     divs e renderiza automaticamente. Antes usavamos 3 scripts + JS manual
+     mas o namespace window.markmap nao ficava sincronizado quando os pacotes
+     UMD carregavam fora de ordem. -->
 <script>
-(function() {
-  const src = document.getElementById('mm-source');
-  const svg = document.getElementById('mm-svg');
-  if (!src || !svg || typeof window.markmap === 'undefined') {
-    console.error('markmap nao carregou');
-    return;
+window.markmap = window.markmap || {};
+window.markmap.autoLoader = {
+  onReady: function() {
+    // Configura visual pos-renderizacao — cores por nivel e nivel inicial
+    // expandido. Roda uma vez, depois de todos os .markmap serem processados.
+    document.querySelectorAll('.markmap svg').forEach(function(svg) {
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+    });
   }
-
-  try {
-    const { Transformer } = window.markmap;
-    const transformer = new Transformer();
-    const markdown = src.textContent.trim();
-    const { root } = transformer.transform(markdown);
-
-    const { Markmap } = window.markmap;
-    const mm = Markmap.create(svg, {
-      color: (node) => {
-        // Cores por nivel — bate com o app
-        const depth = node.state ? node.state.depth : 0;
-        const palette = ['#002046', '#1b365d', '#006c4d', '#7b8db3', '#94a3b8'];
-        return palette[Math.min(depth, palette.length - 1)];
-      },
-      paddingX: 12,
-      duration: 400,
-      initialExpandLevel: 1,  // Comeca so com nivel 1 aberto — usuario expande clicando
-      spacingVertical: 6,
-      spacingHorizontal: 100,
-    }, root);
-  } catch (e) {
-    console.error('erro markmap:', e);
-    svg.outerHTML = '<div style="padding:60px;text-align:center;color:#666;">' +
-      '<p>Erro ao renderizar o mapa. <a href="?regenerar=1" style="color:#002046;font-weight:bold;">Regenerar</a></p></div>';
-  }
-})();
+};
 </script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@latest"></script>
 {% endif %}
 
 </body>
