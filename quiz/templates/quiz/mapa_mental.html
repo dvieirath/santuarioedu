@@ -9,29 +9,40 @@
 {% include "quiz/includes/design_tokens.html" %}
 {% include "quiz/includes/dark_mode.html" %}
 <style>
-  .mm-wrap {
+  /* markmap-autoloader: procura .markmap divs e injeta <svg> dentro.
+     Precisa que .markmap seja position:relative e que o svg tenha tamanho. */
+  .markmap {
+    position: relative;
     background: #fff;
     border-radius: 16px;
-    padding: 8px;
-    min-height: 640px;
     box-shadow: 0 4px 12px rgba(0,32,70,.06);
     border: 1px solid #e5e1d8;
-    position: relative;
+    overflow: hidden;
+  }
+  .markmap > svg {
+    width: 100%;
+    height: 640px;
+    display: block;
   }
   .mm-hint {
-    position:absolute;top:16px;left:20px;
-    background:rgba(0,32,70,.06);
-    padding:6px 12px;border-radius:999px;
-    font-size:11px;color:#002046;font-weight:600;
-    pointer-events:none;
-    display:flex;align-items:center;gap:6px;
+    position: absolute; top: 12px; left: 20px;
+    background: rgba(0,32,70,.06);
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 11px; color: #002046; font-weight: 600;
+    pointer-events: none; z-index: 5;
+    display: flex; align-items: center; gap: 6px;
   }
-  .mm-svg { width: 100%; height: 640px; display:block; }
-  /* Estilo do markmap — sobrescreve defaults pra bater com o app */
-  .markmap-node-text { font-family: 'Inter', system-ui, sans-serif; font-size: 13px; }
-  .markmap-link { stroke-width: 2; }
-  .markmap-node-circle { stroke-width: 2; fill: #fff; cursor: pointer; }
-  .markmap-node-circle:hover { fill: #d6e3ff; }
+  /* Loading que aparece se autoloader demorar / falhar */
+  .mm-loading {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    color: #94a3b8; font-size: 13px;
+    background: rgba(246,247,249,0.6);
+    pointer-events: none;
+  }
+  .markmap > svg + .mm-loading { display: none; }  /* some quando SVG existe */
+  .markmap-node text { font-family: 'Inter', system-ui, sans-serif; }
   .aviso-formato-antigo {
     background: linear-gradient(135deg, rgba(254,243,199,.6), rgba(254,243,199,.3));
     border: 1px solid #f59e0b;
@@ -118,19 +129,20 @@
       </a>
     </section>
     {% else %}
-    <section class="mm-wrap fade-in">
+    <div class="markmap fade-in">
       <div class="mm-hint">
         <span class="material-symbols-outlined" style="font-size:14px;">touch_app</span>
         Clique nos nós pra expandir/recolher
       </div>
-      <!-- markmap-autoloader busca elementos .markmap e renderiza o markdown
-           dentro do <script type="text/template">. Autoloader carrega
-           d3+markmap-lib+markmap-view sozinho — nao precisa dos 3 scripts
-           separados que quebravam antes. -->
-      <div class="markmap" style="width:100%;height:640px;">
-        <script type="text/template">{{ mapa.mermaid|safe }}</script>
+      <div class="mm-loading">
+        <span class="material-symbols-outlined animate-spin" style="font-size:32px;">sync</span>
+        <span>Carregando mapa mental...</span>
+        <span style="font-size:11px;opacity:.7">Se demorar &gt;10s, abra o Console (F12) e me mande o erro</span>
       </div>
-    </section>
+      <!-- markmap-autoloader (versao pinada 0.18) — procura .markmap divs
+           e renderiza automaticamente. Nao precisa JS customizado. -->
+      <script type="text/template">{{ mapa.mermaid|safe }}</script>
+    </div>
     {% endif %}
 
     <section class="paper-card rounded-2xl p-4 flex items-start gap-3 fade-in bg-surface-container-low">
@@ -146,24 +158,28 @@
 </main>
 
 {% if not formato_antigo %}
-<!-- markmap-autoloader: um script so, gerencia dependencias, procura .markmap
-     divs e renderiza automaticamente. Antes usavamos 3 scripts + JS manual
-     mas o namespace window.markmap nao ficava sincronizado quando os pacotes
-     UMD carregavam fora de ordem. -->
+<!-- markmap-autoloader pinado em versao especifica (evita mudancas breaking
+     no @latest). Roda no DOMContentLoaded automaticamente. -->
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18.2"></script>
 <script>
-window.markmap = window.markmap || {};
-window.markmap.autoLoader = {
-  onReady: function() {
-    // Configura visual pos-renderizacao — cores por nivel e nivel inicial
-    // expandido. Roda uma vez, depois de todos os .markmap serem processados.
-    document.querySelectorAll('.markmap svg').forEach(function(svg) {
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-    });
+// Fallback verbose de erro: se depois de 8s nao renderizou, mostra
+// mensagem clara com link pra regerar + log no console.
+setTimeout(function() {
+  var loading = document.querySelector('.mm-loading');
+  var svg = document.querySelector('.markmap > svg');
+  if (loading && !svg) {
+    console.error('[mapa_mental] markmap nao renderizou apos 8s. ' +
+      'Verifique: (1) CSP bloqueando cdn.jsdelivr.net (2) markdown malformado ' +
+      '(3) network offline. Markdown atual:', document.querySelector('.markmap > script').textContent);
+    loading.innerHTML = '<span style="font-size:14px;color:#dc2626;">' +
+      '⚠️ Mapa nao carregou.</span>' +
+      '<a href="?regenerar=1" style="color:#002046;font-weight:bold;text-decoration:underline;font-size:13px;">' +
+      'Clique aqui pra regerar</a>' +
+      '<span style="font-size:10px;opacity:.6">Abra o Console (F12) pra ver o erro</span>';
+    loading.style.pointerEvents = 'auto';
   }
-};
+}, 8000);
 </script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@latest"></script>
 {% endif %}
 
 </body>
