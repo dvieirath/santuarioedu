@@ -2303,6 +2303,11 @@ def admin_importar_csv(request):
     if request.method == 'POST' and request.FILES.get('arquivo'):
         import csv, io
         arquivo = request.FILES['arquivo']
+        # Limite de tamanho: 5MB. Evita DoS por volume (10k linhas geram
+        # 10k Questao + Alternativas).
+        if arquivo.size and arquivo.size > 5 * 1024 * 1024:
+            erros.append(f'Arquivo muito grande ({arquivo.size // 1024}KB). Limite: 5MB.')
+            return render(request, 'quiz/admin/importar_csv.html', {'erros': erros})
         try:
             texto = arquivo.read().decode('utf-8-sig')
             reader = csv.DictReader(io.StringIO(texto))
@@ -3344,9 +3349,16 @@ def push_subscribe(request):
         auth     = data.get('keys', {}).get('auth', '')
         if not endpoint or not p256dh or not auth:
             return JsonResponse({'erro': 'Dados incompletos'}, status=400)
+
+        # Impede User B "roubar" endpoint que ja pertence a User A:
+        # se endpoint existe com outro dono, rejeita 403.
+        existente = PushSubscription.objects.filter(endpoint=endpoint).first()
+        if existente and existente.usuario_id != request.user.id:
+            return JsonResponse({'erro': 'Endpoint pertence a outro usuario'}, status=403)
+
         PushSubscription.objects.update_or_create(
-            endpoint=endpoint,
-            defaults={'usuario': request.user, 'p256dh': p256dh, 'auth': auth},
+            endpoint=endpoint, usuario=request.user,
+            defaults={'p256dh': p256dh, 'auth': auth},
         )
         return JsonResponse({'ok': True})
     except Exception as e:
@@ -6093,8 +6105,10 @@ def relatorio_simulado_ia(request, simulado_id):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 @user_passes_test(lambda u: u.is_staff)
+@ratelimit(key='user', rate='30/h', method='POST', block=True)
 def admin_gerar_questoes_ia(request):
     """Admin: gera questões originais via IA a partir de categoria + assunto.
+    Rate limit 30/h/user evita queima acidental de cota Groq/Gemini.
     GET  → formulário de configuração.
     POST acao=gerar   → chama Gemini, retorna preview.
     POST acao=salvar  → persiste questões geradas no banco."""
@@ -7798,22 +7812,26 @@ def aplicar_cupom(request):
         messages.warning(request, f'Você já usou esse cupom.')
         return redirect('planos')
 
-    # Aplica
-    plano, _ = PlanoUsuario.objects.get_or_create(usuario=request.user)
-    plano.plano = cupom.plano_alvo
-    plano.ativo = True
-    if plano.expira_em and plano.expira_em > _tz.now():
-        plano.expira_em = plano.expira_em + timedelta(days=cupom.dias)
-    else:
-        plano.expira_em = _tz.now() + timedelta(days=cupom.dias)
-    plano.save()
+    # Aplica em transacao atomica pra garantir tudo-ou-nada
+    from django.db import transaction as _tx
+    from django.db.models import F as _F
+    with _tx.atomic():
+        plano, _ = PlanoUsuario.objects.get_or_create(usuario=request.user)
+        plano.plano = cupom.plano_alvo
+        plano.ativo = True
+        if plano.expira_em and plano.expira_em > _tz.now():
+            plano.expira_em = plano.expira_em + timedelta(days=cupom.dias)
+        else:
+            plano.expira_em = _tz.now() + timedelta(days=cupom.dias)
+        plano.save()
 
-    UsoCupom.objects.create(
-        cupom=cupom, usuario=request.user,
-        ip_origem=request.META.get('REMOTE_ADDR'),
-    )
-    cupom.usos_feitos += 1
-    cupom.save(update_fields=['usos_feitos'])
+        UsoCupom.objects.create(
+            cupom=cupom, usuario=request.user,
+            ip_origem=request.META.get('REMOTE_ADDR'),
+        )
+        # F() evita race condition: 2 requests concorrentes NAO leem valor
+        # obsoleto (SET usos_feitos = usos_feitos + 1 no proprio DB).
+        CupomDesconto.objects.filter(pk=cupom.pk).update(usos_feitos=_F('usos_feitos') + 1)
 
     messages.success(
         request,
@@ -7915,8 +7933,10 @@ def suporte_lista(request):
 
 
 @login_required(login_url='account_login')
+@ratelimit(key='user', rate='5/h', method='POST', block=True)
 def suporte_novo(request):
-    """Abrir novo ticket."""
+    """Abrir novo ticket. Rate limit 5/h/user evita spam floods:
+    cada ticket dispara Discord + Telegram + email (3 notificacoes)."""
     from .models import TicketSuporte
     if request.method == 'POST':
         assunto    = (request.POST.get('assunto') or '').strip()[:200]
@@ -8801,10 +8821,13 @@ def api_proxima_acao(request):
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='10/h', method='POST', block=True)
 def iniciar_checkout_mp(request):
     """
     Cria uma preference no Mercado Pago e devolve JSON com init_point.
     Frontend deve redirecionar o usuário para essa URL.
+
+    Rate limit 10/h/user evita poluicao de PagamentoMP + queima cota MP.
 
     POST body: {'plano': 'pro' | 'premium'}
     """

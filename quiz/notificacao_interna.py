@@ -18,6 +18,7 @@ Setup:
 """
 import json
 import logging
+import threading
 import urllib.request
 
 from django.conf import settings
@@ -27,10 +28,26 @@ logger = logging.getLogger(__name__)
 
 def notificar(titulo, mensagem='', cor=0x002046):
     """Envia notificação para Discord/Telegram (o que estiver configurado).
-    Roda sem bloquear o fluxo principal — falha silenciosa.
-    """
-    _enviar_discord(titulo, mensagem, cor)
-    _enviar_telegram(titulo, mensagem)
+    Roda em thread daemon — nao bloqueia o request (antes dava ate 10s de
+    delay perceptivel: Discord urlopen 5s + Telegram urlopen 5s)."""
+    t = threading.Thread(
+        target=_enviar_em_paralelo,
+        args=(titulo, mensagem, cor),
+        daemon=True,
+    )
+    t.start()
+
+
+def _enviar_em_paralelo(titulo, mensagem, cor):
+    """Envia pros dois canais em paralelo — se um trava, o outro nao espera."""
+    threads = [
+        threading.Thread(target=_enviar_discord, args=(titulo, mensagem, cor), daemon=True),
+        threading.Thread(target=_enviar_telegram, args=(titulo, mensagem), daemon=True),
+    ]
+    for t in threads:
+        t.start()
+    # Nao dou join — main thread ja retornou; deixamos os daemons terminarem
+    # ou serem killed no shutdown do processo.
 
 
 def _enviar_discord(titulo, mensagem, cor):
