@@ -182,8 +182,13 @@ def escolher_tema(request):
     - Todas Categoria carregadas de uma vez (~24 registros)
     - Contagens de Questao agregadas em 1 query
     - Respondidas do usuario em 1 query
-    Total: ~4-5 queries independente de N categorias. Antes: 100+."""
+    Total: ~4-5 queries independente de N categorias. Antes: 100+.
+
+    Modo busca (?q=xxx): retorna lista FLAT de categorias cujo nome bate
+    (icontains), em qualquer nivel da arvore. Cada resultado mostra o
+    caminho completo (Ciencias > Biologia > Anatomia)."""
     parent_id = request.GET.get('parent', '').strip()
+    query = request.GET.get('q', '').strip()
 
     # Load all Categoria em memoria (baixa cardinalidade, ~24 no total)
     todas_cats = list(Categoria.objects.all())
@@ -212,8 +217,17 @@ def escolher_tema(request):
                 breadcrumb.insert(0, {'id': no.id, 'nome': no.nome})
                 no = id_map.get(no.parent_id) if no.parent_id else None
 
-    # Categorias visiveis (filhos do parent OU raizes)
-    if parent:
+    # Categorias visiveis:
+    # - Se ?q=xxx: busca em TODA arvore por nome (case-insensitive)
+    # - Se parent: filhos daquele parent
+    # - Senao: raizes
+    if query:
+        q_lower = query.lower()
+        cats_visiveis = sorted(
+            [c for c in todas_cats if q_lower in c.nome.lower()],
+            key=lambda c: (0 if c.nome.lower().startswith(q_lower) else 1, c.nome)
+        )
+    elif parent:
         cats_visiveis = sorted(filhos_map.get(parent.id, []), key=lambda c: c.nome)
     else:
         cats_visiveis = sorted(filhos_map.get(None, []), key=lambda c: c.nome)
@@ -243,6 +257,17 @@ def escolher_tema(request):
                .annotate(n=Count('questao_id', distinct=True)))
     resp_map = {r['questao__categoria_id']: r['n'] for r in resp_qs}
 
+    def _caminho_completo(cat_id):
+        """Reconstroi 'Ciencias > Biologia > Anatomia' a partir de cat_id."""
+        partes = []
+        no = id_map.get(cat_id)
+        for _ in range(10):
+            if not no:
+                break
+            partes.append(no.nome)
+            no = id_map.get(no.parent_id) if no.parent_id else None
+        return ' > '.join(reversed(partes))
+
     dados_categorias = []
     for cat in cats_visiveis:
         ids_sub = subarvores[cat.id]
@@ -262,12 +287,16 @@ def escolher_tema(request):
             'concluido': respondidas >= total and total > 0,
             'n_filhos': n_filhos,
             'tem_filhos': n_filhos > 0,
+            # Caminho completo — mostrado quando busca ativa
+            'caminho': _caminho_completo(cat.id) if query else '',
         })
 
     contexto = {
         'categorias': dados_categorias,
         'parent': parent,
         'breadcrumb': breadcrumb,
+        'query': query,
+        'total_resultados': len(dados_categorias),
     }
     if parent:
         parent_sub_ids = _subarvore_ids(parent.id)
