@@ -112,7 +112,13 @@
 
     <article class="paper-card rounded-2xl p-6 sm:p-10">
       <div id="resumo-raw" class="hidden">{{ resumo.conteudo }}</div>
-      <div id="resumo-content"></div>
+      <div id="resumo-content">
+        <!-- Fallback visivel enquanto marked.js carrega/renderiza -->
+        <div id="resumo-loading" style="text-align:center;padding:40px 20px;color:#94a3b8;">
+          <span class="material-symbols-outlined animate-spin" style="font-size:32px;">sync</span>
+          <p style="margin-top:8px;font-size:13px;">Carregando resumo...</p>
+        </div>
+      </div>
 
       <div class="mt-8 pt-6 border-t border-[#e5e1d8] flex items-center justify-between text-[11px] text-on-surface-variant no-print">
         <p class="flex items-center gap-1.5">
@@ -138,8 +144,46 @@
 </main>
 
 <script>
-const raw = document.getElementById('resumo-raw').textContent;
-document.getElementById('resumo-content').innerHTML = marked.parse(raw);
+(function() {
+  const rawEl = document.getElementById('resumo-raw');
+  const contentEl = document.getElementById('resumo-content');
+  if (!rawEl || !contentEl) return;
+
+  const raw = rawEl.textContent.trim();
+
+  // Fallback 1: conteudo vazio ou so espaco
+  if (!raw) {
+    contentEl.innerHTML = '<div style="text-align:center;padding:60px 20px;color:#94a3b8;">' +
+      '<p style="font-size:15px;color:#dc2626;font-weight:600;margin-bottom:8px;">⚠️ Resumo vazio</p>' +
+      '<p style="font-size:13px;">A IA nao retornou conteudo. ' +
+      '<a href="?regenerar=1" style="color:#002046;font-weight:bold;text-decoration:underline;">Tente regerar</a>.</p></div>';
+    return;
+  }
+
+  // Fallback 2: marked.js nao carregou (CDN blocked, network, SW velho, etc)
+  function renderPuroComoFallback(motivo) {
+    console.error('[resumo] marked.js nao disponivel:', motivo, '— renderizando texto puro');
+    // pre-wrap preserva quebras de linha do markdown, sem interpretar sintaxe
+    contentEl.innerHTML = '<div style="background:#fef3c7;border:1px solid #fbbf24;color:#92400e;' +
+      'padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:16px;">' +
+      '⚠️ Formatador (marked.js) nao carregou. Mostrando texto puro.</div>' +
+      '<pre style="white-space:pre-wrap;font-family:inherit;font-size:15px;line-height:1.7;color:#1c1b1b;">' +
+      raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') +
+      '</pre>';
+  }
+
+  if (typeof marked === 'undefined') {
+    renderPuroComoFallback('typeof marked === undefined');
+    return;
+  }
+
+  try {
+    contentEl.innerHTML = marked.parse(raw);
+  } catch (e) {
+    console.error('[resumo] marked.parse error:', e);
+    renderPuroComoFallback('parse error: ' + e.message);
+  }
+})();
 </script>
 
 {% include "quiz/includes/tutor_ia.html" %}
