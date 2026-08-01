@@ -72,9 +72,15 @@ class Command(BaseCommand):
                             choices=list(PRESETS.keys()),
                             help='Distribuição pré-definida (prf, inss, pf, tjdf)')
         parser.add_argument('--por_categoria', type=int, default=None,
-                            help='Gerar N questões para cada categoria existente')
+                            help='Gerar N questões novas para cada categoria (modo incremental)')
+        parser.add_argument('--meta', type=int, default=None,
+                            help='Meta absoluta: gera ate ter N questoes IA em cada categoria. '
+                                 'Ex: --meta 1000 e categoria ja tem 300 IA -> gera so 700 novas.')
         parser.add_argument('--categorias', type=str, default=None,
-                            help='Nomes separados por vírgula (ex: "Português,Direito Civil")')
+                            help='Nomes separados por vírgula. Aceita paths hierarquicos: '
+                                 '"Direito > Direito Constitucional,Ciências da Natureza > Biologia"')
+        parser.add_argument('--incluir_subarvore', action='store_true',
+                            help='Se categoria tem filhos, aplica meta em cada folha da subarvore')
         parser.add_argument('--banca', type=str, default='Cebraspe',
                             help='Banca para todas (default Cebraspe)')
         parser.add_argument('--tipo', type=str, default='ME', choices=['ME', 'CE'])
@@ -186,13 +192,67 @@ class Command(BaseCommand):
             return PRESETS[opts['preset']]
 
         banca = opts['banca']; tipo = opts['tipo']
+
+        # Modo --meta: calcula quanto falta pra atingir a meta absoluta
+        # em cada categoria (checa quantas IA ja tem).
+        meta = opts.get('meta')
+
+        # Resolve nomes/paths pra objetos Categoria
         if opts['categorias']:
-            nomes = [n.strip() for n in opts['categorias'].split(',') if n.strip()]
-            qtd = opts['por_categoria'] or 50
-            return [(n, qtd, banca, tipo, '') for n in nomes]
+            cats = self._resolver_categorias(opts['categorias'], opts.get('incluir_subarvore'))
+        elif opts['por_categoria'] or meta:
+            cats = list(Categoria.objects.all())
+        else:
+            return []
 
-        if opts['por_categoria']:
-            cats = [c.nome for c in Categoria.objects.all()]
-            return [(n, opts['por_categoria'], banca, tipo, '') for n in cats]
+        plano = []
+        for cat in cats:
+            if meta:
+                from quiz.models import Questao
+                ja_tem = Questao.objects.filter(categoria=cat, gerada_por_ia=True).count()
+                faltam = max(0, meta - ja_tem)
+                if faltam == 0:
+                    self.stdout.write(f'  ✓ {cat.nome}: ja tem {ja_tem}/{meta} — skip')
+                    continue
+                plano.append((cat.nome, faltam, banca, tipo, ''))
+                self.stdout.write(f'  → {cat.nome}: ja tem {ja_tem}/{meta}, gera {faltam}')
+            else:
+                qtd = opts['por_categoria'] or 50
+                plano.append((cat.nome, qtd, banca, tipo, ''))
+        return plano
 
-        return []
+    def _resolver_categorias(self, csv_paths, incluir_subarvore):
+        """Aceita nomes simples OU paths tipo 'Direito > Direito Constitucional'.
+        Retorna lista de objetos Categoria."""
+        resultado = []
+        for item in csv_paths.split(','):
+            item = item.strip()
+            if not item:
+                continue
+            partes = [p.strip() for p in item.split('>')]
+            # Busca cascata: primeiro tenta nome exato, depois path
+            cat = None
+            if len(partes) == 1:
+                cat = Categoria.objects.filter(nome__iexact=partes[0]).first()
+            else:
+                cat = None
+                for i, nome in enumerate(partes):
+                    cat = Categoria.objects.filter(
+                        nome__iexact=nome, parent=cat if i > 0 else None,
+                    ).first()
+                    if not cat:
+                        break
+
+            if not cat:
+                self.stderr.write(f'  ⚠ Categoria nao encontrada: {item}')
+                continue
+
+            if incluir_subarvore:
+                # Adiciona TODAS as folhas da subarvore (categorias sem filhos)
+                for sub_id in cat.subarvore_ids():
+                    sub = Categoria.objects.get(pk=sub_id)
+                    if not sub.filhos.exists():  # folha
+                        resultado.append(sub)
+            else:
+                resultado.append(cat)
+        return resultado
