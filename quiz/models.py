@@ -1156,6 +1156,8 @@ class PlanoUsuario(models.Model):
                                         help_text='Null = sem expiração (plano gratuito vitalício)')
     stripe_sub_id = models.CharField(max_length=100, blank=True,
                                       help_text='ID da assinatura no Stripe (futuro)')
+    cancelada_em = models.DateTimeField(null=True, blank=True,
+        help_text='Quando o usuario clicou "cancelar". Mantem acesso ate expira_em.')
     criado_em    = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
 

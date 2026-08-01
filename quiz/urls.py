@@ -188,6 +188,7 @@ urlpatterns = [
     # Sprint 28 — Monetização
     path('planos/',                     views.planos,            name='planos'),
     path('minha-assinatura/',           views.minha_assinatura,  name='minha_assinatura'),
+    path('assinatura/cancelar/',        views.cancelar_assinatura, name='cancelar_assinatura'),
     path('api/cupom/',                  views.aplicar_cupom,     name='aplicar_cupom'),
     path('api/upgrade/',                views.simular_upgrade,   name='simular_upgrade'),
     path('api/meu-plano/',              views.api_meu_plano,     name='api_meu_plano'),

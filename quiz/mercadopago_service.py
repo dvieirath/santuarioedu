@@ -153,9 +153,8 @@ def consultar_payment(payment_id: str) -> dict:
 def processar_pagamento_aprovado(pagamento: PagamentoMP) -> None:
     """
     Atualiza o PlanoUsuario para refletir o pagamento aprovado.
-    Idempotente — chamar múltiplas vezes não vai duplicar acesso.
+    Idempotencia agora eh garantida pelo mp_webhook (checa status_anterior).
     """
-    from django.contrib.auth import get_user_model
     user = pagamento.usuario
 
     plano_obj, _ = PlanoUsuario.objects.get_or_create(
@@ -173,7 +172,49 @@ def processar_pagamento_aprovado(pagamento: PagamentoMP) -> None:
     plano_obj.plano     = pagamento.plano_alvo
     plano_obj.ativo     = True
     plano_obj.expira_em = nova_expira
-    plano_obj.save(update_fields=['plano', 'ativo', 'expira_em'])
+    # Se estava cancelado antes e renovou, limpa flag de cancelamento
+    plano_obj.cancelada_em = None
+    plano_obj.save(update_fields=['plano', 'ativo', 'expira_em', 'cancelada_em'])
 
     logger.info('Plano %s ativado para %s até %s (pagamento %s)',
                 pagamento.plano_alvo, user.username, nova_expira.isoformat(), pagamento.id)
+
+    # Email de confirmacao (fail silently — nao deve bloquear ativacao)
+    _enviar_email_pagamento_aprovado(user, pagamento, nova_expira)
+
+
+def _enviar_email_pagamento_aprovado(user, pagamento, nova_expira):
+    """Manda email transacional confirmando ativacao do plano."""
+    if not user.email:
+        return
+    try:
+        from django.conf import settings
+        from django.core.mail import send_mail
+        _backend = getattr(settings, 'EMAIL_BACKEND', '')
+        if not _backend or 'console' in _backend or 'dummy' in _backend:
+            return
+        site_url = getattr(settings, 'SITE_URL', 'https://santuarioedu.com.br').rstrip('/')
+        nome = user.first_name or user.username or 'estudante'
+        plano_display = 'PRO' if pagamento.plano_alvo == 'pro' else 'Premium'
+        valor_str = f'R$ {pagamento.valor:.2f}'.replace('.', ',')
+        send_mail(
+            subject=f'✅ Pagamento aprovado — plano {plano_display} ativado',
+            message=(
+                f'Ola, {nome}!\n\n'
+                f'Seu pagamento de {valor_str} foi APROVADO. Plano {plano_display} ativado.\n\n'
+                f'📅 Valido ate: {nova_expira.strftime("%d/%m/%Y")}\n'
+                f'💳 Metodo: Mercado Pago\n'
+                f'🆔 ID: {pagamento.id}\n\n'
+                f'Acesse recursos ilimitados agora:\n'
+                f'{site_url}/minha-assinatura/\n\n'
+                f'Direito de arrependimento CDC: voce tem 7 dias corridos pra desistir e receber '
+                f'reembolso integral. So mandar email pra financeiro@santuarioedu.com.br.\n\n'
+                f'-- SantuarioEdu'
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[user.email],
+            fail_silently=True,
+        )
+        logger.info('Email de confirmacao enviado para %s (pagamento %s)', user.email, pagamento.id)
+    except Exception as e:
+        logger.warning('Falha email confirmacao pagamento %s: %s', pagamento.id, e)

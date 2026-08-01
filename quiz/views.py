@@ -7425,6 +7425,70 @@ def planos(request):
 
 
 @login_required
+@require_POST
+def cancelar_assinatura(request):
+    """Marca assinatura como cancelada. NAO revoga acesso imediato — user
+    mantem PRO/Premium ate expira_em (o que ja pagou). Apenas marca cancelada_em
+    pra desabilitar lembretes de renovacao e notificar equipe."""
+    from django.utils import timezone as _tz
+    plano_obj = _get_plano_usuario(request.user)
+
+    if plano_obj.plano == 'gratuito':
+        messages.info(request, 'Voce esta no plano Gratuito — nada pra cancelar.')
+        return redirect('minha_assinatura')
+
+    if plano_obj.cancelada_em:
+        messages.info(request, 'Sua assinatura ja esta marcada como cancelada.')
+        return redirect('minha_assinatura')
+
+    plano_obj.cancelada_em = _tz.now()
+    plano_obj.save(update_fields=['cancelada_em'])
+
+    # Email confirmando cancelamento
+    try:
+        from django.core.mail import send_mail
+        from django.conf import settings as _s
+        _backend = getattr(_s, 'EMAIL_BACKEND', '')
+        if _backend and 'console' not in _backend and 'dummy' not in _backend and request.user.email:
+            expira = plano_obj.expira_em.strftime('%d/%m/%Y') if plano_obj.expira_em else 'no fim do periodo pago'
+            send_mail(
+                subject='Assinatura cancelada — SantuarioEdu',
+                message=(
+                    f'Ola, {request.user.first_name or request.user.username}!\n\n'
+                    f'Confirmamos o cancelamento da sua assinatura {plano_obj.get_plano_display()}.\n\n'
+                    f'Voce mantem TODOS os recursos ate {expira}. Depois disso, sua conta volta '
+                    f'automaticamente pro plano Gratuito — sem cobrancas adicionais.\n\n'
+                    f'Se mudar de ideia, e so acessar https://www.santuarioedu.com.br/minha-assinatura/ '
+                    f'e assinar de novo. Seus dados de estudo continuam salvos.\n\n'
+                    f'Ate mais,\nSantuarioEdu'
+                ),
+                from_email=_s.DEFAULT_FROM_EMAIL,
+                recipient_list=[request.user.email],
+                fail_silently=True,
+            )
+    except Exception:
+        pass
+
+    # Notifica equipe interna (async)
+    try:
+        from .notificacao_interna import notificar
+        notificar(
+            titulo=f'❌ Cancelamento: {request.user.username}',
+            mensagem=f'Plano {plano_obj.get_plano_display()} cancelado. Expira em {plano_obj.expira_em}.',
+            cor=0xdc2626,
+        )
+    except Exception:
+        pass
+
+    messages.success(
+        request,
+        f'Assinatura cancelada. Voce mantem acesso {plano_obj.get_plano_display()} '
+        f'ate {plano_obj.expira_em:%d/%m/%Y}.'
+    )
+    return redirect('minha_assinatura')
+
+
+@login_required
 def minha_assinatura(request):
     """Painel de assinatura do usuário."""
     plano_obj = _get_plano_usuario(request.user)

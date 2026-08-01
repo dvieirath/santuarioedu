@@ -150,6 +150,61 @@ except ImportError:
     pass
 
 
+# ── Notifica user quando staff responde ticket ──────────────────────────────
+try:
+    from .models import RespostaTicket
+
+    @receiver(post_save, sender=RespostaTicket)
+    def notificar_user_resposta_ticket(sender, instance, created, **kwargs):
+        """Quando staff responde um ticket: (1) atualiza status pra 'respondido';
+        (2) envia email pro user. Antes usuario descobria resposta so se acaso
+        reabrir /suporte/ — jornada muda depois de aberta."""
+        if not created or not instance.eh_staff:
+            return
+
+        ticket = instance.ticket
+
+        # 1. Atualiza status do ticket
+        if ticket.status != 'respondido':
+            ticket.status = 'respondido'
+            ticket.save(update_fields=['status', 'atualizado_em'])
+
+        # 2. Email pro user (se tiver email + backend real)
+        user = ticket.usuario
+        destinatario = ticket.email_contato or user.email
+        if not destinatario:
+            return
+
+        try:
+            from django.conf import settings as _s
+            from django.core.mail import send_mail
+            _backend = getattr(_s, 'EMAIL_BACKEND', '')
+            if not _backend or 'console' in _backend or 'dummy' in _backend:
+                return
+            site_url = getattr(_s, 'SITE_URL', 'https://santuarioedu.com.br').rstrip('/')
+            nome = user.first_name or user.username or 'estudante'
+            send_mail(
+                subject=f'Resposta ao seu ticket #{ticket.id} — SantuarioEdu',
+                message=(
+                    f'Ola, {nome}!\n\n'
+                    f'Voce recebeu uma resposta no ticket #{ticket.id} ({ticket.assunto}):\n\n'
+                    f'━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'
+                    f'{instance.mensagem[:800]}\n'
+                    f'━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n'
+                    f'Responda ou veja o ticket completo em:\n'
+                    f'{site_url}/suporte/{ticket.id}/\n\n'
+                    f'-- Equipe SantuarioEdu'
+                ),
+                from_email=_s.DEFAULT_FROM_EMAIL,
+                recipient_list=[destinatario],
+                fail_silently=True,
+            )
+        except Exception:
+            pass
+except ImportError:
+    pass
+
+
 # ── Notifica admin quando log ERRO/CRITICO é criado ─────────────────────────
 @receiver(post_save, sender=LogSistema)
 def notifica_log_grave(sender, instance, created, **kwargs):
