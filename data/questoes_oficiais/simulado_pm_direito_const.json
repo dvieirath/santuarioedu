@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "fonte": "Simulado Direito Constitucional PM (compilado de questões oficiais)",
+    "gabarito": "Explicitamente indicado no PDF (RESPOSTA: X)",
+    "questoes_range": "Q19-Q26"
+  },
+  "questoes": [
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "CIASC",
+      "ano": 2017,
+      "tipo": "ME",
+      "assunto": "Mandado de segurança coletivo",
+      "texto": "O mandado de segurança coletivo poderá ser impetrado por:",
+      "alternativas": [
+        {"texto": "organização sindical, entidade de classe ou associação legalmente constituída e em funcionamento há pelo menos um ano, em defesa dos interesses de seus membros ou associados, ou por partido político com representação no Congresso Nacional.", "correta": true},
+        {"texto": "organização sindical, entidade de classe ou associação com representação nacional, legalmente constituída e expressamente autorizada, em defesa dos interesses de próprios.", "correta": false},
+        {"texto": "partido político com representação nacional, sindicato, entidade de classe ou associação, legalmente autorizada por seus representados, para a defesa dos interesses de seus membros ou associados.", "correta": false},
+        {"texto": "partido político com representação nacional, por organização sindical, entidade de classe ou associação legalmente constituída e em funcionamento há pelo menos um ano, em defesa dos interesses próprios, de seus filiados, membros ou associados.", "correta": false},
+        {"texto": "partido político, confederação sindical, entidade de classe de âmbito nacional ou associação legalmente constituída e em funcionamento há pelo menos um ano, em defesa dos interesses próprios, de seus membros ou associados.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional > Direitos de Nacionalidade",
+      "banca": "TJMG",
+      "ano": 2018,
+      "tipo": "ME",
+      "assunto": "Brasileiros natos",
+      "texto": "Em relação aos direitos de nacionalidade, assinale a alternativa INCORRETA.",
+      "alternativas": [
+        {"texto": "Não será concedida extradição de estrangeiro por crime político ou de opinião.", "correta": false},
+        {"texto": "Não impede a extradição a circunstância de ser o extraditando casado com brasileira ou ter filho brasileiro.", "correta": false},
+        {"texto": "O brasileiro naturalizado poderá ser extraditado em caso de crime comum praticado antes da naturalização ou, na forma da lei, de comprovado envolvimento em tráfico ilícito de entorpecentes e drogas afins.", "correta": false},
+        {"texto": "A Constituição considera brasileiros natos todos os nascidos no Brasil, ainda que de pais estrangeiros, bem como os nascidos no estrangeiro, de pai e mãe brasileiros, desde que ambos estejam a serviço do Brasil.", "correta": true}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional > Administração Pública",
+      "banca": "IPM-SP",
+      "ano": 2018,
+      "tipo": "ME",
+      "assunto": "Servidores públicos - regras gerais",
+      "texto": "Assinale a alternativa INCORRETA no tocante à Constituição Federal de 1988.",
+      "alternativas": [
+        {"texto": "É vedada a vinculação ou equiparação de quaisquer espécies remuneratórias para o efeito de remuneração de pessoal do serviço público.", "correta": false},
+        {"texto": "O prazo de validade do concurso público será de até dois anos, prorrogável uma vez, por igual período.", "correta": false},
+        {"texto": "Os vencimentos dos cargos do Poder Legislativo e do Poder Judiciário não poderão ser superiores aos pagos pelo Poder Executivo.", "correta": false},
+        {"texto": "Em qualquer caso que exija o afastamento do servidor público da administração direta, autárquica e fundacional para o exercício de mandato eletivo, seu tempo de serviço será contado para todos os efeitos legais, exceto para promoção por merecimento.", "correta": false},
+        {"texto": "Durante o prazo prorrogável previsto no edital de convocação, aquele aprovado em concurso público de provas ou de provas e títulos será convocado com prioridade sobre novos concursados para assumir cargo ou emprego, na carreira.", "correta": true}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional > Direitos Sociais",
+      "banca": "IPM-SP",
+      "ano": 2018,
+      "tipo": "ME",
+      "assunto": "Direitos do trabalhador",
+      "texto": "Em concordância com a Constituição Federal, além de outros que visem à melhoria de sua condição social, é direito do trabalhador urbano e rural",
+      "alternativas": [
+        {"texto": "jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, ainda que haja negociação coletiva em sentido diverso.", "correta": false},
+        {"texto": "ação, quanto aos créditos resultantes das relações de trabalho, com prazo prescricional de dois anos para os trabalhadores urbanos e rurais, até o limite de cinco anos após a extinção do contrato de trabalho.", "correta": false},
+        {"texto": "igualdade de direitos entre o trabalhador com vínculo empregatício permanente e o trabalhador avulso.", "correta": true},
+        {"texto": "assistência gratuita aos filhos e dependentes desde o nascimento até 6 (seis) anos de idade em creches e pré-escolas.", "correta": false},
+        {"texto": "seguro contra acidentes de trabalho, a cargo do empregador, sem excluir a indenização a que este está obrigado, quando incorrer somente com dolo.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "TJ-CE",
+      "ano": 2018,
+      "tipo": "ME",
+      "assunto": "Senado Federal - composição",
+      "texto": "O Senado Federal compõe-se de representantes dos Estados e do Distrito Federal, eleitos segundo o princípio majoritário. Segundo a CF/88 cada Estado e o Distrito Federal elegerão:",
+      "alternativas": [
+        {"texto": "2 (dois) senadores.", "correta": false},
+        {"texto": "4 (quatro) senadores.", "correta": false},
+        {"texto": "3 (três) senadores.", "correta": true},
+        {"texto": "5 (cinco) senadores.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "PCSC",
+      "ano": 2017,
+      "tipo": "ME",
+      "assunto": "Segurança pública - Polícia Federal",
+      "texto": "De acordo com a Constituição da República Federativa do Brasil de 1988, o exercício das funções de polícia marítima, aeroportuária e de fronteiras é incumbência da:",
+      "alternativas": [
+        {"texto": "Polícia Civil.", "correta": false},
+        {"texto": "Polícia Militar.", "correta": false},
+        {"texto": "Polícia Federal.", "correta": true},
+        {"texto": "Polícia Rodoviária Federal.", "correta": false},
+        {"texto": "Guarda Municipal.", "correta": false}
+      ]
+    }
+  ]
+}

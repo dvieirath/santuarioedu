@@ -1,0 +1,159 @@
+{
+  "_meta": {
+    "fonte": "TJ-RS Analista Judiciário - Área Administrativa - FGV 2025 (Prova Objetiva Tarde)",
+    "gabarito_oficial": "Edital nº 37/2025 - DDP - Seleção - RECSEL",
+    "questoes_direito_const_admin": "Q65-Q80"
+  },
+  "questoes": [
+    {
+      "categoria_path": "Direito > Direito Constitucional > Direitos de Nacionalidade",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Extradição de estrangeiro naturalizado",
+      "texto": "Pedro nasceu no território brasileiro quando seus genitores, Johan, de nacionalidade belga, e Joana, de nacionalidade argentina, aqui se encontravam temporariamente em gozo de férias. Pouco tempo após o nascimento, passaram a residir na Bélgica, tendo sido reconhecido que Pedro tinha nacionalidade belga. Após atingir a maioridade, Pedro decidiu residir no Brasil, tendo se informado em relação à possibilidade, ou não, de ser extraditado para a Bélgica, pois estava sendo acusado de um crime nesse último país. Foi corretamente dito a Pedro que ele é",
+      "alternativas": [
+        {"texto": "brasileiro nato, logo, não pode ser extraditado.", "correta": true},
+        {"texto": "estrangeiro, logo, pode ser extraditado, salvo se tiver praticado crime de opinião.", "correta": false},
+        {"texto": "estrangeiro, logo, pode ser extraditado, salvo se tiver praticado crime político ou de opinião.", "correta": false},
+        {"texto": "estrangeiro, mas não pode ser extraditado caso se naturalize brasileiro, salvo se o crime praticado for o tráfico ilícito de substâncias entorpecentes.", "correta": false},
+        {"texto": "estrangeiro, mas não pode ser extraditado caso opte pela nacionalidade brasileira, sendo vedada a naturalização caso o crime praticado seja hediondo.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Eficácia das normas constitucionais",
+      "texto": "A partir da interpretação do Art. Y da Emenda Constitucional nº X (ECX), é obtida uma norma constitucional de eficácia contida, que é incompatível com a Lei federal nº W (LFW), de eficácia plena, que foi editada em momento anterior, tendo ambas, por objeto, o mesmo direito fundamental. Na situação descrita, é correto afirmar que",
+      "alternativas": [
+        {"texto": "o Art. Y da ECX não produz efeitos até que seja regulamentado.", "correta": false},
+        {"texto": "a LFW e o Art. Y da ECX continuarão a coexistir até a revogação da LFW.", "correta": false},
+        {"texto": "a LFW, por ter eficácia plena, tem preeminência, no plano da aplicabilidade, sobre a ECX.", "correta": false},
+        {"texto": "a não recepção da LFW pode ser reconhecida por qualquer tribunal, desde que observada a reserva de plenário.", "correta": false},
+        {"texto": "a LFW pode ser objeto de controle concentrado de constitucionalidade perante o Supremo Tribunal Federal, utilizando-se a ECX como paradigma de confronto.", "correta": true}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Competência legislativa",
+      "texto": "Com o objetivo de regularizar a ocupação fundiária no território estadual, a Constituição do Estado Alfa foi emendada e passou a dispor, em seu Art. Y, sobre regularização fundiária. De acordo com esse preceito, era assegurada a aquisição do domínio das terras públicas pertencentes ao Estado Alfa, ocupadas por mais de quarenta anos ininterruptos, sem contestação. Para tanto, deveriam ser comprovadas as cadeias dominiais e que a destinação dada ao imóvel atendesse ao interesse público, conforme reconhecimento realizado pela Secretaria de Estado competente. O Partido Político Delta, cuja bancada foi vencida na votação, sustentou a inconstitucionalidade do Art. Y. À luz da sistemática constitucional, é correto afirmar que o Art. Y é",
+      "alternativas": [
+        {"texto": "constitucional, por versar sobre matéria de competência legislativa concorrente.", "correta": false},
+        {"texto": "constitucional, por versar sobre matéria de competência legislativa exclusiva de Alfa.", "correta": false},
+        {"texto": "inconstitucional, por versar sobre matéria de competência legislativa privativa da União.", "correta": true},
+        {"texto": "inconstitucional, por não prever a participação da Assembleia Legislativa de Alfa, no processo de disposição de terras públicas.", "correta": false},
+        {"texto": "constitucional, desde que a proposta de Emenda à Constituição Estadual tenha sido de iniciativa do Chefe do Poder Executivo.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional > Administração Pública",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Aposentadoria de servidor com deficiência",
+      "texto": "No âmbito do Poder Executivo do Município Alfa, iniciaram-se discussões para apresentar uma proposição legislativa que assegurasse critérios diferenciados de idade e tempo de contribuição para a aposentadoria dos servidores com deficiência. Esses servidores devem ser previamente submetidos à avaliação psicossocial realizada por equipe multiprofissional e ocupar exclusivamente cargos em comissão, de livre nomeação e exoneração. Ao final das discussões, concluiu-se corretamente que a proposição legislativa alvitrada",
+      "alternativas": [
+        {"texto": "deve ter a forma de lei complementar.", "correta": false},
+        {"texto": "é incompatível com a Constituição da República.", "correta": true},
+        {"texto": "pressupõe que Alfa possua um regime próprio de previdência social.", "correta": false},
+        {"texto": "pode ser apresentada por qualquer legitimado à deflagração do processo legislativo.", "correta": false},
+        {"texto": "exige que os servidores beneficiados continuem a contribuir para a previdência social, mesmo após o deferimento da aposentadoria.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Processo legislativo - iniciativa (Poder Legislativo estadual)",
+      "texto": "Um grupo de Deputados Estaduais, da Assembleia Legislativa do Estado Alfa, levou ao presidente dessa Casa Legislativa a preocupação com a necessidade de serem aperfeiçoadas a estrutura e a governança interna, de modo a aumentar a eficiência da atuação finalística. Para a realização desse objetivo, o grupo almejava: I. criar cargos de provimento efetivo; II. extinguir cargos em comissão que se encontravam vagos; III. aumentar a remuneração da generalidade dos servidores da Casa Legislativa. Ao ouvir as ponderações do grupo, o presidente, com base na simetria constitucional, observou corretamente em relação às medidas almejadas que",
+      "alternativas": [
+        {"texto": "todas exigem a edição de lei.", "correta": false},
+        {"texto": "apenas a medida referida em I exige a edição de lei.", "correta": false},
+        {"texto": "apenas a medida referida em III exige a edição de lei.", "correta": true},
+        {"texto": "apenas as medidas referidas em I e II exigem a edição de lei.", "correta": false},
+        {"texto": "apenas as medidas referidas em I e III exigem a edição de lei.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Taxas municipais - fato gerador",
+      "texto": "O Município Alfa, a partir de projeto de lei de iniciativa do vereador João, editou a Lei nº X, criando no último ano duas taxas no âmbito desse ente federativo. A primeira taxa tem como fato gerador os serviços de coleta, remoção e tratamento de lixo provenientes de imóveis. Já o fato gerador da segunda taxa são os serviços de conservação e limpeza de logradouros públicos. Ambas as taxas levavam em conta, no cálculo do valor devido, alguns elementos utilizados na base de cálculo de outro imposto, mas sem identidade. À luz da sistemática constitucional, é correto afirmar que a Lei nº X",
+      "alternativas": [
+        {"texto": "apresenta vício de iniciativa legislativa.", "correta": false},
+        {"texto": "não apresenta vício de inconstitucionalidade.", "correta": false},
+        {"texto": "apresenta vício de inconstitucionalidade em relação ao fato gerador da primeira taxa.", "correta": false},
+        {"texto": "apresenta vício de inconstitucionalidade em relação ao fato gerador da segunda taxa.", "correta": true},
+        {"texto": "apresenta vício de inconstitucionalidade em relação à base de cálculo de ambas as taxas.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "LDO - meta de resultado primário",
+      "texto": "A Lei de Diretrizes Orçamentárias (LDO) do Estado Alfa dispôs em seu Art. X que, no exercício financeiro subsequente, a diferença entre (i) a arrecadação do governo, descartados os juros que auferisse, além de outras receitas similares, e (ii) os gastos realizados, descartados os juros que pagasse, além de outras despesas semelhantes, (iii) deveriam permanecer nos patamares indicados, alcançando, com isso, um objetivo fiscal. À luz da sistemática constitucional, é correto afirmar que o Art. X da LDO dispôs sobre",
+      "alternativas": [
+        {"texto": "a meta de resultado nominal.", "correta": false},
+        {"texto": "a meta de resultado primário.", "correta": true},
+        {"texto": "a meta de resultado consolidado.", "correta": false},
+        {"texto": "o espaço fiscal de reinvestimento.", "correta": false},
+        {"texto": "a trajetória de sustentabilidade da dívida.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Interpretação constitucional",
+      "texto": "O juízo competente para processar e julgar determinado feito, ao interpretar o Art. X da Constituição da República, deparou-se com uma pluralidade de significados passíveis de serem atribuídos ao significante interpretado. Ao decidir por um deles, observou que a mutabilidade dos vetores axiológicos retirados do ambiente sociopolítico legitima novos significados sem que, com isso, o Poder Judiciário usurpe competências alheias. Na situação descrita, é correto afirmar que a conclusão do juízo competente é",
+      "alternativas": [
+        {"texto": "harmônica com a tópica pura.", "correta": false},
+        {"texto": "compatível com o originalismo.", "correta": false},
+        {"texto": "compatível com a lógica do razoável.", "correta": true},
+        {"texto": "refratária à declaração de nulidade sem redução de texto.", "correta": false},
+        {"texto": "refratária à influência de vetores semióticos na interpretação constitucional.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional > Administração Pública",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Estabilidade servidor público - emprego x cargo em comissão",
+      "texto": "Após a aprovação em concurso público de provas e títulos, Josefina ocupa, há três anos, um emprego público em uma sociedade de economia mista vinculada ao Município de Pelotas, no Rio Grande do Sul. Por sua vez, Carolina, sem prévio concurso público, vem exercendo, pelos últimos cinco anos, um cargo em comissão na Secretaria Municipal de Meio Ambiente. Nesse cenário, considerando as disposições da Constituição Federal, é correto afirmar que",
+      "alternativas": [
+        {"texto": "embora sejam servidoras públicas, Josefina e Carolina não possuem estabilidade, tampouco vitaliciedade.", "correta": true},
+        {"texto": "embora sejam servidoras públicas, Josefina e Carolina não possuem estabilidade, mas, sim, vitaliciedade.", "correta": false},
+        {"texto": "Josefina é servidora pública vitalícia; por sua vez, Carolina não possui estabilidade ou vitaliciedade.", "correta": false},
+        {"texto": "Josefina é servidora pública estável; por sua vez, Carolina não possui estabilidade ou vitaliciedade.", "correta": false},
+        {"texto": "Josefina e Carolina são servidoras públicas estáveis.", "correta": false}
+      ]
+    },
+    {
+      "categoria_path": "Direito > Direito Constitucional",
+      "banca": "FGV",
+      "ano": 2025,
+      "tipo": "ME",
+      "assunto": "Ação popular - controle de atos administrativos",
+      "texto": "O Prefeito do Município Alfa nomeou seu filho, João, para o cargo de Secretário Municipal do Meio Ambiente, embora ele não possua conhecimento teórico ou experiência na área ambiental. Diante da nomeação, Caio, ativista da causa ambiental, adotou mecanismos jurídicos para anular o ato, por considerá-lo lesivo à moralidade administrativa e, indiretamente, ao meio ambiente. Nesse cenário, com base nas disposições da Constituição Federal, é correto afirmar que Caio poderá ingressar, em juízo, com um(a)",
+      "alternativas": [
+        {"texto": "ação civil pública, desde que seja maior e capaz.", "correta": false},
+        {"texto": "ação popular, desde que seja maior e capaz.", "correta": false},
+        {"texto": "habeas data, desde que seja maior e capaz.", "correta": false},
+        {"texto": "ação civil pública, desde que seja cidadão.", "correta": false},
+        {"texto": "ação popular, desde que seja cidadão.", "correta": true}
+      ]
+    }
+  ]
+}
