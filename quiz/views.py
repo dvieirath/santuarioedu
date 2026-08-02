@@ -1263,6 +1263,71 @@ def admin_painel(request):
 
 @login_required(login_url='account_login')
 @user_passes_test(_is_staff, login_url='home')
+def admin_meta_progresso(request):
+    """Dashboard de progresso da meta 1000 IA + 1000 oficial por categoria.
+    Mostra so raizes canonicas (nao folhas) — 1 linha por disciplina principal.
+    Aproveita hierarquia: contagem inclui todas as sub-categorias."""
+    from django.db.models import Q as _Q
+
+    META = 1000
+    # So raizes (parent=None) — as 9 canonicas apos seed
+    raizes = list(Categoria.objects.filter(parent__isnull=True).order_by('nome'))
+
+    dados = []
+    for r in raizes:
+        ids_sub = r.subarvore_ids()
+        qs = Questao.objects.filter(categoria_id__in=ids_sub, revisada=True)
+        ia = qs.filter(gerada_por_ia=True).count()
+        oficial = qs.filter(gerada_por_ia=False).exclude(banca__isnull=True).exclude(banca='').count()
+        # Pendentes (nao revisada) — sinal de trabalho parado
+        pendentes = Questao.objects.filter(
+            categoria_id__in=ids_sub, revisada=False, rejeitada_definitiva=False,
+        ).count()
+
+        pct_ia = min(100, round(ia / META * 100))
+        pct_oficial = min(100, round(oficial / META * 100))
+        pct_total = round((ia + oficial) / (META * 2) * 100)
+
+        dados.append({
+            'id': r.id,
+            'nome': r.nome,
+            'ia': ia,
+            'ia_faltam': max(0, META - ia),
+            'pct_ia': pct_ia,
+            'oficial': oficial,
+            'oficial_faltam': max(0, META - oficial),
+            'pct_oficial': pct_oficial,
+            'total': ia + oficial,
+            'pct_total': pct_total,
+            'pendentes_revisao': pendentes,
+            'n_filhos_subarvore': len(ids_sub) - 1,  # exclui a raiz
+            'concluido': ia >= META and oficial >= META,
+        })
+
+    # Ordena: prioridade por % total ASC (menos completa primeiro)
+    dados.sort(key=lambda x: (x['concluido'], x['pct_total']))
+
+    # Totais globais
+    total_ia = sum(d['ia'] for d in dados)
+    total_oficial = sum(d['oficial'] for d in dados)
+    total_pendentes = sum(d['pendentes_revisao'] for d in dados)
+    meta_total = META * 2 * len(raizes)  # 2000 por raiz
+
+    return render(request, 'quiz/admin/meta_progresso.html', {
+        'dados': dados,
+        'meta': META,
+        'total_ia': total_ia,
+        'total_oficial': total_oficial,
+        'total_pendentes': total_pendentes,
+        'meta_total_global': meta_total,
+        'pct_global': round((total_ia + total_oficial) / meta_total * 100) if meta_total else 0,
+        'n_categorias': len(raizes),
+        'n_concluidas': sum(1 for d in dados if d['concluido']),
+    })
+
+
+@login_required(login_url='account_login')
+@user_passes_test(_is_staff, login_url='home')
 def admin_questoes(request):
     from django.db.models.functions import Length
 

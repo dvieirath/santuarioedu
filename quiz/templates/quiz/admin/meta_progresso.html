@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Progresso Meta 1000+1000 — Admin — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .bar-track { height: 10px; background: #f0eded; border-radius: 999px; overflow: hidden; position: relative; }
+  .bar-fill  { height: 100%; border-radius: 999px; transition: width .6s ease; }
+  .bar-ia    { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-oficial { background: linear-gradient(90deg, #006c4d, #16a34a); }
+  .bar-combined { background: linear-gradient(90deg, #002046, #006c4d); }
+  .pct-num   { font-variant-numeric: tabular-nums; font-weight: 800; }
+  .row-cat   { transition: background .15s; }
+  .row-cat:hover { background: rgba(0,32,70,.03); }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='admin' %}
+
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-30 flex items-center justify-between px-6 lg:px-10 md:ml-64 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8]">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">insights</span>
+    <div>
+      <h1 class="font-serif text-lg font-semibold text-primary leading-none">Progresso Meta 1000 + 1000</h1>
+      <p class="text-[11px] text-on-surface-variant">Por categoria raiz · IA aprovadas + oficiais aprovadas</p>
+    </div>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'admin_revisao' %}" class="flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary-fixed hover:bg-primary-fixed/70 px-3 py-1.5 rounded-lg transition-colors">
+      <span class="material-symbols-outlined" style="font-size:14px;">rate_review</span>
+      Revisão pendente
+    </a>
+  </div>
+</header>
+
+<main class="md:ml-64 pt-20 min-h-screen pb-20">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 space-y-6">
+
+    <!-- Resumo global -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+      <div class="paper-card rounded-2xl p-4">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Progresso global</p>
+        <p class="font-serif text-3xl font-bold text-primary pct-num">{{ pct_global }}%</p>
+        <p class="text-xs text-on-surface-variant mt-1">{{ n_concluidas }}/{{ n_categorias }} completas</p>
+      </div>
+      <div class="paper-card rounded-2xl p-4">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-amber-600 mb-1">IA aprovadas</p>
+        <p class="font-serif text-3xl font-bold text-amber-600 pct-num">{{ total_ia }}</p>
+        <p class="text-xs text-on-surface-variant mt-1">Meta: {{ n_categorias }} × 1000 = {{ n_categorias|add:"0" }}k</p>
+      </div>
+      <div class="paper-card rounded-2xl p-4">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-secondary mb-1">Oficiais aprovadas</p>
+        <p class="font-serif text-3xl font-bold text-secondary pct-num">{{ total_oficial }}</p>
+        <p class="text-xs text-on-surface-variant mt-1">De provas oficiais (banca preenchida)</p>
+      </div>
+      <div class="paper-card rounded-2xl p-4">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-error mb-1">Aguardando revisão</p>
+        <p class="font-serif text-3xl font-bold text-error pct-num">{{ total_pendentes }}</p>
+        <p class="text-xs text-on-surface-variant mt-1">
+          <a href="{% url 'admin_revisao' %}" class="text-primary hover:underline">Ir aprovar →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Tabela detalhada por categoria -->
+    <section class="paper-card rounded-2xl overflow-hidden fade-in" style="animation-delay:.1s;">
+      <div class="px-5 py-4 border-b border-[#e5e1d8] flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">stacked_bar_chart</span>
+        <h2 class="font-serif text-lg font-semibold text-primary">Detalhado por categoria raiz</h2>
+        <span class="ml-auto text-xs text-on-surface-variant">Ordenado por menor progresso</span>
+      </div>
+
+      <div class="divide-y divide-[#e5e1d8]">
+        {% for c in dados %}
+        <div class="row-cat px-5 py-4">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-serif text-base font-bold text-primary">{{ c.nome }}</h3>
+                {% if c.concluido %}
+                  <span class="text-[9px] font-bold uppercase tracking-wider bg-secondary text-white px-2 py-0.5 rounded-full">✓ Meta atingida</span>
+                {% endif %}
+                {% if c.n_filhos_subarvore %}
+                  <span class="text-[10px] text-on-surface-variant">
+                    <span class="material-symbols-outlined" style="font-size:11px;">account_tree</span>
+                    {{ c.n_filhos_subarvore }} sub{{ c.n_filhos_subarvore|pluralize }}
+                  </span>
+                {% endif %}
+                {% if c.pendentes_revisao %}
+                  <a href="{% url 'admin_revisao' %}?categoria={{ c.id }}"
+                     class="text-[10px] bg-error-container/60 text-on-error-container px-2 py-0.5 rounded-full hover:bg-error-container transition-colors">
+                    {{ c.pendentes_revisao }} pendente{{ c.pendentes_revisao|pluralize }}
+                  </a>
+                {% endif %}
+              </div>
+              <p class="text-xs text-on-surface-variant mt-0.5">
+                Total aprovado: <strong class="text-primary">{{ c.total }}/2000</strong> · {{ c.pct_total }}%
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-2xl font-bold text-primary pct-num">{{ c.pct_total }}%</p>
+            </div>
+          </div>
+
+          <!-- Barra combinada -->
+          <div class="bar-track mb-3">
+            <div class="bar-fill bar-combined" style="width:{{ c.pct_total }}%"></div>
+          </div>
+
+          <!-- IA + Oficial detalhado -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-1">
+                <span class="font-bold text-amber-700 flex items-center gap-1">
+                  <span class="material-symbols-outlined" style="font-size:12px;">smart_toy</span>
+                  IA
+                </span>
+                <span class="pct-num text-amber-700">{{ c.ia }}/{{ meta }}</span>
+              </div>
+              <div class="bar-track" style="height:6px;">
+                <div class="bar-fill bar-ia" style="width:{{ c.pct_ia }}%"></div>
+              </div>
+              {% if c.ia_faltam %}
+              <p class="text-[10px] text-on-surface-variant mt-1">Faltam {{ c.ia_faltam }}</p>
+              {% else %}
+              <p class="text-[10px] text-secondary font-bold mt-1">✓ Meta IA atingida</p>
+              {% endif %}
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-1">
+                <span class="font-bold text-secondary flex items-center gap-1">
+                  <span class="material-symbols-outlined" style="font-size:12px;">verified</span>
+                  Oficiais
+                </span>
+                <span class="pct-num text-secondary">{{ c.oficial }}/{{ meta }}</span>
+              </div>
+              <div class="bar-track" style="height:6px;">
+                <div class="bar-fill bar-oficial" style="width:{{ c.pct_oficial }}%"></div>
+              </div>
+              {% if c.oficial_faltam %}
+              <p class="text-[10px] text-on-surface-variant mt-1">Faltam {{ c.oficial_faltam }}</p>
+              {% else %}
+              <p class="text-[10px] text-secondary font-bold mt-1">✓ Meta oficial atingida</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="p-8 text-center text-on-surface-variant">
+          <p>Nenhuma categoria raiz encontrada. Rode <code>seed_hierarquia_canonica</code> primeiro.</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Comandos úteis -->
+    <section class="paper-card rounded-2xl p-5 bg-surface-container-low fade-in" style="animation-delay:.2s;">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">terminal</span>
+        <h3 class="font-serif text-base font-semibold text-primary">Comandos pra atacar a próxima categoria</h3>
+      </div>
+      <div class="space-y-2 text-xs font-mono text-on-surface bg-white rounded-lg p-3 border border-[#e5e1d8]">
+        <div>
+          <p class="text-on-surface-variant mb-1">Gerar 1000 IA de uma disciplina (leva ~60-90min):</p>
+          <code class="block px-2 py-1 bg-surface-container-low rounded text-[11px] break-all">
+            railway run python manage.py gerar_lote_completo --categorias "Direito > Direito Constitucional" --meta 1000 --banca Cebraspe --tipo ME --batch 5 --delay 3
+          </code>
+        </div>
+        <div class="pt-2 mt-2 border-t border-[#e5e1d8]">
+          <p class="text-on-surface-variant mb-1">Importar PDFs oficiais (dedup automático):</p>
+          <code class="block px-2 py-1 bg-surface-container-low rounded text-[11px] break-all">
+            railway run python manage.py importar_pdf_questoes --pasta provas_pdf/direito --categoria "Direito > Direito Constitucional"
+          </code>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+</body>
+</html>

@@ -87,6 +87,7 @@ urlpatterns = [
     path('u/<str:username>/', views.perfil_publico, name='perfil_publico'),
     # Painel Admin de Questões
     path('admin-painel/',                                   views.admin_painel,         name='admin_painel'),
+    path('admin-meta-progresso/',                           views.admin_meta_progresso, name='admin_meta_progresso'),
     path('admin-questoes/',                                 views.admin_questoes,        name='admin_questoes'),
     path('admin-questoes/criar/',                           views.admin_questao_criar,   name='admin_questao_criar'),
     path('admin-questoes/<int:questao_id>/editar/',         views.admin_questao_editar,  name='admin_questao_editar'),
