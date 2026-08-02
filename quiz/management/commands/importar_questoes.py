@@ -117,7 +117,16 @@ class Command(BaseCommand):
             for idx, item in enumerate(dados, 1):
                 categoria_path = item.get('categoria_path') or item.get('categoria', '')
                 texto = (item.get('texto') or '').strip()
-                tipo = item.get('tipo', 'ME').upper()
+
+                # Normaliza tipo — campo eh VARCHAR(2), aceita so ME ou CE.
+                tipo_raw = (item.get('tipo') or 'ME').upper().strip()
+                if tipo_raw in ('ME', 'MULTIPLA', 'MULTIPLA_ESCOLHA', 'MULTIPLE'):
+                    tipo = 'ME'
+                elif tipo_raw in ('CE', 'CERTO_ERRADO', 'C/E', 'TRUE_FALSE'):
+                    tipo = 'CE'
+                else:
+                    tipo = 'CE' if item.get('resposta_ce') else 'ME'
+
                 banca = (item.get('banca') or '').strip()
                 ano = item.get('ano')
                 assunto = (item.get('assunto') or '').strip() or None

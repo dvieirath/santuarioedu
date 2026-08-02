@@ -344,7 +344,17 @@ class Command(BaseCommand):
                     ignoradas += 1
                     continue
 
-                tipo = q.get('tipo', 'ME')
+                # Normaliza tipo — campo eh VARCHAR(2), aceita so ME ou CE.
+                # IA as vezes retorna "me", "certo_errado", "multipla_escolha" etc.
+                tipo_raw = (q.get('tipo') or 'ME').upper().strip()
+                if tipo_raw in ('ME', 'MULTIPLA', 'MULTIPLA_ESCOLHA', 'MULTIPLE'):
+                    tipo = 'ME'
+                elif tipo_raw in ('CE', 'CERTO_ERRADO', 'C/E', 'TRUE_FALSE'):
+                    tipo = 'CE'
+                else:
+                    # Fallback: se tem resposta_ce definida, eh CE; senao ME
+                    tipo = 'CE' if q.get('resposta_ce') else 'ME'
+
                 justificativa = ''
                 if opts['com_justificativa']:
                     justificativa = self._gerar_justificativa(q)
