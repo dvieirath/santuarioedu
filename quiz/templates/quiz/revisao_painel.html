@@ -47,10 +47,16 @@
       <span class="text-error" id="hdr-rejeitadas">{{ total_rejeitadas }}</span> rejeitadas
     </p>
   </div>
-  <a href="{% url 'admin_metricas' %}" class="ml-auto text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1">
-    <span class="material-symbols-outlined" style="font-size:16px;">leaderboard</span>
-    Métricas
-  </a>
+  <div class="ml-auto flex gap-2">
+    <a href="{% url 'admin_meta_progresso' %}" class="text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1 px-2 py-1 rounded hover:bg-primary-fixed/50">
+      <span class="material-symbols-outlined" style="font-size:16px;">insights</span>
+      <span class="hidden sm:inline">Progresso meta</span>
+    </a>
+    <a href="{% url 'admin_metricas' %}" class="text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1 px-2 py-1 rounded hover:bg-primary-fixed/50">
+      <span class="material-symbols-outlined" style="font-size:16px;">leaderboard</span>
+      <span class="hidden sm:inline">Métricas</span>
+    </a>
+  </div>
 </header>
 
 <main class="md:ml-64 pt-20 min-h-screen pb-20">
@@ -62,7 +68,7 @@
         <select name="cat" id="filtro-cat" onchange="onFiltroChange()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
           <option value="">Todas categorias</option>
           {% for c in categorias %}
-          <option value="{{ c.id }}" data-count="{{ c.pendentes }}" {% if cat_atual == c.id %}selected{% endif %}>{{ c.nome }} ({{ c.pendentes }})</option>
+          <option value="{{ c.id }}" data-count="{{ c.pendentes }}" {% if cat_atual == c.id %}selected{% endif %}>{{ c.caminho }} ({{ c.pendentes }})</option>
           {% endfor %}
         </select>
         <select name="problema" id="filtro-problema" onchange="proximaAJAX()" class="bg-white border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">

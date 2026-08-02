@@ -8320,13 +8320,44 @@ def revisao_questoes_painel(request):
     total_aprovadas = Questao.objects.filter(revisada=True).count()
     total_rejeitadas = Questao.objects.filter(rejeitada_definitiva=True).count()
 
-    # Lista de categorias com contador pendente
+    # Lista de categorias com contador pendente + PATH hierarquico
+    # (evita ambiguidade: 'Direito Constitucional' fica 'Direito > Direito Constitucional')
     from django.db.models import Count, Q
-    cats = (Categoria.objects
+    cats_qs = (Categoria.objects
             .annotate(pendentes=Count('questao',
                       filter=Q(questao__revisada=False, questao__rejeitada_definitiva=False)))
             .filter(pendentes__gt=0)
+            .select_related('parent')
             .order_by('-pendentes'))
+
+    cats = []
+    for c in cats_qs:
+        # Reconstroi caminho subindo ate raiz
+        partes = [c.nome]
+        no = c.parent
+        for _ in range(10):
+            if not no:
+                break
+            partes.append(no.nome)
+            no = no.parent
+        cats.append({
+            'id': c.id,
+            'nome': c.nome,
+            'caminho': ' > '.join(reversed(partes)),
+            'pendentes': c.pendentes,
+        })
+
+    # Caminho hierarquico da questao atual (pra mostrar no card)
+    caminho_questao = ''
+    if questao and questao.categoria:
+        partes_q = [questao.categoria.nome]
+        no_q = questao.categoria.parent
+        for _ in range(10):
+            if not no_q:
+                break
+            partes_q.append(no_q.nome)
+            no_q = no_q.parent
+        caminho_questao = ' > '.join(reversed(partes_q))
 
     return render(request, 'quiz/revisao_painel.html', {
         'questao': questao,
@@ -8338,6 +8369,7 @@ def revisao_questoes_painel(request):
         'cat_atual': int(cat_id) if cat_id.isdigit() else None,
         'apenas_ia': apenas_ia,
         'ordem': ordem,
+        'caminho_questao': caminho_questao,
     })
 
 
