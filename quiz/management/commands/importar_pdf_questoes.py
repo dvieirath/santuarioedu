@@ -173,6 +173,9 @@ class Command(BaseCommand):
                             help='Mostra o que extraiu, nao salva')
         parser.add_argument('--max_questoes', type=int, default=0,
                             help='Limita numero de questoes salvas por PDF (0 = sem limite)')
+        parser.add_argument('--auto_categoria', action='store_true',
+                            help='Classifica cada questao em disciplina + sub-topico via IA '
+                                 '(sobrescreve --categoria). Custa +1 chamada IA por questao.')
 
     def handle(self, *args, **opts):
         if opts['arquivo']:
@@ -190,13 +193,22 @@ class Command(BaseCommand):
             for a in arquivos:
                 self.stdout.write(f'  - {a.name}')
 
-        categoria, criada = Categoria.objects.get_or_create(
-            nome=opts['categoria']
-        )
-        if criada:
-            self.stdout.write(self.style.SUCCESS(
-                f'\n+ Categoria criada: "{categoria.nome}"'
+        # Em modo auto_categoria, categoria eh resolvida por questao via IA.
+        # A categoria de linha de comando serve apenas como fallback se
+        # classificacao IA falhar.
+        if opts.get('auto_categoria'):
+            categoria = None
+            self.stdout.write(self.style.HTTP_INFO(
+                '\n▶ Modo --auto_categoria ativo: cada questao sera classificada via IA'
             ))
+        else:
+            categoria, criada = Categoria.objects.get_or_create(
+                nome=opts['categoria']
+            )
+            if criada:
+                self.stdout.write(self.style.SUCCESS(
+                    f'\n+ Categoria criada: "{categoria.nome}"'
+                ))
 
         total_criadas = 0
         total_ignoradas = 0
@@ -238,9 +250,9 @@ class Command(BaseCommand):
         banca_det, ano_det = detectar_metadados_filename(pdf_path.name)
         banca = opts['banca'] or banca_det
         ano = opts['ano'] or ano_det
+        cat_label = categoria.nome if categoria else '[auto — classificado por questao via IA]'
         self.stdout.write(
-            f'  Banca: {banca or "?"} | Ano: {ano or "?"} | '
-            f'Categoria: {categoria.nome}'
+            f'  Banca: {banca or "?"} | Ano: {ano or "?"} | Categoria: {cat_label}'
         )
 
         texto_prova = self._extrair_pdf(pdf_path)
@@ -299,15 +311,118 @@ class Command(BaseCommand):
 
         return self._salvar_questoes(todas_questoes, categoria, banca, ano, opts)
 
+    # ── Classifica questao em disciplina + sub-topico via IA ──────────────
+    def _classificar_questao_ia(self, texto):
+        """Retorna path hierarquico tipo 'Direito > Direito Constitucional > Principios Fundamentais'
+        ou None se falhar. Usa Groq/Gemini via ai_provider."""
+        from quiz.ai_provider import gerar_conteudo, AIError
+
+        # Lista limitada de disciplinas + sub-topicos comuns pra evitar
+        # explosao de categorias. IA escolhe da lista ou retorna a raiz.
+        opcoes = """
+DISCIPLINAS E SUB-TOPICOS DISPONIVEIS:
+
+1. Direito > Direito Constitucional
+   > Principios Fundamentais
+   > Direitos e Deveres Individuais e Coletivos
+   > Direitos Sociais
+   > Direitos de Nacionalidade
+   > Direitos Politicos
+   > Partidos Politicos
+   > Organizacao Politico-Administrativa
+   > Administracao Publica
+   > Poder Legislativo
+   > Poder Executivo
+   > Poder Judiciario
+   > Ordem Social
+
+2. Direito > Direito Administrativo
+   > Atos Administrativos
+   > Servidores Publicos
+   > Licitacoes e Contratos
+   > Improbidade Administrativa
+   > Poderes Administrativos
+
+3. Direito > Direito Civil
+4. Direito > Direito Processual Civil
+5. Direito > Direito Penal
+6. Direito > Direito Processual Penal
+7. Direito > Direito Tributario
+8. Direito > Direito do Trabalho
+9. Direito > Direito Previdenciario
+10. Direito > Direito Empresarial
+11. Direito > Legislacao de Transito
+
+12. Linguagens e Codigos > Lingua Portuguesa
+13. Matematica e Raciocinio > Raciocinio Logico
+14. Informatica
+15. Areas Especificas > Analise de Sistemas
+"""
+
+        prompt = f"""Classifique a questao de concurso publico abaixo em UMA disciplina + sub-topico da lista.
+
+{opcoes}
+
+QUESTAO:
+{texto[:1500]}
+
+REGRAS:
+- Retorne APENAS o path completo, sem explicacao.
+- Se nao souber o sub-topico exato, retorne so a disciplina (ex: "Direito > Direito Civil").
+- Se a questao for de outra disciplina nao listada, retorne a disciplina raiz (ex: "Areas Especificas").
+
+PATH:"""
+
+        try:
+            response = gerar_conteudo(prompt, temperature=0.1, max_tokens=100)
+            path = (response.text if hasattr(response, 'text') else str(response)).strip()
+            # Sanitiza: remove aspas, quebras de linha, "PATH:" residual
+            path = path.replace('PATH:', '').replace('"', '').replace("'", '').strip()
+            path = path.split('\n')[0].strip()
+            if '>' not in path or len(path) < 5:
+                return None
+            return path
+        except (AIError, Exception) as e:
+            self.stdout.write(self.style.WARNING(
+                f'    ⚠ Classificacao IA falhou: {type(e).__name__}'
+            ))
+            return None
+
+    def _resolver_categoria_path(self, path, cache):
+        """Resolve path 'A > B > C' criando categorias intermediarias."""
+        if path in cache:
+            return cache[path]
+
+        partes = [p.strip() for p in path.split('>')]
+        parent = None
+        for nome in partes:
+            if not nome:
+                continue
+            cat = Categoria.objects.filter(
+                nome__iexact=nome, parent=parent,
+            ).first()
+            if not cat:
+                cat, _ = Categoria.objects.get_or_create(
+                    nome=nome, parent=parent,
+                )
+            parent = cat
+        cache[path] = parent
+        return parent
+
     # ── Salva no banco ───────────────────────────────────────────────────
     def _salvar_questoes(self, lista, categoria, banca, ano, opts):
         from quiz.models import _hash_texto_questao
+        import time as _time
 
         criadas = 0
         ignoradas = 0
         dup_hash = 0
         dup_prefixo = 0
         curtas = 0
+        classificadas = 0
+        cache_cats = {}
+
+        auto_cat = opts.get('auto_categoria')
 
         with transaction.atomic():
             for q in lista:
@@ -359,8 +474,24 @@ class Command(BaseCommand):
                 if opts['com_justificativa']:
                     justificativa = self._gerar_justificativa(q)
 
+                # Determina categoria: auto_cat via IA, ou fixa via --categoria
+                cat_final = categoria
+                if auto_cat:
+                    path = self._classificar_questao_ia(texto_q)
+                    if path:
+                        cat_final = self._resolver_categoria_path(path, cache_cats)
+                        classificadas += 1
+                        self.stdout.write(f'    ↳ {path}')
+                    else:
+                        # Fallback: cria/usa "Direito > Direito Constitucional"
+                        cat_final = self._resolver_categoria_path(
+                            'Direito > Direito Constitucional', cache_cats,
+                        )
+                    # Rate limit: delay pra nao estourar Gemini free (15 req/min)
+                    _time.sleep(0.5)
+
                 obj = Questao.objects.create(
-                    categoria=categoria,
+                    categoria=cat_final,
                     texto=texto_q,
                     tipo=tipo,
                     justificativa=justificativa,
@@ -397,8 +528,9 @@ class Command(BaseCommand):
             detalhes.append(f'{curtas} texto muito curto')
         detalhe_str = ' — ' + '; '.join(detalhes) if detalhes else ''
 
+        cls_str = f' · {classificadas} classificadas por IA' if auto_cat else ''
         self.stdout.write(self.style.SUCCESS(
-            f'  ✓ {criadas} salvas · {ignoradas} ignoradas{detalhe_str}'
+            f'  ✓ {criadas} salvas · {ignoradas} ignoradas{detalhe_str}{cls_str}'
         ))
         return criadas, ignoradas
 
