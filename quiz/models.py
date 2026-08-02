@@ -109,6 +109,35 @@ class Categoria(models.Model):
         Questao.objects.filter(categoria_id__in=raiz.subarvore_ids())."""
         return [self.id] + self.descendentes_ids()
 
+def _normalizar_texto(txt: str) -> str:
+    """Normaliza texto pra deteccao de duplicata. Case-insensitive + remove
+    espacos multiplos + remove pontuacao trivial. Preserva conteudo semantico
+    mas descarta diferencas de formatacao."""
+    import re as _re
+    import unicodedata
+    if not txt:
+        return ''
+    # Remove acentos (evita "administração" vs "administracao")
+    t = unicodedata.normalize('NFKD', txt).encode('ASCII', 'ignore').decode()
+    t = t.lower()
+    # Colapsa espacos multiplos + quebras + tabs em 1 espaco
+    t = _re.sub(r'\s+', ' ', t)
+    # Remove pontuacao trivial
+    t = _re.sub(r'[.,;:!?"\'()\[\]{}]', '', t)
+    return t.strip()
+
+
+def _hash_texto_questao(txt: str) -> str:
+    """SHA-256 hex dos primeiros 300 chars normalizados. 300 chars sao
+    suficientes pra identificar unicamente o enunciado sem falsos positivos
+    (questoes que compartilham prefixo comum mas divergem no meio)."""
+    import hashlib
+    normalizado = _normalizar_texto(txt or '')[:300]
+    if not normalizado:
+        return ''
+    return hashlib.sha256(normalizado.encode('utf-8')).hexdigest()
+
+
 class Questao(models.Model):
     TIPO_CHOICES = [
         ('ME', 'Múltipla Escolha'),
@@ -116,6 +145,10 @@ class Questao(models.Model):
     ]
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     texto = models.TextField()
+    texto_hash = models.CharField(
+        max_length=64, blank=True, default='', db_index=True,
+        help_text='SHA-256 do enunciado normalizado (dedup automatico).',
+    )
     imagem = models.ImageField(upload_to='questoes/', blank=True, null=True,
                                 validators=VALIDADORES_IMAGEM)
     tipo = models.CharField(max_length=2, choices=TIPO_CHOICES, default='ME')
@@ -125,6 +158,11 @@ class Questao(models.Model):
     banca = models.CharField(max_length=60, blank=True, null=True)
     ano = models.PositiveSmallIntegerField(blank=True, null=True)
     gerada_por_ia = models.BooleanField(default=False)  # Sprint 23
+
+    def save(self, *args, **kwargs):
+        """Auto-calcula texto_hash antes de salvar (nao precisa signal)."""
+        self.texto_hash = _hash_texto_questao(self.texto)
+        super().save(*args, **kwargs)
 
     # ── Ciclo de revisão humana ──
     motivo_rejeicao = models.TextField(blank=True, default='',

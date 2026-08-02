@@ -301,16 +301,36 @@ class Command(BaseCommand):
 
     # ── Salva no banco ───────────────────────────────────────────────────
     def _salvar_questoes(self, lista, categoria, banca, ano, opts):
+        from quiz.models import _hash_texto_questao
+
         criadas = 0
         ignoradas = 0
+        dup_hash = 0
+        dup_prefixo = 0
+        curtas = 0
+
         with transaction.atomic():
             for q in lista:
                 texto_q = (q.get('texto') or '').strip()
                 if len(texto_q) < 20:
+                    curtas += 1
                     ignoradas += 1
                     continue
 
-                # Dedupe por prefixo + banca + ano
+                # Dedup 1 (robusto): SHA-256 do texto normalizado.
+                # Detecta duplicatas mesmo com espacos/acentos/pontuacao diferente.
+                # Busca GLOBAL (nao so por banca/ano/categoria) — a mesma
+                # questao em bancas diferentes ainda deve ser dedup.
+                hash_novo = _hash_texto_questao(texto_q)
+                if hash_novo and Questao.objects.filter(texto_hash=hash_novo).exists():
+                    dup_hash += 1
+                    ignoradas += 1
+                    continue
+
+                # Dedup 2 (fallback): prefixo istartswith. Cobre casos
+                # onde a IA parafraseia levemente (hash diferente mas
+                # inicio identico). Aplica so no mesmo escopo pra evitar
+                # falsos positivos entre bancas.
                 filtro_dup = {
                     'categoria': categoria,
                     'texto__istartswith': texto_q[:80],
@@ -320,6 +340,7 @@ class Command(BaseCommand):
                 if ano:
                     filtro_dup['ano'] = ano
                 if Questao.objects.filter(**filtro_dup).exists():
+                    dup_prefixo += 1
                     ignoradas += 1
                     continue
 
@@ -356,8 +377,18 @@ class Command(BaseCommand):
                                                correta=(resp_ce == 'E'))
                 criadas += 1
 
+        # Relatorio detalhado das ignoradas
+        detalhes = []
+        if dup_hash:
+            detalhes.append(f'{dup_hash} duplicata exata (hash)')
+        if dup_prefixo:
+            detalhes.append(f'{dup_prefixo} duplicata por prefixo (mesma banca/ano)')
+        if curtas:
+            detalhes.append(f'{curtas} texto muito curto')
+        detalhe_str = ' — ' + '; '.join(detalhes) if detalhes else ''
+
         self.stdout.write(self.style.SUCCESS(
-            f'  ✓ {criadas} salvas · {ignoradas} ignoradas (duplicadas/curtas)'
+            f'  ✓ {criadas} salvas · {ignoradas} ignoradas{detalhe_str}'
         ))
         return criadas, ignoradas
 

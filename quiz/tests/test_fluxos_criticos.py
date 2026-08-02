@@ -351,6 +351,41 @@ class TestBuscaHierarquica(TestCase):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# Dedup por hash SHA-256 do enunciado normalizado
+# ══════════════════════════════════════════════════════════════════════════════
+class TestDedupHashQuestao(TestCase):
+    """Confirma que Questao.save() calcula texto_hash automatico e que
+    variacoes triviais (espacos, acentos, pontuacao) dao mesmo hash."""
+
+    def setUp(self):
+        self.cat = Categoria.objects.create(nome='TestDedup')
+
+    def test_hash_calculado_no_save(self):
+        q = Questao.objects.create(categoria=self.cat, texto='Enunciado teste 1')
+        self.assertEqual(len(q.texto_hash), 64)  # SHA-256 hex = 64 chars
+
+    def test_hash_igual_ignora_acentos_case_pontuacao(self):
+        """'Administração' e 'administracao' devem hasear igual."""
+        from quiz.models import _hash_texto_questao
+        h1 = _hash_texto_questao('Administração Pública — princípios básicos.')
+        h2 = _hash_texto_questao('administracao publica principios basicos')
+        h3 = _hash_texto_questao('ADMINISTRAÇÃO PÚBLICA! PRINCÍPIOS BÁSICOS?')
+        self.assertEqual(h1, h2)
+        self.assertEqual(h1, h3)
+
+    def test_hash_diferente_pra_textos_diferentes(self):
+        from quiz.models import _hash_texto_questao
+        h1 = _hash_texto_questao('Enunciado A completo aqui longo texto')
+        h2 = _hash_texto_questao('Enunciado B completamente diferente')
+        self.assertNotEqual(h1, h2)
+
+    def test_texto_vazio_hash_vazio(self):
+        from quiz.models import _hash_texto_questao
+        self.assertEqual(_hash_texto_questao(''), '')
+        self.assertEqual(_hash_texto_questao(None), '')
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # BUG 9: Toggle favorita exige POST (era GET vulneravel a prefetch)
 # ══════════════════════════════════════════════════════════════════════════════
 class TestFavoritaRequirePOST(TestCase):
