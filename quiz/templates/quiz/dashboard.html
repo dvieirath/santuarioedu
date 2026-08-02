@@ -106,9 +106,7 @@ tailwind.config = {
         <span class="material-symbols-outlined active-icon" style="color:#f97316;">local_fire_department</span>
         <span class="text-xs font-bold">{{ meta.streak_atual|default:0 }} {{ meta.streak_atual|default:0|pluralize:"dia,dias" }}</span>
       </a>
-      <a href="{% url 'preferencias_notificacao' %}" class="text-on-surface-variant hover:text-primary transition-colors">
-        <span class="material-symbols-outlined">notifications</span>
-      </a>
+      {% include "quiz/includes/sino_notificacoes.html" %}
       <a href="{% url 'perfil' %}" class="flex items-center gap-3 border-l pl-4 border-outline-variant hover:opacity-80 transition-opacity">
         {% if foto_google %}
         <img src="{{ foto_google }}" alt="{{ user.username }}" class="w-10 h-10 rounded-full object-cover">

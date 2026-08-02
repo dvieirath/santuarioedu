@@ -117,8 +117,9 @@ urlpatterns = [
     path('grupos/<int:grupo_id>/',               views.grupo_detalhe_v2,        name='grupo_detalhe'),
     path('grupos/<int:grupo_id>/sair/',          views.sair_grupo,              name='sair_grupo'),
     path('notificacoes/',                        views.central_notificacoes,    name='central_notificacoes'),
-    path('api/notificacoes/count/',              views.api_notificacoes_count,  name='api_notificacoes_count'),
-    path('api/notificacoes/<int:notif_id>/lida/', views.api_notificacao_lida,   name='api_notificacao_lida'),
+    path('api/notificacoes/count/',              views.api_notificacoes_count,     name='api_notificacoes_count'),
+    path('api/notificacoes/recentes/',           views.api_notificacoes_recentes,  name='api_notificacoes_recentes'),
+    path('api/notificacoes/<int:notif_id>/lida/', views.api_notificacao_lida,      name='api_notificacao_lida'),
     path('exportar/historico.csv',               views.exportar_historico_csv,  name='exportar_historico_csv'),
     path('certificado/',                         views.certificado_progresso,   name='certificado_progresso'),
     # Sprint 13 — Simulado Personalizado, Metas, Comentários, Assuntos, Admin Stats

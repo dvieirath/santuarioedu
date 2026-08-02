@@ -1,0 +1,166 @@
+{% comment %}
+Sino de notificações reutilizável — usar em qualquer template com header.
+Inclui: badge com contador, dropdown com últimas 5, polling a cada 30s.
+
+Requer que user esteja autenticado. Consome APIs:
+  GET  /api/notificacoes/count/         → {count: N}
+  GET  /api/notificacoes/recentes/      → {total_nao_lidas: N, notificacoes: [...]}
+  POST /api/notificacoes/<id>/lida/     → marca individual como lida
+{% endcomment %}
+
+<div class="relative" id="sino-notif-wrap">
+  <button type="button" id="sino-notif-btn"
+          class="relative text-on-surface-variant hover:text-primary transition-colors p-1.5 rounded-lg hover:bg-primary-fixed/50"
+          aria-label="Notificações"
+          onclick="toggleSinoDropdown(event)">
+    <span class="material-symbols-outlined" style="font-size:22px;">notifications</span>
+    <span id="sino-notif-badge"
+          class="hidden absolute -top-0.5 -right-0.5 bg-error text-white text-[9px] font-bold rounded-full min-w-[16px] h-[16px] flex items-center justify-center px-1"
+          style="line-height:1;"></span>
+  </button>
+
+  <div id="sino-notif-dropdown"
+       class="hidden absolute right-0 top-12 w-80 md:w-96 bg-white border border-[#e5e1d8] rounded-xl shadow-lg z-50 overflow-hidden">
+    <div class="px-4 py-3 border-b border-[#e5e1d8] flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:18px;">notifications_active</span>
+        <span class="font-serif font-semibold text-primary text-sm">Notificações</span>
+      </div>
+      <a href="{% url 'central_notificacoes' %}" class="text-[11px] text-primary hover:underline font-semibold">Ver todas</a>
+    </div>
+
+    <div id="sino-notif-list" class="max-h-96 overflow-y-auto">
+      <div id="sino-notif-loading" class="p-6 text-center text-xs text-on-surface-variant">
+        <span class="material-symbols-outlined animate-spin" style="font-size:20px;">sync</span>
+        <p class="mt-1">Carregando...</p>
+      </div>
+      <div id="sino-notif-empty" class="hidden p-8 text-center">
+        <span class="material-symbols-outlined text-outline-variant block" style="font-size:36px;">notifications_off</span>
+        <p class="text-xs text-on-surface-variant mt-2">Nenhuma notificação por aqui</p>
+        <p class="text-[10px] text-outline mt-1">Quando ganhar conquistas ou tiver revisões, aparece aqui.</p>
+      </div>
+      <ul id="sino-notif-items" class="divide-y divide-[#f0eded]"></ul>
+    </div>
+
+    <div class="px-4 py-2 border-t border-[#e5e1d8] bg-surface-container-low">
+      <a href="{% url 'preferencias_notificacao' %}" class="text-[10px] text-on-surface-variant hover:text-primary flex items-center gap-1">
+        <span class="material-symbols-outlined" style="font-size:12px;">settings</span>
+        Preferências
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('sino-notif-btn');
+  const dropdown = document.getElementById('sino-notif-dropdown');
+  const badge = document.getElementById('sino-notif-badge');
+  const loading = document.getElementById('sino-notif-loading');
+  const empty = document.getElementById('sino-notif-empty');
+  const list = document.getElementById('sino-notif-items');
+
+  const CSRF = document.cookie.split('csrftoken=')[1]?.split(';')[0] || '';
+
+  // Polling do contador — atualiza badge a cada 30s
+  async function atualizarBadge() {
+    try {
+      const r = await fetch('{% url "api_notificacoes_count" %}', {credentials: 'same-origin'});
+      if (!r.ok) return;
+      const {count} = await r.json();
+      if (count > 0) {
+        badge.textContent = count > 99 ? '99+' : count;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    } catch(e) { /* silent */ }
+  }
+
+  // Busca últimas 5 quando abre o dropdown
+  let carregado = false;
+  async function carregarRecentes() {
+    if (carregado) return;
+    try {
+      loading.classList.remove('hidden');
+      empty.classList.add('hidden');
+      list.innerHTML = '';
+
+      const r = await fetch('{% url "api_notificacoes_recentes" %}', {credentials: 'same-origin'});
+      if (!r.ok) throw new Error('falhou');
+      const {notificacoes} = await r.json();
+
+      loading.classList.add('hidden');
+      if (!notificacoes.length) {
+        empty.classList.remove('hidden');
+      } else {
+        list.innerHTML = notificacoes.map(n => `
+          <li class="px-4 py-3 hover:bg-surface-container-low transition-colors ${n.lida ? '' : 'bg-primary-fixed/20'}"
+              data-id="${n.id}">
+            <a ${n.link ? `href="${n.link}"` : ''} class="block cursor-pointer" onclick="marcarLida(${n.id})">
+              <div class="flex items-start gap-2">
+                <span class="text-lg shrink-0" style="line-height:1.2;">${n.emoji}</span>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[13px] font-semibold text-primary leading-tight ${n.lida ? 'opacity-70' : ''}">${escapeHtml(n.titulo)}</p>
+                  ${n.mensagem ? `<p class="text-[11px] text-on-surface-variant mt-0.5 leading-snug">${escapeHtml(n.mensagem)}</p>` : ''}
+                  <p class="text-[10px] text-outline mt-1">${escapeHtml(n.ha)}</p>
+                </div>
+                ${!n.lida ? '<span class="w-1.5 h-1.5 rounded-full bg-error shrink-0 mt-1.5"></span>' : ''}
+              </div>
+            </a>
+          </li>
+        `).join('');
+      }
+      carregado = true;
+    } catch(e) {
+      loading.classList.add('hidden');
+      list.innerHTML = '<li class="p-4 text-center text-xs text-error">Erro ao carregar</li>';
+    }
+  }
+
+  function escapeHtml(s) {
+    const div = document.createElement('div');
+    div.textContent = s || '';
+    return div.innerHTML;
+  }
+
+  window.toggleSinoDropdown = function(e) {
+    e.stopPropagation();
+    const aberto = !dropdown.classList.contains('hidden');
+    if (aberto) {
+      dropdown.classList.add('hidden');
+    } else {
+      dropdown.classList.remove('hidden');
+      carregarRecentes();
+    }
+  };
+
+  window.marcarLida = async function(id) {
+    try {
+      await fetch(`/api/notificacoes/${id}/lida/`, {
+        method: 'POST',
+        headers: {'X-CSRFToken': CSRF, 'Content-Type': 'application/json'},
+        credentials: 'same-origin',
+      });
+      atualizarBadge();
+      // Marca visualmente
+      const li = list.querySelector(`li[data-id="${id}"]`);
+      if (li) {
+        li.classList.remove('bg-primary-fixed/20');
+        li.querySelector('.bg-error.rounded-full')?.remove();
+      }
+    } catch(e) {}
+  };
+
+  // Fecha ao clicar fora
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#sino-notif-wrap')) {
+      dropdown.classList.add('hidden');
+    }
+  });
+
+  // Boot: atualiza badge agora e a cada 30s
+  atualizarBadge();
+  setInterval(atualizarBadge, 30000);
+})();
+</script>

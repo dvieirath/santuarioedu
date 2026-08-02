@@ -4016,6 +4016,49 @@ def api_notificacoes_count(request):
 
 
 @login_required(login_url='account_login')
+def api_notificacoes_recentes(request):
+    """Retorna as 5 ultimas notificacoes (nao-lidas priorizadas + preenche
+    com lidas recentes ate 5). Consumido pelo dropdown do sino no header."""
+    from django.utils.timesince import timesince
+    from django.utils import timezone as _tz
+
+    nao_lidas = list(Notificacao.objects.filter(
+        usuario=request.user, lida=False,
+    ).order_by('-criada_em')[:5])
+
+    faltam = 5 - len(nao_lidas)
+    lidas_recentes = []
+    if faltam > 0:
+        lidas_recentes = list(Notificacao.objects.filter(
+            usuario=request.user, lida=True,
+        ).order_by('-criada_em')[:faltam])
+
+    todas = nao_lidas + lidas_recentes
+
+    def _serializar(n):
+        # Emoji do tipo (primeiro caractere do choice display)
+        tipos_emoji = {
+            'conquista': '🏆', 'streak': '🔥', 'srs': '🧠',
+            'grupo': '👥', 'sistema': '📢',
+        }
+        return {
+            'id': n.id,
+            'tipo': n.tipo,
+            'emoji': tipos_emoji.get(n.tipo, '🔔'),
+            'titulo': n.titulo,
+            'mensagem': (n.mensagem or '')[:120],
+            'lida': n.lida,
+            'link': n.link or '',
+            'ha': timesince(n.criada_em, _tz.now()).split(',')[0] + ' atras',
+        }
+
+    return JsonResponse({
+        'total_nao_lidas': len(nao_lidas),
+        'notificacoes': [_serializar(n) for n in todas],
+    })
+
+
+@login_required(login_url='account_login')
 @require_POST
 def api_notificacao_lida(request, notif_id):
     """Marca uma notificação como lida."""

@@ -94,9 +94,7 @@ tailwind.config = {
         <span class="material-symbols-outlined active-icon" style="color:#f97316;font-size:20px;">local_fire_department</span>
         <span class="text-xs font-bold">{{ meta.streak_atual|default:0 }}</span>
       </a>
-      <a href="{% url 'preferencias_notificacao' %}" class="relative text-on-surface-variant hover:text-primary transition-colors">
-        <span class="material-symbols-outlined">notifications</span>
-      </a>
+      {% include "quiz/includes/sino_notificacoes.html" %}
       <a href="{% url 'perfil' %}" class="text-on-surface-variant hover:text-primary transition-colors">
         <span class="material-symbols-outlined" style="font-size:28px;">account_circle</span>
       </a>
