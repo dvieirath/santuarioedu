@@ -1,0 +1,90 @@
+{
+  "_documentacao": {
+    "descricao": "Lista de provas oficiais para download automatizado",
+    "aviso": "Provas aplicadas sao atos administrativos publicos (LAI). URLs devem apontar pros PDFs oficiais nos sites das bancas.",
+    "como_encontrar_urls": [
+      "Cebraspe: https://www.cebraspe.org.br/concursos/ -> concurso especifico -> 'Provas anteriores' ou 'Documentos'",
+      "FGV: https://conhecimento.fgv.br/concursos -> concurso -> aba 'Provas e Gabaritos'",
+      "FCC: https://www.concursosfcc.com.br/ -> busca por concurso -> 'Documentos'",
+      "VUNESP: https://www.vunesp.com.br/ -> concurso -> secao 'Prova/Gabarito'"
+    ],
+    "formato_arquivo_local": "banca_concurso_cargo_ano.pdf (ex: cebraspe_agu_advogado_uniao_2023.pdf)",
+    "campos_obrigatorios": ["nome", "url", "arquivo_local"],
+    "campos_opcionais": ["banca", "ano", "cargo", "questoes_const_estimadas", "observacoes"]
+  },
+  "provas": [
+    {
+      "nome": "AGU - Advogado da Uniao 2023",
+      "banca": "Cebraspe",
+      "ano": 2023,
+      "cargo": "Advogado",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_agu_advogado_uniao_2023.pdf",
+      "questoes_const_estimadas": 35,
+      "observacoes": "Alta densidade de Direito Constitucional"
+    },
+    {
+      "nome": "PF - Delegado 2023",
+      "banca": "Cebraspe",
+      "ano": 2023,
+      "cargo": "Delegado",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_pf_delegado_2023.pdf",
+      "questoes_const_estimadas": 25
+    },
+    {
+      "nome": "TCU - Auditor 2022",
+      "banca": "Cebraspe",
+      "ano": 2022,
+      "cargo": "Auditor Federal de Controle Externo",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_tcu_auditor_2022.pdf",
+      "questoes_const_estimadas": 30
+    },
+    {
+      "nome": "STF - Analista Judiciario 2024",
+      "banca": "Cebraspe",
+      "ano": 2024,
+      "cargo": "Analista Judiciario",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_stf_analista_2024.pdf",
+      "questoes_const_estimadas": 25
+    },
+    {
+      "nome": "Camara dos Deputados - Analista Legislativo 2022",
+      "banca": "Cebraspe",
+      "ano": 2022,
+      "cargo": "Analista Legislativo",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_camara_analista_2022.pdf",
+      "questoes_const_estimadas": 25
+    },
+    {
+      "nome": "STJ - Analista Judiciario 2024",
+      "banca": "Cebraspe",
+      "ano": 2024,
+      "cargo": "Analista Judiciario",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_stj_analista_2024.pdf",
+      "questoes_const_estimadas": 20
+    },
+    {
+      "nome": "PGE-RS - Procurador 2022",
+      "banca": "FGV",
+      "ano": 2022,
+      "cargo": "Procurador do Estado",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "fgv_pgers_procurador_2022.pdf",
+      "questoes_const_estimadas": 30
+    },
+    {
+      "nome": "MPU - Analista 2018",
+      "banca": "Cebraspe",
+      "ano": 2018,
+      "cargo": "Analista",
+      "url": "COLE_URL_DO_PDF_OFICIAL_AQUI",
+      "arquivo_local": "cebraspe_mpu_analista_2018.pdf",
+      "questoes_const_estimadas": 25
+    }
+  ]
+}
