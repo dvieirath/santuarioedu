@@ -63,10 +63,12 @@ class Command(BaseCommand):
                 
                 dados = json.loads(texto_resposta)
                 
-                # Atualizar Questão
+                # Atualizar Questão — SO o texto. NAO seta revisada=True
+                # (deixa cair na fila de revisao humana em /admin-revisao/).
+                # Bug anterior: correcao IA auto-aprovava questao sem revisao,
+                # comprometendo o gate de qualidade do banco.
                 q.texto = dados['texto_corrigido']
-                q.revisada = True
-                q.save()
+                q.save(update_fields=['texto', 'texto_hash'])  # hash recalcula em save()
                 
                 # Atualizar Alternativas
                 novas_alts = dados.get('alternativas_corrigidas', [])

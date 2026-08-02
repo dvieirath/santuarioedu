@@ -5796,7 +5796,8 @@ def preferencias_notificacao(request):
         pref.lembrete_diario = 'lembrete_diario' in request.POST
         pref.streak_em_risco = 'streak_em_risco' in request.POST
         pref.novidades       = 'novidades'       in request.POST
-        pref.micro_estudo    = 'micro_estudo'    in request.POST
+        # Removido: pref.micro_estudo — campo nao existe no model
+        # (atribuia atributo Python em memoria que nunca ia pro banco).
         hora_str = request.POST.get('hora_lembrete', '20:00')
         try:
             from datetime import time as _time
@@ -8861,7 +8862,7 @@ def api_proxima_acao(request):
             'titulo': 'Comece por uma disciplina',
             'descricao': 'Você ainda não respondeu nenhuma questão. Escolha um tema pra começar.',
             'cta_label': 'Escolher tema',
-            'cta_url':   '/temas/',
+            'cta_url':   '/estudar/',  # era /temas/ (404 — URL nao existe)
             'prioridade': 'media',
             'icone': 'menu_book',
         })
@@ -8919,7 +8920,7 @@ def api_proxima_acao(request):
             'titulo': 'Reforce seus erros',
             'descricao': 'Você tem questões erradas no caderno. Bom hábito de revisão.',
             'cta_label': 'Ver caderno de erros',
-            'cta_url':   '/caderno-erros/',
+            'cta_url':   '/caderno-de-erros/',  # era /caderno-erros/ (404 — falta o 'de')
             'prioridade': 'baixa',
             'icone': 'error_outline',
         })
