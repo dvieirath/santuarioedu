@@ -337,24 +337,79 @@ class MetaEstudo(models.Model):
     streak_maximo    = models.PositiveIntegerField(default=0)
     ultimo_estudo    = models.DateField(null=True, blank=True)
     total_dias       = models.PositiveIntegerField(default=0)
+    streak_freezes   = models.PositiveSmallIntegerField(
+        default=0,
+        help_text='Freezes protegem streak quando user perde 1 dia. '
+                  'Reposto semanalmente pelo cron. Cap: 1 (free) / 3 (PRO).'
+    )
+    total_freezes_usados = models.PositiveIntegerField(
+        default=0,
+        help_text='Contador vitalicio de freezes ja consumidos (analytics).',
+    )
+
+    def cap_freezes(self):
+        """Retorna o teto de freezes acumulados conforme plano do user."""
+        try:
+            plano = self.usuario.plano.plano
+            return 3 if plano in ('pro', 'premium') else 1
+        except Exception:
+            return 1
 
     def atualizar_streak(self):
         from django.utils import timezone
         hoje = timezone.localdate()
+        freeze_usado = False
+
         if self.ultimo_estudo is None:
             self.streak_atual = 1
             self.total_dias   = 1
         elif self.ultimo_estudo == hoje:
-            return  # já foi computado hoje
+            return False  # ja foi computado hoje
         elif (hoje - self.ultimo_estudo).days == 1:
+            # Estudou ontem — sequencia continua natural
             self.streak_atual += 1
             self.total_dias   += 1
+        elif (hoje - self.ultimo_estudo).days == 2 and self.streak_freezes > 0:
+            # Pulou 1 dia MAS tem freeze — consome e mantem streak
+            self.streak_freezes -= 1
+            self.total_freezes_usados += 1
+            self.streak_atual += 1
+            self.total_dias   += 1
+            freeze_usado = True
+            # Notifica user
+            try:
+                Notificacao.criar(
+                    self.usuario, 'streak',
+                    '🛡️ Streak protegido!',
+                    f'Voce pulou 1 dia mas seu streak foi mantido. '
+                    f'Restam {self.streak_freezes} freeze(s). '
+                    f'Continue firme pra nao gastar os proximos!',
+                    '/dashboard/',
+                )
+            except Exception:
+                pass
         else:
+            # Gap > 2 dias ou gap=2 sem freeze — streak zera
             self.streak_atual = 1
             self.total_dias  += 1
+
         self.streak_maximo = max(self.streak_maximo, self.streak_atual)
         self.ultimo_estudo = hoje
-        self.save(update_fields=['streak_atual', 'streak_maximo', 'ultimo_estudo', 'total_dias'])
+        self.save(update_fields=[
+            'streak_atual', 'streak_maximo', 'ultimo_estudo', 'total_dias',
+            'streak_freezes', 'total_freezes_usados',
+        ])
+        return freeze_usado
+
+    def repor_freeze(self):
+        """Adiciona 1 freeze respeitando o cap do plano. Chamado pelo cron
+        semanal. Retorna True se reposicao ocorreu."""
+        cap = self.cap_freezes()
+        if self.streak_freezes >= cap:
+            return False
+        self.streak_freezes = min(self.streak_freezes + 1, cap)
+        self.save(update_fields=['streak_freezes'])
+        return True
 
     def __str__(self):
         return f'Meta de {self.usuario.username}'

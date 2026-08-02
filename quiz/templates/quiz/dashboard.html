@@ -236,8 +236,14 @@ tailwind.config = {
             <p class="text-xs text-on-surface-variant mt-1">Taxa de acerto</p>
           </div>
         </div>
-        <div class="paper-card rounded-2xl p-5 lg:p-6 flex flex-col justify-between min-h-[130px]">
+        <div class="paper-card rounded-2xl p-5 lg:p-6 flex flex-col justify-between min-h-[130px] relative">
           <span class="material-symbols-outlined text-secondary" style="font-size:24px;">local_fire_department</span>
+          {% if meta.streak_freezes %}
+          <div class="absolute top-3 right-3 flex items-center gap-0.5 bg-primary-fixed/70 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+               title="Voce tem {{ meta.streak_freezes }} freeze(s) protegendo seu streak — cada um segura 1 dia perdido">
+            <span>🛡️</span><span>{{ meta.streak_freezes }}</span>
+          </div>
+          {% endif %}
           <div>
             <p class="font-serif text-3xl font-bold text-primary leading-none">{{ meta.streak_atual|default:0 }}</p>
             <p class="text-xs text-on-surface-variant mt-1">Streak (dias)</p>

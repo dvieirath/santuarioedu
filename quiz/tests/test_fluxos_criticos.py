@@ -405,3 +405,104 @@ class TestFavoritaRequirePOST(TestCase):
         c = Client(); c.force_login(self.user)
         r = c.post(f'/api/favorita/{self.questao.id}/')
         self.assertEqual(r.status_code, 200)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Streak freeze (feature retention critica)
+# ══════════════════════════════════════════════════════════════════════════════
+class TestStreakFreeze(TestCase):
+    """Valida que streak freeze protege contra churn quando user pula 1 dia."""
+
+    def setUp(self):
+        from quiz.models import MetaEstudo
+        self.user_free = User.objects.create_user(username='sf_free', password='x', email='f@t.com')
+        self.user_pro = User.objects.create_user(username='sf_pro', password='x', email='p@t.com')
+        PlanoUsuario.objects.create(usuario=self.user_free, plano='gratuito', ativo=True)
+        PlanoUsuario.objects.create(usuario=self.user_pro, plano='pro', ativo=True)
+        self.meta_free = MetaEstudo.objects.create(usuario=self.user_free)
+        self.meta_pro = MetaEstudo.objects.create(usuario=self.user_pro)
+
+    def test_cap_freezes_por_plano(self):
+        self.assertEqual(self.meta_free.cap_freezes(), 1)
+        self.assertEqual(self.meta_pro.cap_freezes(), 3)
+
+    def test_gap_1_dia_nao_usa_freeze(self):
+        """Estudou ontem — sequencia natural, freeze permanece."""
+        self.meta_free.streak_atual = 5
+        self.meta_free.streak_freezes = 1
+        self.meta_free.ultimo_estudo = timezone.localdate() - timedelta(days=1)
+        self.meta_free.save()
+
+        usou = self.meta_free.atualizar_streak()
+        self.meta_free.refresh_from_db()
+
+        self.assertFalse(usou)
+        self.assertEqual(self.meta_free.streak_atual, 6)
+        self.assertEqual(self.meta_free.streak_freezes, 1)
+
+    def test_gap_2_dias_com_freeze_consome(self):
+        """Pulou 1 dia mas tem freeze — consome e mantem streak, cria notif."""
+        from quiz.models import Notificacao
+
+        self.meta_pro.streak_atual = 10
+        self.meta_pro.streak_freezes = 2
+        self.meta_pro.ultimo_estudo = timezone.localdate() - timedelta(days=2)
+        self.meta_pro.save()
+
+        usou = self.meta_pro.atualizar_streak()
+        self.meta_pro.refresh_from_db()
+
+        self.assertTrue(usou)
+        self.assertEqual(self.meta_pro.streak_atual, 11)
+        self.assertEqual(self.meta_pro.streak_freezes, 1)
+        self.assertEqual(self.meta_pro.total_freezes_usados, 1)
+        # Notif de streak protegido criada
+        self.assertTrue(Notificacao.objects.filter(usuario=self.user_pro, tipo='streak').exists())
+
+    def test_gap_2_dias_sem_freeze_zera(self):
+        """Sem freeze disponivel, streak zera."""
+        self.meta_free.streak_atual = 10
+        self.meta_free.streak_freezes = 0
+        self.meta_free.ultimo_estudo = timezone.localdate() - timedelta(days=2)
+        self.meta_free.save()
+
+        usou = self.meta_free.atualizar_streak()
+        self.meta_free.refresh_from_db()
+
+        self.assertFalse(usou)
+        self.assertEqual(self.meta_free.streak_atual, 1)
+
+    def test_gap_3_dias_com_freeze_zera_sem_gastar(self):
+        """Gap > 2 dias nao pode ser salvo — economiza freeze."""
+        self.meta_pro.streak_atual = 10
+        self.meta_pro.streak_freezes = 3
+        self.meta_pro.ultimo_estudo = timezone.localdate() - timedelta(days=3)
+        self.meta_pro.save()
+
+        usou = self.meta_pro.atualizar_streak()
+        self.meta_pro.refresh_from_db()
+
+        self.assertFalse(usou)
+        self.assertEqual(self.meta_pro.streak_atual, 1)
+        self.assertEqual(self.meta_pro.streak_freezes, 3, 'freeze economizado pra proxima oportunidade')
+
+    def test_repor_freeze_respeita_cap(self):
+        """Free cap=1, PRO cap=3. Reposicao nao ultrapassa."""
+        self.meta_free.streak_freezes = 0
+        self.meta_free.save()
+        self.assertTrue(self.meta_free.repor_freeze())
+        self.meta_free.refresh_from_db()
+        self.assertEqual(self.meta_free.streak_freezes, 1)
+
+        # Tenta repor novamente — ja no cap free (1)
+        self.assertFalse(self.meta_free.repor_freeze())
+        self.meta_free.refresh_from_db()
+        self.assertEqual(self.meta_free.streak_freezes, 1)
+
+        # PRO consegue chegar em 3
+        self.meta_pro.streak_freezes = 0
+        self.meta_pro.save()
+        for i in range(5):
+            self.meta_pro.repor_freeze()
+        self.meta_pro.refresh_from_db()
+        self.assertEqual(self.meta_pro.streak_freezes, 3, 'PRO capped em 3')
