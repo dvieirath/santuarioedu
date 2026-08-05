@@ -8293,7 +8293,7 @@ def analise_subtemas(request):
     qs = (RespostaUsuario.objects
           .filter(usuario=request.user, questao__assunto__isnull=False)
           .exclude(questao__assunto='')
-          .values('questao__categoria__nome', 'questao__assunto')
+          .values('questao__categoria__id', 'questao__categoria__nome', 'questao__assunto')
           .annotate(
               total=Count('id'),
               acertos=Count('id', filter=Q(acertou=True)),
@@ -8306,12 +8306,13 @@ def analise_subtemas(request):
         acertos = r['acertos']
         pct = round(acertos / total * 100) if total else 0
         dados.append({
-            'categoria': r['questao__categoria__nome'] or '—',
-            'assunto':   r['questao__assunto'],
-            'total':     total,
-            'acertos':   acertos,
-            'pct':       pct,
-            'cor':       'emerald' if pct >= 75 else 'amber' if pct >= 50 else 'red',
+            'categoria_id': r['questao__categoria__id'],
+            'categoria':    r['questao__categoria__nome'] or '—',
+            'assunto':      r['questao__assunto'],
+            'total':        total,
+            'acertos':      acertos,
+            'pct':          pct,
+            'cor':          'emerald' if pct >= 75 else 'amber' if pct >= 50 else 'red',
         })
 
     fracos = [d for d in dados if d['pct'] < 60][:10]
