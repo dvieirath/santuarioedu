@@ -408,6 +408,45 @@ class TestFavoritaRequirePOST(TestCase):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# Ranks contextuais por concurso (rebrand)
+# ══════════════════════════════════════════════════════════════════════════════
+class TestRanksContextuais(TestCase):
+    """Valida que ranks refletem ConcursoPreferido do user (nao mais fixo PRF)."""
+
+    def setUp(self):
+        from quiz.models import NivelUsuario, ConcursoPreferido
+        self.user_prf = User.objects.create_user(username='r_prf', password='x', email='r1@t.com')
+        self.user_enem = User.objects.create_user(username='r_enem', password='x', email='r2@t.com')
+        self.user_sem_concurso = User.objects.create_user(username='r_semc', password='x', email='r3@t.com')
+
+        ConcursoPreferido.objects.create(usuario=self.user_prf, concurso='prf')
+        ConcursoPreferido.objects.create(usuario=self.user_enem, concurso='enem')
+
+        self.n_prf = NivelUsuario.objects.create(usuario=self.user_prf, nivel=4)
+        self.n_enem = NivelUsuario.objects.create(usuario=self.user_enem, nivel=4)
+        self.n_semc = NivelUsuario.objects.create(usuario=self.user_sem_concurso, nivel=4)
+
+    def test_rank_prf_no_nivel_4_eh_delegado(self):
+        self.assertEqual(self.n_prf.rank_nome, 'Delegado')
+
+    def test_rank_enem_no_nivel_4_eh_bacharelando(self):
+        self.assertEqual(self.n_enem.rank_nome, 'Bacharelando')
+
+    def test_rank_sem_concurso_usa_default(self):
+        # Nivel 4 default = Estudioso
+        self.assertEqual(self.n_semc.rank_nome, 'Estudioso')
+
+    def test_ranks_disponiveis_reflete_concurso(self):
+        prf_ranks = self.n_prf.ranks_disponiveis
+        enem_ranks = self.n_enem.ranks_disponiveis
+        self.assertNotEqual(prf_ranks, enem_ranks)
+        # PRF tem "Diretor PRF" no nivel 6
+        self.assertEqual(prf_ranks[5][1], 'Diretor PRF')
+        # ENEM tem "Mestre" no nivel 6
+        self.assertEqual(enem_ranks[5][1], 'Mestre')
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # Streak freeze (feature retention critica)
 # ══════════════════════════════════════════════════════════════════════════════
 class TestStreakFreeze(TestCase):

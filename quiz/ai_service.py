@@ -552,17 +552,43 @@ def ai_explicar_erro(questao_texto: str, categoria: str,
         return "⚠️ Tutor IA indisponível: GEMINI_API_KEY não configurada."
 
     # Ranks são apenas rótulos internos do sistema de XP — mapeiam a nível de
-    # profundidade da explicação, não a nenhum concurso específico.
-    NIVEIS = {
-        'Cadete':          'iniciante — use linguagem simples e explique termos técnicos',
-        'Aspirante':       'intermediário — assuma conhecimento básico, aprofunde conceitos',
-        'Inspetor':        'avançado — seja técnico, cite fundamentos legais quando relevante',
-        'Delegado':        'expert — vá direto ao ponto com precisão técnica',
-        'Superintendente': 'expert — máxima precisão, sem rodeios',
-        'Diretor':         'expert — máxima precisão, sem rodeios',
-        'Diretor PRF':     'expert — máxima precisão, sem rodeios',  # backwards-compat
+    # Mapa universal: cobre nomes de TODAS as trilhas de rank (PRF, PF, INSS,
+    # ENEM, TJ, TRF, Camara, Estadual, Municipal, Outro) + default.
+    # Cada rank mapeia pra 1 de 5 niveis de didatica.
+    DIDATICA = {
+        'iniciante': 'iniciante — use linguagem simples e explique termos tecnicos',
+        'basico':    'intermediario — assuma conhecimento basico, aprofunde conceitos',
+        'medio':     'avancado — seja tecnico, cite fundamentos legais quando relevante',
+        'avancado':  'expert — va direto ao ponto com precisao tecnica',
+        'expert':    'expert — maxima precisao, sem rodeios',
     }
-    nivel = NIVEIS.get(rank_usuario, NIVEIS['Cadete'])
+    # Mapeia nome do rank (qualquer trilha) -> nivel didatico
+    RANK_TO_DIDATICA = {
+        # Nivel 1 - iniciante
+        'Cadete': 'iniciante', 'Aspirante': 'basico', 'Estagiario': 'iniciante',
+        'Vestibulando': 'iniciante', 'Iniciante': 'iniciante', 'Calouro': 'basico',
+        # Nivel 2-3 - intermediario/medio
+        'Agente': 'basico', 'Tecnico': 'basico', 'Tecnico Jr': 'basico',
+        'Assistente': 'basico', 'Concurseiro': 'basico', 'Estudante': 'basico',
+        'Estudante Foco': 'medio', 'Escrivao': 'medio', 'Tecnico Pleno': 'medio',
+        'Universitario': 'medio', 'Tecnico Judiciario': 'medio', 'Analista Jr': 'medio',
+        'Analista': 'medio', 'Inspetor': 'medio',
+        # Nivel 4 - avancado
+        'Delegado': 'avancado', 'Auditor': 'avancado', 'Bacharelando': 'avancado',
+        'Analista Pleno': 'avancado', 'Analista Senior': 'avancado',
+        'Consultor': 'avancado', 'Servidor': 'avancado', 'Estudioso': 'avancado',
+        # Nivel 5-6 - expert
+        'Superintendente': 'expert', 'Delegado Chefe': 'expert',
+        'Superintendente INSS': 'expert', 'Graduado': 'expert', 'Mestre': 'expert',
+        'Assessor': 'expert', 'Magistrado': 'expert', 'Chefe de Secao': 'expert',
+        'Diretor Adjunto': 'expert', 'Secretario Geral': 'expert',
+        'Servidor Senior': 'expert', 'Diretor Estadual': 'expert',
+        'Secretario Municipal': 'expert', 'Veterano': 'expert',
+        'Diretor PRF': 'expert', 'Diretor PF': 'expert', 'Diretor TRF': 'expert',
+        'Diretor': 'expert',
+    }
+    tier = RANK_TO_DIDATICA.get(rank_usuario, 'iniciante')
+    nivel = DIDATICA[tier]
     contexto = _contexto_concurso(usuario)
 
     try:

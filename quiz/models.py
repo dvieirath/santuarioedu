@@ -834,16 +834,64 @@ class AvaliacaoQuestao(models.Model):
 # ─── SPRINT 16 — XP & NÍVEIS ─────────────────────────────────────────────────
 
 class NivelUsuario(models.Model):
-    """Progresso de XP e nível (rank) do usuário."""
+    """Progresso de XP e nível (rank) do usuário. Ranks sao contextuais por
+    ConcursoPreferido — cada carreira tem sua propria trilha tematica."""
 
-    RANKS = [
-        (1,  'Cadete'),
-        (2,  'Aspirante'),
-        (3,  'Inspetor'),
-        (4,  'Delegado'),
-        (5,  'Superintendente'),
-        (6,  'Diretor PRF'),
+    # Ranks tematicos por concurso — refletem hierarquia real da carreira alvo
+    # Se user tem ConcursoPreferido, mostra ranks daquela trilha.
+    # Sem ConcursoPreferido, usa DEFAULT_RANKS (genericos).
+    RANKS_POR_CONCURSO = {
+        'prf': [
+            (1, 'Cadete'), (2, 'Aspirante'), (3, 'Inspetor'),
+            (4, 'Delegado'), (5, 'Superintendente'), (6, 'Diretor PRF'),
+        ],
+        'pf': [
+            (1, 'Aspirante'), (2, 'Agente'), (3, 'Escrivao'),
+            (4, 'Delegado'), (5, 'Delegado Chefe'), (6, 'Diretor PF'),
+        ],
+        'inss': [
+            (1, 'Estagiario'), (2, 'Tecnico Jr'), (3, 'Tecnico Pleno'),
+            (4, 'Analista'), (5, 'Auditor'), (6, 'Superintendente INSS'),
+        ],
+        'enem': [
+            (1, 'Vestibulando'), (2, 'Calouro'), (3, 'Universitario'),
+            (4, 'Bacharelando'), (5, 'Graduado'), (6, 'Mestre'),
+        ],
+        'tjdf': [
+            (1, 'Estagiario'), (2, 'Tecnico Judiciario'), (3, 'Analista Jr'),
+            (4, 'Analista Pleno'), (5, 'Assessor'), (6, 'Magistrado'),
+        ],
+        'trf': [
+            (1, 'Estagiario'), (2, 'Tecnico'), (3, 'Analista'),
+            (4, 'Analista Senior'), (5, 'Chefe de Secao'), (6, 'Diretor TRF'),
+        ],
+        'camara': [
+            (1, 'Estagiario'), (2, 'Assistente'), (3, 'Analista'),
+            (4, 'Consultor'), (5, 'Diretor Adjunto'), (6, 'Secretario Geral'),
+        ],
+        'estadual': [
+            (1, 'Iniciante'), (2, 'Concurseiro'), (3, 'Estudante Foco'),
+            (4, 'Servidor'), (5, 'Servidor Senior'), (6, 'Diretor Estadual'),
+        ],
+        'municipal': [
+            (1, 'Iniciante'), (2, 'Concurseiro'), (3, 'Estudante Foco'),
+            (4, 'Servidor'), (5, 'Servidor Senior'), (6, 'Secretario Municipal'),
+        ],
+        'outro': [
+            (1, 'Iniciante'), (2, 'Estudante'), (3, 'Concurseiro'),
+            (4, 'Estudioso'), (5, 'Veterano'), (6, 'Mestre'),
+        ],
+    }
+
+    # Ranks default quando user nao tem ConcursoPreferido definido
+    DEFAULT_RANKS = [
+        (1, 'Iniciante'), (2, 'Estudante'), (3, 'Concurseiro'),
+        (4, 'Estudioso'), (5, 'Veterano'), (6, 'Mestre'),
     ]
+
+    # RANKS legacy — mantido pra compat com codigo antigo que referencia
+    # NivelUsuario.RANKS diretamente. Prefira ranks_disponiveis property.
+    RANKS = DEFAULT_RANKS
 
     # XP necessário para cada nível (acumulado)
     XP_POR_NIVEL = [0, 0, 200, 500, 1000, 2000, 4000]
@@ -860,11 +908,22 @@ class NivelUsuario(models.Model):
         return f'{self.usuario.username} — Nível {self.nivel} ({self.xp_total} XP)'
 
     @property
+    def ranks_disponiveis(self):
+        """Retorna a trilha de ranks contextual ao ConcursoPreferido do user.
+        Fallback pra DEFAULT_RANKS se user nao tem concurso configurado."""
+        try:
+            concurso = self.usuario.concurso_pref.concurso
+            return self.RANKS_POR_CONCURSO.get(concurso, self.DEFAULT_RANKS)
+        except Exception:
+            return self.DEFAULT_RANKS
+
+    @property
     def rank_nome(self):
-        for num, nome in reversed(self.RANKS):
+        ranks = self.ranks_disponiveis
+        for num, nome in reversed(ranks):
             if self.nivel >= num:
                 return nome
-        return 'Cadete'
+        return ranks[0][1] if ranks else 'Iniciante'
 
     @property
     def xp_nivel_atual(self):

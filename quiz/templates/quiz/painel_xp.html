@@ -81,7 +81,7 @@
       </h2>
     </div>
     <div class="divide-y divide-[#e5e1d8]">
-      {% for num, nome in nivel.RANKS %}
+      {% for num, nome in nivel.ranks_disponiveis %}
       <div class="flex items-center gap-4 px-5 py-3 {% if nivel.nivel >= num %}bg-primary-fixed/30{% endif %}">
         <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold {% if nivel.nivel >= num %}bg-primary text-on-primary{% else %}bg-surface-container text-on-surface-variant{% endif %}">{{ num }}</div>
         <div class="flex-1">
