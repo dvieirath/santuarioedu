@@ -88,3 +88,6 @@ check_img_transform.py
 check_questions.py
 criar_questao_dia.py
 fix_crops_v3.py
+
+# PDFs de provas oficiais (locais, nao vao pro git)
+pdfs/
