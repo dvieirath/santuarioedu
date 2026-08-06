@@ -98,6 +98,11 @@ class Command(BaseCommand):
             partes = [p.strip() for p in path.split('>')]
             parent = None
             for i, nome in enumerate(partes):
+                # Safety: Categoria.nome eh VARCHAR(100); IA pode retornar
+                # nomes longos com explicacoes. Trunca sem estragar unicidade
+                # (parent + nome truncado ainda serve como chave).
+                if len(nome) > 100:
+                    nome = nome[:97].rstrip() + '...'
                 cat = Categoria.objects.filter(
                     nome__iexact=nome, parent=parent,
                 ).first()
