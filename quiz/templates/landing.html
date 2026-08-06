@@ -155,6 +155,7 @@ tailwind.config = {
       <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
     </a>
     <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+      <a href="#por-dentro" class="hover:text-primary transition-colors">Ver por dentro</a>
       <a href="#recursos" class="hover:text-primary transition-colors">Recursos</a>
       <a href="#como-funciona" class="hover:text-primary transition-colors">Como funciona</a>
       <a href="#planos" class="hover:text-primary transition-colors">Planos</a>
@@ -172,7 +173,7 @@ tailwind.config = {
 
 <!-- ─── Hero ───────────────────────────────────────────────────────────────── -->
 <section class="hero-gradient">
-  <div class="max-w-6xl mx-auto px-6 md:px-8 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
     <div>
       <span class="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.25em] bg-violet-100 text-violet-700 px-3 py-1.5 rounded-full mb-5">
         <span class="material-symbols-outlined" style="font-size:13px;">auto_awesome</span>
@@ -182,52 +183,106 @@ tailwind.config = {
         Estude com <span class="text-secondary">inteligência</span>.<br/>
         Aprenda mais em menos tempo.
       </h1>
-      <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-7 max-w-lg">
-        Banco de <strong class="text-primary">{{ total_questoes }} questões</strong> em
-        <strong class="text-primary">{{ total_disciplinas }} disciplinas</strong>,
-        simulados cronometrados, revisão espaçada (SM-2) e IA que analisa seus erros e propõe
+      <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-6 max-w-lg">
+        Banco de <strong class="text-primary">{{ total_questoes }} questões oficiais</strong>,
+        simulados cronometrados, revisão espaçada e IA que analisa seus erros e propõe
         caminhos de estudo.
       </p>
-      <div class="flex flex-wrap gap-3 mb-6">
+
+      <!-- ─── O que é a plataforma (4 pilares tecnológicos) ─── -->
+      <div class="grid grid-cols-2 gap-2.5 mb-6 max-w-lg">
+        <div class="flex items-center gap-2 bg-white/80 border border-[#edeeef] rounded-xl px-3 py-2.5">
+          <span class="material-symbols-outlined text-blue-600 shrink-0" style="font-size:18px;font-variation-settings:'FILL' 1;">menu_book</span>
+          <span class="text-xs font-bold text-slate-800 leading-tight">Banco de questões oficiais</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/80 border border-[#edeeef] rounded-xl px-3 py-2.5">
+          <span class="material-symbols-outlined text-violet-600 shrink-0" style="font-size:18px;font-variation-settings:'FILL' 1;">psychology</span>
+          <span class="text-xs font-bold text-slate-800 leading-tight">IA analisa seus erros</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/80 border border-[#edeeef] rounded-xl px-3 py-2.5">
+          <span class="material-symbols-outlined text-rose-600 shrink-0" style="font-size:18px;font-variation-settings:'FILL' 1;">swords</span>
+          <span class="text-xs font-bold text-slate-800 leading-tight">Duelos e comunidade</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/80 border border-[#edeeef] rounded-xl px-3 py-2.5">
+          <span class="material-symbols-outlined text-emerald-600 shrink-0" style="font-size:18px;font-variation-settings:'FILL' 1;">install_mobile</span>
+          <span class="text-xs font-bold text-slate-800 leading-tight">App PWA — instala no celular</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mb-4">
         <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_hero" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
           <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">rocket_launch</span>
           Criar conta grátis
         </a>
-        <a href="#como-funciona" class="inline-flex items-center gap-2 bg-[#f3f4f5] text-slate-700 px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#e7e8e9] transition-colors">
-          <span class="material-symbols-outlined" style="font-size:18px;">play_circle</span>
-          Ver como funciona
+        <a href="#por-dentro" class="inline-flex items-center gap-2 bg-white border border-[#edeeef] text-primary px-6 py-3.5 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors editorial-shadow-soft">
+          <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+          Ver por dentro
         </a>
       </div>
       <p class="text-xs text-slate-500 flex items-center gap-2">
         <span class="material-symbols-outlined text-secondary" style="font-size:14px;font-variation-settings:'FILL' 1;">check_circle</span>
-        Sem cartão · grátis para começar · cancelamento simples
+        Sem cartão · Plano grátis permanente · Cancele quando quiser
       </p>
     </div>
 
-    <!-- Card de estatísticas reais -->
-    <div class="bg-white rounded-3xl border border-[#edeeef] p-7 editorial-shadow">
-      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-4">Em números</p>
-      <div class="grid grid-cols-2 gap-5">
-        <div>
-          <p class="text-4xl font-extrabold text-primary font-headline">{{ total_questoes }}</p>
-          <p class="text-xs text-slate-500 mt-1">Questões disponíveis</p>
+    <!-- ─── Mockup Dashboard (SVG inline) ─── -->
+    <div class="relative">
+      <div class="bg-white rounded-3xl border border-[#edeeef] editorial-shadow overflow-hidden">
+        <!-- Barra superior estilo browser -->
+        <div class="flex items-center gap-1.5 px-4 py-2.5 bg-slate-50 border-b border-[#edeeef]">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-300"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-300"></span>
+          <span class="ml-3 text-[10px] text-slate-400 font-mono">santuarioedu.com.br/dashboard</span>
         </div>
-        <div>
-          <p class="text-4xl font-extrabold text-primary font-headline">{{ total_disciplinas }}</p>
-          <p class="text-xs text-slate-500 mt-1">Disciplinas cobertas</p>
-        </div>
-        <div>
-          <p class="text-4xl font-extrabold text-secondary font-headline">{{ total_respostas }}</p>
-          <p class="text-xs text-slate-500 mt-1">Respostas registradas</p>
-        </div>
-        <div>
-          <p class="text-4xl font-extrabold text-secondary font-headline">{{ total_simulados }}</p>
-          <p class="text-xs text-slate-500 mt-1">Simulados realizados</p>
+        <!-- Conteúdo mockup -->
+        <div class="p-5 space-y-3.5">
+          <!-- Header user -->
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-[10px] text-slate-500">Bem-vindo de volta</p>
+              <p class="text-sm font-headline font-extrabold text-primary">Davi · Nível 4</p>
+            </div>
+            <div class="flex items-center gap-1 bg-amber-100 text-amber-700 px-2 py-1 rounded-full text-[10px] font-extrabold">
+              🔥 12 dias
+            </div>
+          </div>
+          <!-- Card ação -->
+          <div class="bg-gradient-to-br from-primary to-[#1b365d] rounded-2xl p-4 text-white">
+            <p class="text-[9px] font-bold uppercase tracking-widest text-blue-200 mb-1">Continue de onde parou</p>
+            <p class="text-sm font-headline font-extrabold mb-3">Direito Constitucional · Cap. 4</p>
+            <div class="flex items-center gap-2">
+              <div class="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-300 rounded-full" style="width:64%"></div>
+              </div>
+              <span class="text-[10px] font-bold text-blue-200">64%</span>
+            </div>
+          </div>
+          <!-- Stats mini -->
+          <div class="grid grid-cols-3 gap-2">
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center">
+              <p class="text-lg font-extrabold text-primary font-headline">7/10</p>
+              <p class="text-[9px] text-slate-500 leading-tight">Meta diária</p>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center">
+              <p class="text-lg font-extrabold text-secondary font-headline">+140</p>
+              <p class="text-[9px] text-slate-500 leading-tight">XP hoje</p>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 text-center">
+              <p class="text-lg font-extrabold text-violet-600 font-headline">73%</p>
+              <p class="text-[9px] text-slate-500 leading-tight">Acerto médio</p>
+            </div>
+          </div>
+          <!-- Botão CTA fake -->
+          <div class="bg-secondary text-white text-center py-2.5 rounded-xl text-xs font-extrabold">
+            ▶ Responder próxima questão
+          </div>
         </div>
       </div>
-      <div class="mt-5 pt-5 border-t border-[#edeeef] flex items-center gap-2 text-xs text-slate-500">
-        <span class="material-symbols-outlined text-amber-500" style="font-size:14px;font-variation-settings:'FILL' 1;">local_fire_department</span>
-        Estatísticas em tempo real da plataforma
+      <!-- Badge flutuante "app real" -->
+      <div class="absolute -bottom-3 -left-3 bg-white border border-[#edeeef] rounded-full px-3 py-1.5 editorial-shadow text-[10px] font-extrabold text-primary flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        Interface real do produto
       </div>
     </div>
   </div>
@@ -330,6 +385,190 @@ tailwind.config = {
         <h3 class="font-headline font-extrabold text-primary mb-2">Relatórios PDF</h3>
         <p class="text-sm text-slate-600 leading-relaxed">Exporte seu desempenho por disciplina para PDF — útil pra levar ao coach ou revisar offline.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Veja por dentro (screenshots da UI real) ───────────────────────────── -->
+<section id="por-dentro" class="py-20 md:py-28 bg-gradient-to-b from-[#f8f9fa] to-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-12 max-w-2xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Veja por dentro</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-3">
+        A ferramenta real, sem promessas vagas
+      </h2>
+      <p class="text-slate-600 text-base">
+        Concurseiro sabe que interface bonita não passa em prova. Aqui você vê exatamente
+        como é o dia-a-dia na plataforma — antes de criar conta.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- ─── Mockup 1: Responder questão ─── -->
+      <div class="bg-white rounded-2xl border border-[#edeeef] editorial-shadow-soft overflow-hidden">
+        <div class="flex items-center gap-1.5 px-4 py-2.5 bg-slate-50 border-b border-[#edeeef]">
+          <span class="w-2 h-2 rounded-full bg-rose-300"></span>
+          <span class="w-2 h-2 rounded-full bg-amber-300"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+          <span class="ml-2 text-[9px] text-slate-400 font-mono">/quiz</span>
+        </div>
+        <div class="p-4 space-y-3 min-h-[380px]">
+          <div class="flex items-center justify-between">
+            <span class="text-[9px] font-bold uppercase tracking-wider bg-primary text-white px-2 py-1 rounded">Direito Const.</span>
+            <span class="text-[10px] text-slate-500 font-mono">FGV · 2023</span>
+          </div>
+          <p class="text-[11px] text-slate-700 leading-relaxed">
+            Sobre os direitos e garantias fundamentais previstos na CF/88, é correto afirmar que...
+          </p>
+          <div class="space-y-1.5 text-[10px]">
+            <div class="border border-[#edeeef] rounded-lg px-2.5 py-2 text-slate-600">
+              <span class="font-bold mr-1.5">A)</span>o direito à vida é absoluto...
+            </div>
+            <div class="border-2 border-secondary bg-secondary/5 rounded-lg px-2.5 py-2 text-slate-800 flex items-center gap-2">
+              <span class="w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center text-[8px] font-bold">✓</span>
+              <span><span class="font-bold mr-1.5">B)</span>a inviolabilidade do sigilo...</span>
+            </div>
+            <div class="border border-[#edeeef] rounded-lg px-2.5 py-2 text-slate-600 opacity-60">
+              <span class="font-bold mr-1.5">C)</span>a liberdade de expressão...
+            </div>
+            <div class="border border-[#edeeef] rounded-lg px-2.5 py-2 text-slate-600 opacity-60">
+              <span class="font-bold mr-1.5">D)</span>o devido processo legal...
+            </div>
+          </div>
+          <!-- Feedback IA -->
+          <div class="bg-violet-50 border-l-2 border-violet-500 rounded-r-lg p-2.5 mt-2">
+            <p class="text-[9px] font-bold uppercase tracking-wider text-violet-700 flex items-center gap-1 mb-1">
+              <span class="material-symbols-outlined" style="font-size:11px;font-variation-settings:'FILL' 1;">auto_awesome</span>
+              Explicação IA
+            </p>
+            <p class="text-[10px] text-slate-700 leading-snug">
+              Correta! Art. 5º, XII — sigilo é <strong>relativizado só por ordem judicial</strong>...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Mockup 2: Análise por sub-tema ─── -->
+      <div class="bg-white rounded-2xl border border-[#edeeef] editorial-shadow-soft overflow-hidden">
+        <div class="flex items-center gap-1.5 px-4 py-2.5 bg-slate-50 border-b border-[#edeeef]">
+          <span class="w-2 h-2 rounded-full bg-rose-300"></span>
+          <span class="w-2 h-2 rounded-full bg-amber-300"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+          <span class="ml-2 text-[9px] text-slate-400 font-mono">/analise-subtemas</span>
+        </div>
+        <div class="p-4 space-y-3 min-h-[380px]">
+          <div>
+            <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Onde focar</p>
+            <p class="text-sm font-headline font-extrabold text-primary">Pontos fracos</p>
+          </div>
+          <!-- Card fraco 1 -->
+          <div class="border border-rose-200 rounded-xl p-2.5">
+            <div class="flex items-start justify-between gap-2 mb-1.5">
+              <div class="flex-1 min-w-0">
+                <p class="text-[8px] uppercase tracking-wider font-bold text-rose-600 mb-0.5">Direito Const.</p>
+                <p class="text-[11px] font-headline font-extrabold text-primary leading-tight">Direitos Fundamentais</p>
+              </div>
+              <p class="text-lg font-extrabold text-rose-600 font-headline leading-none">45%</p>
+            </div>
+            <div class="h-1 bg-rose-100 rounded-full mb-2 overflow-hidden">
+              <div class="h-full bg-rose-500 rounded-full" style="width:45%"></div>
+            </div>
+            <div class="flex gap-1.5">
+              <span class="bg-rose-500 text-white text-[9px] font-bold px-2 py-1 rounded-md">▶ Treinar</span>
+              <span class="bg-white border border-slate-200 text-slate-700 text-[9px] font-bold px-2 py-1 rounded-md">Ver resumo</span>
+            </div>
+          </div>
+          <!-- Card fraco 2 -->
+          <div class="border border-amber-200 rounded-xl p-2.5">
+            <div class="flex items-start justify-between gap-2 mb-1.5">
+              <div class="flex-1 min-w-0">
+                <p class="text-[8px] uppercase tracking-wider font-bold text-amber-600 mb-0.5">Direito Const.</p>
+                <p class="text-[11px] font-headline font-extrabold text-primary leading-tight">Controle de Constitucionalidade</p>
+              </div>
+              <p class="text-lg font-extrabold text-amber-600 font-headline leading-none">58%</p>
+            </div>
+            <div class="h-1 bg-amber-100 rounded-full overflow-hidden">
+              <div class="h-full bg-amber-500 rounded-full" style="width:58%"></div>
+            </div>
+          </div>
+          <!-- Card forte -->
+          <div class="border border-emerald-200 rounded-xl p-2.5 opacity-90">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex-1 min-w-0">
+                <p class="text-[8px] uppercase tracking-wider font-bold text-emerald-600 mb-0.5">Domínio sólido</p>
+                <p class="text-[11px] font-headline font-extrabold text-primary leading-tight">Princípios Fundamentais</p>
+              </div>
+              <p class="text-lg font-extrabold text-emerald-600 font-headline leading-none">89%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Mockup 3: Simulado cronometrado ─── -->
+      <div class="bg-white rounded-2xl border border-[#edeeef] editorial-shadow-soft overflow-hidden">
+        <div class="flex items-center gap-1.5 px-4 py-2.5 bg-slate-50 border-b border-[#edeeef]">
+          <span class="w-2 h-2 rounded-full bg-rose-300"></span>
+          <span class="w-2 h-2 rounded-full bg-amber-300"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+          <span class="ml-2 text-[9px] text-slate-400 font-mono">/simulado</span>
+        </div>
+        <div class="p-4 space-y-3 min-h-[380px]">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Simulado FGV</p>
+              <p class="text-sm font-headline font-extrabold text-primary">Bloco 1 · Questão 12/40</p>
+            </div>
+            <!-- Timer -->
+            <div class="text-right">
+              <p class="text-[8px] uppercase tracking-wider text-slate-500">Tempo</p>
+              <p class="text-lg font-headline font-extrabold text-primary font-mono leading-none">01:23:45</p>
+            </div>
+          </div>
+          <!-- Progresso -->
+          <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-primary rounded-full" style="width:30%"></div>
+          </div>
+          <!-- Grid navegação -->
+          <div>
+            <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500 mb-2">Navegação</p>
+            <div class="grid grid-cols-8 gap-1">
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">1</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">2</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">3</span>
+              <span class="aspect-square rounded-md bg-amber-400 text-white text-[8px] font-bold flex items-center justify-center">4</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">5</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">6</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">7</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">8</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">9</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">10</span>
+              <span class="aspect-square rounded-md bg-emerald-500 text-white text-[8px] font-bold flex items-center justify-center">11</span>
+              <span class="aspect-square rounded-md bg-primary text-white text-[8px] font-bold flex items-center justify-center ring-2 ring-primary/30">12</span>
+              <span class="aspect-square rounded-md bg-slate-200 text-slate-500 text-[8px] font-bold flex items-center justify-center">13</span>
+              <span class="aspect-square rounded-md bg-slate-200 text-slate-500 text-[8px] font-bold flex items-center justify-center">14</span>
+              <span class="aspect-square rounded-md bg-slate-200 text-slate-500 text-[8px] font-bold flex items-center justify-center">15</span>
+              <span class="aspect-square rounded-md bg-slate-200 text-slate-500 text-[8px] font-bold flex items-center justify-center">16</span>
+            </div>
+          </div>
+          <!-- Legenda -->
+          <div class="flex gap-3 text-[8px] text-slate-500">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-emerald-500"></span>Respondida</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-amber-400"></span>Marcada</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-slate-200"></span>Pendente</span>
+          </div>
+          <div class="bg-primary text-white text-center py-2 rounded-lg text-[10px] font-extrabold mt-1">
+            Próxima questão →
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_por_dentro" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:opacity-90 transition-all editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">rocket_launch</span>
+        Experimentar grátis (sem cartão)
+      </a>
+      <p class="text-xs text-slate-500 mt-3">Você entra e pode explorar tudo. Sem período de trial contando — o gratuito é permanente.</p>
     </div>
   </div>
 </section>
