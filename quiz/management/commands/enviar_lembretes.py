@@ -32,9 +32,10 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(
             '--tipo',
-            choices=['diario', 'semanal', 'srs', 'boas_vindas_d1', 'trial_expira_d2'],
+            choices=['diario', 'semanal', 'srs', 'boas_vindas_d1', 'trial_expira_d2', 'reengajamento_d3'],
             default='diario',
-            help='Tipo de lembrete: diario | semanal | srs | boas_vindas_d1 | trial_expira_d2',
+            help='Tipo de lembrete: diario | semanal | srs | boas_vindas_d1 | '
+                 'trial_expira_d2 | reengajamento_d3',
         )
         parser.add_argument(
             '--usuario',
@@ -211,9 +212,9 @@ class Command(BaseCommand):
             )
 
         elif tipo == 'semanal':
-            inicio = hoje - timedelta(days=hoje.weekday())  # segunda-feira passada
-            fim    = inicio - timedelta(days=1)
-            ini_anterior = fim - timedelta(days=6)
+            inicio = hoje - timedelta(days=hoje.weekday())  # segunda-feira desta semana
+            fim    = inicio - timedelta(days=1)             # domingo passado
+            ini_anterior = fim - timedelta(days=6)          # segunda anterior
 
             respostas = RespostaUsuario.objects.filter(
                 usuario=user,
@@ -228,15 +229,112 @@ class Command(BaseCommand):
             if total == 0:
                 return None
 
-            assunto = f'📊 Seu resumo semanal de estudos — SantuarioEdu'
+            # Achievements da semana
+            from quiz.models import Conquista, NivelUsuario
+            conquistas_semana = list(Conquista.objects.filter(
+                usuario=user,
+                desbloqueado_em__date__gte=ini_anterior,
+                desbloqueado_em__date__lte=fim,
+            ).values_list('codigo', flat=True))
+
+            # Streak atual
+            try:
+                streak = user.meta.streak_atual
+            except Exception:
+                streak = 0
+
+            # Nivel/rank atual
+            try:
+                nivel = user.nivelusuario
+                rank_str = f'{nivel.rank_nome} · Nível {nivel.nivel}'
+                xp_str = f' · {nivel.xp_total} XP'
+            except Exception:
+                rank_str = ''
+                xp_str = ''
+
+            # Conquistas em texto legivel
+            from quiz.views import CONQUISTAS_META
+            achievements_txt = ''
+            if conquistas_semana:
+                labels = []
+                for c in conquistas_semana[:3]:
+                    meta_c = CONQUISTAS_META.get(c, {})
+                    labels.append(f'{meta_c.get("emoji","🏆")} {meta_c.get("label", c)}')
+                achievements_txt = '\n🏆 Conquistas desbloqueadas essa semana:\n' + '\n'.join(f'   {l}' for l in labels) + '\n'
+                if len(conquistas_semana) > 3:
+                    achievements_txt += f'   ... e mais {len(conquistas_semana) - 3} conquista(s)!\n'
+
+            assunto = f'📊 Seu resumo semanal — {acertos}/{total} ({pct}%)'
             corpo   = (
-                f'Olá, {nome}! Confira seu desempenho da última semana ({ini_anterior.strftime("%d/%m")} a {fim.strftime("%d/%m/%Y")}):\n\n'
+                f'Olá, {nome}! Confira seu desempenho da última semana '
+                f'({ini_anterior.strftime("%d/%m")} a {fim.strftime("%d/%m/%Y")}):\n\n'
                 f'  📝 Questões respondidas: {total}\n'
                 f'  ✅ Acertos: {acertos}\n'
-                f'  📈 Aproveitamento: {pct}%\n\n'
-                f'{"🏆 Semana excelente! Continue assim!" if pct >= 70 else "📚 Você pode melhorar — pratique mais esta semana!"}\n\n'
+                f'  📈 Aproveitamento: {pct}%\n'
+                f'  🔥 Streak atual: {streak} dia{"s" if streak != 1 else ""}\n'
+                f'{("  🎖️  " + rank_str + xp_str + chr(10)) if rank_str else ""}'
+                f'{achievements_txt}'
+                f'\n{"🏆 Semana excelente! Continue assim!" if pct >= 70 else "📚 Bora subir esse aproveitamento na proxima!"}\n\n'
                 f'Ver relatório completo:\n'
                 f'👉 {site_url}/relatorio-semanal/\n\n'
+                f'-- SantuarioEdu\n'
+            )
+
+        elif tipo == 'reengajamento_d3':
+            # User sumido 3-14 dias: tem historico mas parou de estudar.
+            # Combate churn medio prazo. Nao envia:
+            # - se nunca respondeu (vai pro boas_vindas_d1)
+            # - se ativo nos ultimos 3 dias
+            # - se sumiu ha mais de 14 dias (churn consumado, nao vale insistir)
+            ultima = RespostaUsuario.objects.filter(
+                usuario=user,
+            ).order_by('-data').first()
+
+            if not ultima:
+                return None  # sem historico -> boas_vindas_d1
+
+            dias_sumido = (agora - ultima.data).days
+            if dias_sumido < 3 or dias_sumido > 14:
+                return None
+
+            # Aproveitamento historico pra usar copy motivacional
+            respostas = RespostaUsuario.objects.filter(usuario=user)
+            total = respostas.count()
+            acertos = respostas.filter(acertou=True).count()
+            pct = round(acertos / total * 100) if total else 0
+
+            try:
+                streak = user.meta.streak_atual
+            except Exception:
+                streak = 0
+
+            # Copy adaptativo — mais forte quando tinha streak/aproveitamento alto
+            if streak >= 3 and pct >= 60:
+                copy_hook = (
+                    f'Voce estava indo BEM — {streak} dias de streak e {pct}% de acerto.\n'
+                    f'Nao vale a pena perder esse ritmo agora.'
+                )
+            elif pct >= 60:
+                copy_hook = (
+                    f'Voce tem historico bom aqui — {pct}% de acerto em {total} questoes.\n'
+                    f'Vai perder tudo?'
+                )
+            else:
+                copy_hook = (
+                    f'Voltar pra estudar depois de uma pausa e o passo mais dificil.\n'
+                    f'Mas voce ta a 5 minutos de recomecar.'
+                )
+
+            assunto = f'👋 Faltam {dias_sumido} dias — bora voltar?'
+            corpo   = (
+                f'Ola, {nome}!\n\n'
+                f'Voce nao aparece por aqui ha {dias_sumido} dias.\n\n'
+                f'{copy_hook}\n\n'
+                f'⚡ Ideia: comeca com 5 questoes rapidas pra pegar o ritmo de novo:\n'
+                f'👉 {site_url}/estudar/\n\n'
+                f'Se voce ja nao ta mais estudando pra concurso, tudo bem — sem\n'
+                f'ressentimento. Da pra pausar sem deletar a conta (seu progresso\n'
+                f'fica salvo caso queira voltar).\n\n'
                 f'-- SantuarioEdu\n'
             )
         else:

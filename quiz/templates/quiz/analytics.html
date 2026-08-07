@@ -244,9 +244,16 @@ tailwind.config = {
         <p class="mt-6 text-xs text-on-surface-variant text-center">Mostrando 6 de {{ categorias_stats|length }} categorias — <a href="{% url 'analise_erros' %}" class="text-secondary font-semibold hover:underline">ver todas</a></p>
         {% endif %}
         {% else %}
-        <div class="text-center py-10 text-on-surface-variant">
-          <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">bar_chart</span>
-          <p class="text-sm mt-2">Sem dados ainda. Responda algumas questões para começar.</p>
+        <div class="text-center py-10">
+          <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-primary-fixed flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">bar_chart</span>
+          </div>
+          <p class="text-sm font-semibold text-on-surface mb-1">Sem dados ainda</p>
+          <p class="text-xs text-on-surface-variant max-w-xs mx-auto mb-4">Responda algumas questões pra ver seus gráficos aqui.</p>
+          <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold px-4 py-2 rounded-full transition-colors">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">play_arrow</span>
+            Começar agora
+          </a>
         </div>
         {% endif %}
       </div>
