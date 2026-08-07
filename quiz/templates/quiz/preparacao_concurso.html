@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Preparação {{ config.nome }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .stat-donut { width: 140px; height: 140px; }
+  @keyframes bar-fill {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  .bar-anim { transform-origin: left; animation: bar-fill 1s ease-out forwards; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='estudar' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">flag</span>
+      Preparação {{ config.nome }}
+    </h1>
+    <p class="text-xs text-on-surface-variant">Análise completa · incidência · banca · cronograma</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-6xl mx-auto px-6 py-8 space-y-6">
+
+  <!-- ─── Hero: dias pra prova + total questões ─── -->
+  <div class="paper-card rounded-3xl overflow-hidden">
+    <div class="bg-gradient-to-br from-primary to-primary-container text-white p-6 md:p-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-1">{{ config.nome_completo|default:config.nome }}</p>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold leading-tight">
+            {% if dias_prova %}
+              Faltam <span class="text-amber-300">{{ dias_prova }}</span> dia{{ dias_prova|pluralize }}
+            {% else %}
+              Prepare-se com método
+            {% endif %}
+          </h2>
+          <p class="text-blue-200 text-sm mt-2">
+            {% if dias_prova %}
+              Cada dia conta. {{ horas_por_dia }}h/dia = ~{% widthratio dias_prova horas_por_dia 1 %}h totais até a prova.
+            {% else %}
+              Configure sua data de prova no <a href="{% url 'perfil' %}" class="underline hover:text-white">perfil</a> pra receber cronograma personalizado.
+            {% endif %}
+          </p>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-center bg-white/10 rounded-2xl p-4 min-w-[100px]">
+            <p class="font-serif text-3xl font-bold text-amber-300">{{ total_questoes }}</p>
+            <p class="text-[10px] text-blue-200 uppercase tracking-wider mt-1">Questões</p>
+          </div>
+          <div class="text-center bg-white/10 rounded-2xl p-4 min-w-[100px]">
+            <p class="font-serif text-3xl font-bold text-emerald-300">{{ resumos_disponiveis|add:mapas_disponiveis }}</p>
+            <p class="text-[10px] text-blue-200 uppercase tracking-wider mt-1">Materiais</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if not incidencia %}
+  <div class="paper-card rounded-2xl p-8 text-center border-dashed" style="border-style:dashed;">
+    <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">insights</span>
+    <p class="font-serif text-lg font-semibold text-primary mt-3">Análise sem dados suficientes</p>
+    <p class="text-sm text-on-surface-variant mt-1 max-w-md mx-auto">
+      Ainda não temos questões suficientes catalogadas pra {{ config.nome }} nas disciplinas cobertas. Volte em breve — o BD cresce a cada extração.
+    </p>
+  </div>
+  {% else %}
+
+  <!-- ─── Análise de incidência ─── -->
+  <section class="paper-card rounded-2xl p-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">pie_chart</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Análise de incidência</p>
+        <h3 class="font-serif text-lg font-semibold text-primary">Quanto cai de cada disciplina</h3>
+      </div>
+    </div>
+    <p class="text-xs text-on-surface-variant mb-4">
+      Distribuição baseada em {{ total_questoes }} questões catalogadas de {{ config.nome }}. Priorize as disciplinas com maior peso.
+    </p>
+    <div class="space-y-3">
+      {% for d in incidencia %}
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-sm font-semibold text-on-surface">{{ d.disciplina }}</span>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-on-surface-variant">{{ d.total }} questões</span>
+            <span class="text-sm font-bold text-primary min-w-[45px] text-right">{{ d.pct }}%</span>
+          </div>
+        </div>
+        <div class="h-3 bg-surface-container-low rounded-full overflow-hidden">
+          <div class="h-full rounded-full bar-anim"
+               style="width:{{ d.pct }}%;background:{{ d.cor }};animation-delay:{{ forloop.counter0 }}00ms;"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ─── Gaps do user cruzados com incidência ─── -->
+  <section class="paper-card rounded-2xl p-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="material-symbols-outlined text-error active-icon" style="font-size:22px;">crisis_alert</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Priorização inteligente</p>
+        <h3 class="font-serif text-lg font-semibold text-primary">O que atacar primeiro</h3>
+      </div>
+    </div>
+    <p class="text-xs text-on-surface-variant mb-4">
+      Cruza <strong class="text-on-surface">o que mais cai</strong> com <strong class="text-on-surface">onde você está fraco</strong>. Foque no topo da lista.
+    </p>
+    <div class="space-y-2.5">
+      {% for g in gaps %}
+      <div class="flex items-center gap-3 p-3 rounded-xl
+        {% if g.prioridade >= 15 %}bg-rose-50 border border-rose-200
+        {% elif g.prioridade >= 8 %}bg-amber-50 border border-amber-200
+        {% else %}bg-slate-50 border border-slate-200{% endif %}">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center font-serif text-lg font-bold shrink-0
+          {% if g.prioridade >= 15 %}bg-rose-500 text-white
+          {% elif g.prioridade >= 8 %}bg-amber-500 text-white
+          {% else %}bg-slate-400 text-white{% endif %}">
+          {{ forloop.counter }}
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface">{{ g.disciplina }}</p>
+          <p class="text-[11px] text-on-surface-variant">
+            Cai <strong class="text-primary">{{ g.incidencia_pct }}%</strong> ·
+            {% if g.user_total > 0 %}
+              Seu acerto: <strong class="text-{{ g.status.cor }}-600">{{ g.user_pct }}%</strong> ({{ g.user_acertos }}/{{ g.user_total }})
+            {% else %}
+              <span class="text-slate-500">Sem histórico</span>
+            {% endif %}
+          </p>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider bg-{{ g.status.cor }}-100 text-{{ g.status.cor }}-700 px-2 py-0.5 rounded-full">
+            {{ g.status.label }}
+          </span>
+          <span class="text-[10px] text-on-surface-variant">Prioridade {{ g.prioridade }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ─── Grid: Sub-tópicos hot + Análise da banca ─── -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <!-- Sub-tópicos hot -->
+    <section class="paper-card rounded-2xl p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-amber-600 active-icon" style="font-size:22px;">local_fire_department</span>
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Top assuntos</p>
+          <h3 class="font-serif text-base font-semibold text-primary">Sub-tópicos mais cobrados</h3>
+        </div>
+      </div>
+      {% if subtopicos %}
+      <div class="space-y-2">
+        {% for s in subtopicos %}
+        <a href="{% url 'quiz_por_assunto' s.assunto %}"
+           class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors group">
+          <div class="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center shrink-0 text-xs font-bold text-amber-700">
+            {{ forloop.counter }}
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-on-surface truncate group-hover:text-primary transition-colors">{{ s.assunto }}</p>
+            <p class="text-[10px] text-on-surface-variant">{{ s.categoria__nome }} · {{ s.n }} questões</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" style="font-size:16px;">arrow_forward</span>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="text-sm text-on-surface-variant text-center py-6">Sem dados de sub-tópicos ainda.</p>
+      {% endif %}
+    </section>
+
+    <!-- Análise da banca -->
+    {% if analise_banca %}
+    <section class="paper-card rounded-2xl p-6">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-violet-600 active-icon" style="font-size:22px;">balance</span>
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Análise da banca</p>
+          <h3 class="font-serif text-base font-semibold text-primary">{{ analise_banca.nome }}</h3>
+        </div>
+      </div>
+      <p class="text-xs text-on-surface leading-relaxed mb-4">{{ analise_banca.descricao }}</p>
+
+      <div class="bg-slate-50 rounded-xl p-3 mb-4">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">Estilo</p>
+        <p class="text-sm font-semibold text-primary">{{ analise_banca.estilo }}</p>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1">⏱️ Tempo por questão</p>
+        <p class="text-xs text-amber-800 leading-relaxed">{{ analise_banca.dicas_tempo }}</p>
+      </div>
+
+      <div class="mb-2">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-rose-700 mb-2 flex items-center gap-1">
+          <span class="material-symbols-outlined active-icon" style="font-size:12px;">warning</span>
+          Pegadinhas típicas
+        </p>
+        <ul class="space-y-1.5">
+          {% for peg in analise_banca.pegadinhas %}
+          <li class="text-[11px] text-on-surface flex items-start gap-2 leading-snug">
+            <span class="text-rose-500 shrink-0">▸</span>
+            <span>{{ peg }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    {% else %}
+    <section class="paper-card rounded-2xl p-6 border-dashed" style="border-style:dashed;">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-outline-variant" style="font-size:22px;">balance</span>
+        <h3 class="font-serif text-base font-semibold text-primary">Análise da banca</h3>
+      </div>
+      <p class="text-xs text-on-surface-variant">Banca principal não mapeada ainda. Se o edital sair, atualize aqui.</p>
+    </section>
+    {% endif %}
+  </div>
+
+  <!-- ─── Cronograma sugerido ─── -->
+  <section class="paper-card rounded-2xl p-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="material-symbols-outlined text-secondary active-icon" style="font-size:22px;">schedule</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Cronograma sugerido</p>
+        <h3 class="font-serif text-lg font-semibold text-primary">Distribuição de {{ horas_por_dia }}h/dia</h3>
+      </div>
+    </div>
+    <p class="text-xs text-on-surface-variant mb-4">
+      Baseado em <strong class="text-on-surface">incidência × seus gaps</strong>. Ajuste horas/dia no <a href="{% url 'perfil' %}" class="text-primary hover:underline">perfil</a>.
+    </p>
+    <div class="grid md:grid-cols-2 gap-3">
+      {% for c in cronograma %}
+      <div class="flex items-center gap-3 p-3 border border-[#e5e1d8] rounded-xl">
+        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex flex-col items-center justify-center shrink-0">
+          <span class="text-xs font-bold text-secondary leading-none">{{ c.horas_str }}</span>
+          <span class="text-[8px] text-secondary uppercase mt-0.5">/dia</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">{{ c.disciplina }}</p>
+          <p class="text-[10px] text-on-surface-variant">
+            {{ c.incidencia_pct }}% cai · {{ c.status.label }}
+          </p>
+        </div>
+        <span class="text-[10px] font-bold text-on-surface-variant">{{ c.minutos_por_dia }}min</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% if not cronograma %}
+    <p class="text-sm text-on-surface-variant text-center py-4">Complete algumas questões pra receber cronograma personalizado.</p>
+    {% endif %}
+  </section>
+
+  <!-- ─── CTAs de ação ─── -->
+  <div class="grid md:grid-cols-3 gap-3">
+    <a href="{% url 'escolher_tema' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+      <span class="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">quiz</span>
+      </span>
+      <div class="flex-1 min-w-0">
+        <p class="font-serif text-sm font-bold text-primary">Responder questões</p>
+        <p class="text-[11px] text-on-surface-variant">Comece pela disciplina prioritária</p>
+      </div>
+      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
+    </a>
+    <a href="{% url 'iniciar_simulado' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+      <span class="w-11 h-11 rounded-xl bg-secondary text-white flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">timer</span>
+      </span>
+      <div class="flex-1 min-w-0">
+        <p class="font-serif text-sm font-bold text-primary">Simulado cronometrado</p>
+        <p class="text-[11px] text-on-surface-variant">Teste no formato oficial</p>
+      </div>
+      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
+    </a>
+    <a href="{% url 'analise_subtemas' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+      <span class="w-11 h-11 rounded-xl bg-violet-600 text-white flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">insights</span>
+      </span>
+      <div class="flex-1 min-w-0">
+        <p class="font-serif text-sm font-bold text-primary">Análise por subtema</p>
+        <p class="text-[11px] text-on-surface-variant">Mapa detalhado dos seus gaps</p>
+      </div>
+      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
+    </a>
+  </div>
+
+  {% endif %}
+
+</main>
+</body>
+</html>

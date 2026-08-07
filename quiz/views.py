@@ -815,6 +815,15 @@ def dashboard(request):
     except Exception as e:
         _log_falha('onboarding', e)
 
+    # ── Concurso preferido (pra CTA "Preparacao completa") ────────────
+    try:
+        from .models import ConcursoPreferido
+        pref = ConcursoPreferido.objects.filter(usuario=request.user).first()
+        ctx['concurso_pref_slug'] = pref.concurso if pref else None
+        ctx['concurso_pref'] = pref
+    except Exception as e:
+        _log_falha('concurso_pref', e)
+
     # ── Render blindado: se ate o template crashar, redireciona ─────────
     try:
         return render(request, 'quiz/dashboard.html', ctx)
@@ -832,6 +841,29 @@ def onboarding_dispensar(request):
         perfil.onboarding_dispensado = True
         perfil.save(update_fields=['onboarding_dispensado'])
     return redirect('dashboard')
+
+
+@login_required(login_url='account_login')
+def preparacao_concurso(request, concurso):
+    """
+    Hub de preparacao completa por concurso — /preparacao/<concurso>/
+    Consolida:
+    - Analise de incidencia (% por disciplina)
+    - Sub-topicos hot (o que mais cai)
+    - Analise da banca (estilo, pegadinhas, tempo)
+    - Gaps do user cruzados com incidencia (o que priorizar)
+    - Cronograma sugerido (horas por disciplina)
+    - Materiais disponiveis (resumos, mapas mentais)
+    """
+    from .preparacao import resumo_completo
+    from .concurso_landing import CONCURSOS_LANDING
+    from django.http import Http404
+
+    if concurso not in CONCURSOS_LANDING:
+        raise Http404('Concurso nao suportado')
+
+    contexto = resumo_completo(request.user, concurso)
+    return render(request, 'quiz/preparacao_concurso.html', contexto)
 
 
 @login_required(login_url='account_login')

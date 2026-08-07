@@ -151,6 +151,22 @@ tailwind.config = {
     {% include "quiz/includes/trial_badge.html" %}
     {% include "quiz/includes/onboarding_card.html" %}
 
+    {% if concurso_pref_slug %}
+    <a href="{% url 'preparacao_concurso' concurso_pref_slug %}"
+       class="paper-card rounded-2xl p-5 mb-6 flex items-center gap-4 hover:border-primary/40 transition-all group fade-in"
+       style="background:linear-gradient(135deg, rgba(0,32,70,.05) 0%, rgba(0,108,77,.05) 100%);">
+      <div class="shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+        <span class="material-symbols-outlined text-white active-icon" style="font-size:26px;font-variation-settings:'FILL' 1;">flag</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Hub de estudo</p>
+        <p class="font-serif text-base font-bold text-primary">Preparação {{ concurso_pref.get_concurso_display }}</p>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Análise de incidência · gaps · banca · cronograma personalizado</p>
+      </div>
+      <span class="material-symbols-outlined text-primary shrink-0 group-hover:translate-x-1 transition-transform" style="font-size:24px;">arrow_forward</span>
+    </a>
+    {% endif %}
+
     <!-- Bento Grid -->
     <div class="grid grid-cols-12 gap-6 mb-6 fade-in" style="animation-delay:.1s;">
 

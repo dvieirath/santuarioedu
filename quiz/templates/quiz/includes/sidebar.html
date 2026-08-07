@@ -111,6 +111,13 @@
         <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
       </summary>
       <div class="nav-group-items">
+        <p class="nav-subheader">Preparação</p>
+        {% if user.concurso_pref %}
+        <a class="nav-link" href="{% url 'preparacao_concurso' user.concurso_pref.concurso %}">
+          <span class="material-symbols-outlined">flag</span><span>Meu concurso — {{ user.concurso_pref.get_concurso_display|truncatechars:22 }}</span>
+        </a>
+        {% endif %}
+
         <p class="nav-subheader">Praticar</p>
         <a class="nav-link" href="{% url 'escolher_tema' %}">
           <span class="material-symbols-outlined">menu_book</span><span>Escolher tema</span>

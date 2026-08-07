@@ -28,6 +28,7 @@ urlpatterns = [
     path('simulado/<int:simulado_id>/compartilhar/', views.compartilhar_simulado, name='compartilhar_simulado'),
     path('conquista/<str:codigo>/compartilhar/', views.compartilhar_conquista, name='compartilhar_conquista'),
     path('convidar/', views.convidar, name='convidar'),
+    path('preparacao/<slug:concurso>/', views.preparacao_concurso, name='preparacao_concurso'),
     path('plano-de-estudos/', views.plano_estudos, name='plano_estudos'),
     path('analytics/', views.analytics, name='analytics'),
     path('progresso-edital/', views.progresso_edital, name='progresso_edital'),

@@ -155,6 +155,9 @@ tailwind.config = { theme: { extend: {
         Criar conta grátis
       </a>
     </div>
+    <p class="text-[11px] text-slate-500 mt-3">
+      Já tem conta? <a href="{% url 'preparacao_concurso' slug %}" class="text-primary hover:underline font-semibold">Abrir hub de preparação {{ config.nome }}</a>
+    </p>
   </div>
 </section>
 
