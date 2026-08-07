@@ -51,11 +51,15 @@ class Command(BaseCommand):
                             help='Preview do que sera importado, sem salvar')
         parser.add_argument('--revisada', action='store_true',
                             help='Marca questoes como revisada=True (aprovadas de imediato)')
+        parser.add_argument('--batch_size', type=int, default=50,
+                            help='Quantas questoes por transacao (default 50). '
+                                 'Evita "connection closed" em BDs remotos com timeout curto.')
 
     def handle(self, *args, **opts):
         arquivo = opts['arquivo_json']
         dry_run = opts['dry_run']
         ja_revisada = opts['revisada']
+        batch_size = max(1, opts['batch_size'])
 
         if not os.path.exists(arquivo):
             raise CommandError(f'Arquivo nao encontrado: {arquivo}')
@@ -117,105 +121,116 @@ class Command(BaseCommand):
             cache_cats[path] = parent
             return parent
 
-        # Wrap em atomic — tudo ou nada
-        with transaction.atomic():
-            for idx, item in enumerate(dados, 1):
-                categoria_path = item.get('categoria_path') or item.get('categoria', '')
-                texto = (item.get('texto') or '').strip()
+        # Processa uma questao — retorna True se criada, False se skip.
+        # Idempotente por texto_hash: se ja existe, retorna False (sem erro).
+        def _processar_item(idx, item):
+            nonlocal dup_hash, curtas, cat_nao_encontrada, sem_correta
+            categoria_path = item.get('categoria_path') or item.get('categoria', '')
+            texto = (item.get('texto') or '').strip()
 
-                # Normaliza tipo — campo eh VARCHAR(2), aceita so ME ou CE.
-                tipo_raw = (item.get('tipo') or 'ME').upper().strip()
-                if tipo_raw in ('ME', 'MULTIPLA', 'MULTIPLA_ESCOLHA', 'MULTIPLE'):
-                    tipo = 'ME'
-                elif tipo_raw in ('CE', 'CERTO_ERRADO', 'C/E', 'TRUE_FALSE'):
-                    tipo = 'CE'
-                else:
-                    tipo = 'CE' if item.get('resposta_ce') else 'ME'
+            # Normaliza tipo — campo eh VARCHAR(2), aceita so ME ou CE.
+            tipo_raw = (item.get('tipo') or 'ME').upper().strip()
+            if tipo_raw in ('ME', 'MULTIPLA', 'MULTIPLA_ESCOLHA', 'MULTIPLE'):
+                tipo = 'ME'
+            elif tipo_raw in ('CE', 'CERTO_ERRADO', 'C/E', 'TRUE_FALSE'):
+                tipo = 'CE'
+            else:
+                tipo = 'CE' if item.get('resposta_ce') else 'ME'
 
-                banca = (item.get('banca') or '').strip()
-                ano = item.get('ano')
-                assunto = (item.get('assunto') or '').strip() or None
-                alternativas = item.get('alternativas', [])
-                resposta_ce = item.get('resposta_ce', '').upper()
+            banca = (item.get('banca') or '').strip()
+            ano = item.get('ano')
+            assunto = (item.get('assunto') or '').strip() or None
+            alternativas = item.get('alternativas', [])
+            resposta_ce = item.get('resposta_ce', '').upper()
 
-                # Validacoes
-                if not categoria_path or not texto:
-                    erros.append(f'Item {idx}: categoria_path ou texto vazio')
-                    continue
+            if not categoria_path or not texto:
+                erros.append(f'Item {idx}: categoria_path ou texto vazio')
+                return False
+            if len(texto) < 30:
+                curtas += 1
+                return False
 
-                if len(texto) < 30:
-                    curtas += 1
-                    continue
+            cat = _resolver_categoria(categoria_path)
+            if not cat:
+                cat_nao_encontrada += 1
+                erros.append(f'Item {idx}: categoria "{categoria_path}" nao existe')
+                return False
 
-                cat = _resolver_categoria(categoria_path)
-                if not cat:
-                    cat_nao_encontrada += 1
-                    erros.append(f'Item {idx}: categoria "{categoria_path}" nao existe')
-                    continue
+            # Dedup via texto_hash — auto-calculado no save() do model.
+            from quiz.models import _hash_texto_questao
+            h = _hash_texto_questao(texto)
+            if h and Questao.objects.filter(texto_hash=h).exists():
+                dup_hash += 1
+                return False
 
-                # Dedup via texto_hash — auto-calculado no save() do model.
-                # Aqui pre-checa antes de criar pra evitar query extra.
-                from quiz.models import _hash_texto_questao
-                h = _hash_texto_questao(texto)
-                if h and Questao.objects.filter(texto_hash=h).exists():
-                    dup_hash += 1
-                    continue
-
-                # Valida alternativas ME
-                if tipo == 'ME':
-                    if not alternativas:
-                        erros.append(f'Item {idx}: ME sem alternativas')
-                        continue
-                    n_corretas = sum(1 for a in alternativas if a.get('correta'))
-                    if n_corretas != 1:
-                        sem_correta += 1
-                        erros.append(
-                            f'Item {idx}: ME deve ter EXATAMENTE 1 correta '
-                            f'(tem {n_corretas})'
-                        )
-                        continue
-
-                # Cria (se nao for dry_run)
-                if dry_run:
-                    self.stdout.write(
-                        f'  [{idx}] ✓ {categoria_path[:50]}... '
-                        f'({banca}/{ano}, {tipo})'
+            if tipo == 'ME':
+                if not alternativas:
+                    erros.append(f'Item {idx}: ME sem alternativas')
+                    return False
+                n_corretas = sum(1 for a in alternativas if a.get('correta'))
+                if n_corretas != 1:
+                    sem_correta += 1
+                    erros.append(
+                        f'Item {idx}: ME deve ter EXATAMENTE 1 correta '
+                        f'(tem {n_corretas})'
                     )
-                    criadas += 1
-                    continue
+                    return False
 
-                obj = Questao.objects.create(
-                    categoria=cat,
-                    texto=texto,
-                    tipo=tipo,
-                    assunto=assunto,
-                    banca=banca or None,
-                    ano=ano if isinstance(ano, int) and 1990 <= ano <= 2030 else None,
-                    revisada=ja_revisada,
-                    gerada_por_ia=False,
-                )
-
-                if tipo == 'CE':
-                    correta_c = resposta_ce in ('C', 'CERTO', 'V', 'VERDADEIRO')
-                    Alternativa.objects.create(
-                        questao=obj, texto='Certo', correta=correta_c,
-                    )
-                    Alternativa.objects.create(
-                        questao=obj, texto='Errado', correta=not correta_c,
-                    )
-                else:  # ME
-                    for alt in alternativas:
-                        Alternativa.objects.create(
-                            questao=obj,
-                            texto=(alt.get('texto') or '').strip(),
-                            correta=bool(alt.get('correta')),
-                        )
-
-                criadas += 1
-
-            # Se dry_run, rollback
             if dry_run:
-                transaction.set_rollback(True)
+                self.stdout.write(
+                    f'  [{idx}] ✓ {categoria_path[:50]}... ({banca}/{ano}, {tipo})'
+                )
+                return True
+
+            obj = Questao.objects.create(
+                categoria=cat,
+                texto=texto,
+                tipo=tipo,
+                assunto=assunto,
+                banca=banca or None,
+                ano=ano if isinstance(ano, int) and 1990 <= ano <= 2030 else None,
+                revisada=ja_revisada,
+                gerada_por_ia=False,
+            )
+
+            if tipo == 'CE':
+                correta_c = resposta_ce in ('C', 'CERTO', 'V', 'VERDADEIRO')
+                Alternativa.objects.create(
+                    questao=obj, texto='Certo', correta=correta_c,
+                )
+                Alternativa.objects.create(
+                    questao=obj, texto='Errado', correta=not correta_c,
+                )
+            else:
+                for alt in alternativas:
+                    Alternativa.objects.create(
+                        questao=obj,
+                        texto=(alt.get('texto') or '').strip(),
+                        correta=bool(alt.get('correta')),
+                    )
+            return True
+
+        # Processa em batches: cada batch = 1 transacao. Idempotente por
+        # texto_hash, entao retry em caso de falha na metade e seguro.
+        # Batches menores evitam "server closed connection unexpectedly"
+        # em BDs remotos (Railway/Heroku) com timeout curto de transacao.
+        total = len(dados)
+        for batch_start in range(0, total, batch_size):
+            batch_end = min(batch_start + batch_size, total)
+            with transaction.atomic():
+                for idx in range(batch_start + 1, batch_end + 1):
+                    item = dados[idx - 1]
+                    if _processar_item(idx, item):
+                        criadas += 1
+                if dry_run:
+                    transaction.set_rollback(True)
+
+            # Progresso a cada batch (util em batches longos)
+            if not dry_run and total > batch_size:
+                self.stdout.write(
+                    f'  → Lote {batch_end}/{total} processado '
+                    f'({criadas} criadas · {dup_hash} duplicatas)'
+                )
 
         # Relatorio
         self.stdout.write('\n' + '═' * 70)
