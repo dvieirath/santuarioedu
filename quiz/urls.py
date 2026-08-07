@@ -25,6 +25,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('onboarding/dispensar/', views.onboarding_dispensar, name='onboarding_dispensar'),
     path('limite-atingido/questoes/', views.limite_atingido_questoes, name='limite_atingido_questoes'),
+    path('simulado/<int:simulado_id>/compartilhar/', views.compartilhar_simulado, name='compartilhar_simulado'),
     path('plano-de-estudos/', views.plano_estudos, name='plano_estudos'),
     path('analytics/', views.analytics, name='analytics'),
     path('progresso-edital/', views.progresso_edital, name='progresso_edital'),

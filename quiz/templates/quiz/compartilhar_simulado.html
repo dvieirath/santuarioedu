@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Compartilhar resultado — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  /* Story-card: aspecto 9:16 (formato Stories) */
+  .story-card {
+    aspect-ratio: 9/16;
+    max-width: 360px;
+    background: linear-gradient(135deg,#002046,#1b365d);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-card::before {
+    content: '';
+    position: absolute; top:0; right:0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(134,248,200,.3) 0%, transparent 60%);
+    filter: blur(40px);
+  }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'relatorio_simulado_ia' simulado.id %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">share</span>
+      Compartilhar resultado
+    </h1>
+    <p class="text-xs text-on-surface-variant">Mostre pra galera onde você tá</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-3xl mx-auto px-6 py-8">
+  <div class="grid md:grid-cols-2 gap-6 items-start">
+
+    <!-- Preview story -->
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-3">Preview (formato Stories)</p>
+      <div class="story-card rounded-3xl shadow-2xl p-6 flex flex-col mx-auto" id="storyCard">
+        <div class="relative z-10 flex-1 flex flex-col">
+          <!-- Logo + brand -->
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-white" style="font-size:16px;">school</span>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-widest">SantuarioEdu</span>
+          </div>
+
+          <!-- Score gigante -->
+          <div class="flex-1 flex flex-col justify-center text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-2">Meu simulado</p>
+            <div class="mb-4">
+              <span class="font-serif font-extrabold text-7xl leading-none">{{ acertos }}</span>
+              <span class="text-3xl text-blue-200 font-bold">/{{ total }}</span>
+            </div>
+            <div class="inline-block mx-auto bg-white/15 border border-white/20 rounded-full px-4 py-1.5 mb-3">
+              <span class="text-sm font-bold">
+                {% if aproveitamento >= 80 %}
+                  🚀 {{ aproveitamento }}% de acerto
+                {% elif aproveitamento >= 60 %}
+                  💪 {{ aproveitamento }}% de acerto
+                {% elif aproveitamento >= 40 %}
+                  📚 {{ aproveitamento }}% de acerto
+                {% else %}
+                  🌱 {{ aproveitamento }}% de acerto
+                {% endif %}
+              </span>
+            </div>
+            <p class="text-sm text-blue-200 leading-snug px-2">
+              {% if aproveitamento >= 80 %}
+                Fechei essa. Bora pra próxima.
+              {% elif aproveitamento >= 60 %}
+                Bora que bora — cada erro é aula.
+              {% elif aproveitamento >= 40 %}
+                Cada erro mapeado, um passo à frente.
+              {% else %}
+                Errar é o começo do aprendizado.
+              {% endif %}
+            </p>
+          </div>
+
+          <!-- Footer com URL -->
+          <div class="mt-4 pt-4 border-t border-white/20 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-1">Estude com IA</p>
+            <p class="text-xs font-mono text-white">santuarioedu.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ações -->
+    <div class="space-y-4">
+      <div class="paper-card rounded-2xl p-5">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-2">Texto pronto pra colar</p>
+        <div class="bg-surface-container-low rounded-xl p-3 mb-3">
+          <p class="text-sm text-on-surface leading-relaxed" id="shareText">{{ titulo_share }}
+
+Estudando com IA em santuarioedu.com.br
+
+{{ hashtags }}</p>
+        </div>
+        <button onclick="copiarTexto()" class="w-full bg-primary text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">content_copy</span>
+          <span id="copyLabel">Copiar texto</span>
+        </button>
+      </div>
+
+      <div class="paper-card rounded-2xl p-5">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-3">Compartilhar direto</p>
+        <div class="grid grid-cols-2 gap-2">
+          <a id="shareWhats" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-emerald-500 text-white px-3 py-2.5 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">chat</span>
+            WhatsApp
+          </a>
+          <a id="shareTwitter" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-black text-white px-3 py-2.5 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">flutter_dash</span>
+            X (Twitter)
+          </a>
+          <a id="shareTelegram" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-sky-500 text-white px-3 py-2.5 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">send</span>
+            Telegram
+          </a>
+          <button onclick="webShare()" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-3 py-2.5 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined active-icon" style="font-size:14px;">share</span>
+            Compartilhar
+          </button>
+        </div>
+      </div>
+
+      <div class="paper-card rounded-2xl p-5">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-3">Baixar imagem</p>
+        <p class="text-xs text-on-surface-variant mb-3">
+          Salve o preview pra postar no Instagram, LinkedIn ou outros feeds.
+        </p>
+        <button onclick="baixarPreview()" class="w-full bg-white border border-outline-variant text-on-surface px-4 py-3 rounded-xl text-sm font-bold hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined active-icon" style="font-size:16px;">download</span>
+          Print da tela (screenshot)
+        </button>
+        <p class="text-[10px] text-on-surface-variant text-center mt-2">
+          Dica: pra print exato, use PrintScreen (Win) ou Cmd+Shift+4 (Mac) na área do card.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="{% url 'relatorio_simulado_ia' simulado.id %}" class="text-xs text-on-surface-variant hover:text-primary transition-colors">
+          ← Voltar ao relatório completo
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const shareText = document.getElementById('shareText').textContent;
+const shareUrl  = 'https://santuarioedu.com.br';
+
+// Links diretos pras redes
+document.getElementById('shareWhats').href    = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+document.getElementById('shareTwitter').href  = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText);
+document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent(shareUrl) + '&text=' + encodeURIComponent(shareText);
+
+function copiarTexto() {
+  navigator.clipboard.writeText(shareText).then(() => {
+    const label = document.getElementById('copyLabel');
+    const oldTxt = label.textContent;
+    label.textContent = '✓ Copiado!';
+    setTimeout(() => label.textContent = oldTxt, 2000);
+  }).catch(() => alert('Não foi possível copiar. Selecione e copie manualmente.'));
+}
+
+function webShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Meu resultado no simulado',
+      text: shareText,
+      url: shareUrl,
+    }).catch(() => {});
+  } else {
+    alert('Seu navegador não suporta compartilhamento direto. Use um dos botões específicos.');
+  }
+}
+
+function baixarPreview() {
+  // Screenshot exato exige libs externas — evitamos aqui.
+  // Melhor guiar o user pra tirar print manual.
+  const card = document.getElementById('storyCard');
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+  alert('Card centralizado na tela. Agora tira print (Win+Shift+S ou Cmd+Shift+4) da região do card.');
+}
+</script>
+</body>
+</html>
