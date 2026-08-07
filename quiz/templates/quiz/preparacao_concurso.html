@@ -374,34 +374,60 @@
   {% endif %}
 
   <!-- ─── CTAs de ação ─── -->
-  <div class="grid md:grid-cols-3 gap-3">
-    <a href="{% url 'escolher_tema' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+    <a href="{% url 'escolher_estilo_banca' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
       <span class="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center shrink-0">
-        <span class="material-symbols-outlined active-icon" style="font-size:22px;">quiz</span>
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">balance</span>
       </span>
       <div class="flex-1 min-w-0">
-        <p class="font-serif text-sm font-bold text-primary">Responder questões</p>
-        <p class="text-[11px] text-on-surface-variant">Comece pela disciplina prioritária</p>
+        <p class="font-serif text-sm font-bold text-primary">Simulado estilo banca</p>
+        <p class="text-[11px] text-on-surface-variant">CE (Cebraspe) ou ME (FGV/FCC/etc)</p>
+      </div>
+      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
+    </a>
+    {% for g in gaps|slice:":1" %}
+      {% for m in materiais %}
+        {% if m.disciplina == g.disciplina %}
+        <a href="{% url 'modo_intensivo' m.categoria_id %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+          <span class="w-11 h-11 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined active-icon" style="font-size:22px;">bolt</span>
+          </span>
+          <div class="flex-1 min-w-0">
+            <p class="font-serif text-sm font-bold text-primary">Intensivo · {{ g.disciplina|truncatechars:18 }}</p>
+            <p class="text-[11px] text-on-surface-variant">Sessão focada 30-60min</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
+        </a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    <a href="{% url 'ranking_concurso' concurso %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
+      <span class="w-11 h-11 rounded-xl bg-secondary text-white flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">leaderboard</span>
+      </span>
+      <div class="flex-1 min-w-0">
+        <p class="font-serif text-sm font-bold text-primary">Ranking {{ config.nome }}</p>
+        <p class="text-[11px] text-on-surface-variant">Como você se compara</p>
       </div>
       <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
     </a>
     <a href="{% url 'iniciar_simulado' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
-      <span class="w-11 h-11 rounded-xl bg-secondary text-white flex items-center justify-center shrink-0">
+      <span class="w-11 h-11 rounded-xl bg-violet-600 text-white flex items-center justify-center shrink-0">
         <span class="material-symbols-outlined active-icon" style="font-size:22px;">timer</span>
       </span>
       <div class="flex-1 min-w-0">
-        <p class="font-serif text-sm font-bold text-primary">Simulado cronometrado</p>
-        <p class="text-[11px] text-on-surface-variant">Teste no formato oficial</p>
+        <p class="font-serif text-sm font-bold text-primary">Simulado normal</p>
+        <p class="text-[11px] text-on-surface-variant">50 questões cronometradas</p>
       </div>
       <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
     </a>
     <a href="{% url 'analise_subtemas' %}" class="paper-card rounded-2xl p-5 flex items-center gap-3 hover:border-primary/30 transition-all group">
-      <span class="w-11 h-11 rounded-xl bg-violet-600 text-white flex items-center justify-center shrink-0">
+      <span class="w-11 h-11 rounded-xl bg-slate-600 text-white flex items-center justify-center shrink-0">
         <span class="material-symbols-outlined active-icon" style="font-size:22px;">insights</span>
       </span>
       <div class="flex-1 min-w-0">
         <p class="font-serif text-sm font-bold text-primary">Análise por subtema</p>
-        <p class="text-[11px] text-on-surface-variant">Mapa detalhado dos seus gaps</p>
+        <p class="text-[11px] text-on-surface-variant">Mapa detalhado</p>
       </div>
       <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary group-hover:translate-x-1 transition-all" style="font-size:18px;">arrow_forward</span>
     </a>

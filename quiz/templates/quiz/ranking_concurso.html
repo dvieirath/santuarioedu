@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ranking {{ config.nome }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'preparacao_concurso' concurso %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:20px;">leaderboard</span>
+      Ranking {{ config.nome }}
+    </h1>
+    <p class="text-xs text-on-surface-variant">{{ total_users }} estudante{{ total_users|pluralize:"s" }} focado{{ total_users|pluralize:",s" }} em {{ config.nome }}</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-4">
+
+  <!-- Hero -->
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="bg-gradient-to-br from-amber-400 to-amber-600 text-white p-6">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined active-icon" style="font-size:28px;font-variation-settings:'FILL' 1;">emoji_events</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-amber-100 mb-1">Top 20 · Ranking</p>
+          <h2 class="font-serif text-2xl font-bold">Quem estuda mais {{ config.nome }}</h2>
+          <p class="text-sm text-amber-100 mt-1">Ordenado por XP total.</p>
+        </div>
+      </div>
+    </div>
+
+    {% if posicao_user %}
+    <div class="bg-primary/5 border-t border-primary/20 px-5 py-3 flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">person</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs text-on-surface-variant">Sua posição</p>
+        <p class="font-serif text-lg font-bold text-primary">#{{ posicao_user }} de {{ total_users }}</p>
+      </div>
+      {% if posicao_user <= 10 %}
+      <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-700 px-2 py-1 rounded-full">🔥 Top 10</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Lista -->
+  {% if ranking %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for r in ranking %}
+      <div class="flex items-center gap-3 px-5 py-3 {% if r.eu %}bg-primary/5{% endif %}">
+        <span class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0
+          {% if r.posicao == 1 %}bg-amber-400 text-amber-900
+          {% elif r.posicao == 2 %}bg-slate-300 text-slate-800
+          {% elif r.posicao == 3 %}bg-amber-700 text-white
+          {% else %}bg-surface-container text-on-surface-variant{% endif %}">
+          {{ r.posicao }}
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">
+            {{ r.usuario.first_name|default:r.usuario.username }}
+            {% if r.eu %}<span class="text-[10px] bg-primary text-on-primary px-1.5 py-0.5 rounded-full ml-1">Você</span>{% endif %}
+          </p>
+          <p class="text-[11px] text-on-surface-variant">{{ r.rank }} · Nível {{ r.nivel }}</p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="font-serif text-sm font-bold text-primary">{{ r.xp }} XP</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="paper-card rounded-2xl p-10 text-center border-dashed" style="border-style:dashed;">
+    <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">leaderboard</span>
+    <p class="font-serif text-lg font-semibold text-primary mt-3">Ninguém marcou {{ config.nome }} ainda</p>
+    <p class="text-sm text-on-surface-variant mt-1 max-w-xs mx-auto">Vá em <a href="{% url 'perfil' %}" class="text-primary hover:underline font-semibold">perfil</a> e marque {{ config.nome }} como concurso preferido pra aparecer aqui.</p>
+  </div>
+  {% endif %}
+
+  <p class="text-[10px] text-on-surface-variant text-center leading-relaxed">
+    Ranking baseado em usuários com <strong>{{ config.nome }}</strong> marcado como concurso preferido.<br/>
+    Atualizado em tempo real. Ganhe XP respondendo questões, fazendo simulados e convidando amigos.
+  </p>
+
+</main>
+</body>
+</html>

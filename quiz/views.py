@@ -844,6 +844,269 @@ def onboarding_dispensar(request):
 
 
 @login_required(login_url='account_login')
+def modo_intensivo(request, categoria_id):
+    """
+    Modo intensivo por disciplina: sessao focada com timer configuravel
+    (30/45/60min) e stats em tempo real via session.
+
+    Session state:
+      intensivo_<cat_id> = {
+        'iniciado_em': iso timestamp,
+        'duracao_min': 30|45|60,
+        'respondidas_ids': [],
+        'acertos': N,
+      }
+    """
+    from django.utils import timezone
+    from django.utils.dateparse import parse_datetime
+
+    cat = get_object_or_404(Categoria, id=categoria_id)
+    session_key = f'intensivo_{cat.id}'
+    estado = request.session.get(session_key)
+
+    # Iniciar sessao
+    if request.method == 'POST' and request.POST.get('acao') == 'iniciar':
+        duracao = int(request.POST.get('duracao_min', 30))
+        if duracao not in (15, 30, 45, 60, 90):
+            duracao = 30
+        request.session[session_key] = {
+            'iniciado_em':     timezone.now().isoformat(),
+            'duracao_min':     duracao,
+            'respondidas_ids': [],
+            'acertos':         0,
+        }
+        request.session.modified = True
+        return redirect('modo_intensivo', categoria_id=cat.id)
+
+    # Encerrar sessao
+    if request.method == 'POST' and request.POST.get('acao') == 'encerrar':
+        estado_final = request.session.pop(session_key, None)
+        request.session.modified = True
+        if estado_final:
+            return render(request, 'quiz/modo_intensivo_resultado.html', {
+                'categoria':      cat,
+                'total':          len(estado_final.get('respondidas_ids', [])),
+                'acertos':        estado_final.get('acertos', 0),
+                'duracao_min':    estado_final.get('duracao_min', 30),
+            })
+        return redirect('modo_intensivo', categoria_id=cat.id)
+
+    # Se nao ha sessao ativa, mostra tela de configuracao
+    if not estado:
+        subarv = cat.subarvore_ids()
+        n_disponiveis = Questao.objects.filter(
+            revisada=True, categoria_id__in=subarv,
+        ).count()
+        return render(request, 'quiz/modo_intensivo_config.html', {
+            'categoria':      cat,
+            'n_disponiveis':  n_disponiveis,
+            'duracoes':       [15, 30, 45, 60, 90],
+        })
+
+    # Verifica se tempo expirou
+    iniciado = parse_datetime(estado['iniciado_em'])
+    agora = timezone.now()
+    duracao_min = estado['duracao_min']
+    segundos_totais = duracao_min * 60
+    segundos_gastos = int((agora - iniciado).total_seconds())
+    segundos_restantes = max(0, segundos_totais - segundos_gastos)
+
+    if segundos_restantes == 0:
+        # Tempo esgotado -> encerra automaticamente
+        request.session.pop(session_key, None)
+        request.session.modified = True
+        return render(request, 'quiz/modo_intensivo_resultado.html', {
+            'categoria':      cat,
+            'total':          len(estado['respondidas_ids']),
+            'acertos':        estado['acertos'],
+            'duracao_min':    duracao_min,
+            'tempo_esgotado': True,
+        })
+
+    # Processar resposta se POST
+    if request.method == 'POST' and request.POST.get('alternativa_id'):
+        alt_id = request.POST.get('alternativa_id')
+        try:
+            alt = Alternativa.objects.get(id=alt_id)
+            q = alt.questao
+            if q.id not in estado['respondidas_ids']:
+                estado['respondidas_ids'].append(q.id)
+                if alt.correta:
+                    estado['acertos'] += 1
+
+                # Tambem cria RespostaUsuario (conta pro XP/streak/analise)
+                RespostaUsuario.objects.get_or_create(
+                    usuario=request.user, questao=q,
+                    defaults={'acertou': alt.correta},
+                )
+
+                request.session[session_key] = estado
+                request.session.modified = True
+        except Alternativa.DoesNotExist:
+            pass
+
+    # Escolhe proxima questao (nao respondida na sessao)
+    subarv = cat.subarvore_ids()
+    proxima = (Questao.objects
+               .filter(revisada=True, categoria_id__in=subarv)
+               .exclude(id__in=estado['respondidas_ids'])
+               .order_by('?').first())
+
+    if not proxima:
+        # Acabaram as questoes -> encerra
+        request.session.pop(session_key, None)
+        request.session.modified = True
+        return render(request, 'quiz/modo_intensivo_resultado.html', {
+            'categoria':      cat,
+            'total':          len(estado['respondidas_ids']),
+            'acertos':        estado['acertos'],
+            'duracao_min':    duracao_min,
+            'esgotou_pool':   True,
+        })
+
+    return render(request, 'quiz/modo_intensivo.html', {
+        'categoria':          cat,
+        'questao':            proxima,
+        'alternativas':       list(proxima.alternativa_set.all()),
+        'respondidas':        len(estado['respondidas_ids']),
+        'acertos':            estado['acertos'],
+        'segundos_restantes': segundos_restantes,
+        'duracao_min':        duracao_min,
+    })
+
+
+@login_required(login_url='account_login')
+def ranking_concurso(request, concurso):
+    """
+    Top 10 users com esse concurso como preferido, ordenados por XP.
+    Mostra posicao do proprio user.
+    """
+    from .models import ConcursoPreferido, NivelUsuario
+    from .concurso_landing import CONCURSOS_LANDING
+
+    if concurso not in CONCURSOS_LANDING:
+        from django.http import Http404
+        raise Http404('Concurso nao suportado')
+
+    config = CONCURSOS_LANDING[concurso]
+
+    # Users com esse concurso preferido
+    prefs = ConcursoPreferido.objects.filter(concurso=concurso).select_related('usuario')
+    users_ids = [p.usuario_id for p in prefs]
+
+    if not users_ids:
+        return render(request, 'quiz/ranking_concurso.html', {
+            'config':          config,
+            'concurso':        concurso,
+            'ranking':         [],
+            'total_users':     0,
+            'posicao_user':    None,
+        })
+
+    # Ranking por XP
+    niveis = list(NivelUsuario.objects.filter(usuario_id__in=users_ids)
+                  .select_related('usuario').order_by('-xp_total'))
+
+    ranking = []
+    posicao_user = None
+    for i, n in enumerate(niveis[:20], 1):
+        entry = {
+            'posicao': i,
+            'usuario': n.usuario,
+            'xp':      n.xp_total,
+            'nivel':   n.nivel,
+            'rank':    n.rank_nome,
+            'eu':      n.usuario == request.user,
+        }
+        ranking.append(entry)
+
+    # Descobre posicao do user (mesmo fora do top 20)
+    for i, n in enumerate(niveis, 1):
+        if n.usuario_id == request.user.id:
+            posicao_user = i
+            break
+
+    return render(request, 'quiz/ranking_concurso.html', {
+        'config':       config,
+        'concurso':     concurso,
+        'ranking':      ranking,
+        'total_users':  len(users_ids),
+        'posicao_user': posicao_user,
+    })
+
+
+@login_required(login_url='account_login')
+def escolher_estilo_banca(request):
+    """
+    Pagina de selecao de estilo de simulado por banca.
+    Cebraspe = so C/E. FGV/FCC/etc = so ME.
+    """
+    from .preparacao import BANCAS_META
+    from .models import Questao
+
+    bancas_com_stats = []
+    for slug, meta in BANCAS_META.items():
+        # Estima quantas questoes disponiveis pra cada estilo
+        tipo_alvo = 'CE' if meta['estilo_pergunta'] == 'certo_errado' else 'ME'
+        n = Questao.objects.filter(revisada=True, tipo=tipo_alvo).count()
+        bancas_com_stats.append({
+            'slug':          slug,
+            'meta':          meta,
+            'tipo':          tipo_alvo,
+            'questoes_disp': n,
+        })
+
+    return render(request, 'quiz/escolher_estilo_banca.html', {
+        'bancas': bancas_com_stats,
+    })
+
+
+@login_required(login_url='account_login')
+def iniciar_simulado_estilo_banca(request, banca):
+    """
+    Cria simulado filtrado pelo estilo tipico da banca:
+    - Cebraspe: so questoes CE (Certo/Errado)
+    - FGV/FCC/VUNESP/CESGRANRIO: so ME (Multipla Escolha)
+    """
+    from .preparacao import BANCAS_META
+
+    resp = _check_pode_criar_simulado(request)
+    if resp:
+        return resp
+
+    banca_meta = BANCAS_META.get(banca.lower())
+    if not banca_meta:
+        messages.error(request, 'Banca nao suportada.')
+        return redirect('escolher_estilo_banca')
+
+    tipo_alvo = 'CE' if banca_meta['estilo_pergunta'] == 'certo_errado' else 'ME'
+
+    pool = Questao.objects.filter(revisada=True, tipo=tipo_alvo)
+    if pool.count() < 10:
+        messages.error(
+            request,
+            f'Poucas questoes {tipo_alvo} disponiveis pra {banca_meta["nome"]}. '
+            f'Volte em breve.'
+        )
+        return redirect('escolher_estilo_banca')
+
+    qtd = min(Simulado.TOTAL_QUESTOES, pool.count())
+    questoes = list(pool.order_by('?')[:qtd])
+
+    simulado = Simulado.objects.create(usuario=request.user)
+    RespostaSimulado.objects.bulk_create([
+        RespostaSimulado(simulado=simulado, questao=q, ordem=i + 1)
+        for i, q in enumerate(questoes)
+    ])
+
+    messages.success(
+        request,
+        f'Simulado estilo {banca_meta["nome"]} iniciado — {qtd} questoes {tipo_alvo}.',
+    )
+    return redirect('simulado_questao', simulado_id=simulado.id, numero=1)
+
+
+@login_required(login_url='account_login')
 def preparacao_concurso(request, concurso):
     """
     Hub de preparacao completa por concurso — /preparacao/<concurso>/

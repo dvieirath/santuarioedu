@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Simulado estilo banca — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='estudar' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'escolher_tema' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">balance</span>
+      Simulado por estilo de banca
+    </h1>
+    <p class="text-xs text-on-surface-variant">Treine no formato exato que cai na sua prova</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-4xl mx-auto px-6 py-8">
+
+  <div class="mb-6">
+    <p class="text-xs text-on-surface-variant leading-relaxed max-w-2xl">
+      Cada banca tem um estilo próprio de cobrar. <strong class="text-primary">Cebraspe</strong> usa quase só Certo/Errado (punição por chute), enquanto <strong class="text-primary">FGV, FCC, VUNESP e CESGRANRIO</strong> preferem múltipla escolha. Treine no formato específico da banca do seu concurso.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    {% for b in bancas %}
+    <div class="paper-card rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
+      <div class="bg-gradient-to-br
+        {% if b.slug == 'cebraspe' %}from-blue-600 to-blue-800
+        {% elif b.slug == 'fgv' %}from-emerald-600 to-emerald-800
+        {% elif b.slug == 'fcc' %}from-amber-600 to-amber-800
+        {% elif b.slug == 'vunesp' %}from-rose-600 to-rose-800
+        {% else %}from-violet-600 to-violet-800{% endif %}
+        text-white p-4">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-white/70">Banca</p>
+          <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">{{ b.tipo }}</span>
+        </div>
+        <h2 class="font-serif text-xl font-bold">{{ b.meta.nome }}</h2>
+        <p class="text-xs text-white/80 mt-1">{{ b.meta.estilo }}</p>
+      </div>
+      <div class="p-4">
+        <p class="text-xs text-on-surface leading-relaxed mb-3">{{ b.meta.descricao }}</p>
+
+        <div class="bg-slate-50 rounded-lg p-2.5 mb-3 flex items-center gap-2">
+          <span class="material-symbols-outlined text-slate-500" style="font-size:16px;">database</span>
+          <span class="text-xs text-slate-700">
+            <strong class="text-primary">{{ b.questoes_disp }}</strong> questões {{ b.tipo }} disponíveis
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined active-icon" style="font-size:12px;">warning</span>
+            Pegadinhas típicas
+          </p>
+          <ul class="space-y-1">
+            {% for peg in b.meta.pegadinhas|slice:":2" %}
+            <li class="text-[10px] text-on-surface-variant flex items-start gap-1.5 leading-snug">
+              <span class="text-amber-600 shrink-0">▸</span>
+              <span>{{ peg }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if b.questoes_disp >= 10 %}
+        <form method="post" action="{% url 'iniciar_simulado_estilo_banca' b.slug %}">
+          {% csrf_token %}
+          <button type="submit" class="w-full bg-primary hover:bg-primary-container text-white px-4 py-2.5 rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined active-icon" style="font-size:16px;">play_arrow</span>
+            Iniciar simulado estilo {{ b.meta.nome }}
+          </button>
+        </form>
+        {% else %}
+        <button disabled class="w-full bg-slate-200 text-slate-400 px-4 py-2.5 rounded-lg text-sm font-bold cursor-not-allowed">
+          Poucas questões disponíveis ({{ b.questoes_disp }})
+        </button>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</main>
+</body>
+</html>

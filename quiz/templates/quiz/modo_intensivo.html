@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Intensivo {{ categoria.nome }} — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .timer-bar { transition: width 1s linear; }
+  .alt-radio:checked + label {
+    border-color:#002046;
+    background:#f0f4fa;
+  }
+  .alt-radio:checked + label .radio-dot { background:#002046; border-color:#002046; }
+</style>
+</head>
+<body class="bg-slate-50">
+
+<!-- Header minimalista (sem sidebar pra focar) -->
+<header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-[#e5e1d8] px-4 md:px-6 h-14 flex items-center gap-3">
+  <div class="flex items-center gap-2 shrink-0">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;font-variation-settings:'FILL' 1;">bolt</span>
+    <span class="font-serif text-sm font-bold text-primary hidden sm:inline">{{ categoria.nome }}</span>
+  </div>
+  <!-- Timer -->
+  <div class="flex-1 flex items-center gap-2 max-w-md mx-auto">
+    <span class="material-symbols-outlined text-slate-500" style="font-size:16px;">timer</span>
+    <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+      <div id="timer-bar" class="timer-bar h-full bg-primary rounded-full" style="width:100%"></div>
+    </div>
+    <span id="timer-text" class="font-mono font-bold text-sm text-primary tabular-nums shrink-0">--:--</span>
+  </div>
+  <!-- Stats + encerrar -->
+  <div class="flex items-center gap-3 shrink-0">
+    <div class="text-right hidden sm:block">
+      <p class="text-[9px] text-on-surface-variant uppercase leading-none">Acertos</p>
+      <p class="font-serif text-sm font-bold text-secondary leading-none">{{ acertos }}/{{ respondidas }}</p>
+    </div>
+    <form method="post" onsubmit="return confirm('Encerrar sessão agora?')">
+      {% csrf_token %}
+      <input type="hidden" name="acao" value="encerrar"/>
+      <button type="submit" class="text-error hover:text-error/80 transition-colors p-1" title="Encerrar">
+        <span class="material-symbols-outlined active-icon" style="font-size:22px;">stop_circle</span>
+      </button>
+    </form>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 md:px-6 py-6">
+
+  <!-- Card questão -->
+  <div class="paper-card rounded-2xl p-5 md:p-6 mb-4">
+    <div class="flex flex-wrap items-center gap-2 mb-4">
+      <span class="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-white px-2 py-1 rounded">
+        {{ questao.categoria.nome }}
+      </span>
+      {% if questao.banca %}<span class="text-[10px] font-mono text-slate-500">{{ questao.banca }}{% if questao.ano %} · {{ questao.ano }}{% endif %}</span>{% endif %}
+      <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded ml-auto">
+        {% if questao.tipo == 'CE' %}C/E{% else %}Múltipla{% endif %}
+      </span>
+    </div>
+
+    <p class="text-base text-on-surface leading-relaxed mb-5 whitespace-pre-line">{{ questao.texto }}</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="space-y-2">
+        {% for alt in alternativas %}
+        <input type="radio" name="alternativa_id" value="{{ alt.id }}" id="alt-{{ alt.id }}" class="alt-radio hidden" required/>
+        <label for="alt-{{ alt.id }}" class="flex items-start gap-3 border border-[#e5e1d8] rounded-xl px-4 py-3 cursor-pointer hover:border-primary/50 transition-all">
+          <span class="radio-dot mt-1 w-4 h-4 rounded-full border-2 border-slate-300 shrink-0"></span>
+          <span class="text-sm text-on-surface flex-1 leading-relaxed">
+            {% if questao.tipo == 'ME' %}
+              <span class="font-bold mr-1.5">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %})</span>
+            {% endif %}
+            {{ alt.texto }}
+          </span>
+        </label>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="w-full mt-5 bg-primary hover:bg-primary-container text-white px-6 py-3 rounded-full text-sm font-bold transition-colors flex items-center justify-center gap-2">
+        Confirmar e próxima
+        <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Mini-stats mobile -->
+  <div class="grid grid-cols-3 gap-2 sm:hidden">
+    <div class="paper-card rounded-xl p-2 text-center">
+      <p class="text-lg font-bold text-secondary">{{ acertos }}</p>
+      <p class="text-[9px] text-on-surface-variant uppercase">Acertos</p>
+    </div>
+    <div class="paper-card rounded-xl p-2 text-center">
+      <p class="text-lg font-bold text-on-surface">{{ respondidas }}</p>
+      <p class="text-[9px] text-on-surface-variant uppercase">Feitas</p>
+    </div>
+    <div class="paper-card rounded-xl p-2 text-center">
+      {% if respondidas > 0 %}
+      <p class="text-lg font-bold text-primary">{% widthratio acertos respondidas 100 %}%</p>
+      {% else %}
+      <p class="text-lg font-bold text-primary">—</p>
+      {% endif %}
+      <p class="text-[9px] text-on-surface-variant uppercase">Aproveitamento</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// Timer countdown
+const totalSec = {{ segundos_restantes }};
+const duracaoSec = {{ duracao_min }} * 60;
+let restante = totalSec;
+
+const bar = document.getElementById('timer-bar');
+const txt = document.getElementById('timer-text');
+
+function atualizar() {
+  if (restante <= 0) {
+    // Recarrega — server ja detecta expiracao e mostra resultado
+    location.reload();
+    return;
+  }
+  const m = Math.floor(restante / 60);
+  const s = restante % 60;
+  txt.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  const pct = (restante / duracaoSec) * 100;
+  bar.style.width = pct + '%';
+  if (restante < 60) {
+    bar.style.background = '#dc2626';  // vermelho no ultimo minuto
+    txt.style.color = '#dc2626';
+  } else if (restante < 300) {
+    bar.style.background = '#f59e0b';  // amarelo nos ultimos 5min
+    txt.style.color = '#d97706';
+  }
+  restante--;
+}
+atualizar();
+setInterval(atualizar, 1000);
+</script>
+</body>
+</html>
