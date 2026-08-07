@@ -1,4 +1,4 @@
-"""Sitemap.xml dinâmico — apenas páginas públicas (landing, legais, FAQ)."""
+"""Sitemap.xml dinâmico — apenas páginas públicas (landing, legais, FAQ, concursos)."""
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
@@ -16,6 +16,7 @@ class PaginasPublicasSitemap(Sitemap):
             ('politica_privacidade', 0.5, 'yearly'),
             ('termos_uso', 0.5, 'yearly'),
             ('cadastro', 0.9, 'monthly'),
+            ('guest_quiz', 0.9, 'weekly'),
         ]
 
     def location(self, item):
@@ -26,3 +27,18 @@ class PaginasPublicasSitemap(Sitemap):
 
     def changefreq(self, item):
         return item[2]
+
+
+class ConcursosLandingSitemap(Sitemap):
+    """Landing pages SEO por concurso — priority alta pra Google indexar."""
+    changefreq = 'weekly'
+    priority = 0.9
+    protocol = 'https'
+
+    def items(self):
+        # Retorna slugs de concursos com landing dedicada
+        from quiz.concurso_landing import CONCURSOS_LANDING
+        return list(CONCURSOS_LANDING.keys())
+
+    def location(self, slug):
+        return reverse('landing_concurso', args=[slug])

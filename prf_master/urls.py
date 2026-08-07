@@ -5,9 +5,12 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from quiz import views as quiz_views
 from . import views as core_views
-from .sitemaps import PaginasPublicasSitemap
+from .sitemaps import PaginasPublicasSitemap, ConcursosLandingSitemap
 
-SITEMAPS = {'paginas': PaginasPublicasSitemap}
+SITEMAPS = {
+    'paginas':   PaginasPublicasSitemap,
+    'concursos': ConcursosLandingSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),

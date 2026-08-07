@@ -829,7 +829,7 @@ tailwind.config = {
 
 <!-- ─── Footer ─────────────────────────────────────────────────────────────── -->
 <footer class="bg-[#0a1929] text-blue-200 py-12">
-  <div class="max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-4 gap-8 text-sm">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-5 gap-8 text-sm">
     <div class="md:col-span-2">
       <div class="flex items-center gap-2.5 mb-3">
         {% include "quiz/includes/brand_mark.html" with size="32" variant="white" %}
@@ -849,6 +849,16 @@ tailwind.config = {
         <li><a href="{% url 'account_login' %}" class="hover:text-white transition-colors">Entrar</a></li>
       </ul>
     </div>
+    {% if concursos_landing %}
+    <div>
+      <p class="text-xs font-bold uppercase tracking-widest text-white mb-3">Concursos</p>
+      <ul class="space-y-2 text-xs">
+        {% for s, c in concursos_landing.items %}
+        <li><a href="{% url 'landing_concurso' s %}" class="hover:text-white transition-colors">{{ c.nome }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
     <div>
       <p class="text-xs font-bold uppercase tracking-widest text-white mb-3">Legal</p>
       <ul class="space-y-2 text-xs">

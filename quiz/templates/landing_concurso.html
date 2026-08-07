@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ config.h1 }} — SantuarioEdu</title>
+<meta name="description" content="{{ config.meta_desc }}"/>
+<link rel="canonical" href="https://santuarioedu.com.br/concurso/{{ slug }}/"/>
+
+<!-- Favicon + PWA -->
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<meta name="theme-color" content="#002046"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ config.h1 }} — SantuarioEdu"/>
+<meta property="og:description" content="{{ config.meta_desc }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://santuarioedu.com.br/concurso/{{ slug }}/"/>
+<meta property="og:image" content="{% static 'quiz/og-image.svg' %}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<!-- Schema.org — Course -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Preparação {{ config.nome }}",
+  "description": "{{ config.meta_desc }}",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "SantuarioEdu",
+    "url": "https://santuarioedu.com.br"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "inLanguage": "pt-BR"
+  }
+}
+</script>
+
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>
+  body { font-family:'Inter',sans-serif; background:#fff; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .editorial-shadow      { box-shadow:0 12px 32px rgba(25,28,29,.05); }
+  .editorial-shadow-soft { box-shadow:0 4px 20px rgba(25,28,29,.04); }
+  .hero-gradient { background:radial-gradient(circle at 80% 20%, #87a0cd33 0%, transparent 60%), radial-gradient(circle at 20% 80%, #86f8c833 0%, transparent 55%), #ffffff; }
+</style>
+{% include "includes/analytics.html" %}
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="flex items-center gap-2.5">
+      {% include "quiz/includes/brand_mark.html" with size="32" %}
+      <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <a href="{% url 'account_login' %}" class="hidden sm:inline-flex text-sm font-bold text-slate-700 hover:text-primary px-4 py-2 transition-colors">Entrar</a>
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="concurso_{{ slug }}_header" class="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-container px-3 py-2 transition-colors border border-primary/20 rounded-full hover:border-primary/40">
+        <span class="material-symbols-outlined" style="font-size:14px;font-variation-settings:'FILL' 1;">bolt</span>
+        Testar grátis
+      </a>
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="concurso_{{ slug }}_header" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors">
+        Começar grátis
+        <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero-gradient">
+  <div class="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24 text-center">
+    <div class="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-[0.25em] bg-violet-100 text-violet-700 px-3 py-1.5 rounded-full mb-5">
+      <span class="material-symbols-outlined" style="font-size:13px;">flag</span>
+      Preparação {{ config.nome }}
+    </div>
+    <h1 class="text-4xl md:text-6xl font-headline font-extrabold text-primary leading-[1.05] tracking-tight mb-5">
+      {{ config.h1 }}
+    </h1>
+    <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+      {{ config.subtitulo }}
+    </p>
+
+    <!-- Stats do concurso -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+      <div class="bg-white rounded-2xl border border-[#edeeef] p-4 editorial-shadow-soft">
+        <p class="text-2xl md:text-3xl font-extrabold text-primary font-headline">{{ total_questoes }}+</p>
+        <p class="text-xs text-slate-500 mt-1">Questões {{ config.nome }}</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-[#edeeef] p-4 editorial-shadow-soft">
+        <p class="text-2xl md:text-3xl font-extrabold text-primary font-headline">{{ config.disciplinas|length }}</p>
+        <p class="text-xs text-slate-500 mt-1">Disciplinas cobertas</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-[#edeeef] p-4 editorial-shadow-soft col-span-2 md:col-span-1">
+        <p class="text-2xl md:text-3xl font-extrabold text-secondary font-headline">R$ 0</p>
+        <p class="text-xs text-slate-500 mt-1">Pra começar (sem cartão)</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="concurso_{{ slug }}_hero" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">bolt</span>
+        Testar 3 questões (sem cadastro)
+      </a>
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="concurso_{{ slug }}_hero" class="inline-flex items-center gap-2 bg-white border border-[#edeeef] text-primary px-6 py-3.5 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors">
+        Criar conta grátis
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Disciplinas cobertas -->
+<section class="py-16 md:py-24 bg-[#f8f9fa]">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-10">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Disciplinas cobertas</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-3">
+        Tudo que cai em {{ config.nome }}
+      </h2>
+      <p class="text-slate-600 text-base max-w-2xl mx-auto">
+        Banco de questões organizado por matéria e sub-tópico, com foco no edital do {{ config.nome_completo }}.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {% for d in config.disciplinas %}
+      <div class="bg-white rounded-xl border border-[#edeeef] p-4 flex items-center gap-3 editorial-shadow-soft">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;font-variation-settings:'FILL' 1;">menu_book</span>
+        </span>
+        <span class="text-sm font-semibold text-slate-800">{{ d }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-center text-xs text-slate-500 mt-6">
+      Bancas mais comuns pra {{ config.nome }}: <strong class="text-primary">{{ config.bancas|join:", " }}</strong>
+    </p>
+  </div>
+</section>
+
+<!-- Como funciona (3 passos) -->
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Em 3 passos</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight">Como estudar pra {{ config.nome }}</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-primary text-white flex items-center justify-center text-xl font-extrabold font-headline mb-4">1</div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Cadastro em 30s</h3>
+        <p class="text-sm text-slate-600">Crie conta grátis, marque {{ config.nome }} como concurso preferido.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-primary text-white flex items-center justify-center text-xl font-extrabold font-headline mb-4">2</div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Estude com método</h3>
+        <p class="text-sm text-slate-600">Responda questões {{ config.nome }}, faça simulados no formato oficial, deixe a IA mapear seus pontos fracos.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-14 h-14 mx-auto rounded-full bg-secondary text-white flex items-center justify-center text-xl font-extrabold font-headline mb-4">3</div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Evolua com dados</h3>
+        <p class="text-sm text-slate-600">Acompanhe sua consistência, retenção e desempenho em tempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="py-16 md:py-24 bg-primary text-white text-center relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
+  <div class="max-w-2xl mx-auto px-6 relative z-10">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-secondary mb-3" style="color:#86f8c8">Comece hoje</p>
+    <h2 class="text-3xl md:text-5xl font-headline font-extrabold mb-4 tracking-tight">
+      Sua aprovação em {{ config.nome }} <br class="hidden md:block"/> começa com o próximo clique.
+    </h2>
+    <p class="text-blue-200 text-base md:text-lg mb-8">
+      {{ total_questoes }}+ questões · IA que aprende com você · sem cartão para começar.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="concurso_{{ slug }}_cta_final" class="inline-flex items-center gap-2 bg-secondary text-white px-7 py-4 rounded-full text-base font-bold hover:opacity-90 transition-all editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">rocket_launch</span>
+        Criar conta grátis
+      </a>
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="concurso_{{ slug }}_cta_final" class="inline-flex items-center gap-2 text-white/90 hover:text-white px-5 py-4 rounded-full text-sm font-semibold underline underline-offset-4 decoration-white/30 hover:decoration-white transition-all">
+        Testar sem cadastrar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Outros concursos -->
+<section class="py-12 bg-[#f8f9fa]">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    <p class="text-center text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Outros concursos</p>
+    <div class="flex flex-wrap justify-center gap-2">
+      {% for s, c in concursos_landing.items %}
+        {% if s != slug %}
+        <a href="{% url 'landing_concurso' s %}" class="inline-flex items-center gap-1.5 bg-white border border-[#edeeef] text-slate-700 hover:text-primary hover:border-primary/40 px-3 py-1.5 rounded-full text-xs font-bold transition-colors">
+          {{ c.nome }}
+          <span class="material-symbols-outlined" style="font-size:12px;">arrow_forward</span>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Footer minimalista -->
+<footer class="bg-[#0a1929] text-blue-200 py-8">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 text-center text-xs">
+    <p class="text-blue-300 mb-2">SantuarioEdu · Plataforma de estudos com IA</p>
+    <div class="space-x-3">
+      <a href="{% url 'home' %}" class="hover:text-white transition-colors">Início</a>
+      <span>·</span>
+      <a href="{% url 'politica_privacidade' %}" class="hover:text-white transition-colors">Privacidade</a>
+      <span>·</span>
+      <a href="{% url 'termos_uso' %}" class="hover:text-white transition-colors">Termos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
