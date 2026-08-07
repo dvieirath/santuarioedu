@@ -167,13 +167,69 @@ tailwind.config = {
         <span class="material-symbols-outlined" style="font-size:14px;font-variation-settings:'FILL' 1;">bolt</span>
         Testar grátis
       </a>
-      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_header" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow-soft">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_header" class="hidden sm:inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow-soft">
         Começar grátis
         <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
       </a>
+      <!-- Hamburger (mobile only) -->
+      <button type="button" id="mobile-menu-btn" class="md:hidden p-2 -mr-2 text-slate-700 hover:text-primary transition-colors" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined" style="font-size:26px;" id="mobile-menu-icon">menu</span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile menu drawer -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[#edeeef] bg-white">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 text-sm font-medium">
+      <a href="#por-dentro"     class="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-slate-700">Ver por dentro</a>
+      <a href="#recursos"       class="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-slate-700">Recursos</a>
+      <a href="#como-funciona"  class="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-slate-700">Como funciona</a>
+      <a href="#planos"         class="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-slate-700">Planos</a>
+      <a href="#faq"            class="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-slate-700">FAQ</a>
+      <div class="border-t border-[#edeeef] my-2"></div>
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="landing_header_mobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-primary font-bold">
+        <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">bolt</span>
+        Testar 3 questões grátis
+      </a>
+      <a href="{% url 'account_login' %}" class="block px-3 py-2.5 rounded-lg text-slate-700">Entrar</a>
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_header_mobile" class="flex items-center justify-center gap-1.5 bg-primary text-white px-4 py-3 rounded-full text-sm font-bold mt-2">
+        Começar grátis
+        <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+      </a>
+    </nav>
+  </div>
 </header>
+
+<script>
+(function() {
+  const btn   = document.getElementById('mobile-menu-btn');
+  const menu  = document.getElementById('mobile-menu');
+  const icon  = document.getElementById('mobile-menu-icon');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    if (isOpen) {
+      menu.classList.add('hidden');
+      icon.textContent = 'menu';
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      menu.classList.remove('hidden');
+      icon.textContent = 'close';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Fecha o menu ao clicar em um link (navegacao interna smooth)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      icon.textContent = 'menu';
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 <!-- ─── Hero ───────────────────────────────────────────────────────────────── -->
 <section class="hero-gradient">
