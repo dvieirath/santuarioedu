@@ -152,16 +152,22 @@ class GeminiProvider(BaseProvider):
 
     @classmethod
     def gerar(cls, prompt, json_mode=False, max_tokens=2048, temperature=0.7):
+        # SDK novo (google-genai) — o antigo (google.generativeai) foi
+        # deprecated em 2024 e nao recebe mais updates. Fallback pra
+        # garantir compat em ambiente ainda com pacote antigo.
         try:
-            import google.generativeai as genai
-        except Exception as e:
-            raise AIError(f'Gemini SDK não disponível: {e}')
+            from google import genai as _genai_new
+            from google.genai import types as _genai_types
+            _sdk = 'new'
+        except ImportError:
+            try:
+                import google.generativeai as _genai_old  # noqa: F401
+                _sdk = 'old'
+            except Exception as e:
+                raise AIError(f'Gemini SDK não disponível: {e}')
 
         api_key = settings.GEMINI_API_KEY
         modelo = getattr(settings, 'GEMINI_MODEL', cls.DEFAULT_MODEL)
-
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel(modelo)
 
         if json_mode:
             prompt = prompt + '\n\nResponda APENAS em JSON válido, sem markdown.'
@@ -170,13 +176,27 @@ class GeminiProvider(BaseProvider):
 
         inicio = time.time()
         try:
-            resp = model.generate_content(
-                prompt,
-                generation_config={
-                    'temperature': temperature,
-                    'max_output_tokens': max_tokens,
-                },
-            )
+            if _sdk == 'new':
+                client = _genai_new.Client(api_key=api_key)
+                resp = client.models.generate_content(
+                    model=modelo,
+                    contents=prompt,
+                    config=_genai_types.GenerateContentConfig(
+                        temperature=temperature,
+                        max_output_tokens=max_tokens,
+                    ),
+                )
+            else:
+                # Fallback SDK antigo (deprecated)
+                _genai_old.configure(api_key=api_key)
+                _model = _genai_old.GenerativeModel(modelo)
+                resp = _model.generate_content(
+                    prompt,
+                    generation_config={
+                        'temperature': temperature,
+                        'max_output_tokens': max_tokens,
+                    },
+                )
         except Exception as e:
             tipo = type(e).__name__
             if 'ResourceExhausted' in tipo or '429' in str(e):
