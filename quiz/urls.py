@@ -9,6 +9,9 @@ urlpatterns = [
 
     path('', views.home, name='home'),
 
+    # SEO — landing dedicada por concurso (indexavel no Google)
+    path('concurso/<slug:slug>/', views.landing_concurso, name='landing_concurso'),
+
     # Guest Quiz Mode — demo publico sem cadastro (max 3 questoes/sessao)
     path('testar/',            views.guest_quiz,           name='guest_quiz'),
     path('testar/responder/',  views.guest_quiz_responder, name='guest_quiz_responder'),
@@ -21,6 +24,7 @@ urlpatterns = [
     path('api/editar-questao/<int:questao_id>/', views.api_editar_questao, name='api_editar_questao'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('onboarding/dispensar/', views.onboarding_dispensar, name='onboarding_dispensar'),
+    path('limite-atingido/questoes/', views.limite_atingido_questoes, name='limite_atingido_questoes'),
     path('plano-de-estudos/', views.plano_estudos, name='plano_estudos'),
     path('analytics/', views.analytics, name='analytics'),
     path('progresso-edital/', views.progresso_edital, name='progresso_edital'),

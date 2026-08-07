@@ -163,13 +163,52 @@ def home(request):
         return redirect('dashboard')
     # Estatísticas reais pra dar credibilidade na landing
     from .models import Questao, Categoria, Simulado, RespostaUsuario
+    from .concurso_landing import CONCURSOS_LANDING
     contexto = {
         'total_questoes': Questao.objects.count(),
         'total_disciplinas': Categoria.objects.count(),
         'total_simulados': Simulado.objects.filter(finalizado=True).count(),
         'total_respostas': RespostaUsuario.objects.count(),
+        'concursos_landing': CONCURSOS_LANDING,
     }
     return render(request, 'landing.html', contexto)
+
+
+def landing_concurso(request, slug):
+    """
+    Landing SEO por concurso — /concurso/<slug>/
+    Cada slug otimizado pra keyword especifica (concurso PRF, INSS, etc.).
+    Redireciona logado pro dashboard (mesmo comportamento da home).
+    """
+    from .concurso_landing import CONCURSOS_LANDING
+    from django.http import Http404
+    from .models import Questao, Categoria
+
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+
+    if slug not in CONCURSOS_LANDING:
+        raise Http404('Concurso nao encontrado')
+
+    config = CONCURSOS_LANDING[slug]
+
+    # Contagem de questoes relevantes ao concurso: prioriza disciplinas listadas
+    # (match no nome da categoria raiz). Fallback: contagem total.
+    from django.db.models import Q
+    disc_q = Q()
+    for d in config['disciplinas']:
+        disc_q |= Q(categoria__nome__icontains=d)
+        disc_q |= Q(categoria__parent__nome__icontains=d)
+    total_questoes_concurso = Questao.objects.filter(disc_q).distinct().count()
+    total_geral = Questao.objects.count()
+
+    return render(request, 'landing_concurso.html', {
+        'config':              config,
+        'slug':                slug,
+        'total_questoes':      total_questoes_concurso or total_geral,
+        'total_geral':         total_geral,
+        'concursos_landing':   CONCURSOS_LANDING,
+    })
 
 @login_required(login_url='account_login')
 def listar_materiais(request):
@@ -313,12 +352,9 @@ def iniciar_quiz(request, categoria_id=None):
         from .limits import pode_responder_questao, get_plano
         if not pode_responder_questao(request.user):
             if get_plano(request.user) == 'gratuito':
-                messages.warning(
-                    request,
-                    'Você atingiu o limite diário de questões do plano Gratuito. '
-                    'Faça upgrade para PRO e tenha questões ilimitadas.'
-                )
-                return redirect('planos')
+                # Modal contextual (view dedicada) em vez de warning + planos generico.
+                # Momento quente = maior conversao free -> PRO.
+                return redirect('limite_atingido_questoes')
             messages.warning(request, 'Limite diário de questões atingido.')
             return redirect('dashboard')
 
@@ -677,6 +713,48 @@ def onboarding_dispensar(request):
         perfil.onboarding_dispensado = True
         perfil.save(update_fields=['onboarding_dispensado'])
     return redirect('dashboard')
+
+
+@login_required(login_url='account_login')
+def limite_atingido_questoes(request):
+    """
+    Pagina contextual quando user free bate limite diario de questoes.
+    Modal-como-pagina: user chega aqui no momento QUENTE (queria responder
+    mais), maior conversao free -> PRO.
+    """
+    from .limits import status_uso, get_plano
+    from django.utils import timezone
+    from datetime import timedelta
+
+    plano = get_plano(request.user)
+    if plano != 'gratuito':
+        # Se ja e PRO, nao faz sentido — volta pro dashboard
+        return redirect('dashboard')
+
+    uso = status_uso(request.user)
+    respondidas_hoje = uso['questoes_dia']['atual']
+    limite_dia = uso['questoes_dia']['limite']
+
+    # Horario do reset (00:00 amanha, fuso local)
+    agora = timezone.localtime()
+    amanha = (agora + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    horas_reset = round((amanha - agora).total_seconds() / 3600, 1)
+
+    # Estatistica de motivacao: acertos hoje pra reforcar "voce ta no ritmo"
+    from .models import RespostaUsuario
+    inicio_dia = agora.replace(hour=0, minute=0, second=0, microsecond=0)
+    acertos_hoje = RespostaUsuario.objects.filter(
+        usuario=request.user, data__gte=inicio_dia, acertou=True,
+    ).count()
+    pct_acerto_hoje = round(acertos_hoje / respondidas_hoje * 100) if respondidas_hoje else 0
+
+    return render(request, 'quiz/limite_atingido_questoes.html', {
+        'respondidas_hoje': respondidas_hoje,
+        'limite_dia':       limite_dia,
+        'horas_reset':      horas_reset,
+        'acertos_hoje':     acertos_hoje,
+        'pct_acerto_hoje':  pct_acerto_hoje,
+    })
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
