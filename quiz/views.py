@@ -67,15 +67,51 @@ except ImportError:
 # ─── CONQUISTAS ──────────────────────────────────────────────────────────────
 
 CONQUISTAS_META = {
-    'primeiro_acerto': {'label': 'Primeiro Acerto',   'emoji': '🥇', 'desc': 'Acertou sua primeira questão!'},
-    'streak_7':        {'label': 'Semana em Chamas',  'emoji': '🔥', 'desc': '7 dias de estudo seguidos'},
-    'streak_30':       {'label': 'Mês Dedicado',      'emoji': '🌟', 'desc': '30 dias de estudo seguidos'},
-    'centenario':      {'label': 'Centenário',        'emoji': '💯', 'desc': '100 questões respondidas'},
-    'quinhentos':      {'label': '500 Questões',      'emoji': '🚀', 'desc': '500 questões respondidas'},
-    'atirador':        {'label': 'Atirador de Elite', 'emoji': '🎯', 'desc': '90%+ de acertos em 50+ questões'},
-    'enciclopedia':    {'label': 'Enciclopédia',      'emoji': '📚', 'desc': 'Respondeu em todas as matérias'},
-    'simuladista':     {'label': 'Simuladista',       'emoji': '🏅', 'desc': '5 simulados completos realizados'},
+    # Volume
+    'primeiro_acerto':   {'label': 'Primeiro Acerto',    'emoji': '🥇', 'desc': 'Acertou sua primeira questão!',      'categoria': 'volume', 'raridade': 'comum'},
+    'dez_questoes':      {'label': 'Primeiros Passos',   'emoji': '🌱', 'desc': '10 questões respondidas',            'categoria': 'volume', 'raridade': 'comum'},
+    'centenario':        {'label': 'Centenário',         'emoji': '💯', 'desc': '100 questões respondidas',           'categoria': 'volume', 'raridade': 'incomum'},
+    'quinhentos':        {'label': '500 Questões',       'emoji': '🚀', 'desc': '500 questões respondidas',           'categoria': 'volume', 'raridade': 'rara'},
+    'milenar':           {'label': 'Milenar',            'emoji': '⚡', 'desc': '1000 questões respondidas',          'categoria': 'volume', 'raridade': 'epica'},
+    # Streak
+    'streak_3':          {'label': 'Constância',         'emoji': '✨', 'desc': '3 dias de estudo seguidos',          'categoria': 'streak', 'raridade': 'comum'},
+    'streak_7':          {'label': 'Semana em Chamas',   'emoji': '🔥', 'desc': '7 dias de estudo seguidos',          'categoria': 'streak', 'raridade': 'incomum'},
+    'streak_14':         {'label': 'Duas Semanas',       'emoji': '🌪️', 'desc': '14 dias de estudo seguidos',         'categoria': 'streak', 'raridade': 'rara'},
+    'streak_30':         {'label': 'Mês Dedicado',       'emoji': '🌟', 'desc': '30 dias de estudo seguidos',         'categoria': 'streak', 'raridade': 'epica'},
+    'streak_100':        {'label': 'Lenda Persistente',  'emoji': '💎', 'desc': '100 dias de estudo seguidos',        'categoria': 'streak', 'raridade': 'lendaria'},
+    # Precisao
+    'atirador':          {'label': 'Atirador de Elite',  'emoji': '🎯', 'desc': '90%+ de acertos em 50+ questões',    'categoria': 'precisao', 'raridade': 'incomum'},
+    'sniper':            {'label': 'Sniper',             'emoji': '🏹', 'desc': '95%+ de acertos em 100+ questões',   'categoria': 'precisao', 'raridade': 'rara'},
+    'perfeicionista':    {'label': 'Perfeccionista',     'emoji': '🔷', 'desc': '100% de acertos em 20+ questões',    'categoria': 'precisao', 'raridade': 'epica'},
+    # Simulados
+    'primeiro_simulado': {'label': 'Estreante',          'emoji': '🎬', 'desc': 'Fez seu primeiro simulado',          'categoria': 'simulado', 'raridade': 'comum'},
+    'simuladista':       {'label': 'Simuladista',        'emoji': '🏅', 'desc': '5 simulados completos realizados',   'categoria': 'simulado', 'raridade': 'incomum'},
+    'veterano_simulado': {'label': 'Veterano de Provas', 'emoji': '🎖️', 'desc': '25 simulados completos realizados',  'categoria': 'simulado', 'raridade': 'rara'},
+    'simulado_perfeito': {'label': 'Prova Perfeita',     'emoji': '👑', 'desc': 'Acertou 100% em um simulado',        'categoria': 'simulado', 'raridade': 'epica'},
+    # Diversidade
+    'enciclopedia':      {'label': 'Enciclopédia',       'emoji': '📚', 'desc': 'Respondeu em todas as matérias',     'categoria': 'diversidade', 'raridade': 'epica'},
+    'generalista':       {'label': 'Generalista',        'emoji': '🌐', 'desc': 'Respondeu em 5+ matérias diferentes','categoria': 'diversidade', 'raridade': 'incomum'},
+    'especialista':      {'label': 'Especialista',       'emoji': '🔬', 'desc': '100+ questões em uma única matéria', 'categoria': 'diversidade', 'raridade': 'rara'},
+    # Horarios
+    'madrugador':        {'label': 'Madrugador',         'emoji': '🌅', 'desc': 'Respondeu questão antes das 6h',     'categoria': 'horario', 'raridade': 'incomum'},
+    'noturno':           {'label': 'Coruja Noturna',     'emoji': '🌙', 'desc': 'Respondeu questão após 23h',          'categoria': 'horario', 'raridade': 'incomum'},
+    # Social
+    'primeiro_duelo':    {'label': 'Primeiro Duelo',     'emoji': '⚔️', 'desc': 'Participou do seu primeiro duelo',    'categoria': 'social', 'raridade': 'comum'},
+    'duelista':          {'label': 'Duelista',           'emoji': '🛡️', 'desc': 'Participou de 10+ duelos',            'categoria': 'social', 'raridade': 'rara'},
+    # Meta
+    'colecionador':      {'label': 'Colecionador',       'emoji': '🏆', 'desc': 'Desbloqueou 5+ conquistas',           'categoria': 'meta', 'raridade': 'rara'},
+    'lenda':             {'label': 'Lenda',              'emoji': '🌈', 'desc': 'Desbloqueou 15+ conquistas',          'categoria': 'meta', 'raridade': 'lendaria'},
 }
+
+# Mapa raridade -> cor (usado pra badges no template)
+RARIDADE_CORES = {
+    'comum':     {'bg': 'bg-slate-100',   'border': 'border-slate-300',   'text': 'text-slate-700',   'label': 'Comum'},
+    'incomum':   {'bg': 'bg-emerald-50',  'border': 'border-emerald-300', 'text': 'text-emerald-700', 'label': 'Incomum'},
+    'rara':      {'bg': 'bg-blue-50',     'border': 'border-blue-300',    'text': 'text-blue-700',    'label': 'Rara'},
+    'epica':     {'bg': 'bg-violet-50',   'border': 'border-violet-300',  'text': 'text-violet-700',  'label': 'Épica'},
+    'lendaria':  {'bg': 'bg-amber-50',    'border': 'border-amber-400',   'text': 'text-amber-700',   'label': 'Lendária'},
+}
+
 
 def verificar_conquistas(user):
     """Verifica condições e desbloqueia conquistas. Retorna lista de novos códigos desbloqueados."""
@@ -91,32 +127,115 @@ def verificar_conquistas(user):
     total   = respostas.count()
     acertos = respostas.filter(acertou=True).count()
 
+    # ── Volume ──
     if acertos >= 1:
         _ganhar('primeiro_acerto')
+    if total >= 10:
+        _ganhar('dez_questoes')
     if total >= 100:
         _ganhar('centenario')
     if total >= 500:
         _ganhar('quinhentos')
+    if total >= 1000:
+        _ganhar('milenar')
+
+    # ── Precisão ──
     if total >= 50 and total > 0 and (acertos / total) >= 0.90:
         _ganhar('atirador')
+    if total >= 100 and (acertos / total) >= 0.95:
+        _ganhar('sniper')
+    if total >= 20 and acertos == total:  # 100%
+        _ganhar('perfeicionista')
 
+    # ── Streak ──
     try:
         meta = user.meta
+        if meta.streak_atual >= 3:
+            _ganhar('streak_3')
         if meta.streak_atual >= 7:
             _ganhar('streak_7')
+        if meta.streak_atual >= 14:
+            _ganhar('streak_14')
         if meta.streak_atual >= 30:
             _ganhar('streak_30')
+        if meta.streak_atual >= 100:
+            _ganhar('streak_100')
     except Exception:
         pass
 
+    # ── Diversidade ──
+    cats_respondidas_qs = respostas.values('questao__categoria').distinct()
+    cats_respondidas = cats_respondidas_qs.count()
     total_cats = Categoria.objects.count()
-    cats_respondidas = respostas.values('questao__categoria').distinct().count()
     if total_cats > 0 and cats_respondidas >= total_cats:
         _ganhar('enciclopedia')
+    if cats_respondidas >= 5:
+        _ganhar('generalista')
 
+    # Especialista: 100+ questoes em uma unica matéria
+    from django.db.models import Count
+    top_cat = (respostas.values('questao__categoria')
+               .annotate(n=Count('id')).order_by('-n').first())
+    if top_cat and top_cat['n'] >= 100:
+        _ganhar('especialista')
+
+    # ── Simulados ──
     sims = Simulado.objects.filter(usuario=user, finalizado=True).count()
+    if sims >= 1:
+        _ganhar('primeiro_simulado')
     if sims >= 5:
         _ganhar('simuladista')
+    if sims >= 25:
+        _ganhar('veterano_simulado')
+
+    # Simulado perfeito: 100% em algum simulado
+    try:
+        from .models import RespostaSimulado
+        # simulado com pelo menos 10 respostas e todas certas
+        sims_finalizados = Simulado.objects.filter(usuario=user, finalizado=True)
+        for s in sims_finalizados:
+            resp = RespostaSimulado.objects.filter(simulado=s)
+            n = resp.count()
+            if n >= 10 and resp.filter(alternativa__correta=True).count() == n:
+                _ganhar('simulado_perfeito')
+                break
+    except Exception:
+        pass
+
+    # ── Horários ──
+    try:
+        # Django extract() por hora (ORM cross-db)
+        from django.db.models.functions import ExtractHour
+        horas = respostas.annotate(h=ExtractHour('data')).values_list('h', flat=True).distinct()
+        if any(h is not None and h < 6 for h in horas):
+            _ganhar('madrugador')
+        if any(h is not None and h >= 23 for h in horas):
+            _ganhar('noturno')
+    except Exception:
+        pass
+
+    # ── Duelos ──
+    try:
+        from .models import Duelo
+        # Duelo tem jogador1/jogador2 (varia por versao); tenta ambos
+        n_duelos = 0
+        try:
+            n_duelos = Duelo.objects.filter(jogador1=user).count() + Duelo.objects.filter(jogador2=user).count()
+        except Exception:
+            pass
+        if n_duelos >= 1:
+            _ganhar('primeiro_duelo')
+        if n_duelos >= 10:
+            _ganhar('duelista')
+    except Exception:
+        pass
+
+    # ── Meta-conquistas (executar por ULTIMO — depende das outras) ──
+    total_conquistas_atual = len(ja_tem) + len(novas)
+    if total_conquistas_atual >= 5:
+        _ganhar('colecionador')
+    if total_conquistas_atual >= 15:
+        _ganhar('lenda')
 
     # Disparar notificação in-app para cada conquista nova
     for codigo in novas:
@@ -713,6 +832,42 @@ def onboarding_dispensar(request):
         perfil.onboarding_dispensado = True
         perfil.save(update_fields=['onboarding_dispensado'])
     return redirect('dashboard')
+
+
+@login_required(login_url='account_login')
+def compartilhar_simulado(request, simulado_id):
+    """
+    Pagina de compartilhamento do resultado do simulado.
+    Gera preview visual (formato Stories 1080x1920 via CSS) + botao pra
+    baixar imagem + botao pra copiar link/texto pras redes sociais.
+    """
+    simulado = get_object_or_404(Simulado, id=simulado_id, usuario=request.user, finalizado=True)
+    respostas   = simulado.respostas.select_related('questao__categoria').all()
+    respondidas = [r for r in respostas if r.acertou is not None]
+    acertos     = sum(1 for r in respondidas if r.acertou)
+    total       = len(respondidas)
+    aproveitamento = round(acertos / total * 100) if total else 0
+
+    # Copy do share adaptativo
+    if aproveitamento >= 80:
+        titulo = f'Fechei {acertos}/{total} no simulado. 🚀'
+    elif aproveitamento >= 60:
+        titulo = f'Acertei {acertos}/{total} no simulado. Bora que bora.'
+    elif aproveitamento >= 40:
+        titulo = f'Acertei {acertos}/{total}. Cada erro é uma lacuna mapeada.'
+    else:
+        titulo = f'Fiz {acertos}/{total}. Errar é o começo do aprendizado.'
+
+    hashtags = '#concurso #estudos #santuarioedu'
+
+    return render(request, 'quiz/compartilhar_simulado.html', {
+        'simulado':       simulado,
+        'aproveitamento': aproveitamento,
+        'total':          total,
+        'acertos':        acertos,
+        'titulo_share':   titulo,
+        'hashtags':       hashtags,
+    })
 
 
 @login_required(login_url='account_login')
@@ -2381,36 +2536,75 @@ def conquistas(request):
     cats_respondidas = RespostaUsuario.objects.filter(
         usuario=request.user).values('questao__categoria').distinct().count()
 
-    # Progresso para cada conquista ainda não desbloqueada
+    def _pct(atual, meta_v):
+        if atual >= meta_v:
+            return 100
+        return min(100, int(atual / meta_v * 100)) if meta_v else 0
+
+    pct_acerto = (acertos / max(1, total_respostas)) if total_respostas else 0
+
+    # Progresso pra cada conquista (todos os 26 codigos)
     progresso = {
-        'primeiro_acerto': min(100, int(acertos / 1 * 100))              if acertos < 1     else 100,
-        'streak_7':        min(100, int(meta.streak_atual / 7 * 100))    if meta.streak_atual < 7  else 100,
-        'streak_30':       min(100, int(meta.streak_atual / 30 * 100))   if meta.streak_atual < 30 else 100,
-        'centenario':      min(100, int(total_respostas / 100 * 100))    if total_respostas < 100  else 100,
-        'quinhentos':      min(100, int(total_respostas / 500 * 100))    if total_respostas < 500  else 100,
-        'atirador':        min(100, int(acertos / max(1,total_respostas) * 100)) if (total_respostas < 50 or (acertos/max(1,total_respostas)) < 0.9) else 100,
-        'enciclopedia':    min(100, int(cats_respondidas / max(1, total_cats) * 100)) if cats_respondidas < total_cats else 100,
-        'simuladista':     min(100, int(total_simulados / 5 * 100))      if total_simulados < 5    else 100,
+        'primeiro_acerto':    100 if acertos >= 1 else 0,
+        'dez_questoes':       _pct(total_respostas, 10),
+        'centenario':         _pct(total_respostas, 100),
+        'quinhentos':         _pct(total_respostas, 500),
+        'milenar':            _pct(total_respostas, 1000),
+        'streak_3':           _pct(meta.streak_atual, 3),
+        'streak_7':           _pct(meta.streak_atual, 7),
+        'streak_14':          _pct(meta.streak_atual, 14),
+        'streak_30':          _pct(meta.streak_atual, 30),
+        'streak_100':         _pct(meta.streak_atual, 100),
+        'atirador':           100 if (total_respostas >= 50 and pct_acerto >= 0.90) else _pct(total_respostas, 50),
+        'sniper':             100 if (total_respostas >= 100 and pct_acerto >= 0.95) else _pct(total_respostas, 100),
+        'perfeicionista':     100 if (total_respostas >= 20 and acertos == total_respostas) else _pct(total_respostas, 20),
+        'primeiro_simulado':  _pct(total_simulados, 1),
+        'simuladista':        _pct(total_simulados, 5),
+        'veterano_simulado':  _pct(total_simulados, 25),
+        'simulado_perfeito':  100 if 'simulado_perfeito' in desbloqueadas else 0,
+        'enciclopedia':       _pct(cats_respondidas, max(1, total_cats)),
+        'generalista':        _pct(cats_respondidas, 5),
+        'especialista':       100 if 'especialista' in desbloqueadas else _pct(total_respostas, 100),
+        'madrugador':         100 if 'madrugador' in desbloqueadas else 0,
+        'noturno':            100 if 'noturno' in desbloqueadas else 0,
+        'primeiro_duelo':     100 if 'primeiro_duelo' in desbloqueadas else 0,
+        'duelista':           100 if 'duelista' in desbloqueadas else _pct(len(desbloqueadas), 10),
+        'colecionador':       _pct(len(desbloqueadas), 5),
+        'lenda':              _pct(len(desbloqueadas), 15),
     }
 
     todas = []
     for codigo, meta_info in CONQUISTAS_META.items():
         obj = desbloqueadas.get(codigo)
+        raridade = meta_info.get('raridade', 'comum')
         todas.append({
-            'codigo':    codigo,
-            'emoji':     meta_info['emoji'],
-            'label':     meta_info['label'],
-            'desc':      meta_info['desc'],
+            'codigo':      codigo,
+            'emoji':       meta_info['emoji'],
+            'label':       meta_info['label'],
+            'desc':        meta_info['desc'],
+            'categoria':   meta_info.get('categoria', 'geral'),
+            'raridade':    raridade,
+            'cor':         RARIDADE_CORES.get(raridade, RARIDADE_CORES['comum']),
             'desbloqueada': obj is not None,
-            'data':      obj.desbloqueado_em if obj else None,
-            'progresso': progresso.get(codigo, 0),
+            'data':        obj.desbloqueado_em if obj else None,
+            'progresso':   progresso.get(codigo, 0),
         })
-    todas.sort(key=lambda x: (not x['desbloqueada'], x['codigo']))
+    # Ordena: desbloqueadas primeiro, depois por raridade (lendaria antes de comum)
+    ordem_rar = {'lendaria': 0, 'epica': 1, 'rara': 2, 'incomum': 3, 'comum': 4}
+    todas.sort(key=lambda x: (not x['desbloqueada'], ordem_rar.get(x['raridade'], 5), x['codigo']))
+
+    # Agrupa por categoria pra display
+    from collections import OrderedDict
+    por_categoria = OrderedDict()
+    for t in todas:
+        por_categoria.setdefault(t['categoria'], []).append(t)
 
     return render(request, 'quiz/conquistas.html', {
         'todas': todas,
+        'por_categoria': por_categoria,
         'total_desbloqueadas': len(desbloqueadas),
         'total': len(CONQUISTAS_META),
+        'pct_completo': round(len(desbloqueadas) / len(CONQUISTAS_META) * 100),
     })
 
 

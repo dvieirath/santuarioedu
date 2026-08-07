@@ -305,14 +305,40 @@ class QuestaoFavorita(models.Model):
 
 class Conquista(models.Model):
     CODIGOS = [
+        # Volume de respostas
         ('primeiro_acerto', '🥇 Primeiro Acerto'),
-        ('streak_7',        '🔥 Semana em Chamas'),
-        ('streak_30',       '🌟 Mês Dedicado'),
+        ('dez_questoes',    '🌱 Primeiros Passos'),
         ('centenario',      '💯 Centenário'),
         ('quinhentos',      '🚀 500 Questões'),
+        ('milenar',         '⚡ Milenar'),
+        # Streak
+        ('streak_3',        '✨ Constância'),
+        ('streak_7',        '🔥 Semana em Chamas'),
+        ('streak_14',       '🌪️ Duas Semanas'),
+        ('streak_30',       '🌟 Mês Dedicado'),
+        ('streak_100',      '💎 Lenda Persistente'),
+        # Precisão
         ('atirador',        '🎯 Atirador de Elite'),
-        ('enciclopedia',    '📚 Enciclopédia'),
+        ('sniper',          '🏹 Sniper'),
+        ('perfeicionista',  '🔷 Perfeccionista'),
+        # Simulados
+        ('primeiro_simulado','🎬 Estreante'),
         ('simuladista',     '🏅 Simuladista'),
+        ('veterano_simulado','🎖️ Veterano de Provas'),
+        ('simulado_perfeito','👑 Prova Perfeita'),
+        # Diversidade
+        ('enciclopedia',    '📚 Enciclopédia'),
+        ('generalista',     '🌐 Generalista'),
+        ('especialista',    '🔬 Especialista'),
+        # Horários
+        ('madrugador',      '🌅 Madrugador'),
+        ('noturno',         '🌙 Coruja Noturna'),
+        # Social/Duelos
+        ('primeiro_duelo',  '⚔️ Primeiro Duelo'),
+        ('duelista',        '🛡️ Duelista'),
+        # Meta
+        ('colecionador',    '🏆 Colecionador'),
+        ('lenda',           '🌈 Lenda'),
     ]
     usuario        = models.ForeignKey(User, on_delete=models.CASCADE, related_name='conquistas')
     codigo         = models.CharField(max_length=50, choices=CODIGOS)
