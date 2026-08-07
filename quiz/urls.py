@@ -8,6 +8,12 @@ urlpatterns = [
     path('api/proxima-acao/',  views.api_proxima_acao,  name='api_proxima_acao'),
 
     path('', views.home, name='home'),
+
+    # Guest Quiz Mode — demo publico sem cadastro (max 3 questoes/sessao)
+    path('testar/',            views.guest_quiz,           name='guest_quiz'),
+    path('testar/responder/',  views.guest_quiz_responder, name='guest_quiz_responder'),
+    path('testar/reset/',      views.guest_quiz_reset,     name='guest_quiz_reset'),
+
     path('materiais/', views.listar_materiais, name='listar_materiais'),
     path('estudar/', views.escolher_tema, name='escolher_tema'),
     path('quiz/', views.iniciar_quiz, name='iniciar_quiz'),

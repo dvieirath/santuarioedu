@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Você acertou {{ acertos }}/{{ total }} — SantuarioEdu</title>
+<meta name="description" content="Fim do demo. Crie sua conta grátis pra continuar estudando com IA."/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>
+  body { font-family:'Inter',sans-serif; background:linear-gradient(180deg,#f8f9fa 0%,#ffffff 100%); }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .editorial-shadow { box-shadow:0 12px 32px rgba(25,28,29,.05); }
+  @keyframes pop { 0%{transform:scale(.8);opacity:0} 100%{transform:scale(1);opacity:1} }
+  .pop { animation: pop .5s ease-out; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<header class="sticky top-0 z-30 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="flex items-center gap-2 text-primary hover:text-primary-container transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      <span class="text-sm font-bold">SantuarioEdu</span>
+    </a>
+    <a href="{% url 'account_login' %}" class="text-xs font-bold text-primary hover:underline">Já tenho conta</a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-6 py-10 md:py-16">
+
+  <!-- Score hero -->
+  <div class="text-center mb-8 pop">
+    <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-container text-white mb-4 editorial-shadow">
+      <span class="font-headline font-extrabold text-4xl">{{ acertos }}<span class="text-2xl text-blue-200">/{{ total }}</span></span>
+    </div>
+    <p class="text-[11px] font-bold uppercase tracking-widest text-violet-600 mb-1">Fim do demo</p>
+    <h1 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-2">
+      {% if pct >= 66 %}
+        Boa. Você tá no ritmo.
+      {% elif pct >= 33 %}
+        Deu pra sentir o gosto.
+      {% else %}
+        Errar é o começo do aprendizado.
+      {% endif %}
+    </h1>
+    <p class="text-slate-600 text-base">
+      {% if pct >= 66 %}
+        Imagina o que dá pra fazer com <strong class="text-primary">{{ total_questoes|default:"600+" }} questões</strong>,
+        simulados cronometrados e IA explicando cada erro.
+      {% elif pct >= 33 %}
+        Cada erro é uma lacuna mapeada. Na plataforma, a IA aponta exatamente
+        onde treinar mais.
+      {% else %}
+        Você acabou de descobrir 3 pontos pra estudar. Na plataforma completa,
+        cada erro vira um plano de treino personalizado.
+      {% endif %}
+    </p>
+  </div>
+
+  <!-- Card CTA principal -->
+  <div class="bg-white rounded-3xl border border-[#edeeef] editorial-shadow p-6 md:p-8 mb-4">
+    <div class="text-center mb-6">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-2">Continue de graça</p>
+      <h2 class="text-xl md:text-2xl font-headline font-extrabold text-primary tracking-tight">
+        Cria conta e destrave tudo:
+      </h2>
+    </div>
+
+    <ul class="space-y-2.5 mb-6 max-w-md mx-auto">
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span class="text-sm text-slate-700 leading-relaxed"><strong class="text-primary">30 questões por dia</strong> no plano gratuito (permanente)</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span class="text-sm text-slate-700 leading-relaxed"><strong class="text-primary">Explicações IA</strong> pra cada questão errada</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span class="text-sm text-slate-700 leading-relaxed"><strong class="text-primary">Simulado cronometrado</strong> semanal + relatório</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span class="text-sm text-slate-700 leading-relaxed"><strong class="text-primary">Análise por subtema</strong> — mapa dos seus pontos fracos</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span class="text-sm text-slate-700 leading-relaxed"><strong class="text-primary">App PWA</strong> — instala no celular sem passar por loja</span>
+      </li>
+    </ul>
+
+    <div class="flex flex-col items-center gap-3">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="guest_quiz_final" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded-full text-base font-bold hover:opacity-90 transition-all editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">rocket_launch</span>
+        Criar conta grátis — 30 segundos
+      </a>
+      <p class="text-xs text-slate-500 text-center flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary" style="font-size:14px;font-variation-settings:'FILL' 1;">lock</span>
+        Sem cartão · Sem trial contando · Cancele quando quiser
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer minimalista -->
+  <div class="text-center">
+    <a href="{% url 'guest_quiz_reset' %}" class="text-xs text-slate-500 hover:text-slate-700 transition-colors">
+      Refazer demo com outras 3 questões
+    </a>
+    <span class="text-xs text-slate-300 mx-2">·</span>
+    <a href="{% url 'home' %}" class="text-xs text-slate-500 hover:text-slate-700 transition-colors">
+      Voltar ao início
+    </a>
+  </div>
+
+</main>
+</body>
+</html>

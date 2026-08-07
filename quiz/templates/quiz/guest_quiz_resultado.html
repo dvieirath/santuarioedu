@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{% if acertou %}Acertou!{% else %}Não foi dessa vez{% endif %} — Demo SantuarioEdu</title>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>
+  body { font-family:'Inter',sans-serif; background:#f8f9fa; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .editorial-shadow { box-shadow:0 12px 32px rgba(25,28,29,.05); }
+</style>
+</head>
+<body class="min-h-screen">
+
+<header class="sticky top-0 z-30 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="flex items-center gap-2 text-primary hover:text-primary-container transition-colors">
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_back</span>
+      <span class="text-sm font-bold">SantuarioEdu</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-slate-500 hidden sm:block">Já tem conta?</span>
+      <a href="{% url 'account_login' %}" class="text-xs font-bold text-primary hover:underline">Entrar</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-8 md:py-12">
+
+  <!-- Progresso -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-0.5">Demo · Resposta {{ progresso }}/{{ total }}</p>
+      <p class="text-sm font-headline font-extrabold text-primary">Seus acertos: {{ acertos }}/{{ progresso }}</p>
+    </div>
+    <div class="flex items-center gap-1">
+      {% for i in "123" %}
+        {% if forloop.counter <= progresso %}
+          <span class="w-8 h-1.5 rounded-full bg-secondary"></span>
+        {% else %}
+          <span class="w-8 h-1.5 rounded-full bg-slate-200"></span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Resultado visual -->
+  {% if acertou %}
+    <div class="bg-gradient-to-br from-secondary to-emerald-600 rounded-2xl p-6 mb-4 text-white editorial-shadow">
+      <div class="flex items-center gap-3">
+        <span class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 1;">check_circle</span>
+        </span>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-emerald-100">Acertou!</p>
+          <p class="text-lg font-headline font-extrabold">Boa. Você mandou bem nessa.</p>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="bg-gradient-to-br from-rose-500 to-rose-600 rounded-2xl p-6 mb-4 text-white editorial-shadow">
+      <div class="flex items-center gap-3">
+        <span class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined" style="font-size:28px;font-variation-settings:'FILL' 1;">cancel</span>
+        </span>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-rose-100">Não foi dessa vez</p>
+          <p class="text-lg font-headline font-extrabold">Errar faz parte. Bora entender.</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Card questão + resposta -->
+  <div class="bg-white rounded-3xl border border-[#edeeef] editorial-shadow p-6 md:p-8 mb-4">
+    <div class="flex flex-wrap items-center gap-2 mb-4">
+      <span class="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-white px-2.5 py-1 rounded">
+        {{ questao.categoria.nome }}
+      </span>
+      {% if questao.banca %}
+        <span class="text-[10px] font-mono text-slate-500">{{ questao.banca }}{% if questao.ano %} · {{ questao.ano }}{% endif %}</span>
+      {% endif %}
+    </div>
+
+    <p class="text-sm text-slate-700 leading-relaxed mb-6 whitespace-pre-line">{{ questao.texto }}</p>
+
+    <div class="space-y-2.5">
+      {% for alt in questao.alternativa_set.all %}
+        {% if alt.correta %}
+          <div class="flex items-start gap-3 border-2 border-secondary bg-secondary/5 rounded-xl px-4 py-3">
+            <span class="w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined" style="font-size:14px;font-variation-settings:'FILL' 1;">check</span>
+            </span>
+            <div class="flex-1">
+              <span class="text-sm text-slate-800 leading-relaxed">
+                {% if questao.tipo == 'ME' %}
+                  <span class="font-bold mr-1.5">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %})</span>
+                {% endif %}
+                {{ alt.texto }}
+              </span>
+              <p class="text-[10px] font-bold uppercase tracking-wider text-secondary mt-1">✓ Correta</p>
+            </div>
+          </div>
+        {% elif alt.id == sua_alt.id %}
+          <div class="flex items-start gap-3 border-2 border-rose-400 bg-rose-50 rounded-xl px-4 py-3">
+            <span class="w-5 h-5 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined" style="font-size:14px;font-variation-settings:'FILL' 1;">close</span>
+            </span>
+            <div class="flex-1">
+              <span class="text-sm text-slate-800 leading-relaxed">
+                {% if questao.tipo == 'ME' %}
+                  <span class="font-bold mr-1.5">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %})</span>
+                {% endif %}
+                {{ alt.texto }}
+              </span>
+              <p class="text-[10px] font-bold uppercase tracking-wider text-rose-600 mt-1">✗ Sua resposta</p>
+            </div>
+          </div>
+        {% else %}
+          <div class="flex items-start gap-3 border border-[#edeeef] rounded-xl px-4 py-3 opacity-60">
+            <span class="w-5 h-5 shrink-0 mt-0.5"></span>
+            <span class="text-sm text-slate-600 leading-relaxed flex-1">
+              {% if questao.tipo == 'ME' %}
+                <span class="font-bold mr-1.5">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %})</span>
+              {% endif %}
+              {{ alt.texto }}
+            </span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Teaser IA (bloqueado no guest) -->
+    <div class="mt-6 bg-violet-50 border-2 border-dashed border-violet-300 rounded-2xl p-5">
+      <div class="flex items-start gap-3">
+        <span class="w-9 h-9 rounded-lg bg-violet-100 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-violet-600" style="font-size:20px;font-variation-settings:'FILL' 1;">auto_awesome</span>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-violet-700 mb-1">Explicação IA · Bloqueado no demo</p>
+          <p class="text-sm text-slate-700 leading-relaxed mb-3">
+            Na plataforma, a IA explica <strong>por que</strong> a alternativa correta é essa e onde
+            você errou o raciocínio — em segundos, questão por questão.
+          </p>
+          <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="guest_ia_teaser" class="inline-flex items-center gap-1.5 text-xs font-bold text-violet-700 hover:text-violet-900 transition-colors">
+            Criar conta grátis pra ver explicações →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA próxima -->
+  <div class="flex items-center justify-between gap-3">
+    <a href="{% url 'guest_quiz_reset' %}" class="text-xs text-slate-500 hover:text-slate-700 transition-colors">
+      Recomeçar demo
+    </a>
+    {% if termina %}
+      <a href="{% url 'guest_quiz' %}" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-all editorial-shadow">
+        Ver resultado final
+        <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+      </a>
+    {% else %}
+      <a href="{% url 'guest_quiz' %}" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-primary-container transition-colors editorial-shadow">
+        Próxima questão
+        <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+      </a>
+    {% endif %}
+  </div>
+
+</main>
+</body>
+</html>

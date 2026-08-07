@@ -163,6 +163,10 @@ tailwind.config = {
     </nav>
     <div class="flex items-center gap-2">
       <a href="{% url 'account_login' %}" class="hidden sm:inline-flex text-sm font-bold text-slate-700 hover:text-primary px-4 py-2 transition-colors">Entrar</a>
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="landing_header" class="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-container px-3 py-2 transition-colors border border-primary/20 rounded-full hover:border-primary/40">
+        <span class="material-symbols-outlined" style="font-size:14px;font-variation-settings:'FILL' 1;">bolt</span>
+        Testar grátis
+      </a>
       <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_header" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow-soft">
         Começar grátis
         <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
@@ -210,13 +214,13 @@ tailwind.config = {
       </div>
 
       <div class="flex flex-wrap gap-3 mb-4">
-        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_hero" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
+        <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="landing_hero" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors editorial-shadow">
+          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">bolt</span>
+          Testar 3 questões (sem cadastro)
+        </a>
+        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_hero" class="inline-flex items-center gap-2 bg-white border border-[#edeeef] text-primary px-6 py-3.5 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors editorial-shadow-soft">
           <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">rocket_launch</span>
           Criar conta grátis
-        </a>
-        <a href="#por-dentro" class="inline-flex items-center gap-2 bg-white border border-[#edeeef] text-primary px-6 py-3.5 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors editorial-shadow-soft">
-          <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
-          Ver por dentro
         </a>
       </div>
       <p class="text-xs text-slate-500 flex items-center gap-2">
@@ -564,11 +568,16 @@ tailwind.config = {
     </div>
 
     <div class="text-center mt-10">
-      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_por_dentro" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:opacity-90 transition-all editorial-shadow">
-        <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">rocket_launch</span>
-        Experimentar grátis (sem cartão)
-      </a>
-      <p class="text-xs text-slate-500 mt-3">Você entra e pode explorar tudo. Sem período de trial contando — o gratuito é permanente.</p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="landing_por_dentro" class="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3.5 rounded-full text-sm font-bold hover:opacity-90 transition-all editorial-shadow">
+          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">bolt</span>
+          Testar 3 questões agora
+        </a>
+        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_por_dentro" class="inline-flex items-center gap-2 bg-white border border-[#edeeef] text-primary px-6 py-3.5 rounded-full text-sm font-bold hover:bg-slate-50 transition-colors">
+          Criar conta direto
+        </a>
+      </div>
+      <p class="text-xs text-slate-500 mt-3">Demo sem email. Sem cartão. Sem trial contando — o plano gratuito é permanente.</p>
     </div>
   </div>
 </section>
