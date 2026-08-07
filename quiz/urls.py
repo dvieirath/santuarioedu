@@ -20,6 +20,7 @@ urlpatterns = [
     path('quiz/<int:categoria_id>/', views.iniciar_quiz, name='iniciar_quiz_categoria'),
     path('api/editar-questao/<int:questao_id>/', views.api_editar_questao, name='api_editar_questao'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('onboarding/dispensar/', views.onboarding_dispensar, name='onboarding_dispensar'),
     path('plano-de-estudos/', views.plano_estudos, name='plano_estudos'),
     path('analytics/', views.analytics, name='analytics'),
     path('progresso-edital/', views.progresso_edital, name='progresso_edital'),

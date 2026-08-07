@@ -226,6 +226,15 @@ class Perfil(models.Model):
         help_text='Opt-in para receber e-mails de marketing/dicas (LGPD).')
     aceita_marketing_em = models.DateTimeField(null=True, blank=True)
 
+    # ── Onboarding checklist (7 dias) ───────────────────────────────────
+    # Lista de slugs de tarefas do onboarding que ja receberam recompensa.
+    # Evita re-award em cada visita ao dashboard. Ex.: ["primeiras_5", "concurso_pref"]
+    onboarding_awarded = models.JSONField(default=list, blank=True,
+        help_text='Slugs das tarefas de onboarding ja recompensadas.')
+    # Se True, user ja completou tudo e nao mostra mais o card no dashboard.
+    onboarding_dispensado = models.BooleanField(default=False,
+        help_text='User dispensou o card de onboarding (X no dashboard).')
+
     def __str__(self):
         return f'Perfil de {self.usuario.username}'
 

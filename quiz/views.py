@@ -643,12 +643,40 @@ def dashboard(request):
     except Exception as e:
         _log_falha('uso_plano', e)
 
+    # ── Onboarding checklist (primeiros 7 dias) ──────────────────────
+    # Idempotente: check_and_award so entrega XP das tasks que ainda nao
+    # foram recompensadas. resumo() da o estado atual pro template.
+    try:
+        from . import onboarding as _onboard
+        novas_recompensas = _onboard.check_and_award(request.user)
+        ctx['onboarding'] = _onboard.resumo(request.user)
+        if novas_recompensas:
+            # Mostra flash message pras tasks recem-recompensadas
+            for t in novas_recompensas:
+                messages.success(
+                    request,
+                    f"🎉 {t['titulo']}: +{t['xp']} XP ganhos!",
+                )
+    except Exception as e:
+        _log_falha('onboarding', e)
+
     # ── Render blindado: se ate o template crashar, redireciona ─────────
     try:
         return render(request, 'quiz/dashboard.html', ctx)
     except Exception as e:
         _log_falha('template_render', e)
         return redirect('escolher_tema')
+
+
+@login_required(login_url='account_login')
+def onboarding_dispensar(request):
+    """POST: user clica no X do card de onboarding pra dispensa-lo."""
+    if request.method == 'POST':
+        from .models import Perfil
+        perfil, _ = Perfil.objects.get_or_create(usuario=request.user)
+        perfil.onboarding_dispensado = True
+        perfil.save(update_fields=['onboarding_dispensado'])
+    return redirect('dashboard')
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)

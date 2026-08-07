@@ -545,3 +545,62 @@ class TestStreakFreeze(TestCase):
             self.meta_pro.repor_freeze()
         self.meta_pro.refresh_from_db()
         self.assertEqual(self.meta_pro.streak_freezes, 3, 'PRO capped em 3')
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# ONBOARDING CHECKLIST — primeiros 7 dias (commit ondemand)
+# ═══════════════════════════════════════════════════════════════════════════
+class TestOnboardingChecklist(TestCase):
+    """
+    Cobre:
+    - Novo user tem todas tasks pendentes (0%)
+    - Award e idempotente (nao entrega XP duas vezes)
+    - Dispensar oculta o card
+    - deve_exibir_card respeita > 30 dias de cadastro
+    """
+    def setUp(self):
+        self.User = get_user_model()
+        self.user = self.User.objects.create_user('ob_test', 'ob@t.com', 'x!')
+
+    def test_novo_user_zero_pct(self):
+        from quiz import onboarding as ob
+        r = ob.resumo(self.user)
+        self.assertEqual(r['pct'], 0)
+        self.assertEqual(r['feitos'], 0)
+        self.assertTrue(r['deve_exibir'])
+        self.assertEqual(r['total'], len(ob.TASKS))
+
+    def test_award_e_idempotente(self):
+        from quiz import onboarding as ob
+        from quiz.models import ConcursoPreferido, NivelUsuario
+        ConcursoPreferido.objects.create(usuario=self.user, concurso='inss')
+
+        novas = ob.check_and_award(self.user)
+        slugs = [t['slug'] for t in novas]
+        self.assertIn('concurso_pref', slugs)
+
+        n = NivelUsuario.objects.get(usuario=self.user)
+        xp_inicial = n.xp_total
+
+        # Re-award nao acontece
+        novas2 = ob.check_and_award(self.user)
+        self.assertEqual(novas2, [])
+        n.refresh_from_db()
+        self.assertEqual(n.xp_total, xp_inicial, 'XP nao pode duplicar')
+
+    def test_dispensar_oculta_card(self):
+        from quiz import onboarding as ob
+        from quiz.models import Perfil
+        p, _ = Perfil.objects.get_or_create(usuario=self.user)
+        p.onboarding_dispensado = True
+        p.save()
+        self.assertFalse(ob.deve_exibir_card(self.user))
+
+    def test_cadastro_antigo_nao_exibe(self):
+        from quiz import onboarding as ob
+        from django.utils import timezone
+        from datetime import timedelta
+        # Simula user cadastrado ha 40 dias
+        self.user.date_joined = timezone.now() - timedelta(days=40)
+        self.user.save()
+        self.assertFalse(ob.deve_exibir_card(self.user))
