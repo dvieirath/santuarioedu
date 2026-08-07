@@ -10,7 +10,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 
-from allauth.account.signals import email_confirmed
+from allauth.account.signals import email_confirmed, user_signed_up
 
 logger = logging.getLogger(__name__)
 
@@ -57,3 +57,58 @@ def enviar_welcome_email(request, email_address, **kwargs):
     except Exception as e:
         # Nunca deixa a falha do welcome bloquear o fluxo de confirmacao de email
         logger.error(f'Falha ao enviar welcome email para {user.email}: {e}')
+
+
+@receiver(user_signed_up)
+def processar_referral_no_signup(request, user, **kwargs):
+    """
+    Processa referral no momento do cadastro (allauth user_signed_up).
+    Requer que o ?ref=<codigo> esteja na session (colocado pela middleware
+    de captura em quiz/middleware.py) OU cookie 'ref_code'.
+
+    Cria Referencia + entrega XP pra ambos. Idempotente: OneToOneField
+    em `convidado` garante que so acontece uma vez por usuario.
+    """
+    try:
+        codigo = None
+        if request:
+            codigo = request.session.get('ref_code') or request.COOKIES.get('ref_code')
+        if not codigo:
+            return
+
+        from django.contrib.auth import get_user_model
+        from quiz.models import Referencia, NivelUsuario
+
+        User = get_user_model()
+        try:
+            convidador = User.objects.get(username=codigo)
+        except User.DoesNotExist:
+            return
+
+        # Nao pode auto-convidar
+        if convidador.id == user.id:
+            return
+
+        # Cria referencia (unica por convidado)
+        ref, criada = Referencia.objects.get_or_create(
+            convidado=user,
+            defaults={'convidador': convidador},
+        )
+        if not criada:
+            return  # ja tinha registro
+
+        # Entrega XP
+        nivel_convidador, _ = NivelUsuario.objects.get_or_create(usuario=convidador)
+        nivel_convidador.adicionar_xp(ref.xp_convidador)
+
+        nivel_convidado, _ = NivelUsuario.objects.get_or_create(usuario=user)
+        nivel_convidado.adicionar_xp(ref.xp_convidado)
+
+        # Limpa session
+        if request:
+            request.session.pop('ref_code', None)
+
+        logger.info(f'Referral: {convidador.username} -> {user.username} '
+                    f'(+{ref.xp_convidador}/+{ref.xp_convidado} XP)')
+    except Exception as e:
+        logger.error(f'Falha processar referral: {e}')

@@ -132,6 +132,7 @@ MIDDLEWARE = [
     'prf_master.middleware.SecurityHeadersMiddleware',      # Permissions-Policy + COEP/COOP/CORP
     'prf_master.middleware.RatelimitMiddleware',            # Converte Ratelimited (403) → 429
     'prf_master.middleware.NotifyExceptionMiddleware',      # Notifica admin em 500
+    'quiz.middleware_referral.CapturaReferralMiddleware',   # ?ref= -> session pra signal
     'axes.middleware.AxesMiddleware',  # deve ser o ÚLTIMO
 ]
 

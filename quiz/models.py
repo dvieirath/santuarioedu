@@ -1599,3 +1599,32 @@ class ConcursoPreferido(models.Model):
         from django.utils import timezone as _tz
         delta = self.data_prova_esperada - _tz.localdate()
         return max(0, delta.days)
+
+
+class Referencia(models.Model):
+    """
+    Sistema de convite/referral. Cada user tem codigo unico (username);
+    quando um novo user se cadastra via ?ref=codigo, cria-se um registro
+    aqui + XP pra ambos (convidador e convidado).
+
+    Idempotente: um user so pode ser referenciado UMA vez (unique_together
+    no `convidado`).
+    """
+    convidador = models.ForeignKey(User, on_delete=models.CASCADE,
+                                    related_name='referencias_feitas')
+    convidado  = models.OneToOneField(User, on_delete=models.CASCADE,
+                                      related_name='referencia_origem')
+    aceito_em  = models.DateTimeField(auto_now_add=True)
+
+    # XP entregue no aceite — configuravel pra experimentacao futura
+    xp_convidador = models.PositiveIntegerField(default=150)
+    xp_convidado  = models.PositiveIntegerField(default=50)
+
+    class Meta:
+        ordering = ['-aceito_em']
+        indexes = [
+            models.Index(fields=['convidador', '-aceito_em']),
+        ]
+
+    def __str__(self):
+        return f'{self.convidador.username} convidou {self.convidado.username}'

@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Convidar amigos — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='perfil' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">group_add</span>
+      Convidar amigos
+    </h1>
+    <p class="text-xs text-on-surface-variant">Cada amigo que se cadastra = +{{ xp_por_convite }} XP pra você</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-3xl mx-auto px-6 py-8 space-y-6">
+
+  <!-- Hero motivacional -->
+  <div class="paper-card rounded-3xl overflow-hidden">
+    <div class="bg-gradient-to-br from-primary to-primary-container text-white p-6">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined active-icon" style="font-size:28px;font-variation-settings:'FILL' 1;">groups</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-1">Programa de indicação</p>
+          <h2 class="font-serif text-2xl font-bold leading-tight">Estude junto com quem estuda com você</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats do convite -->
+    <div class="grid grid-cols-3 divide-x divide-[#e5e1d8] text-center">
+      <div class="p-4">
+        <p class="text-2xl font-headline font-extrabold text-primary">{{ total_convites }}</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Convidados</p>
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-headline font-extrabold text-secondary">+{{ xp_ganho_total }}</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">XP ganho</p>
+      </div>
+      <div class="p-4">
+        <p class="text-2xl font-headline font-extrabold text-amber-600">+{{ xp_por_convite }}</p>
+        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Por convite</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link único -->
+  <div class="paper-card rounded-2xl p-5">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-2">Seu link único</p>
+    <div class="flex items-center gap-2 bg-surface-container-low rounded-xl p-3 mb-3">
+      <span class="material-symbols-outlined text-primary shrink-0" style="font-size:18px;">link</span>
+      <input type="text" readonly value="{{ link }}" id="linkInput"
+             class="flex-1 bg-transparent text-sm text-on-surface font-mono outline-none"
+             onclick="this.select()"/>
+      <button onclick="copiarLink()" class="bg-primary text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-primary-container transition-colors flex items-center gap-1 shrink-0">
+        <span class="material-symbols-outlined active-icon" style="font-size:14px;">content_copy</span>
+        <span id="copyLabel">Copiar</span>
+      </button>
+    </div>
+    <p class="text-xs text-on-surface-variant">
+      Compartilhe esse link. Quando alguém se cadastrar via ele, vocês dois ganham XP automaticamente.
+    </p>
+  </div>
+
+  <!-- Botões de compartilhamento -->
+  <div class="paper-card rounded-2xl p-5">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-3">Compartilhar direto</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <a id="shareWhats" href="#" target="_blank" rel="noopener" class="inline-flex flex-col items-center justify-center gap-1 bg-emerald-500 text-white p-3 rounded-xl text-[10px] font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">chat</span>
+        WhatsApp
+      </a>
+      <a id="shareTelegram" href="#" target="_blank" rel="noopener" class="inline-flex flex-col items-center justify-center gap-1 bg-sky-500 text-white p-3 rounded-xl text-[10px] font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">send</span>
+        Telegram
+      </a>
+      <a id="shareTwitter" href="#" target="_blank" rel="noopener" class="inline-flex flex-col items-center justify-center gap-1 bg-black text-white p-3 rounded-xl text-[10px] font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">flutter_dash</span>
+        X (Twitter)
+      </a>
+      <button onclick="webShare()" class="inline-flex flex-col items-center justify-center gap-1 bg-primary text-white p-3 rounded-xl text-[10px] font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined active-icon" style="font-size:18px;">share</span>
+        Compartilhar
+      </button>
+    </div>
+  </div>
+
+  <!-- Lista de amigos convidados -->
+  {% if referencias %}
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="px-5 py-4 border-b border-[#e5e1d8]">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Amigos que aceitaram</p>
+      <h3 class="font-serif text-base font-semibold text-primary">{{ total_convites }} pessoa{{ total_convites|pluralize:"s" }} entrou{{ total_convites|pluralize:",ram" }} por você</h3>
+    </div>
+    <div class="divide-y divide-[#e5e1d8]">
+      {% for r in referencias %}
+      <div class="flex items-center gap-3 px-5 py-3">
+        <div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm shrink-0">
+          {{ r.convidado.first_name|first|default:r.convidado.username|first|upper }}
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-on-surface truncate">
+            {{ r.convidado.first_name|default:r.convidado.username }}
+          </p>
+          <p class="text-[11px] text-on-surface-variant">Entrou em {{ r.aceito_em|date:"d/m/Y" }}</p>
+        </div>
+        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-1 rounded-full">
+          +{{ r.xp_convidador }} XP
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="paper-card rounded-2xl p-8 text-center border-dashed" style="border-style:dashed;">
+    <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-primary-fixed flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:32px;">groups</span>
+    </div>
+    <p class="font-serif text-lg font-semibold text-primary mb-1">Ainda ninguém entrou</p>
+    <p class="text-sm text-on-surface-variant max-w-xs mx-auto">
+      Compartilhe o link acima com amigos que estudam pra concurso. Quando entrarem, você ganha XP automático.
+    </p>
+  </div>
+  {% endif %}
+
+  <!-- Regras -->
+  <div class="bg-slate-50 rounded-2xl p-4 text-xs text-on-surface-variant">
+    <p class="font-semibold text-on-surface mb-2">Como funciona:</p>
+    <ul class="space-y-1 leading-relaxed">
+      <li>• Amigo clica no seu link e se cadastra</li>
+      <li>• Ambos recebem XP na hora (+{{ xp_por_convite }} pra você, +50 pra ele)</li>
+      <li>• Sem limite de convites — quanto mais amigos, mais XP</li>
+      <li>• Cada pessoa só pode ser referenciada uma vez</li>
+    </ul>
+  </div>
+
+</main>
+
+<script>
+const link = document.getElementById('linkInput').value;
+const shareText = `Tô estudando pra concurso na SantuarioEdu — banco de questões, IA que corrige, simulados. Vale a pena! ${link}`;
+
+document.getElementById('shareWhats').href    = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent(link) + '&text=' + encodeURIComponent(shareText);
+document.getElementById('shareTwitter').href  = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText);
+
+function copiarLink() {
+  navigator.clipboard.writeText(link).then(() => {
+    const label = document.getElementById('copyLabel');
+    label.textContent = '✓ Copiado!';
+    setTimeout(() => label.textContent = 'Copiar', 2000);
+  });
+}
+
+function webShare() {
+  if (navigator.share) {
+    navigator.share({title:'SantuarioEdu', text:shareText, url:link}).catch(()=>{});
+  } else {
+    copiarLink();
+    alert('Link copiado. Cola onde quiser compartilhar.');
+  }
+}
+</script>
+</body>
+</html>
