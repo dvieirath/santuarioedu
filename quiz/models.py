@@ -1369,6 +1369,39 @@ class PlanoUsuario(models.Model):
         from django.utils import timezone as _tz
         return _tz.now() > self.expira_em
 
+    @property
+    def dias_restantes(self):
+        """Dias restantes ate expira_em. None se sem expiracao. Nunca negativo."""
+        if not self.expira_em:
+            return None
+        from django.utils import timezone as _tz
+        delta = self.expira_em - _tz.now()
+        return max(0, delta.days)
+
+    @property
+    def horas_restantes(self):
+        """Horas restantes (uteis pra countdown < 24h)."""
+        if not self.expira_em:
+            return None
+        from django.utils import timezone as _tz
+        delta = self.expira_em - _tz.now()
+        return max(0, int(delta.total_seconds() / 3600))
+
+    @property
+    def em_trial(self):
+        """
+        True se plano e PRO/Premium com expira_em (trial ativo).
+        Assinaturas pagas nao expiram (ou renovam auto) — o trial e a
+        diferenca: expira_em setado + nao cancelada = trial em andamento.
+        """
+        return (
+            self.plano in ('pro', 'premium')
+            and self.ativo
+            and self.expira_em is not None
+            and not self.expirado
+            and not self.cancelada_em
+        )
+
 
 class CupomDesconto(models.Model):
     """Cupom de desconto / acesso trial."""
