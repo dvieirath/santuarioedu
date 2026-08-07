@@ -1661,3 +1661,36 @@ class Referencia(models.Model):
 
     def __str__(self):
         return f'{self.convidador.username} convidou {self.convidado.username}'
+
+
+class AnaliseConcursoIA(models.Model):
+    """
+    Analise gerada por IA sobre um concurso especifico.
+    Um concurso pode ter multiplos tipos de analise (edital comentado,
+    tendencias, comparativo entre edicoes), cada um cacheado no BD pra
+    nao regerar toda vez que carregam o hub.
+    """
+    TIPOS = [
+        ('edital',      '📋 Edital comentado'),
+        ('tendencias',  '🎯 Tendências e o que mais cai'),
+        ('comparativo', '📊 Comparativo entre edições'),
+        ('estrategia',  '⚡ Estratégia de estudo'),
+    ]
+    concurso    = models.CharField(max_length=20,
+        help_text='Slug do concurso (prf, inss, tjdf, etc)')
+    tipo        = models.CharField(max_length=20, choices=TIPOS)
+    conteudo_md = models.TextField(help_text='Texto markdown estruturado')
+    modelo_ia   = models.CharField(max_length=50, blank=True,
+        help_text='Modelo IA que gerou (groq, gemini)')
+    versao      = models.PositiveIntegerField(default=1,
+        help_text='Bump quando regerar pra invalidar caches')
+    gerado_em   = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['concurso', 'tipo']
+        unique_together = ['concurso', 'tipo']
+        verbose_name = 'Analise IA de Concurso'
+        verbose_name_plural = 'Analises IA de Concursos'
+
+    def __str__(self):
+        return f'{self.concurso}/{self.get_tipo_display()}'

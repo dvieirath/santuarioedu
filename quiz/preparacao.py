@@ -450,6 +450,12 @@ def resumo_completo(user, concurso):
 
     materiais = listar_materiais_por_disciplina(concurso)
 
+    # Analises IA aprofundadas (edital, tendencias, comparativo, estrategia)
+    from .models import AnaliseConcursoIA
+    analises_ia = {
+        a.tipo: a for a in AnaliseConcursoIA.objects.filter(concurso=concurso)
+    }
+
     return {
         'concurso':          concurso,
         'config':            config,
@@ -465,4 +471,5 @@ def resumo_completo(user, concurso):
         'mapas_disponiveis':   mapas_disp,
         'bancas_concurso':   bancas_concurso,
         'materiais':         materiais,
+        'analises_ia':       analises_ia,
     }
