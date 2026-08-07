@@ -1,0 +1,145 @@
+{% comment %}
+Confetti + micro-interacoes de recompensa (CSS + JS puro, zero dep).
+
+Uso: incluir este partial na pagina onde o usuario recebe recompensa
+(quiz resposta correta, subida de nivel, conquista desbloqueada).
+
+API JS:
+  confetti.burst()              # 30 particulas do centro
+  confetti.burst({count: 60})   # customizar
+  confetti.burst({x: 0.7, y: 0.3})  # posicao (0-1)
+  confetti.toast('+50 XP')      # notificacao flutuante (2.5s)
+  confetti.toast('🏆 Streak 7 dias!', {emoji: '🎉'})
+  confetti.streakPulse()        # aciona pulse no elemento .streak-badge
+
+Autoinicia via data attribute:
+  <body data-confetti-on-load="true">
+{% endcomment %}
+<style>
+  /* ─── Confetti particles ─── */
+  .confetti-piece {
+    position: fixed;
+    width: 8px; height: 12px;
+    top: 50%; left: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    animation: confetti-fall 1.6s ease-out forwards;
+  }
+  @keyframes confetti-fall {
+    0%   { transform: translate(-50%, -50%) rotate(0deg) scale(1);   opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(.4); opacity: 0; }
+  }
+  /* ─── Toast reward ─── */
+  .reward-toast {
+    position: fixed;
+    top: 20%; left: 50%; transform: translate(-50%, -20px);
+    z-index: 9998;
+    background: linear-gradient(135deg,#002046,#1b365d);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 20px 40px rgba(0,32,70,.3);
+    opacity: 0;
+    pointer-events: none;
+    display: flex; align-items: center; gap: 8px;
+    animation: toast-pop 2.5s ease-out forwards;
+  }
+  @keyframes toast-pop {
+    0%   { opacity: 0; transform: translate(-50%, -20px) scale(.8); }
+    15%  { opacity: 1; transform: translate(-50%, 0) scale(1.05); }
+    25%  { transform: translate(-50%, 0) scale(1); }
+    75%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -30px) scale(.9); }
+  }
+  /* ─── Streak pulse ─── */
+  @keyframes streak-pulse {
+    0%,100% { transform: scale(1);   filter: drop-shadow(0 0 0 rgba(245,158,11,0)); }
+    50%     { transform: scale(1.15); filter: drop-shadow(0 0 12px rgba(245,158,11,.7)); }
+  }
+  .streak-pulse-active { animation: streak-pulse .6s ease-in-out; }
+</style>
+
+<script>
+(function() {
+  const COLORS = ['#002046','#006c4d','#f59e0b','#86f8c8','#d946ef','#0ea5e9','#f43f5e'];
+
+  const confetti = {
+    /**
+     * Cria burst de confetes.
+     * @param {Object} opts - {count, x, y}
+     *   count: numero de particulas (default 30)
+     *   x, y: posicao inicial em % (0-1, default centro)
+     */
+    burst(opts = {}) {
+      const count = opts.count || 30;
+      const x = (opts.x !== undefined ? opts.x : 0.5) * window.innerWidth;
+      const y = (opts.y !== undefined ? opts.y : 0.5) * window.innerHeight;
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'confetti-piece';
+        p.style.left = x + 'px';
+        p.style.top  = y + 'px';
+        p.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
+        const angle = (Math.PI * 2 * i) / count + Math.random() * 0.3;
+        const dist  = 120 + Math.random() * 220;
+        p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+        p.style.setProperty('--ty', Math.sin(angle) * dist + (Math.random() * 200) + 'px');
+        p.style.setProperty('--r',  (Math.random() * 720 - 360) + 'deg');
+        p.style.animationDelay = (Math.random() * 0.15) + 's';
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 2000);
+      }
+    },
+
+    /**
+     * Toast flutuante centralizado no topo.
+     * @param {string} texto - texto principal
+     * @param {Object} opts - {emoji, duracao_ms}
+     */
+    toast(texto, opts = {}) {
+      const t = document.createElement('div');
+      t.className = 'reward-toast';
+      const emoji = opts.emoji || '🎉';
+      t.innerHTML = `<span style="font-size:18px;">${emoji}</span><span>${texto}</span>`;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2600);
+    },
+
+    /**
+     * Pulsa elemento com classe .streak-badge (visual attention).
+     */
+    streakPulse() {
+      const els = document.querySelectorAll('.streak-badge');
+      els.forEach(el => {
+        el.classList.remove('streak-pulse-active');
+        void el.offsetWidth;  // force reflow
+        el.classList.add('streak-pulse-active');
+      });
+    },
+
+    /**
+     * Combo: confetti + toast. Usado em conquistas/subida de nivel.
+     */
+    celebrate(texto, opts = {}) {
+      this.burst({count: 40});
+      this.toast(texto, opts);
+    },
+  };
+
+  window.confetti = confetti;
+
+  // Autoinicia via data attribute (util quando view seta pra celebrar
+  // uma conquista recem-desbloqueada — sem precisar JS inline).
+  if (document.body.dataset.confettiOnLoad === 'true') {
+    setTimeout(() => confetti.celebrate(
+      document.body.dataset.confettiText || 'Boa!',
+      {emoji: document.body.dataset.confettiEmoji || '🎉'},
+    ), 300);
+  }
+})();
+</script>

@@ -60,7 +60,8 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in" style="animation-delay:.1s;">
       {% for c in todas %}
-      <div class="paper-card rounded-2xl relative overflow-hidden {% if c.desbloqueada %}ring-2 ring-amber-200{% endif %}">
+      <div class="paper-card rounded-2xl relative overflow-hidden {% if c.desbloqueada %}ring-2 ring-amber-200 cursor-pointer{% endif %}"
+           {% if c.desbloqueada %}onclick="if(window.confetti){const r=this.getBoundingClientRect();window.confetti.burst({count:25,x:(r.left+r.width/2)/window.innerWidth,y:(r.top+r.height/2)/window.innerHeight});}"{% endif %}>
         {% if c.desbloqueada %}
         <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent pointer-events-none"></div>
         {% endif %}
@@ -133,5 +134,6 @@
   </a>
 </nav>
 
+{% include "quiz/includes/confetti.html" %}
 </body>
 </html>

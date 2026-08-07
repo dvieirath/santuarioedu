@@ -433,8 +433,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 4500);
     }, i * 500);
   });
+
+  // ─── Confetti para amplificar recompensas ───
+  // Espera window.confetti (carregado via includes/confetti.html)
+  if (window.confetti) {
+    {% if novas_conquistas %}
+    // Conquista desbloqueada = celebracao dupla
+    setTimeout(() => window.confetti.burst({count: 60}), 400);
+    setTimeout(() => window.confetti.burst({count: 40, x: 0.25, y: 0.4}), 700);
+    setTimeout(() => window.confetti.burst({count: 40, x: 0.75, y: 0.4}), 900);
+    {% elif subiu_nivel %}
+    // Subida de nivel = 1 burst grande centralizado
+    setTimeout(() => window.confetti.burst({count: 50}), 400);
+    {% elif xp_ganho %}
+    // Acerto simples = burst menor discreto
+    setTimeout(() => window.confetti.burst({count: 20, x: 0.85, y: 0.15}), 300);
+    {% endif %}
+  }
 });
 </script>
+
+{% include "quiz/includes/confetti.html" %}
 
 <!-- Justificativa IA — carrega async se ainda nao existe -->
 {% if not escolha.questao.justificativa %}
