@@ -4282,6 +4282,7 @@ def grupo_detalhe(request, grupo_id):
         return redirect('grupos_lista')
 
     membros = MembroGrupo.objects.filter(grupo=grupo).select_related('usuario')
+    membros_ids = [m.usuario_id for m in membros]
 
     # Ranking interno: questões respondidas nos últimos 30 dias
     trinta_dias = timezone.now() - timedelta(days=30)
@@ -4309,11 +4310,83 @@ def grupo_detalhe(request, grupo_id):
         grupo=grupo, usuario=request.user, papel='admin'
     ).exists()
 
+    # ── FEED DE ATIVIDADE (ultimos 7 dias) ────────────────────────
+    # Coleta eventos recentes dos membros e mistura numa timeline.
+    # Cada evento tem: tipo, usuario, texto, data, icone/cor.
+    sete_dias = timezone.now() - timedelta(days=7)
+    eventos = []
+
+    # 1. Conquistas desbloqueadas
+    conquistas_recentes = (Conquista.objects
+        .filter(usuario_id__in=membros_ids, desbloqueado_em__gte=sete_dias)
+        .select_related('usuario')
+        .order_by('-desbloqueado_em')[:30])
+    for c in conquistas_recentes:
+        meta_c = CONQUISTAS_META.get(c.codigo, {})
+        raridade = meta_c.get('raridade', 'comum')
+        eventos.append({
+            'tipo': 'conquista',
+            'usuario': c.usuario,
+            'texto': f'desbloqueou "{meta_c.get("label", c.codigo)}"',
+            'emoji': meta_c.get('emoji', '🏆'),
+            'data': c.desbloqueado_em,
+            'cor': 'amber' if raridade in ('lendaria', 'epica') else 'primary',
+            'raridade': raridade,
+        })
+
+    # 2. Simulados finalizados
+    from django.db.models import Count, Q
+    sims_recentes = (Simulado.objects
+        .filter(usuario_id__in=membros_ids, finalizado=True,
+                finalizado_em__gte=sete_dias)
+        .select_related('usuario')
+        .prefetch_related('respostas')
+        .order_by('-finalizado_em')[:20])
+    for s in sims_recentes:
+        respostas = s.respostas.all()
+        respondidas = [r for r in respostas if r.acertou is not None]
+        acertos = sum(1 for r in respondidas if r.acertou)
+        total = len(respondidas)
+        if total < 5:  # ignora simulados quase vazios
+            continue
+        pct = round(acertos / total * 100) if total else 0
+        eventos.append({
+            'tipo': 'simulado',
+            'usuario': s.usuario,
+            'texto': f'fez {acertos}/{total} no simulado ({pct}%)',
+            'emoji': '🏅' if pct >= 80 else '📝',
+            'data': s.finalizado_em,
+            'cor': 'secondary' if pct >= 70 else 'primary',
+        })
+
+    # 3. Streaks marcos (checa streak_atual atual — nao historico)
+    for m in membros:
+        try:
+            streak = m.usuario.meta.streak_atual
+        except Exception:
+            continue
+        for marco in (30, 14, 7, 3):
+            if streak == marco:
+                eventos.append({
+                    'tipo': 'streak',
+                    'usuario': m.usuario,
+                    'texto': f'está em {streak} dias de streak',
+                    'emoji': '💎' if streak >= 30 else '🔥',
+                    'data': timezone.now() - timedelta(hours=1),  # aproxima
+                    'cor': 'error',
+                })
+                break
+
+    # Ordena por data decrescente
+    eventos.sort(key=lambda e: e['data'], reverse=True)
+    eventos = eventos[:20]  # limita display
+
     return render(request, 'quiz/grupo_detalhe.html', {
         'grupo':    grupo,
         'ranking':  ranking_membros,
         'eh_admin': eh_admin,
         'total_membros': membros.count(),
+        'feed_eventos': eventos,
     })
 
 

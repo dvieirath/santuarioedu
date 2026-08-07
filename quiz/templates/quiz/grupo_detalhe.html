@@ -81,53 +81,53 @@
     </div>
   </div>
 
-  {% if feed %}
+  {% if feed_eventos %}
   <div>
     <h2 class="font-serif text-base font-semibold text-primary mb-3 flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary" style="font-size:20px;">dynamic_feed</span>
-      Atividade recente (7 dias)
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">dynamic_feed</span>
+      Feed de atividade (7 dias)
     </h2>
     <div class="space-y-2">
-      {% for s in feed %}
-      <div class="paper-card flex items-start gap-3 rounded-xl px-4 py-3">
-        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
-          {{ s.usuario.username|slice:":2"|upper }}
+      {% for e in feed_eventos %}
+      <div class="paper-card flex items-start gap-3 rounded-xl px-4 py-3
+        {% if e.raridade == 'lendaria' %}bg-gradient-to-r from-amber-50 to-transparent border-amber-300{% endif %}">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0 mt-0.5
+          {% if e.cor == 'amber' %}bg-amber-100
+          {% elif e.cor == 'secondary' %}bg-secondary-container/60
+          {% elif e.cor == 'error' %}bg-error-container/40
+          {% else %}bg-primary-fixed{% endif %}">
+          <span class="text-lg">{{ e.emoji }}</span>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="text-sm font-semibold text-on-surface">
-            {{ s.usuario.first_name|default:s.usuario.username }}
-            {% if s.usuario == request.user %}<span class="text-xs text-on-surface-variant">(você)</span>{% endif %}
+          <p class="text-sm">
+            <strong class="text-on-surface">{{ e.usuario.first_name|default:e.usuario.username }}</strong>{% if e.usuario == request.user %} <span class="text-[10px] bg-primary text-on-primary px-1.5 py-0.5 rounded-full">Você</span>{% endif %}
+            <span class="text-on-surface-variant">{{ e.texto }}</span>
           </p>
-          <p class="text-xs text-on-surface-variant mt-0.5">
-            Respondeu <strong class="text-on-surface">{{ s.questoes }}</strong> questões
-            {% if s.questoes > 0 %}·
-              {% widthratio s.acertos s.questoes 100 as pct_feed %}
-              <span class="{% if pct_feed >= 70 %}text-secondary{% elif pct_feed >= 50 %}text-amber-600{% else %}text-error{% endif %}">{{ pct_feed }}% acertos</span>
+          <p class="text-[10px] text-on-surface-variant mt-1 flex items-center gap-2">
+            <span class="inline-flex items-center gap-1">
+              <span class="material-symbols-outlined" style="font-size:10px;">schedule</span>
+              {{ e.data|timesince }} atrás
+            </span>
+            {% if e.tipo == 'conquista' %}
+              <span class="text-[9px] uppercase tracking-wider font-bold
+                {% if e.raridade == 'lendaria' %}text-amber-600
+                {% elif e.raridade == 'epica' %}text-violet-600
+                {% elif e.raridade == 'rara' %}text-blue-600
+                {% else %}text-slate-500{% endif %}">
+                {{ e.raridade }}
+              </span>
             {% endif %}
-            {% if s.cat %}· <span class="text-on-surface-variant">{{ s.cat }}</span>{% endif %}
           </p>
         </div>
-        <span class="text-[10px] text-on-surface-variant flex-shrink-0 mt-1">{{ s.data|timesince }} atrás</span>
       </div>
       {% endfor %}
     </div>
   </div>
-  {% endif %}
-
-  {% if conquistas_recentes %}
-  <div>
-    <h2 class="font-serif text-base font-semibold text-primary mb-3 flex items-center gap-2">
-      <span class="material-symbols-outlined text-amber-500 active-icon" style="font-size:20px;">emoji_events</span>
-      Conquistas recentes (7 dias)
-    </h2>
-    <div class="flex flex-wrap gap-2">
-      {% for c in conquistas_recentes %}
-      <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-sm">
-        <span class="font-bold text-amber-700">{{ c.get_codigo_display }}</span>
-        <span class="text-on-surface-variant text-xs">{{ c.usuario.username }}</span>
-      </div>
-      {% endfor %}
-    </div>
+  {% else %}
+  <div class="paper-card rounded-2xl p-6 text-center border-dashed" style="border-style:dashed;">
+    <span class="material-symbols-outlined text-outline-variant" style="font-size:36px;">dynamic_feed</span>
+    <p class="font-serif text-sm font-semibold text-on-surface mt-2">Feed vazio</p>
+    <p class="text-xs text-on-surface-variant mt-1">Quando alguém do grupo estudar, aparece aqui.</p>
   </div>
   {% endif %}
 
