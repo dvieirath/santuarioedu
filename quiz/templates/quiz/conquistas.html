@@ -88,8 +88,9 @@
                 <p class="text-[10px] text-secondary font-medium">
                   ✓ Conquistada em {{ c.data|date:"d/m/Y" }}
                 </p>
-                <a href="{% url 'conquista_card' c.codigo %}"
-                   class="flex items-center gap-1 text-[10px] font-bold text-primary hover:text-primary-container bg-primary-fixed/60 hover:bg-primary-fixed px-2 py-1 rounded-lg transition-colors">
+                <a href="{% url 'compartilhar_conquista' c.codigo %}"
+                   class="flex items-center gap-1 text-[10px] font-bold text-primary hover:text-primary-container bg-primary-fixed/60 hover:bg-primary-fixed px-2 py-1 rounded-lg transition-colors"
+                   onclick="event.stopPropagation();">
                   <span class="material-symbols-outlined active-icon" style="font-size:11px;">share</span>
                   Compartilhar
                 </a>

@@ -835,6 +835,49 @@ def onboarding_dispensar(request):
 
 
 @login_required(login_url='account_login')
+def compartilhar_conquista(request, codigo):
+    """
+    Pagina de share de uma conquista desbloqueada.
+    Mesmo padrao do compartilhar_simulado: preview Stories + botoes redes.
+    """
+    if codigo not in CONQUISTAS_META:
+        from django.http import Http404
+        raise Http404('Conquista nao encontrada')
+
+    conquista_obj = Conquista.objects.filter(
+        usuario=request.user, codigo=codigo,
+    ).first()
+
+    if not conquista_obj:
+        messages.error(request, 'Voce ainda nao desbloqueou essa conquista.')
+        return redirect('conquistas')
+
+    meta_c = CONQUISTAS_META[codigo]
+    raridade = meta_c.get('raridade', 'comum')
+    raridade_cores = RARIDADE_CORES.get(raridade, RARIDADE_CORES['comum'])
+
+    # Copy adaptativa a raridade
+    if raridade == 'lendaria':
+        titulo = f'🌈 Desbloqueei uma conquista LENDÁRIA: "{meta_c["label"]}"'
+    elif raridade == 'epica':
+        titulo = f'💎 Conquista épica desbloqueada: "{meta_c["label"]}"'
+    elif raridade == 'rara':
+        titulo = f'🏆 Consegui: "{meta_c["label"]}" ({raridade_cores["label"]})'
+    else:
+        titulo = f'🎯 Desbloqueei: "{meta_c["label"]}"'
+
+    return render(request, 'quiz/compartilhar_conquista.html', {
+        'codigo':          codigo,
+        'conquista':       conquista_obj,
+        'meta':            meta_c,
+        'raridade':        raridade,
+        'raridade_label':  raridade_cores['label'],
+        'titulo_share':    titulo,
+        'total_desbloqueadas': Conquista.objects.filter(usuario=request.user).count(),
+    })
+
+
+@login_required(login_url='account_login')
 def convidar(request):
     """
     Pagina de convite: user copia link unico santuarioedu.com.br/?ref=<user>
