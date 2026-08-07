@@ -363,6 +363,57 @@ def sugerir_cronograma(user, concurso, horas_por_dia=2, dias_ate_prova=None):
     return gaps
 
 
+def listar_materiais_por_disciplina(concurso):
+    """
+    Retorna list de dicts com materiais disponiveis por disciplina:
+    [
+      {disciplina, categoria_id, tem_resumo, tem_mapa, tem_timeline,
+       url_resumo, url_mapa, subtopicos_count},
+      ...
+    ]
+    Usado pra renderizar section "Materiais de estudo" no hub.
+    """
+    from .models import Categoria, ResumoIA, MapaMental
+    from django.urls import reverse
+
+    disciplinas_alvo = CONCURSO_DISCIPLINAS.get(concurso, [])
+    if not disciplinas_alvo:
+        return []
+
+    resultado = []
+    for disc_nome in disciplinas_alvo:
+        cats = _match_categoria(disc_nome)
+        if not cats:
+            continue
+
+        # Prioriza a categoria mais especifica (menor sub-arvore geralmente)
+        cat = cats[0]
+        tem_resumo = ResumoIA.objects.filter(categoria=cat).exists()
+        tem_mapa   = MapaMental.objects.filter(categoria=cat).exists()
+
+        # Conta sub-categorias (proxy de "riqueza de sub-topicos")
+        try:
+            subs_count = Categoria.objects.filter(parent=cat).count()
+        except Exception:
+            subs_count = 0
+
+        try:
+            url_resumo = reverse('resumo_disciplina', args=[cat.id])
+        except Exception:
+            url_resumo = None
+
+        resultado.append({
+            'disciplina':    disc_nome,
+            'categoria_id':  cat.id,
+            'categoria_nome': cat.nome,
+            'tem_resumo':    tem_resumo,
+            'tem_mapa':      tem_mapa,
+            'subs_count':    subs_count,
+            'url_resumo':    url_resumo,
+        })
+    return resultado
+
+
 def resumo_completo(user, concurso):
     """
     Compila tudo pra passar pro template do hub.
@@ -397,6 +448,8 @@ def resumo_completo(user, concurso):
     resumos_disp = ResumoIA.objects.filter(categoria_id__in=materiais_ids_disc).count()
     mapas_disp   = MapaMental.objects.filter(categoria_id__in=materiais_ids_disc).count()
 
+    materiais = listar_materiais_por_disciplina(concurso)
+
     return {
         'concurso':          concurso,
         'config':            config,
@@ -411,4 +464,5 @@ def resumo_completo(user, concurso):
         'resumos_disponiveis': resumos_disp,
         'mapas_disponiveis':   mapas_disp,
         'bancas_concurso':   bancas_concurso,
+        'materiais':         materiais,
     }
