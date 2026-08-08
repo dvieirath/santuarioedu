@@ -1112,12 +1112,40 @@ def coach_ia(request):
 
 @login_required(login_url='account_login')
 def coach_ia_limpar(request):
-    """Apaga historico do coach (fresh start)."""
+    """Apaga historico do coach (fresh start). Preserva salvas."""
     if request.method == 'POST':
         from .models import MensagemCoachIA
-        MensagemCoachIA.objects.filter(usuario=request.user).delete()
-        messages.success(request, 'Histórico do coach limpo.')
+        # Nao apaga mensagens salvas — user pode nao querer perder essas
+        MensagemCoachIA.objects.filter(usuario=request.user, salva=False).delete()
+        messages.success(request, 'Histórico do coach limpo (mensagens salvas mantidas).')
     return redirect('coach_ia')
+
+
+@login_required(login_url='account_login')
+def coach_ia_toggle_salvar(request, mensagem_id):
+    """POST: alterna flag salva em uma mensagem do assistant."""
+    from .models import MensagemCoachIA
+    if request.method != 'POST':
+        return redirect('coach_ia')
+    m = MensagemCoachIA.objects.filter(
+        id=mensagem_id, usuario=request.user, papel='assistant',
+    ).first()
+    if m:
+        m.salva = not m.salva
+        m.save(update_fields=['salva'])
+    return redirect(request.META.get('HTTP_REFERER', 'coach_ia'))
+
+
+@login_required(login_url='account_login')
+def coach_ia_anotacoes(request):
+    """Lista todas as mensagens salvas do coach — 'caderneta pessoal'."""
+    from .models import MensagemCoachIA
+    salvas = (MensagemCoachIA.objects
+              .filter(usuario=request.user, salva=True)
+              .order_by('-criado_em'))
+    return render(request, 'quiz/coach_ia_anotacoes.html', {
+        'mensagens': salvas,
+    })
 
 
 @login_required(login_url='account_login')

@@ -1724,12 +1724,21 @@ class MensagemCoachIA(models.Model):
     Mensagens ordenadas por data. Coach usa historico recente pra manter contexto.
     """
     PAPEIS = [('user', 'User'), ('assistant', 'Assistant'), ('system', 'System')]
+    ORIGEM = [
+        ('chat',           'Chat manual'),
+        ('analise_semanal','Análise semanal automática'),
+        ('lembrete',       'Meta-lembrete IA'),
+    ]
     usuario  = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name='mensagens_coach')
     papel    = models.CharField(max_length=10, choices=PAPEIS)
     conteudo = models.TextField()
     tokens_est = models.PositiveIntegerField(default=0,
         help_text='Estimativa de tokens (chars / 4) — usado pra cortar historico')
+    salva     = models.BooleanField(default=False,
+        help_text='User marcou pra revisar depois (bookmark)')
+    origem    = models.CharField(max_length=20, choices=ORIGEM, default='chat',
+        help_text='Origem da mensagem — chat manual, analise semanal, lembrete IA')
     criado_em = models.DateTimeField(auto_now_add=True)
 
     class Meta:

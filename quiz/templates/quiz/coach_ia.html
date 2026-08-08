@@ -34,7 +34,10 @@
     </h1>
     <p class="text-xs text-on-surface-variant">Tire dúvidas, peça planos, converse sobre estudo</p>
   </div>
-  <form method="post" action="{% url 'coach_ia_limpar' %}" onsubmit="return confirm('Apagar todo o histórico do coach?')" class="shrink-0">
+  <a href="{% url 'coach_ia_anotacoes' %}" class="shrink-0 text-slate-400 hover:text-primary transition-colors" title="Ver anotações salvas">
+    <span class="material-symbols-outlined" style="font-size:20px;">bookmark</span>
+  </a>
+  <form method="post" action="{% url 'coach_ia_limpar' %}" onsubmit="return confirm('Apagar histórico? Suas anotações salvas ficam preservadas.')" class="shrink-0">
     {% csrf_token %}
     <button type="submit" class="text-slate-400 hover:text-error transition-colors" title="Limpar histórico">
       <span class="material-symbols-outlined" style="font-size:20px;">delete_sweep</span>
@@ -69,13 +72,28 @@
     </div>
     {% else %}
       {% for m in mensagens %}
-      <div class="msg-anim flex {% if m.papel == 'user' %}justify-end{% endif %}">
-        <div class="max-w-[85%] px-4 py-3 text-sm leading-relaxed
+      <div class="msg-anim flex {% if m.papel == 'user' %}justify-end{% endif %} group">
+        <div class="max-w-[85%] px-4 py-3 text-sm leading-relaxed relative
           {% if m.papel == 'user' %}msg-user{% else %}msg-assistant{% endif %}">
+          {% if m.origem == 'analise_semanal' %}
+          <p class="text-[9px] font-bold uppercase tracking-widest text-violet-600 mb-1">📊 Análise semanal</p>
+          {% elif m.origem == 'lembrete' %}
+          <p class="text-[9px] font-bold uppercase tracking-widest text-amber-600 mb-1">⏰ Lembrete</p>
+          {% endif %}
           <div class="whitespace-pre-wrap">{{ m.conteudo }}</div>
-          <p class="text-[10px] {% if m.papel == 'user' %}text-white/60{% else %}text-slate-400{% endif %} mt-1">
-            {{ m.criado_em|date:"H:i" }}
-          </p>
+          <div class="flex items-center justify-between gap-2 mt-1">
+            <p class="text-[10px] {% if m.papel == 'user' %}text-white/60{% else %}text-slate-400{% endif %}">
+              {{ m.criado_em|date:"d/m · H:i" }}
+            </p>
+            {% if m.papel == 'assistant' %}
+            <form method="post" action="{% url 'coach_ia_toggle_salvar' m.id %}" class="shrink-0 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+              {% csrf_token %}
+              <button type="submit" class="{% if m.salva %}text-primary{% else %}text-slate-400 hover:text-primary{% endif %} transition-colors" title="{% if m.salva %}Remover das anotações{% else %}Salvar como anotação{% endif %}">
+                <span class="material-symbols-outlined active-icon" style="font-size:14px;{% if m.salva %}font-variation-settings:'FILL' 1;{% endif %}">bookmark</span>
+              </button>
+            </form>
+            {% endif %}
+          </div>
         </div>
       </div>
       {% endfor %}
