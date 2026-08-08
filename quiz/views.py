@@ -1149,6 +1149,257 @@ def coach_ia_anotacoes(request):
 
 
 @login_required(login_url='account_login')
+def curva_esquecimento(request):
+    """Visualiza retencao estimada por disciplina (Ebbinghaus + SM-2)."""
+    from . import curva_esquecimento as _curva
+    ctx = _curva.resumo_curva(request.user)
+    return render(request, 'quiz/curva_esquecimento.html', ctx)
+
+
+@login_required(login_url='account_login')
+def progresso_edital_vivo(request):
+    """
+    Progresso do Edital VIVO — checklist baseado nos topicos do Meu Edital.
+    Marca topico como dominado se user acertou >= 3 questoes cujo assunto
+    contem o nome do topico (match icontains).
+    """
+    from .models import EditalPersonalizado, RespostaUsuario
+
+    edital = EditalPersonalizado.objects.filter(usuario=request.user).first()
+    if not edital or not edital.analise_ia.get('disciplinas'):
+        return render(request, 'quiz/progresso_edital_vivo.html', {
+            'edital': None,
+        })
+
+    disciplinas_com_progresso = []
+    total_topicos = 0
+    total_dominados = 0
+
+    for disc in edital.analise_ia.get('disciplinas', []):
+        topicos = disc.get('topicos', [])
+        topicos_status = []
+        dominados = 0
+
+        for topico in topicos:
+            # Match: assunto ou texto da questao contem o topico
+            respostas = RespostaUsuario.objects.filter(
+                usuario=request.user,
+                questao__revisada=True,
+                acertou=True,
+            ).filter(
+                # Match no assunto OU categoria
+                # (simplificacao — evita busca full-text pesada)
+                questao__assunto__icontains=topico[:50]
+            )
+            n_acertos = respostas.count()
+            dominado = n_acertos >= 3
+
+            topicos_status.append({
+                'nome':      topico,
+                'acertos':   n_acertos,
+                'dominado':  dominado,
+                'faltam':    max(0, 3 - n_acertos),
+            })
+
+            total_topicos += 1
+            if dominado:
+                dominados += 1
+                total_dominados += 1
+
+        pct = round(dominados / len(topicos) * 100) if topicos else 0
+        disciplinas_com_progresso.append({
+            'nome':        disc.get('nome', '—'),
+            'peso':        disc.get('peso', 1),
+            'topicos':     topicos_status,
+            'total':       len(topicos),
+            'dominados':   dominados,
+            'pct':         pct,
+        })
+
+    pct_geral = round(total_dominados / total_topicos * 100) if total_topicos else 0
+
+    return render(request, 'quiz/progresso_edital_vivo.html', {
+        'edital':          edital,
+        'disciplinas':     disciplinas_com_progresso,
+        'total_topicos':   total_topicos,
+        'total_dominados': total_dominados,
+        'pct_geral':       pct_geral,
+    })
+
+
+@login_required(login_url='account_login')
+def simulado_analise_detalhada(request, simulado_id):
+    """
+    Analise pos-simulado completa: por disciplina, tempo, questoes erradas,
+    comparativo com anteriores, sugestoes.
+    """
+    from django.shortcuts import get_object_or_404
+    simulado = get_object_or_404(Simulado, id=simulado_id, usuario=request.user)
+    if not simulado.finalizado:
+        return redirect('simulado_questao', simulado_id=simulado.id, numero=1)
+
+    respostas = list(simulado.respostas.select_related(
+        'questao', 'questao__categoria', 'alternativa_escolhida'
+    ))
+
+    # Stats por disciplina
+    por_disc = {}
+    for r in respostas:
+        if not r.alternativa_escolhida:
+            continue
+        cat = r.questao.categoria
+        if not cat:
+            continue
+        # Sobe pra raiz
+        while cat.parent_id:
+            cat = cat.parent
+        key = cat.nome
+        if key not in por_disc:
+            por_disc[key] = {'nome': key, 'total': 0, 'acertos': 0, 'erradas': []}
+        por_disc[key]['total'] += 1
+        acertou = r.alternativa_escolhida.correta
+        if acertou:
+            por_disc[key]['acertos'] += 1
+        else:
+            por_disc[key]['erradas'].append(r)
+
+    disciplinas = []
+    for key, stats in por_disc.items():
+        pct = round(stats['acertos'] / stats['total'] * 100) if stats['total'] else 0
+        disciplinas.append({
+            **stats,
+            'pct':      pct,
+            'status':   'solido' if pct >= 70 else 'atencao' if pct >= 50 else 'critico',
+        })
+    disciplinas.sort(key=lambda d: -d['total'])
+
+    # Tempo total (aproximado — inicio vs fim)
+    tempo_total_seg = 0
+    if simulado.finalizado_em and simulado.iniciado_em:
+        tempo_total_seg = int((simulado.finalizado_em - simulado.iniciado_em).total_seconds())
+
+    total_respondidas = sum(1 for r in respostas if r.alternativa_escolhida)
+    tempo_medio_seg = tempo_total_seg // max(1, total_respondidas)
+
+    # Total geral
+    total = len(respostas)
+    acertos_total = sum(
+        1 for r in respostas
+        if r.alternativa_escolhida and r.alternativa_escolhida.correta
+    )
+    pct_geral = round(acertos_total / total * 100) if total else 0
+
+    # Comparativo com simulados anteriores (media dos ultimos 3)
+    anteriores = list(Simulado.objects.filter(
+        usuario=request.user, finalizado=True,
+    ).exclude(id=simulado.id).order_by('-finalizado_em')[:3])
+
+    media_anterior_pct = None
+    if anteriores:
+        pcts_anteriores = []
+        for sim in anteriores:
+            r_ant = list(sim.respostas.all())
+            t = len(r_ant)
+            a = sum(1 for r in r_ant if r.alternativa_escolhida and r.alternativa_escolhida.correta)
+            if t:
+                pcts_anteriores.append(round(a / t * 100))
+        if pcts_anteriores:
+            media_anterior_pct = round(sum(pcts_anteriores) / len(pcts_anteriores))
+
+    # Erradas com contexto — top 5 pra treinar
+    erradas_top = []
+    for d in disciplinas:
+        erradas_top.extend(d['erradas'][:2])
+    erradas_top = erradas_top[:5]
+
+    return render(request, 'quiz/simulado_analise_detalhada.html', {
+        'simulado':          simulado,
+        'total':             total,
+        'acertos_total':     acertos_total,
+        'pct_geral':         pct_geral,
+        'disciplinas':       disciplinas,
+        'tempo_total_seg':   tempo_total_seg,
+        'tempo_medio_seg':   tempo_medio_seg,
+        'media_anterior_pct': media_anterior_pct,
+        'erradas_top':       erradas_top,
+    })
+
+
+@login_required(login_url='account_login')
+def simulado_sob_medida(request):
+    """
+    Cria simulado personalizado por IA — 20 questoes focadas nos gaps
+    do user. Prioriza disciplinas fracas + assuntos pouco respondidos.
+    """
+    resp = _check_pode_criar_simulado(request)
+    if resp: return resp
+
+    # Analise dos gaps: disciplinas onde acerto < 60% + pouca massa
+    from django.db.models import Count, Q
+    stats_cat = (RespostaUsuario.objects
+        .filter(usuario=request.user)
+        .values('questao__categoria_id', 'questao__categoria__nome')
+        .annotate(
+            total=Count('id'),
+            acertos=Count('id', filter=Q(acertou=True)),
+        )
+        .order_by('-total'))
+
+    # Categorias fracas: pct < 60% com pelo menos 3 respostas
+    cat_gaps_ids = []
+    for s in stats_cat:
+        if s['total'] >= 3:
+            pct = s['acertos'] / s['total']
+            if pct < 0.6:
+                cat_gaps_ids.append(s['questao__categoria_id'])
+
+    # Se nao tem gaps ainda, faz mix aleatorio (fallback)
+    if not cat_gaps_ids:
+        pool = Questao.objects.filter(revisada=True)
+    else:
+        # 70% das questoes vem dos gaps, 30% de outras (variedade)
+        respondidas_ids = list(RespostaUsuario.objects.filter(
+            usuario=request.user
+        ).values_list('questao_id', flat=True))
+
+        pool_gaps = Questao.objects.filter(
+            revisada=True, categoria_id__in=cat_gaps_ids,
+        ).exclude(id__in=respondidas_ids)
+        pool_geral = Questao.objects.filter(
+            revisada=True,
+        ).exclude(id__in=respondidas_ids)
+
+        questoes_gaps = list(pool_gaps.order_by('?')[:14])
+        questoes_geral = list(pool_geral.order_by('?')[:6])
+        questoes = questoes_gaps + questoes_geral
+        if len(questoes) < 10:
+            # fallback: relaxa filtro de "nao respondidas"
+            questoes = list(Questao.objects.filter(revisada=True).order_by('?')[:20])
+        else:
+            import random as _r
+            _r.shuffle(questoes)
+
+    if len(cat_gaps_ids) == 0:
+        questoes = list(Questao.objects.filter(revisada=True).order_by('?')[:20])
+
+    if len(questoes) < 10:
+        messages.error(request, 'Nao ha questoes suficientes pra montar um simulado personalizado.')
+        return redirect('escolher_tema')
+
+    questoes = questoes[:20]  # cap
+    simulado = Simulado.objects.create(usuario=request.user)
+    RespostaSimulado.objects.bulk_create([
+        RespostaSimulado(simulado=simulado, questao=q, ordem=i + 1)
+        for i, q in enumerate(questoes)
+    ])
+    messages.success(
+        request,
+        f'Simulado sob medida criado — {len(questoes)} questoes focadas nos seus gaps.',
+    )
+    return redirect('simulado_questao', simulado_id=simulado.id, numero=1)
+
+
+@login_required(login_url='account_login')
 def meu_edital(request):
     """
     Meu Edital Pessoal — user cola texto do edital, IA extrai:
@@ -3633,9 +3884,8 @@ def api_sessao(request):
 
 # ─── SPRINT 6: PERFIL PÚBLICO ────────────────────────────────────────────────
 
-@login_required(login_url='account_login')
 def perfil_publico(request, username):
-    """Perfil público de um usuário (visível para todos os logados)."""
+    """Perfil público de um usuário (visível a qualquer visitante — compartilhável)."""
     alvo = get_object_or_404(User, username=username)
     respostas = RespostaUsuario.objects.filter(usuario=alvo)
     total = respostas.count()

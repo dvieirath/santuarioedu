@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Curva de Esquecimento — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='progresso' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-violet-600 active-icon" style="font-size:20px;">trending_down</span>
+      Curva de Esquecimento
+    </h1>
+    <p class="text-xs text-on-surface-variant">Retenção estimada por disciplina (Ebbinghaus + SM-2)</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-4xl mx-auto px-6 py-8 space-y-6">
+
+  {% if total == 0 %}
+  <div class="paper-card rounded-2xl p-10 text-center border-dashed" style="border-style:dashed;">
+    <span class="material-symbols-outlined text-outline-variant" style="font-size:48px;">psychology_alt</span>
+    <p class="font-serif text-lg font-semibold text-primary mt-3">Sem dados ainda</p>
+    <p class="text-sm text-on-surface-variant mt-1 max-w-md mx-auto">
+      Responda pelo menos 3 questões em uma disciplina pra a curva começar a ser calculada.
+    </p>
+    <a href="{% url 'escolher_tema' %}" class="inline-flex items-center gap-2 mt-4 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-primary-container transition-colors">
+      Estudar agora
+      <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+    </a>
+  </div>
+  {% else %}
+
+  <!-- Resumo -->
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="bg-gradient-to-br from-violet-600 to-violet-800 text-white p-6">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-violet-200 mb-1">Retenção média</p>
+      <p class="font-serif text-5xl font-bold">{{ retencao_media }}<span class="text-2xl">%</span></p>
+      <p class="text-violet-200 text-sm mt-2">Baseado em {{ total }} disciplina{{ total|pluralize:"s" }} estudada{{ total|pluralize:"s" }}</p>
+    </div>
+    <div class="grid grid-cols-3 divide-x divide-[#e5e1d8]">
+      <div class="p-4 text-center">
+        <p class="font-serif text-2xl font-bold text-emerald-600">{{ solido }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Sólidas</p>
+      </div>
+      <div class="p-4 text-center">
+        <p class="font-serif text-2xl font-bold text-amber-600">{{ atencao }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Atenção</p>
+      </div>
+      <div class="p-4 text-center">
+        <p class="font-serif text-2xl font-bold text-rose-600">{{ critico }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Críticas</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Como funciona -->
+  <div class="paper-card rounded-2xl p-4 bg-slate-50">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">💡 Como funciona</p>
+    <p class="text-xs text-on-surface leading-relaxed">
+      Baseado na <strong>curva de Ebbinghaus</strong>: sem revisão, a memória decai exponencialmente. Cada disciplina tem uma estimativa de retenção agora com base em <strong>quantos dias desde sua última resposta correta</strong>, ajustada pela sua consistência (SRS). Estude o que está em vermelho antes que esqueça de vez.
+    </p>
+  </div>
+
+  <!-- Disciplinas -->
+  <div class="space-y-3">
+    {% for d in disciplinas %}
+    <div class="paper-card rounded-2xl p-5 border-{{ d.cor }}-200 border-2">
+      <div class="flex items-start justify-between gap-3 mb-3">
+        <div class="flex-1 min-w-0">
+          <p class="font-serif text-base font-bold text-primary">{{ d.disciplina }}</p>
+          <p class="text-[11px] text-on-surface-variant">
+            {{ d.total_questoes }} questões estudadas ·
+            última resposta correta há {{ d.dias_desde }} dia{{ d.dias_desde|pluralize }}
+          </p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="font-serif text-3xl font-bold text-{{ d.cor }}-600">{{ d.retencao }}%</p>
+          <p class="text-[10px] uppercase tracking-widest text-{{ d.cor }}-600 font-bold">
+            {% if d.status == 'solido' %}Sólido
+            {% elif d.status == 'atencao' %}Atenção
+            {% else %}Crítico{% endif %}
+          </p>
+        </div>
+      </div>
+
+      <!-- Barra de retenção -->
+      <div class="h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
+        <div class="h-full bg-{{ d.cor }}-500 rounded-full transition-all duration-1000" style="width:{{ d.retencao }}%"></div>
+      </div>
+
+      <div class="flex gap-2 flex-wrap">
+        <a href="{% url 'iniciar_quiz_categoria' d.categoria_id %}"
+           class="inline-flex items-center gap-1.5 bg-{{ d.cor }}-500 hover:bg-{{ d.cor }}-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:14px;">bolt</span>
+          Revisar agora
+        </a>
+        <a href="{% url 'modo_intensivo' d.categoria_id %}"
+           class="inline-flex items-center gap-1.5 bg-white border border-slate-200 hover:border-primary/30 text-on-surface px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">
+          <span class="material-symbols-outlined active-icon" style="font-size:14px;">timer</span>
+          Sessão intensiva
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% endif %}
+
+</main>
+</body>
+</html>
