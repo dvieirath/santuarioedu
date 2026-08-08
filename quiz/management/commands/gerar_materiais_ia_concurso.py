@@ -11,11 +11,28 @@ Uso:
     python manage.py gerar_materiais_ia_concurso prf --dry_run
 """
 from django.core.management.base import BaseCommand, CommandError
-from django.db import transaction
+from django.db import transaction, connections
 import time
 
 from quiz.preparacao import CONCURSO_DISCIPLINAS, _match_categoria
 from quiz.models import Categoria, ResumoIA, MapaMental
+
+
+def _reconectar_db():
+    """
+    Reabre conexoes Postgres antes de qualquer query.
+    Railway free tier fecha conexoes idle durante chamadas IA longas
+    (>30s). Sem isso o comando cai com "server closed connection".
+    """
+    for conn in connections.all():
+        try:
+            conn.close_if_unusable_or_obsolete()
+            conn.ensure_connection()
+        except Exception:
+            try:
+                conn.close()
+            except Exception:
+                pass
 
 
 class Command(BaseCommand):
@@ -63,6 +80,9 @@ class Command(BaseCommand):
 
             disciplinas = CONCURSO_DISCIPLINAS[cslug]
             for disc_nome in disciplinas:
+                # Reconecta antes de cada disciplina (conexao pode ter morrido
+                # apos chamada IA anterior de 30s+)
+                _reconectar_db()
                 cats = _match_categoria(disc_nome)
                 if not cats:
                     self.stdout.write(f'  ⊘ {disc_nome} — categoria nao encontrada, skip')
@@ -153,6 +173,8 @@ class Command(BaseCommand):
             texto = gerar_com_fallback(prompt, max_tokens=2500, temperature=0.4)
             if not texto or len(texto) < 200:
                 return False
+            # Reconecta depois da chamada IA (conexao pode ter morrido durante ~30s)
+            _reconectar_db()
             ResumoIA.objects.create(categoria=cat, conteudo=texto)
             return True
         except AIError:
@@ -198,6 +220,8 @@ class Command(BaseCommand):
                 if texto.endswith('```'):
                     texto = texto.rsplit('```', 1)[0]
             texto = texto.strip()
+            # Reconecta apos IA
+            _reconectar_db()
             MapaMental.objects.create(categoria=cat, mermaid=texto)
             return True
         except AIError:

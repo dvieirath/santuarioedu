@@ -12,10 +12,24 @@ Uso:
 """
 import time
 from django.core.management.base import BaseCommand, CommandError
+from django.db import connections
 
 from quiz.models import AnaliseConcursoIA
 from quiz.preparacao import CONCURSO_DISCIPLINAS
 from quiz.concurso_landing import CONCURSOS_LANDING
+
+
+def _reconectar_db():
+    """Reabre conexoes Postgres — Railway fecha durante chamadas IA longas."""
+    for conn in connections.all():
+        try:
+            conn.close_if_unusable_or_obsolete()
+            conn.ensure_connection()
+        except Exception:
+            try:
+                conn.close()
+            except Exception:
+                pass
 
 
 TIPOS_VALIDOS = ['edital', 'tendencias', 'comparativo', 'estrategia', 'all']
@@ -139,6 +153,9 @@ class Command(BaseCommand):
             self.stdout.write(self.style.HTTP_INFO(f'\n═══ {cfg["nome"]} ({c}) ═══'))
 
             for t in tipos_processar:
+                # Reconecta antes de cada iteracao (conexao pode ter morrido
+                # apos ~10-30s de chamada IA anterior)
+                _reconectar_db()
                 existente = AnaliseConcursoIA.objects.filter(concurso=c, tipo=t).first()
                 if existente and not force:
                     skipados += 1
@@ -158,6 +175,8 @@ class Command(BaseCommand):
                         self.stdout.write(self.style.ERROR(' FALHA (resposta muito curta)'))
                         continue
 
+                    # Reconecta apos chamada IA longa antes de escrever no BD
+                    _reconectar_db()
                     obj, criada = AnaliseConcursoIA.objects.update_or_create(
                         concurso=c, tipo=t,
                         defaults={
