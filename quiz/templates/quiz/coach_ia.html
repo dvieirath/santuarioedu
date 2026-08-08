@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Coach IA — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<style>
+  .chat-container { height: calc(100vh - 8rem); }
+  .msg-user   { background: #002046; color: white; margin-left: auto; border-radius: 18px 18px 4px 18px; }
+  .msg-assistant { background: #f0f4fa; color: #1e293b; border-radius: 18px 18px 18px 4px; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .msg-anim { animation: fadeInUp .3s ease-out; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='estudar' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-violet-600 active-icon" style="font-size:20px;">psychology</span>
+      Coach IA
+    </h1>
+    <p class="text-xs text-on-surface-variant">Tire dúvidas, peça planos, converse sobre estudo</p>
+  </div>
+  <form method="post" action="{% url 'coach_ia_limpar' %}" onsubmit="return confirm('Apagar todo o histórico do coach?')" class="shrink-0">
+    {% csrf_token %}
+    <button type="submit" class="text-slate-400 hover:text-error transition-colors" title="Limpar histórico">
+      <span class="material-symbols-outlined" style="font-size:20px;">delete_sweep</span>
+    </button>
+  </form>
+</nav>
+
+<main class="md:ml-64 max-w-3xl mx-auto px-4 md:px-6 flex flex-col chat-container">
+
+  <!-- Mensagens -->
+  <div id="chat" class="flex-1 overflow-y-auto py-4 space-y-3">
+    {% if not mensagens %}
+    <div class="text-center py-12">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-violet-100 text-violet-600 mb-4">
+        <span class="material-symbols-outlined active-icon" style="font-size:32px;font-variation-settings:'FILL' 1;">psychology</span>
+      </div>
+      <h2 class="font-serif text-xl font-bold text-primary mb-2">Sou seu Coach IA</h2>
+      <p class="text-sm text-on-surface-variant max-w-md mx-auto mb-4">
+        Faça uma pergunta específica de disciplina, peça um plano de estudo, tire uma dúvida do dia.
+      </p>
+      <div class="flex flex-wrap gap-2 justify-center max-w-md mx-auto">
+        <button onclick="preencher('Como estudar Direito Constitucional em 3 meses?')" class="text-xs bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-full font-semibold transition-colors">
+          Plano 3 meses
+        </button>
+        <button onclick="preencher('Diferença entre controle difuso e concentrado')" class="text-xs bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-full font-semibold transition-colors">
+          Dúvida técnica
+        </button>
+        <button onclick="preencher('Como manter a motivação estudando pra concurso?')" class="text-xs bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-full font-semibold transition-colors">
+          Motivação
+        </button>
+      </div>
+    </div>
+    {% else %}
+      {% for m in mensagens %}
+      <div class="msg-anim flex {% if m.papel == 'user' %}justify-end{% endif %}">
+        <div class="max-w-[85%] px-4 py-3 text-sm leading-relaxed
+          {% if m.papel == 'user' %}msg-user{% else %}msg-assistant{% endif %}">
+          <div class="whitespace-pre-wrap">{{ m.conteudo }}</div>
+          <p class="text-[10px] {% if m.papel == 'user' %}text-white/60{% else %}text-slate-400{% endif %} mt-1">
+            {{ m.criado_em|date:"H:i" }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- Input -->
+  <form method="post" class="border-t border-[#e5e1d8] bg-white py-3 flex items-end gap-2">
+    {% csrf_token %}
+    <textarea id="msgInput" name="mensagem" rows="1" required maxlength="3000"
+      placeholder="Pergunte ao coach..."
+      class="flex-1 border border-[#e5e1d8] rounded-2xl px-4 py-3 text-sm resize-none focus:outline-none focus:border-primary transition-colors"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();this.form.submit()}"></textarea>
+    <button type="submit" class="w-11 h-11 rounded-full bg-primary hover:bg-primary-container text-white flex items-center justify-center shrink-0 transition-colors">
+      <span class="material-symbols-outlined active-icon" style="font-size:22px;">arrow_upward</span>
+    </button>
+  </form>
+
+</main>
+
+<script>
+function preencher(txt) {
+  document.getElementById('msgInput').value = txt;
+  document.getElementById('msgInput').focus();
+}
+
+// Auto-scroll pro final
+const chat = document.getElementById('chat');
+chat.scrollTop = chat.scrollHeight;
+
+// Auto-resize textarea
+const input = document.getElementById('msgInput');
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+});
+</script>
+</body>
+</html>

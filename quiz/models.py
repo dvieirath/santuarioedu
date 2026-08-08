@@ -1694,3 +1694,54 @@ class AnaliseConcursoIA(models.Model):
 
     def __str__(self):
         return f'{self.concurso}/{self.get_tipo_display()}'
+
+
+class EditalPersonalizado(models.Model):
+    """
+    Edital colado pelo usuario + analise IA extraida.
+    Um user tem 1 edital ativo por vez (regenera substitui).
+    Analise fica em JSON pra flexibilidade — IA popula com:
+      { concurso, banca, data_prova, salario, disciplinas:[{nome,peso,topicos:[]}] }
+    """
+    usuario     = models.OneToOneField(User, on_delete=models.CASCADE,
+                                       related_name='edital_pessoal')
+    texto_bruto = models.TextField(help_text='Texto do edital colado pelo user')
+    analise_ia  = models.JSONField(default=dict, blank=True,
+        help_text='Estrutura extraida pela IA: disciplinas, pesos, banca, data...')
+    cronograma  = models.JSONField(default=list, blank=True,
+        help_text='Cronograma personalizado (dias x disciplinas x horas)')
+    horas_dia   = models.PositiveSmallIntegerField(default=2,
+        help_text='Horas/dia disponiveis pra estudar')
+    gerado_em   = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Edital de {self.usuario.username}'
+
+
+class MensagemCoachIA(models.Model):
+    """
+    Chat 1-a-1 com Coach IA. Cada usuario tem uma conversa continua.
+    Mensagens ordenadas por data. Coach usa historico recente pra manter contexto.
+    """
+    PAPEIS = [('user', 'User'), ('assistant', 'Assistant'), ('system', 'System')]
+    usuario  = models.ForeignKey(User, on_delete=models.CASCADE,
+                                 related_name='mensagens_coach')
+    papel    = models.CharField(max_length=10, choices=PAPEIS)
+    conteudo = models.TextField()
+    tokens_est = models.PositiveIntegerField(default=0,
+        help_text='Estimativa de tokens (chars / 4) — usado pra cortar historico')
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['criado_em']
+        indexes = [
+            models.Index(fields=['usuario', '-criado_em']),
+        ]
+
+    def save(self, *args, **kwargs):
+        if not self.tokens_est and self.conteudo:
+            self.tokens_est = max(1, len(self.conteudo) // 4)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.usuario.username} [{self.papel}] {self.criado_em:%d/%m %H:%M}'

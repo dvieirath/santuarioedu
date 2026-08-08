@@ -7,21 +7,42 @@
 {% include "quiz/includes/design_tokens.html" %}
 </head>
 <body class="min-h-screen flex items-center justify-center p-6">
-<div class="text-center max-w-sm fade-in">
-  <div class="scale-in text-7xl mb-6">📡</div>
+<div class="text-center max-w-md fade-in">
+  <div class="scale-in inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-amber-100 text-amber-600 mb-6">
+    <span class="material-symbols-outlined active-icon" style="font-size:40px;">wifi_off</span>
+  </div>
   <h1 class="font-serif text-3xl font-bold text-primary mb-3">Sem conexão</h1>
   <p class="text-on-surface-variant mb-8 leading-relaxed">
-    Você está offline. Verifique sua conexão e tente novamente.<br/>
-    Páginas visitadas recentemente podem estar disponíveis em cache.
+    Você está offline. Verifique sua conexão ou tente uma das opções abaixo — páginas visitadas recentemente estão disponíveis em cache.
   </p>
-  <button onclick="window.location.reload()"
-    class="px-6 py-3 bg-primary text-on-primary font-semibold rounded-lg hover:bg-primary-container transition-all mr-2">
-    Tentar novamente
-  </button>
-  <button onclick="history.back()"
-    class="px-6 py-3 bg-white border border-[#e5e1d8] text-on-surface font-semibold rounded-lg hover:bg-surface-container-low transition-all">
-    Voltar
-  </button>
+
+  <div class="grid grid-cols-2 gap-3 mb-8">
+    <button onclick="window.location.reload()"
+      class="paper-card rounded-2xl p-4 hover:border-primary/30 transition-colors">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:24px;">refresh</span>
+      <p class="text-xs font-bold text-primary mt-2">Tentar novamente</p>
+    </button>
+    <a href="/quiz/" class="paper-card rounded-2xl p-4 hover:border-primary/30 transition-colors block">
+      <span class="material-symbols-outlined text-secondary active-icon" style="font-size:24px;">quiz</span>
+      <p class="text-xs font-bold text-primary mt-2">Última questão</p>
+    </a>
+    <a href="/dashboard/" class="paper-card rounded-2xl p-4 hover:border-primary/30 transition-colors block">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:24px;">home</span>
+      <p class="text-xs font-bold text-primary mt-2">Dashboard</p>
+    </a>
+    <a href="/estudar/" class="paper-card rounded-2xl p-4 hover:border-primary/30 transition-colors block">
+      <span class="material-symbols-outlined text-violet-600 active-icon" style="font-size:24px;">menu_book</span>
+      <p class="text-xs font-bold text-primary mt-2">Escolher tema</p>
+    </a>
+  </div>
+
+  <div class="paper-card rounded-2xl p-4 text-left">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-1">💡 Modo offline</p>
+    <p class="text-xs text-on-surface leading-relaxed">
+      Questões visitadas nos últimos dias ficam salvas no cache. Você pode responder, mas <strong>o resultado só sincroniza quando voltar online</strong>.
+    </p>
+  </div>
+
   <p class="mt-8 text-xs text-on-surface-variant/70">SantuarioEdu — Estude com inteligência</p>
 </div>
 </body>

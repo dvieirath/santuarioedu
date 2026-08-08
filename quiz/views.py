@@ -1036,6 +1036,213 @@ def ranking_concurso(request, concurso):
 
 
 @login_required(login_url='account_login')
+def coach_ia(request):
+    """
+    Chat 1-a-1 com Coach IA. User faz pergunta, coach responde
+    considerando historico recente + contexto do concurso preferido.
+    """
+    from .models import MensagemCoachIA, ConcursoPreferido
+    from .concurso_landing import CONCURSOS_LANDING
+
+    if request.method == 'POST':
+        conteudo = request.POST.get('mensagem', '').strip()
+        if not conteudo:
+            return redirect('coach_ia')
+        if len(conteudo) > 3000:
+            conteudo = conteudo[:3000]
+
+        # Salva mensagem do user
+        MensagemCoachIA.objects.create(
+            usuario=request.user, papel='user', conteudo=conteudo,
+        )
+
+        # Monta contexto: system prompt + historico recente
+        pref = ConcursoPreferido.objects.filter(usuario=request.user).first()
+        contexto_concurso = ''
+        if pref:
+            cfg = CONCURSOS_LANDING.get(pref.concurso, {})
+            contexto_concurso = (
+                f'\n\nConcurso alvo do usuario: {cfg.get("nome_completo", pref.get_concurso_display())}. '
+                f'Ele estuda ~{pref.horas_por_dia}h/dia.'
+            )
+
+        system_prompt = (
+            'Voce e um coach de concurso publico brasileiro, especialista em preparacao pra provas. '
+            'Responda em portugues brasileiro, direto e pratico. Use markdown pra estruturar quando '
+            'ajudar. Evite jargao academico. Ofereca planos de acao concretos quando o user pedir. '
+            'Se a pergunta for tecnica (uma duvida de disciplina), responda com precisao — cite '
+            'artigos de lei, sumulas, jurisprudencia. Se for motivacional, seja realista mas encorajador.'
+            + contexto_concurso
+        )
+
+        # Pega ultimas 10 mensagens pra manter contexto (evita explodir tokens)
+        historico = list(MensagemCoachIA.objects.filter(usuario=request.user)
+                         .order_by('-criado_em')[:10])
+        historico.reverse()
+
+        # Monta prompt final (em texto — Groq/Gemini nao tem chat separado no wrapper)
+        prompt_final = f'SYSTEM:\n{system_prompt}\n\n'
+        for m in historico:
+            if m.papel == 'user':
+                prompt_final += f'USER: {m.conteudo}\n\n'
+            elif m.papel == 'assistant':
+                prompt_final += f'ASSISTANT: {m.conteudo}\n\n'
+        prompt_final += 'ASSISTANT:'
+
+        # Chama IA
+        try:
+            from .ai_provider import gerar_conteudo, AIError
+            resposta = gerar_conteudo(prompt_final, max_tokens=1500, temperature=0.7)
+            if not resposta or len(resposta) < 5:
+                resposta = 'Desculpe, nao consegui gerar uma resposta agora. Tente reformular.'
+        except AIError as e:
+            resposta = f'⚠️ IA temporariamente indisponivel. Tente em instantes.'
+
+        MensagemCoachIA.objects.create(
+            usuario=request.user, papel='assistant', conteudo=resposta,
+        )
+
+        return redirect('coach_ia')
+
+    mensagens = MensagemCoachIA.objects.filter(usuario=request.user).order_by('criado_em')[:50]
+    return render(request, 'quiz/coach_ia.html', {
+        'mensagens': mensagens,
+    })
+
+
+@login_required(login_url='account_login')
+def coach_ia_limpar(request):
+    """Apaga historico do coach (fresh start)."""
+    if request.method == 'POST':
+        from .models import MensagemCoachIA
+        MensagemCoachIA.objects.filter(usuario=request.user).delete()
+        messages.success(request, 'Histórico do coach limpo.')
+    return redirect('coach_ia')
+
+
+@login_required(login_url='account_login')
+def meu_edital(request):
+    """
+    Meu Edital Pessoal — user cola texto do edital, IA extrai:
+    - Concurso/orgao
+    - Banca provavel
+    - Data da prova
+    - Salario aproximado
+    - Disciplinas com pesos e sub-topicos
+
+    Depois gera cronograma personalizado (X dias × Y horas/dia).
+    """
+    from .models import EditalPersonalizado
+    import json as _json
+
+    edital = EditalPersonalizado.objects.filter(usuario=request.user).first()
+
+    if request.method == 'POST':
+        acao = request.POST.get('acao', 'analisar')
+
+        if acao == 'analisar':
+            texto = request.POST.get('texto_edital', '').strip()
+            horas = int(request.POST.get('horas_dia', 2) or 2)
+
+            if len(texto) < 200:
+                messages.error(request, 'Edital muito curto — cole ao menos 200 caracteres.')
+                return redirect('meu_edital')
+
+            # Cria/atualiza registro
+            edital, _ = EditalPersonalizado.objects.update_or_create(
+                usuario=request.user,
+                defaults={
+                    'texto_bruto': texto[:20000],  # cap 20k chars
+                    'horas_dia':   max(1, min(12, horas)),
+                },
+            )
+
+            # Chama IA pra extrair estrutura
+            try:
+                from .ai_provider import gerar_conteudo, AIError
+                prompt = (
+                    f'Analise o edital abaixo e extraia informacoes estruturadas em JSON puro '
+                    f'(sem markdown, sem ```json). Formato OBRIGATORIO:\n\n'
+                    f'{{\n'
+                    f'  "concurso": "Nome do concurso",\n'
+                    f'  "orgao": "Orgao responsavel",\n'
+                    f'  "banca": "Banca provavel se mencionada",\n'
+                    f'  "data_prova": "AAAA-MM-DD ou null",\n'
+                    f'  "salario_inicial": "R$ X.XXX,XX ou null",\n'
+                    f'  "vagas": numero ou null,\n'
+                    f'  "disciplinas": [\n'
+                    f'    {{ "nome": "Direito Constitucional", "peso": 3, "topicos": ["Principios", "Direitos Fundamentais"] }},\n'
+                    f'    ...\n'
+                    f'  ]\n'
+                    f'}}\n\n'
+                    f'Se um campo nao aparecer no edital, use null. Disciplinas SEMPRE devem ser '
+                    f'lista de objetos com nome/peso/topicos.\n\n'
+                    f'EDITAL:\n{texto[:15000]}'
+                )
+                resposta = gerar_conteudo(prompt, max_tokens=2500, temperature=0.2)
+
+                # Limpa markdown wrappers se IA colocou
+                resposta = resposta.strip()
+                if resposta.startswith('```'):
+                    resposta = resposta.split('\n', 1)[-1]
+                    if resposta.endswith('```'):
+                        resposta = resposta.rsplit('```', 1)[0]
+                resposta = resposta.strip()
+
+                analise = _json.loads(resposta)
+                edital.analise_ia = analise
+
+                # Gera cronograma baseado na analise
+                edital.cronograma = _gerar_cronograma_edital(analise, edital.horas_dia)
+
+                edital.save()
+                messages.success(request, 'Edital analisado — cronograma gerado abaixo.')
+            except (AIError, _json.JSONDecodeError, KeyError, ValueError) as e:
+                messages.error(request, f'Nao foi possivel analisar o edital: {e}')
+
+            return redirect('meu_edital')
+
+        elif acao == 'limpar' and edital:
+            edital.delete()
+            messages.success(request, 'Edital removido.')
+            return redirect('meu_edital')
+
+    return render(request, 'quiz/meu_edital.html', {
+        'edital': edital,
+    })
+
+
+def _gerar_cronograma_edital(analise, horas_dia):
+    """
+    A partir da analise (com disciplinas + pesos), gera cronograma
+    distribuindo as horas por peso relativo.
+    Retorna list de dicts: [{disciplina, horas_semana, prioridade}]
+    """
+    disciplinas = analise.get('disciplinas', [])
+    if not disciplinas:
+        return []
+
+    total_peso = sum(d.get('peso', 1) or 1 for d in disciplinas)
+    horas_semana = horas_dia * 7
+
+    cronograma = []
+    for d in disciplinas:
+        peso = d.get('peso', 1) or 1
+        pct = peso / total_peso
+        horas_disc_semana = round(horas_semana * pct, 1)
+        cronograma.append({
+            'disciplina':    d.get('nome', '—'),
+            'peso':          peso,
+            'topicos':       d.get('topicos', []),
+            'horas_semana':  horas_disc_semana,
+            'pct_tempo':     round(pct * 100, 1),
+        })
+
+    cronograma.sort(key=lambda x: -x['horas_semana'])
+    return cronograma
+
+
+@login_required(login_url='account_login')
 def escolher_estilo_banca(request):
     """
     Pagina de selecao de estilo de simulado por banca.

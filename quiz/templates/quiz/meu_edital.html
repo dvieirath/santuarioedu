@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Meu Edital — SantuarioEdu</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='estudar' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">assignment</span>
+      Meu Edital
+    </h1>
+    <p class="text-xs text-on-surface-variant">Cole seu edital e receba análise + cronograma personalizado</p>
+  </div>
+</nav>
+
+<main class="md:ml-64 max-w-4xl mx-auto px-6 py-8 space-y-6">
+
+  {% if not edital %}
+  <!-- Estado inicial: form pra colar edital -->
+  <div class="paper-card rounded-2xl p-6">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:22px;">upload</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Passo 1</p>
+        <h3 class="font-serif text-lg font-semibold text-primary">Cole o texto do edital</h3>
+      </div>
+    </div>
+    <p class="text-sm text-on-surface-variant mb-4 leading-relaxed">
+      A IA vai extrair automaticamente: <strong class="text-on-surface">disciplinas, pesos, banca, data da prova, salário</strong>.
+      Depois gera um <strong class="text-on-surface">cronograma personalizado</strong> distribuindo suas horas de estudo.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="acao" value="analisar"/>
+
+      <textarea name="texto_edital" rows="14" required minlength="200"
+        placeholder="Cole aqui o texto do edital (ou apenas as partes com disciplinas, pesos e conteúdo programático)...
+
+Exemplo:
+CONCURSO PÚBLICO PARA A POLÍCIA RODOVIÁRIA FEDERAL
+Banca: CESPE/CEBRASPE
+Salário inicial: R$ 10.357,88
+Data da prova: 15/12/2025
+
+CONTEÚDO PROGRAMÁTICO:
+1. Direito Constitucional (peso 3)
+   - Princípios Fundamentais
+   - Direitos e Garantias Fundamentais
+   ..."
+        class="w-full border border-[#e5e1d8] rounded-xl p-4 text-sm font-mono text-on-surface focus:outline-none focus:border-primary transition-colors resize-y"></textarea>
+
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div>
+          <label class="text-xs font-bold text-on-surface mb-2 block">Horas por dia disponíveis</label>
+          <input type="number" name="horas_dia" min="1" max="12" value="2" required
+            class="w-full border border-[#e5e1d8] rounded-xl px-4 py-2.5 text-sm text-on-surface focus:outline-none focus:border-primary"/>
+        </div>
+        <div class="flex items-end">
+          <button type="submit" class="w-full bg-primary hover:bg-primary-container text-white px-6 py-3 rounded-full text-sm font-bold transition-colors flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined active-icon" style="font-size:18px;">auto_awesome</span>
+            Analisar com IA
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="mt-6 pt-6 border-t border-[#e5e1d8] grid md:grid-cols-3 gap-3 text-xs text-on-surface-variant">
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span>Aceita qualquer formato (DOC, PDF colado, texto)</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span>IA extrai automaticamente as disciplinas</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <span>Cronograma proporcional aos pesos do edital</span>
+      </div>
+    </div>
+  </div>
+
+  {% else %}
+  <!-- Analise realizada -->
+  <div class="paper-card rounded-2xl overflow-hidden">
+    <div class="bg-gradient-to-br from-primary to-primary-container text-white p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div class="flex-1 min-w-0">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-1">Meu edital</p>
+          <h2 class="font-serif text-2xl md:text-3xl font-bold leading-tight">
+            {{ edital.analise_ia.concurso|default:"Concurso" }}
+          </h2>
+          <p class="text-blue-200 text-sm mt-1">{{ edital.analise_ia.orgao|default:"—" }}</p>
+        </div>
+        <form method="post" class="shrink-0" onsubmit="return confirm('Remover análise? Você pode colar outro edital.')">
+          {% csrf_token %}
+          <input type="hidden" name="acao" value="limpar"/>
+          <button type="submit" class="text-white/60 hover:text-white transition-colors" title="Remover">
+            <span class="material-symbols-outlined" style="font-size:22px;">delete</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5">
+        {% if edital.analise_ia.banca %}
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="text-[9px] uppercase tracking-widest text-blue-200">Banca</p>
+          <p class="font-bold text-white text-sm">{{ edital.analise_ia.banca }}</p>
+        </div>
+        {% endif %}
+        {% if edital.analise_ia.data_prova %}
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="text-[9px] uppercase tracking-widest text-blue-200">Data prova</p>
+          <p class="font-bold text-white text-sm">{{ edital.analise_ia.data_prova }}</p>
+        </div>
+        {% endif %}
+        {% if edital.analise_ia.salario_inicial %}
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="text-[9px] uppercase tracking-widest text-blue-200">Salário</p>
+          <p class="font-bold text-white text-sm">{{ edital.analise_ia.salario_inicial }}</p>
+        </div>
+        {% endif %}
+        {% if edital.analise_ia.vagas %}
+        <div class="bg-white/10 rounded-xl p-3">
+          <p class="text-[9px] uppercase tracking-widest text-blue-200">Vagas</p>
+          <p class="font-bold text-white text-sm">{{ edital.analise_ia.vagas }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Cronograma -->
+  {% if edital.cronograma %}
+  <section class="paper-card rounded-2xl p-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="material-symbols-outlined text-secondary active-icon" style="font-size:22px;">schedule</span>
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-violet-600">Cronograma personalizado</p>
+        <h3 class="font-serif text-lg font-semibold text-primary">{{ edital.horas_dia }}h/dia distribuído por peso</h3>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      {% for c in edital.cronograma %}
+      <div class="border border-[#e5e1d8] rounded-xl p-4">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <div class="flex-1 min-w-0">
+            <p class="font-serif text-base font-semibold text-primary">{{ c.disciplina }}</p>
+            {% if c.peso %}<p class="text-[10px] text-on-surface-variant">Peso {{ c.peso }} no edital</p>{% endif %}
+          </div>
+          <div class="text-right shrink-0">
+            <p class="font-serif text-xl font-bold text-secondary">{{ c.horas_semana }}h</p>
+            <p class="text-[9px] text-on-surface-variant uppercase">/semana</p>
+          </div>
+        </div>
+        <div class="h-2 bg-slate-100 rounded-full overflow-hidden mb-2">
+          <div class="h-full bg-secondary rounded-full transition-all" style="width:{{ c.pct_tempo }}%"></div>
+        </div>
+        {% if c.topicos %}
+        <details class="mt-2">
+          <summary class="text-xs text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
+            {{ c.topicos|length }} tópico{{ c.topicos|length|pluralize }} do edital
+          </summary>
+          <ul class="mt-2 space-y-1">
+            {% for t in c.topicos %}
+            <li class="text-xs text-on-surface flex items-start gap-2">
+              <span class="text-primary shrink-0">▸</span>
+              <span>{{ t }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- CTA regerar -->
+  <div class="text-center">
+    <details class="paper-card rounded-2xl p-4 inline-block text-left w-full max-w-2xl">
+      <summary class="cursor-pointer text-sm font-semibold text-primary hover:text-primary-container transition-colors flex items-center gap-2">
+        <span class="material-symbols-outlined active-icon" style="font-size:16px;">refresh</span>
+        Colar outro edital / regerar análise
+      </summary>
+      <form method="post" class="mt-4">
+        {% csrf_token %}
+        <input type="hidden" name="acao" value="analisar"/>
+        <textarea name="texto_edital" rows="8" required minlength="200"
+          placeholder="Cole aqui o novo edital..."
+          class="w-full border border-[#e5e1d8] rounded-xl p-3 text-xs font-mono focus:outline-none focus:border-primary">{{ edital.texto_bruto|truncatechars:500 }}</textarea>
+        <div class="flex items-center gap-3 mt-3">
+          <input type="number" name="horas_dia" min="1" max="12" value="{{ edital.horas_dia }}" required
+            class="w-24 border border-[#e5e1d8] rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary"/>
+          <button type="submit" class="flex-1 bg-primary hover:bg-primary-container text-white px-4 py-2 rounded-full text-sm font-bold">
+            Regerar análise
+          </button>
+        </div>
+      </form>
+    </details>
+  </div>
+
+  <p class="text-[10px] text-on-surface-variant text-center">
+    Análise por IA em {{ edital.gerado_em|date:"d/m/Y H:i" }} · Verifique sempre com o edital oficial
+  </p>
+  {% endif %}
+
+</main>
+</body>
+</html>

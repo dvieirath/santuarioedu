@@ -1,14 +1,16 @@
 // SantuarioEdu Service Worker
 // IMPORTANTE: sempre que HTML/JS/CSS mudar significativamente, bump CACHE_VERSION
-// pra invalidar cache antigo do browser. O activate handler apaga todos os caches
-// de versões anteriores automaticamente.
-const CACHE_VERSION = 'santuario-v7';  // v7: push icon .png -> .svg (arquivo nao existia)
+// pra invalidar cache antigo do browser.
+const CACHE_VERSION = 'santuario-v8';       // v8: offline robusto (quiz cache dedicado)
 const CACHE_NAME    = CACHE_VERSION;
+const QUIZ_CACHE    = 'santuario-quiz-v1';  // cache dedicado pra questoes (persistente)
 const OFFLINE_URL   = '/offline/';
 
-// Só o essencial. Menos precache = menos risco de servir HTML velho.
+// Precache expandido — inclui rotas comuns pra funcionamento offline
 const PRECACHE_ASSETS = [
   '/',
+  '/dashboard/',
+  '/estudar/',
   OFFLINE_URL,
 ];
 
@@ -16,11 +18,8 @@ const PRECACHE_ASSETS = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      // Pre-cache critical app pages — ignore failures for CDN assets
       return Promise.allSettled(
-        PRECACHE_ASSETS.map(url =>
-          cache.add(url).catch(() => {})
-        )
+        PRECACHE_ASSETS.map(url => cache.add(url).catch(() => {}))
       );
     }).then(() => self.skipWaiting())
   );
@@ -30,29 +29,59 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+      // Preserva QUIZ_CACHE mesmo em upgrade (questoes offline permanecem)
+      Promise.all(keys.filter(k => k !== CACHE_NAME && k !== QUIZ_CACHE)
+                      .map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
+
+// Helper: rota e "questao/estudo" e deve entrar no cache dedicado?
+function isRotaQuiz(pathname) {
+  return (
+    pathname === '/quiz/' ||
+    pathname.startsWith('/quiz/') && !pathname.startsWith('/quiz/estilo-banca/') ||
+    pathname.startsWith('/estudar/') ||
+    pathname.startsWith('/assuntos/') ||
+    pathname.startsWith('/simulado/questao/') ||
+    pathname.startsWith('/flashcards/')
+  );
+}
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET, API, admin — deixa passar direto
   if (request.method !== 'GET') return;
   if (url.pathname.startsWith('/admin/')) return;
   if (url.pathname.startsWith('/api/')) return;
-
-  // CRITICAL: NAO intercepta requests cross-origin (CDN, fontes google, etc).
-  // O SW tentando clonar Response de CDN dava "Failed to execute 'clone'" e
-  // quebrava scripts tipo markmap-autoloader. Deixa o browser cuidar sozinho —
-  // ele ja faz cache-http padrao com Cache-Control (jsdelivr serve immutable
-  // com max-age=1 ano, entao browser cacheia com eficiencia total).
   if (url.origin !== self.location.origin) return;
 
-  // A partir daqui: SO same-origin (santuarioedu.com.br)
+  // ── Rotas de quiz/estudo: cache separado, mantido entre versoes ──
+  // Estrategia: network-first, mas guarda TUDO num cache dedicado.
+  // Se offline: serve do QUIZ_CACHE. Usuario pode estudar mesmo sem net.
+  if (request.mode === 'navigate' && isRotaQuiz(url.pathname)) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(QUIZ_CACHE).then(c => {
+              // Limita tamanho: guarda ate 50 questoes/paginas recentes
+              c.put(request, clone);
+              _limitarCache(QUIZ_CACHE, 50);
+            });
+          }
+          return response;
+        })
+        .catch(() =>
+          caches.match(request, { cacheName: QUIZ_CACHE })
+            .then(cached => cached || caches.match(OFFLINE_URL))
+        )
+    );
+    return;
+  }
 
   // HTML navigation: network-first, fallback cache -> offline
   if (request.mode === 'navigate') {
@@ -96,6 +125,17 @@ self.addEventListener('fetch', event => {
   );
 });
 
+// ── Helper: limitar tamanho do cache ──────────────────────────────────────────
+async function _limitarCache(cacheName, maxItens) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length > maxItens) {
+    // Remove os mais antigos (primeiros a entrar)
+    const remover = keys.slice(0, keys.length - maxItens);
+    await Promise.all(remover.map(k => cache.delete(k)));
+  }
+}
+
 // ── Push Notifications ────────────────────────────────────────────────────────
 self.addEventListener('push', event => {
   let data = { title: 'SantuarioEdu', body: 'Você tem revisões pendentes!', url: '/dashboard/' };
@@ -103,7 +143,7 @@ self.addEventListener('push', event => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: '/static/quiz/icon-192.svg',  // era .png (nao existe no repo)
+      icon: '/static/quiz/icon-192.svg',
       badge: '/static/quiz/icon-192.svg',
       data: { url: data.url || '/' },
       vibrate: [200, 100, 200],

@@ -117,6 +117,12 @@
           <span class="material-symbols-outlined">flag</span><span>Meu concurso — {{ user.concurso_pref.get_concurso_display|truncatechars:22 }}</span>
         </a>
         {% endif %}
+        <a class="nav-link" href="{% url 'meu_edital' %}">
+          <span class="material-symbols-outlined">assignment</span><span>Meu edital</span>
+        </a>
+        <a class="nav-link" href="{% url 'coach_ia' %}">
+          <span class="material-symbols-outlined">psychology</span><span>Coach IA</span>
+        </a>
 
         <p class="nav-subheader">Praticar</p>
         <a class="nav-link" href="{% url 'escolher_tema' %}">
