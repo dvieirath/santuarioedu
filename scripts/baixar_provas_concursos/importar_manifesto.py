@@ -73,6 +73,10 @@ def main() -> bool:
             if idx in ja_feitos:
                 continue
 
+            # Fallback categoria = "Prova <slug>" (bucket temporario)
+            # + --auto_categoria: IA classifica cada questao em disciplina
+            # real (Direito Const, Matematica, Fisica, etc). Depois passa
+            # pelo reclassificar_por_tema pra pegar as que a IA nao fechou.
             categoria = f"Prova {item['slug']}"
             cmd = [
                 str(PYTHON), "manage.py", "importar_pdf_questoes",
@@ -80,6 +84,7 @@ def main() -> bool:
                 "--gabarito", item["gabarito"],
                 "--banca", item["banca"],
                 "--categoria", categoria,
+                "--auto_categoria",  # <-- fix: IA classifica cada questao por assunto
             ]
             if item.get("ano"):
                 cmd += ["--ano", str(item["ano"])]
