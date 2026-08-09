@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sobre a SantuarioEdu — Aprenda mais em menos tempo</title>
+<meta name="description" content="A SantuarioEdu nasceu pra ser a plataforma que concurseiro brasileiro merece: IA que entende erro, análise personalizada e mensalidade honesta."/>
+<link rel="canonical" href="https://santuarioedu.com.br/sobre/"/>
+<meta property="og:title" content="Sobre a SantuarioEdu"/>
+<meta property="og:description" content="Nossa história, missão e valores."/>
+<meta property="og:type" content="website"/>
+
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>
+  body { font-family:'Inter',sans-serif; background:#fff; }
+  h1,h2,h3,.font-headline { font-family:'Manrope',sans-serif; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400; }
+  .editorial-shadow { box-shadow:0 12px 32px rgba(25,28,29,.05); }
+  .hero-gradient { background:radial-gradient(circle at 80% 20%, #87a0cd33 0%, transparent 60%), radial-gradient(circle at 20% 80%, #86f8c833 0%, transparent 55%), #ffffff; }
+</style>
+{% include "includes/analytics.html" %}
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      {% include "quiz/includes/brand_mark.html" with size="32" %}
+      <span class="text-base font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <a href="{% url 'account_login' %}" class="hidden sm:inline-flex text-sm font-bold text-slate-700 hover:text-primary px-4 py-2 transition-colors">Entrar</a>
+      <a href="{% url 'cadastro' %}" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-[#1b365d] transition-colors">
+        Começar grátis
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero-gradient py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
+    <p class="text-xs font-bold uppercase tracking-[0.25em] text-violet-600 mb-3">Nossa história</p>
+    <h1 class="text-4xl md:text-6xl font-headline font-extrabold text-primary leading-[1.05] tracking-tight mb-5">
+      Feito por concurseiro,<br/>pra <span class="text-secondary">concurseiro que estuda de verdade</span>.
+    </h1>
+    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+      A SantuarioEdu é a plataforma que eu quis ter enquanto passava madrugadas estudando — antes de resolver construir ela.
+    </p>
+  </div>
+</section>
+
+<!-- Nossa história -->
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6 md:px-8 space-y-6">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Origem</p>
+      <h2 class="text-2xl md:text-3xl font-headline font-extrabold text-primary tracking-tight mb-4">Por que ainda outro app de concurso?</h2>
+    </div>
+    <p class="text-slate-700 leading-relaxed">
+      Os apps existentes eram três coisas: <strong class="text-primary">banco de questões cru</strong>,
+      <strong class="text-primary">videoaulas que ninguém assiste até o fim</strong>,
+      ou <strong class="text-primary">PDF-simulador com feedback zero</strong>. Nenhum entendia por que eu errava. Nenhum me dizia o que estudar hoje.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      A ideia foi juntar: <strong class="text-primary">questões oficiais</strong> (Cebraspe, FGV, FCC),
+      <strong class="text-primary">IA que analisa erro por erro</strong> e explica onde você tá tropeçando,
+      <strong class="text-primary">análise por sub-tópico</strong> pra saber exatamente o que revisar,
+      e <strong class="text-primary">preço que não te faz escolher entre almoçar e estudar</strong>.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Não é uma revolução — é o combinado óbvio que ninguém tinha feito ainda pelo público brasileiro.
+    </p>
+  </div>
+</section>
+
+<!-- Missão -->
+<section class="py-16 md:py-24 bg-[#f8f9fa]">
+  <div class="max-w-4xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Missão</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight max-w-2xl mx-auto leading-tight">
+        Reduzir o tempo entre "quero passar" e a nomeação.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-2xl p-6 editorial-shadow">
+        <div class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-blue-600" style="font-size:24px;font-variation-settings:'FILL' 1;">psychology</span>
+        </div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Estudo inteligente</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">A IA entende seu padrão de erro e prioriza o que você precisa. Sem repetir o que você já sabe.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 editorial-shadow">
+        <div class="w-11 h-11 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-emerald-600" style="font-size:24px;font-variation-settings:'FILL' 1;">visibility</span>
+        </div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Transparência real</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Métricas visuais claras — você sempre sabe onde tá forte, onde tá fraco, e o que fazer.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 editorial-shadow">
+        <div class="w-11 h-11 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-amber-600" style="font-size:24px;font-variation-settings:'FILL' 1;">payments</span>
+        </div>
+        <h3 class="font-headline font-extrabold text-primary mb-2">Preço honesto</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">R$14,90/mês. Sem fidelidade. Cancela quando quiser. Plano grátis permanente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Números -->
+<section class="py-16 md:py-24 bg-primary text-white">
+  <div class="max-w-4xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-10">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-200 mb-2">Em números</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tight">Onde estamos hoje</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <p class="font-serif text-4xl md:text-5xl font-bold text-amber-300">{{ total_questoes }}</p>
+        <p class="text-xs text-blue-200 mt-2">Questões oficiais</p>
+      </div>
+      <div class="text-center">
+        <p class="font-serif text-4xl md:text-5xl font-bold text-amber-300">{{ total_users }}</p>
+        <p class="text-xs text-blue-200 mt-2">Usuários cadastrados</p>
+      </div>
+      <div class="text-center">
+        <p class="font-serif text-4xl md:text-5xl font-bold text-amber-300">{{ total_respostas }}</p>
+        <p class="text-xs text-blue-200 mt-2">Questões respondidas</p>
+      </div>
+      <div class="text-center">
+        <p class="font-serif text-4xl md:text-5xl font-bold text-amber-300">{{ total_simulados }}</p>
+        <p class="text-xs text-blue-200 mt-2">Simulados finalizados</p>
+      </div>
+    </div>
+    <p class="text-xs text-blue-300 text-center mt-8">
+      Dados atualizados em tempo real desde o cadastro do primeiro usuário.
+    </p>
+  </div>
+</section>
+
+<!-- Valores -->
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-10">
+      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Nossos princípios</p>
+      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight">O que a gente promete</h2>
+    </div>
+
+    <div class="space-y-6">
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-1" style="font-size:24px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <div>
+          <h3 class="font-headline font-extrabold text-primary mb-1">Sem enganação</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Zero email marketing invasivo. Sem letra miúda em contrato. Sem "grátis por 7 dias" que renova automaticamente na cara.</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-1" style="font-size:24px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <div>
+          <h3 class="font-headline font-extrabold text-primary mb-1">LGPD compliance sério</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Seus dados não são revendidos. Senhas com hash irreversível. Exportação e exclusão total em 1 clique.</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-1" style="font-size:24px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <div>
+          <h3 class="font-headline font-extrabold text-primary mb-1">Cancelamento instantâneo</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Um botão. Sem ligar pro SAC. Sem "por favor não vá". Você continua com acesso até o fim do ciclo pago.</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-secondary shrink-0 mt-1" style="font-size:24px;font-variation-settings:'FILL' 1;">check_circle</span>
+        <div>
+          <h3 class="font-headline font-extrabold text-primary mb-1">IA como apoio, não muleta</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">A IA explica seus erros e sugere caminhos — mas sempre com fontes oficiais reais (leis, súmulas, jurisprudência).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="py-16 md:py-24 bg-secondary text-white text-center">
+  <div class="max-w-2xl mx-auto px-6 md:px-8">
+    <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-4 tracking-tight">
+      Bora começar?
+    </h2>
+    <p class="text-emerald-100 text-base md:text-lg mb-6">
+      Cria conta em 30 segundos. Sem cartão. Plano gratuito permanente.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="pagina_sobre" class="inline-flex items-center gap-2 bg-white text-secondary px-6 py-3.5 rounded-full text-base font-bold hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">rocket_launch</span>
+        Criar conta grátis
+      </a>
+      <a href="{% url 'guest_quiz' %}" data-ga-event="guest_quiz_started" data-ga-source="pagina_sobre" class="inline-flex items-center gap-2 text-white/90 hover:text-white px-5 py-3 rounded-full text-sm font-semibold underline underline-offset-4">
+        Testar 3 questões sem cadastro
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#0a1929] text-blue-200 py-12">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 text-center text-xs">
+    <p class="mb-2">SantuarioEdu · Plataforma de estudos com IA</p>
+    <div class="space-x-3">
+      <a href="/" class="hover:text-white transition-colors">Início</a>
+      <span>·</span>
+      <a href="{% url 'faq' %}" class="hover:text-white transition-colors">FAQ</a>
+      <span>·</span>
+      <a href="{% url 'politica_privacidade' %}" class="hover:text-white transition-colors">Privacidade</a>
+      <span>·</span>
+      <a href="{% url 'termos_uso' %}" class="hover:text-white transition-colors">Termos</a>
+    </div>
+    <p class="mt-4 text-blue-400">© SantuarioEdu · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+</body>
+</html>

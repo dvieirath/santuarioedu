@@ -124,16 +124,38 @@ quiz/                      App principal
 ### 🤖 IA & Análises
 
 **Assistentes IA:**
-- **Resumos** — resumo Markdown por disciplina (5-8 conceitos, macetes, pontos de atenção)
+- **Coach IA conversacional** (`/coach/`) — chat 1-a-1 estilo WhatsApp com contexto do concurso
+- **Coach anotações** (`/coach/anotacoes/`) — caderneta pessoal com mensagens salvas
+- **Análise semanal automática** — coach envia resumo domingo (cron)
+- **Meta-lembretes IA** — coach proativo se streak em risco / prova próxima / ausência
+- **Resumos** — resumo Markdown por disciplina (5-8 conceitos, macetes)
 - **Mapas mentais** — Mermaid `mindmap` renderizado no browser
-- **Análise da banca** — IA insight sobre o padrão da banca do concurso preferido
+- **Meu Edital** (`/meu-edital/`) — user cola edital, IA extrai disciplinas + gera cronograma personalizado
+- **Análise IA aprofundada** (edital comentado, tendências, comparativo, estratégia) por concurso
+- **Análise da banca** — insight sobre padrão da banca do concurso preferido
 - **Análise dos erros** — pattern-recognition dos erros do usuário
 - **Previsão de tópicos** — % de probabilidade por categoria
 - **Plano de estudos IA** — cronograma sob medida
 
+**Hub de Preparação** (`/preparacao/<slug>/`) — 8 blocos por concurso:
+1. Dias pra prova + total questões + materiais
+2. Análise de incidência (% por disciplina, real-time)
+3. Priorização inteligente (gaps × incidência)
+4. Sub-tópicos mais cobrados
+5. Análise da banca (estilo, pegadinhas, tempo)
+6. Cronograma personalizado (horas/dia × disciplina)
+7. Materiais de estudo por disciplina
+8. Análises IA aprofundadas (edital, tendências, etc)
+
+**Intelligence adicional:**
+- **Curva de Esquecimento** (`/curva-esquecimento/`) — retenção estimada por disciplina (Ebbinghaus + SM-2)
+- **Progresso do Edital Vivo** (`/progresso-edital-vivo/`) — checklist automatizado dos tópicos do Meu Edital
+- **Análise Detalhada Simulado** (`/simulado/<id>/analise/`) — stats por disciplina, tempo médio, comparativo
+- **Simulado sob Medida IA** (`/simulado/sob-medida/`) — IA identifica gaps e monta simulado 20q personalizado
+
 **Materiais de apoio:**
 - **Timelines de leis** — evolução histórica com alterações datadas
-- **Comparativo entre bancas** — como cada banca aborda cada tema (estilo, dificuldade, pegadinhas, formato)
+- **Comparativo entre bancas** — como cada banca aborda cada tema
 - **Glossário** — termos técnicos com definição + exemplo de uso
 
 **Meu desempenho:**
@@ -146,7 +168,28 @@ quiz/                      App principal
 
 ### 👥 Social
 
-- Grupos de estudo · Ranking global · Compartilhar progresso
+- Grupos de estudo com feed de atividade (conquistas, simulados, streaks dos membros)
+- Ranking global · Ranking por concurso preferido (`/ranking-concurso/<slug>/`)
+- Compartilhar progresso · Share individual de conquistas (`/conquista/<codigo>/compartilhar/`)
+- Perfil público (`/u/<username>/`) — página compartilhável em redes sociais
+- Sistema de convite/referral com XP bônus pra convidador + convidado
+
+### 🎨 Retention & Gamification
+
+- **26 conquistas** desbloqueáveis (5 raridades: comum → lendária)
+- **Streak** diário + streak freezes (Duolingo-style)
+- **Trial badge** countdown adaptativo (verde → amber → rose urgente)
+- **Onboarding checklist** primeiros 7 dias com XP progressivo
+- **Confetti + micro-interações** ao subir de nível / desbloquear conquista
+- **Modo intensivo** por disciplina (`/intensivo/<cat_id>/`) — sessão pomodoro-style 15-90min
+
+### 🌐 Marketing & Aquisição
+
+- **Landing pages SEO por concurso** (`/concurso/<slug>/`) — 7 concursos indexáveis
+- **Guest Quiz Mode** (`/testar/`) — demo 3 questões sem cadastro
+- **Modal upgrade contextual** quando user free bate limite
+- **Página /sobre/** institucional com missão + valores + números reais
+- Sitemap.xml dinâmico + Schema.org + Open Graph em todas as landings
 
 ### ⚙️ Conta
 
@@ -158,9 +201,18 @@ quiz/                      App principal
 
 ### 🔧 Admin
 
+- **Dashboard do fundador** (`/admin-status/`) — snapshot de saúde do sistema (users, questões, atividade, imports em andamento, erros)
+- **Métricas de negócio** (`/admin-metricas/`) — receita, conversão, planos
 - Painel de revisão de questões (`/admin-revisao/`) — fluxo humano rápido
-- Métricas de plataforma
 - Django Admin completo
+
+### 📱 Mobile & PWA
+
+- **PWA instalável** — 1 clique no browser, sem loja de app
+- **Service Worker v8** com cache dedicado de questões
+- **Modo offline robusto** — até 50 páginas cacheadas pra estudar sem net
+- **Push notifications** para lembretes de revisão
+- **Nav mobile hamburger** responsiva
 
 ## Modelos de dados principais
 
@@ -204,6 +256,25 @@ Rodar com `python manage.py <nome>`:
 | `enviar_lembretes` | Push/email para usuários com streak em risco |
 | `enviar_digest_semanal` | Relatório semanal por email |
 | `backup_dados` | Dump JSON para backup |
+| `importar_todas_pastas_pendentes` | Import batch de PDFs em `provas_pdf/materia_prima/*/` que ainda não foram para o BD |
+| `importar_questoes` | Import de arquivo JSON com questões (formato interno da app) |
+| `exportar_questoes_json` | Export do BD → JSON no formato aceito por `importar_questoes` |
+| `reclassificar_por_tema` | Reclassifica questões com categoria=nome de prova em temas corretos (keywords + IA fallback) |
+| `validar_integridade_questoes` | Detecta ME sem correta / com 2 corretas / com <2 alternativas; opção `--fix` marca revisada=False |
+| `gerar_materiais_ia_concurso` | Gera resumos + mapas mentais IA por disciplina de um concurso |
+| `gerar_analise_ia_concurso` | Gera 4 análises IA por concurso (edital, tendências, comparativo, estratégia) |
+| `enviar_lembretes_ia_coach` | Coach envia lembretes proativos (streak/prova/ausência) via IA |
+| `analise_semanal_coach` | Coach gera análise semanal automática domingos (cron) |
+| `repor_streak_freezes` | Reset semanal do saldo de streak freezes (cron: `0 6 * * 1`) |
+
+**Scripts fora do fluxo Django:**
+
+| Localização | Função |
+|---|---|
+| `scripts/baixar_provas_concursos/` | Baixador de PDFs Cebraspe/FGV + importador em série via manifesto.json |
+| `scripts/baixar_provas_concursos/loop_importar.py` | Wrapper que roda importar_manifesto em loop com retry pra cota IA |
+| `scripts/manutencao/` | Fix/check pontuais (imagens, sidebars, questões corrompidas) |
+| `scripts/dados/` | Importações manuais one-off (ENEM 1999, PF Agente 2025) |
 
 ## Setup local
 

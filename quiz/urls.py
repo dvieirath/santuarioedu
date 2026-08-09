@@ -54,8 +54,10 @@ urlpatterns = [
     path('legal/privacidade/', views.politica_privacidade, name='politica_privacidade'),
     path('legal/termos/',      views.termos_uso,            name='termos_uso'),
     path('faq/',               views.faq,                   name='faq'),
+    path('sobre/',             views.sobre,                 name='sobre'),
     path('cupom/aplicar/',     views.aplicar_cupom,         name='aplicar_cupom'),
     path('admin-metricas/',    views.metricas_negocio,      name='admin_metricas'),
+    path('admin-status/',      views.admin_status,          name='admin_status'),
 
     # Suporte
     path('suporte/',                 views.suporte_lista,       name='suporte_lista'),

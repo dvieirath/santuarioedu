@@ -738,14 +738,25 @@ def dashboard(request):
         _log_falha('ultimos_simulados', e)
 
     # ── Melhores / piores disciplinas ────────────────────────────────
+    # Otimizacao: 1 query agregada em vez de N queries por categoria.
     try:
-        por_cat = []
-        for cat in Categoria.objects.all():
-            r = respostas.filter(questao__categoria=cat)
-            t = r.count()
-            if t >= 5:
-                a = r.filter(acertou=True).count()
-                por_cat.append({'nome': cat.nome, 'pct': round(a / t * 100), 'total': t})
+        from django.db.models import Count, Q
+        stats_cat = (respostas
+            .values('questao__categoria_id', 'questao__categoria__nome')
+            .annotate(
+                total=Count('id'),
+                acertos=Count('id', filter=Q(acertou=True)),
+            )
+            .filter(total__gte=5)
+            .order_by())
+        por_cat = [
+            {
+                'nome':  s['questao__categoria__nome'] or '—',
+                'pct':   round(s['acertos'] / s['total'] * 100),
+                'total': s['total'],
+            }
+            for s in stats_cat
+        ]
         por_cat.sort(key=lambda x: x['pct'], reverse=True)
         ctx['melhores'] = por_cat[:3]
         ctx['piores'] = sorted(por_cat, key=lambda x: x['pct'])[:3]
@@ -3899,14 +3910,17 @@ def perfil_publico(request, username):
     except MetaEstudo.DoesNotExist:
         meta = None
 
-    # Top disciplinas
-    por_cat = []
-    for cat in Categoria.objects.all():
-        r = respostas.filter(questao__categoria=cat)
-        t = r.count()
-        if t >= 5:
-            a = r.filter(acertou=True).count()
-            por_cat.append({'nome': cat.nome, 'pct': round(a/t*100), 'total': t})
+    # Top disciplinas — 1 query agregada em vez de N por categoria
+    from django.db.models import Count, Q
+    stats = (respostas
+        .values('questao__categoria__nome')
+        .annotate(total=Count('id'), acertos=Count('id', filter=Q(acertou=True)))
+        .filter(total__gte=5))
+    por_cat = [{
+        'nome': s['questao__categoria__nome'] or '—',
+        'pct':  round(s['acertos'] / s['total'] * 100),
+        'total': s['total'],
+    } for s in stats]
     por_cat.sort(key=lambda x: x['pct'], reverse=True)
 
     try:
@@ -10519,3 +10533,120 @@ def guest_quiz_reset(request):
     for k in ('guest_respondidas', 'guest_acertos'):
         request.session.pop(k, None)
     return redirect('guest_quiz')
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# ADMIN STATUS — dashboard do fundador
+# ═══════════════════════════════════════════════════════════════════════════
+
+@login_required(login_url='account_login')
+@user_passes_test(_is_staff, login_url='home')
+def admin_status(request):
+    """Dashboard interno do fundador: metricas de saude do sistema."""
+    from django.contrib.auth import get_user_model
+    from django.db.models import Count, Q
+    from datetime import timedelta
+
+    User = get_user_model()
+    hoje = timezone.now()
+    ontem = hoje - timedelta(days=1)
+    semana = hoje - timedelta(days=7)
+    mes = hoje - timedelta(days=30)
+
+    # Users
+    total_users = User.objects.count()
+    users_semana = User.objects.filter(date_joined__gte=semana).count()
+    users_ativos_semana = RespostaUsuario.objects.filter(
+        data__gte=semana
+    ).values('usuario').distinct().count()
+
+    # Questoes
+    q_total = Questao.objects.count()
+    q_revisadas = Questao.objects.filter(revisada=True).count()
+    q_pendentes = Questao.objects.filter(revisada=False, rejeitada_definitiva=False).count()
+    q_rejeitadas = Questao.objects.filter(rejeitada_definitiva=True).count()
+    q_ia = Questao.objects.filter(gerada_por_ia=True).count()
+
+    # Por tipo
+    q_me = Questao.objects.filter(revisada=True, tipo='ME').count()
+    q_ce = Questao.objects.filter(revisada=True, tipo='CE').count()
+
+    # Atividade
+    respostas_hoje = RespostaUsuario.objects.filter(data__gte=ontem).count()
+    respostas_semana = RespostaUsuario.objects.filter(data__gte=semana).count()
+    simulados_semana = Simulado.objects.filter(iniciado_em__gte=semana).count()
+
+    # Planos
+    from .models import PlanoUsuario
+    pro_ativos = PlanoUsuario.objects.filter(plano='pro', ativo=True).count()
+    premium_ativos = PlanoUsuario.objects.filter(plano='premium', ativo=True).count()
+
+    # Top disciplinas com questoes
+    top_disc = []
+    for cat in Categoria.objects.filter(parent__isnull=True):
+        n = Questao.objects.filter(categoria_id__in=cat.subarvore_ids(), revisada=True).count()
+        if n > 0:
+            top_disc.append({'nome': cat.nome, 'total': n})
+    top_disc.sort(key=lambda x: -x['total'])
+    top_disc = top_disc[:10]
+
+    # Import em progresso (loop_importar.py)
+    import_status = None
+    try:
+        import json as _json
+        with open('provas_pdf/materia_prima/import_progresso.json') as f:
+            prog = _json.load(f)
+        n_concluidos = len(prog.get('concluidos_idx', []))
+        # Le manifesto pra ver total
+        try:
+            with open('provas_pdf/materia_prima/manifesto.json') as f:
+                total_manifesto = len(_json.load(f))
+        except Exception:
+            total_manifesto = 451  # fallback conhecido
+        import_status = {
+            'concluidos': n_concluidos,
+            'total':      total_manifesto,
+            'pct':        round(n_concluidos / total_manifesto * 100) if total_manifesto else 0,
+        }
+    except Exception:
+        pass
+
+    # Erros recentes (LogSistema)
+    from .models import LogSistema
+    erros_recentes = LogSistema.objects.filter(nivel='ERRO').order_by('-criado_em')[:5]
+
+    return render(request, 'quiz/admin_status.html', {
+        'total_users':          total_users,
+        'users_semana':         users_semana,
+        'users_ativos_semana':  users_ativos_semana,
+        'q_total':              q_total,
+        'q_revisadas':          q_revisadas,
+        'q_pendentes':          q_pendentes,
+        'q_rejeitadas':         q_rejeitadas,
+        'q_ia':                 q_ia,
+        'q_me':                 q_me,
+        'q_ce':                 q_ce,
+        'respostas_hoje':       respostas_hoje,
+        'respostas_semana':     respostas_semana,
+        'simulados_semana':     simulados_semana,
+        'pro_ativos':           pro_ativos,
+        'premium_ativos':       premium_ativos,
+        'top_disc':             top_disc,
+        'import_status':        import_status,
+        'erros_recentes':       erros_recentes,
+    })
+
+
+def sobre(request):
+    """Pagina publica: sobre nos, missao, valores."""
+    from .models import Questao, Simulado, RespostaUsuario
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    ctx = {
+        'total_questoes':   Questao.objects.filter(revisada=True).count(),
+        'total_users':      User.objects.count(),
+        'total_respostas':  RespostaUsuario.objects.count(),
+        'total_simulados':  Simulado.objects.filter(finalizado=True).count(),
+    }
+    return render(request, 'sobre.html', ctx)
