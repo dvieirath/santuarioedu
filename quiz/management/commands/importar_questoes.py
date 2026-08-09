@@ -35,10 +35,42 @@ Uso:
 """
 import json
 import os
+import time
 from django.core.management.base import BaseCommand, CommandError
-from django.db import transaction
+from django.db import transaction, connections, OperationalError
 
 from quiz.models import Questao, Alternativa, Categoria
+
+
+def _reconectar_db():
+    """
+    Reabre conexoes Postgres. Railway free tier fecha conexoes idle
+    durante batches longos (~30s+). Sem isso, o comando cai com
+    'server closed connection unexpectedly'.
+    """
+    for conn in connections.all():
+        try:
+            conn.close_if_unusable_or_obsolete()
+            conn.ensure_connection()
+        except Exception:
+            try:
+                conn.close()
+            except Exception:
+                pass
+
+
+def _retry_on_disconnect(func, *args, max_retries=3, **kwargs):
+    """Executa func com retry em caso de OperationalError (conn fechada)."""
+    for tentativa in range(max_retries):
+        try:
+            return func(*args, **kwargs)
+        except OperationalError as e:
+            if 'closed' in str(e).lower() or 'connection' in str(e).lower():
+                if tentativa < max_retries - 1:
+                    time.sleep(2 ** tentativa)  # backoff: 1, 2, 4s
+                    _reconectar_db()
+                    continue
+            raise
 
 
 class Command(BaseCommand):
@@ -217,13 +249,31 @@ class Command(BaseCommand):
         total = len(dados)
         for batch_start in range(0, total, batch_size):
             batch_end = min(batch_start + batch_size, total)
-            with transaction.atomic():
-                for idx in range(batch_start + 1, batch_end + 1):
-                    item = dados[idx - 1]
-                    if _processar_item(idx, item):
-                        criadas += 1
-                if dry_run:
-                    transaction.set_rollback(True)
+
+            # Reconecta antes de cada batch (evita conn fechada apos idle)
+            _reconectar_db()
+
+            def _rodar_batch():
+                nonlocal criadas
+                with transaction.atomic():
+                    for idx in range(batch_start + 1, batch_end + 1):
+                        item = dados[idx - 1]
+                        if _processar_item(idx, item):
+                            criadas += 1
+                    if dry_run:
+                        transaction.set_rollback(True)
+
+            # Retry com reconexao em caso de OperationalError
+            try:
+                _retry_on_disconnect(_rodar_batch)
+            except OperationalError as e:
+                self.stdout.write(self.style.ERROR(
+                    f'✗ Lote {batch_start}-{batch_end} falhou apos retries: {e}'
+                ))
+                self.stdout.write(self.style.WARNING(
+                    'Continuando com proximo batch (dedup por hash evita duplicatas)'
+                ))
+                continue
 
             # Progresso a cada batch (util em batches longos)
             if not dry_run and total > batch_size:
