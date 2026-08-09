@@ -12,11 +12,13 @@ class PaginasPublicasSitemap(Sitemap):
     def items(self):
         return [
             ('home', 1.0, 'weekly'),
+            ('sobre', 0.9, 'monthly'),
             ('faq', 0.8, 'monthly'),
             ('politica_privacidade', 0.5, 'yearly'),
             ('termos_uso', 0.5, 'yearly'),
             ('cadastro', 0.9, 'monthly'),
             ('guest_quiz', 0.9, 'weekly'),
+            ('blog_lista', 0.9, 'weekly'),
         ]
 
     def location(self, item):
@@ -42,3 +44,23 @@ class ConcursosLandingSitemap(Sitemap):
 
     def location(self, slug):
         return reverse('landing_concurso', args=[slug])
+
+
+class BlogSitemap(Sitemap):
+    """Posts do blog publicados — priority alta pra Google indexar."""
+    changefreq = 'weekly'
+    priority = 0.8
+    protocol = 'https'
+
+    def items(self):
+        from quiz.models import PostBlog
+        from django.utils import timezone
+        return PostBlog.objects.filter(
+            publicado=True, publicado_em__lte=timezone.now(),
+        )
+
+    def location(self, post):
+        return reverse('blog_detalhe', args=[post.slug])
+
+    def lastmod(self, post):
+        return post.atualizado_em

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ post.titulo }} — Blog SantuarioEdu</title>
+<meta name="description" content="{{ post.resumo }}"/>
+<link rel="canonical" href="https://santuarioedu.com.br/blog/{{ post.slug }}/"/>
+<meta property="og:title" content="{{ post.titulo }}"/>
+<meta property="og:description" content="{{ post.resumo }}"/>
+<meta property="og:type" content="article"/>
+{% if post.imagem_capa %}<meta property="og:image" content="{{ post.imagem_capa.url }}"/>{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.titulo|escapejs }}",
+  "description": "{{ post.resumo|escapejs }}",
+  "datePublished": "{{ post.publicado_em|date:'c' }}",
+  "dateModified": "{{ post.atualizado_em|date:'c' }}",
+  "author": {"@type": "Person", "name": "{{ post.autor.first_name|default:post.autor.username|default:'SantuarioEdu' }}"},
+  "publisher": {"@type": "Organization", "name": "SantuarioEdu", "url": "https://santuarioedu.com.br"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://santuarioedu.com.br/blog/{{ post.slug }}/"}
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<script src="{% static 'js/marked.min.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>
+  body{font-family:'Inter',sans-serif;background:#fff}
+  h1,h2,h3,.font-headline{font-family:'Manrope',sans-serif}
+  .prose{max-width:none}
+  .prose h2{font-family:'Manrope',sans-serif;font-weight:800;color:#002046;margin-top:2em;margin-bottom:0.5em}
+  .prose h3{font-family:'Manrope',sans-serif;font-weight:700;color:#1b365d;margin-top:1.5em;margin-bottom:0.5em}
+  .prose p{line-height:1.75;margin:1em 0;color:#334155}
+  .prose ul,.prose ol{margin:1em 0;padding-left:1.5em}
+  .prose li{margin:0.4em 0;color:#334155}
+  .prose code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:0.9em}
+  .prose blockquote{border-left:3px solid #002046;padding-left:1em;font-style:italic;color:#475569}
+  .prose a{color:#002046;text-decoration:underline}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/blog/" class="flex items-center gap-2 text-primary">
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span class="text-sm font-bold">Blog</span>
+    </a>
+    <a href="/cadastro/" class="bg-primary text-white px-4 py-2 rounded-full text-sm font-bold">Criar conta</a>
+  </div>
+</header>
+
+<article class="max-w-3xl mx-auto px-6 py-12">
+  {% if post.tags %}
+  <div class="flex flex-wrap gap-1.5 mb-4">
+    {% for tag in post.tags.split %}
+    <span class="text-[10px] font-bold uppercase tracking-wider bg-violet-100 text-violet-700 px-2 py-1 rounded-full">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <h1 class="font-headline text-3xl md:text-5xl font-extrabold text-primary leading-tight mb-4">{{ post.titulo }}</h1>
+  <p class="text-xl text-slate-600 mb-6">{{ post.resumo }}</p>
+
+  <p class="text-xs text-slate-400 mb-8 pb-6 border-b border-[#edeeef]">
+    Publicado em {{ post.publicado_em|date:"d 'de' F 'de' Y" }}
+    {% if post.autor %} · por {{ post.autor.first_name|default:post.autor.username }}{% endif %}
+    · Atualizado {{ post.atualizado_em|timesince }} atrás
+  </p>
+
+  {% if post.imagem_capa %}
+  <img src="{{ post.imagem_capa.url }}" alt="{{ post.titulo }}" class="w-full h-64 object-cover rounded-2xl mb-8"/>
+  {% endif %}
+
+  <div class="prose" id="corpo-post"></div>
+  <script>
+    document.getElementById('corpo-post').innerHTML = marked.parse({{ post.corpo|escapejs|default:'""'|safe }});
+  </script>
+
+  {% if relacionados %}
+  <div class="mt-16 pt-8 border-t border-[#edeeef]">
+    <h3 class="font-headline font-extrabold text-primary text-xl mb-4">Continue lendo</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+      {% for r in relacionados %}
+      <a href="{% url 'blog_detalhe' r.slug %}" class="block bg-white border border-[#edeeef] rounded-xl p-4 hover:border-primary/30 transition-colors">
+        <h4 class="font-headline font-extrabold text-primary text-sm mb-1">{{ r.titulo }}</h4>
+        <p class="text-xs text-slate-500">{{ r.resumo|truncatechars:80 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- CTA -->
+  <div class="mt-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-2xl p-8 text-center">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-blue-200 mb-2">Continue estudando</p>
+    <h3 class="font-headline text-2xl font-extrabold mb-3">Comece grátis agora</h3>
+    <p class="text-blue-200 text-sm mb-5">Banco de questões oficiais, IA que analisa seus erros, análise por sub-tópico.</p>
+    <a href="/cadastro/" class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
+      Criar conta grátis
+    </a>
+  </div>
+</article>
+
+<footer class="bg-[#0a1929] text-blue-200 py-8 mt-16">
+  <div class="max-w-3xl mx-auto px-6 text-center text-xs">
+    <p class="mb-2">SantuarioEdu — Plataforma de estudos com IA</p>
+    <div class="space-x-3">
+      <a href="/" class="hover:text-white">Início</a> · <a href="/blog/" class="hover:text-white">Blog</a> · <a href="{% url 'sobre' %}" class="hover:text-white">Sobre</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

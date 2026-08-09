@@ -5,11 +5,12 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from quiz import views as quiz_views
 from . import views as core_views
-from .sitemaps import PaginasPublicasSitemap, ConcursosLandingSitemap
+from .sitemaps import PaginasPublicasSitemap, ConcursosLandingSitemap, BlogSitemap
 
 SITEMAPS = {
     'paginas':   PaginasPublicasSitemap,
     'concursos': ConcursosLandingSitemap,
+    'blog':      BlogSitemap,
 }
 
 urlpatterns = [

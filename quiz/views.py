@@ -3152,8 +3152,10 @@ def favoritas(request):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def toggle_favorita(request, questao_id):
-    """Alterna favorita. Exige POST — nunca GET (evita prefetch acidental)."""
+    """Alterna favorita. Exige POST — nunca GET (evita prefetch acidental).
+    Rate limit: 60 favoritas/min por user (evita bot spam)."""
     questao = get_object_or_404(Questao, id=questao_id)
     fav, criada = QuestaoFavorita.objects.get_or_create(
         usuario=request.user, questao=questao
@@ -3478,9 +3480,11 @@ def conquistas(request):
 
 @login_required(login_url='account_login')
 @require_http_methods(['GET', 'POST'])
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_anotacao(request, questao_id):
     """GET: le anotacao. POST: salva/deleta. Bloqueia outros metodos (PUT/DELETE
-    acidentais). Prefetch do browser usa GET, entao mantido — mas so leitura."""
+    acidentais). Prefetch do browser usa GET, entao mantido — mas so leitura.
+    Rate limit: 30 anotacoes/min por user (evita spam)."""
     questao = get_object_or_404(Questao, id=questao_id)
     if request.method == 'POST':
         try:
@@ -9405,8 +9409,10 @@ def suporte_detalhe(request, ticket_id):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_marcar_questao(request, questao_id):
-    """Toggle marcar/desmarcar uma questão pra revisar depois."""
+    """Toggle marcar/desmarcar uma questão pra revisar depois.
+    Rate limit: 60/min (evita spam)."""
     from .models import QuestaoMarcada, Questao
     q = get_object_or_404(Questao, id=questao_id)
     marca, criado = QuestaoMarcada.objects.get_or_create(
@@ -10047,9 +10053,11 @@ def api_revisao_duplicatas(request, questao_id):
 # ══════════════════════════════════════════════════════════════════════════════
 
 @login_required
+@ratelimit(key='user', rate='30/m', method='GET', block=True)
 def api_search_global(request):
     """
     Busca global: consulta categorias, questões e resumos IA.
+    Rate limit: 30 buscas/min (evita scrape).
     Retorna JSON com até 15 hits ordenados por relevância implícita
     (categoria > resumo > questão).
     """
@@ -10650,3 +10658,48 @@ def sobre(request):
         'total_simulados':  Simulado.objects.filter(finalizado=True).count(),
     }
     return render(request, 'sobre.html', ctx)
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# BLOG — posts institucionais / SEO
+# ═══════════════════════════════════════════════════════════════════════════
+
+def blog_lista(request):
+    """Lista publicada de posts. SEO-friendly."""
+    from .models import PostBlog
+    from django.utils import timezone
+    posts = PostBlog.objects.filter(
+        publicado=True,
+        publicado_em__lte=timezone.now(),
+    ).select_related('autor')
+    return render(request, 'blog_lista.html', {'posts': posts})
+
+
+def blog_detalhe(request, slug):
+    """Detalhe de um post. Suporta markdown no corpo."""
+    from django.shortcuts import get_object_or_404
+    from .models import PostBlog
+    from django.utils import timezone
+
+    post = get_object_or_404(
+        PostBlog, slug=slug, publicado=True,
+        publicado_em__lte=timezone.now(),
+    )
+
+    # Relacionados: posts com tags em comum
+    tags = [t.strip() for t in post.tags.split(',') if t.strip()]
+    relacionados = []
+    if tags:
+        from django.db.models import Q
+        filtro = Q()
+        for t in tags:
+            filtro |= Q(tags__icontains=t)
+        relacionados = list(
+            PostBlog.objects.filter(filtro, publicado=True)
+            .exclude(id=post.id)[:3]
+        )
+
+    return render(request, 'blog_detalhe.html', {
+        'post':         post,
+        'relacionados': relacionados,
+    })

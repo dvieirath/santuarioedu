@@ -183,6 +183,16 @@ class Questao(models.Model):
             return 'em_correcao'
         return 'pendente'
 
+    class Meta:
+        indexes = [
+            # Query hot em quiz/simulado: revisada=True + categoria
+            models.Index(fields=['revisada', 'categoria']),
+            # Query hot em filtro por tipo (banca style)
+            models.Index(fields=['revisada', 'tipo']),
+            # Query hot em rejeitadas_definitiva check
+            models.Index(fields=['revisada', 'rejeitada_definitiva']),
+        ]
+
     def __str__(self):
         return self.texto
 
@@ -198,7 +208,15 @@ class RespostaUsuario(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     questao = models.ForeignKey(Questao, on_delete=models.CASCADE)
     acertou = models.BooleanField()
-    data = models.DateTimeField(auto_now_add=True)
+    data = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        indexes = [
+            # Query hot no dashboard: respostas do user ordenadas por data
+            models.Index(fields=['usuario', '-data']),
+            # Query hot no ranking: acertos por user
+            models.Index(fields=['usuario', 'acertou']),
+        ]
 
 class MaterialEstudo(models.Model):
     titulo = models.CharField(max_length=200)
@@ -1754,3 +1772,53 @@ class MensagemCoachIA(models.Model):
 
     def __str__(self):
         return f'{self.usuario.username} [{self.papel}] {self.criado_em:%d/%m %H:%M}'
+
+
+class PostBlog(models.Model):
+    """
+    Posts do blog institucional pra SEO (concurso, dicas, edital comentado).
+    Editor no /admin/. Public em /blog/ e /blog/<slug>/.
+    """
+    titulo      = models.CharField(max_length=200)
+    slug        = models.SlugField(max_length=200, unique=True,
+        help_text='URL amigavel (auto se vazio)')
+    resumo      = models.CharField(max_length=300,
+        help_text='2-3 linhas — usado em og:description + card')
+    corpo       = models.TextField(help_text='Markdown suportado')
+    imagem_capa = models.ImageField(upload_to='blog/', blank=True, null=True)
+    autor       = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,
+                                     related_name='posts_blog')
+    tags        = models.CharField(max_length=200, blank=True, default='',
+        help_text='Tags separadas por virgula (ex: prf, edital, dicas)')
+
+    # Concursos alvo — pra cross-link com landing pages
+    concursos_relacionados = models.CharField(max_length=100, blank=True, default='',
+        help_text='Slugs de concursos separados por virgula (prf, inss, ...)')
+
+    publicado    = models.BooleanField(default=False,
+        help_text='Se False, so admin ve')
+    publicado_em = models.DateTimeField(null=True, blank=True,
+        help_text='Setar futuro pra agendar')
+    criado_em    = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-publicado_em', '-criado_em']
+        indexes = [
+            models.Index(fields=['-publicado_em', 'publicado']),
+        ]
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            self.slug = slugify(self.titulo)[:200]
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.titulo
+
+    @property
+    def esta_publicado(self):
+        from django.utils import timezone
+        return (self.publicado and self.publicado_em
+                and self.publicado_em <= timezone.now())

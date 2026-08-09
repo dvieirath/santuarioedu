@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Blog — SantuarioEdu · Dicas de concurso e edital comentado</title>
+<meta name="description" content="Guias, análises de edital, dicas de estudo pra PRF, PF, INSS, TJ. Feito por quem estuda pra concurso."/>
+<link rel="canonical" href="https://santuarioedu.com.br/blog/"/>
+<meta property="og:title" content="Blog SantuarioEdu"/>
+<meta property="og:description" content="Guias e dicas pra concursos públicos."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
+<script src="{% static 'quiz/tailwind.js' %}"></script>
+<link href="{% static 'quiz/fonts/inter.css' %}" rel="stylesheet"/>
+<link href="{% static 'quiz/fonts/material-symbols.css' %}" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:"#002046", "primary-container":"#1b365d", secondary:"#006c4d" },
+  fontFamily: { headline:["Manrope"], body:["Inter"] }
+}}}
+</script>
+<style>body{font-family:'Inter',sans-serif;background:#fff}h1,h2,h3,.font-headline{font-family:'Manrope',sans-serif}</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-[#edeeef]">
+  <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 text-primary">
+      <span class="material-symbols-outlined active-icon" style="font-size:22px;font-variation-settings:'FILL' 1;">school</span>
+      <span class="text-base font-extrabold uppercase tracking-widest font-headline">SantuarioEdu</span>
+    </a>
+    <a href="/cadastro/" class="bg-primary text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-primary-container transition-colors">Criar conta grátis</a>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+  <div class="mb-10">
+    <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Blog</p>
+    <h1 class="text-4xl md:text-5xl font-headline font-extrabold text-primary tracking-tight mb-3">
+      Guias, editais e dicas de concurso
+    </h1>
+    <p class="text-slate-600">Conteúdo prático pra quem estuda de verdade.</p>
+  </div>
+
+  {% if posts %}
+  <div class="grid md:grid-cols-2 gap-6">
+    {% for p in posts %}
+    <a href="{% url 'blog_detalhe' p.slug %}" class="group block bg-white border border-[#edeeef] rounded-2xl p-6 hover:border-primary/30 transition-colors">
+      {% if p.imagem_capa %}
+      <img src="{{ p.imagem_capa.url }}" alt="{{ p.titulo }}" class="w-full h-40 object-cover rounded-xl mb-4"/>
+      {% endif %}
+      {% if p.tags %}
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        {% for tag in p.tags.split %}
+        <span class="text-[10px] font-bold uppercase tracking-wider bg-violet-100 text-violet-700 px-2 py-0.5 rounded">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <h2 class="font-headline font-extrabold text-primary text-xl mb-2 group-hover:text-primary-container transition-colors">{{ p.titulo }}</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">{{ p.resumo }}</p>
+      <p class="text-xs text-slate-400 mt-3">
+        {{ p.publicado_em|date:"d M Y" }}{% if p.autor %} · por {{ p.autor.first_name|default:p.autor.username }}{% endif %}
+      </p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="border border-dashed border-[#edeeef] rounded-2xl p-12 text-center">
+    <span class="material-symbols-outlined text-slate-300" style="font-size:56px;">article</span>
+    <p class="font-headline font-extrabold text-primary text-xl mt-3">Em breve</p>
+    <p class="text-sm text-slate-500 mt-2 max-w-md mx-auto">
+      Estamos preparando o conteúdo. Enquanto isso, você pode <a href="/cadastro/" class="text-primary hover:underline font-semibold">criar conta grátis</a> e testar a plataforma.
+    </p>
+  </div>
+  {% endif %}
+</main>
+
+<footer class="bg-[#0a1929] text-blue-200 py-8 mt-16">
+  <div class="max-w-4xl mx-auto px-6 text-center text-xs">
+    <p class="mb-2">SantuarioEdu — Plataforma de estudos com IA</p>
+    <div class="space-x-3">
+      <a href="/" class="hover:text-white">Início</a>
+      <span>·</span>
+      <a href="{% url 'sobre' %}" class="hover:text-white">Sobre</a>
+      <span>·</span>
+      <a href="{% url 'faq' %}" class="hover:text-white">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

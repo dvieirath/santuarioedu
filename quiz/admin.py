@@ -49,9 +49,11 @@ class QuestaoAdmin(admin.ModelAdmin):
     list_per_page = 30
     actions = [
         'aprovar_revisao',
+        'aprovar_se_valida',
         'reprovar_com_feedback_padrao',
         'marcar_rejeitada_definitiva',
         'reprocessar_agora',
+        'reclassificar_por_tema_bulk',
     ]
     readonly_fields = ('tentativas_correcao',)
 
@@ -110,6 +112,49 @@ class QuestaoAdmin(admin.ModelAdmin):
     def aprovar_revisao(self, request, queryset):
         n = queryset.update(revisada=True, motivo_rejeicao='', rejeitada_definitiva=False)
         self.message_user(request, f'{n} questão(ões) aprovada(s) e liberada(s) aos usuários.', messages.SUCCESS)
+
+    @admin.action(description='🔍 Aprovar apenas se integridade OK (ME=1 correta / CE=2 alt)')
+    def aprovar_se_valida(self, request, queryset):
+        """Bulk approve com validacao — pula defeituosas."""
+        from django.db.models import Count, Q
+        ids_me = list(queryset.filter(tipo='ME')
+            .annotate(n_corr=Count('alternativa', filter=Q(alternativa__correta=True)))
+            .filter(n_corr=1).values_list('id', flat=True))
+        ids_ce = list(queryset.filter(tipo='CE')
+            .annotate(n_alt=Count('alternativa'))
+            .filter(n_alt=2).values_list('id', flat=True))
+        ids_ok = ids_me + ids_ce
+        n = queryset.filter(id__in=ids_ok).update(revisada=True)
+        n_skip = queryset.count() - n
+        self.message_user(
+            request,
+            f'{n} aprovada(s). {n_skip} puladas por integridade defeituosa.',
+            messages.SUCCESS if n_skip == 0 else messages.WARNING,
+        )
+
+    @admin.action(description='🔄 Reclassificar por tema (keywords Python)')
+    def reclassificar_por_tema_bulk(self, request, queryset):
+        """Roda logica de reclassificacao por keywords do comando."""
+        from .management.commands.reclassificar_por_tema import (
+            classificar_por_keywords, _match_categoria
+        )
+        from .models import Categoria
+
+        reclass = 0
+        for q in queryset:
+            tema, score = classificar_por_keywords(q.texto)
+            if not tema or score < 2:
+                continue
+            cats = _match_categoria(tema)
+            if not cats:
+                continue
+            q.categoria = cats[0]
+            q.save(update_fields=['categoria'])
+            reclass += 1
+        self.message_user(
+            request, f'{reclass} questão(ões) reclassificada(s) por tema.',
+            messages.SUCCESS,
+        )
 
     @admin.action(description='✗ Reprovar (usa motivo padrão se vazio)')
     def reprovar_com_feedback_padrao(self, request, queryset):
@@ -436,3 +481,33 @@ class TermoGlossarioAdmin(admin.ModelAdmin):
         cats = obj.categorias.all()[:3]
         return ', '.join(c.nome for c in cats) + ('...' if obj.categorias.count() > 3 else '')
     lista_categorias.short_description = 'Categorias'
+
+
+# ─── Blog ───────────────────────────────────────────────────────────
+from .models import PostBlog
+
+@admin.register(PostBlog)
+class PostBlogAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'publicado', 'publicado_em', 'autor', 'tags')
+    list_filter = ('publicado', 'publicado_em', 'autor')
+    search_fields = ('titulo', 'corpo', 'tags')
+    prepopulated_fields = {'slug': ('titulo',)}
+    date_hierarchy = 'publicado_em'
+    actions = ['publicar_agora', 'despublicar']
+
+    fieldsets = (
+        ('Conteúdo', {'fields': ('titulo', 'slug', 'resumo', 'corpo', 'imagem_capa')}),
+        ('Metadados', {'fields': ('autor', 'tags', 'concursos_relacionados')}),
+        ('Publicação', {'fields': ('publicado', 'publicado_em')}),
+    )
+
+    @admin.action(description='Publicar agora')
+    def publicar_agora(self, request, queryset):
+        from django.utils import timezone
+        n = queryset.update(publicado=True, publicado_em=timezone.now())
+        self.message_user(request, f'{n} post(s) publicados.')
+
+    @admin.action(description='Despublicar')
+    def despublicar(self, request, queryset):
+        n = queryset.update(publicado=False)
+        self.message_user(request, f'{n} despublicado(s).')
