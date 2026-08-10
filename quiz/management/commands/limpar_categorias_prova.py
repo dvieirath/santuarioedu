@@ -75,37 +75,41 @@ class Command(BaseCommand):
             ))
             return
 
-        # 3. Cria bucket se nao existe
-        with transaction.atomic():
-            bucket, criado = Categoria.objects.get_or_create(
-                nome=bucket_nome, parent=None,
-            )
-            if criado:
-                self.stdout.write(self.style.SUCCESS(
-                    f'\n✓ Bucket "{bucket_nome}" criado (id={bucket.id})'
-                ))
-            else:
-                self.stdout.write(f'\nBucket "{bucket_nome}" ja existia (id={bucket.id})')
+        # 3. Cria bucket se nao existe (sem transaction wrap — cada batch
+        # eh atomico por natureza do SQL, e reconectar_db mata transacao)
+        _reconectar_db()
+        bucket, criado = Categoria.objects.get_or_create(
+            nome=bucket_nome, parent=None,
+        )
+        if criado:
+            self.stdout.write(self.style.SUCCESS(
+                f'\n✓ Bucket "{bucket_nome}" criado (id={bucket.id})'
+            ))
+        else:
+            self.stdout.write(f'\nBucket "{bucket_nome}" ja existia (id={bucket.id})')
 
-            # 4. Move questoes em batch (evita transacao longa)
-            self.stdout.write(f'\nMovendo {total_questoes} questoes...')
-            BATCH = 500
-            movidas = 0
-            for c in prova_cats:
-                ids = list(Questao.objects.filter(categoria=c).values_list('id', flat=True))
-                for i in range(0, len(ids), BATCH):
-                    batch_ids = ids[i:i+BATCH]
-                    _reconectar_db()
-                    n = Questao.objects.filter(id__in=batch_ids).update(categoria=bucket)
-                    movidas += n
-                if len(ids) > 0:
-                    self.stdout.write(f'  → {c.nome}: {len(ids)} questoes movidas')
-
-            # 5. Deleta categorias Prova X vazias
+        # 4. Move questoes em batch — cada UPDATE eh atomico independente
+        self.stdout.write(f'\nMovendo {total_questoes} questoes...')
+        BATCH = 500
+        movidas = 0
+        bucket_id = bucket.id  # cacheia pra usar apos reconectar
+        for c in prova_cats:
             _reconectar_db()
-            n_deletadas, _ = Categoria.objects.filter(
-                nome__startswith='Prova '
-            ).delete()
+            ids = list(Questao.objects.filter(categoria=c).values_list('id', flat=True))
+            for i in range(0, len(ids), BATCH):
+                batch_ids = ids[i:i+BATCH]
+                _reconectar_db()
+                # Cada UPDATE dentro de sua propria transacao implicita
+                n = Questao.objects.filter(id__in=batch_ids).update(categoria_id=bucket_id)
+                movidas += n
+            if len(ids) > 0:
+                self.stdout.write(f'  → {c.nome}: {len(ids)} questoes movidas')
+
+        # 5. Deleta categorias Prova X vazias
+        _reconectar_db()
+        n_deletadas, _ = Categoria.objects.filter(
+            nome__startswith='Prova '
+        ).delete()
 
         # 6. Snapshot final
         _reconectar_db()
