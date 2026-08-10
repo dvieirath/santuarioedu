@@ -97,20 +97,13 @@ Responda SOMENTE com JSON valido no formato:
 """
 
 
-PROMPT_JUSTIFICATIVA = """Voce e um professor experiente de concursos publicos.
-Explique de forma clara e didatica por que a resposta correta e a indicada,
-citando a lei/artigo/principio aplicavel quando pertinente.
-
-QUESTAO:
-{enunciado}
-
-{alternativas}
-
-RESPOSTA CORRETA: {correta}
-
-Escreva uma justificativa de 2 a 4 paragrafos, em portugues, tom didatico.
-Nao inclua saudacoes nem preambulos. Comece direto pela analise.
-"""
+# NOTA: --com_justificativa nao usa mais prompt proprio.
+# Delega pro gerar_justificativas_ia (comando dedicado com o padrao
+# SantuarioEdu canonico: 6 blocos com marcadores visuais).
+# Motivo: manter apenas UM prompt de justificativa no projeto evita
+# divergencia de formato. Roda pos-import:
+#   python manage.py gerar_justificativas_ia --somente_ia --limit 100
+PROMPT_JUSTIFICATIVA = ""  # deprecated — mantido pra retrocompat de _gerar_justificativa
 
 
 # ── Heuristica de auto-detect a partir do filename ───────────────────────
@@ -534,31 +527,24 @@ PATH:"""
         ))
         return criadas, ignoradas
 
-    # ── Gera justificativa via IA ────────────────────────────────────────
+    # ── Gera justificativa via IA (DESABILITADO) ─────────────────────────
     def _gerar_justificativa(self, q):
-        tipo = q.get('tipo', 'ME')
-        enunciado = q.get('texto', '')
+        """
+        DESABILITADO — retorna sempre string vazia.
 
-        if tipo == 'ME':
-            alts = q.get('alternativas') or []
-            linhas = [f'{a.get("letra","?")}) {a.get("texto","")}' for a in alts]
-            alts_str = '\n'.join(linhas)
-            correta = next(
-                (a.get('letra') for a in alts if a.get('correta')), '?'
-            )
-        else:
-            alts_str = 'Alternativas: (C) Certo | (E) Errado'
-            correta = q.get('resposta_ce', '?').upper()
+        Motivo: manter apenas UM prompt de justificativa no projeto
+        (o canonico em prompts_justificativa.py). Justificativas geradas
+        aqui divergiam do padrao SantuarioEdu (6 blocos com marcadores
+        visuais) — problema reportado pelo user.
 
-        prompt = PROMPT_JUSTIFICATIVA.format(
-            enunciado=enunciado,
-            alternativas=alts_str,
-            correta=correta,
-        )
-        try:
-            return gerar_conteudo(prompt, max_tokens=800, temperature=0.3)
-        except AIError:
-            return ''
+        Fluxo correto pos-import:
+            python manage.py gerar_justificativas_ia --somente_ia --limit 100
+
+        Assim as questoes entram sem justificativa, o comando dedicado
+        gera no padrao correto, e depois passam por aprovacao humana em
+        /admin-revisao/.
+        """
+        return ''
 
     # ── Extracao com retry + backoff ─────────────────────────────────────
     def _extrair_com_retry(self, chunk, gabarito_texto, max_tentativas=3):
