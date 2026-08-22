@@ -401,12 +401,9 @@ class MetaEstudo(models.Model):
     )
 
     def cap_freezes(self):
-        """Retorna o teto de freezes acumulados conforme plano do user."""
-        try:
-            plano = self.usuario.plano.plano
-            return 3 if plano in ('pro', 'premium') else 1
-        except Exception:
-            return 1
+        """Retorna o teto de freezes acumulados.
+        App 100% gratuita — cap uniforme em 3 pra todo mundo."""
+        return 3
 
     def atualizar_streak(self):
         from django.utils import timezone
@@ -1339,145 +1336,9 @@ class RespostaColetivo(models.Model):
 
 
 
-# ── Sprint 28 — Monetização ───────────────────────────────────────────────────
 
-class PlanoUsuario(models.Model):
-    """
-    Assinatura do usuário.
-    Planos: gratuito | pro | premium
-    Em produção este modelo seria gerenciado pelo webhook do gateway de pagamento.
-    """
-    PLANOS = [
-        ('gratuito', 'Gratuito'),
-        ('pro',      'PRO'),
-        ('premium',  'Premium'),
-    ]
+# Sprint 28 removido — app 100% gratuita (models PlanoUsuario/CupomDesconto/PagamentoMP/UsoCupom deletados)
 
-    usuario      = models.OneToOneField(User, on_delete=models.CASCADE,
-                                        related_name='plano')
-    plano        = models.CharField(max_length=20, choices=PLANOS, default='gratuito')
-    ativo        = models.BooleanField(default=True)
-    expira_em    = models.DateTimeField(null=True, blank=True,
-                                        help_text='Null = sem expiração (plano gratuito vitalício)')
-    stripe_sub_id = models.CharField(max_length=100, blank=True,
-                                      help_text='ID da assinatura no Stripe (futuro)')
-    cancelada_em = models.DateTimeField(null=True, blank=True,
-        help_text='Quando o usuario clicou "cancelar". Mantem acesso ate expira_em.')
-    criado_em    = models.DateTimeField(auto_now_add=True)
-    atualizado_em = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = 'Plano do Usuário'
-
-    def __str__(self):
-        return f'{self.usuario.username} — {self.get_plano_display()}'
-
-    @property
-    def is_pro(self):
-        return self.plano in ('pro', 'premium') and self.ativo
-
-    @property
-    def is_premium(self):
-        return self.plano == 'premium' and self.ativo
-
-    @property
-    def expirado(self):
-        if not self.expira_em:
-            return False
-        from django.utils import timezone as _tz
-        return _tz.now() > self.expira_em
-
-    @property
-    def dias_restantes(self):
-        """Dias restantes ate expira_em. None se sem expiracao. Nunca negativo."""
-        if not self.expira_em:
-            return None
-        from django.utils import timezone as _tz
-        delta = self.expira_em - _tz.now()
-        return max(0, delta.days)
-
-    @property
-    def horas_restantes(self):
-        """Horas restantes (uteis pra countdown < 24h)."""
-        if not self.expira_em:
-            return None
-        from django.utils import timezone as _tz
-        delta = self.expira_em - _tz.now()
-        return max(0, int(delta.total_seconds() / 3600))
-
-    @property
-    def em_trial(self):
-        """
-        True se plano e PRO/Premium com expira_em (trial ativo).
-        Assinaturas pagas nao expiram (ou renovam auto) — o trial e a
-        diferenca: expira_em setado + nao cancelada = trial em andamento.
-        """
-        return (
-            self.plano in ('pro', 'premium')
-            and self.ativo
-            and self.expira_em is not None
-            and not self.expirado
-            and not self.cancelada_em
-        )
-
-
-class CupomDesconto(models.Model):
-    """Cupom de desconto / acesso trial."""
-    codigo      = models.CharField(max_length=30, unique=True)
-    plano_alvo  = models.CharField(max_length=20, choices=PlanoUsuario.PLANOS,
-                                   default='pro')
-    dias        = models.PositiveSmallIntegerField(default=30,
-                                                   help_text='Dias de acesso ao plano alvo')
-    usos_max    = models.PositiveSmallIntegerField(default=1)
-    usos_feitos = models.PositiveSmallIntegerField(default=0)
-    ativo       = models.BooleanField(default=True)
-    criado_em   = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'Cupom {self.codigo} ({self.get_plano_alvo_display()} {self.dias}d)'
-
-    @property
-    def disponivel(self):
-        return self.ativo and self.usos_feitos < self.usos_max
-
-
-class PagamentoMP(models.Model):
-    """Registro de pagamentos processados via Mercado Pago.
-
-    Guardamos referência ao payment_id do MP para auditoria e para suporte
-    ao usuário (histórico de transações, reembolso etc). O webhook do MP
-    atualiza este registro conforme o status muda.
-    """
-    STATUS_CHOICES = [
-        ('pending',   'Pendente'),
-        ('approved',  'Aprovado'),
-        ('rejected',  'Rejeitado'),
-        ('cancelled', 'Cancelado'),
-        ('refunded',  'Reembolsado'),
-    ]
-
-    usuario         = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pagamentos_mp')
-    plano_alvo      = models.CharField(max_length=20, choices=PlanoUsuario.PLANOS)
-    valor_centavos  = models.PositiveIntegerField(help_text='Valor em centavos (ex: 1490 = R$14,90)')
-    preference_id   = models.CharField(max_length=100, blank=True, db_index=True,
-                                       help_text='ID da preference criada no MP')
-    payment_id      = models.CharField(max_length=100, blank=True, db_index=True,
-                                       help_text='ID do payment quando aprovado')
-    status          = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    payload_raw     = models.JSONField(blank=True, null=True,
-                                       help_text='Última resposta do MP (para debug)')
-    criado_em       = models.DateTimeField(auto_now_add=True)
-    atualizado_em   = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = 'Pagamento Mercado Pago'
-        ordering = ['-criado_em']
-
-    def __str__(self):
-        return f'{self.usuario.username} — {self.get_plano_alvo_display()} · {self.status}'
-
-
-# ─── LOG DO SISTEMA ────────────────────────────────────────────────────────────
 
 class LogSistema(models.Model):
     """Registro de eventos e erros do sistema para o painel de administração."""
@@ -1507,22 +1368,6 @@ class LogSistema(models.Model):
 
 
 # ─── CUPONS E INDICAÇÕES ───────────────────────────────────────────────────
-
-class UsoCupom(models.Model):
-    """Rastreia qual usuário aplicou qual cupom — evita reuso, audita."""
-    cupom    = models.ForeignKey(CupomDesconto, on_delete=models.CASCADE,
-                                 related_name='usos')
-    usuario  = models.ForeignKey(User, on_delete=models.CASCADE,
-                                 related_name='cupons_usados')
-    aplicado_em = models.DateTimeField(auto_now_add=True)
-    ip_origem = models.GenericIPAddressField(null=True, blank=True)
-
-    class Meta:
-        unique_together = [('cupom', 'usuario')]   # mesmo cupom só 1x por user
-        ordering = ['-aplicado_em']
-
-    def __str__(self):
-        return f'{self.usuario.username} usou {self.cupom.codigo}'
 
 
 # ─── SUPORTE AO USUÁRIO ────────────────────────────────────────────────────

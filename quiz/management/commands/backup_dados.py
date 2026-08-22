@@ -23,7 +23,6 @@ class Command(BaseCommand):
         'quiz.Questao', 'quiz.Alternativa', 'quiz.Categoria',
         'quiz.RespostaUsuario', 'quiz.Simulado', 'quiz.RespostaSimulado',
         'quiz.MetaEstudo', 'quiz.Perfil',
-        'quiz.PlanoUsuario', 'quiz.CupomDesconto', 'quiz.UsoCupom',
         'quiz.TicketSuporte', 'quiz.RespostaTicket',
         'quiz.LogSistema',
         'auth.User', 'auth.Group',

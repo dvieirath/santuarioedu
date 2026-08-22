@@ -3,8 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import path, reverse
 from django.utils.html import format_html
 from .models import (Categoria, Questao, Alternativa, RespostaUsuario,
-                     CupomDesconto, UsoCupom,
-                     PlanoUsuario, LogSistema, PagamentoMP,
+                     LogSistema,
                      ResumoIA, MapaMental, TimelineLei, ComparativoBanca,
                      TermoGlossario)
 

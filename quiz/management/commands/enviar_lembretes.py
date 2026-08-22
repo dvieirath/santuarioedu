@@ -178,38 +178,8 @@ class Command(BaseCommand):
             )
 
         elif tipo == 'trial_expira_d2':
-            # Aviso 2 dias antes do trial PRO 7d expirar. Sem esse aviso,
-            # user perde recursos silenciosamente e fica confuso (churn alto).
-            try:
-                from quiz.models import PlanoUsuario
-            except ImportError:
-                return None
-
-            plano = PlanoUsuario.objects.filter(usuario=user).first()
-            if not plano or plano.plano != 'pro' or not plano.ativo:
-                return None
-            if plano.cancelada_em:
-                return None  # ja cancelou, nao precisa avisar
-            if not plano.expira_em:
-                return None
-
-            # Janela: expira entre 24h e 48h a partir de agora
-            delta = plano.expira_em - agora
-            if not (timedelta(hours=24) <= delta <= timedelta(hours=48)):
-                return None
-
-            assunto = '⏰ Seu trial PRO expira em 2 dias — SantuarioEdu'
-            corpo   = (
-                f'Ola, {nome}!\n\n'
-                f'Seu trial PRO de 7 dias termina em {plano.expira_em.strftime("%d/%m/%Y as %H:%M")}.\n\n'
-                f'Depois disso sua conta volta pro plano Gratuito automaticamente\n'
-                f'(30 quest/dia, 1 simulado/semana). Seus dados de estudo, streak\n'
-                f'e conquistas continuam salvos — sem perda.\n\n'
-                f'💡 Quer manter recursos ilimitados? Faca upgrade por R$ 14,90/mes:\n'
-                f'{site_url}/planos/\n\n'
-                f'Sem fidelidade, cancela quando quiser.\n\n'
-                f'-- SantuarioEdu\n'
-            )
+            # Removido — app 100% gratuita, sem trial.
+            return None
 
         elif tipo == 'semanal':
             inicio = hoje - timedelta(days=hoje.weekday())  # segunda-feira desta semana

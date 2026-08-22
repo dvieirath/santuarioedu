@@ -24,9 +24,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from quiz.models import (
-    Categoria, Questao, Alternativa, RespostaUsuario,
-    PlanoUsuario, MetaEstudo, CupomDesconto, UsoCupom,
-    PagamentoMP,
+    Categoria, Questao, Alternativa, RespostaUsuario, MetaEstudo,
 )
 
 User = get_user_model()
@@ -41,10 +39,6 @@ class TestResponderQuestao(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             username='resp', password='xyz', email='r@t.com',
-        )
-        PlanoUsuario.objects.update_or_create(
-            usuario=self.user,
-            defaults={'plano': 'pro', 'ativo': True},
         )
         MetaEstudo.objects.get_or_create(usuario=self.user)
 
@@ -276,14 +270,15 @@ class TestStreakFreeze(TestCase):
         from quiz.models import MetaEstudo
         self.user_free = User.objects.create_user(username='sf_free', password='x', email='f@t.com')
         self.user_pro = User.objects.create_user(username='sf_pro', password='x', email='p@t.com')
-        PlanoUsuario.objects.create(usuario=self.user_free, plano='gratuito', ativo=True)
-        PlanoUsuario.objects.create(usuario=self.user_pro, plano='pro', ativo=True)
+        # App 100% gratuita — nao ha plano
         self.meta_free = MetaEstudo.objects.create(usuario=self.user_free)
         self.meta_pro = MetaEstudo.objects.create(usuario=self.user_pro)
 
     def test_cap_freezes_por_plano(self):
-        self.assertEqual(self.meta_free.cap_freezes(), 1)
-        self.assertEqual(self.meta_pro.cap_freezes(), 3)
+        # App 100% gratuita — cap uniforme
+        cap = self.meta_free.cap_freezes()
+        self.assertGreaterEqual(cap, 1)
+        self.assertEqual(self.meta_free.cap_freezes(), self.meta_pro.cap_freezes())
 
     def test_gap_1_dia_nao_usa_freeze(self):
         """Estudou ontem — sequencia natural, freeze permanece."""
@@ -346,25 +341,14 @@ class TestStreakFreeze(TestCase):
         self.assertEqual(self.meta_pro.streak_freezes, 3, 'freeze economizado pra proxima oportunidade')
 
     def test_repor_freeze_respeita_cap(self):
-        """Free cap=1, PRO cap=3. Reposicao nao ultrapassa."""
+        """App 100% gratuita: cap uniforme 3. Reposicao nao ultrapassa."""
         self.meta_free.streak_freezes = 0
         self.meta_free.save()
-        self.assertTrue(self.meta_free.repor_freeze())
-        self.meta_free.refresh_from_db()
-        self.assertEqual(self.meta_free.streak_freezes, 1)
-
-        # Tenta repor novamente — ja no cap free (1)
-        self.assertFalse(self.meta_free.repor_freeze())
-        self.meta_free.refresh_from_db()
-        self.assertEqual(self.meta_free.streak_freezes, 1)
-
-        # PRO consegue chegar em 3
-        self.meta_pro.streak_freezes = 0
-        self.meta_pro.save()
+        # Todos podem chegar em 3
         for i in range(5):
-            self.meta_pro.repor_freeze()
-        self.meta_pro.refresh_from_db()
-        self.assertEqual(self.meta_pro.streak_freezes, 3, 'PRO capped em 3')
+            self.meta_free.repor_freeze()
+        self.meta_free.refresh_from_db()
+        self.assertEqual(self.meta_free.streak_freezes, 3, 'Cap uniforme em 3')
 
 
 # ═══════════════════════════════════════════════════════════════════════════

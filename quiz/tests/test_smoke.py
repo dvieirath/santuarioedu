@@ -107,7 +107,8 @@ class TestSmokeRotasAutenticadas(TestCase):
             except Exception as e:
                 falhas.append(f'{nome} ({url}): raised {type(e).__name__}: {e}')
                 continue
-            if r.status_code not in (200, 302):
+            # 429 é rate-limit hit — aceitavel no smoke (endpoints IA tem limites baixos)
+            if r.status_code not in (200, 302, 429):
                 falhas.append(f'{nome} ({url}): HTTP {r.status_code}')
 
         self.assertEqual(

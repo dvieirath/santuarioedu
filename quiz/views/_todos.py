@@ -56,7 +56,7 @@ from ..models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
                      PrevisaoTopico,
                      Duelo, RespostaDuelo,
                      SimuladoColetivo, ParticipanteColetivo, RespostaColetivo,
-                     PlanoUsuario, CupomDesconto)
+                     LogSistema)  # PlanoUsuario, CupomDesconto removidos
 from ..ai_service import gerar_justificativa_ia, ai_tutor_responder, ai_resumo_disciplina, ai_plano_estudos, ai_explicar_erro, ai_insight_banca, ai_analisar_simulado, ai_gerar_questoes, ai_prever_topicos
 try:
     from allauth.socialaccount.models import SocialAccount
@@ -1051,11 +1051,11 @@ def coach_ia(request):
     from ..concurso_landing import CONCURSOS_LANDING
 
     if request.method == 'POST':
-        conteudo = request.POST.get('mensagem', '').strip()
-        if not conteudo:
+        from ..forms import MensagemCoachIAForm
+        form = MensagemCoachIAForm(request.POST)
+        if not form.is_valid():
             return redirect('coach_ia')
-        if len(conteudo) > 3000:
-            conteudo = conteudo[:3000]
+        conteudo = form.cleaned_data['mensagem']
 
         # Salva mensagem do user
         MensagemCoachIA.objects.create(
@@ -1426,19 +1426,24 @@ def meu_edital(request):
         acao = request.POST.get('acao', 'analisar')
 
         if acao == 'analisar':
-            texto = request.POST.get('texto_edital', '').strip()
-            horas = int(request.POST.get('horas_dia', 2) or 2)
-
-            if len(texto) < 200:
-                messages.error(request, 'Edital muito curto — cole ao menos 200 caracteres.')
+            # Validacao estruturada via Form (padrao adotado para novos POSTs)
+            from ..forms import EditalPersonalizadoForm
+            form = EditalPersonalizadoForm(request.POST)
+            if not form.is_valid():
+                for erros in form.errors.values():
+                    for msg in erros:
+                        messages.error(request, msg)
                 return redirect('meu_edital')
+
+            texto = form.cleaned_data['texto_edital']
+            horas = form.cleaned_data['horas_dia']
 
             # Cria/atualiza registro
             edital, _ = EditalPersonalizado.objects.update_or_create(
                 usuario=request.user,
                 defaults={
-                    'texto_bruto': texto[:20000],  # cap 20k chars
-                    'horas_dia':   max(1, min(12, horas)),
+                    'texto_bruto': texto,
+                    'horas_dia':   horas,
                 },
             )
 
@@ -1739,6 +1744,7 @@ def limite_atingido_questoes(request):
 @login_required
 @user_passes_test(lambda u: u.is_staff)
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_editar_questao(request, questao_id):
     try:
         data = json.loads(request.body)
@@ -2303,6 +2309,7 @@ def simulado_resultado(request, simulado_id):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_justificativa_questao(request, questao_id):
     """Gera (ou retorna) justificativa IA para uma questão. Usado no gabarito do simulado."""
     questao = get_object_or_404(Questao, id=questao_id)
@@ -3838,6 +3845,7 @@ def revisao_srs(request):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='120/m', method='POST', block=True)
 def api_sessao(request):
     """Registra fim de sessão de estudo via AJAX (chamado pelo JS ao sair da página)."""
     try:
@@ -4085,6 +4093,7 @@ def flashcard_estudar(request):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_flashcard_deletar(request, flashcard_id):
     """Deleta um flashcard do usuário via AJAX."""
     fc = get_object_or_404(Flashcard, id=flashcard_id, usuario=request.user)
@@ -4222,6 +4231,7 @@ def analise_banca(request):
 # ── Sprint 21 — API: insight IA por banca ─────────────────────────────────────
 @login_required
 @require_POST
+@ratelimit(key='user', rate='10/m', method='POST', block=True)
 def api_insight_banca(request):
     """Gera insight tático via IA para uma banca específica."""
     import json as _json
@@ -5275,6 +5285,7 @@ def api_notificacoes_recentes(request):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_notificacao_lida(request, notif_id):
     """Marca uma notificação como lida."""
     Notificacao.objects.filter(id=notif_id, usuario=request.user).update(lida=True)
@@ -5550,6 +5561,7 @@ def api_comentarios(request, questao_id):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_comentario_upvote(request, comentario_id):
     """Toggle upvote num comentário."""
     c = get_object_or_404(ComentarioQuestao, id=comentario_id)
@@ -5569,6 +5581,7 @@ def api_comentario_upvote(request, comentario_id):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_comentario_deletar(request, comentario_id):
     """Deleta próprio comentário."""
     c = get_object_or_404(ComentarioQuestao, id=comentario_id, usuario=request.user)
@@ -6448,6 +6461,7 @@ def plano_estudos_ia(request):
 
 @login_required(login_url='account_login')
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_avaliar_questao(request, questao_id):
     """
     AJAX POST: { "dificuldade": 1|2|3 }
@@ -7086,6 +7100,7 @@ _COTA_DIARIA_EXPLICACOES = 5   # free plan
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='10/m', method='POST', block=True)
 def api_explicar_questao(request):
     """
     Gera explicação personalizada para uma questão errada.
@@ -7181,6 +7196,7 @@ def api_explicar_questao(request):
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_feedback_explicacao(request, explicacao_id):
     """Salva feedback 👍/👎 de uma explicação IA."""
     try:
@@ -7978,6 +7994,7 @@ def duelo_sala(request, codigo):
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='20/m', method='POST', block=True)
 def api_duelo_entrar(request):
     """API — entra em um duelo pelo codigo."""
     import json as _json
@@ -8059,6 +8076,7 @@ def duelo_jogar(request, duelo_id):
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_duelo_responder(request, duelo_id):
     """API — registra resposta e avanca questao se ambos responderam."""
     import json as _json
@@ -8421,6 +8439,7 @@ def coletivo_jogar(request, sala_id):
 
 @login_required
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_coletivo_responder(request, sala_id):
     """Registra resposta — avanca questao quando todos responderam ou timer expirou."""
     import json as _json
@@ -8690,10 +8709,8 @@ def requer_plano(plano_minimo='pro'):
             if not request.user.is_authenticated:
                 from django.contrib.auth.views import redirect_to_login
                 return redirect_to_login(request.get_full_path())
-            plano_obj, _ = PlanoUsuario.objects.get_or_create(
-                usuario=request.user,
-                defaults={'plano': 'gratuito'}
-            )
+            # plano removido (app 100% gratuita)
+            plano_obj = type("Stub", (), {"plano": "gratuito", "ativo": True})()
             plano_atual = plano_obj.plano if not plano_obj.expirado else 'gratuito'
             if ordem.index(plano_atual) < ordem.index(plano_minimo):
                 messages.warning(
@@ -8709,9 +8726,8 @@ def requer_plano(plano_minimo='pro'):
 
 def _get_plano_usuario(user):
     """Helper — retorna PlanoUsuario, cria gratuito se não existir."""
-    plano, _ = PlanoUsuario.objects.get_or_create(
-        usuario=user, defaults={'plano': 'gratuito'}
-    )
+    # plano removido
+    plano = type("Stub", (), {"plano": "gratuito", "ativo": True})()
     if plano.expirado and plano.plano != 'gratuito':
         plano.plano = 'gratuito'
         plano.ativo = True
@@ -8839,6 +8855,7 @@ def admin_sistema(request):
 @login_required(login_url='account_login')
 @user_passes_test(_is_superuser, login_url='home')
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_admin_log_criar(request):
     """Cria um registro manual no LogSistema."""
     from ..models import LogSistema
@@ -9005,7 +9022,7 @@ def metricas_negocio(request):
     from datetime import timedelta
     from django.utils import timezone as _tz
     from django.db.models import Count
-    from ..models import (Questao, Simulado, RespostaUsuario, PlanoUsuario,
+    from ..models import (Questao, Simulado, RespostaUsuario,
                          LogSistema)
     User = request.user.__class__
     agora = _tz.now()
@@ -9019,9 +9036,9 @@ def metricas_negocio(request):
     ativos_7d = RespostaUsuario.objects.filter(data__gte=sete).values('usuario').distinct().count()
 
     # ── Planos
-    plano_free = PlanoUsuario.objects.filter(plano='gratuito', ativo=True).count()
-    plano_pro = PlanoUsuario.objects.filter(plano='pro', ativo=True).count()
-    plano_premium = PlanoUsuario.objects.filter(plano='premium', ativo=True).count()
+    plano_free = 0  # monetizacao removida
+    plano_pro = 0
+    plano_premium = 0
     pagantes = plano_pro + plano_premium
     taxa_conversao = round((pagantes / total_usuarios * 100), 1) if total_usuarios else 0.0
 
@@ -9219,7 +9236,7 @@ def questoes_marcadas(request):
 @login_required(login_url='account_login')
 def onboarding_concurso(request):
     """Pergunta concurso + tempo até prova + horas/dia. Concede trial PRO 7 dias."""
-    from ..models import ConcursoPreferido, PlanoUsuario
+    from ..models import ConcursoPreferido
     from datetime import timedelta
     from django.utils import timezone as _tz
 
@@ -9240,7 +9257,9 @@ def onboarding_concurso(request):
         cp.save()
 
         # ── Concede trial PRO 7 dias se ainda não tinha plano ativo
-        plano, criado_plano = PlanoUsuario.objects.get_or_create(usuario=request.user)
+        # plano removido
+        plano = type("Stub", (), {"plano": "gratuito", "ativo": True})()
+        criado_plano = False
         if criado_plano or plano.plano == 'gratuito':
             plano.plano = 'pro'
             plano.ativo = True
@@ -10203,9 +10222,9 @@ def admin_status(request):
     simulados_semana = Simulado.objects.filter(iniciado_em__gte=semana).count()
 
     # Planos
-    from ..models import PlanoUsuario
-    pro_ativos = PlanoUsuario.objects.filter(plano='pro', ativo=True).count()
-    premium_ativos = PlanoUsuario.objects.filter(plano='premium', ativo=True).count()
+    # PlanoUsuario removido
+    pro_ativos = 0
+    premium_ativos = 0
 
     # Top disciplinas com questoes
     top_disc = []

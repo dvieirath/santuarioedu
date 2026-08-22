@@ -5,7 +5,7 @@ from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 
-from quiz.models import Simulado, GrupoEstudo, MembroGrupo, CupomDesconto
+from quiz.models import Simulado, GrupoEstudo, MembroGrupo
 
 
 User = get_user_model()

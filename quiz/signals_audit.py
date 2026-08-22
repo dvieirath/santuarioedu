@@ -99,55 +99,9 @@ def log_usuario_criado(sender, instance, created, **kwargs):
         pass
 
 
-# ── Trial PRO 7 dias APÓS confirmação de e-mail ──────────────────────────────
-# Requer que o allauth mande e-mail de confirmação e usuário clique no link.
-# Evita bots criando contas fake pra gastar sua cota de IA.
-try:
-    from allauth.account.signals import email_confirmed
-
-    @receiver(email_confirmed)
-    def conceder_trial_ao_confirmar(request, email_address, **kwargs):
-        """Concede PRO 7d na PRIMEIRA confirmacao de email.
-        NAO sobrescreve plano pago vigente (nem PRO nem Premium ativos), nem
-        concede trial 2x quando user confirma email secundario do allauth."""
-        from datetime import timedelta
-        from django.utils import timezone as _tz
-        from .models import PlanoUsuario
-
-        user = email_address.user
-        if not user:
-            return
-
-        existente = PlanoUsuario.objects.filter(usuario=user).first()
-
-        # Guard 1: NAO sobrescreve assinatura paga vigente (PRO ou Premium).
-        # Bug anterior checkava so 'premium' — user PRO 30d que confirmava
-        # email secundario perdia dias que ja pagou.
-        if existente and existente.plano in ('pro', 'premium') and existente.ativo:
-            if not existente.expirado:
-                return
-
-        # Guard 2: NAO concede trial 2x pro mesmo user (email primario ja
-        # confirmado ou trial ja usado).
-        if existente and existente.plano != 'gratuito':
-            # ja teve algum plano (mesmo expirado); trial ja foi usado
-            return
-
-        PlanoUsuario.objects.update_or_create(
-            usuario=user,
-            defaults={
-                'plano': 'pro',
-                'ativo': True,
-                'expira_em': _tz.now() + timedelta(days=7),
-            },
-        )
-        LogSistema.objects.create(
-            nivel='INFO', origem='auth',
-            mensagem=f'Trial PRO 7d concedido a {user.username} após confirmar email',
-            usuario=user,
-        )
-except ImportError:
-    pass
+# Signal de trial PRO 7d removido — app 100% gratuita.
+# (Antes: conceder_trial_ao_confirmar concedia PRO temporario apos allauth
+#  confirmar email. Sem uso agora que nao ha plano pago.)
 
 
 # ── Notifica user quando staff responde ticket ──────────────────────────────
