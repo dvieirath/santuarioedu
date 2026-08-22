@@ -251,46 +251,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 admin.site.register(RespostaUsuario)
 
 
-@admin.register(CupomDesconto)
-class CupomDescontoAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'plano_alvo', 'dias', 'usos_feitos', 'usos_max', 'ativo', 'badge_disponivel')
-    list_filter = ('ativo', 'plano_alvo')
-    search_fields = ('codigo',)
-    readonly_fields = ('usos_feitos',)
-
-    def badge_disponivel(self, obj):
-        if obj.disponivel:
-            return format_html('<span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:8px;font-weight:bold;font-size:11px;">disponível</span>')
-        return format_html('<span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:8px;font-weight:bold;font-size:11px;">esgotado</span>')
-    badge_disponivel.short_description = 'Status'
-
-
-@admin.register(UsoCupom)
-class UsoCupomAdmin(admin.ModelAdmin):
-    list_display = ('cupom', 'usuario', 'aplicado_em', 'ip_origem')
-    list_filter = ('cupom',)
-    search_fields = ('cupom__codigo', 'usuario__username')
-    readonly_fields = ('cupom', 'usuario', 'aplicado_em', 'ip_origem')
-
-
-@admin.register(PlanoUsuario)
-class PlanoUsuarioAdmin(admin.ModelAdmin):
-    list_display = ('usuario', 'plano', 'ativo', 'expira_em', 'atualizado_em')
-    list_filter = ('plano', 'ativo')
-    search_fields = ('usuario__username',)
-
-
-@admin.register(PagamentoMP)
-class PagamentoMPAdmin(admin.ModelAdmin):
-    list_display = ('criado_em', 'usuario', 'plano_alvo', 'valor_reais', 'status', 'payment_id')
-    list_filter = ('status', 'plano_alvo')
-    search_fields = ('usuario__username', 'payment_id', 'preference_id')
-    readonly_fields = ('preference_id', 'payment_id', 'payload_raw', 'criado_em', 'atualizado_em')
-    date_hierarchy = 'criado_em'
-
-    def valor_reais(self, obj):
-        return f'R$ {obj.valor_centavos / 100:.2f}'
-    valor_reais.short_description = 'Valor'
+# CupomDesconto, UsoCupom, PlanoUsuario, PagamentoMP:
+# Admins removidos — app agora 100% gratuita.
+# Models mantidos pra evitar migration destrutiva no BD prod.
 
 
 @admin.register(LogSistema)
