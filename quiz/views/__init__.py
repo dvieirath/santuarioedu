@@ -1,14 +1,19 @@
-"""
-Pacote quiz.views — dividido pra facilitar manutencao.
-
-Estrutura:
-    quiz/views/
-        __init__.py       ← re-exporta tudo (compat total: from .views import x)
-        _todos.py         ← views.py original (10.325 linhas)
-        [futuros modulos] ← auth.py, coach.py, preparacao.py, etc.
-
-Extracao incremental: mover funcoes de _todos.py pra modulos especificos
-sem quebrar imports (o __init__.py re-exporta seja qual for a origem).
-"""
-# Compat total: import everything from _todos como se ainda fosse views.py
-from ._todos import *  # noqa: F401,F403
+"""quiz.views — pacote por dominio."""
+from ._todos import *  # noqa
+from .coach import *  # noqa
+from .preparacao import *  # noqa
+from .guest import *  # noqa
+from .simulado_analise import *  # noqa
+from .blog import *  # noqa
+from .public_pages import *  # noqa
+from .perfil_conta import *  # noqa
+from .gamification import *  # noqa
+from .onboarding import *  # noqa
+from .admin_paineis import *  # noqa
+from .convidar import *  # noqa
+from .simulado_core import *  # noqa
+from .quiz_core import *  # noqa
+from .flashcards import *  # noqa
+from .api_questao import *  # noqa
+from .api_ia import *  # noqa
+from .api_geral import *  # noqa
