@@ -40,7 +40,7 @@ from django.db import models
 from datetime import timedelta
 import json
 from django.contrib.auth.models import User
-from .models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
+from ..models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
                      Categoria, Perfil, Simulado, RespostaSimulado,
                      QuestaoFavorita, MetaEstudo, Conquista, AnotacaoUsuario,
                      RevisaoEspacada, SessaoEstudo, PushSubscription,
@@ -57,7 +57,7 @@ from .models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
                      Duelo, RespostaDuelo,
                      SimuladoColetivo, ParticipanteColetivo, RespostaColetivo,
                      PlanoUsuario, CupomDesconto)
-from .ai_service import gerar_justificativa_ia, ai_tutor_responder, ai_resumo_disciplina, ai_plano_estudos, ai_explicar_erro, ai_insight_banca, ai_analisar_simulado, ai_gerar_questoes, ai_prever_topicos
+from ..ai_service import gerar_justificativa_ia, ai_tutor_responder, ai_resumo_disciplina, ai_plano_estudos, ai_explicar_erro, ai_insight_banca, ai_analisar_simulado, ai_gerar_questoes, ai_prever_topicos
 try:
     from allauth.socialaccount.models import SocialAccount
     _has_allauth = True
@@ -161,8 +161,7 @@ def verificar_conquistas(user):
         if meta.streak_atual >= 100:
             _ganhar('streak_100')
     except Exception:
-        pass
-
+        _silencioso("view_bloco_1")
     # ── Diversidade ──
     cats_respondidas_qs = respostas.values('questao__categoria').distinct()
     cats_respondidas = cats_respondidas_qs.count()
@@ -190,7 +189,7 @@ def verificar_conquistas(user):
 
     # Simulado perfeito: 100% em algum simulado
     try:
-        from .models import RespostaSimulado
+        from ..models import RespostaSimulado
         # simulado com pelo menos 10 respostas e todas certas
         sims_finalizados = Simulado.objects.filter(usuario=user, finalizado=True)
         for s in sims_finalizados:
@@ -200,8 +199,7 @@ def verificar_conquistas(user):
                 _ganhar('simulado_perfeito')
                 break
     except Exception:
-        pass
-
+        _silencioso("view_bloco_2")
     # ── Horários ──
     try:
         # Django extract() por hora (ORM cross-db)
@@ -212,24 +210,22 @@ def verificar_conquistas(user):
         if any(h is not None and h >= 23 for h in horas):
             _ganhar('noturno')
     except Exception:
-        pass
-
+        _silencioso("view_bloco_3")
     # ── Duelos ──
     try:
-        from .models import Duelo
+        from ..models import Duelo
         # Duelo tem jogador1/jogador2 (varia por versao); tenta ambos
         n_duelos = 0
         try:
             n_duelos = Duelo.objects.filter(jogador1=user).count() + Duelo.objects.filter(jogador2=user).count()
         except Exception:
-            pass
+            _silencioso("view_bloco_4")
         if n_duelos >= 1:
             _ganhar('primeiro_duelo')
         if n_duelos >= 10:
             _ganhar('duelista')
     except Exception:
-        pass
-
+        _silencioso("view_bloco_5")
     # ── Meta-conquistas (executar por ULTIMO — depende das outras) ──
     total_conquistas_atual = len(ja_tem) + len(novas)
     if total_conquistas_atual >= 5:
@@ -249,8 +245,7 @@ def verificar_conquistas(user):
                 link='/conquistas/',
             )
         except Exception:
-            pass
-
+            _silencioso("view_bloco_6")
     return novas
 
 
@@ -281,8 +276,8 @@ def home(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
     # Estatísticas reais pra dar credibilidade na landing
-    from .models import Questao, Categoria, Simulado, RespostaUsuario
-    from .concurso_landing import CONCURSOS_LANDING
+    from ..models import Questao, Categoria, Simulado, RespostaUsuario
+    from ..concurso_landing import CONCURSOS_LANDING
     contexto = {
         'total_questoes': Questao.objects.count(),
         'total_disciplinas': Categoria.objects.count(),
@@ -299,9 +294,9 @@ def landing_concurso(request, slug):
     Cada slug otimizado pra keyword especifica (concurso PRF, INSS, etc.).
     Redireciona logado pro dashboard (mesmo comportamento da home).
     """
-    from .concurso_landing import CONCURSOS_LANDING
+    from ..concurso_landing import CONCURSOS_LANDING
     from django.http import Http404
-    from .models import Questao, Categoria
+    from ..models import Questao, Categoria
 
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -468,7 +463,7 @@ def escolher_tema(request):
 def iniciar_quiz(request, categoria_id=None):
     if request.method == 'POST':
         # ── Limite de plano: questões/dia ──
-        from .limits import pode_responder_questao, get_plano
+        from ..limits import pode_responder_questao, get_plano
         if not pode_responder_questao(request.user):
             if get_plano(request.user) == 'gratuito':
                 # Modal contextual (view dedicada) em vez de warning + planos generico.
@@ -673,7 +668,7 @@ def dashboard(request):
     """Dashboard blindado: cada bloco tem try/except pra nunca crashar a pagina.
     Se algo falha, seta valor default e loga em LogSistema pra investigar depois."""
     import json as _json
-    from .models import LogSistema
+    from ..models import LogSistema
 
     def _log_falha(bloco, exc):
         try:
@@ -712,7 +707,7 @@ def dashboard(request):
     # se ja personalizou (mas ainda nao respondeu), vai direto escolher tema.
     if ctx['total_respondidas'] == 0:
         try:
-            from .models import ConcursoPreferido
+            from ..models import ConcursoPreferido
             if not ConcursoPreferido.objects.filter(usuario=request.user).exists():
                 return redirect('onboarding_concurso')
         except Exception as e:
@@ -804,7 +799,7 @@ def dashboard(request):
 
     # ── Status de uso (Free/PRO/Premium) ─────────────────────────────
     try:
-        from .limits import status_uso
+        from ..limits import status_uso
         ctx['uso_plano'] = status_uso(request.user)
     except Exception as e:
         _log_falha('uso_plano', e)
@@ -813,7 +808,7 @@ def dashboard(request):
     # Idempotente: check_and_award so entrega XP das tasks que ainda nao
     # foram recompensadas. resumo() da o estado atual pro template.
     try:
-        from . import onboarding as _onboard
+        from .. import onboarding as _onboard
         novas_recompensas = _onboard.check_and_award(request.user)
         ctx['onboarding'] = _onboard.resumo(request.user)
         if novas_recompensas:
@@ -828,7 +823,7 @@ def dashboard(request):
 
     # ── Concurso preferido (pra CTA "Preparacao completa") ────────────
     try:
-        from .models import ConcursoPreferido
+        from ..models import ConcursoPreferido
         pref = ConcursoPreferido.objects.filter(usuario=request.user).first()
         ctx['concurso_pref_slug'] = pref.concurso if pref else None
         ctx['concurso_pref'] = pref
@@ -847,7 +842,7 @@ def dashboard(request):
 def onboarding_dispensar(request):
     """POST: user clica no X do card de onboarding pra dispensa-lo."""
     if request.method == 'POST':
-        from .models import Perfil
+        from ..models import Perfil
         perfil, _ = Perfil.objects.get_or_create(usuario=request.user)
         perfil.onboarding_dispensado = True
         perfil.save(update_fields=['onboarding_dispensado'])
@@ -992,8 +987,8 @@ def ranking_concurso(request, concurso):
     Top 10 users com esse concurso como preferido, ordenados por XP.
     Mostra posicao do proprio user.
     """
-    from .models import ConcursoPreferido, NivelUsuario
-    from .concurso_landing import CONCURSOS_LANDING
+    from ..models import ConcursoPreferido, NivelUsuario
+    from ..concurso_landing import CONCURSOS_LANDING
 
     if concurso not in CONCURSOS_LANDING:
         from django.http import Http404
@@ -1052,8 +1047,8 @@ def coach_ia(request):
     Chat 1-a-1 com Coach IA. User faz pergunta, coach responde
     considerando historico recente + contexto do concurso preferido.
     """
-    from .models import MensagemCoachIA, ConcursoPreferido
-    from .concurso_landing import CONCURSOS_LANDING
+    from ..models import MensagemCoachIA, ConcursoPreferido
+    from ..concurso_landing import CONCURSOS_LANDING
 
     if request.method == 'POST':
         conteudo = request.POST.get('mensagem', '').strip()
@@ -1102,7 +1097,7 @@ def coach_ia(request):
 
         # Chama IA
         try:
-            from .ai_provider import gerar_conteudo, AIError
+            from ..ai_provider import gerar_conteudo, AIError
             resposta = gerar_conteudo(prompt_final, max_tokens=1500, temperature=0.7)
             if not resposta or len(resposta) < 5:
                 resposta = 'Desculpe, nao consegui gerar uma resposta agora. Tente reformular.'
@@ -1125,7 +1120,7 @@ def coach_ia(request):
 def coach_ia_limpar(request):
     """Apaga historico do coach (fresh start). Preserva salvas."""
     if request.method == 'POST':
-        from .models import MensagemCoachIA
+        from ..models import MensagemCoachIA
         # Nao apaga mensagens salvas — user pode nao querer perder essas
         MensagemCoachIA.objects.filter(usuario=request.user, salva=False).delete()
         messages.success(request, 'Histórico do coach limpo (mensagens salvas mantidas).')
@@ -1135,7 +1130,7 @@ def coach_ia_limpar(request):
 @login_required(login_url='account_login')
 def coach_ia_toggle_salvar(request, mensagem_id):
     """POST: alterna flag salva em uma mensagem do assistant."""
-    from .models import MensagemCoachIA
+    from ..models import MensagemCoachIA
     if request.method != 'POST':
         return redirect('coach_ia')
     m = MensagemCoachIA.objects.filter(
@@ -1150,7 +1145,7 @@ def coach_ia_toggle_salvar(request, mensagem_id):
 @login_required(login_url='account_login')
 def coach_ia_anotacoes(request):
     """Lista todas as mensagens salvas do coach — 'caderneta pessoal'."""
-    from .models import MensagemCoachIA
+    from ..models import MensagemCoachIA
     salvas = (MensagemCoachIA.objects
               .filter(usuario=request.user, salva=True)
               .order_by('-criado_em'))
@@ -1162,7 +1157,7 @@ def coach_ia_anotacoes(request):
 @login_required(login_url='account_login')
 def curva_esquecimento(request):
     """Visualiza retencao estimada por disciplina (Ebbinghaus + SM-2)."""
-    from . import curva_esquecimento as _curva
+    from .. import curva_esquecimento as _curva
     ctx = _curva.resumo_curva(request.user)
     return render(request, 'quiz/curva_esquecimento.html', ctx)
 
@@ -1174,7 +1169,7 @@ def progresso_edital_vivo(request):
     Marca topico como dominado se user acertou >= 3 questoes cujo assunto
     contem o nome do topico (match icontains).
     """
-    from .models import EditalPersonalizado, RespostaUsuario
+    from ..models import EditalPersonalizado, RespostaUsuario
 
     edital = EditalPersonalizado.objects.filter(usuario=request.user).first()
     if not edital or not edital.analise_ia.get('disciplinas'):
@@ -1422,7 +1417,7 @@ def meu_edital(request):
 
     Depois gera cronograma personalizado (X dias × Y horas/dia).
     """
-    from .models import EditalPersonalizado
+    from ..models import EditalPersonalizado
     import json as _json
 
     edital = EditalPersonalizado.objects.filter(usuario=request.user).first()
@@ -1449,7 +1444,7 @@ def meu_edital(request):
 
             # Chama IA pra extrair estrutura
             try:
-                from .ai_provider import gerar_conteudo, AIError
+                from ..ai_provider import gerar_conteudo, AIError
                 prompt = (
                     f'Analise o edital abaixo e extraia informacoes estruturadas em JSON puro '
                     f'(sem markdown, sem ```json). Formato OBRIGATORIO:\n\n'
@@ -1538,8 +1533,8 @@ def escolher_estilo_banca(request):
     Pagina de selecao de estilo de simulado por banca.
     Cebraspe = so C/E. FGV/FCC/etc = so ME.
     """
-    from .preparacao import BANCAS_META
-    from .models import Questao
+    from ..preparacao import BANCAS_META
+    from ..models import Questao
 
     bancas_com_stats = []
     for slug, meta in BANCAS_META.items():
@@ -1565,7 +1560,7 @@ def iniciar_simulado_estilo_banca(request, banca):
     - Cebraspe: so questoes CE (Certo/Errado)
     - FGV/FCC/VUNESP/CESGRANRIO: so ME (Multipla Escolha)
     """
-    from .preparacao import BANCAS_META
+    from ..preparacao import BANCAS_META
 
     resp = _check_pode_criar_simulado(request)
     if resp:
@@ -1615,8 +1610,8 @@ def preparacao_concurso(request, concurso):
     - Cronograma sugerido (horas por disciplina)
     - Materiais disponiveis (resumos, mapas mentais)
     """
-    from .preparacao import resumo_completo
-    from .concurso_landing import CONCURSOS_LANDING
+    from ..preparacao import resumo_completo
+    from ..concurso_landing import CONCURSOS_LANDING
     from django.http import Http404
 
     if concurso not in CONCURSOS_LANDING:
@@ -1676,7 +1671,7 @@ def convidar(request):
     Cada amigo que se cadastra via esse link entrega XP pra ambos.
     """
     from django.conf import settings as _settings
-    from .models import Referencia, NivelUsuario
+    from ..models import Referencia, NivelUsuario
 
     site_url = getattr(_settings, 'SITE_URL', 'https://santuarioedu.com.br').rstrip('/')
     codigo   = request.user.username
@@ -1970,8 +1965,7 @@ def excluir_conta(request):
                 detalhe=f'IP={request.META.get("REMOTE_ADDR", "")}',
             )
         except Exception:
-            pass
-
+            _silencioso("view_bloco_7")
         # Faz logout antes de deletar
         from django.contrib.auth import logout
         logout(request)
@@ -2092,7 +2086,7 @@ def _check_pode_criar_simulado(request, fallback_url='escolher_tema'):
         return redirect('simulado_questao', simulado_id=simulado_ativo.id, numero=1)
 
     # 2. Limite semanal (gratuito 1/sem, PRO ilimitado)
-    from .limits import pode_iniciar_simulado as _pode, get_plano
+    from ..limits import pode_iniciar_simulado as _pode, get_plano
     if not _pode(request.user):
         plano = get_plano(request.user)
         if plano == 'gratuito':
@@ -3253,7 +3247,7 @@ def quiz_revisao(request, categoria_id=None):
     conquistas — pra evitar farm de estatisticas via /revisao/."""
     if request.method == 'POST':
         # Limite de plano (revisao tambem conta pro limite diario)
-        from .limits import pode_responder_questao, get_plano
+        from ..limits import pode_responder_questao, get_plano
         if not pode_responder_questao(request.user):
             if get_plano(request.user) == 'gratuito':
                 messages.warning(
@@ -3566,7 +3560,7 @@ def admin_importar_csv(request):
 @user_passes_test(_is_staff, login_url='home')
 def admin_importar_ia(request):
     """Admin: cola texto bruto OU envia PDF → Gemini extrai questões estruturadas."""
-    from .ai_service import ai_extrair_questoes
+    from ..ai_service import ai_extrair_questoes
 
     etapa       = 'form'      # 'form' | 'preview' | 'salvo'
     questoes_ia = []
@@ -4374,8 +4368,7 @@ def modo_desafio(request):
         try:
             _dar_xp(request.user, xp_ganho, request.session)
         except Exception:
-            pass
-
+            _silencioso("view_bloco_8")
         # Detecta novo recorde pessoal
         from django.db.models import Max
         melhor_anterior = (
@@ -4513,6 +4506,19 @@ def modo_desafio(request):
 # ─── PUSH NOTIFICATIONS ───────────────────────────────────────────────────────
 
 from django.conf import settings as django_settings
+
+import logging
+_view_logger = logging.getLogger("quiz.views")
+
+def _silencioso(contexto="unknown", exc=None):
+    """Loga exception silencioso em vez de 'pass' cru.
+    Substitui `except Exception: pass` por chamada rastreavel."""
+    if exc is None:
+        import sys
+        exc = sys.exc_info()[1]
+    if exc is not None:
+        _view_logger.debug("silencioso[%s]: %s", contexto, exc)
+
 
 @login_required(login_url='account_login')
 def push_config(request):
@@ -4666,7 +4672,7 @@ def resumo_disciplina(request, categoria_id):
 @login_required(login_url='account_login')
 def mapas_lista(request):
     """Lista disciplinas com opção de gerar mapa mental."""
-    from .models import MapaMental
+    from ..models import MapaMental
     categorias = Categoria.objects.all().order_by('nome')
     mapas_existentes = {m.categoria_id: m for m in MapaMental.objects.all()}
     dados = []
@@ -4695,8 +4701,8 @@ def mapa_mental(request, categoria_id):
     - ?fonte=ia   -> forca uso da IA mesmo se hierarquia existe
     - ?fonte=bd   -> forca uso do BD (default se hierarquia disponivel)
     """
-    from .models import MapaMental
-    from .ai_service import ai_mapa_mental as _gerar_mapa_ia
+    from ..models import MapaMental
+    from ..ai_service import ai_mapa_mental as _gerar_mapa_ia
 
     categoria = get_object_or_404(Categoria, id=categoria_id)
     fonte_pedida = request.GET.get('fonte', '').strip().lower()
@@ -4860,7 +4866,7 @@ def estatisticas_incidencia(request):
 @login_required(login_url='account_login')
 def timelines_lista(request):
     """Lista todas as timelines de leis cadastradas."""
-    from .models import TimelineLei
+    from ..models import TimelineLei
     timelines = TimelineLei.objects.all().prefetch_related('categorias')
     return render(request, 'quiz/timelines_lista.html', {
         'timelines': timelines,
@@ -4872,8 +4878,8 @@ def timeline_lei_detalhe(request, slug):
     """Exibe timeline de uma lei. Se ?regenerar=1, chama IA de novo.
     Rate limit aplicado SO no branch de regenerar (era global, contava
     leitura pura de timeline ja gerada — 15 leituras/hora bloqueava user PRO)."""
-    from .models import TimelineLei
-    from .ai_service import ai_timeline_lei
+    from ..models import TimelineLei
+    from ..ai_service import ai_timeline_lei
 
     tl = get_object_or_404(TimelineLei, slug=slug)
     regenerar = request.GET.get('regenerar') == '1'
@@ -4906,7 +4912,7 @@ def timeline_lei_detalhe(request, slug):
 @login_required(login_url='account_login')
 def comparativo_lista(request):
     """Lista disciplinas que tem comparativo ou permite gerar."""
-    from .models import ComparativoBanca
+    from ..models import ComparativoBanca
     categorias = Categoria.objects.all().order_by('nome')
     tem_comp = set(ComparativoBanca.objects.values_list('categoria_id', flat=True).distinct())
     dados = [{
@@ -4921,8 +4927,8 @@ def comparativo_lista(request):
 @ratelimit(key='user', rate='15/h', method='GET', block=True)
 def comparativo_categoria(request, categoria_id):
     """Comparativo de todas as bancas relevantes num tema."""
-    from .models import ComparativoBanca
-    from .ai_service import ai_comparativo_banca
+    from ..models import ComparativoBanca
+    from ..ai_service import ai_comparativo_banca
     from django.db.models import Count
 
     categoria = get_object_or_404(Categoria, id=categoria_id)
@@ -4966,7 +4972,7 @@ def comparativo_categoria(request, categoria_id):
 @login_required(login_url='account_login')
 def glossario_lista(request):
     """Glossario de termos. Suporta ?q=busca e ?cat=id."""
-    from .models import TermoGlossario
+    from ..models import TermoGlossario
     from django.db.models import Q
 
     q_str  = request.GET.get('q', '').strip()
@@ -4991,8 +4997,8 @@ def glossario_lista(request):
 @ratelimit(key='user', rate='6/h', method='POST', block=True)
 def glossario_gerar_categoria(request, categoria_id):
     """Gera 30 termos de uma categoria via IA e salva (usado por staff)."""
-    from .models import TermoGlossario
-    from .ai_service import ai_glossario_termos
+    from ..models import TermoGlossario
+    from ..ai_service import ai_glossario_termos
 
     if not request.user.is_staff:
         return JsonResponse({'ok': False, 'erro': 'so staff'}, status=403)
@@ -6351,8 +6357,7 @@ def simulado_revisao(request, simulado_id):
                     questao.assunto = result['assunto']
                 questao.save(update_fields=['justificativa', 'assunto'])
         except Exception:
-            pass
-
+            _silencioso("view_bloco_9")
     avaliacao = AvaliacaoQuestao.objects.filter(
         usuario=request.user, questao=questao
     ).first()
@@ -6865,7 +6870,7 @@ def _calcular_peso(pct):
 
 def _recalcular_plano_dinamico(usuario, plano):
     """Redistribui horas por disciplina ponderando pelo aproveitamento."""
-    from .models import PlanoEstudoDinamico   # import local evita circular
+    from ..models import PlanoEstudoDinamico   # import local evita circular
     respostas = RespostaUsuario.objects.filter(usuario=usuario)
 
     # Salva distribuição anterior antes de sobrescrever
@@ -6979,7 +6984,7 @@ def _gerar_calendario_semanal(plano):
 @login_required
 def plano_dinamico(request):
     import json as _json
-    from .models import PlanoEstudoDinamico
+    from ..models import PlanoEstudoDinamico
 
     plano, criado = PlanoEstudoDinamico.objects.get_or_create(usuario=request.user)
 
@@ -7056,7 +7061,7 @@ def preferencias_notificacao(request):
             h, m = hora_str.split(':')
             pref.hora_lembrete = _time(int(h), int(m))
         except Exception:
-            pass
+            _silencioso("view_bloco_10")
         pref.save()
         messages.success(request, 'Preferências salvas com sucesso!')
         return redirect('preferencias_notificacao')
@@ -7130,8 +7135,7 @@ def api_explicar_questao(request):
     try:
         rank = request.user.nivel.rank_nome
     except Exception:
-        pass
-
+        _silencioso("view_bloco_11")
     # --- Verifica cache: mesma questão + mesma alt + mesmo dia ---
     cache = ExplicacaoIA.objects.filter(
         usuario=request.user,
@@ -8094,8 +8098,7 @@ def api_duelo_responder(request, duelo_id):
             alternativa = questao.alternativa_set.get(pk=alt_id)
             acertou     = alternativa.correta
         except Exception:
-            pass
-
+            _silencioso("view_bloco_12")
     RespostaDuelo.objects.create(
         duelo=duelo,
         usuario=user,
@@ -8456,8 +8459,7 @@ def api_coletivo_responder(request, sala_id):
             alternativa = questao.alternativa_set.get(pk=alt_id)
             acertou     = alternativa.correta
         except Exception:
-            pass
-
+            _silencioso("view_bloco_13")
     RespostaColetivo.objects.create(
         simulado=sala,
         usuario=user,
@@ -8765,7 +8767,7 @@ def _is_superuser(user):
 
 def _registrar_log(nivel, mensagem, origem='sistema', detalhe='', usuario=None):
     """Utilitário para criar entradas no LogSistema de qualquer lugar do código."""
-    from .models import LogSistema
+    from ..models import LogSistema
     LogSistema.objects.create(
         nivel=nivel,
         origem=origem,
@@ -8781,7 +8783,7 @@ def admin_sistema(request):
     """Painel de configurações e monitoramento do sistema (superuser only)."""
     import django
     import platform
-    from .models import LogSistema
+    from ..models import LogSistema
     from django.conf import settings as _s
 
     # ── Logs ──────────────────────────────────────────────────────────────────
@@ -8839,7 +8841,7 @@ def admin_sistema(request):
 @require_POST
 def api_admin_log_criar(request):
     """Cria um registro manual no LogSistema."""
-    from .models import LogSistema
+    from ..models import LogSistema
     data = json.loads(request.body)
     nivel    = data.get('nivel', 'INFO')
     origem   = data.get('origem', 'manual')
@@ -8863,7 +8865,7 @@ def api_admin_log_criar(request):
 @require_POST
 def api_admin_log_deletar(request, log_id):
     """Deleta um registro do LogSistema."""
-    from .models import LogSistema
+    from ..models import LogSistema
     log = get_object_or_404(LogSistema, id=log_id)
     log.delete()
     return JsonResponse({'ok': True})
@@ -8874,7 +8876,7 @@ def api_admin_log_deletar(request, log_id):
 @require_POST
 def api_admin_logs_limpar(request):
     """Limpa todos os logs ou apenas de um nível específico."""
-    from .models import LogSistema
+    from ..models import LogSistema
     data  = json.loads(request.body)
     nivel = data.get('nivel', '')
     if nivel:
@@ -8965,14 +8967,13 @@ def api_admin_questao_salvar(request, questao_id):
     if 'alternativas' in data:
         for alt_data in data['alternativas']:
             try:
-                from .models import Alternativa
+                from ..models import Alternativa
                 alt = Alternativa.objects.get(id=alt_data['id'], questao=questao)
                 alt.texto   = alt_data.get('texto', alt.texto).strip()
                 alt.correta = bool(alt_data.get('correta', alt.correta))
                 alt.save()
             except Exception:
-                pass
-
+                _silencioso("view_bloco_14")
     _registrar_log(
         'INFO',
         f'Questão #{questao.id} editada manualmente',
@@ -9004,7 +9005,7 @@ def metricas_negocio(request):
     from datetime import timedelta
     from django.utils import timezone as _tz
     from django.db.models import Count
-    from .models import (Questao, Simulado, RespostaUsuario, PlanoUsuario,
+    from ..models import (Questao, Simulado, RespostaUsuario, PlanoUsuario,
                          LogSistema)
     User = request.user.__class__
     agora = _tz.now()
@@ -9045,7 +9046,7 @@ def metricas_negocio(request):
     eventos = LogSistema.objects.order_by('-criado_em')[:15]
 
     # ── Uso de IA (hoje + tendência 7 dias)
-    from .ai_metrics import stats_do_dia, stats_ultimos_dias
+    from ..ai_metrics import stats_do_dia, stats_ultimos_dias
     ia_hoje = stats_do_dia()
     ia_semana = stats_ultimos_dias(7)
 
@@ -9080,7 +9081,7 @@ def metricas_negocio(request):
 @login_required(login_url='account_login')
 def suporte_lista(request):
     """Lista de tickets do usuário."""
-    from .models import TicketSuporte
+    from ..models import TicketSuporte
     tickets = TicketSuporte.objects.filter(usuario=request.user).order_by('-criado_em')
     return render(request, 'quiz/suporte_lista.html', {'tickets': tickets})
 
@@ -9090,7 +9091,7 @@ def suporte_lista(request):
 def suporte_novo(request):
     """Abrir novo ticket. Rate limit 5/h/user evita spam floods:
     cada ticket dispara Discord + Telegram + email (3 notificacoes)."""
-    from .models import TicketSuporte
+    from ..models import TicketSuporte
     if request.method == 'POST':
         assunto    = (request.POST.get('assunto') or '').strip()[:200]
         mensagem   = (request.POST.get('mensagem') or '').strip()
@@ -9113,15 +9114,14 @@ def suporte_novo(request):
 
         # Notifica equipe interna (Discord/Telegram) se configurado
         try:
-            from .notificacao_interna import notificar
+            from ..notificacao_interna import notificar
             notificar(
                 titulo=f'📬 Novo ticket #{ticket.id} · {ticket.get_categoria_display()}',
                 mensagem=f'**{ticket.assunto}**\n\nPor: {request.user.username}\nUrl: {url_origem}\n\n{mensagem[:300]}',
                 cor=0xf59e0b,
             )
         except Exception:
-            pass
-
+            _silencioso("view_bloco_15")
         # E-mail para equipe de suporte. Antes o check era `if EMAIL_HOST` que
         # so funcionava com SMTP — mas usamos Resend HTTP API via Anymail
         # (EMAIL_HOST fica vazio), entao nenhum email chegava em prod.
@@ -9146,8 +9146,7 @@ def suporte_novo(request):
                     fail_silently=True,
                 )
         except Exception:
-            pass
-
+            _silencioso("view_bloco_16")
         messages.success(request, f'Ticket #{ticket.id} aberto! Responderemos em até 48h úteis.')
         return redirect('suporte_detalhe', ticket_id=ticket.id)
 
@@ -9160,7 +9159,7 @@ def suporte_novo(request):
 @login_required(login_url='account_login')
 def suporte_detalhe(request, ticket_id):
     """Visualiza ticket + adiciona resposta."""
-    from .models import TicketSuporte, RespostaTicket
+    from ..models import TicketSuporte, RespostaTicket
     ticket = get_object_or_404(TicketSuporte, id=ticket_id, usuario=request.user)
 
     if request.method == 'POST':
@@ -9190,7 +9189,7 @@ def suporte_detalhe(request, ticket_id):
 def api_marcar_questao(request, questao_id):
     """Toggle marcar/desmarcar uma questão pra revisar depois.
     Rate limit: 60/min (evita spam)."""
-    from .models import QuestaoMarcada, Questao
+    from ..models import QuestaoMarcada, Questao
     q = get_object_or_404(Questao, id=questao_id)
     marca, criado = QuestaoMarcada.objects.get_or_create(
         usuario=request.user, questao=q,
@@ -9205,7 +9204,7 @@ def api_marcar_questao(request, questao_id):
 @login_required(login_url='account_login')
 def questoes_marcadas(request):
     """Lista de questões marcadas pra revisar depois."""
-    from .models import QuestaoMarcada
+    from ..models import QuestaoMarcada
     marcadas = (QuestaoMarcada.objects
                 .filter(usuario=request.user)
                 .select_related('questao', 'questao__categoria')
@@ -9220,7 +9219,7 @@ def questoes_marcadas(request):
 @login_required(login_url='account_login')
 def onboarding_concurso(request):
     """Pergunta concurso + tempo até prova + horas/dia. Concede trial PRO 7 dias."""
-    from .models import ConcursoPreferido, PlanoUsuario
+    from ..models import ConcursoPreferido, PlanoUsuario
     from datetime import timedelta
     from django.utils import timezone as _tz
 
@@ -9274,7 +9273,7 @@ def quiz_qual_concurso(request):
 @login_required(login_url='account_login')
 def card_progresso(request):
     """Página gera card 1080x1080 (Instagram) com KPIs do usuário."""
-    from .models import RespostaUsuario, Simulado, MetaEstudo
+    from ..models import RespostaUsuario, Simulado, MetaEstudo
     from django.db.models import Count, Q
     from django.utils import timezone
     from datetime import timedelta
@@ -9311,7 +9310,7 @@ def card_progresso(request):
 @login_required(login_url='account_login')
 def analise_subtemas(request):
     """Quebra performance por assunto (campo Questao.assunto), não só categoria."""
-    from .models import RespostaUsuario
+    from ..models import RespostaUsuario
     from django.db.models import Count, Q
 
     qs = (RespostaUsuario.objects
@@ -9358,7 +9357,7 @@ def analise_subtemas(request):
 @user_passes_test(lambda u: u.is_staff)
 def revisao_questoes_painel(request):
     """Painel dedicado pra revisar questões pendentes — mais rápido que /admin/."""
-    from .models import Categoria, Questao
+    from ..models import Categoria, Questao
 
     # Filtros
     cat_id      = request.GET.get('cat', '')
@@ -9447,7 +9446,7 @@ def revisao_questoes_painel(request):
 @require_POST
 def api_revisar_acao(request, questao_id):
     """API de ação rápida: aprovar | reprovar | rejeitar | gerar_justificativa."""
-    from .models import Questao
+    from ..models import Questao
     q = get_object_or_404(Questao, id=questao_id)
     acao = request.POST.get('acao', '')
     motivo = (request.POST.get('motivo') or '').strip()
@@ -9488,8 +9487,8 @@ def api_revisar_acao(request, questao_id):
 
     if acao == 'gerar_justificativa':
         # ── Chama IA na hora e salva no banco ──
-        from .ai_provider import gerar_json, AIError
-        from .prompts_justificativa import montar_prompt
+        from ..ai_provider import gerar_json, AIError
+        from ..prompts_justificativa import montar_prompt
 
         try:
             prompt = montar_prompt(q)
@@ -9538,8 +9537,8 @@ def api_revisao_proxima(request):
       problema: 'qualquer' | 'sem_justificativa' | 'sem_gabarito' | 'incompleto' |
                 'referencia_imagem' | 'ok' — filtra por tipo de defeito auditado
     """
-    from .models import Questao
-    from .auditoria import detectar_flags, label_flag, FLAGS_GRAVES
+    from ..models import Questao
+    from ..auditoria import detectar_flags, label_flag, FLAGS_GRAVES
 
     cat_id     = request.GET.get('cat', '')
     apenas_ia  = request.GET.get('apenas_ia', '0') == '1'
@@ -9683,7 +9682,7 @@ def api_revisao_bulk_approve(request):
     Retorna { ok, aprovadas, total_candidatas, ids_aprovadas: [...] }
     """
     import json as _json
-    from .models import Questao
+    from ..models import Questao
     try:
         body = _json.loads(request.body or '{}')
     except Exception:
@@ -9736,8 +9735,8 @@ def api_revisao_por_id(request, questao_id):
     Retorna uma questão específica por ID — mesmo se já for aprovada.
     Usado no painel admin pra buscar questões reportadas por usuários.
     """
-    from .models import Questao
-    from .auditoria import detectar_flags, label_flag, FLAGS_GRAVES
+    from ..models import Questao
+    from ..auditoria import detectar_flags, label_flag, FLAGS_GRAVES
 
     try:
         q = Questao.objects.select_related('categoria').prefetch_related('alternativa_set').get(id=questao_id)
@@ -9784,7 +9783,7 @@ def api_revisao_duplicatas(request, questao_id):
     disciplina, não sobre o banco todo).
     """
     from difflib import SequenceMatcher
-    from .models import Questao
+    from ..models import Questao
 
     try:
         q_ref = Questao.objects.select_related('categoria').get(id=questao_id)
@@ -9925,8 +9924,7 @@ def api_proxima_acao(request):
                         'icone': 'flag',
                     })
     except Exception:
-        pass
-
+        _silencioso("view_bloco_17")
     if total_resp == 0:
         return JsonResponse({
             'titulo': 'Comece por uma disciplina',
@@ -10058,7 +10056,7 @@ def _guest_pegar_questao(ja_respondidas_ids):
     1. Direito Constitucional (nosso forte apos batch 636)
     2. Fallback: qualquer questao revisada
     """
-    from .models import Categoria
+    from ..models import Categoria
     q = None
     # Prioriza Direito Const (maior massa e mais interessante)
     dc = Categoria.objects.filter(
@@ -10205,7 +10203,7 @@ def admin_status(request):
     simulados_semana = Simulado.objects.filter(iniciado_em__gte=semana).count()
 
     # Planos
-    from .models import PlanoUsuario
+    from ..models import PlanoUsuario
     pro_ativos = PlanoUsuario.objects.filter(plano='pro', ativo=True).count()
     premium_ativos = PlanoUsuario.objects.filter(plano='premium', ativo=True).count()
 
@@ -10237,10 +10235,9 @@ def admin_status(request):
             'pct':        round(n_concluidos / total_manifesto * 100) if total_manifesto else 0,
         }
     except Exception:
-        pass
-
+        _silencioso("view_bloco_18")
     # Erros recentes (LogSistema)
-    from .models import LogSistema
+    from ..models import LogSistema
     erros_recentes = LogSistema.objects.filter(nivel='ERRO').order_by('-criado_em')[:5]
 
     return render(request, 'quiz/admin_status.html', {
@@ -10267,7 +10264,7 @@ def admin_status(request):
 
 def sobre(request):
     """Pagina publica: sobre nos, missao, valores."""
-    from .models import Questao, Simulado, RespostaUsuario
+    from ..models import Questao, Simulado, RespostaUsuario
     from django.contrib.auth import get_user_model
     User = get_user_model()
 
@@ -10286,7 +10283,7 @@ def sobre(request):
 
 def blog_lista(request):
     """Lista publicada de posts. SEO-friendly."""
-    from .models import PostBlog
+    from ..models import PostBlog
     from django.utils import timezone
     posts = PostBlog.objects.filter(
         publicado=True,
@@ -10298,7 +10295,7 @@ def blog_lista(request):
 def blog_detalhe(request, slug):
     """Detalhe de um post. Suporta markdown no corpo."""
     from django.shortcuts import get_object_or_404
-    from .models import PostBlog
+    from ..models import PostBlog
     from django.utils import timezone
 
     post = get_object_or_404(
