@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/editar-questao/<int:questao_id>/', views.api_editar_questao, name='api_editar_questao'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('onboarding/dispensar/', views.onboarding_dispensar, name='onboarding_dispensar'),
-    path('limite-atingido/questoes/', views.limite_atingido_questoes, name='limite_atingido_questoes'),
+    # /limite-atingido/questoes/ removida (app agora eh 100% gratuita)
     path('simulado/<int:simulado_id>/compartilhar/', views.compartilhar_simulado, name='compartilhar_simulado'),
     path('conquista/<str:codigo>/compartilhar/', views.compartilhar_conquista, name='compartilhar_conquista'),
     path('convidar/', views.convidar, name='convidar'),
@@ -57,7 +57,7 @@ urlpatterns = [
     path('sobre/',             views.sobre,                 name='sobre'),
     path('blog/',              views.blog_lista,            name='blog_lista'),
     path('blog/<slug:slug>/',  views.blog_detalhe,          name='blog_detalhe'),
-    path('cupom/aplicar/',     views.aplicar_cupom,         name='aplicar_cupom'),
+    # cupom removido (app 100% gratuita)
     path('admin-metricas/',    views.metricas_negocio,      name='admin_metricas'),
     path('admin-status/',      views.admin_status,          name='admin_status'),
 
@@ -219,19 +219,9 @@ urlpatterns = [
     path('api/coletivo/<int:sala_id>/iniciar/',         views.coletivo_iniciar,       name='coletivo_iniciar'),
     path('api/coletivo/<int:sala_id>/responder/',       views.api_coletivo_responder, name='api_coletivo_responder'),
     path('api/coletivo/<int:sala_id>/status/',          views.api_coletivo_status,    name='api_coletivo_status'),
-    # Sprint 28 — Monetização
-    path('planos/',                     views.planos,            name='planos'),
-    path('minha-assinatura/',           views.minha_assinatura,  name='minha_assinatura'),
-    path('assinatura/cancelar/',        views.cancelar_assinatura, name='cancelar_assinatura'),
-    path('api/cupom/',                  views.aplicar_cupom,     name='api_aplicar_cupom'),
-    path('api/upgrade/',                views.simular_upgrade,   name='simular_upgrade'),
-    path('api/meu-plano/',              views.api_meu_plano,     name='api_meu_plano'),
-    # Checkout Mercado Pago
-    path('api/checkout/mp/',            views.iniciar_checkout_mp,             name='iniciar_checkout_mp'),
-    path('pagamento/webhook/',          csrf_exempt(views.mp_webhook),         name='mp_webhook'),
-    path('pagamento/sucesso/',          views.pagamento_sucesso,               name='pagamento_sucesso'),
-    path('pagamento/falha/',            views.pagamento_falha,                 name='pagamento_falha'),
-    path('pagamento/pendente/',         views.pagamento_pendente,              name='pagamento_pendente'),
+    # ── App 100% gratuita: monetização removida ─────────────────────
+    # Deixamos apenas redirects pras rotas antigas mais linkadas
+    # (pra nao quebrar bookmarks/campanhas antigas).
     # Painel de Sistema (superuser only)
     path('admin-sistema/',                                views.admin_sistema,              name='admin_sistema'),
     path('api/admin/log/criar/',                          views.api_admin_log_criar,        name='api_admin_log_criar'),

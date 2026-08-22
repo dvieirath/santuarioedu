@@ -1,110 +1,77 @@
 """
-Limites de uso por plano (Gratuito / PRO / Premium).
+Limites de uso — MODO 100% GRATUITO.
 
-Os números são lidos do .env — você pode ajustá-los sem mexer no código.
+App e totalmente gratuita. Todas as verificacoes retornam:
+- pode_responder_questao/pode_iniciar_simulado/pode_criar_flashcard: True
+- get_plano: 'gratuito' (mas sem restricoes)
+- limite: infinito
+- status_uso: uso irrestrito
+
+Mantido pra compatibilidade com views existentes — nao remove chamadas,
+so libera tudo.
+
+Se voltar a monetizar no futuro, re-implementar essas funcoes.
 """
-from datetime import timedelta
-from decouple import config
-from django.utils import timezone
-
-
-# ── Configuração de limites (lidos do .env, com defaults razoáveis) ──────────
-
-LIMITES = {
-    'gratuito': {
-        'questoes_dia':       config('LIMIT_FREE_QUESTOES_DIA', default=30, cast=int),
-        'simulados_semana':   config('LIMIT_FREE_SIMULADOS_SEMANA', default=1, cast=int),
-        'ia_dia':             config('LIMIT_FREE_IA_DIA', default=3, cast=int),
-        'flashcards_total':   config('LIMIT_FREE_FLASHCARDS', default=50, cast=int),
-    },
-    'pro': {
-        'questoes_dia':       config('LIMIT_PRO_QUESTOES_DIA', default=999_999, cast=int),
-        'simulados_semana':   config('LIMIT_PRO_SIMULADOS_SEMANA', default=999_999, cast=int),
-        'ia_dia':             config('LIMIT_PRO_IA_DIA', default=30, cast=int),
-        'flashcards_total':   config('LIMIT_PRO_FLASHCARDS', default=999_999, cast=int),
-    },
-    'premium': {
-        'questoes_dia':       999_999,
-        'simulados_semana':   999_999,
-        'ia_dia':             100,
-        'flashcards_total':   999_999,
-    },
-}
 
 
 def get_plano(user):
-    """Retorna a string do plano do usuário ('gratuito', 'pro' ou 'premium')."""
-    if not user.is_authenticated:
-        return 'gratuito'
-    try:
-        plano_obj = user.plano  # related_name=plano em PlanoUsuario
-        if not plano_obj.ativo or plano_obj.expirado:
-            return 'gratuito'
-        return plano_obj.plano
-    except Exception:
-        return 'gratuito'
+    """Sempre retorna 'gratuito' (que agora eh sem limites)."""
+    return 'gratuito'
 
 
 def limite(user, recurso):
-    """Retorna o limite numérico do usuário para um recurso."""
-    plano = get_plano(user)
-    return LIMITES.get(plano, LIMITES['gratuito']).get(recurso, 0)
+    """Sem limites."""
+    return 999_999_999
 
-
-# ── Helpers de contagem ──────────────────────────────────────────────────────
 
 def questoes_respondidas_hoje(user):
-    """Quantas questões o usuário respondeu hoje."""
     from .models import RespostaUsuario
+    from django.utils import timezone
     inicio = timezone.localtime().replace(hour=0, minute=0, second=0, microsecond=0)
     return RespostaUsuario.objects.filter(usuario=user, data__gte=inicio).count()
 
 
 def simulados_iniciados_semana(user):
-    """Quantos simulados iniciou na última semana."""
+    from datetime import timedelta
     from .models import Simulado
+    from django.utils import timezone
     sete_dias = timezone.now() - timedelta(days=7)
     return Simulado.objects.filter(usuario=user, iniciado_em__gte=sete_dias).count()
 
 
 def flashcards_total(user):
-    """Quantos flashcards o usuário tem."""
     from .models import Flashcard
     return Flashcard.objects.filter(usuario=user).count()
 
 
-# ── Bloqueios usados pelas views ─────────────────────────────────────────────
+# ── Bloqueios sempre-permite ─────────────────────────────────────────────────
 
 def pode_responder_questao(user):
-    """True se ainda pode responder mais questões hoje."""
-    return questoes_respondidas_hoje(user) < limite(user, 'questoes_dia')
+    return True
 
 
 def pode_iniciar_simulado(user):
-    """True se ainda pode iniciar mais simulados nesta semana."""
-    return simulados_iniciados_semana(user) < limite(user, 'simulados_semana')
+    return True
 
 
 def pode_criar_flashcard(user):
-    """True se ainda cabe mais flashcards no plano."""
-    return flashcards_total(user) < limite(user, 'flashcards_total')
+    return True
 
 
 def status_uso(user):
-    """Dicionário com contagem atual e limite — útil pra mostrar no dashboard."""
-    plano = get_plano(user)
+    """Retorna estatisticas SEM limite."""
     return {
-        'plano': plano,
+        'plano': 'gratuito',
         'questoes_dia': {
-            'atual': questoes_respondidas_hoje(user),
-            'limite': limite(user, 'questoes_dia'),
+            'atual':  questoes_respondidas_hoje(user),
+            'limite': 999_999_999,
         },
         'simulados_semana': {
-            'atual': simulados_iniciados_semana(user),
-            'limite': limite(user, 'simulados_semana'),
+            'atual':  simulados_iniciados_semana(user),
+            'limite': 999_999_999,
         },
         'flashcards': {
-            'atual': flashcards_total(user),
-            'limite': limite(user, 'flashcards_total'),
+            'atual':  flashcards_total(user),
+            'limite': 999_999_999,
         },
     }

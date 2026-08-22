@@ -61,7 +61,7 @@
       "name": "A SantuarioEdu é realmente grátis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sim. O plano Gratuito é permanente, sem prazo de expiração e sem exigir cartão de crédito. Oferece acesso ao banco de questões (até 30 por dia) e 1 simulado por semana. Você só precisa fazer upgrade se quiser recursos ilimitados, IA avançada e análises detalhadas."
+        "text": "Sim. 100% gratuita, sem planos pagos, sem trial, sem cartão. Todo o banco de questões, simulados, IA e análises estão liberados pra qualquer usuário cadastrado."
       }
     },
     {
@@ -82,10 +82,10 @@
     },
     {
       "@type": "Question",
-      "name": "Como faço para cancelar minha assinatura?",
+      "name": "Como faço para excluir minha conta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cancele a qualquer momento na área 'Minha Assinatura' dentro da plataforma — sem burocracia, sem fidelidade, sem taxas de cancelamento. Você continua com acesso ao plano pago até o fim do ciclo já pago. Pelo CDC (Art. 49), nos primeiros 7 dias você pode desistir e receber reembolso integral."
+        "text": "Na página Perfil > Excluir conta. Removemos todos seus dados imediatamente conforme LGPD. Como o app é gratuito, não há qualquer cobrança ou vínculo."
       }
     },
     {
@@ -104,20 +104,6 @@
         "text": "Não. A SantuarioEdu funciona 100% no navegador (Chrome, Firefox, Safari, Edge). Também é um PWA — você pode instalar como app no celular (Android/iOS) ou desktop com 1 clique, sem passar pela Play Store ou App Store. Funciona parcialmente offline após o primeiro acesso."
       }
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "SantuarioEdu PRO",
-  "description": "Acesso ilimitado a questões, simulados cronometrados, IA e revisão espaçada.",
-  "brand": {"@type": "Brand", "name": "SantuarioEdu"},
-  "offers": [
-    {"@type": "Offer", "name": "Gratuito", "price": "0", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"},
-    {"@type": "Offer", "name": "PRO", "price": "14.90", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"},
-    {"@type": "Offer", "name": "Premium", "price": "29.90", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"}
   ]
 }
 </script>
@@ -698,66 +684,27 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ─── Planos ─────────────────────────────────────────────────────────────── -->
+<!-- ─── 100% Gratuito ──────────────────────────────────────────────────────── -->
 <section id="planos" class="py-20 md:py-28 bg-[#f8f9fa]">
-  <div class="max-w-5xl mx-auto px-6 md:px-8">
-    <div class="text-center mb-12">
-      <p class="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Planos</p>
-      <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-3">Comece grátis. Evolua quando quiser.</h2>
-      <p class="text-slate-600 text-base max-w-xl mx-auto">
-        Sem cartão de crédito para começar. Faça upgrade somente quando precisar de mais recursos.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-5">
-      <!-- Free -->
-      <div class="bg-white rounded-2xl border border-[#edeeef] p-7 editorial-shadow-soft">
-        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">Gratuito</p>
-        <p class="text-3xl font-extrabold text-primary font-headline mb-1">R$ 0</p>
-        <p class="text-xs text-slate-500 mb-5">Para sempre</p>
-        <ul class="text-sm text-slate-700 space-y-2.5 mb-6">
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Acesso ao banco de questões</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>30 questões por dia</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>1 simulado por semana</li>
-        </ul>
-        <a href="{% url 'cadastro' %}" class="block text-center bg-[#f3f4f5] text-slate-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-[#e7e8e9] transition-colors">Começar agora</a>
-      </div>
-
-      <!-- PRO destaque -->
-      <div class="bg-primary text-white rounded-2xl p-7 editorial-shadow relative overflow-hidden">
-        <div class="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
-        <div class="inline-flex items-center gap-1 bg-amber-400 text-[#002046] text-[9px] font-extrabold uppercase tracking-widest px-2 py-1 rounded-full mb-3">
-          <span class="material-symbols-outlined" style="font-size:11px;">star</span>
-          Mais popular
-        </div>
-        <p class="text-xs font-bold uppercase tracking-widest text-blue-200 mb-3">PRO</p>
-        <p class="text-3xl font-extrabold font-headline mb-1">R$ 14<span class="text-lg font-medium text-blue-200">,90</span><span class="text-base font-medium text-blue-200">/mês</span></p>
-        <p class="text-xs text-blue-200 mb-5">Cancelamento a qualquer momento</p>
-        <ul class="text-sm space-y-2.5 mb-6">
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Questões ilimitadas</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Simulados ilimitados</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>IA + Revisão espaçada</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-amber-300 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Análises avançadas</li>
-        </ul>
-        <a href="{% url 'cadastro' %}" data-ga-event="signup_started" data-ga-source="landing_planos_pro" class="block text-center bg-white text-primary px-5 py-3 rounded-full text-sm font-bold hover:bg-blue-50 transition-colors">Experimentar grátis</a>
-      </div>
-
-      <!-- Premium -->
-      <div class="bg-white rounded-2xl border border-[#edeeef] p-7 editorial-shadow-soft">
-        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">Premium</p>
-        <p class="text-3xl font-extrabold text-primary font-headline mb-1">R$ 29<span class="text-lg font-medium text-slate-500">,90</span><span class="text-base font-medium text-slate-500">/mês</span></p>
-        <p class="text-xs text-slate-500 mb-5">Tudo do PRO +</p>
-        <ul class="text-sm text-slate-700 space-y-2.5 mb-6">
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Tutor IA prioritário</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Suporte 1-a-1</li>
-          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span>Materiais exclusivos</li>
-        </ul>
-        <a href="{% url 'cadastro' %}" class="block text-center bg-[#f3f4f5] text-slate-700 px-5 py-3 rounded-full text-sm font-bold hover:bg-[#e7e8e9] transition-colors">Saber mais</a>
-      </div>
-    </div>
-    <p class="text-center text-xs text-slate-500 mt-7">
-      Pagamento via <strong>PIX, cartão ou boleto</strong> pelo Mercado Pago ·
-      <a href="{% url 'planos' %}" class="text-primary hover:underline font-semibold">Ver detalhes completos</a>
+  <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
+    <p class="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">100% Gratuito</p>
+    <h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-4">
+      Tudo aqui é grátis. Pra sempre.
+    </h2>
+    <p class="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
+      Sem plano PRO. Sem cartão. Sem trial. Sem cupom. Sem enganação.<br/>
+      Todo o banco de questões, simulados, IA e análises — <strong class="text-primary">liberados pra todo mundo</strong>.
     </p>
+    <div class="inline-flex flex-col sm:flex-row items-center gap-3">
+      <a href="{% url 'cadastro' %}" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-base font-bold hover:bg-primary-container transition-colors editorial-shadow">
+        <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">rocket_launch</span>
+        Criar conta grátis
+      </a>
+      <a href="{% url 'guest_quiz' %}" class="text-sm text-primary hover:text-primary-container font-semibold underline underline-offset-4">
+        Testar sem cadastro
+      </a>
+    </div>
+    <p class="text-xs text-slate-500 mt-6">Preferimos que muita gente estude bem do que uns poucos paguem por menos.</p>
   </div>
 </section>
 
@@ -872,8 +819,8 @@ tailwind.config = {
         <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">rocket_launch</span>
         Criar conta grátis
       </a>
-      <a href="{% url 'planos' %}" class="inline-flex items-center gap-2 text-white/90 hover:text-white px-5 py-4 rounded-full text-sm font-semibold underline underline-offset-4 decoration-white/30 hover:decoration-white transition-all">
-        Ver planos e preços
+      <a href="{% url 'guest_quiz' %}" class="inline-flex items-center gap-2 text-white/90 hover:text-white px-5 py-4 rounded-full text-sm font-semibold underline underline-offset-4 decoration-white/30 hover:decoration-white transition-all">
+        Testar sem cadastro
       </a>
     </div>
     <p class="text-xs text-blue-300 mt-6 flex items-center justify-center gap-2">

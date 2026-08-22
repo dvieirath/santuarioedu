@@ -1738,44 +1738,8 @@ def compartilhar_simulado(request, simulado_id):
 
 @login_required(login_url='account_login')
 def limite_atingido_questoes(request):
-    """
-    Pagina contextual quando user free bate limite diario de questoes.
-    Modal-como-pagina: user chega aqui no momento QUENTE (queria responder
-    mais), maior conversao free -> PRO.
-    """
-    from .limits import status_uso, get_plano
-    from django.utils import timezone
-    from datetime import timedelta
-
-    plano = get_plano(request.user)
-    if plano != 'gratuito':
-        # Se ja e PRO, nao faz sentido — volta pro dashboard
-        return redirect('dashboard')
-
-    uso = status_uso(request.user)
-    respondidas_hoje = uso['questoes_dia']['atual']
-    limite_dia = uso['questoes_dia']['limite']
-
-    # Horario do reset (00:00 amanha, fuso local)
-    agora = timezone.localtime()
-    amanha = (agora + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-    horas_reset = round((amanha - agora).total_seconds() / 3600, 1)
-
-    # Estatistica de motivacao: acertos hoje pra reforcar "voce ta no ritmo"
-    from .models import RespostaUsuario
-    inicio_dia = agora.replace(hour=0, minute=0, second=0, microsecond=0)
-    acertos_hoje = RespostaUsuario.objects.filter(
-        usuario=request.user, data__gte=inicio_dia, acertou=True,
-    ).count()
-    pct_acerto_hoje = round(acertos_hoje / respondidas_hoje * 100) if respondidas_hoje else 0
-
-    return render(request, 'quiz/limite_atingido_questoes.html', {
-        'respondidas_hoje': respondidas_hoje,
-        'limite_dia':       limite_dia,
-        'horas_reset':      horas_reset,
-        'acertos_hoje':     acertos_hoje,
-        'pct_acerto_hoje':  pct_acerto_hoje,
-    })
+    """Deprecated — app agora 100% gratuita. Redireciona pro dashboard."""
+    return redirect('dashboard')
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
@@ -8756,178 +8720,39 @@ def _get_plano_usuario(user):
 
 # ── Views ─────────────────────────────────────────────────────────────────
 
-def planos(request):
-    """Página pública de preços."""
-    plano_atual = None
-    if request.user.is_authenticated:
-        plano_atual = _get_plano_usuario(request.user).plano
-
-    faq = [
-        ('Posso cancelar a qualquer momento?',
-         'Sim. Basta acessar "Minha Assinatura" e clicar em cancelar. Você mantém o acesso até o fim do período pago.'),
-        ('O plano Gratuito tem limite de questões?',
-         'Sim. No plano Gratuito você pode responder até 20 questões por dia. Para estudo intensivo sem limites, assine o PRO.'),
-        ('Meus dados ficam salvos se eu fizer downgrade?',
-         'Sim. Todo o seu histórico, flashcards e anotações ficam preservados independentemente do plano.'),
-        ('O pagamento é seguro?',
-         'Sim. Processamos via Mercado Pago (PIX, cartão e boleto), certificado PCI-DSS. Nunca armazenamos dados do cartão.'),
-        ('Existe plano anual com desconto?',
-         'Em breve! Planos anuais com até 40% de desconto estarão disponíveis na próxima atualização.'),
-    ]
-
-    return render(request, 'quiz/planos.html', {
-        'planos':      PLANOS_CONFIG,
-        'plano_atual': plano_atual,
-        'faq':         faq,
-    })
+def planos(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-@require_POST
-def cancelar_assinatura(request):
-    """Marca assinatura como cancelada. NAO revoga acesso imediato — user
-    mantem PRO/Premium ate expira_em (o que ja pagou). Apenas marca cancelada_em
-    pra desabilitar lembretes de renovacao e notificar equipe."""
-    from django.utils import timezone as _tz
-    plano_obj = _get_plano_usuario(request.user)
 
-    if plano_obj.plano == 'gratuito':
-        messages.info(request, 'Voce esta no plano Gratuito — nada pra cancelar.')
-        return redirect('minha_assinatura')
-
-    if plano_obj.cancelada_em:
-        messages.info(request, 'Sua assinatura ja esta marcada como cancelada.')
-        return redirect('minha_assinatura')
-
-    plano_obj.cancelada_em = _tz.now()
-    plano_obj.save(update_fields=['cancelada_em'])
-
-    # Email confirmando cancelamento
-    try:
-        from django.core.mail import send_mail
-        from django.conf import settings as _s
-        _backend = getattr(_s, 'EMAIL_BACKEND', '')
-        if _backend and 'console' not in _backend and 'dummy' not in _backend and request.user.email:
-            expira = plano_obj.expira_em.strftime('%d/%m/%Y') if plano_obj.expira_em else 'no fim do periodo pago'
-            send_mail(
-                subject='Assinatura cancelada — SantuarioEdu',
-                message=(
-                    f'Ola, {request.user.first_name or request.user.username}!\n\n'
-                    f'Confirmamos o cancelamento da sua assinatura {plano_obj.get_plano_display()}.\n\n'
-                    f'Voce mantem TODOS os recursos ate {expira}. Depois disso, sua conta volta '
-                    f'automaticamente pro plano Gratuito — sem cobrancas adicionais.\n\n'
-                    f'Se mudar de ideia, e so acessar https://www.santuarioedu.com.br/minha-assinatura/ '
-                    f'e assinar de novo. Seus dados de estudo continuam salvos.\n\n'
-                    f'Ate mais,\nSantuarioEdu'
-                ),
-                from_email=_s.DEFAULT_FROM_EMAIL,
-                recipient_list=[request.user.email],
-                fail_silently=True,
-            )
-    except Exception:
-        pass
-
-    # Notifica equipe interna (async)
-    try:
-        from .notificacao_interna import notificar
-        notificar(
-            titulo=f'❌ Cancelamento: {request.user.username}',
-            mensagem=f'Plano {plano_obj.get_plano_display()} cancelado. Expira em {plano_obj.expira_em}.',
-            cor=0xdc2626,
-        )
-    except Exception:
-        pass
-
-    messages.success(
-        request,
-        f'Assinatura cancelada. Voce mantem acesso {plano_obj.get_plano_display()} '
-        f'ate {plano_obj.expira_em:%d/%m/%Y}.'
-    )
-    return redirect('minha_assinatura')
+def cancelar_assinatura(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-def minha_assinatura(request):
-    """Painel de assinatura do usuário."""
-    plano_obj = _get_plano_usuario(request.user)
 
-    # Stats de uso hoje
-    from django.utils import timezone as _tz
-    hoje  = _tz.now().date()
-    q_hoje = RespostaUsuario.objects.filter(
-        usuario=request.user,
-        data__date=hoje
-    ).count()
-
-    limite_diario = 20 if plano_obj.plano == 'gratuito' else None
-    pct_uso = round(q_hoje / limite_diario * 100) if limite_diario else 0
-
-    # Histórico de uso (7 dias)
-    from django.db.models.functions import TruncDate as _TruncDate
-    uso_semana = (
-        RespostaUsuario.objects.filter(usuario=request.user)
-        .annotate(dia=_TruncDate('data'))
-        .values('dia')
-        .annotate(total=Count('id'))
-        .order_by('-dia')[:7]
-    )
-
-    return render(request, 'quiz/minha_assinatura.html', {
-        'plano_obj':     plano_obj,
-        'planos_config': PLANOS_CONFIG,
-        'q_hoje':        q_hoje,
-        'limite_diario': limite_diario,
-        'pct_uso':       pct_uso,
-        'uso_semana':    list(uso_semana),
-    })
+def minha_assinatura(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-@require_POST
-def simular_upgrade(request):
-    """
-    DESATIVADO em producao — dava PRO/Premium GRATIS a qualquer usuario logado.
-    Substituido pelo fluxo real via /api/checkout/mp/ (Mercado Pago).
-    Mantido acessivel APENAS em DEBUG=True pra testes locais rapidos.
-    """
-    from django.conf import settings as _s
-    from django.http import Http404
-    if not _s.DEBUG:
-        raise Http404('Endpoint desativado em producao. Use o checkout real.')
 
-    import json as _json
-    from django.utils import timezone as _tz
-    from datetime import timedelta as _td
-
-    try:
-        body  = _json.loads(request.body)
-        plano = body.get('plano', '')
-    except Exception:
-        return JsonResponse({'erro': 'Payload invalido'}, status=400)
-
-    if plano not in ('pro', 'premium'):
-        return JsonResponse({'erro': 'Plano invalido'}, status=400)
-
-    plano_obj = _get_plano_usuario(request.user)
-    plano_obj.plano     = plano
-    plano_obj.ativo     = True
-    plano_obj.expira_em = _tz.now() + _td(days=30)
-    plano_obj.save(update_fields=['plano', 'ativo', 'expira_em'])
-
-    messages.success(request, f'[DEV MODE] Plano {plano.upper()} ativado por 30 dias')
-    return JsonResponse({'ok': True, 'redirect': '/minha-assinatura/'})
+def simular_upgrade(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-def api_meu_plano(request):
-    """API — retorna plano atual do usuário (para uso em templates JS)."""
-    plano_obj = _get_plano_usuario(request.user)
-    return JsonResponse({
-        'plano':      plano_obj.plano,
-        'is_pro':     plano_obj.is_pro,
-        'is_premium': plano_obj.is_premium,
-        'expira_em':  plano_obj.expira_em.isoformat() if plano_obj.expira_em else None,
-    })
+
+def api_meu_plano(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -9161,59 +8986,11 @@ def api_admin_questao_salvar(request, questao_id):
 # CUPONS DE DESCONTO
 # ═══════════════════════════════════════════════════════════════════════════
 
-@login_required(login_url='account_login')
-@require_POST
-def aplicar_cupom(request):
-    """Valida e aplica um cupom de desconto para o usuário logado."""
-    from .models import CupomDesconto, UsoCupom, PlanoUsuario
-    from django.utils import timezone as _tz
-    from datetime import timedelta
+def aplicar_cupom(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
-    codigo = (request.POST.get('codigo') or '').strip().upper()
-    if not codigo:
-        messages.error(request, 'Digite um código de cupom.')
-        return redirect('planos')
-
-    try:
-        cupom = CupomDesconto.objects.get(codigo__iexact=codigo)
-    except CupomDesconto.DoesNotExist:
-        messages.error(request, f'Cupom "{codigo}" não encontrado.')
-        return redirect('planos')
-
-    if not cupom.disponivel:
-        messages.error(request, f'Cupom "{codigo}" não está mais disponível.')
-        return redirect('planos')
-
-    if UsoCupom.objects.filter(cupom=cupom, usuario=request.user).exists():
-        messages.warning(request, f'Você já usou esse cupom.')
-        return redirect('planos')
-
-    # Aplica em transacao atomica pra garantir tudo-ou-nada
-    from django.db import transaction as _tx
-    from django.db.models import F as _F
-    with _tx.atomic():
-        plano, _ = PlanoUsuario.objects.get_or_create(usuario=request.user)
-        plano.plano = cupom.plano_alvo
-        plano.ativo = True
-        if plano.expira_em and plano.expira_em > _tz.now():
-            plano.expira_em = plano.expira_em + timedelta(days=cupom.dias)
-        else:
-            plano.expira_em = _tz.now() + timedelta(days=cupom.dias)
-        plano.save()
-
-        UsoCupom.objects.create(
-            cupom=cupom, usuario=request.user,
-            ip_origem=request.META.get('REMOTE_ADDR'),
-        )
-        # F() evita race condition: 2 requests concorrentes NAO leem valor
-        # obsoleto (SET usos_feitos = usos_feitos + 1 no proprio DB).
-        CupomDesconto.objects.filter(pk=cupom.pk).update(usos_feitos=_F('usos_feitos') + 1)
-
-    messages.success(
-        request,
-        f'🎉 Cupom aplicado! Você agora tem {cupom.get_plano_alvo_display()} por {cupom.dias} dias.'
-    )
-    return redirect('dashboard')
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -10232,196 +10009,39 @@ def api_proxima_acao(request):
 # CHECKOUT MERCADO PAGO
 # ══════════════════════════════════════════════════════════════════════════════
 
-@login_required
-@require_POST
-@ratelimit(key='user', rate='10/h', method='POST', block=True)
-def iniciar_checkout_mp(request):
-    """
-    Cria uma preference no Mercado Pago e devolve JSON com init_point.
-    Frontend deve redirecionar o usuário para essa URL.
-
-    Rate limit 10/h/user evita poluicao de PagamentoMP + queima cota MP.
-
-    POST body: {'plano': 'pro' | 'premium'}
-    """
-    import json as _json
-    from .mercadopago_service import criar_preference, CheckoutError, PLANO_DISPLAY
-
-    try:
-        body  = _json.loads(request.body)
-        plano = (body.get('plano') or '').strip().lower()
-    except Exception:
-        return JsonResponse({'erro': 'Payload inválido'}, status=400)
-
-    if plano not in PLANO_DISPLAY:
-        return JsonResponse({'erro': 'Plano inválido'}, status=400)
-
-    try:
-        result = criar_preference(request.user, plano)
-    except CheckoutError as e:
-        return JsonResponse({'erro': str(e)}, status=502)
-
-    # Em dev, MP retorna sandbox_init_point separado; em prod, init_point é o correto.
-    # Retornamos ambos; o front escolhe.
-    return JsonResponse({
-        'ok':            True,
-        'init_point':    result.get('init_point'),
-        'sandbox_init':  result.get('sandbox_init'),
-        'preference_id': result.get('preference_id'),
-    })
+def iniciar_checkout_mp(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@require_POST
-def mp_webhook(request):
-    """
-    Webhook do Mercado Pago. MP envia POST toda vez que o status de um
-    payment muda. Precisamos:
-      1. Extrair o payment_id (query param ou body)
-      2. Consultar o payment no MP para pegar dados atuais
-      3. Atualizar nosso PagamentoMP e, se approved, ativar o plano
 
-    IMPORTANTE: webhook não tem CSRF (é externo). Django protege por padrão,
-    então usamos @csrf_exempt via decorator no urls.py OU via require_POST +
-    ausência de CSRF middleware para essa view.
-
-    Docs: https://www.mercadopago.com.br/developers/pt/docs/checkout-pro/additional-content/notifications/webhooks
-    """
-    import hashlib
-    import hmac
-    import json as _json
-
-    from django.conf import settings
-
-    from .mercadopago_service import consultar_payment, processar_pagamento_aprovado, CheckoutError
-
-    # ── Validação HMAC (MP → assinatura X-Signature) ──────────────────────
-    # Se MP_WEBHOOK_SECRET configurado, exige assinatura válida.
-    # Formato: header "x-signature: ts=<ts>,v1=<hmac_sha256>"
-    # Payload assinado: id={data.id};request-id=<x-request-id>;ts=<ts>;
-    # Docs: https://www.mercadopago.com.br/developers/pt/docs/your-integrations/notifications/webhooks
-    secret = getattr(settings, 'MP_WEBHOOK_SECRET', '')
-    if secret:
-        sig_header = request.headers.get('x-signature', '')
-        req_id     = request.headers.get('x-request-id', '')
-        data_id    = request.GET.get('data.id', '') or request.GET.get('id', '')
-        try:
-            parts = dict(p.strip().split('=', 1) for p in sig_header.split(',') if '=' in p)
-            ts_recv  = parts.get('ts', '')
-            v1_recv  = parts.get('v1', '')
-            manifest = f'id:{data_id};request-id:{req_id};ts:{ts_recv};'
-            expected = hmac.new(secret.encode(), manifest.encode(), hashlib.sha256).hexdigest()
-            if not hmac.compare_digest(expected, v1_recv):
-                return JsonResponse({'erro': 'Assinatura inválida'}, status=403)
-        except Exception:
-            return JsonResponse({'erro': 'Header X-Signature malformado'}, status=403)
-
-    # MP envia dois formatos: novo (JSON body) e antigo (query params).
-    payment_id = None
-    tipo       = None
-    try:
-        if request.body:
-            data = _json.loads(request.body)
-            tipo = data.get('type') or data.get('topic')
-            # Formato novo: {'type': 'payment', 'data': {'id': '...'}}
-            payment_id = (data.get('data') or {}).get('id')
-        # Fallback: query params (formato antigo)
-        payment_id = payment_id or request.GET.get('id') or request.GET.get('data.id')
-        tipo       = tipo or request.GET.get('type') or request.GET.get('topic')
-    except Exception:
-        return JsonResponse({'erro': 'Payload malformado'}, status=400)
-
-    # Ignoramos eventos que não são payment
-    if tipo and tipo not in ('payment', 'payments'):
-        return JsonResponse({'ok': True, 'ignored': tipo})
-
-    if not payment_id:
-        return JsonResponse({'erro': 'Sem payment_id'}, status=400)
-
-    try:
-        payment = consultar_payment(str(payment_id))
-    except CheckoutError as e:
-        return JsonResponse({'erro': str(e)}, status=502)
-    if not payment:
-        return JsonResponse({'erro': 'Payment não encontrado no MP'}, status=404)
-
-    external_ref = payment.get('external_reference') or ''
-    status_mp    = payment.get('status') or 'pending'
-
-    from .models import PagamentoMP
-    try:
-        pagamento = PagamentoMP.objects.get(id=int(external_ref))
-    except (PagamentoMP.DoesNotExist, ValueError, TypeError):
-        # Ainda persistimos o webhook pra debug
-        return JsonResponse({'ok': True, 'ignored': 'external_reference desconhecido'})
-
-    # IDEMPOTENCIA: guarda status anterior ANTES do update. Se pagamento ja
-    # estava aprovado e MP reenvia notification (retries ou merchant_order +
-    # payment em paralelo), nao processa de novo — evita empilhar +30d dias
-    # multiplos com um unico pagamento.
-    status_anterior = pagamento.status
-
-    pagamento.payment_id  = str(payment.get('id') or '')
-    pagamento.payload_raw = payment
-    mapa = {
-        'approved':     'approved',
-        'in_process':   'pending',
-        'pending':      'pending',
-        'rejected':     'rejected',
-        'cancelled':    'cancelled',
-        'refunded':     'refunded',
-        'charged_back': 'refunded',
-    }
-    pagamento.status = mapa.get(status_mp, pagamento.status)
-    pagamento.save(update_fields=['payment_id', 'payload_raw', 'status', 'atualizado_em'])
-
-    # Ativa plano SOMENTE se aprovado agora (nao era approved antes).
-    if pagamento.status == 'approved' and status_anterior != 'approved':
-        try:
-            processar_pagamento_aprovado(pagamento)
-        except Exception as e:
-            import logging as _log
-            _log.getLogger(__name__).exception('Erro ativando plano do pagamento %s: %s', pagamento.id, e)
-            return JsonResponse({'erro': 'Falha interna ao ativar plano'}, status=500)
-    elif pagamento.status == 'approved' and status_anterior == 'approved':
-        # Notification duplicada — ja processada, retorna OK sem re-ativar
-        return JsonResponse({'ok': True, 'status': pagamento.status, 'skipped': 'ja_processado'})
-
-    return JsonResponse({'ok': True, 'status': pagamento.status})
+def mp_webhook(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-def pagamento_sucesso(request):
-    """Página exibida quando o MP redireciona após pagamento aprovado.
-    O webhook é a fonte de verdade — aqui só mostramos UI amigável."""
-    # Refresca o plano do usuário caso o webhook já tenha rodado
-    plano_obj = _get_plano_usuario(request.user)
-    return render(request, 'quiz/pagamento_retorno.html', {
-        'resultado': 'sucesso',
-        'titulo':    'Pagamento aprovado!',
-        'descricao': ('Seu plano foi ativado. Se não aparecer imediatamente, '
-                      'aguarde alguns segundos e recarregue a página.'),
-        'plano_obj': plano_obj,
-    })
+
+def pagamento_sucesso(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-def pagamento_falha(request):
-    return render(request, 'quiz/pagamento_retorno.html', {
-        'resultado': 'falha',
-        'titulo':    'Pagamento não aprovado',
-        'descricao': ('Algo deu errado no pagamento. Verifique os dados do cartão '
-                      'ou tente outro método (PIX é instantâneo).'),
-    })
+
+def pagamento_falha(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
 
 
-@login_required
-def pagamento_pendente(request):
-    return render(request, 'quiz/pagamento_retorno.html', {
-        'resultado': 'pendente',
-        'titulo':    'Pagamento em processamento',
-        'descricao': ('Seu pagamento está pendente. Quando aprovado, seu plano '
-                      'será ativado automaticamente e você receberá um e-mail.'),
-    })
+
+def pagamento_pendente(*args, **kwargs):
+    """DEPRECATED — app 100% gratuita. Redireciona pro dashboard."""
+    from django.shortcuts import redirect
+    return redirect('dashboard' if args and hasattr(args[0], 'user') and args[0].user.is_authenticated else 'home')
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════

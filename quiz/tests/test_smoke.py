@@ -57,8 +57,6 @@ ROTAS_AUTENTICADAS = [
     'performance_comparativa',
     'relatorio_semanal',
     'relatorio_pdf',
-    'planos',
-    'minha_assinatura',
     'central_notificacoes',
     'preferencias_notificacao',
     'suporte_lista',
@@ -196,12 +194,6 @@ class TestSmokeSidebarConsistente(TestCase):
         r = self.c.get(reverse('analytics'))
         self.assertIn(b'data-nav-key', r.content, 'analytics não usa sidebar novo')
 
-    def test_planos_publico_sem_sidebar(self):
-        # /planos/ acessível sem login — não precisa ter sidebar de app
-        c = Client()
-        r = c.get(reverse('planos'))
-        self.assertEqual(r.status_code, 200)
-
 
 class TestSmokePaginasErro(TestCase):
     """Páginas de erro customizadas devem usar o novo design."""
@@ -213,71 +205,3 @@ class TestSmokePaginasErro(TestCase):
         # Confirma template customizado (não é a 404 padrão do Django)
         self.assertIn(b'SantuarioEdu', r.content)
 
-
-class TestCheckoutMercadoPago(TestCase):
-    """Endpoints do checkout MP.
-
-    Não chamamos a API real — mockamos o SDK para validar apenas o fluxo
-    e a integridade dos registros PagamentoMP.
-    """
-    @classmethod
-    def setUpTestData(cls):
-        cls.user = User.objects.create_user('mpuser', password='senha123', email='mp@test.com')
-
-    def setUp(self):
-        self.c = Client()
-        self.c.force_login(self.user)
-
-    def test_endpoint_exige_login(self):
-        c = Client()
-        r = c.post('/api/checkout/mp/', data={'plano': 'pro'},
-                   content_type='application/json')
-        self.assertIn(r.status_code, (302, 401))
-
-    def test_plano_invalido_400(self):
-        r = self.c.post('/api/checkout/mp/',
-                        data='{"plano": "banana"}',
-                        content_type='application/json')
-        self.assertEqual(r.status_code, 400)
-
-    def test_sem_token_mp_502(self):
-        # Como MP_ACCESS_TOKEN não está configurado nos tests, deve devolver 502
-        from django.test.utils import override_settings
-        with override_settings(MP_ACCESS_TOKEN=''):
-            r = self.c.post('/api/checkout/mp/',
-                            data='{"plano": "pro"}',
-                            content_type='application/json')
-            self.assertEqual(r.status_code, 502)
-            # E persiste o pagamento como rejected pra auditoria
-            from quiz.models import PagamentoMP
-            self.assertTrue(
-                PagamentoMP.objects.filter(usuario=self.user, status='rejected').exists()
-            )
-
-    def test_processar_pagamento_aprovado_ativa_plano(self):
-        """Simula o efeito colateral do webhook: PlanoUsuario deve virar 'pro' com expira_em."""
-        from quiz.models import PagamentoMP
-        from quiz.mercadopago_service import processar_pagamento_aprovado
-
-        pag = PagamentoMP.objects.create(
-            usuario=self.user, plano_alvo='pro',
-            valor_centavos=1490, status='approved',
-        )
-        processar_pagamento_aprovado(pag)
-
-        self.user.refresh_from_db()
-        plano = self.user.plano
-        self.assertEqual(plano.plano, 'pro')
-        self.assertTrue(plano.ativo)
-        self.assertIsNotNone(plano.expira_em)
-
-    def test_webhook_sem_payment_id_400(self):
-        c = Client()  # webhook não precisa de auth
-        r = c.post('/pagamento/webhook/', data='{}', content_type='application/json')
-        self.assertEqual(r.status_code, 400)
-
-    def test_paginas_retorno_renderizam(self):
-        for path in ('/pagamento/sucesso/', '/pagamento/falha/', '/pagamento/pendente/'):
-            r = self.c.get(path)
-            self.assertEqual(r.status_code, 200, f'{path} deveria retornar 200')
-            self.assertIn(b'SantuarioEdu', r.content)

@@ -318,7 +318,7 @@ AI_PROVIDER_ORDER = config('AI_PROVIDER_ORDER', default='groq,gemini', cast=Csv(
 # Pegue chave em: https://console.groq.com/keys
 # .strip() defensivo: env vars coladas com \n no fim causam HTTP 401
 GROQ_API_KEY = (config('GROQ_API_KEY', default='') or '').strip()
-GROQ_MODEL   = (config('GROQ_MODEL', default='llama-3.3-70b-versatile') or '').strip()
+GROQ_MODEL   = (config('GROQ_MODEL', default='openai/gpt-oss-120b') or '').strip()
 
 # Gemini — fallback. 1500 req/dia grátis.
 # Pegue chave em: https://aistudio.google.com/app/apikey
@@ -341,14 +341,7 @@ AI_LATENCIA_ALERTA_MS = config('AI_LATENCIA_ALERTA_MS', default=15000, cast=int)
 PLAUSIBLE_DOMAIN     = config('PLAUSIBLE_DOMAIN',   default='')  # ex: santuarioedu.com.br
 GA_MEASUREMENT_ID    = config('GA_MEASUREMENT_ID',  default='')  # ex: G-XXXXXXXXXX
 
-# ── Mercado Pago (checkout) ──────────────────────────────────────────────────
-# Credenciais em https://www.mercadopago.com.br/developers/panel/app
-# Use TEST-* em desenvolvimento e APP_USR-* em produção.
-MP_ACCESS_TOKEN    = config('MP_ACCESS_TOKEN',    default='')
-MP_PUBLIC_KEY      = config('MP_PUBLIC_KEY',      default='')
-MP_WEBHOOK_SECRET  = config('MP_WEBHOOK_SECRET',  default='')  # opcional, valida X-Signature
-# URL pública onde a app está publicada (usada em back_urls e notification_url).
-# Em dev, use ngrok/loca.lt e coloque aqui. Em prod: https://santuarioedu.com.br
+# ── App URL (usada em templates, links Open Graph, sitemap) ─────────────────
 SITE_URL = config('SITE_URL', default='http://127.0.0.1:8000')
 
 # ── Web Push (PWA notifications) ─────────────────────────────────────────────

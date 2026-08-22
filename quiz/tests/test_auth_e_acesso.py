@@ -61,30 +61,3 @@ class TestIDOR(TestCase):
         r = c.get(f'/grupos/{self.grupo_alice.id}/', follow=False)
         self.assertIn(r.status_code, (302, 404))
 
-
-class TestCupomDesconto(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user('joao', password='senha123')
-        self.cupom = CupomDesconto.objects.create(
-            codigo='WELCOME30', plano_alvo='pro', dias=30, usos_max=10,
-        )
-
-    def test_aplicar_cupom_valido(self):
-        c = Client(); c.force_login(self.user)
-        r = c.post('/cupom/aplicar/', {'codigo': 'WELCOME30'}, follow=False)
-        self.cupom.refresh_from_db()
-        self.assertEqual(self.cupom.usos_feitos, 1)
-
-    def test_cupom_inexistente(self):
-        c = Client(); c.force_login(self.user)
-        r = c.post('/cupom/aplicar/', {'codigo': 'NAOEXISTE'}, follow=True)
-        self.assertEqual(r.status_code, 200)
-        self.cupom.refresh_from_db()
-        self.assertEqual(self.cupom.usos_feitos, 0)
-
-    def test_mesmo_cupom_so_uma_vez_por_usuario(self):
-        c = Client(); c.force_login(self.user)
-        c.post('/cupom/aplicar/', {'codigo': 'WELCOME30'})
-        c.post('/cupom/aplicar/', {'codigo': 'WELCOME30'})  # segunda tentativa
-        self.cupom.refresh_from_db()
-        self.assertEqual(self.cupom.usos_feitos, 1)
