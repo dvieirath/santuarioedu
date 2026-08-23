@@ -82,6 +82,12 @@ class GroqProvider(BaseProvider):
     def disponivel(cls) -> bool:
         return bool(getattr(settings, 'GROQ_API_KEY', '')) and not cls.em_cooldown()
 
+    # Modelos reasoning (openai/gpt-oss-*) precisam de:
+    #  - max_completion_tokens (nao max_tokens)
+    #  - reasoning_effort=low (evita gastar todo o budget em raciocinio)
+    #  - budget adicional pra reasoning_tokens (~200 tokens)
+    REASONING_MODELS = ('openai/gpt-oss-120b', 'openai/gpt-oss-20b')
+
     @classmethod
     def gerar(cls, prompt, json_mode=False, max_tokens=2048, temperature=0.7):
         api_key = settings.GROQ_API_KEY
@@ -92,11 +98,16 @@ class GroqProvider(BaseProvider):
         if json_mode:
             prompt = prompt + '\n\nResponda APENAS em JSON válido.'
         payload = {
-            'model': modelo,
-            'messages': [{'role': 'user', 'content': prompt}],
+            'model':       modelo,
+            'messages':    [{'role': 'user', 'content': prompt}],
             'temperature': temperature,
-            'max_tokens': max_tokens,
         }
+        # Reasoning models: params diferentes + budget extra
+        if modelo in cls.REASONING_MODELS:
+            payload['max_completion_tokens'] = max_tokens + 300  # reserva pra reasoning
+            payload['reasoning_effort']      = 'low'
+        else:
+            payload['max_tokens'] = max_tokens
         if json_mode:
             payload['response_format'] = {'type': 'json_object'}
 
