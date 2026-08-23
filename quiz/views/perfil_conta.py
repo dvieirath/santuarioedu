@@ -60,7 +60,59 @@ def perfil(request):
         messages.success(request, 'Perfil atualizado com sucesso!')
         return redirect('perfil')
 
-    return render(request, 'quiz/perfil.html', {'perfil': perfil})
+    # concurso_pref (opcional) + choices pro select do "Meu concurso alvo"
+    concurso_pref = ConcursoPreferido.objects.filter(usuario=request.user).first()
+    return render(request, 'quiz/perfil.html', {
+        'perfil':            perfil,
+        'concurso_pref':     concurso_pref,
+        'concursos_choices': ConcursoPreferido.CONCURSOS,
+    })
+
+@login_required
+def alterar_concurso_pref(request):
+    """
+    Troca ou remove o concurso alvo do usuario.
+
+    POST params:
+      acao='salvar' (default) ou 'remover'
+      concurso     = slug de ConcursoPreferido.CONCURSOS (ex: 'prf')
+      horas_por_dia= int 1..24
+      data_prova_esperada = ISO date opcional
+    """
+    if request.method != 'POST':
+        return redirect('perfil')
+
+    acao = (request.POST.get('acao') or 'salvar').strip()
+
+    if acao == 'remover':
+        ConcursoPreferido.objects.filter(usuario=request.user).delete()
+        messages.success(request, 'Concurso removido do seu perfil.')
+        return redirect('perfil')
+
+    concurso = (request.POST.get('concurso') or '').strip().lower()
+    validos = dict(ConcursoPreferido.CONCURSOS).keys()
+    if concurso not in validos:
+        messages.error(request, 'Concurso inválido — selecione uma opção da lista.')
+        return redirect('perfil')
+
+    try:
+        horas = max(1, min(24, int(request.POST.get('horas_por_dia') or 2)))
+    except (TypeError, ValueError):
+        horas = 2
+
+    data_prova = (request.POST.get('data_prova_esperada') or '').strip() or None
+
+    cp, _ = ConcursoPreferido.objects.update_or_create(
+        usuario=request.user,
+        defaults={
+            'concurso':            concurso,
+            'horas_por_dia':       horas,
+            'data_prova_esperada': data_prova,
+        },
+    )
+    messages.success(request, f'Concurso alvo atualizado para {cp.get_concurso_display()}.')
+    return redirect('perfil')
+
 
 @login_required
 def excluir_conta(request):

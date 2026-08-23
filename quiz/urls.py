@@ -49,6 +49,7 @@ urlpatterns = [
     path('relatorio-semanal/enviar/', views.enviar_relatorio_email, name='enviar_relatorio_email'),
     path('cadastro/', views.cadastro, name='cadastro'),
     path('perfil/', views.perfil, name='perfil'),
+    path('perfil/concurso/', views.alterar_concurso_pref, name='alterar_concurso_pref'),
     path('perfil/excluir/', views.excluir_conta, name='excluir_conta'),
     # Páginas legais (LGPD)
     path('legal/privacidade/', views.politica_privacidade, name='politica_privacidade'),
