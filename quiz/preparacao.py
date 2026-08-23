@@ -143,31 +143,46 @@ CONCURSO_DISCIPLINAS = {
 }
 
 
+def _norm_ascii(s):
+    """Normaliza pra ASCII lowercase (remove acentos). SQLite icontains nao faz."""
+    import unicodedata
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', (s or '').lower())
+        if unicodedata.category(c) != 'Mn'
+    )
+
+
 def _match_categoria(nome_alvo):
     """
     Encontra a categoria mais adequada pra um nome de disciplina em
     qualquer nivel hierarquico. Retorna list de categorias (pode ser
     varias — ex: raiz + sub-categoria com mesmo nome).
+
+    Accent-insensitive: 'Legislacao de Transito' casa 'Legislação de Trânsito'.
+    (SQLite icontains nao normaliza acentos, entao filtramos em Python.)
+
     Prioridade:
-    1. Match iexact em qualquer nivel
-    2. Match icontains (tolera "Direito Constitucional" vs "Constitucional")
+    1. Match exato normalizado (ASCII lowercase)
+    2. Match parcial pela palavra mais especifica
     """
     from .models import Categoria
 
-    # Nivel 1: match exato em qualquer profundidade
-    exatos = list(Categoria.objects.filter(nome__iexact=nome_alvo))
+    alvo_norm = _norm_ascii(nome_alvo)
+    if not alvo_norm:
+        return []
+
+    todas = list(Categoria.objects.all())
+    # Nivel 1: match exato ignorando acentos/case
+    exatos = [c for c in todas if _norm_ascii(c.nome) == alvo_norm]
     if exatos:
         return exatos
 
-    # Nivel 2: match parcial (mais permissivo)
-    palavras = nome_alvo.lower().split()
-    if not palavras:
-        return []
-    # Palavra mais especifica (nao "direito", "de", "do") — geralmente a ultima
-    palavra_chave = palavras[-1]
+    # Nivel 2: match parcial pela palavra mais especifica
+    palavras = alvo_norm.split()
+    palavra_chave = palavras[-1] if palavras else alvo_norm
     if palavra_chave in ('direito', 'de', 'do', 'e', 'da'):
-        palavra_chave = palavras[0] if len(palavras) > 1 else nome_alvo
-    parciais = list(Categoria.objects.filter(nome__icontains=palavra_chave))
+        palavra_chave = palavras[0] if len(palavras) > 1 else alvo_norm
+    parciais = [c for c in todas if palavra_chave in _norm_ascii(c.nome)]
     return parciais[:3]  # cap
 
 
