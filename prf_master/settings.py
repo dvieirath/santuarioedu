@@ -330,6 +330,12 @@ GEMINI_MODEL   = (config('GEMINI_MODEL', default='gemini-3.1-flash-lite') or '')
 CEREBRAS_API_KEY = (config('CEREBRAS_API_KEY', default='') or '').strip()
 CEREBRAS_MODEL   = (config('CEREBRAS_MODEL', default='llama-3.3-70b') or '').strip()
 
+# OpenRouter — agregador com ~22 modelos :free (nvidia/nemotron 550B,
+# google/gemma-4-31b, etc). ~1000-1500 req/dia combinados grátis.
+# Pegue chave em: https://openrouter.ai/keys
+OPENROUTER_API_KEY = (config('OPENROUTER_API_KEY', default='') or '').strip()
+OPENROUTER_MODEL   = (config('OPENROUTER_MODEL', default='nvidia/nemotron-3-ultra-550b-a55b:free') or '').strip()
+
 # Timeout de chamadas IA em segundos. Em web requests, 30s evita DoS gratuito
 # (gunicorn worker travado). Em management commands longos você pode
 # aumentar via env: AI_TIMEOUT_SECONDS=120

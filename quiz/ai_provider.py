@@ -328,6 +328,112 @@ class CerebrasProvider(BaseProvider):
             raise AIBadResponse(f'Cerebras resposta inesperada: {e}')
 
 
+# ─── OpenRouter ──────────────────────────────────────────────────────────
+class OpenRouterProvider(BaseProvider):
+    """
+    OpenRouter: agregador de modelos LLM com muitos models :free.
+    Free tier real (2026): ~22 modelos, incluindo nvidia/nemotron 550B,
+    google/gemma-4-31b, etc. Cada modelo tem cota propria; rotacionando
+    entre eles a conta consegue ~1000-1500 req/dia gratis combinados.
+
+    Pegue chave em https://openrouter.ai/keys (login github/google).
+    Modelo default: nvidia/nemotron-3-ultra-550b-a55b:free (o mais
+    forte dos free, gera questoes Cebraspe direto sem thinking mode).
+    """
+    name = 'openrouter'
+    URL = 'https://openrouter.ai/api/v1/chat/completions'
+    DEFAULT_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free'
+
+    # Fallback interno de modelos free se o principal 429/404
+    FALLBACK_MODELS = (
+        'nvidia/nemotron-3-ultra-550b-a55b:free',
+        'google/gemma-4-31b-it:free',
+        'nvidia/nemotron-3-super-120b-a12b:free',
+    )
+
+    @classmethod
+    def disponivel(cls) -> bool:
+        return bool(getattr(settings, 'OPENROUTER_API_KEY', '')) and not cls.em_cooldown()
+
+    @classmethod
+    def gerar(cls, prompt, json_mode=False, max_tokens=2048, temperature=0.7):
+        api_key = settings.OPENROUTER_API_KEY
+        modelo_config = getattr(settings, 'OPENROUTER_MODEL', cls.DEFAULT_MODEL)
+        timeout_s = int(getattr(settings, 'AI_TIMEOUT_SECONDS', 30))
+        if json_mode:
+            prompt = prompt + '\n\nResponda APENAS em JSON válido.'
+
+        from .ai_metrics import registrar as _mregistrar
+        import re as _re
+
+        # Tenta modelo configurado, depois fallbacks internos
+        modelos_tentar = [modelo_config]
+        for m in cls.FALLBACK_MODELS:
+            if m != modelo_config and m not in modelos_tentar:
+                modelos_tentar.append(m)
+
+        ultimo_erro = None
+        for modelo in modelos_tentar:
+            payload = {
+                'model':       modelo,
+                'messages':    [{'role': 'user', 'content': prompt}],
+                'temperature': temperature,
+                'max_tokens':  max_tokens,
+            }
+            if json_mode:
+                payload['response_format'] = {'type': 'json_object'}
+
+            req = urllib.request.Request(
+                cls.URL,
+                data=_json.dumps(payload).encode('utf-8'),
+                headers={
+                    'Authorization': f'Bearer {api_key}',
+                    'Content-Type':  'application/json',
+                    'HTTP-Referer':  'https://santuarioedu.com',
+                    'X-Title':       'SantuarioEdu',
+                    'User-Agent':    'SantuarioEdu/1.0',
+                },
+            )
+
+            inicio = time.time()
+            try:
+                with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+                    data = _json.loads(resp.read().decode('utf-8'))
+                # Sucesso
+                latencia = (time.time() - inicio) * 1000
+                try:
+                    texto = data['choices'][0]['message']['content']
+                    uso = data.get('usage', {})
+                    tokens_usados = int(uso.get('total_tokens') or 0)
+                    _mregistrar('openrouter', ok=True, tokens=tokens_usados)
+                    logger.info(f'[OpenRouter/{modelo}] {tokens_usados or "?"} tokens · {latencia:.0f}ms')
+                    _alerta_se_lento('openrouter', latencia)
+                    return texto
+                except (KeyError, IndexError) as e:
+                    _mregistrar('openrouter', ok=False)
+                    raise AIBadResponse(f'OpenRouter/{modelo} resposta inesperada: {e}')
+            except urllib.error.HTTPError as e:
+                body = e.read().decode('utf-8', errors='replace')[:300]
+                if e.code in (404, 429) and modelo != modelos_tentar[-1]:
+                    # Fallback pro proximo modelo
+                    logger.info(f'[OpenRouter/{modelo}] {e.code}, tentando proximo modelo')
+                    ultimo_erro = f'HTTP {e.code}: {body[:80]}'
+                    continue
+                if e.code == 429:
+                    cls.marcar_quota_excedida()
+                    _mregistrar('openrouter', ok=False, quota=True)
+                    raise AIQuotaExceeded(f'OpenRouter 429 (todos modelos): {body}')
+                _mregistrar('openrouter', ok=False)
+                raise AIError(f'OpenRouter/{modelo} HTTP {e.code}: {body}')
+            except Exception as e:
+                _mregistrar('openrouter', ok=False)
+                raise AIError(f'OpenRouter/{modelo} erro: {e}')
+
+        # Se saiu do loop sem sucesso
+        cls.marcar_quota_excedida()
+        raise AIQuotaExceeded(f'OpenRouter todos modelos falharam: {ultimo_erro}')
+
+
 # ─── Alerta de latência ──────────────────────────────────────────────────
 def _alerta_se_lento(provider: str, latencia_ms: float):
     """Se IA passou de X ms, notifica admin (dedup por 30min).
@@ -357,14 +463,15 @@ def _alerta_se_lento(provider: str, latencia_ms: float):
 # Orquestrador
 # ──────────────────────────────────────────────────────────────────────────
 PROVIDERS = {
-    'groq':     GroqProvider,
-    'gemini':   GeminiProvider,
-    'cerebras': CerebrasProvider,
+    'groq':       GroqProvider,
+    'gemini':     GeminiProvider,
+    'cerebras':   CerebrasProvider,
+    'openrouter': OpenRouterProvider,
 }
 
 
 def _ordem_providers():
-    return getattr(settings, 'AI_PROVIDER_ORDER', ['groq', 'cerebras', 'gemini'])
+    return getattr(settings, 'AI_PROVIDER_ORDER', ['groq', 'openrouter', 'gemini'])
 
 
 def _cap_diario_atingido(usuario) -> bool:
