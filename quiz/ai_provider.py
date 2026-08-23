@@ -122,21 +122,38 @@ class GroqProvider(BaseProvider):
         )
         from .ai_metrics import registrar as _mregistrar
 
+        # Retry inteligente pra 429 TPM: extrai "try again in Xs" e aguarda
+        # o tempo exato (max 45s). Nao usa cls.marcar_quota_excedida no 1o 429
+        # pra evitar cooldown de 60s desnecessario — TPM libera em segundos.
+        import re as _re
         inicio = time.time()
-        try:
-            with urllib.request.urlopen(req, timeout=timeout_s) as resp:
-                data = _json.loads(resp.read().decode('utf-8'))
-        except urllib.error.HTTPError as e:
-            body = e.read().decode('utf-8', errors='replace')[:300]
-            if e.code == 429:
-                cls.marcar_quota_excedida()
-                _mregistrar('groq', ok=False, quota=True)
-                raise AIQuotaExceeded(f'Groq 429: {body}')
-            _mregistrar('groq', ok=False)
-            raise AIError(f'Groq HTTP {e.code}: {body}')
-        except Exception as e:
-            _mregistrar('groq', ok=False)
-            raise AIError(f'Groq erro: {e}')
+        tentativas = 0
+        MAX_RETRY_TPM = 2
+        while True:
+            try:
+                with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+                    data = _json.loads(resp.read().decode('utf-8'))
+                break
+            except urllib.error.HTTPError as e:
+                body = e.read().decode('utf-8', errors='replace')[:400]
+                if e.code == 429 and tentativas < MAX_RETRY_TPM:
+                    # TPM: "Please try again in 8.475s" — parseia e aguarda
+                    m = _re.search(r'try again in ([\d.]+)s', body)
+                    if m:
+                        wait_s = min(45.0, float(m.group(1)) + 0.5)
+                        logger.info(f'[Groq] 429 TPM, retry {tentativas+1}/{MAX_RETRY_TPM} em {wait_s:.1f}s')
+                        time.sleep(wait_s)
+                        tentativas += 1
+                        continue
+                if e.code == 429:
+                    cls.marcar_quota_excedida()
+                    _mregistrar('groq', ok=False, quota=True)
+                    raise AIQuotaExceeded(f'Groq 429 (esgotado apos {tentativas} retry): {body}')
+                _mregistrar('groq', ok=False)
+                raise AIError(f'Groq HTTP {e.code}: {body}')
+            except Exception as e:
+                _mregistrar('groq', ok=False)
+                raise AIError(f'Groq erro: {e}')
 
         latencia = (time.time() - inicio) * 1000
         try:
