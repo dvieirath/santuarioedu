@@ -231,6 +231,80 @@ class GeminiProvider(BaseProvider):
             raise AIBadResponse(f'Gemini resposta inesperada: {e}')
 
 
+# ─── Cerebras ────────────────────────────────────────────────────────────
+class CerebrasProvider(BaseProvider):
+    """
+    Cerebras Cloud: modelos Llama servidos por inferencia dedicada.
+    Free tier: 1M tokens/dia. Latencia ~200ms (o mais rapido do mercado).
+    API OpenAI-compatible.
+
+    Pegue chave em https://cloud.cerebras.ai/ (gratis, 2 min).
+    """
+    name = 'cerebras'
+    URL = 'https://api.cerebras.ai/v1/chat/completions'
+    DEFAULT_MODEL = 'llama-3.3-70b'
+
+    @classmethod
+    def disponivel(cls) -> bool:
+        return bool(getattr(settings, 'CEREBRAS_API_KEY', '')) and not cls.em_cooldown()
+
+    @classmethod
+    def gerar(cls, prompt, json_mode=False, max_tokens=2048, temperature=0.7):
+        api_key = settings.CEREBRAS_API_KEY
+        modelo = getattr(settings, 'CEREBRAS_MODEL', cls.DEFAULT_MODEL)
+        timeout_s = int(getattr(settings, 'AI_TIMEOUT_SECONDS', 30))
+        if json_mode:
+            prompt = prompt + '\n\nResponda APENAS em JSON válido.'
+        payload = {
+            'model':       modelo,
+            'messages':    [{'role': 'user', 'content': prompt}],
+            'temperature': temperature,
+            'max_tokens':  max_tokens,
+        }
+        if json_mode:
+            payload['response_format'] = {'type': 'json_object'}
+
+        req = urllib.request.Request(
+            cls.URL,
+            data=_json.dumps(payload).encode('utf-8'),
+            headers={
+                'Authorization': f'Bearer {api_key}',
+                'Content-Type':  'application/json',
+                'User-Agent':    'SantuarioEdu/1.0 (Python urllib)',
+            },
+        )
+        from .ai_metrics import registrar as _mregistrar
+
+        inicio = time.time()
+        try:
+            with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+                data = _json.loads(resp.read().decode('utf-8'))
+        except urllib.error.HTTPError as e:
+            body = e.read().decode('utf-8', errors='replace')[:300]
+            if e.code == 429:
+                cls.marcar_quota_excedida()
+                _mregistrar('cerebras', ok=False, quota=True)
+                raise AIQuotaExceeded(f'Cerebras 429: {body}')
+            _mregistrar('cerebras', ok=False)
+            raise AIError(f'Cerebras HTTP {e.code}: {body}')
+        except Exception as e:
+            _mregistrar('cerebras', ok=False)
+            raise AIError(f'Cerebras erro: {e}')
+
+        latencia = (time.time() - inicio) * 1000
+        try:
+            texto = data['choices'][0]['message']['content']
+            uso = data.get('usage', {})
+            tokens_usados = int(uso.get('total_tokens') or 0)
+            _mregistrar('cerebras', ok=True, tokens=tokens_usados)
+            logger.info(f'[Cerebras] {tokens_usados or "?"} tokens · {latencia:.0f}ms')
+            _alerta_se_lento('cerebras', latencia)
+            return texto
+        except (KeyError, IndexError) as e:
+            _mregistrar('cerebras', ok=False)
+            raise AIBadResponse(f'Cerebras resposta inesperada: {e}')
+
+
 # ─── Alerta de latência ──────────────────────────────────────────────────
 def _alerta_se_lento(provider: str, latencia_ms: float):
     """Se IA passou de X ms, notifica admin (dedup por 30min).
@@ -260,13 +334,14 @@ def _alerta_se_lento(provider: str, latencia_ms: float):
 # Orquestrador
 # ──────────────────────────────────────────────────────────────────────────
 PROVIDERS = {
-    'groq':   GroqProvider,
-    'gemini': GeminiProvider,
+    'groq':     GroqProvider,
+    'gemini':   GeminiProvider,
+    'cerebras': CerebrasProvider,
 }
 
 
 def _ordem_providers():
-    return getattr(settings, 'AI_PROVIDER_ORDER', ['groq', 'gemini'])
+    return getattr(settings, 'AI_PROVIDER_ORDER', ['groq', 'cerebras', 'gemini'])
 
 
 def _cap_diario_atingido(usuario) -> bool:

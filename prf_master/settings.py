@@ -325,6 +325,11 @@ GROQ_MODEL   = (config('GROQ_MODEL', default='openai/gpt-oss-120b') or '').strip
 GEMINI_API_KEY = (config('GEMINI_API_KEY', default='') or '').strip()
 GEMINI_MODEL   = (config('GEMINI_MODEL', default='gemini-3.1-flash-lite') or '').strip()
 
+# Cerebras — 1M tokens/dia grátis, Llama 3.3 70B, latência ~200ms.
+# Pegue chave em: https://cloud.cerebras.ai/
+CEREBRAS_API_KEY = (config('CEREBRAS_API_KEY', default='') or '').strip()
+CEREBRAS_MODEL   = (config('CEREBRAS_MODEL', default='llama-3.3-70b') or '').strip()
+
 # Timeout de chamadas IA em segundos. Em web requests, 30s evita DoS gratuito
 # (gunicorn worker travado). Em management commands longos você pode
 # aumentar via env: AI_TIMEOUT_SECONDS=120
