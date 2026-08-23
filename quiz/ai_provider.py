@@ -302,6 +302,12 @@ class CerebrasProvider(BaseProvider):
                 cls.marcar_quota_excedida()
                 _mregistrar('cerebras', ok=False, quota=True)
                 raise AIQuotaExceeded(f'Cerebras 429: {body}')
+            if e.code == 402:
+                # Payment Required: conta sem billing ativo. Marca cooldown longo
+                # (5 min) pra nao continuar tentando a cada chamada.
+                cls.marcar_quota_excedida()
+                _mregistrar('cerebras', ok=False, quota=True)
+                raise AIQuotaExceeded(f'Cerebras 402 (billing inativo): {body}')
             _mregistrar('cerebras', ok=False)
             raise AIError(f'Cerebras HTTP {e.code}: {body}')
         except Exception as e:
