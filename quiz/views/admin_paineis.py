@@ -107,3 +107,77 @@ def admin_status(request):
         'import_status':        import_status,
         'erros_recentes':       erros_recentes,
     })
+
+
+@login_required(login_url='account_login')
+@user_passes_test(_is_staff, login_url='home')
+def admin_ia_metricas(request):
+    """
+    Painel de métricas dos providers de IA — chamadas, tokens, quota, status.
+    Consolida stats_do_dia (hoje) + stats_ultimos_dias (7d histórico) e cruza
+    com contagem de questões geradas por IA no banco.
+    """
+    from ..ai_metrics import stats_do_dia, stats_ultimos_dias, PROVIDERS
+    from django.db.models import Count
+    from datetime import timedelta
+
+    stats_hoje = stats_do_dia()
+    stats_7d   = stats_ultimos_dias(7)
+
+    # Somatório da semana por provider
+    total_semana = {p: {'ok': 0, 'tokens': 0, 'quota': 0, 'err': 0}
+                    for p in PROVIDERS}
+    for dia in stats_7d:
+        for p in PROVIDERS:
+            v = dia['stats'].get(p, {})
+            for k in ('ok', 'tokens', 'quota', 'err'):
+                total_semana[p][k] += v.get(k, 0)
+
+    # Cruzamento com banco: questões IA geradas / aprovadas
+    ia_no_banco = Questao.objects.filter(gerada_por_ia=True).count()
+    ia_aprovadas = Questao.objects.filter(gerada_por_ia=True, revisada=True).count()
+    ia_pendentes = Questao.objects.filter(
+        gerada_por_ia=True, revisada=False, rejeitada_definitiva=False
+    ).count()
+    ia_rejeitadas = Questao.objects.filter(
+        gerada_por_ia=True, rejeitada_definitiva=True
+    ).count()
+    pct_aprovacao = round(ia_aprovadas / ia_no_banco * 100, 1) if ia_no_banco else 0
+
+    # Últimas 24h: questões geradas por IA (aproximacao via id)
+    ia_24h = 0
+    try:
+        agora = timezone.now()
+        ontem = agora - timedelta(hours=24)
+        # RespostaUsuario não tem, mas Questao não tem created_at.
+        # Aproximação: pega ultimas N inseridas
+        ia_24h = Questao.objects.filter(
+            gerada_por_ia=True, id__gte=Questao.objects.latest('id').id - 500
+        ).count()
+    except Questao.DoesNotExist:
+        pass
+
+    # Configuração ativa (order + keys presentes)
+    from django.conf import settings
+    order_ativo = settings.AI_PROVIDER_ORDER
+    keys_status = {
+        'groq':       bool(getattr(settings, 'GROQ_API_KEY', '')),
+        'gemini':     bool(getattr(settings, 'GEMINI_API_KEY', '')),
+        'cerebras':   bool(getattr(settings, 'CEREBRAS_API_KEY', '')),
+        'openrouter': bool(getattr(settings, 'OPENROUTER_API_KEY', '')),
+    }
+
+    return render(request, 'quiz/admin_ia_metricas.html', {
+        'stats_hoje':    stats_hoje,
+        'stats_7d':      stats_7d,
+        'total_semana':  total_semana,
+        'providers':     PROVIDERS,
+        'order_ativo':   order_ativo,
+        'keys_status':   keys_status,
+        'ia_no_banco':   ia_no_banco,
+        'ia_aprovadas':  ia_aprovadas,
+        'ia_pendentes':  ia_pendentes,
+        'ia_rejeitadas': ia_rejeitadas,
+        'ia_24h':        ia_24h,
+        'pct_aprovacao': pct_aprovacao,
+    })

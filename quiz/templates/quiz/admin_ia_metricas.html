@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>IA em números — SantuarioEdu Admin</title>
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+<meta http-equiv="refresh" content="60"/>
+<style>
+  .stat-card { background:#fff; border:1px solid #e5e1d8; border-radius:16px; padding:20px; }
+  .stat-num { font-size:32px; font-weight:800; color:#1B365D; font-family:'Source Serif 4', serif; line-height:1; }
+  .stat-lbl { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; font-weight:700; }
+  .bar { height:8px; border-radius:999px; background:#eef2f8; overflow:hidden; }
+  .bar > div { height:100%; border-radius:999px; transition:width .3s; }
+  .status-ok       { background:#006c4d; }
+  .status-atencao  { background:#f59e0b; }
+  .status-critico  { background:#ef4444; }
+  .badge-key-on    { background:#dcfce7; color:#166534; }
+  .badge-key-off   { background:#fee2e2; color:#991b1b; }
+  th, td { padding:8px 12px; text-align:left; font-size:13px; }
+  th { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:#94a3b8; font-weight:700; }
+  tr:nth-child(even) { background:#fafbfc; }
+</style>
+</head>
+<body>
+
+{% include "quiz/includes/sidebar.html" with active='admin' %}
+
+<nav class="md:ml-64 sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-[#e5e1d8] px-6 h-16 flex items-center gap-3">
+  <a href="{% url 'dashboard' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </a>
+  <div class="flex-1">
+    <h1 class="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">psychology</span>
+      IA em números
+    </h1>
+    <p class="text-xs text-on-surface-variant">Uso dos providers · quotas · banco IA</p>
+  </div>
+  <span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Auto-refresh 60s</span>
+</nav>
+
+<main class="md:ml-64 px-6 lg:px-10 py-8 max-w-6xl">
+
+  {# ═════════ KPIs do banco IA ═════════ #}
+  <section class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
+    <div class="stat-card">
+      <div class="stat-lbl">Total IA</div>
+      <div class="stat-num">{{ ia_no_banco }}</div>
+      <div class="text-xs text-on-surface-variant mt-1">no banco</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Aprovadas</div>
+      <div class="stat-num text-green-700" style="color:#006c4d;">{{ ia_aprovadas }}</div>
+      <div class="text-xs text-on-surface-variant mt-1">{{ pct_aprovacao }}%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Pendentes</div>
+      <div class="stat-num" style="color:#f59e0b;">{{ ia_pendentes }}</div>
+      <div class="text-xs text-on-surface-variant mt-1">revisar/justificar</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Rejeitadas</div>
+      <div class="stat-num" style="color:#ef4444;">{{ ia_rejeitadas }}</div>
+      <div class="text-xs text-on-surface-variant mt-1">defeitos irrecuperáveis</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Últ. 500 gerad.</div>
+      <div class="stat-num">{{ ia_24h }}</div>
+      <div class="text-xs text-on-surface-variant mt-1">bloco recente</div>
+    </div>
+  </section>
+
+  {# ═════════ Config ativa ═════════ #}
+  <section class="mb-8">
+    <h2 class="text-sm font-bold text-primary uppercase tracking-wider mb-3">Ordem de fallback ativa</h2>
+    <div class="flex flex-wrap items-center gap-2">
+      {% for p in order_ativo %}
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/5 border border-primary/20 text-sm font-semibold text-primary">
+          {{ forloop.counter }}º {{ p }}
+          {% if keys_status|dictsort:0 %}
+            {% for k, v in keys_status.items %}
+              {% if k == p %}
+                {% if v %}<span class="text-xs px-1.5 py-0.5 rounded badge-key-on">key</span>
+                {% else %}<span class="text-xs px-1.5 py-0.5 rounded badge-key-off">sem key</span>{% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </span>
+        {% if not forloop.last %}
+          <span class="material-symbols-outlined text-on-surface-variant" style="font-size:16px;">arrow_forward</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <p class="text-xs text-on-surface-variant mt-2">Providers configurados mas fora da ordem:
+      {% for p, v in keys_status.items %}
+        {% if p not in order_ativo and v %}<code>{{ p }}</code> {% endif %}
+      {% endfor %}
+    </p>
+  </section>
+
+  {# ═════════ Hoje por provider ═════════ #}
+  <section class="mb-8">
+    <h2 class="text-sm font-bold text-primary uppercase tracking-wider mb-3">Hoje · uso por provider</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for p in providers %}
+        {% with s=stats_hoje|dictsort:0 %}
+        {% for k, v in stats_hoje.items %}{% if k == p %}
+          <div class="stat-card">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <div class="font-serif font-bold text-primary text-base">{{ p|title }}</div>
+                <div class="text-xs text-on-surface-variant">
+                  {% if not keys_status|dictsort:0 %}{% endif %}
+                  {% for kk, kv in keys_status.items %}{% if kk == p %}
+                    {% if kv %}key ativa{% else %}sem key{% endif %}
+                  {% endif %}{% endfor %}
+                </div>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full font-bold uppercase
+                {% if v.status == 'critico' %}bg-red-100 text-red-700
+                {% elif v.status == 'atencao' %}bg-amber-100 text-amber-700
+                {% else %}bg-green-100 text-green-700{% endif %}">
+                {{ v.status|default:"—" }}
+              </span>
+            </div>
+            <div class="grid grid-cols-4 gap-2 text-center mb-3">
+              <div>
+                <div class="text-lg font-bold text-primary">{{ v.ok|default:0 }}</div>
+                <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Sucessos</div>
+              </div>
+              <div>
+                <div class="text-lg font-bold" style="color:#f59e0b;">{{ v.quota|default:0 }}</div>
+                <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Quota</div>
+              </div>
+              <div>
+                <div class="text-lg font-bold" style="color:#ef4444;">{{ v.err|default:0 }}</div>
+                <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Erros</div>
+              </div>
+              <div>
+                <div class="text-lg font-bold text-primary">{{ v.tokens|default:0 }}</div>
+                <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Tokens</div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+                  <span>Requests</span>
+                  <span>{{ v.pct_req|default:0 }}% de {{ v.cap_req|default:0 }}</span>
+                </div>
+                <div class="bar"><div class="status-{{ v.status|default:'ok' }}" style="width:{{ v.pct_req|default:0 }}%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-on-surface-variant mb-1">
+                  <span>Tokens</span>
+                  <span>{{ v.pct_tokens|default:0 }}% de {{ v.cap_tokens|default:0 }}</span>
+                </div>
+                <div class="bar"><div class="status-{{ v.status|default:'ok' }}" style="width:{{ v.pct_tokens|default:0 }}%"></div></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}{% endfor %}
+        {% endwith %}
+      {% endfor %}
+    </div>
+  </section>
+
+  {# ═════════ Últimos 7 dias ═════════ #}
+  <section class="mb-8">
+    <h2 class="text-sm font-bold text-primary uppercase tracking-wider mb-3">Últimos 7 dias · sucessos por provider</h2>
+    <div class="paper-card rounded-2xl overflow-hidden bg-white border border-[#e5e1d8]">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-[#e5e1d8]">
+            <th>Dia</th>
+            {% for p in providers %}<th>{{ p|title }}</th>{% endfor %}
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dia in stats_7d %}
+          <tr>
+            <td class="font-mono text-xs">{{ dia.dia }}</td>
+            {% for p in providers %}
+              {% for k, v in dia.stats.items %}{% if k == p %}
+                <td>{{ v.ok|default:0 }}{% if v.tokens %} <span class="text-xs text-on-surface-variant">({{ v.tokens }}t)</span>{% endif %}</td>
+              {% endif %}{% endfor %}
+            {% endfor %}
+            <td class="font-semibold">
+              {% with total_dia=0 %}
+                {% for p in providers %}
+                  {% for k, v in dia.stats.items %}{% if k == p %}
+                    {% with soma=v.ok|default:0 %}{{ soma|add:total_dia }}{% endwith %}
+                  {% endif %}{% endfor %}
+                {% endfor %}
+              {% endwith %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {# ═════════ Semana somada ═════════ #}
+  <section class="mb-8">
+    <h2 class="text-sm font-bold text-primary uppercase tracking-wider mb-3">Somatório da semana</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      {% for p in providers %}
+        {% for k, v in total_semana.items %}{% if k == p %}
+          <div class="stat-card">
+            <div class="stat-lbl">{{ p|title }} 7d</div>
+            <div class="stat-num">{{ v.ok }}</div>
+            <div class="text-xs text-on-surface-variant mt-1">
+              {{ v.tokens }} tokens · {{ v.quota }} quota · {{ v.err }} err
+            </div>
+          </div>
+        {% endif %}{% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <p class="text-xs text-on-surface-variant text-center mt-8">
+    Dados em cache Django (TTL 25h). Contadores zerados em restart do server.
+    <br>
+    Semaforos: <span class="status-ok inline-block" style="width:12px;height:12px;border-radius:2px;"></span> &lt;70% ·
+    <span class="status-atencao inline-block" style="width:12px;height:12px;border-radius:2px;"></span> 70-90% ·
+    <span class="status-critico inline-block" style="width:12px;height:12px;border-radius:2px;"></span> &gt;90%
+  </p>
+</main>
+
+</body>
+</html>

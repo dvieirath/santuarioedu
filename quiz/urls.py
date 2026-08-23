@@ -61,6 +61,7 @@ urlpatterns = [
     # cupom removido (app 100% gratuita)
     path('admin-metricas/',    views.metricas_negocio,      name='admin_metricas'),
     path('admin-status/',      views.admin_status,          name='admin_status'),
+    path('admin-ia-metricas/', views.admin_ia_metricas,     name='admin_ia_metricas'),
 
     # Suporte
     path('suporte/',                 views.suporte_lista,       name='suporte_lista'),

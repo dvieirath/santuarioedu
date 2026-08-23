@@ -18,17 +18,21 @@ from datetime import datetime, timedelta
 from django.core.cache import cache
 
 
-PROVIDERS = ('groq', 'gemini')
+PROVIDERS = ('groq', 'gemini', 'cerebras', 'openrouter')
 METRICAS = ('ok', 'tokens', 'quota', 'err')
 
 # Cap teórico free tier (para semáforo)
 CAP_DIARIO_TOKENS = {
-    'groq':   100_000,
-    'gemini': 1_000_000,  # aproximado, gemini-flash-lite tem cap generoso
+    'groq':       100_000,   # gpt-oss-20b free ~limitado por TPM
+    'gemini':   1_000_000,   # gemini-flash-lite tem cap generoso
+    'cerebras': 1_000_000,   # se billing ativo
+    'openrouter': 500_000,   # rotativo entre 3 modelos free
 }
 CAP_DIARIO_REQ = {
-    'groq':   6_000,
-    'gemini': 1_500,
+    'groq':       6_000,
+    'gemini':     1_500,
+    'cerebras':  10_000,     # se billing
+    'openrouter': 1_000,     # 200/dia por modelo × 5 modelos
 }
 
 
