@@ -369,16 +369,25 @@ def estudar_por_assunto(request):
     topico     = request.GET.get('topico', '').strip()
     busca      = request.GET.get('q', '').strip()
     nivel_filtro = request.GET.get('nivel', '').strip()  # forte/regular/fraco/novo
+    banca_filtro = request.GET.get('banca', '').strip()
+    ano_filtro   = request.GET.get('ano', '').strip()
 
     qs_assuntos = (
         Questao.objects
-        .filter(assunto__isnull=False)
+        .filter(assunto__isnull=False, revisada=True)
         .exclude(assunto='')
     )
     if cat_id:
         qs_assuntos = qs_assuntos.filter(categoria_id=cat_id)
     if busca:
         qs_assuntos = qs_assuntos.filter(assunto__icontains=busca)
+    if banca_filtro:
+        qs_assuntos = qs_assuntos.filter(banca__iexact=banca_filtro)
+    if ano_filtro:
+        try:
+            qs_assuntos = qs_assuntos.filter(ano=int(ano_filtro))
+        except (TypeError, ValueError):
+            pass
 
     raw_assuntos = (
         qs_assuntos
@@ -502,15 +511,34 @@ def estudar_por_assunto(request):
     )
 
     categorias = Categoria.objects.order_by('nome')
+
+    # Dropdowns de banca e ano — a partir do universo total revisado (nao
+    # filtrado) pra manter opcoes visiveis mesmo quando filtro atual as
+    # remove do resultado.
+    bancas_disponiveis = list(
+        Questao.objects.filter(revisada=True)
+        .exclude(banca__isnull=True).exclude(banca='')
+        .values_list('banca', flat=True).distinct().order_by('banca')
+    )
+    anos_disponiveis = list(
+        Questao.objects.filter(revisada=True)
+        .exclude(ano__isnull=True)
+        .values_list('ano', flat=True).distinct().order_by('-ano')
+    )
+
     return render(request, 'quiz/estudar_por_assunto.html', {
-        'grupos':           grupos,
-        'topicos_dropdown': topicos_dropdown,
-        'categorias':       categorias,
-        'cat_id':           cat_id,
-        'topico':           topico,
-        'busca':            busca,
-        'nivel_filtro':     nivel_filtro,
-        'stats':            stats_global,
+        'grupos':             grupos,
+        'topicos_dropdown':   topicos_dropdown,
+        'categorias':         categorias,
+        'cat_id':             cat_id,
+        'topico':             topico,
+        'busca':              busca,
+        'nivel_filtro':       nivel_filtro,
+        'banca_filtro':       banca_filtro,
+        'ano_filtro':         ano_filtro,
+        'bancas_disponiveis': bancas_disponiveis,
+        'anos_disponiveis':   anos_disponiveis,
+        'stats':              stats_global,
     })
 
 @login_required(login_url='account_login')

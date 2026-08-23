@@ -96,7 +96,7 @@
           {% endfor %}
         </select>
       </div>
-      <div class="md:col-span-3">
+      <div class="md:col-span-2">
         <select name="topico" onchange="this.form.submit()"
           class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
           <option value="">Todos os tópicos</option>
@@ -109,6 +109,30 @@
         <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-semibold px-3 py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-1">
           <span class="material-symbols-outlined" style="font-size:18px;">filter_alt</span>
         </button>
+      </div>
+    </div>
+
+    {# Linha 2: banca + ano (dropdown compacto) #}
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 mt-3">
+      <div class="md:col-span-6">
+        <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block mb-1">Banca examinadora</label>
+        <select name="banca" onchange="this.form.submit()"
+          class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Todas as bancas</option>
+          {% for b in bancas_disponiveis %}
+          <option value="{{ b }}" {% if banca_filtro == b %}selected{% endif %}>{{ b }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="md:col-span-6">
+        <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block mb-1">Ano da prova</label>
+        <select name="ano" onchange="this.form.submit()"
+          class="w-full bg-white border border-outline-variant/40 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15">
+          <option value="">Todos os anos</option>
+          {% for a in anos_disponiveis %}
+          <option value="{{ a }}" {% if ano_filtro == a|stringformat:'s' %}selected{% endif %}>{{ a }}</option>
+          {% endfor %}
+        </select>
       </div>
     </div>
 

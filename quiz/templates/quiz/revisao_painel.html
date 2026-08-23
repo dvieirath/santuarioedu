@@ -116,6 +116,8 @@
         <span><kbd>J</kbd> justif.</span>
         <span><kbd>→</kbd> próxima</span>
         <span><kbd>B</kbd> bulk approve</span>
+        <span class="text-primary font-semibold">⇧<kbd>B</kbd> aprovar 10 turbo</span>
+        <span class="text-primary font-semibold">⇧<kbd>A</kbd> aprovar 50 turbo</span>
         <span><kbd>G</kbd> ir para ID</span>
       </div>
     </section>
@@ -636,10 +638,76 @@ async function confirmarBulk() {
   }
 }
 
+// ═════════ Bulk approve TURBO (sem modal — direto no endpoint) ═════════
+async function bulkApproveTurbo(qtd) {
+  const csrf = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+  const catSel = document.getElementById('filtro-categoria');
+  const cat_id = catSel && catSel.value ? parseInt(catSel.value) : null;
+
+  // Toast inicial
+  showToast(`Aprovando próximas ${qtd}…`, 'info');
+
+  try {
+    const res = await fetch('/api/admin/revisao/bulk-approve/', {
+      method:  'POST',
+      headers: {'Content-Type':'application/json', 'X-CSRFToken': csrf},
+      body:    JSON.stringify({
+        cat_id:            cat_id,
+        apenas_com_justif: true,
+        apenas_ia:         false,   // aceita prova + IA (mais amplo)
+        limite:            qtd,
+      }),
+    });
+    const data = await res.json();
+    if (data.ok && data.aprovadas > 0) {
+      showToast(`✓ ${data.aprovadas} aprovadas (restam ${data.total_candidatas - data.aprovadas} candidatas)`, 'success');
+      // Recarrega proxima questao
+      setTimeout(() => proximaAJAX(), 500);
+    } else {
+      showToast(`Nenhuma candidata encontrada`, 'warn');
+    }
+  } catch (err) {
+    showToast(`Erro: ${err.message}`, 'error');
+  }
+}
+
+// Toast simples reutilizavel
+function showToast(msg, tipo) {
+  let t = document.getElementById('turbo-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'turbo-toast';
+    t.style.cssText = 'position:fixed;bottom:24px;right:24px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:13px;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.15);transition:all .25s;pointer-events:none;';
+    document.body.appendChild(t);
+  }
+  const cores = {
+    info:    'background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe',
+    success: 'background:#dcfce7;color:#166534;border:1px solid #86efac',
+    warn:    'background:#fef3c7;color:#92400e;border:1px solid #fcd34d',
+    error:   'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5',
+  };
+  t.style.cssText += ';' + (cores[tipo] || cores.info);
+  t.textContent = msg;
+  t.style.transform = 'translateY(0)';
+  t.style.opacity = '1';
+  clearTimeout(t._hide);
+  t._hide = setTimeout(() => {
+    t.style.transform = 'translateY(20px)';
+    t.style.opacity = '0';
+  }, 3500);
+}
+
 // ═════════════════════════ Atalhos teclado ═════════════════════════
 document.addEventListener('keydown', function(e) {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
   if (e.ctrlKey || e.metaKey || e.altKey) return;
+  // Shift+A: aprovar 50 turbo. Shift+B: aprovar 10 turbo.
+  if (e.shiftKey) {
+    const kUp = e.key.toUpperCase();
+    if (kUp === 'A') { e.preventDefault(); bulkApproveTurbo(50); return; }
+    if (kUp === 'B') { e.preventDefault(); bulkApproveTurbo(10); return; }
+    return;  // outros shift+* nao interceptar
+  }
   const k = e.key.toLowerCase();
   if (k === 'a') { e.preventDefault(); acao('aprovar'); }
   else if (k === 'r') { e.preventDefault(); abrirReprovar(); }
