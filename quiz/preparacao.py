@@ -112,33 +112,35 @@ def get_analise_banca(banca):
 # Mapeia concurso -> disciplinas relevantes (subset das categorias)
 # Usado como filtro base pra analises focadas.
 CONCURSO_DISCIPLINAS = {
+    # Nomes canônicos COM acento — _match_categoria e' accent-insensitive
+    # e a UI usa exatamente esta grafia (rótulos limpos pro usuário).
     'prf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Penal',
-        'Legislacao de Transito', 'Portugues', 'Raciocinio Logico', 'Informatica',
+        'Legislação de Trânsito', 'Português', 'Raciocínio Lógico', 'Informática',
     ],
     'pf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Penal',
-        'Direito Processual Penal', 'Portugues', 'Informatica',
+        'Direito Processual Penal', 'Português', 'Informática',
     ],
     'inss': [
-        'Direito Constitucional', 'Direito Administrativo', 'Direito Previdenciario',
-        'Etica no Servico Publico', 'Portugues', 'Raciocinio Logico', 'Informatica',
+        'Direito Constitucional', 'Direito Administrativo', 'Direito Previdenciário',
+        'Ética no Serviço Público', 'Português', 'Raciocínio Lógico', 'Informática',
     ],
     'tjdf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Civil',
-        'Direito Processual Civil', 'Direito Penal', 'Portugues',
+        'Direito Processual Civil', 'Direito Penal', 'Português',
     ],
     'trf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Civil',
-        'Direito Processual Civil', 'Direito Penal', 'Portugues',
+        'Direito Processual Civil', 'Direito Penal', 'Português',
     ],
     'camara': [
-        'Direito Constitucional', 'Direito Administrativo', 'Portugues',
-        'Administracao Publica',
+        'Direito Constitucional', 'Direito Administrativo', 'Português',
+        'Administração Pública',
     ],
     'enem': [
-        'Linguagens e Codigos', 'Ciencias Humanas', 'Ciencias da Natureza',
-        'Matematica', 'Redacao',
+        'Linguagens e Códigos', 'Ciências Humanas', 'Ciências da Natureza',
+        'Matemática', 'Redação',
     ],
 }
 
