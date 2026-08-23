@@ -83,9 +83,19 @@ class Command(BaseCommand):
 
     def handle(self, *args, **opts):
         nome_cat = opts['categoria']
-        try:
-            categoria = Categoria.objects.get(nome__iexact=nome_cat)
-        except Categoria.DoesNotExist:
+        # Lookup accent-insensitive (SQLite iexact nao normaliza acentos)
+        import unicodedata
+        def _norm(s):
+            return ''.join(
+                c for c in unicodedata.normalize('NFD', (s or '').lower())
+                if unicodedata.category(c) != 'Mn'
+            )
+        alvo_norm = _norm(nome_cat)
+        categoria = next(
+            (c for c in Categoria.objects.all() if _norm(c.nome) == alvo_norm),
+            None,
+        )
+        if categoria is None:
             if opts['criar_se_necessario']:
                 categoria = Categoria.objects.create(nome=nome_cat)
                 self.stdout.write(self.style.WARNING(

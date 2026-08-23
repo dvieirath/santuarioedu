@@ -85,17 +85,30 @@ class Command(BaseCommand):
             pular = [c.strip() for c in opts['pular'].split(',')]
             cats_lista = [c for c in cats_lista if c not in pular]
 
-        # Valida categorias
-        cats_existentes = {c.nome: c for c in Categoria.objects.all()}
+        # Valida categorias (accent-insensitive pra evitar duplicatas orfas
+        # tipo "Língua Portuguesa" raiz vs "Português" sob Linguagens)
+        import unicodedata
+        def _norm(s):
+            return ''.join(
+                c for c in unicodedata.normalize('NFD', (s or '').lower())
+                if unicodedata.category(c) != 'Mn'
+            )
+        cats_existentes = {_norm(c.nome): c for c in Categoria.objects.all()}
         plano = []
         for nome in cats_lista:
-            if nome not in cats_existentes:
+            match = cats_existentes.get(_norm(nome))
+            if not match:
                 self.stdout.write(self.style.WARNING(
                     f'  ⚠ Categoria "{nome}" nao existe — sera criada no primeiro run'
                 ))
                 atual = 0
             else:
-                atual = cats_existentes[nome].questao_set.count()
+                # Usa o nome CANONICO do banco pra evitar criar duplicata
+                nome_canonico = match.nome
+                if nome_canonico != nome:
+                    self.stdout.write(f'  ✎ Usando categoria existente {nome_canonico!r} (em vez de {nome!r})')
+                    nome = nome_canonico
+                atual = match.questao_set.count()
 
             if opts['ate_teto']:
                 gerar = max(0, opts['ate_teto'] - atual)
@@ -143,7 +156,9 @@ class Command(BaseCommand):
                 if n <= 0:
                     continue
                 banca = opts['banca'] or BANCAS_PRF[idx % len(BANCAS_PRF)]
-                antes = Categoria.objects.get(nome=p['nome']).questao_set.count() if p['nome'] in cats_existentes else 0
+                # Contagem "antes" — accent-insensitive lookup
+                cat_atual = Categoria.objects.filter(nome__iexact=p['nome']).first()
+                antes = cat_atual.questao_set.count() if cat_atual else 0
                 try:
                     call_command(
                         'gerar_questoes_ia',
@@ -163,11 +178,10 @@ class Command(BaseCommand):
                         f'    Erro ao gerar {tipo} p/ {p["nome"]}: {type(e).__name__}: {str(e)[:80]}'
                     ))
                 # Contagem depois (aproximada — pode ter dedup)
-                try:
-                    depois = Categoria.objects.get(nome=p['nome']).questao_set.count()
+                cat_atual = Categoria.objects.filter(nome__iexact=p['nome']).first()
+                if cat_atual:
+                    depois = cat_atual.questao_set.count()
                     criadas_total += (depois - antes)
-                except Categoria.DoesNotExist:
-                    pass
 
                 if opts['delay']:
                     time.sleep(opts['delay'])

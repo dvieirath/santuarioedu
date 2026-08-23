@@ -116,7 +116,8 @@ CONCURSO_DISCIPLINAS = {
     # e a UI usa exatamente esta grafia (rótulos limpos pro usuário).
     'prf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Penal',
-        'Legislação de Trânsito', 'Português', 'Raciocínio Lógico', 'Informática',
+        'Direito Processual Penal', 'Legislação de Trânsito',
+        'Ética no Serviço Público', 'Português', 'Raciocínio Lógico', 'Informática',
     ],
     'pf': [
         'Direito Constitucional', 'Direito Administrativo', 'Direito Penal',
