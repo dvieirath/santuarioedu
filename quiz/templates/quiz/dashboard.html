@@ -186,6 +186,69 @@ tailwind.config = {
     </a>
     {% endif %}
 
+    {% if banco_stats %}
+    <!-- Widget "Meu banco de estudo" (só se tem concurso alvo definido) -->
+    <div class="paper-card rounded-2xl p-5 mb-6 fade-in" style="animation-delay:.05s;">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-widest text-primary">Meu banco de estudo</p>
+          <h3 class="font-serif text-lg font-bold text-primary">
+            {{ banco_stats.total }} questões disponíveis
+          </h3>
+          <p class="text-xs text-on-surface-variant">
+            {{ concurso_pref.get_concurso_display|truncatechars:35 }}
+          </p>
+        </div>
+        <a href="{% url 'escolher_tema' %}"
+           class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-primary border border-primary/30 rounded-lg px-3 py-1.5 hover:bg-primary/5 transition-colors">
+          <span class="material-symbols-outlined" style="font-size:14px;">play_arrow</span>
+          Continuar estudo
+        </a>
+      </div>
+
+      <!-- 3 mini-stats -->
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="text-center px-3 py-2 bg-primary/5 rounded-lg">
+          <div class="text-xl font-bold text-primary">{{ banco_stats.respondidas }}</div>
+          <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Respondidas</div>
+        </div>
+        <div class="text-center px-3 py-2 bg-secondary-container/40 rounded-lg">
+          <div class="text-xl font-bold" style="color:#006c4d;">{{ banco_stats.pct_acerto }}%</div>
+          <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Acerto</div>
+        </div>
+        <div class="text-center px-3 py-2 bg-amber-50 rounded-lg">
+          <div class="text-xl font-bold" style="color:#f59e0b;">{{ banco_stats.restantes }}</div>
+          <div class="text-[10px] uppercase tracking-wider text-on-surface-variant">Faltando</div>
+        </div>
+      </div>
+
+      <!-- Barra progresso cobertura -->
+      <div class="mb-3">
+        <div class="flex justify-between text-xs mb-1">
+          <span class="font-semibold text-on-surface-variant">Cobertura do banco</span>
+          <span class="font-bold text-primary">{{ banco_stats.pct_cobertura }}%</span>
+        </div>
+        <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all"
+               style="width:{{ banco_stats.pct_cobertura }}%"></div>
+        </div>
+      </div>
+
+      <!-- Top 3 disciplinas -->
+      {% if banco_stats.top_3 %}
+      <div class="flex flex-wrap gap-2 mt-3">
+        {% for d in banco_stats.top_3 %}
+        <span class="inline-flex items-center gap-1 text-xs bg-white border border-[#e5e1d8] rounded-lg px-2.5 py-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:12px;">folder</span>
+          <span class="text-slate-700">{{ d.nome|truncatechars:22 }}</span>
+          <span class="font-bold text-primary">{{ d.n }}</span>
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
     <!-- Bento Grid -->
     <div class="grid grid-cols-12 gap-6 mb-6 fade-in" style="animation-delay:.1s;">
 

@@ -230,10 +230,35 @@ tailwind.config = {
         Aprenda mais em menos tempo.
       </h1>
       <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-6 max-w-lg">
-        Banco de <strong class="text-primary">{{ total_questoes }} questões oficiais</strong>,
-        simulados cronometrados, revisão espaçada e IA que analisa seus erros e propõe
-        caminhos de estudo.
+        Banco de <strong class="text-primary">{{ total_questoes }} questões revisadas</strong>
+        cobrindo <strong>{{ total_concursos }} concursos</strong> e
+        <strong>{{ total_bancas }} bancas</strong> (Cebraspe, FGV e mais).
+        Simulados cronometrados, revisão espaçada e IA que analisa seus erros.
       </p>
+
+      <!-- Micro-stats -->
+      <div class="flex flex-wrap items-center gap-3 mb-6 text-xs">
+        <div class="flex items-center gap-1.5 bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">quiz</span>
+          <span class="font-semibold text-primary">{{ total_questoes }}</span>
+          <span class="text-slate-600">questões</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">flag</span>
+          <span class="font-semibold text-primary">{{ total_concursos }}</span>
+          <span class="text-slate-600">concursos</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">workspaces</span>
+          <span class="font-semibold text-primary">{{ total_disciplinas }}</span>
+          <span class="text-slate-600">disciplinas</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">verified</span>
+          <span class="font-semibold text-primary">{{ total_bancas }}</span>
+          <span class="text-slate-600">bancas</span>
+        </div>
+      </div>
 
       <!-- ─── O que é a plataforma (4 pilares tecnológicos) ─── -->
       <div class="grid grid-cols-2 gap-2.5 mb-6 max-w-lg">

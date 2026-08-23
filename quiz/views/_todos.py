@@ -422,6 +422,56 @@ def dashboard(request):
     except Exception as e:
         _log_falha('concurso_pref', e)
 
+    # ── Banco de estudo (widget "meu banco" — motivacional) ───────────
+    try:
+        if ctx.get('concurso_pref_slug'):
+            from ..preparacao import _match_categoria, CONCURSO_DISCIPLINAS
+            # NAO importar Questao/RespostaUsuario aqui — ja estao no
+            # namespace global do modulo. Import local reabre binding e
+            # UnboundLocalError se codigo anterior no mesmo escopo usar.
+            slug = ctx['concurso_pref_slug']
+            ids_disc = set()
+            top_discs = []
+            for d in CONCURSO_DISCIPLINAS.get(slug, []):
+                cats = _match_categoria(d)
+                ids_d = set()
+                for c in cats:
+                    ids_d.update(c.subarvore_ids())
+                n = Questao.objects.filter(
+                    categoria_id__in=ids_d, revisada=True,
+                ).count()
+                if n:
+                    top_discs.append({'nome': d, 'n': n})
+                ids_disc.update(ids_d)
+
+            total = Questao.objects.filter(
+                categoria_id__in=ids_disc, revisada=True,
+            ).count()
+            # Distinct pelo id da questão (evita contar 2x quando user
+            # respondeu a mesma questao em contextos diferentes).
+            respondidas = (RespostaUsuario.objects
+                           .filter(usuario=request.user, questao__categoria_id__in=ids_disc)
+                           .values('questao').distinct().count())
+            acertadas = (RespostaUsuario.objects
+                         .filter(usuario=request.user, questao__categoria_id__in=ids_disc,
+                                 acertou=True)
+                         .values('questao').distinct().count())
+            pct_cobertura = round(respondidas / total * 100, 1) if total else 0
+            pct_acerto    = round(acertadas / respondidas * 100, 1) if respondidas else 0
+
+            top_discs.sort(key=lambda x: -x['n'])
+            ctx['banco_stats'] = {
+                'total':         total,
+                'respondidas':   respondidas,
+                'acertadas':     acertadas,
+                'pct_cobertura': pct_cobertura,
+                'pct_acerto':    pct_acerto,
+                'top_3':         top_discs[:3],
+                'restantes':     max(0, total - respondidas),
+            }
+    except Exception as e:
+        _log_falha('banco_stats', e)
+
     # ── Render blindado: se ate o template crashar, redireciona ─────────
     try:
         return render(request, 'quiz/dashboard.html', ctx)

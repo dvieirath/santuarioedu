@@ -48,6 +48,7 @@ urlpatterns = [
     path('relatorio-semanal/', views.relatorio_semanal, name='relatorio_semanal'),
     path('relatorio-semanal/enviar/', views.enviar_relatorio_email, name='enviar_relatorio_email'),
     path('cadastro/', views.cadastro, name='cadastro'),
+    path('banco/', views.banco_publico, name='banco_publico'),
     path('perfil/', views.perfil, name='perfil'),
     path('perfil/concurso/', views.alterar_concurso_pref, name='alterar_concurso_pref'),
     path('perfil/excluir/', views.excluir_conta, name='excluir_conta'),

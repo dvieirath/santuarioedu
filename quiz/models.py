@@ -146,8 +146,8 @@ class Questao(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     texto = models.TextField()
     texto_hash = models.CharField(
-        max_length=64, blank=True, default='', db_index=True,
-        help_text='SHA-256 do enunciado normalizado (dedup automatico).',
+        max_length=64, blank=True, default='', db_index=True, unique=True,
+        help_text='SHA-256 do enunciado normalizado (dedup automatico + integridade DB).',
     )
     imagem = models.ImageField(upload_to='questoes/', blank=True, null=True,
                                 validators=VALIDADORES_IMAGEM)
@@ -191,6 +191,12 @@ class Questao(models.Model):
             models.Index(fields=['revisada', 'tipo']),
             # Query hot em rejeitadas_definitiva check
             models.Index(fields=['revisada', 'rejeitada_definitiva']),
+            # Query hot no painel IA metrics: filter(gerada_por_ia, revisada)
+            models.Index(fields=['gerada_por_ia', 'revisada']),
+            # Query hot no widget banco_stats do dashboard
+            models.Index(fields=['categoria', 'revisada', 'gerada_por_ia']),
+            # Query hot na landing /banco/ + landing concurso (agrupa por banca)
+            models.Index(fields=['banca', 'revisada']),
         ]
 
     def __str__(self):

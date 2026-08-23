@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nosso banco de questões — {{ total }} questões de concursos · SantuarioEdu</title>
+<meta name="description" content="{{ total }} questões oficiais de concursos brasileiros (Cebraspe, FGV e outras bancas) organizadas por disciplina, ano e concurso. Estude grátis com IA no SantuarioEdu."/>
+<link rel="canonical" href="https://santuarioedu.com.br/banco/"/>
+<meta property="og:title" content="Banco de {{ total }} questões · SantuarioEdu"/>
+<meta property="og:description" content="{{ total }} questões oficiais em {{ top_disciplinas|length }} disciplinas. Cebraspe, FGV e mais. Estude grátis com IA."/>
+<meta property="og:type" content="website"/>
+
+{% include "includes/favicon.html" %}
+{% include "quiz/includes/design_tokens.html" %}
+{% include "quiz/includes/dark_mode.html" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Banco de Questões SantuarioEdu",
+  "description": "{{ total }} questões oficiais de concursos brasileiros, organizadas por disciplina, banca e ano.",
+  "keywords": "questões, concursos, Cebraspe, FGV, PRF, INSS, PF, TJDF",
+  "creator": {"@type":"Organization","name":"SantuarioEdu"},
+  "license": "https://santuarioedu.com.br/legal/termos/"
+}
+</script>
+
+<style>
+  .num-big { font-family:'Source Serif 4', serif; font-size:56px; font-weight:800; color:#1B365D; line-height:1; }
+  .num-big.sm { font-size:32px; }
+  .card { background:#fff; border:1px solid #edeeef; border-radius:16px; }
+  .chip { display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:600; background:#f1f5f9; color:#334155; padding:3px 10px; border-radius:999px; }
+  .bar-outer { background:#f1f5f9; height:8px; border-radius:999px; overflow:hidden; }
+  .bar-inner { height:100%; background:linear-gradient(90deg, #1B365D 0%, #006c4d 100%); border-radius:999px; transition:width .4s ease; }
+</style>
+</head>
+<body class="bg-surface">
+
+{# ═══════════════════ TOPBAR PÚBLICO ═══════════════════ #}
+<nav class="border-b border-[#e5e1d8] bg-white/85 backdrop-blur-md sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="{% url 'home' %}" class="flex items-center gap-2 font-headline font-extrabold text-primary text-sm uppercase tracking-widest">
+      {% include "quiz/includes/brand_mark.html" with size="24" %}
+      SantuarioEdu
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="{% url 'home' %}" class="text-sm text-slate-600 hover:text-primary transition-colors hidden sm:inline">Início</a>
+      <a href="{% url 'account_signup' %}" class="text-sm font-semibold bg-primary text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">Criar conta grátis</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 py-12">
+
+  {# ═════════ HERO ═════════ #}
+  <header class="text-center mb-12">
+    <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1 mb-4">
+      <span class="material-symbols-outlined" style="font-size:12px;">database</span>
+      Nosso banco
+    </span>
+    <h1 class="font-headline text-4xl md:text-6xl font-extrabold text-primary leading-tight mb-3">
+      {{ total }} questões<br class="hidden md:block"> à sua disposição
+    </h1>
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      Questões oficiais de concursos brasileiros catalogadas por disciplina,
+      banca examinadora e ano da prova. Tudo grátis pra qualquer usuário cadastrado.
+    </p>
+  </header>
+
+  {# ═════════ POR CONCURSO ═════════ #}
+  {% if por_concurso %}
+  <section class="mb-12">
+    <h2 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1;">flag</span>
+      Por concurso
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for c in por_concurso %}
+        <a href="{% url 'landing_concurso' c.slug %}"
+           class="card p-5 hover:border-primary/40 transition-all group flex items-start gap-4">
+          <div class="shrink-0 w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center">
+            <span class="text-lg font-bold text-primary">{{ c.nome_curto|slice:":3"|upper }}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-serif font-bold text-primary text-base leading-tight">{{ c.nome_curto }}</h3>
+            <p class="text-xs text-on-surface-variant mb-2 truncate">{{ c.nome }}</p>
+            <div class="flex items-center gap-1.5">
+              <span class="num-big sm">{{ c.total }}</span>
+              <span class="text-xs text-on-surface-variant self-end pb-1">questões</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" style="font-size:18px;">arrow_forward</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {# ═════════ DISCIPLINAS + BANCAS ═════════ #}
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+
+    {# --- Top disciplinas --- #}
+    {% if top_disciplinas %}
+    <section>
+      <h2 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1;">workspaces</span>
+        Top disciplinas
+      </h2>
+      <div class="card p-5 space-y-3">
+        {% with maior=top_disciplinas.0.total %}
+        {% for d in top_disciplinas %}
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-semibold text-slate-700">{{ d.nome }}</span>
+              <span class="text-sm font-bold text-primary">{{ d.total }}</span>
+            </div>
+            <div class="bar-outer">
+              {% widthratio d.total maior 100 as pct %}
+              <div class="bar-inner" style="width:{{ pct }}%"></div>
+            </div>
+          </div>
+        {% endfor %}
+        {% endwith %}
+      </div>
+    </section>
+    {% endif %}
+
+    {# --- Bancas --- #}
+    {% if top_bancas %}
+    <section>
+      <h2 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1;">verified</span>
+        Bancas cobertas
+      </h2>
+      <div class="card p-5 space-y-3">
+        {% with maior=top_bancas.0.total %}
+        {% for b in top_bancas %}
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-semibold text-slate-700">{{ b.nome }}</span>
+              <span class="text-sm font-bold text-primary">{{ b.total }}</span>
+            </div>
+            <div class="bar-outer">
+              {% widthratio b.total maior 100 as pct %}
+              <div class="bar-inner" style="width:{{ pct }}%"></div>
+            </div>
+          </div>
+        {% endfor %}
+        {% endwith %}
+      </div>
+    </section>
+    {% endif %}
+  </div>
+
+  {# ═════════ POR ANO ═════════ #}
+  {% if por_ano %}
+  <section class="mb-12">
+    <h2 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1;">event</span>
+      Anos com mais questões
+    </h2>
+    <div class="flex flex-wrap gap-3">
+      {% for a in por_ano %}
+        <div class="card px-4 py-3 flex flex-col items-center min-w-[100px]">
+          <span class="text-2xl font-bold text-primary">{{ a.total }}</span>
+          <span class="text-xs text-on-surface-variant">{{ a.ano }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {# ═════════ CTA ═════════ #}
+  <section class="card p-8 text-center bg-gradient-to-br from-primary/5 to-secondary/5">
+    <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-primary mb-2">
+      Pronto pra começar a resolver?
+    </h2>
+    <p class="text-slate-600 mb-5 max-w-xl mx-auto">
+      Crie sua conta em 30 segundos. Sem cartão, sem trial — <strong>grátis pra sempre</strong>.
+      Acesse todo o banco, IA que analisa seus erros e simulados cronometrados.
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a href="{% url 'account_signup' %}"
+         class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-opacity">
+        Criar conta grátis
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+      <a href="{% url 'home' %}" class="text-sm text-slate-600 hover:text-primary transition-colors">
+        Voltar para o início
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="mt-16 py-8 border-t border-[#e5e1d8]">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
+    <p>© 2026 SantuarioEdu · Plataforma 100% gratuita</p>
+    <div class="flex items-center gap-4">
+      <a href="{% url 'politica_privacidade' %}" class="hover:text-primary">Privacidade</a>
+      <a href="{% url 'termos_uso' %}" class="hover:text-primary">Termos</a>
+      <a href="{% url 'faq' %}" class="hover:text-primary">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
