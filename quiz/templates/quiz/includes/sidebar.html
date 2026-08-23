@@ -1,16 +1,20 @@
 {% comment %}
   Sidebar reutilizável — mesmo padrão visual em todas as páginas.
   Parâmetros:
-    active: painel | praticar | simulados | revisao | ia | progresso |
-            planejamento | competicao | conta
-    compact (boolean): se True, mostra APENAS os grupos Praticar + Simulados
+    active:  painel | questoes | simulados | concurso | ia | social |
+             mais | conta
+    compact: se True, mostra APENAS os grupos Questões + Simulados
+             (usado nas telas de responder questão / simulado)
 
-  Comportamento: todos os grupos ficam abertos por padrão. Se o usuário
-  colapsa um grupo manualmente, a preferência é persistida em localStorage
-  para que o sidebar não "se reorganize" a cada navegação.
+  Organização (2026-08 refactor):
+    - Questões e Simulados sempre no topo, com destaque visual (accent verde)
+    - Meu Concurso e IA logo em seguida (foco em preparação)
+    - Social e "Mais" colapsados por padrão (features menos usadas)
+    - Conta enxuta no fim
+  Preferência de colapso persistida em localStorage.
 {% endcomment %}
 <aside id="app-sidebar" class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-[#f8f9fa] border-r border-[#edeeef] py-6 z-50 transition-[width] duration-200 ease-out">
-  <a href="{% url 'dashboard' %}" class="brand px-8 mb-10 flex items-center gap-3 hover:opacity-80 transition-opacity">
+  <a href="{% url 'dashboard' %}" class="brand px-8 mb-8 flex items-center gap-3 hover:opacity-80 transition-opacity">
     {% include "quiz/includes/brand_mark.html" with size="32" %}
     <span class="brand-text text-lg font-extrabold text-[#1B365D] uppercase tracking-widest font-headline">SantuarioEdu</span>
   </a>
@@ -33,7 +37,12 @@
       .grp-icon { font-size:18px !important; flex-shrink:0; color:#1B365D; }
 
       .nav-group-items { padding:2px 0 4px 4px; }
-      .nav-subheader { font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; padding:6px 12px 2px 12px; }
+
+      /* Grupos em destaque (Questões + Simulados) — accent verde SantuarioEdu */
+      .nav-group-featured > summary { color:#006c4d; background:#e6f4ee; }
+      .nav-group-featured > summary:hover { background:#d0ecdf; }
+      .nav-group-featured > summary .grp-icon { color:#006c4d; }
+      .nav-group-featured { border-left:3px solid #006c4d; padding-left:2px; border-radius:0 8px 8px 0; margin:4px 0; }
 
       .nav-chip { font-size:9px; font-weight:800; padding:1px 5px; border-radius:999px; line-height:1.4; color:white; margin-left:auto; }
       .chip-ai { background:#8b5cf6; }
@@ -42,8 +51,9 @@
       .chip-amber { background:#f59e0b; }
 
       .nav-divider { border-top:1px solid #edeff2; margin:6px 0; }
+      .nav-section-label { font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; padding:10px 12px 4px 12px; }
 
-      /* ═══ Modo compact: sidebar magra (só ícones), expande no hover ═══ */
+      /* Modo compact: sidebar magra (só ícones), expande no hover */
       body.sidebar-compact #app-sidebar { width:64px; }
       body.sidebar-compact #app-sidebar:hover { width:256px; box-shadow:4px 0 16px rgba(0,32,70,.08); }
       body.sidebar-compact #app-sidebar .brand { padding-left:16px; padding-right:16px; justify-content:center; }
@@ -51,7 +61,7 @@
       body.sidebar-compact #app-sidebar:not(:hover) .brand-text,
       body.sidebar-compact #app-sidebar:not(:hover) .nav-link span:not(.material-symbols-outlined),
       body.sidebar-compact #app-sidebar:not(:hover) .nav-chip,
-      body.sidebar-compact #app-sidebar:not(:hover) .nav-subheader,
+      body.sidebar-compact #app-sidebar:not(:hover) .nav-section-label,
       body.sidebar-compact #app-sidebar:not(:hover) .nav-group-header > span:not(.grp-icon),
       body.sidebar-compact #app-sidebar:not(:hover) .user-info,
       body.sidebar-compact #app-sidebar:not(:hover) .toggle-label,
@@ -60,10 +70,8 @@
       body.sidebar-compact #app-sidebar:not(:hover) .nav-group-header { justify-content:center; padding-left:8px; padding-right:8px; }
       body.sidebar-compact #app-sidebar:not(:hover) form button { justify-content:center; }
       body.sidebar-compact #app-sidebar:not(:hover) .compact-hide-when-collapsed { display:none; }
-      /* Adapta o margin dos mains (todos usam md:ml-64 = 16rem) */
       body.sidebar-compact .md\:ml-64 { margin-left:64px !important; transition:margin .2s ease; }
 
-      /* Botão toggle */
       .sidebar-toggle {
         display:flex; align-items:center; gap:10px; width:100%;
         padding:8px 12px; border-radius:8px; cursor:pointer;
@@ -75,46 +83,110 @@
       .sidebar-toggle:hover .material-symbols-outlined { color:#1B365D; }
     </style>
 
+    {# ═══════ Painel ═══════ #}
     <a class="nav-link {% if active == 'painel' %}nav-link-active{% endif %}" href="{% url 'dashboard' %}">
       <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1;">dashboard</span>
       <span>Painel</span>
     </a>
 
+    {# ═══════ Admin (só staff) ═══════ #}
     {% if user.is_staff %}
     <div class="nav-divider"></div>
-    <p class="nav-subheader" style="color:#7c3aed;">🔧 Admin</p>
+    <p class="nav-section-label" style="color:#7c3aed;">🔧 Admin</p>
     <a class="nav-link relative" href="{% url 'admin_revisao' %}" title="Revisar questões pendentes">
       <span class="material-symbols-outlined" style="color:#7c3aed;">fact_check</span>
       <span>Revisar Questões</span>
       {% with pend=admin_pendentes_qtd %}
-      {% if pend %}
-      <span class="nav-chip chip-amber animate-pulse" title="{{ pend }} pendentes">{{ pend }}</span>
-      {% endif %}
+      {% if pend %}<span class="nav-chip chip-amber animate-pulse" title="{{ pend }} pendentes">{{ pend }}</span>{% endif %}
       {% endwith %}
     </a>
     <a class="nav-link" href="{% url 'admin_metricas' %}">
       <span class="material-symbols-outlined" style="color:#0ea5e9;">leaderboard</span>
       <span>Métricas</span>
     </a>
-    <a class="nav-link" href="/admin/" title="Painel Django Admin">
+    <a class="nav-link" href="/admin/">
       <span class="material-symbols-outlined" style="color:#94a3b8;">admin_panel_settings</span>
       <span>Admin Django</span>
     </a>
     {% endif %}
 
     <div class="nav-divider"></div>
+    <p class="nav-section-label">Estudo</p>
 
-    <details class="nav-group" data-nav-key="estudar" open>
+    {# ═══════ QUESTÕES — DESTAQUE ═══════ #}
+    <details class="nav-group nav-group-featured" data-nav-key="questoes" open>
       <summary class="nav-group-header">
-        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">menu_book</span>
-        <span class="flex-1">Estudar</span>
+        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">quiz</span>
+        <span class="flex-1">Questões</span>
+        <span class="material-symbols-outlined chevron" style="font-size:16px;">expand_more</span>
+      </summary>
+      <div class="nav-group-items">
+        <a class="nav-link" href="{% url 'escolher_tema' %}">
+          <span class="material-symbols-outlined">menu_book</span><span>Escolher tema</span>
+        </a>
+        <a class="nav-link" href="{% url 'estudar_por_assunto' %}">
+          <span class="material-symbols-outlined">category</span><span>Por assunto</span>
+        </a>
+        <a class="nav-link" href="{% url 'iniciar_quiz' %}?modo=todas">
+          <span class="material-symbols-outlined">shuffle</span><span>Aleatórias</span>
+        </a>
+        <a class="nav-link" href="{% url 'questao_do_dia' %}">
+          <span class="material-symbols-outlined">today</span><span>Questão do dia</span>
+        </a>
+        <a class="nav-link" href="{% url 'caderno_erros' %}">
+          <span class="material-symbols-outlined">error_outline</span><span>Caderno de erros</span>
+        </a>
+        <a class="nav-link" href="{% url 'favoritas' %}">
+          <span class="material-symbols-outlined">bookmark</span><span>Favoritas</span>
+        </a>
+        <a class="nav-link" href="{% url 'flashcards' %}">
+          <span class="material-symbols-outlined">style</span><span>Flashcards</span>
+        </a>
+      </div>
+    </details>
+
+    {# ═══════ SIMULADOS — DESTAQUE ═══════ #}
+    <details class="nav-group nav-group-featured" data-nav-key="simulados" open>
+      <summary class="nav-group-header">
+        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">assignment</span>
+        <span class="flex-1">Simulados</span>
+        <span class="material-symbols-outlined chevron" style="font-size:16px;">expand_more</span>
+      </summary>
+      <div class="nav-group-items">
+        <a class="nav-link" href="{% url 'simulado_edital' %}">
+          <span class="material-symbols-outlined">assignment</span><span>Prontos</span>
+        </a>
+        <a class="nav-link" href="{% url 'simulado_personalizado' %}">
+          <span class="material-symbols-outlined">tune</span><span>Personalizado</span>
+        </a>
+        <a class="nav-link" href="{% url 'modo_prova_real' %}">
+          <span class="material-symbols-outlined">timer</span><span>Cronometrado</span>
+        </a>
+        <a class="nav-link" href="{% url 'simulado_preditivo' %}">
+          <span class="material-symbols-outlined">rocket_launch</span><span>Preditivo</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
+        <a class="nav-link" href="{% url 'historico_simulados' %}">
+          <span class="material-symbols-outlined">history</span><span>Meu histórico</span>
+        </a>
+      </div>
+    </details>
+
+    {% if not compact %}
+
+    <p class="nav-section-label">Sua preparação</p>
+
+    {# ═══════ Meu Concurso ═══════ #}
+    <details class="nav-group" data-nav-key="concurso" open>
+      <summary class="nav-group-header">
+        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">flag</span>
+        <span class="flex-1">Meu Concurso</span>
         <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
       </summary>
       <div class="nav-group-items">
-        <p class="nav-subheader">Preparação</p>
         {% if user.concurso_pref %}
-        <a class="nav-link" href="{% url 'preparacao_concurso' user.concurso_pref.concurso %}">
-          <span class="material-symbols-outlined">flag</span><span>Meu concurso — {{ user.concurso_pref.get_concurso_display|truncatechars:22 }}</span>
+        <a class="nav-link" href="{% url 'preparacao_concurso' user.concurso_pref.concurso|lower %}">
+          <span class="material-symbols-outlined">flag</span><span>{{ user.concurso_pref.get_concurso_display|truncatechars:20 }}</span>
         </a>
         {% endif %}
         <a class="nav-link" href="{% url 'meu_edital' %}">
@@ -123,94 +195,13 @@
         <a class="nav-link" href="{% url 'progresso_edital_vivo' %}">
           <span class="material-symbols-outlined">checklist</span><span>Progresso do edital</span>
         </a>
-        <a class="nav-link" href="{% url 'coach_ia' %}">
-          <span class="material-symbols-outlined">psychology</span><span>Coach IA</span>
-        </a>
-        <a class="nav-link" href="{% url 'curva_esquecimento' %}">
-          <span class="material-symbols-outlined">trending_down</span><span>Curva esquecimento</span>
-        </a>
-
-        <p class="nav-subheader">Praticar</p>
-        <a class="nav-link" href="{% url 'escolher_tema' %}">
-          <span class="material-symbols-outlined">menu_book</span><span>Escolher tema</span>
-        </a>
-        <a class="nav-link" href="{% url 'iniciar_quiz' %}?modo=todas">
-          <span class="material-symbols-outlined">shuffle</span><span>Aleatórias</span>
-        </a>
-        <a class="nav-link" href="{% url 'questao_do_dia' %}">
-          <span class="material-symbols-outlined">today</span><span>Questão do dia</span>
-        </a>
-        <a class="nav-link" href="{% url 'estudar_por_assunto' %}">
-          <span class="material-symbols-outlined">category</span><span>Por assunto</span>
-        </a>
-        <a class="nav-link" href="{% url 'modo_desafio' %}">
-          <span class="material-symbols-outlined">bolt</span><span>Modo Desafio</span>
-        </a>
-
-        <p class="nav-subheader">Revisar</p>
-        <a class="nav-link" href="{% url 'flashcards' %}">
-          <span class="material-symbols-outlined">style</span><span>Flashcards</span>
-        </a>
-        <a class="nav-link" href="{% url 'caderno_erros' %}">
-          <span class="material-symbols-outlined">error_outline</span><span>Caderno de erros</span>
-        </a>
-
-        <p class="nav-subheader">Guardar</p>
-        <a class="nav-link" href="{% url 'favoritas' %}">
-          <span class="material-symbols-outlined">bookmark</span><span>Favoritas</span>
-        </a>
-        <a class="nav-link" href="{% url 'quiz_favoritas' %}">
-          <span class="material-symbols-outlined">star</span><span>Estudar favoritas</span>
-        </a>
-        <a class="nav-link" href="{% url 'questoes_marcadas' %}">
-          <span class="material-symbols-outlined">flag</span><span>Marcadas p/ depois</span>
+        <a class="nav-link" href="{% url 'plano_estudos' %}">
+          <span class="material-symbols-outlined">calendar_today</span><span>Plano de estudos</span>
         </a>
       </div>
     </details>
 
-    <details class="nav-group" data-nav-key="simulados" open>
-      <summary class="nav-group-header">
-        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">assignment</span>
-        <span class="flex-1">Simulados</span>
-        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
-      </summary>
-      <div class="nav-group-items">
-        <p class="nav-subheader">Individuais</p>
-        <a class="nav-link" href="{% url 'simulado_edital' %}">
-          <span class="material-symbols-outlined">assignment</span><span>Prontos</span>
-        </a>
-        <a class="nav-link" href="{% url 'simulado_personalizado' %}">
-          <span class="material-symbols-outlined">tune</span><span>Personalizado</span>
-        </a>
-        <a class="nav-link" href="{% url 'simulado_preditivo' %}">
-          <span class="material-symbols-outlined">rocket_launch</span><span>Preditivo</span>
-          <span class="nav-chip chip-ai">IA</span>
-        </a>
-        <a class="nav-link" href="{% url 'modo_prova_real' %}">
-          <span class="material-symbols-outlined">timer</span><span>Cronometrado</span>
-          <span class="nav-chip chip-new">novo</span>
-        </a>
-
-        {% if not compact %}
-        <p class="nav-subheader">Em grupo</p>
-        <a class="nav-link" href="{% url 'coletivo_home' %}">
-          <span class="material-symbols-outlined">stadium</span><span>Coletivo</span>
-          <span class="nav-chip chip-sky">novo</span>
-        </a>
-        <a class="nav-link" href="{% url 'duelo_home' %}">
-          <span class="material-symbols-outlined">swords</span><span>Duelo 1v1</span>
-        </a>
-        {% endif %}
-
-        <p class="nav-subheader">Meu histórico</p>
-        <a class="nav-link" href="{% url 'historico_simulados' %}">
-          <span class="material-symbols-outlined">history</span><span>Todos simulados</span>
-        </a>
-      </div>
-    </details>
-
-    {% if not compact %}
-
+    {# ═══════ IA & Análises ═══════ #}
     <details class="nav-group" data-nav-key="ia" open>
       <summary class="nav-group-header">
         <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">insights</span>
@@ -218,7 +209,14 @@
         <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
       </summary>
       <div class="nav-group-items">
-        <p class="nav-subheader">Assistentes IA</p>
+        <a class="nav-link" href="{% url 'coach_ia' %}">
+          <span class="material-symbols-outlined">psychology</span><span>Coach IA</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
+        <a class="nav-link" href="{% url 'analise_erros' %}">
+          <span class="material-symbols-outlined">manage_search</span><span>Análise dos erros</span>
+          <span class="nav-chip chip-ai">IA</span>
+        </a>
         <a class="nav-link" href="{% url 'resumos_lista' %}">
           <span class="material-symbols-outlined">auto_stories</span><span>Resumos</span>
           <span class="nav-chip chip-ai">IA</span>
@@ -227,140 +225,100 @@
           <span class="material-symbols-outlined">account_tree</span><span>Mapas mentais</span>
           <span class="nav-chip chip-ai">IA</span>
         </a>
-        <a class="nav-link" href="{% url 'analise_banca' %}">
-          <span class="material-symbols-outlined">analytics</span><span>Análise da banca</span>
-          <span class="nav-chip chip-ai">IA</span>
+        <a class="nav-link" href="{% url 'estatisticas_incidencia' %}">
+          <span class="material-symbols-outlined">bar_chart</span><span>Estatísticas</span>
         </a>
-        <a class="nav-link" href="{% url 'analise_erros' %}">
-          <span class="material-symbols-outlined">manage_search</span><span>Análise dos erros</span>
-          <span class="nav-chip chip-ai">IA</span>
+        <a class="nav-link" href="{% url 'curva_esquecimento' %}">
+          <span class="material-symbols-outlined">trending_down</span><span>Curva de esquecimento</span>
+        </a>
+      </div>
+    </details>
+
+    <p class="nav-section-label">Extras</p>
+
+    {# ═══════ Social & Competição (colapsado) ═══════ #}
+    <details class="nav-group" data-nav-key="social">
+      <summary class="nav-group-header">
+        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">group</span>
+        <span class="flex-1">Social & Competição</span>
+        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
+      </summary>
+      <div class="nav-group-items">
+        <a class="nav-link" href="{% url 'ranking' %}">
+          <span class="material-symbols-outlined">leaderboard</span><span>Ranking global</span>
+        </a>
+        <a class="nav-link" href="{% url 'grupos_lista' %}">
+          <span class="material-symbols-outlined">group</span><span>Grupos de estudo</span>
+        </a>
+        <a class="nav-link" href="{% url 'duelo_home' %}">
+          <span class="material-symbols-outlined">swords</span><span>Duelo 1v1</span>
+        </a>
+        <a class="nav-link" href="{% url 'coletivo_home' %}">
+          <span class="material-symbols-outlined">stadium</span><span>Coletivo</span>
+          <span class="nav-chip chip-sky">novo</span>
+        </a>
+        <a class="nav-link" href="{% url 'modo_desafio' %}">
+          <span class="material-symbols-outlined">bolt</span><span>Modo Desafio</span>
+        </a>
+        <a class="nav-link" href="{% url 'convidar' %}">
+          <span class="material-symbols-outlined">group_add</span><span>Convidar amigos</span>
+        </a>
+      </div>
+    </details>
+
+    {# ═══════ Mais recursos (colapsado) ═══════ #}
+    <details class="nav-group" data-nav-key="mais">
+      <summary class="nav-group-header">
+        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">more_horiz</span>
+        <span class="flex-1">Mais recursos</span>
+        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
+      </summary>
+      <div class="nav-group-items">
+        <a class="nav-link" href="{% url 'metas_avancadas' %}">
+          <span class="material-symbols-outlined">track_changes</span><span>Metas de estudo</span>
         </a>
         <a class="nav-link" href="{% url 'previsao_topicos' %}">
           <span class="material-symbols-outlined">travel_explore</span><span>Previsão de tópicos</span>
           <span class="nav-chip chip-ai">IA</span>
         </a>
-        <a class="nav-link" href="{% url 'plano_estudos_ia' %}">
-          <span class="material-symbols-outlined">auto_awesome</span><span>Plano de estudos</span>
+        <a class="nav-link" href="{% url 'analise_banca' %}">
+          <span class="material-symbols-outlined">analytics</span><span>Análise da banca</span>
           <span class="nav-chip chip-ai">IA</span>
         </a>
-
-        <p class="nav-subheader">Materiais de apoio</p>
         <a class="nav-link" href="{% url 'timelines_lista' %}">
           <span class="material-symbols-outlined">timeline</span><span>Timelines de leis</span>
-          <span class="nav-chip chip-ai">IA</span>
-        </a>
-        <a class="nav-link" href="{% url 'comparativo_lista' %}">
-          <span class="material-symbols-outlined">compare</span><span>Comparativo bancas</span>
-          <span class="nav-chip chip-ai">IA</span>
         </a>
         <a class="nav-link" href="{% url 'glossario_lista' %}">
           <span class="material-symbols-outlined">menu_book</span><span>Glossário</span>
-        </a>
-
-        <p class="nav-subheader">Meu desempenho</p>
-        <a class="nav-link" href="{% url 'estatisticas_incidencia' %}">
-          <span class="material-symbols-outlined">bar_chart</span><span>Estatísticas</span>
-        </a>
-        <a class="nav-link" href="{% url 'analise_subtemas' %}">
-          <span class="material-symbols-outlined">insights</span><span>Análise por subtema</span>
-        </a>
-        <a class="nav-link" href="{% url 'relatorio_semanal' %}">
-          <span class="material-symbols-outlined">summarize</span><span>Relatório semanal</span>
-        </a>
-        <a class="nav-link" href="{% url 'progresso_edital' %}">
-          <span class="material-symbols-outlined">checklist</span><span>Progresso do edital</span>
         </a>
         <a class="nav-link" href="{% url 'mapa_conhecimento' %}">
           <span class="material-symbols-outlined">map</span><span>Mapa do conhecimento</span>
         </a>
         <a class="nav-link" href="{% url 'painel_xp' %}">
-          <span class="material-symbols-outlined">bolt</span><span>XP &amp; nível</span>
+          <span class="material-symbols-outlined">bolt</span><span>XP e nível</span>
         </a>
-        <a class="nav-link" href="{% url 'performance_comparativa' %}">
-          <span class="material-symbols-outlined">compare_arrows</span><span>Você vs. plataforma</span>
+        <a class="nav-link" href="{% url 'relatorio_semanal' %}">
+          <span class="material-symbols-outlined">summarize</span><span>Relatório semanal</span>
         </a>
-      </div>
-    </details>
-
-    <details class="nav-group" data-nav-key="plano" open>
-      <summary class="nav-group-header">
-        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">calendar_month</span>
-        <span class="flex-1">Plano & Metas</span>
-        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
-      </summary>
-      <div class="nav-group-items">
-        <p class="nav-subheader">Cronograma</p>
-        <a class="nav-link" href="{% url 'plano_estudos' %}">
-          <span class="material-symbols-outlined">calendar_today</span><span>Plano de estudos</span>
-        </a>
-        <a class="nav-link" href="{% url 'plano_dinamico' %}">
-          <span class="material-symbols-outlined">auto_fix_high</span><span>Plano dinâmico</span>
-        </a>
-
-        <p class="nav-subheader">Metas</p>
-        <a class="nav-link" href="{% url 'metas_avancadas' %}">
-          <span class="material-symbols-outlined">track_changes</span><span>Metas de estudo</span>
-        </a>
-        <a class="nav-link" href="{% url 'metas_semanais' %}">
-          <span class="material-symbols-outlined">event_available</span><span>Metas semanais</span>
+        <a class="nav-link" href="{% url 'questoes_marcadas' %}">
+          <span class="material-symbols-outlined">flag</span><span>Marcadas p/ depois</span>
         </a>
       </div>
     </details>
 
-    <details class="nav-group" data-nav-key="social" open>
-      <summary class="nav-group-header">
-        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">group</span>
-        <span class="flex-1">Social</span>
-        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
-      </summary>
-      <div class="nav-group-items">
-        <p class="nav-subheader">Comunidade</p>
-        <a class="nav-link" href="{% url 'grupos_lista' %}">
-          <span class="material-symbols-outlined">group</span><span>Grupos de estudo</span>
-        </a>
-        <a class="nav-link" href="{% url 'ranking' %}">
-          <span class="material-symbols-outlined">leaderboard</span><span>Ranking global</span>
-        </a>
+    <div class="nav-divider"></div>
 
-        <p class="nav-subheader">Compartilhar</p>
-        <a class="nav-link" href="{% url 'card_progresso' %}">
-          <span class="material-symbols-outlined">share</span><span>Compartilhar progresso</span>
-        </a>
-      </div>
-    </details>
+    {# ═══════ Conta (compacto) ═══════ #}
+    <a class="nav-link" href="{% url 'central_notificacoes' %}">
+      <span class="material-symbols-outlined">notifications</span><span>Notificações</span>
+    </a>
+    <a class="nav-link" href="{% url 'suporte_lista' %}">
+      <span class="material-symbols-outlined">support_agent</span><span>Suporte</span>
+    </a>
+    <a class="nav-link" href="{% url 'faq' %}">
+      <span class="material-symbols-outlined">help</span><span>Ajuda</span>
+    </a>
 
-    <details class="nav-group" data-nav-key="conta" open>
-      <summary class="nav-group-header">
-        <span class="material-symbols-outlined grp-icon" style="font-variation-settings:'FILL' 1;">manage_accounts</span>
-        <span class="flex-1">Conta</span>
-        <span class="material-symbols-outlined chevron" style="font-size:16px;color:#94a3b8;">expand_more</span>
-      </summary>
-      <div class="nav-group-items">
-        <p class="nav-subheader">Comunidade</p>
-        <a class="nav-link" href="{% url 'convidar' %}">
-          <span class="material-symbols-outlined">group_add</span><span>Convidar amigos</span>
-        </a>
-
-        <p class="nav-subheader">Alertas</p>
-        <a class="nav-link" href="{% url 'central_notificacoes' %}">
-          <span class="material-symbols-outlined">notifications</span><span>Notificações</span>
-        </a>
-        <a class="nav-link" href="{% url 'preferencias_notificacao' %}">
-          <span class="material-symbols-outlined">tune</span><span>Preferências</span>
-        </a>
-
-        <p class="nav-subheader">Ajuda</p>
-        <a class="nav-link" href="{% url 'suporte_lista' %}">
-          <span class="material-symbols-outlined">support_agent</span><span>Suporte</span>
-        </a>
-        <a class="nav-link" href="{% url 'faq' %}">
-          <span class="material-symbols-outlined">help</span><span>Perguntas frequentes</span>
-        </a>
-        <a class="nav-link" href="{% url 'relatorio_pdf' %}">
-          <span class="material-symbols-outlined">picture_as_pdf</span><span>Exportar PDF</span>
-        </a>
-      </div>
-    </details>
     {% endif %}{# /not compact #}
 
   </nav>
@@ -397,7 +355,7 @@
 
 <script>
 (function() {
-  const STORAGE_KEY   = 'santuario:sidebar:groups';
+  const STORAGE_KEY   = 'santuario:sidebar:groups:v2';
   const COMPACT_KEY   = 'santuario:sidebar:compact';
   const path = window.location.pathname;
 
@@ -427,7 +385,7 @@
     } catch(e) {}
   });
 
-  // ── Modo compact (icons-only + hover-expand) ──
+  // Modo compact (icons-only + hover-expand)
   const applyCompact = (on) => {
     document.body.classList.toggle('sidebar-compact', on);
     const icon = document.getElementById('sidebar-toggle-icon');
