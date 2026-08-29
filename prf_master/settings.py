@@ -336,6 +336,13 @@ CEREBRAS_MODEL   = (config('CEREBRAS_MODEL', default='llama-3.3-70b') or '').str
 OPENROUTER_API_KEY = (config('OPENROUTER_API_KEY', default='') or '').strip()
 OPENROUTER_MODEL   = (config('OPENROUTER_MODEL', default='nvidia/nemotron-3-ultra-550b-a55b:free') or '').strip()
 
+# ── Analytics (opcional) ─────────────────────────────────────────────────
+# Plausible: privacidade-friendly, 1 script tag. Gratis pra ate 10k views/mes
+# em plausible.io. Se PLAUSIBLE_DOMAIN vazio, script nao e injetado.
+PLAUSIBLE_DOMAIN = (config('PLAUSIBLE_DOMAIN', default='') or '').strip()
+# Se estiver auto-hospedando Plausible, aponta pra URL do seu servidor
+PLAUSIBLE_SCRIPT_URL = (config('PLAUSIBLE_SCRIPT_URL', default='https://plausible.io/js/script.js') or '').strip()
+
 # Timeout de chamadas IA em segundos. Em web requests, 30s evita DoS gratuito
 # (gunicorn worker travado). Em management commands longos você pode
 # aumentar via env: AI_TIMEOUT_SECONDS=120

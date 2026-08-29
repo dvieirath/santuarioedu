@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import Http404
+from django_ratelimit.decorators import ratelimit
 
 from ..models import EditalPersonalizado, RespostaUsuario
 from ..concurso_landing import CONCURSOS_LANDING
@@ -14,6 +15,7 @@ from ..concurso_landing import CONCURSOS_LANDING
 from ._todos import *  # noqa: F401,F403
 
 @login_required(login_url='account_login')
+@ratelimit(key='user', rate='10/h', method='POST', block=True)
 def meu_edital(request):
     """
     Meu Edital Pessoal — user cola texto do edital, IA extrai:

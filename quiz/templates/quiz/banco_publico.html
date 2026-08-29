@@ -6,12 +6,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Nosso banco de questões — {{ total }} questões de concursos · SantuarioEdu</title>
 <meta name="description" content="{{ total }} questões oficiais de concursos brasileiros (Cebraspe, FGV e outras bancas) organizadas por disciplina, ano e concurso. Estude grátis com IA no SantuarioEdu."/>
-<link rel="canonical" href="https://santuarioedu.com.br/banco/"/>
-<meta property="og:title" content="Banco de {{ total }} questões · SantuarioEdu"/>
-<meta property="og:description" content="{{ total }} questões oficiais em {{ top_disciplinas|length }} disciplinas. Cebraspe, FGV e mais. Estude grátis com IA."/>
-<meta property="og:type" content="website"/>
 
 {% include "includes/favicon.html" %}
+{% include "includes/meta_social.html" with titulo="Banco de questões · SantuarioEdu" descricao="Milhares de questões oficiais de concursos brasileiros (Cebraspe, FGV e mais) organizadas por disciplina, banca e ano. Estude grátis com IA." url_canonica="https://santuarioedu.com.br/banco/" %}
 {% include "quiz/includes/design_tokens.html" %}
 {% include "quiz/includes/dark_mode.html" %}
 

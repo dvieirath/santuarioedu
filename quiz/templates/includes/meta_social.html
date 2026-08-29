@@ -1,0 +1,36 @@
+{% load static %}
+{% comment %}
+Meta tags OpenGraph + Twitter Card + canonical.
+Uso: {% include "includes/meta_social.html" with
+        titulo="Título"
+        descricao="1-2 frases"
+        url_canonica="https://santuarioedu.com.br/rota/"
+        og_image="url-opcional" %}
+Todos parâmetros são opcionais — usa defaults.
+{% endcomment %}
+
+  {# Canonical + robots #}
+  <link rel="canonical" href="{% if url_canonica %}{{ url_canonica }}{% else %}https://santuarioedu.com.br/{% endif %}"/>
+  <meta name="robots" content="index, follow, max-image-preview:large"/>
+  <meta name="author" content="SantuarioEdu"/>
+  <meta name="theme-color" content="#002046"/>
+
+  {# OpenGraph #}
+  <meta property="og:site_name" content="SantuarioEdu"/>
+  <meta property="og:title" content="{% if titulo %}{{ titulo }}{% else %}SantuarioEdu — Aprenda mais em menos tempo com IA{% endif %}"/>
+  <meta property="og:description" content="{% if descricao %}{{ descricao }}{% else %}Plataforma de estudos com IA: banco de questões, simulados cronometrados, revisão espaçada e tutor inteligente. 100% gratuita.{% endif %}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="{% if url_canonica %}{{ url_canonica }}{% else %}https://santuarioedu.com.br/{% endif %}"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta property="og:image" content="{% if og_image %}{{ og_image }}{% else %}{% static 'quiz/og-image.svg' %}{% endif %}"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="{% if titulo %}{{ titulo }}{% else %}SantuarioEdu{% endif %}"/>
+
+  {# Twitter Card #}
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@santuarioedu"/>
+  <meta name="twitter:title" content="{% if titulo %}{{ titulo }}{% else %}SantuarioEdu — Aprenda mais em menos tempo com IA{% endif %}"/>
+  <meta name="twitter:description" content="{% if descricao %}{{ descricao }}{% else %}Plataforma de estudos com IA. 100% gratuita.{% endif %}"/>
+  <meta name="twitter:image" content="{% if og_image %}{{ og_image }}{% else %}{% static 'quiz/og-image.svg' %}{% endif %}"/>
+  <meta name="twitter:image:alt" content="{% if titulo %}{{ titulo }}{% else %}SantuarioEdu{% endif %}"/>

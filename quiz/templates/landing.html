@@ -11,20 +11,8 @@
 <link rel="icon" type="image/svg+xml" href="{% static 'quiz/favicon.svg' %}"/>
 <link rel="apple-touch-icon" href="{% static 'quiz/icon-192.svg' %}"/>
 <link rel="manifest" href="{% url 'pwa_manifest' %}"/>
-<meta name="theme-color" content="#002046"/>
-
-<!-- Open Graph (preview no WhatsApp/Insta/Twitter) -->
-<meta property="og:title" content="SantuarioEdu — Aprenda mais em menos tempo com IA"/>
-<meta property="og:description" content="Banco de questões, simulados cronometrados, revisão espaçada e IA que entende seus erros."/>
-<meta property="og:type" content="website"/>
-<meta property="og:locale" content="pt_BR"/>
-<meta property="og:image" content="{% static 'quiz/og-image.svg' %}"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="SantuarioEdu — Aprenda mais em menos tempo com IA"/>
-<meta name="twitter:description" content="Banco de questões, simulados cronometrados, revisão espaçada e tutor IA."/>
-<meta name="twitter:image" content="{% static 'quiz/og-image.svg' %}"/>
+<!-- Open Graph + Twitter Card + canonical (include reutilizavel) -->
+{% include "includes/meta_social.html" with titulo="SantuarioEdu — Aprenda mais em menos tempo com IA" descricao="Banco de questões, simulados cronometrados, revisão espaçada e IA que entende seus erros. 100% gratuita." url_canonica="https://santuarioedu.com.br/" %}
 
 <!-- Schema.org — Google Rich Results -->
 <script type="application/ld+json">

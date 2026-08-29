@@ -12,7 +12,7 @@ Uso: incluir uma vez no <head> ou fim de <body> das páginas relevantes
 {% endcomment %}
 
 {% if PLAUSIBLE_DOMAIN %}
-<script defer data-domain="{{ PLAUSIBLE_DOMAIN }}" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="{{ PLAUSIBLE_DOMAIN }}" src="{{ PLAUSIBLE_SCRIPT_URL|default:'https://plausible.io/js/script.js' }}"></script>
 {% endif %}
 
 {% if GA_MEASUREMENT_ID %}

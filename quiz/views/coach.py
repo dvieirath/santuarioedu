@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django_ratelimit.decorators import ratelimit
 
 from ..models import MensagemCoachIA, ConcursoPreferido
 from ..concurso_landing import CONCURSOS_LANDING
@@ -14,6 +15,7 @@ from ..ai_provider import gerar_conteudo, AIError
 from ._todos import *  # noqa: F401,F403
 
 @login_required(login_url='account_login')
+@ratelimit(key='user', rate='30/h', method='POST', block=True)
 def coach_ia(request):
     """
     Chat 1-a-1 com Coach IA. User faz pergunta, coach responde

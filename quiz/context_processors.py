@@ -17,7 +17,8 @@ def configuracao_global(request):
         'DEBUG': settings.DEBUG,
 
         # Analytics (o partial decide se injeta com base nesses valores)
-        'PLAUSIBLE_DOMAIN':  getattr(settings, 'PLAUSIBLE_DOMAIN',  ''),
+        'PLAUSIBLE_DOMAIN':     getattr(settings, 'PLAUSIBLE_DOMAIN',     ''),
+        'PLAUSIBLE_SCRIPT_URL': getattr(settings, 'PLAUSIBLE_SCRIPT_URL', ''),
         'GA_MEASUREMENT_ID': getattr(settings, 'GA_MEASUREMENT_ID', ''),
     }
 

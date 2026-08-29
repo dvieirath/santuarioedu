@@ -6312,6 +6312,7 @@ def revisao_questoes_painel(request):
 @login_required(login_url='account_login')
 @user_passes_test(lambda u: u.is_staff)
 @require_POST
+@ratelimit(key='user', rate='60/m', method='POST', block=True)
 def api_revisar_acao(request, questao_id):
     """API de ação rápida: aprovar | reprovar | rejeitar | gerar_justificativa."""
     from ..models import Questao
