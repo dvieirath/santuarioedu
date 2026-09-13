@@ -262,7 +262,9 @@ def iniciar_quiz(request, categoria_id=None):
     if categoria_id is None and not request.GET:
         return redirect('escolher_tema')
 
-    questoes = Questao.objects.all()
+    # Só questões aprovadas na revisão chegam ao usuário — pendentes/rejeitadas
+    # (IA sem justificativa, texto de apoio ausente, sem gabarito) ficam fora.
+    questoes = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
 
     if categoria_id:
         questoes = questoes.filter(categoria_id=categoria_id)
@@ -327,7 +329,9 @@ def iniciar_quiz(request, categoria_id=None):
         try:
             cat = Categoria.objects.get(pk=categoria_id)
             ids_sub = cat.subarvore_ids()  # inclui sub-categorias na contagem
-            total_cat = Questao.objects.filter(categoria_id__in=ids_sub).count()
+            total_cat = Questao.objects.filter(
+                categoria_id__in=ids_sub, revisada=True, rejeitada_definitiva=False,
+            ).count()
             resp_cat = RespostaUsuario.objects.filter(
                 usuario=request.user, questao__categoria_id__in=ids_sub,
             ).values('questao').distinct().count()
@@ -550,7 +554,9 @@ def quiz_por_assunto(request, assunto):
     if request.method == 'POST':
         return iniciar_quiz(request)
 
-    questoes = Questao.objects.filter(assunto__iexact=assunto_decoded)
+    questoes = Questao.objects.filter(
+        assunto__iexact=assunto_decoded, revisada=True, rejeitada_definitiva=False,
+    )
     respondidas_ids = RespostaUsuario.objects.filter(
         usuario=request.user
     ).values_list('questao_id', flat=True)

@@ -1291,7 +1291,7 @@ def plano_estudos(request):
             continue
         a = r.filter(acertou=True).count()
         pct = round(a / t * 100)
-        total_disp = Questao.objects.filter(categoria=cat).count()
+        total_disp = Questao.objects.filter(categoria=cat, revisada=True, rejeitada_definitiva=False).count()
         sugestoes.append({'nome': cat.nome, 'id': cat.id, 'pct': pct, 'total': t, 'disponivel': total_disp})
     sugestoes.sort(key=lambda x: x['pct'])   # piores primeiro
 
@@ -1985,7 +1985,7 @@ def modo_desafio(request):
         dificuldade = 'normal'
     cfg = DIFICULDADES[dificuldade]
 
-    qs = Questao.objects.all()
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
     if cat_id:
         qs = qs.filter(categoria_id=cat_id)
 
@@ -2374,7 +2374,7 @@ def estatisticas_incidencia(request):
     cat_id     = request.GET.get('cat', '')
     banca_flt  = request.GET.get('banca', '')
 
-    qs = Questao.objects.all()
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
     if cat_id.isdigit():
         qs = qs.filter(categoria_id=int(cat_id))
     if banca_flt:
@@ -3846,7 +3846,7 @@ def mapa_conhecimento(request):
 
     categorias = []
     for cat in Categoria.objects.order_by('nome'):
-        qs_banco = Questao.objects.filter(categoria=cat)
+        qs_banco = Questao.objects.filter(categoria=cat, revisada=True, rejeitada_definitiva=False)
         if banca_filtro:
             qs_banco = qs_banco.filter(banca=banca_filtro)
 
@@ -3962,7 +3962,7 @@ def _recalcular_plano_dinamico(usuario, plano):
     entradas = []
 
     for cat in Categoria.objects.order_by('nome'):
-        total_banco = Questao.objects.filter(categoria=cat).count()
+        total_banco = Questao.objects.filter(categoria=cat, revisada=True, rejeitada_definitiva=False).count()
         if total_banco == 0:
             continue
         resp = respostas.filter(questao__categoria=cat)

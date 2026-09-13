@@ -16,9 +16,9 @@ redis==5.2.0
 google-ai-generativelanguage==0.6.15
 google-api-core==2.25.2
 google-api-python-client==2.198.0
-google-auth==2.55.1
+google-auth==2.56.3
 google-auth-httplib2==0.4.0
-google-genai==2.17.0
+google-genai==2.19.0
 # Antigo mantido como fallback ate remocao das commands que ainda usam.
 # Sera removido apos migracao completa dos management commands.
 google-generativeai==0.8.6

@@ -14,7 +14,7 @@ O que fazer nos próximos 5 minutos:
 
 1️⃣  Escolha seu concurso alvo
     👉 {{ url_onboarding }}
-    (Personaliza a plataforma e ativa seu trial PRO)
+    (Personaliza a plataforma pro seu objetivo)
 
 2️⃣  Responda sua primeira questão
     👉 {{ url_estudar }}

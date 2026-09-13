@@ -53,7 +53,8 @@ def api_search_global(request):
     remaining = max(0, 15 - len(hits))
     if remaining:
         qns = Questao.objects.filter(
-            Q(texto__icontains=q) | Q(assunto__icontains=q)
+            Q(texto__icontains=q) | Q(assunto__icontains=q),
+            revisada=True, rejeitada_definitiva=False,
         ).select_related('categoria')[:remaining]
         for qn in qns:
             texto_preview = (qn.texto or '')[:90]
