@@ -1,0 +1,20 @@
+[
+  {
+    "id": 5909,
+    "motivo": "Manter kV e mAs não fixa o campo de visão nem o filtro de reconstrução. Dobrar a matriz reduz o pixel apenas com FOV constante e não garante aumento da resolução física se outros fatores forem limitantes. Hipóteses relevantes ausentes; revisar antes de confirmar CERTO.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5881,
+    "motivo": "Figura MALDI TOF-MS ausente, substituída por marcador. Não é possível verificar se a letra D identifica a matriz, embora seja possível discutir a técnica em geral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5770,
+    "motivo": "Pendente de conferência documental da classificação exata como objetivo específico versus princípio. A Portaria de Consolidação 3/2017 e a matriz de origem da Portaria 483/2014 retornaram erro nas tentativas de abertura da BVS. Não foi gravada explicação jurídica sem verificar o dispositivo. URLs tentadas: https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prc0003_03_10_2017.html e https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/MatrizesConsolidacao/comum/15483.html .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

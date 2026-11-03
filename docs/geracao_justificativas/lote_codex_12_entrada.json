@@ -1,0 +1,452 @@
+[
+  {
+    "id": 8707,
+    "texto": "Em uma unidade de processamento de dados de um órgão público, o fluxo de entrada de documentos segue uma lógica de priorização baseada em três analistas: Aline, Bruno e Carla. Sabe-se que, se Aline processa o documento, então Bruno obrigatoriamente revisa o arquivo. Além disso, a revisão por Bruno é condição necessária para que Carla finalize o procedimento. Em um determinado dia, constatou-se que Carla não finalizou um documento específico. Considerando essa situação hipotética e os princípios da lógica de argumentação, é correto afirmar que, a partir da negação da conclusão, pode-se inferir logicamente que Aline não processou o documento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39287,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39288,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8706,
+    "texto": "Seja P a proposição 'O servidor é aprovado' e Q a proposição 'O servidor recebe a gratificação'. A sentença 'O servidor é aprovado se, e somente se, recebe a gratificação' possui valor lógico verdadeiro apenas quando P e Q possuem valores lógicos distintos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39285,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39286,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8705,
+    "texto": "Em um cenário de auditoria interna, um analista de controle analisou o fluxo de processos de três setores: Licitações, Contratos e Almoxarifado. O relatório técnico destacou que, no último trimestre, a eficiência do setor de Licitações foi diretamente impactada pela celeridade na análise documental. Sabe-se que, sempre que o setor de Licitações acelera a análise documental, o setor de Contratos reduz o tempo de assinatura dos instrumentos jurídicos. Adicionalmente, verificou-se que, no período analisado, o setor de Contratos não reduziu o tempo de assinatura dos instrumentos jurídicos. Considerando o texto acima, a conclusão lógica correta é que o setor de Licitações não acelerou a análise documental no último trimestre.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39283,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39284,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8704,
+    "texto": "O departamento de recursos humanos de uma autarquia federal está organizando uma escala de plantão para cinco analistas: Alice, Bruno, Carla, Diego e Eduardo. A escala deve respeitar as seguintes restrições: Alice não pode trabalhar no primeiro dia; Bruno deve trabalhar exatamente dois dias após Carla; Diego e Eduardo não podem trabalhar em dias consecutivos. Considerando essas premissas para uma escala de cinco dias, se Carla for escalada para o segundo dia, então é logicamente impossível que Bruno trabalhe no quarto dia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39281,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39282,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8703,
+    "texto": "Em uma repartição pública, o setor de TI realizou um levantamento sobre o acesso a três sistemas distintos: A, B e C. Observou-se que 50 servidores acessam o sistema A, 40 acessam o sistema B, 30 acessam o sistema C, 20 acessam A e B, 15 acessam B e C, 10 acessam A e C, e 5 acessam os três sistemas. Com base nesses dados, é correto afirmar que o número total de servidores que acessam pelo menos um desses sistemas é igual a 80.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39279,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39280,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8702,
+    "texto": "Considere que, em um departamento de logística, a afirmação 'Se o carregamento é priorizado, então o prazo de entrega é reduzido' é logicamente verdadeira. Nesse caso, a negação lógica dessa afirmação é 'O carregamento não é priorizado e o prazo de entrega não é reduzido'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39277,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39278,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8527,
+    "texto": "Um conjunto de dados contém 200 observações de uma variável X, cujos valores seguem uma distribuição normal com média 50 e desvio padrão 10. Se a regra de Tukey para outliers for aplicada (fator 1,5), quantas observações são consideradas outliers?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38744,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 38745,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 38746,
+        "texto": "8",
+        "correta": true
+      },
+      {
+        "id": 38747,
+        "texto": "10",
+        "correta": false
+      },
+      {
+        "id": 38748,
+        "texto": "12",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8526,
+    "texto": "Considerando o texto abaixo: \"Em 2024, a Receita Federal implementou um novo sistema de rastreamento de notas fiscais eletrônicas (NF-e) que utiliza algoritmos de aprendizado de máquina para identificar padrões de fraude. O sistema analisa, em tempo real, a sequência de transações de cada contribuinte, comparando-a com um banco de dados de transações legítimas. Quando detecta anomalias, gera um alerta que pode levar à suspensão temporária da emissão de NF-e. Em um caso recente, o sistema flagrou um contribuinte que emitiu 15 NF-e em um dia, todas contendo valores superiores a R$ 10.000,00, enquanto o histórico médio diário era de apenas 3 NF-e. A análise adicional revelou que 12 das 15 NF-e foram emitidas para clientes com os quais o contribuinte não havia mantido relacionamento comercial nos últimos 12 meses.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38739,
+        "texto": "O contribuinte deve ser automaticamente bloqueado por 30 dias.",
+        "correta": false
+      },
+      {
+        "id": 38740,
+        "texto": "O sistema não pode emitir alertas sem a intervenção humana.",
+        "correta": false
+      },
+      {
+        "id": 38741,
+        "texto": "A probabilidade de fraude aumenta quando o número de NF-e emitidas em um dia excede 5 vezes a média diária.",
+        "correta": true
+      },
+      {
+        "id": 38742,
+        "texto": "O valor total das NF-e emitidas não influencia a decisão de bloqueio.",
+        "correta": false
+      },
+      {
+        "id": 38743,
+        "texto": "A análise de aprendizado de máquina não pode detectar padrões de fraude em tempo real.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8525,
+    "texto": "Um algoritmo de classificação de documentos recebe três parâmetros de entrada: tamanho do texto em palavras (T), número de termos-chave (K) e complexidade sintática (C). O algoritmo atribui uma pontuação de relevância P calculada pela fórmula P = (T × K) ÷ (C + 1). Se um documento tem 500 palavras, 25 termos-chave e complexidade sintática 4, qual é o valor de P?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38734,
+        "texto": "3125",
+        "correta": false
+      },
+      {
+        "id": 38735,
+        "texto": "2500",
+        "correta": false
+      },
+      {
+        "id": 38736,
+        "texto": "1250",
+        "correta": true
+      },
+      {
+        "id": 38737,
+        "texto": "625",
+        "correta": false
+      },
+      {
+        "id": 38738,
+        "texto": "500",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8524,
+    "texto": "Um engenheiro de tráfego recebeu a tarefa de otimizar o fluxo em uma interseção de quatro vias, onde cada direção recebe um tempo de semáforo proporcional à sua demanda de veículos. Se a demanda nas direções norte e sul é 120 veículos por hora e nas direções leste e oeste é 80 veículos por hora, qual é a razão correta entre os tempos de verde para as direções norte/sul e leste/oeste, assumindo que o tempo total de ciclo é de 120 segundos e que a proporção de verde deve ser igual à proporção de demanda?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38729,
+        "texto": "1:2",
+        "correta": false
+      },
+      {
+        "id": 38730,
+        "texto": "2:1",
+        "correta": true
+      },
+      {
+        "id": 38731,
+        "texto": "3:1",
+        "correta": false
+      },
+      {
+        "id": 38732,
+        "texto": "4:1",
+        "correta": false
+      },
+      {
+        "id": 38733,
+        "texto": "5:1",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8523,
+    "texto": "Texto: Em 2024, o Ministério da Educação publicou uma diretriz que exige que todas as provas de concursos públicos contemplem, no mínimo, 20% de questões de raciocínio lógico, distribuídas igualmente entre proposições de múltipla escolha e de verdadeiro ou falso. A diretriz visa aumentar a capacidade de análise crítica dos candidatos e reduzir a dependência de memorização de conteúdo técnico. Em uma prova de 50 questões, 12 foram de raciocínio lógico. Se a distribuição for exatamente igual entre os dois tipos de questões, quantas proposições de múltipla escolha de raciocínio lógico foram incluídas?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38727,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38728,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8522,
+    "texto": "Um algoritmo de ordenação tem complexidade de tempo O(n log n). Se a entrada possui 1.024 elementos, o número de comparações não excede 10.240.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38725,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38726,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8521,
+    "texto": "Considerando a proposição: Se um número é par, então é divisível por 4. A afirmação é verdadeira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38723,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38724,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8520,
+    "texto": "Um conjunto de dados foi organizado em ordem crescente. Se o número mediano de um conjunto com 11 elementos é 18, então a soma de todos os elementos é maior que 180.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38721,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38722,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8519,
+    "texto": "Em uma sequência de números inteiros, a diferença entre cada par de elementos consecutivos é sempre igual a 3. Se o primeiro termo é 7, qual é o décimo termo?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38719,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38720,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8486,
+    "texto": "Texto de apoio: Em 2024, o Ministério da Educação divulgou um relatório sobre a distribuição de recursos para programas de inclusão digital em escolas públicas. O documento apresenta quatro categorias de investimento: Infraestrutura (I), Formação de Professores (F), Aquisição de Equipamentos (A) e Monitoramento e Avaliação (M). O relatório indica que a categoria de Infraestrutura recebeu 30% do total de recursos, a categoria de Formação de Professores recebeu 25%, a categoria de Aquisição de Equipamentos recebeu 35% e a categoria de Monitoramento e Avaliação recebeu o restante. Considerando que o total de recursos investidos foi de R$ 4.000.000,00, qual é o valor em reais destinado ao Monitoramento e Avaliação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38614,
+        "texto": "R$ 1.200.000,00",
+        "correta": false
+      },
+      {
+        "id": 38615,
+        "texto": "R$ 1.500.000,00",
+        "correta": false
+      },
+      {
+        "id": 38616,
+        "texto": "R$ 1.800.000,00",
+        "correta": true
+      },
+      {
+        "id": 38617,
+        "texto": "R$ 2.100.000,00",
+        "correta": false
+      },
+      {
+        "id": 38618,
+        "texto": "R$ 2.400.000,00",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8484,
+    "texto": "Em uma fila de atendimento, três funcionários, X, Y e Z, atendem clientes em ordem de chegada. É conhecido que: (i) X atende antes de Y; (ii) Y atende antes de Z; (iii) X não atende imediatamente antes de Z. Qual é a única sequência possível de atendimento?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38604,
+        "texto": "X, Z, Y",
+        "correta": false
+      },
+      {
+        "id": 38605,
+        "texto": "Y, X, Z",
+        "correta": false
+      },
+      {
+        "id": 38606,
+        "texto": "X, Y, Z",
+        "correta": true
+      },
+      {
+        "id": 38607,
+        "texto": "Y, Z, X",
+        "correta": false
+      },
+      {
+        "id": 38608,
+        "texto": "Z, X, Y",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8482,
+    "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório que aponta uma correlação positiva entre o uso de tecnologias digitais interativas em salas de aula e a melhoria nas pontuações de exames nacionais. O documento destaca que, em escolas que adotaram plataformas de realidade aumentada, a média de aprovação aumentou 12% em relação ao ano anterior, enquanto em escolas sem essa tecnologia a média permaneceu estável. O relatório também observou que a adoção de jogos educativos em formato de simulação aumentou a motivação dos estudantes em 18%, refletindo em um menor índice de evasão escolar. A análise estatística empregou regressão linear para controlar variáveis socioeconômicas e demonstrou que a relação entre tecnologia e desempenho não é aleatória, mas sim um efeito causal sustentado por dados de 1.200 estudantes de 8 escolas públicas em diferentes regiões do país. Considerando o texto acima, a afirmação de que o uso de realidade aumentada tem efeito causal sobre a melhoria do desempenho escolar é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38597,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38598,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8481,
+    "texto": "Um algoritmo de busca binária, ao ser aplicado em um vetor de 16 elementos ordenados, requer no pior caso 4 comparações para localizar um elemento inexistente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38595,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38596,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8480,
+    "texto": "Em um conjunto de 12 elementos, a probabilidade de selecionar um elemento que pertença a uma determinada subclasse é 0,25. Se a subclasse contém 3 elementos, então a probabilidade de seleção é 0,25.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38593,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38594,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

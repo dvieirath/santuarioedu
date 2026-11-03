@@ -1,0 +1,62 @@
+[
+  {
+    "id": 3008,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO TIG emprega eletrodo de tungstênio não consumível, com proteção gasosa. Quando necessário, o metal de adição é introduzido separadamente. O enunciado atribui ao TIG características do processo com eletrodo revestido consumível.\n\n## ⚠️ O erro típico\nNão confunda o eletrodo que sustenta o arco com o material de adição.\n\n## 🧠 Conceito-chave\nNo TIG, o tungstênio não deve funcionar como material de enchimento da junta.\n\n## 📚 Onde aprofundar\nTWI, [Equipment for TIG Welding](https://www.twi-global.com/technical-knowledge/job-knowledge/equipment-for-tungsten-inert-gas-tig-gta-welding-017).\n\n## 💡 Padrão a memorizar\nTIG: eletrodo não consumível, protegido por gás."
+  },
+  {
+    "id": 3004,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO calor liberado tem módulo Q = mcΔT = 3000 × 0,50 × 80 = 120000 kcal. Com a conversão fornecida, Q = 4,8 × 10⁸ J. O tempo é 8 × 3600 = 28800 s. Logo, P média = Q/Δt ≈ 1,67 × 10⁴ W, diferente de 2,0 × 10⁵ W.\n\n## ⚠️ O erro típico\nConverta toneladas em quilogramas, quilocalorias em calorias e horas em segundos.\n\n## 🧠 Conceito-chave\nSem mudança de fase e com calor específico constante, o calor sensível é proporcional à variação de temperatura.\n\n## 📚 Onde aprofundar\nOpenStax, [Heat Transfer, Specific Heat, and Calorimetry](https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry).\n\n## 💡 Padrão a memorizar\nCalcule Q = mcΔT e depois divida pelo tempo em segundos."
+  },
+  {
+    "id": 3002,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA tubulação metálica não torna o transporte adiabático. Havendo diferença de temperatura entre petróleo e ambiente, pode ocorrer transferência de calor pela parede e entre suas superfícies e os fluidos. A temperatura inicial de 110 °C não garante ausência de troca.\n\n## ⚠️ O erro típico\nMetal não equivale a isolamento térmico perfeito.\n\n## 🧠 Conceito-chave\nCalor é energia transferida por diferença de temperatura; o fluxo depende também das resistências térmicas.\n\n## 📚 Onde aprofundar\nOpenStax, [Mechanisms of Heat Transfer](https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer).\n\n## 💡 Padrão a memorizar\nTubulação metálica não impede, por si só, transferência de calor."
+  },
+  {
+    "id": 3001,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO vácuo entre as paredes reduz a condução pelo gás e impede a circulação de fluido nessa região, diminuindo a convecção. Por isso funciona como isolamento térmico.\n\n## ⚠️ O erro típico\nVácuo não elimina radiação nem condução por suportes sólidos.\n\n## 🧠 Conceito-chave\nCondução e convecção dependem da matéria; radiação atravessa o vácuo.\n\n## 📚 Onde aprofundar\nOpenStax, [Mechanisms of Heat Transfer](https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer).\n\n## 💡 Padrão a memorizar\nVácuo reduz condução gasosa e convecção; radiação permanece."
+  },
+  {
+    "id": 2984,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nPara massa constante, a segunda lei é F resultante = ma. Assim, a = F resultante/m: a aceleração é diretamente proporcional à força resultante e inversamente proporcional à massa. O item erra ao afirmar proporcionalidade direta com a massa.\n\n## ⚠️ O erro típico\nConsidere a soma vetorial das forças, não uma força isolada quando outras também atuam.\n\n## 🧠 Conceito-chave\nA massa quantifica a inércia: sob a mesma força resultante, maior massa implica menor aceleração.\n\n## 📚 Onde aprofundar\nOpenStax, [Newton’s Second Law of Motion](https://openstax.org/books/physics/pages/4-3-newtons-second-law-of-motion).\n\n## 💡 Padrão a memorizar\nMesma força: dobrar a massa reduz a aceleração à metade."
+  },
+  {
+    "id": 2934,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO incêndio em ambiente fechado, a dificuldade de fuga e as alterações nos pelos da face e das narinas sustentam suspeita de lesão por inalação. O item fala em indícios, não em diagnóstico definitivamente confirmado.\n\n## ⚠️ O erro típico\nNão exigir inconsciência ou sangramento para reconhecer suspeita de lesão inalatória.\n\n## 🧠 Conceito-chave\nExposição à fumaça e queimaduras faciais exigem avaliação das vias aéreas; sinais externos isolados não confirmam a extensão da lesão.\n\n## 📚 Onde aprofundar\nAmerican Burn Association, [Burn Patient Referral Guidelines](https://www.ameriburn.org/burn-care-team/resources/guidelines-for-burn-patient-referral).\n\n## 💡 Padrão a memorizar\nIncêndio fechado e pelos faciais chamuscados são sinais de suspeita."
+  },
+  {
+    "id": 2897,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO mapeamento tradicional do SNMP utiliza UDP. A RFC 3417 define o transporte de mensagens SNMP sobre UDP/IPv4; portanto, não procede a preferência por TCP justificada por suposta maior leveza.\n\n## ⚠️ O erro típico\nNão atribua ao TCP a simplicidade própria de um transporte sem conexão como UDP.\n\n## 🧠 Conceito-chave\nTCP fornece fluxo confiável com controle de conexão; UDP transporta datagramas com menor estrutura protocolar. Outros mapeamentos não mudam a referência tradicional do SNMP.\n\n## 📚 Onde aprofundar\nIETF, [RFC 3417 — Transport Mappings for SNMP](https://www.rfc-editor.org/info/rfc3417/).\n\n## 💡 Padrão a memorizar\nSNMP tradicional: UDP, não TCP por suposta leveza."
+  },
+  {
+    "id": 2881,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nPara a mesma emissão e direção, EIRP usa referência isotrópica, enquanto ERP usa dipolo de meia onda. Como esse dipolo tem ganho de aproximadamente 1,64 em relação à referência isotrópica, EIRP = 1,64 ERP. Em unidades logarítmicas de potência iguais, a diferença é 2,15 dB.\n\n## ⚠️ O erro típico\nCompare valores na mesma unidade e sob as mesmas condições de emissão.\n\n## 🧠 Conceito-chave\nA diferença decorre da antena de referência, não de uma alteração da potência física transmitida.\n\n## 📚 Onde aprofundar\nUIT, [Recomendação K.91, seção 7.3.3](https://www.itu.int/epublications/publication/itu-t-k-91-2024-01-guidance-for-assessment-evaluation-and-monitoring-of-human-exposure-to-radio-frequency-electromagnetic-fields).\n\n## 💡 Padrão a memorizar\nMesma emissão: EIRP supera ERP em 2,15 dB."
+  },
+  {
+    "id": 2880,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo modelo de propagação em espaço livre e campo distante, E eficaz = √(30PG)/r. Para antena isotrópica ideal, G = 1. Assim, E = √(30 × 30)/100 = 0,30 V/m, inferior a 0,5 V/m.\n\n## ⚠️ O erro típico\nNão use a potência diretamente como campo elétrico: o campo depende de sua raiz quadrada.\n\n## 🧠 Conceito-chave\nA 100 MHz, λ = 3 m; a avaliação proposta usa o modelo ideal de radiação, sem obstáculos e reflexões.\n\n## 📚 Onde aprofundar\nUIT, [SM.2452 — Electromagnetic field measurements](https://www.itu.int/dms_pub/itu-r/opb/rep/R-REP-SM.2452-2019-PDF-E.pdf).\n\n## 💡 Padrão a memorizar\nAntena isotrópica: E = √(30P)/r, em unidades SI."
+  },
+  {
+    "id": 2874,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo modelo usual de dois estágios, em unidades lineares, 1/OIP3 total = 1/(G₂ OIP3₁) + 1/OIP3₂. Mantidos os interceptos de saída dos estágios, aumentar G₂ reduz o primeiro termo, aproximando o OIP3 total de OIP3₂.\n\n## ⚠️ O erro típico\nNão misture IP3 referido à entrada com IP3 referido à saída, nem insira dBm diretamente na fórmula linear.\n\n## 🧠 Conceito-chave\nA distorção do primeiro estágio deve ser referida à saída pelo ganho do segundo. A conclusão compara os demais parâmetros mantidos.\n\n## 📚 Onde aprofundar\nAnalog Devices, [AN-2168 — RF System Development](https://www.analog.com/en/resources/app-notes/an-2168.html), análise de IP3 em cascata.\n\n## 💡 Padrão a memorizar\nMaior G₂ reduz a contribuição inversa do primeiro OIP3 referido à saída."
+  },
+  {
+    "id": 2873,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA banda Ka utiliza frequências mais altas que L e S e é mais sensível, em geral, à atenuação atmosférica e meteorológica. Chuva, nuvens e absorção gasosa podem reduzir a margem do enlace, dificultando manter sua disponibilidade.\n\n## ⚠️ O erro típico\nMaior largura de banda disponível não significa menor vulnerabilidade às condições atmosféricas.\n\n## 🧠 Conceito-chave\nA intensidade da perda depende da frequência, do percurso, da elevação e das condições meteorológicas; não há uma atenuação única para toda a banda.\n\n## 📚 Onde aprofundar\nNASA/JPL, [estudo de propagação em banda Ka](https://descanso.jpl.nasa.gov/propagation/Ka_Band/JPL_doc_30175.pdf).\n\n## 💡 Padrão a memorizar\nEnlaces Ka exigem atenção especial às perdas atmosféricas."
+  },
+  {
+    "id": 2871,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA EIRP é o produto da potência entregue à antena pelo ganho relativo ao radiador isotrópico na direção considerada: EIRP = Pant × Gi. Portanto, depende precisamente das duas grandezas indicadas.\n\n## ⚠️ O erro típico\nSe partir da potência do transmissor antes do cabo, desconte as perdas da alimentação.\n\n## 🧠 Conceito-chave\nO ganho é direcional e deve ser adimensional no produto; em dB, os termos correspondentes são somados.\n\n## 📚 Onde aprofundar\nUIT, [SM.2452 — Electromagnetic field measurements](https://www.itu.int/dms_pub/itu-r/opb/rep/R-REP-SM.2452-2019-PDF-E.pdf).\n\n## 💡 Padrão a memorizar\nEIRP = potência na antena × ganho isotrópico."
+  },
+  {
+    "id": 2869,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO span é a diferença entre os extremos do intervalo. Para entrada de 10 W a 200 W, span = 200 − 10 = 190 W. O valor de 200 W corresponde ao limite superior, não à amplitude do intervalo.\n\n## ⚠️ O erro típico\nSó quando o limite inferior é zero o span coincide numericamente com o limite superior.\n\n## 🧠 Conceito-chave\nIntervalo de medição e amplitude desse intervalo são conceitos diferentes.\n\n## 📚 Onde aprofundar\nJCGM/BIPM, [VIM, item 4.5](https://jcgm.bipm.org/vim/en/4.5.html).\n\n## 💡 Padrão a memorizar\nSpan = limite superior − limite inferior."
+  },
+  {
+    "id": 2862,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO item inverte a prioridade. O subitem 10.2.8.2 da NR 10 coloca primeiro a desenergização elétrica e, quando ela não for possível, o emprego de tensão de segurança.\n\n## ⚠️ O erro típico\nNão troque a medida prioritária pela alternativa prevista para sua impossibilidade.\n\n## 🧠 Conceito-chave\nA proteção coletiva segue a ordem estabelecida na norma, com outras medidas quando aquelas não puderem ser implementadas.\n\n## 📚 Onde aprofundar\nMinistério do Trabalho, [NR 10](https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-10.pdf), subitens 10.2.8.2 e 10.2.8.2.1.\n\n## 💡 Padrão a memorizar\nPrimeiro desenergização; na impossibilidade, tensão de segurança."
+  },
+  {
+    "id": 2860,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNa partida em estrela, cada enrolamento recebe V linha/√3, inferior à tensão entre fases da rede. Depois, na ligação em triângulo, cada enrolamento recebe a tensão de linha. Não existe elevação de tensão na partida estrela-triângulo.\n\n## ⚠️ O erro típico\nDiferencie tensão de linha da tensão aplicada a cada enrolamento.\n\n## 🧠 Conceito-chave\nA redução inicial de tensão reduz a corrente e também o conjugado de partida, exigindo motor e carga compatíveis.\n\n## 📚 Onde aprofundar\nABB, [Star-delta start](https://library.e.abb.com/public/6b4e1a3530814df0c12579bb0030e58b/1SFC132060M0201.pdf).\n\n## 💡 Padrão a memorizar\nPartida em estrela: tensão por enrolamento igual a V linha/√3."
+  }
+]

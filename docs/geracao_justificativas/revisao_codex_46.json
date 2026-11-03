@@ -1,0 +1,62 @@
+[
+  {
+    "id": 8899,
+    "motivo": "À medida que é locução conjuntiva proporcional, não prepositiva. Depois de até, nas indicações de horas, o emprego de a e do acento grave pode ser facultativo; não cabe proibição geral. Gabarito Certo incompatível com a classificação e a generalização.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8898,
+    "motivo": "Autoridades públicas não estão delimitadas por Poder, esfera ou cargo. Decreto 9.758/2019 prevê senhor no seu âmbito e exceções; outros regimes admitem tratamentos especiais. Não é possível julgar todo uso de Vossa Senhoria ou Vossas Excelências inadequado. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9758.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8897,
+    "motivo": "Texto contém comando e cinco alternativas de múltipla escolha, mas o registro oferece somente Certo/Errado. A opção textual C é compatível com o texto, porém não há proposição única a que associar Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8894,
+    "motivo": "Há ambiguidade entre uma condição de número gramatical, verdadeira para destinatário único, e condição suficiente de adequação social/institucional, que depende de cargo e regime. Não preencher Errado sem delimitar o alcance de desde que e o destinatário.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8735,
+    "motivo": "A opção A contrai de com o sujeito do infinitivo (“apesar do servidor ter”), construção contestada pela prescrição estrita que recomenda “apesar de o servidor ter”. D oferece reescrita com visar a + infinitivo admissível, mas seu parêntese afirma regência direta de modo incoerente. Revisar critérios e alternativas antes de sustentar resposta única.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8730,
+    "motivo": "A troca literalmente indicada substitui apenas atribuições por cujas funções, produzindo “cujas cujas funções”. Se a intenção fosse substituir cujas atribuições por cujas funções, seria correta. Não adaptar o comando ao gabarito Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8728,
+    "motivo": "O plural haveriam de existir é correto, mas mecanismos mais eficientes é sujeito simples plural, com um núcleo, não composto. A classificação integra a afirmação e torna o gabarito Certo inadequado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8727,
+    "motivo": "B tem pontuação adequada, mas D também permite leitura legítima com oração explicativa, advérbio periodicamente intercalado e oração de gerúndio final destacada. A leitura restritiva não pode ser imposta sem contexto. Não há resposta única inequívoca de pontuação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8725,
+    "motivo": "Além de D, C é gramatical: em a maioria dos servidores públicos manifestaram, a concordância plural com o especificador é admitida; mais de um candidato tenha solicitado está no singular adequado. Registrar alternativas corretas concorrentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8723,
+    "motivo": "Em discute-se a necessidade, discutir é transitivo direto e se é partícula apassivadora. A necessidade é sujeito paciente singular, equivalente a a necessidade é discutida. Não se trata de indeterminação do sujeito. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

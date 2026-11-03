@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2859,
+    "texto": "Julgue os itens a seguir, acerca de subestações e de equipamentos elétricos. Considerando-se √3 = 1,7, é correto afirmar que, em um para-raios cujo sistema possui tensão máxima igual a 68 kV e fator de segurança igual a 10%, a tensão máxima de operação contínua é menor que 53 kV.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23500,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23501,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2855,
+    "texto": "Julgue os itens a seguir, acerca de subestações e de equipamentos elétricos. Para a identificação de situações de funcionamento de uma subestação em frequências superiores às ideais, é necessária a instalação de um relé de anunciador em série com um relé de desligamento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23492,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23493,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2853,
+    "texto": "A respeito de projetos de instalações elétricas para centros de processamento de dados (CPD), julgue os itens subsequentes. Em um CPD, a operação com fator de potência alto implica aumento da corrente elétrica nos circuitos, o que pode exigir o superdimensionamento de cabos, transformadores e sistemas de alimentação ininterrupta (UPS).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23488,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23489,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2852,
+    "texto": "Uma onda plana uniforme de frequência angular igual a ω = 10^8 rad/s incide em um meio de transmissão que possui εr = 9π² e μr = 1. A partir dessas informações, e considerando η0 = 120π e a velocidade de propagação da onda no vácuo como igual a 3 × 10^8 m/s, julgue os itens a seguir. A constante de fase da onda no meio é maior que 5 rad/m.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23486,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23487,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2851,
+    "texto": "Com base na teoria de circuitos trifásicos, julgue os itens a seguir. Um transformador trifásico representado em um diagrama unifilar em valores por unidade (p.u.) tem o valor em p.u. da tensão de entrada igual ao valor em p.u. da tensão de saída em qualquer situação de carga.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23484,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23485,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2850,
+    "texto": "Com base na teoria de circuitos trifásicos, julgue os itens a seguir. Em um circuito trifásico equilibrado, a soma do valor instantâneo das correntes nas três fases é igual a zero.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23482,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23483,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2849,
+    "texto": "Com base na teoria de circuitos trifásicos, julgue os itens a seguir. A potência trifásica dissipada por três resistores conectados em estrela é maior que a dissipada pelos mesmos três resistores se eles estiverem conectados em delta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23480,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23481,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2848,
+    "texto": "Com base na teoria de circuitos trifásicos, julgue os itens a seguir. Em uma linha de transmissão trifásica de 500 kV, quando um raio atinge uma torre devidamente aterrada, o sistema de proteção detecta uma corrente equivalente à apresentada em um curto-circuito monofásico, devido ao efeito da indutância mútua.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23478,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23479,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2847,
+    "texto": "Com base na teoria de circuitos trifásicos, julgue os itens a seguir. Em um curto-circuito trifásico, a componente simétrica de sequência zero, no local da falta, é nula.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23476,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23477,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2846,
+    "texto": "Julgue os itens a seguir, referentes aos princípios de funcionamento das técnicas de modulação empregadas em sistemas de comunicação. Em sistemas de comunicação analógicos, a utilização de circuitos eletrônicos não lineares permite a geração de novas componentes espectrais, correspondentes às somas e diferenças das frequências dos sinais aplicados, princípio explorado em processos de modulação, demodulação e conversão de frequência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23474,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23475,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2845,
+    "texto": "Em relação às máquinas de estado utilizadas no projeto de circuitos sequenciais síncronos, julgue o item seguinte. Em uma máquina de estados do tipo Moore, as saídas dependem do estado atual e das entradas do sistema, enquanto, em uma máquina de estados do tipo Mealy, as saídas dependem exclusivamente do estado atual do sistema.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23472,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23473,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2843,
+    "texto": "Considerando a tabela-verdade precedente, julgue os itens subsequentes. Suponha que um circuito seja implementado fisicamente com a tabela-verdade apresentada e que o critério principal da implementação seja o baixo consumo de potência. Nessa situação, o uso de circuitos integrados TTL da família HS será mais adequado que o uso de circuitos integrados CMOS.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23468,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23469,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2842,
+    "texto": "O circuito precedente contém uma porta lógica de duas entradas (A e B) e uma saída, implementada por transistores MOS dos tipos PMOS e NMOS, em tecnologia CMOS. Esse circuito corresponde a uma porta lógica CMOS do tipo AND, amplamente utilizada em circuitos digitais combinacionais e em circuitos que requerem baixo consumo e alto grau de integração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23466,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23467,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2841,
+    "texto": "No circuito ilustrado anteriormente, VCC = 15 V, β = 200, RC = 5 kΩ, RE = 500 Ω, Re = 3,8 kΩ, RB1 = 10 kΩ e RB2 = 5 kΩ. Na faixa de passagem, a impedância de saída do amplificador é aproximadamente igual à do resistor de coletor (RC), característica que torna a configuração emissor comum a escolha ideal para estágios de saída que acionam alto-falantes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23464,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23465,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2840,
+    "texto": "A partir da ilustração precedente, que representa o circuito elétrico de uma fonte de alimentação cuja entrada é de 110 VRMS, julgue os itens a seguir. Se o diodo inferior direito da ponte retificadora apresentar defeito e o circuito passar a se comportar como circuito aberto, a ponte continuará funcionando como retificador de onda completa e, por isso, a tensão de pico na carga não se alterará enquanto a tensão de ripple diminuir.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23462,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23463,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2839,
+    "texto": "Com relação ao circuito precedente, em que ve(t) e vs(t) correspondem à entrada e à saída do circuito, respectivamente, julgue os itens a seguir. No domínio do tempo, a resposta ao degrau unitário do circuito apresentado é dada pela seguinte expressão. vs(t) = - R2/R1 (1 - e^−t/R2C)",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23460,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23461,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2837,
+    "texto": "A partir do circuito precedente, em que R = RL = 1 kΩ, VE = 4 V e I1 = 1 mA, julgue os itens que se seguem. VS = 1 V.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23456,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23457,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2778,
+    "texto": "A respeito de materiais utilizados na recuperação e no reforço de estruturas de concreto, julgue os itens que se seguem. Em obras em concreto protendido, deve -se limitar o teor de cloretos nos cimentos, pois tais substâncias favorecem a corrosão sob tensão em fios e cordoalhas dos cabos de protensão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23338,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23339,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2775,
+    "texto": "A figura precedente [FIGURA: viga retangular b=20cm, h=50cm] representa, esquematicamente, uma viga que possui seção transversal retangular, com largura b = 20 cm e altura h = 50 cm, e que se comporta no regime elástico linear. Em relação a essa viga e aspectos a ela relacionados, julgue os itens a seguir, desprezando o peso próprio desse elemento estrutural. Em vigas submetidas simultaneamente à flexão e ao cisalhamento, no regime elástico linear, o ponto ao longo do eixo longitudinal em que ocorre a máxima tensão normal coincide, de modo geral, com o ponto em que se verifica a máxima tensão cisalhante, uma vez que ambas dependem diretamente da intensidade do carregamento aplicado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23332,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23333,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2761,
+    "texto": "A respeito de projeto e execução de edificações, julgue o item: Na execução de estruturas metálicas em edificações, parafusos de alta resistência podem exigir controle de pré-tensão, enquanto parafusos comuns não devem ser submetidos a esse procedimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23304,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23305,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

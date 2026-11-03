@@ -1,0 +1,92 @@
+[
+  {
+    "id": 12985,
+    "motivo": "As cinco alternativas são idênticas. Além disso, que retoma juiz e é pronome relativo, não conjunção causal. Não há alternativa única selecionável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12984,
+    "motivo": "As cinco alternativas reproduzem exatamente a mesma frase; não é possível distinguir uma única resposta correta por conteúdo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12983,
+    "motivo": "Cronologia contraditória: certificado emitido em 2024 é descrito como posterior ao edital de 2025. A Súmula 423 do STJ trata de Cofins sobre receitas de locação de bens móveis, não de documentos em concursos. Também não se esclarece o deferimento da prorrogação. Fonte: https://scon.stj.jus.br/SCON/pesquisar.jsp?b=SUMU&livre=SUMULA+INPATH(TIPO)+AND+423+INPATH(NUM) .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12981,
+    "motivo": "A restrição apenas quando houver relação hierárquica ou de respeito é vaga e não define documento, destinatário ou protocolo aplicável. Mistura norma culta com regra administrativa de tratamento. O Decreto 9.758/2019, art. 2º, disciplina seu âmbito federal independentemente do nível hierárquico. Não sustenta a generalização marcada como certa. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9758.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12980,
+    "motivo": "Há apenas texto de apoio, iniciado por Considerando o texto abaixo. Falta a afirmação a julgar; não é possível inferir um item errado do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12979,
+    "motivo": "Nenhuma alternativa está marcada correta. Além disso, a hipérbole requer reconhecer exagero figurado, tornando problemática a alegação de que não altera a interpretação literal.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12978,
+    "motivo": "A alegação usa pode e condiciona a omissão a um contexto que já explicita a causa, mas não fornece esse contexto. Não há base para julgar toda omissão como prejudicial nem para classificar a oração concreta introduzida por pois. Gabarito exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12943,
+    "motivo": "O gabarito impõe interpretação restritiva como solução geral para qualquer ambiguidade legal, sem delimitar norma ou ramo jurídico. A LINDB, art. 5º, também exige considerar fins sociais e bem comum; literalidade não estabelece sozinha essa regra universal. Fonte: https://www.planalto.gov.br/ccivil_03/decreto-lei/del4657compilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12942,
+    "motivo": "Faltam critérios de habilitação e informação sobre o alcance e o momento do esclarecimento. A alternativa marcada permite manter o edital sem distinguir mero esclarecimento de criação de critérios novos; a alternativa de reformulação objetiva também é defensável. Revisar à luz da vinculação ao edital e julgamento objetivo na Lei 14.133/2021. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12941,
+    "motivo": "Regra de transposição de normas não é definida e nenhuma norma constitucional, estatutária ou administrativa concreta é fornecida. Não é possível deduzir a obrigação abstrata da alternativa marcada a partir da adoção de algoritmo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12939,
+    "motivo": "Garantindo assim apresenta leitura de resultado/consequência da implementação; a classificação categórica como finalidade não é inequívoca. A nomenclatura complemento circunstancial e o gabarito certo precisam de revisão, sem substituir uma interpretação possível por outra imposta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12937,
+    "motivo": "Os advérbios citados não exprimem necessariamente intensidade: excepcionalmente pode indicar exceção e notavelmente pode indicar modo ou avaliação. Sem oração concreta, a classificação e a alegação de ausência de alteração sintática não são verificáveis.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12936,
+    "motivo": "Fixar prazo de entrega não equivale a estipular cláusula penal. Nenhuma penalidade é efetivamente transcrita; o gabarito certo toma como existente uma sanção não fornecida. Conferidos arts. 408 e 409 do Código Civil: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12934,
+    "motivo": "Atributo do sujeito não distingue com precisão a função sintática pedida; predicativo do sujeito é alternativa plausível para os adjetivos destacados. A oposição entre atributo e predicativo, sem referencial gramatical, impede validar o gabarito único.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12933,
+    "motivo": "Premissa normativa falsa: a Lei federal 15.000/2024 declara Anísio Teixeira Patrono da Escola Pública Brasileira; não disciplina pronomes ou linguagem inclusiva. A obrigação afirmada na alternativa correta não decorre dessa lei. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l15000.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

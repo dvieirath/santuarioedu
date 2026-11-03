@@ -1,0 +1,482 @@
+[
+  {
+    "id": 10852,
+    "texto": "Em 2025, o Ministério da Educação publicou um documento que descreve a necessidade de se promover a inclusão de recursos digitais nos processos de avaliação. O texto destaca que \"as provas devem contemplar a acessibilidade para todos os candidatos, assegurando que a tecnologia não seja barreira, mas facilitador\". Considerando as diretrizes de acessibilidade digital, qual das opções abaixo representa corretamente uma prática que garante a adequação das provas a pessoas com deficiência visual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46243,
+        "texto": "Uso exclusivo de textos em formato PDF sem recursos de navegação.",
+        "correta": false
+      },
+      {
+        "id": 46244,
+        "texto": "Disponibilização de materiais em braile apenas para candidatos que solicitarem.",
+        "correta": false
+      },
+      {
+        "id": 46245,
+        "texto": "Implementação de leitores de tela compatíveis com a estrutura da prova.",
+        "correta": true
+      },
+      {
+        "id": 46246,
+        "texto": "Exclusão de imagens para evitar problemas de contraste.",
+        "correta": false
+      },
+      {
+        "id": 46247,
+        "texto": "Uso de cores fortes em todo o conteúdo para facilitar a leitura.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10851,
+    "texto": "No contexto de análise textual, a interpretação de metáforas é frequentemente abordada em concursos. Dado o seguinte excerto: \"O futuro se abre como um palco vazio, pronto para ser iluminado pelos passos dos que ousam sonhar\", qual é a figura de linguagem predominante e qual a sua função no texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46238,
+        "texto": "Metáfora; enfatiza a importância da ação humana no futuro.",
+        "correta": true
+      },
+      {
+        "id": 46239,
+        "texto": "Metonímia; destaca a relação causal entre sonho e futuro.",
+        "correta": false
+      },
+      {
+        "id": 46240,
+        "texto": "Hipérbole; serve para exagerar a magnitude do futuro.",
+        "correta": false
+      },
+      {
+        "id": 46241,
+        "texto": "Símile; compara o futuro a um palco para criar contraste.",
+        "correta": false
+      },
+      {
+        "id": 46242,
+        "texto": "Aliteração; reforça a musicalidade do texto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10850,
+    "texto": "Em um edital de concurso para a função de Analista de Processos, a banca Cebraspe apresenta o seguinte trecho: \"A análise da estrutura sintática das frases será avaliada a partir da identificação de sujeitos, predicados e complementos, observando a concordância nominal e verbal\". Considerando o enunciado acima, qual das alternativas apresenta a classificação correta da frase em que o sujeito é composto por dois termos coordenados?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46233,
+        "texto": "Sujeito simples, predicado verbal, objeto direto.",
+        "correta": false
+      },
+      {
+        "id": 46234,
+        "texto": "Sujeito composto, predicado verbal, objeto indireto.",
+        "correta": true
+      },
+      {
+        "id": 46235,
+        "texto": "Sujeito simples, predicado nominal, complemento predicativo.",
+        "correta": false
+      },
+      {
+        "id": 46236,
+        "texto": "Sujeito composto, predicado nominal, objeto direto.",
+        "correta": false
+      },
+      {
+        "id": 46237,
+        "texto": "Sujeito simples, predicado verbal, predicativo do sujeito.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10849,
+    "texto": "Em textos jornalísticos, a aplicação do ponto de exclamação no final de uma frase informativa é considerada correta quando o fato relatado envolve uma notícia de grande relevância social.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46231,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46232,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10848,
+    "texto": "A norma padrão da língua portuguesa admite a utilização de pronomes de tratamento no plural (ex.: Vossas Senhorias) em comunicações formais, desde que o contexto exija a referência a mais de uma pessoa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46229,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46230,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10847,
+    "texto": "No contexto da norma culta, a inversão do sujeito e do verbo em uma oração pode ser considerada correta apenas quando a oração apresenta um advérbio de modo no início da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46227,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46228,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10846,
+    "texto": "Considerando o seguinte texto: \"Durante a revisão de um contrato de prestação de serviços, o advogado observou que a cláusula de confidencialidade estava escrita em linguagem jurídica excessivamente complexa, dificultando a compreensão do cliente. Em resposta, ele sugeriu a substituição por uma redação mais clara e objetiva, mantendo os requisitos legais.\" Considerando o texto acima, a substituição proposta pelo advogado é uma aplicação correta do princípio da clareza na redação contratual.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46225,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46226,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10845,
+    "texto": "Em um texto literário, a repetição de um mesmo termo em frases consecutivas pode funcionar como recurso estilístico de ênfase, mas não altera o sentido semântico da mensagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46223,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46224,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10843,
+    "texto": "Em 2024, a Lei de Proteção de Dados Pessoais (LGPD) foi atualizada para incluir disposições sobre o tratamento de dados de crianças e adolescentes em plataformas digitais. Um órgão público, ao elaborar um termo de consentimento para coleta de dados de usuários menores de 18 anos, decide incluir uma cláusula que garante o direito de revogação automática em caso de mudança de opinião dos pais. O termo, no entanto, utiliza linguagem excessivamente técnica e não apresenta exemplos práticos de como a revogação será efetivada.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46218,
+        "texto": "O termo deve ser aprovado pela autoridade regulatória antes de ser publicado.",
+        "correta": false
+      },
+      {
+        "id": 46219,
+        "texto": "A cláusula de revogação automática pode ser incluída sem a necessidade de comprovação de efetividade.",
+        "correta": false
+      },
+      {
+        "id": 46220,
+        "texto": "O termo deve conter explicações claras e acessíveis, com exemplos práticos de revogação.",
+        "correta": true
+      },
+      {
+        "id": 46221,
+        "texto": "A linguagem técnica é preferível para garantir a precisão jurídica.",
+        "correta": false
+      },
+      {
+        "id": 46222,
+        "texto": "A cláusula de revogação automática é inválida se não for expressa em linguagem jurídica formal.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10842,
+    "texto": "A empresa estatal de telecomunicações publica um edital de concurso para cargos de analista de sistemas. No item de redação, os candidatos devem elaborar um texto argumentativo sobre a importância da neutralidade da rede na era digital. A banca Cebraspe, conhecida por valorizar a clareza e a coerência textual, define que a resposta deve conter no mínimo 200 palavras e não pode incluir referências a legislações específicas.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46213,
+        "texto": "A resposta deve conter exatamente 200 palavras.",
+        "correta": false
+      },
+      {
+        "id": 46214,
+        "texto": "A resposta pode conter referências a leis, desde que citadas corretamente.",
+        "correta": false
+      },
+      {
+        "id": 46215,
+        "texto": "A resposta deve demonstrar domínio de vocabulário técnico e evitar jargões excessivos.",
+        "correta": true
+      },
+      {
+        "id": 46216,
+        "texto": "A resposta deve ser escrita em primeira pessoa do singular.",
+        "correta": false
+      },
+      {
+        "id": 46217,
+        "texto": "A resposta deve incluir um parágrafo de conclusão que retome a tese central.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10841,
+    "texto": "Texto: Em 2024, o Tribunal Regional Federal da 4ª Região decidiu que o uso de inteligência artificial para análise de provas em processos de execução penal pode ser admitido desde que o algoritmo seja auditável e não contenha viés discriminatório. A decisão ressalta que a aplicação de IA não substitui o julgamento humano, mas auxilia na triagem de documentos, reduzindo o tempo de tramitação. Considerando o texto acima, a afirmação a seguir é verdadeira: a decisão do tribunal garante que a IA pode substituir o juiz na decisão final sobre a concessão de benefícios de execução penal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46211,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46212,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10840,
+    "texto": "No regime de responsabilidade civil do Estado, a culpa é indispensável para a reparação de danos causados por servidores públicos em exercício de suas funções.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46209,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46210,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10839,
+    "texto": "A norma geral de direito tributário estabelece que a obrigação tributária principal pode ser extinta por meio de compensação, desde que haja saldo devedor e crédito tributário equivalente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46207,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46208,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10838,
+    "texto": "No contexto de um processo judicial, a sentença proferida por juiz de segunda instância pode ser considerada definitiva apenas se o tribunal de origem não for de última instância.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46205,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46206,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10837,
+    "texto": "Em um contrato de prestação de serviços, o fornecedor inclui a cláusula \"O pagamento será efetuado em até 30 dias após a entrega dos materiais, salvo se houver atraso na entrega, quando a multa será de 2% ao mês.\" O prazo de 30 dias é considerado prazo de pagamento ou prazo de entrega?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46203,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46204,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10665,
+    "texto": "Texto: A revista jurídica ‘Lex & Juris’ publicou recentemente um artigo sobre a evolução da análise de textos literários no contexto das novas tecnologias. O autor argumenta que, com o advento dos algoritmos de processamento de linguagem natural (PLN), a interpretação de obras literárias pode ser automatizada, mas ressalta que tais sistemas ainda carecem de sensibilidade estética e contextual que apenas o leitor humano pode captar. O artigo conclui que, apesar das inovações, a hermenêutica literária permanece uma prática exclusivamente humana.\n\nConsiderando o texto acima, qual das alternativas a seguir melhor descreve a posição do autor quanto ao papel da tecnologia na interpretação literária?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45631,
+        "texto": "A tecnologia pode substituir completamente o leitor humano na interpretação de obras literárias.",
+        "correta": false
+      },
+      {
+        "id": 45632,
+        "texto": "Os algoritmos de PLN são suficientes para captar a sensibilidade estética das obras.",
+        "correta": false
+      },
+      {
+        "id": 45633,
+        "texto": "A interpretação literária exige sensibilidade estética que os sistemas de PLN não conseguem reproduzir.",
+        "correta": true
+      },
+      {
+        "id": 45634,
+        "texto": "A hermenêutica literária pode ser totalmente automatizada com o avanço das tecnologias.",
+        "correta": false
+      },
+      {
+        "id": 45635,
+        "texto": "O autor defende que a interpretação literária deve ser feita apenas por especialistas em linguística computacional.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10664,
+    "texto": "Abaixo, um trecho de texto jurídico: ‘A responsabilidade civil do fornecedor se estende não apenas ao dano material, mas também ao moral, quando a conduta for dolosa ou culposa’. Considerando a norma acima, assinale a alternativa que melhor descreve a natureza jurídica da responsabilidade civil citada.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45626,
+        "texto": "Responsabilidade objetiva, pois não depende de culpa",
+        "correta": false
+      },
+      {
+        "id": 45627,
+        "texto": "Responsabilidade subjetiva, pois depende da culpa do agente",
+        "correta": false
+      },
+      {
+        "id": 45628,
+        "texto": "Responsabilidade civil de natureza extracontratual, independentemente da relação contratual",
+        "correta": false
+      },
+      {
+        "id": 45629,
+        "texto": "Responsabilidade civil de natureza contratual, vinculada ao contrato de fornecimento",
+        "correta": false
+      },
+      {
+        "id": 45630,
+        "texto": "Responsabilidade civil de natureza extracontratual e subjetiva, pois envolve culpa e dano moral",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10662,
+    "texto": "Em um edital de concurso para a função de analista de dados, a banca CESPE inclui a seguinte frase: “A interpretação correta das cláusulas contratuais requer atenção aos aspectos linguísticos e semânticos do texto legal.” Qual é a alternativa que melhor descreve a competência linguística exigida pelo enunciado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45616,
+        "texto": "Capacidade de identificar a intenção do legislador a partir do contexto histórico",
+        "correta": false
+      },
+      {
+        "id": 45617,
+        "texto": "Habilidade de analisar a estrutura sintática e semântica das cláusulas",
+        "correta": true
+      },
+      {
+        "id": 45618,
+        "texto": "Domínio de terminologia jurídica específica de contratos civis",
+        "correta": false
+      },
+      {
+        "id": 45619,
+        "texto": "Conhecimento de doutrina sobre teoria dos fatos jurídicos",
+        "correta": false
+      },
+      {
+        "id": 45620,
+        "texto": "Capacidade de comparar dispositivos legais de diferentes códigos",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10661,
+    "texto": "A cláusula que determina que o candidato deve possuir título de eleitor válido, mas não exige a apresentação do documento no dia da prova, pode ser considerada inválida, pois fere o princípio da efetividade das exigências legais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45614,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45615,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10660,
+    "texto": "Em um concurso de nível superior, a exigência de que o candidato apresente certificado de conclusão de curso de graduação, mesmo que o curso seja de nível médio, é considerada válida, pois a norma não especifica a equivalência de nível de ensino.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45612,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45613,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,482 @@
+[
+  {
+    "id": 11456,
+    "texto": "Considerando o texto abaixo: \n\n\"Em 2024, o Ministério da Educação publicou uma diretriz que prevê a inclusão de aulas de literatura contemporânea em todos os cursos de graduação da rede pública. A medida, segundo o documento, tem como objetivo principal ampliar o repertório cultural dos estudantes, estimulando a leitura crítica e a produção textual em contextos reais. A diretriz estabelece que as universidades deverão elaborar, em parceria com instituições culturais, planos de ensino que contemplem a análise de obras recentes, a discussão de temas sociais atuais e a realização de projetos de escrita colaborativa. Além disso, prevê a criação de um portal digital que disponibilizará materiais didáticos, vídeos explicativos e fóruns de debate, com o intuito de democratizar o acesso ao conhecimento e fomentar a participação ativa dos alunos. O documento ainda ressalta que a avaliação dos estudantes será baseada em critérios qualitativos, priorizando a capacidade de argumentação e a criatividade na produção textual.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48243,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48244,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11455,
+    "texto": "Em textos expositivos, a repetição de palavras-chave em frases consecutivas serve exclusivamente para reforçar a coerência textual, sem nenhuma influência na coesão entre as unidades textuais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48241,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48242,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11454,
+    "texto": "Um texto jurídico que apresenta uma oração subordinada adverbial de condição pode, em tese, ser interpretado como condição absoluta, dispensando qualquer outra hipótese para o cumprimento da norma.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48239,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48240,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11453,
+    "texto": "Na análise de textos narrativos, a ocorrência de inversões sintáticas que alteram a ordem típica sujeito-verbo-objeto pode indicar uma ênfase estilística, mas não altera a interpretação semântica do enunciado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48237,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48238,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11125,
+    "texto": "Texto: \"Em 2024, a Federação Brasileira de Linguística (FBL) publicou um relatório que destaca a crescente importância da análise de corpora digitais na pesquisa linguística. O documento aponta que, entre 2019 e 2023, o número de publicações acadêmicas que utilizam corpora aumentou 42,7%, refletindo uma mudança de paradigma na metodologia de estudos linguísticos. Além disso, o relatório ressalta que o uso de ferramentas de processamento de linguagem natural (PLN) tem permitido a identificação de padrões semânticos em grandes volumes de dados textuais, contribuindo para a elaboração de modelos de linguagem mais precisos e eficientes. Em seguida, a FBL propõe a criação de um edital para incentivar projetos de pesquisa que integrem PLN e análise corpórea em estudos de sociolinguística. O edital prevê a concessão de recursos financeiros e a publicação de resultados em revistas de alto impacto. Considerando o texto acima, qual das alternativas abaixo descreve corretamente o objetivo principal da proposta da FBL?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47146,
+        "texto": "A) Estimular a produção de textos literários em português brasileiro.",
+        "correta": false
+      },
+      {
+        "id": 47147,
+        "texto": "B) Promover a padronização de termos técnicos em linguística.",
+        "correta": false
+      },
+      {
+        "id": 47148,
+        "texto": "C) Incentivar projetos que combinem PLN e análise corpórea para avançar a pesquisa sociolinguística.",
+        "correta": true
+      },
+      {
+        "id": 47149,
+        "texto": "D) Garantir a preservação de dialetos regionais em bases de dados digitais.",
+        "correta": false
+      },
+      {
+        "id": 47150,
+        "texto": "E) Facilitar o acesso público a corpora digitais de língua portuguesa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11124,
+    "texto": "Durante a análise de um trecho de um romance contemporâneo, o candidato deve identificar a figura de linguagem que caracteriza a expressão \"o silêncio era um espelho que refletia o vazio interior dos personagens\". Qual é a figura de linguagem empregada nesse trecho?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47141,
+        "texto": "A) Metonímia",
+        "correta": false
+      },
+      {
+        "id": 47142,
+        "texto": "B) Personificação",
+        "correta": false
+      },
+      {
+        "id": 47143,
+        "texto": "C) Metáfora",
+        "correta": true
+      },
+      {
+        "id": 47144,
+        "texto": "D) Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 47145,
+        "texto": "E) Anáfora",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11123,
+    "texto": "O professor de Língua Portuguesa de uma escola pública desenvolveu uma atividade de análise textual em que os alunos deveriam identificar e classificar os modos verbais utilizados em um artigo de opinião sobre mudanças climáticas. O texto apresenta verbos no presente do indicativo, no pretérito perfeito composto e no futuro do subjuntivo. Qual das alternativas abaixo descreve corretamente a função do verbo no futuro do subjuntivo presente no contexto do texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47136,
+        "texto": "A) Expressa uma hipótese irreais no passado.",
+        "correta": false
+      },
+      {
+        "id": 47137,
+        "texto": "B) Indica uma ação já realizada no presente.",
+        "correta": false
+      },
+      {
+        "id": 47138,
+        "texto": "C) Indica uma condição que pode ocorrer no futuro, dependendo de outra ação.",
+        "correta": true
+      },
+      {
+        "id": 47139,
+        "texto": "D) Denota uma ordem imediata ao interlocutor.",
+        "correta": false
+      },
+      {
+        "id": 47140,
+        "texto": "E) Refere-se a uma ação habitual no passado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11122,
+    "texto": "Considerando a proposta de reforma linguística que visa ampliar o uso de termos técnicos em documentos oficiais, o Ministério da Educação emitiu um edital solicitando que os candidatos apresentem, em linguagem formal, um texto argumentativo defendendo a adoção de neologismos em textos acadêmicos. O edital destaca que a proposta deve conter, no mínimo, três exemplos de neologismos que já se consolidaram no uso corrente da língua e justificar sua inclusão em termos de clareza e precisão comunicativa. Qual das alternativas abaixo apresenta corretamente a classificação dos neologismos citados pelo candidato, segundo a norma culta da língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47131,
+        "texto": "A) Neologismos cognatos, neologismos derivados e neologismos de empréstimo.",
+        "correta": false
+      },
+      {
+        "id": 47132,
+        "texto": "B) Neologismos de derivação, neologismos de composição e neologismos de abreviação.",
+        "correta": false
+      },
+      {
+        "id": 47133,
+        "texto": "C) Neologismos de origem estrangeira, neologismos de criação interna e neologismos de adaptação fonética.",
+        "correta": false
+      },
+      {
+        "id": 47134,
+        "texto": "D) Neologismos de criação interna, neologismos de adaptação fonética e neologismos de empréstimo.",
+        "correta": true
+      },
+      {
+        "id": 47135,
+        "texto": "E) Neologismos de criação interna, neologismos de composição e neologismos de adaptação morfológica.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11121,
+    "texto": "Texto: Em 2025, a Secretaria de Educação lançou um programa de alfabetização digital para escolas públicas de baixa renda. O projeto prevê a entrega de tablets a cada aluno, a instalação de softwares de leitura interativa e a realização de oficinas mensais com professores capacitados em metodologias ativas. O objetivo principal é reduzir a lacuna de alfabetização entre estudantes de diferentes estratos socioeconômicos. Considerando o texto acima, a estratégia de uso de tecnologia na educação pode ser considerada uma aplicação prática do princípio da equidade no acesso ao ensino, pois busca nivelar oportunidades para todos os estudantes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47129,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47130,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11120,
+    "texto": "Durante uma prova objetiva de Português, o enunciado de uma questão apresenta a frase: \"A análise semântica de um texto requer a identificação de todas as palavras que possuem mais de um significado.\" O enunciado está corretamente estruturado, pois não há ambiguidade na interpretação da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47127,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47128,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11119,
+    "texto": "Um professor de português, ao corrigir redações de alunos, atribui nota zero a todos os textos que não contiveram exatamente a expressão \"em síntese\", argumentando que a ausência dessa expressão indica falta de capacidade de síntese. Essa prática está em conformidade com o princípio da razoabilidade na correção de textos?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47125,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47126,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11118,
+    "texto": "Na elaboração de um edital de concurso público, a comissão de seleção decide incluir a frase \"os candidatos devem demonstrar proficiência em linguagem figurada, por meio da análise de textos literários contemporâneos\", sem indicar critérios objetivos de avaliação. Tal exigência viola o princípio da publicidade dos atos administrativos?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47123,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47124,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11117,
+    "texto": "Um advogado, ao redigir um contrato de prestação de serviços, utiliza a expressão \"os termos aqui contidos serão interpretados de forma a favorecer a parte que não os elaborou\", alegando que tal cláusula é legítima para equilibrar interesses. O uso dessa expressão configura, no direito contratual brasileiro, um vício de forma ou de conteúdo?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47121,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47122,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11116,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação do Estado X lançou uma iniciativa de alfabetização digital, intitulada 'Letras e Bytes', que visa integrar o ensino de leitura e escrita à tecnologia. O projeto foi estruturado em três fases: (1) capacitação de professores em ferramentas digitais; (2) implementação de aulas híbridas que combinam recursos online e presenciais; e (3) avaliação contínua dos resultados por meio de métricas de engajamento e desempenho. A proposta contou com o apoio de uma ONG especializada em inclusão digital, que forneceu tablets para escolas de baixa renda. O objetivo principal era reduzir a lacuna digital e promover a alfabetização no século XXI.\" Considerando o texto acima, qual das afirmativas a seguir descreve corretamente o objetivo central da iniciativa 'Letras e Bytes'?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47116,
+        "texto": "Promover o ensino de língua portuguesa em escolas rurais.",
+        "correta": false
+      },
+      {
+        "id": 47117,
+        "texto": "Desenvolver competências de programação em crianças de 5 a 10 anos.",
+        "correta": false
+      },
+      {
+        "id": 47118,
+        "texto": "Reduzir a lacuna digital e fomentar a alfabetização no contexto tecnológico.",
+        "correta": true
+      },
+      {
+        "id": 47119,
+        "texto": "Estabelecer um programa de intercâmbio cultural entre escolas públicas e privadas.",
+        "correta": false
+      },
+      {
+        "id": 47120,
+        "texto": "Criar uma plataforma de ensino de matemática avançada para estudantes de ensino médio.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11115,
+    "texto": "Um professor de português propôs aos alunos a tarefa de identificar a figura de linguagem que consiste na atribuição de qualidades humanas a objetos inanimados. Ele distribuiu uma lista de frases e pediu que cada estudante marcasse a figura correta. Qual das alternativas abaixo corresponde exatamente à figura de linguagem em questão?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47111,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 47112,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 47113,
+        "texto": "Personificação",
+        "correta": true
+      },
+      {
+        "id": 47114,
+        "texto": "Sinestesia",
+        "correta": false
+      },
+      {
+        "id": 47115,
+        "texto": "Eufemismo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11114,
+    "texto": "Na análise de textos literários contemporâneos, o uso de metalinguagem costuma ser um recurso que amplia a reflexão do leitor sobre o próprio ato de ler. Em uma obra em que o narrador interrompe a narrativa para comentar sobre a estrutura da história, qual conceito linguístico melhor descreve essa técnica?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47106,
+        "texto": "Metafísica textual",
+        "correta": false
+      },
+      {
+        "id": 47107,
+        "texto": "Narrativa intertextual",
+        "correta": false
+      },
+      {
+        "id": 47108,
+        "texto": "Metalinguagem",
+        "correta": true
+      },
+      {
+        "id": 47109,
+        "texto": "Paralelismo retórico",
+        "correta": false
+      },
+      {
+        "id": 47110,
+        "texto": "Alusão histórica",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11113,
+    "texto": "Um edital de concurso público para o cargo de Analista de Processos de Licitação apresenta a seguinte frase: \"O candidato deverá demonstrar, em sua documentação, a capacidade de interpretar e aplicar normas de licitações e contratos administrativos, de modo a garantir a legalidade e a eficiência dos procedimentos.\" Considerando a redação acima, qual dos itens abaixo melhor descreve a característica da norma jurídica citada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47101,
+        "texto": "Norma de caráter obrigatório, sujeita a sanções em caso de não cumprimento.",
+        "correta": true
+      },
+      {
+        "id": 47102,
+        "texto": "Norma de caráter facultativo, que pode ser ignorada se não houver conflito com outras leis.",
+        "correta": false
+      },
+      {
+        "id": 47103,
+        "texto": "Norma de caráter orientador, que apenas sugere práticas recomendadas.",
+        "correta": false
+      },
+      {
+        "id": 47104,
+        "texto": "Norma de caráter discricionário, que confere liberdade ao administrador para decidir sobre sua aplicação.",
+        "correta": false
+      },
+      {
+        "id": 47105,
+        "texto": "Norma de caráter punitivo, que impõe penalidades apenas em situações de má-fé.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11112,
+    "texto": "A norma culta da língua portuguesa permite a utilização de neologismos de origem estrangeira em textos acadêmicos, desde que sejam precedidos de sua origem e significado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47099,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47100,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11111,
+    "texto": "Em um texto jornalístico, o uso de pronomes de tratamento como \"Vossa Excelência\" e \"Seu Excelência\" segue a norma culta quando se dirige a autoridades de nível superior e não a autoridades de nível inferior.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47097,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47098,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11109,
+    "texto": "A norma culta da língua portuguesa admite a inversão sintática da forma \"Ele, apesar da chuva, saiu\" como equivalente a \"Ele saiu, apesar da chuva\", mantendo a mesma valoração semântica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47093,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47094,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -187,13 +187,22 @@ if _cache_url:
         }
     }
 else:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-            'LOCATION': str(BASE_DIR / '.django_cache'),
-            'TIMEOUT': 300,
+    if DEBUG:
+        CACHES = {
+            'default': {
+                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+                'LOCATION': 'santuario-local',
+                'TIMEOUT': 300,
+            }
         }
-    }
+    else:
+        CACHES = {
+            'default': {
+                'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+                'LOCATION': str(BASE_DIR / 'output' / '.django_cache'),
+                'TIMEOUT': 300,
+            }
+        }
 
 
 # Password validation

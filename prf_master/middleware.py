@@ -102,6 +102,10 @@ class SecurityHeadersMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
+        if getattr(request, 'user', None) and request.user.is_authenticated:
+            from django.utils.cache import add_never_cache_headers
+            add_never_cache_headers(response)
+
         # Permissions-Policy substitui a Feature-Policy antiga
         response.setdefault('Permissions-Policy', self.PERMISSIONS_POLICY)
 

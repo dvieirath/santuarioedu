@@ -1,0 +1,482 @@
+[
+  {
+    "id": 10378,
+    "texto": "Considere a proposição: “Se um conjunto de números inteiros é fechado sob a operação de soma, então ele contém o elemento neutro da adição.”",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44703,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44704,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10377,
+    "texto": "Um algoritmo de ordenação divide recursivamente um vetor de inteiros em duas metades, ordena cada metade e, em seguida, mescla as duas sequências já ordenadas. Se o vetor original contém 1.024 elementos, qual é o número máximo de comparações necessárias para ordenar todo o vetor usando esse algoritmo?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44701,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44702,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9938,
+    "texto": "Texto: Em 2024, a Secretaria de Segurança Pública divulgou dados sobre o uso de inteligência artificial na prevenção de crimes. Segundo o relatório, o algoritmo de detecção de padrões comportamentais analisou 5.000 registros de ocorrências em 12 cidades brasileiras. O algoritmo classificou 4.200 casos como de alto risco, 600 como médio risco e 200 como baixo risco. A taxa de precisão do algoritmo foi de 92,5%, enquanto a taxa de recall foi de 88,3%. Além disso, o sistema foi capaz de identificar, em tempo real, 37 situações de potencial violência urbana que, em seguida, foram encaminhadas para as equipes de intervenção. Em seguida, a análise estatística revelou que a taxa de falsos positivos foi de 4,7% e a taxa de falsos negativos foi de 7,2%. A Secretaria planeja, para 2025, ampliar o uso do algoritmo para outras áreas, como saúde pública e educação, visando reduzir a incidência de eventos críticos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43298,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43299,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9937,
+    "texto": "Um triângulo retângulo tem catetos de comprimentos 9 cm e 12 cm. O comprimento da hipotenusa é 15 cm, portanto a relação entre os catetos e a hipotenusa segue a proporção 3:4:5.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43296,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43297,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9936,
+    "texto": "Considere a proposição lógica: (P ∨ Q) ∧ (¬P ∨ R). Se P for verdadeiro, Q for falso e R for verdadeiro, a proposição resultará em falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43294,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43295,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9935,
+    "texto": "Em uma sequência lógica, se a regra for que cada termo é a soma dos dois anteriores, então a sequência 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 segue essa regra.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43292,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43293,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9934,
+    "texto": "Um algoritmo de classificação binária recebe um vetor de 10 elementos, sendo 4 positivos e 6 negativos. Se a regra de decisão for: classificar como positivo se o índice do elemento for par, caso contrário, classificar como negativo, então o algoritmo classificará corretamente 80% dos elementos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43290,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43291,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9901,
+    "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório sobre o uso de inteligência artificial (IA) na avaliação de provas de concursos públicos. O documento destaca que, em provas de múltipla escolha, a aplicação de algoritmos de IA pode reduzir o tempo de correção em até 70% e aumentar a uniformidade das pontuações em 15%. Entretanto, o relatório alerta que a adoção de IA requer treinamento específico para os avaliadores e pode aumentar o custo inicial em 25% em relação ao método tradicional. A análise também aponta que, em exames de lógica e raciocínio, a IA pode identificar padrões de erro mais rapidamente, permitindo ajustes nos itens futuros.\n\nConsiderando o texto acima, qual das afirmações a seguir é correta em relação aos benefícios e desafios da IA na correção de provas de concursos públicos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43173,
+        "texto": "A IA elimina a necessidade de treinamentos para avaliadores.",
+        "correta": false
+      },
+      {
+        "id": 43174,
+        "texto": "O uso da IA aumenta o custo final das provas em 25%.",
+        "correta": false
+      },
+      {
+        "id": 43175,
+        "texto": "A IA pode reduzir o tempo de correção em até 70% e aumentar a uniformidade das pontuações em 15%.",
+        "correta": true
+      },
+      {
+        "id": 43176,
+        "texto": "A IA não possui impacto sobre a identificação de padrões de erro em provas de lógica.",
+        "correta": false
+      },
+      {
+        "id": 43177,
+        "texto": "A adoção de IA diminui o custo inicial em 25% em comparação ao método tradicional.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9900,
+    "texto": "Um conjunto de cinco cadeiras está dispostas em uma fila. As cadeiras são numeradas de 1 a 5, da esquerda para a direita. As regras de posicionamento são: a cadeira 3 deve estar sempre entre as cadeiras 1 e 5; a cadeira 2 deve estar à esquerda da cadeira 4; e a cadeira 5 não pode estar na posição mais à direita. Quantas disposições distintas das cinco cadeiras atendem a todas as regras?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43168,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 43169,
+        "texto": "18",
+        "correta": true
+      },
+      {
+        "id": 43170,
+        "texto": "24",
+        "correta": false
+      },
+      {
+        "id": 43171,
+        "texto": "30",
+        "correta": false
+      },
+      {
+        "id": 43172,
+        "texto": "36",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9899,
+    "texto": "Em um concurso de lógica, os candidatos recebem uma sequência de números: 2, 6, 12, 20, 30, ?. O padrão da sequência é que cada termo aumenta em um número que é a soma de seus dois antecessores. Qual é o próximo termo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43163,
+        "texto": "42",
+        "correta": false
+      },
+      {
+        "id": 43164,
+        "texto": "48",
+        "correta": true
+      },
+      {
+        "id": 43165,
+        "texto": "54",
+        "correta": false
+      },
+      {
+        "id": 43166,
+        "texto": "60",
+        "correta": false
+      },
+      {
+        "id": 43167,
+        "texto": "66",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9898,
+    "texto": "Um órgão público decide implementar um sistema de controle de acesso a documentos digitais. O sistema atribui a cada usuário um código de acesso composto por três letras maiúsculas seguidas de três dígitos. A regra de geração dos códigos é a seguinte: a primeira letra corresponde à inicial do nome do usuário, a segunda letra é a primeira letra da sua cidade de nascimento e a terceira letra é a inicial de sua profissão. Os três dígitos são formados pela soma dos valores numéricos (A=1, B=2, ..., Z=26) das três letras anteriores, módulo 1000, e representados com três dígitos, preenchendo zeros à esquerda se necessário. Qual dos seguintes códigos pode ser atribuído ao usuário João Silva, nascido em Salvador, que trabalha como engenheiro civil?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43158,
+        "texto": "JSS123",
+        "correta": false
+      },
+      {
+        "id": 43159,
+        "texto": "JSB456",
+        "correta": false
+      },
+      {
+        "id": 43160,
+        "texto": "JSE345",
+        "correta": true
+      },
+      {
+        "id": 43161,
+        "texto": "JSA678",
+        "correta": false
+      },
+      {
+        "id": 43162,
+        "texto": "JSM012",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9897,
+    "texto": "Se a proposição p é verdadeira e a proposição q é falsa, então a implicação p → q é falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43156,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43157,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9896,
+    "texto": "Considerando o texto abaixo:\n\n\"Durante a análise de viabilidade de um projeto de infraestrutura, o engenheiro avaliou a relação entre a velocidade média de tráfego e o tempo de deslocamento em uma rodovia de 120 km. Observou que, ao dobrar a velocidade média, o tempo de deslocamento diminui exatamente pela metade. Assim, a relação entre velocidade média (V) e tempo (T) segue a regra V × T = constante, onde a constante é 240 km/h·h. A partir dessa relação, conclui-se que a velocidade média e o tempo de deslocamento são inversamente proporcionais.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43154,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43155,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9895,
+    "texto": "Em um circuito lógico composto por portas AND e OR, a expressão booleana (A ∨ B) ∧ (¬A ∨ C) pode ser simplificada a A ∧ C.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43152,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43153,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9894,
+    "texto": "Para a proposição lógica p → (q ∧ r), a negação é equivalente a ¬p ∨ (¬q ∨ ¬r).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43150,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43151,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9893,
+    "texto": "Em uma sequência de números inteiros, a cada termo subsequente a soma dos dois termos anteriores é multiplicada por 2. Se o primeiro termo for 1 e o segundo 2, o terceiro termo é 6.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43148,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43149,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9707,
+    "texto": "Texto: Em 2024, a Secretaria de Segurança Pública divulgou um relatório sobre o uso de algoritmos de classificação de risco em processos de liberação provisória de presos. O documento indica que, em um município de 500.000 habitantes, 18% dos presos em liberdade condicional apresentaram reincidência em crimes de menor potencial ofensivo. Além disso, a análise mostrou que a taxa de reincidência diminuiu 12% em relação ao ano anterior, quando era de 20,4%. O relatório também destaca que a aplicação de um modelo preditivo baseado em variáveis socioeconômicas reduziu o tempo médio de liberação em 25%, passando de 48 dias para 36 dias. Considerando o texto acima, qual é a taxa de reincidência de presos em liberdade condicional no ano anterior?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42547,
+        "texto": "18,0%",
+        "correta": false
+      },
+      {
+        "id": 42548,
+        "texto": "20,4%",
+        "correta": true
+      },
+      {
+        "id": 42549,
+        "texto": "22,5%",
+        "correta": false
+      },
+      {
+        "id": 42550,
+        "texto": "24,0%",
+        "correta": false
+      },
+      {
+        "id": 42551,
+        "texto": "25,5%",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9706,
+    "texto": "Um engenheiro de tráfego analisa a distribuição de veículos em uma rodovia. Em um intervalo de 10 minutos, observa-se que 30% dos veículos são automóveis, 25% são motocicletas, 20% são caminhões e o restante são ônibus. Se, em um dia, foram registrados 1200 veículos, qual é o número de ônibus?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42542,
+        "texto": "240",
+        "correta": true
+      },
+      {
+        "id": 42543,
+        "texto": "250",
+        "correta": false
+      },
+      {
+        "id": 42544,
+        "texto": "260",
+        "correta": false
+      },
+      {
+        "id": 42545,
+        "texto": "270",
+        "correta": false
+      },
+      {
+        "id": 42546,
+        "texto": "280",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9705,
+    "texto": "Um conjunto de cinco números inteiros positivos é organizado de forma que o segundo maior número é 7 e a diferença entre o maior e o menor número é 12. Se a soma dos três números centrais for 24, qual é o valor do menor número?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42537,
+        "texto": "2",
+        "correta": false
+      },
+      {
+        "id": 42538,
+        "texto": "3",
+        "correta": true
+      },
+      {
+        "id": 42539,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 42540,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 42541,
+        "texto": "6",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9704,
+    "texto": "Em uma sequência de números inteiros consecutivos, o primeiro termo é 12 e o último termo é 24. Se a soma dos termos pares da sequência for igual a 156, qual é a soma dos termos ímpares?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42532,
+        "texto": "108",
+        "correta": false
+      },
+      {
+        "id": 42533,
+        "texto": "120",
+        "correta": true
+      },
+      {
+        "id": 42534,
+        "texto": "132",
+        "correta": false
+      },
+      {
+        "id": 42535,
+        "texto": "144",
+        "correta": false
+      },
+      {
+        "id": 42536,
+        "texto": "156",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "id": 10659,
+    "texto": "Considerando o texto acima, a afirmação de que a aplicação de prova objetiva, com questões de múltipla escolha, não exige a presença de avaliador humano para a correção, é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45610,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45611,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10658,
+    "texto": "A norma interna que proíbe o uso de dispositivos móveis durante a prova, mesmo quando o candidato já tiver deixado o local de prova, é considerada constitucional, pois respeita o princípio da segurança e da integridade do processo seletivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45608,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45609,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10657,
+    "texto": "No contexto de um edital de concurso, a cláusula que estabelece a obrigatoriedade de participação em curso preparatório, sem o pagamento de taxa, é considerada válida, desde que não haja restrição à escolha do candidato por outro curso de sua preferência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45606,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45607,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10656,
+    "texto": "Durante a prova de português de um concurso para Técnico de Patrimônio, o candidato é solicitado a identificar a modalidade de discurso presente no seguinte trecho: \"A prefeitura, em reunião com representantes da comunidade, decidiu que a praça central será reformada com a instalação de novas luminárias, bancos e uma fonte de água. O projeto, que já conta com o apoio de entidades ambientais, será executado em duas fases.\" Qual modalidade de discurso está predominante neste trecho?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45601,
+        "texto": "Discurso narrativo",
+        "correta": false
+      },
+      {
+        "id": 45602,
+        "texto": "Discurso expositivo",
+        "correta": true
+      },
+      {
+        "id": 45603,
+        "texto": "Discurso argumentativo",
+        "correta": false
+      },
+      {
+        "id": 45604,
+        "texto": "Discurso descritivo",
+        "correta": false
+      },
+      {
+        "id": 45605,
+        "texto": "Discurso imperativo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10655,
+    "texto": "Um edital de concurso público prevê que os candidatos ao cargo de Analista de Processos Administrativos devem demonstrar competência na análise de textos informativos. Em uma das provas, os candidatos recebem um trecho de notícia sobre a implementação de um novo sistema de gestão eletrônica de documentos. O trecho apresenta uma estrutura de texto que mistura informações de fato com opiniões de especialistas. Qual é a característica que diferencia o texto informativo do texto opinativo no contexto da redação jornalística?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45596,
+        "texto": "O texto informativo apresenta apenas dados estatísticos, enquanto o opinativo utiliza citações de fontes.",
+        "correta": false
+      },
+      {
+        "id": 45597,
+        "texto": "O texto informativo busca transmitir fatos de forma objetiva, sem juízo de valor; o opinativo expressa julgamento subjetivo sobre o tema.",
+        "correta": true
+      },
+      {
+        "id": 45598,
+        "texto": "O texto informativo é sempre curto; o opinativo pode ser mais extenso.",
+        "correta": false
+      },
+      {
+        "id": 45599,
+        "texto": "O texto informativo utiliza linguagem técnica; o opinativo utiliza linguagem coloquial.",
+        "correta": false
+      },
+      {
+        "id": 45600,
+        "texto": "O texto informativo é publicado em jornais de grande circulação; o opinativo aparece em blogs.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10654,
+    "texto": "Considerando o texto a seguir: \"Em 2025, o Ministério da Justiça divulgou um relatório sobre a evolução da linguagem jurídica no Brasil. O documento apontou que, apesar do avanço tecnológico, ainda há uma resistência significativa à adoção de terminologias mais inclusivas e neutras em termos de gênero. Entre os exemplos citados, destaca-se o uso recorrente do pronome ‘ele’ para se referir a indivíduos de qualquer gênero, o que pode gerar ambiguidades e exclusão. O relatório recomenda a substituição por termos neutros e a revisão de textos legislativos e administrativos para refletir a diversidade linguística.\" Considerando o texto acima, qual é a principal razão pela qual a adoção de linguagem neutra é recomendada no âmbito jurídico?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45591,
+        "texto": "Para reduzir custos de tradução de documentos oficiais.",
+        "correta": false
+      },
+      {
+        "id": 45592,
+        "texto": "Para aumentar a velocidade de tramitação de processos judiciais.",
+        "correta": false
+      },
+      {
+        "id": 45593,
+        "texto": "Para garantir que todos os cidadãos se sintam representados e respeitados nos atos administrativos.",
+        "correta": true
+      },
+      {
+        "id": 45594,
+        "texto": "Para simplificar a redação de leis, eliminando termos técnicos.",
+        "correta": false
+      },
+      {
+        "id": 45595,
+        "texto": "Para facilitar a interpretação de textos jurídicos por juristas estrangeiros.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10653,
+    "texto": "Em 2024, a Secretaria de Educação de uma cidade adotou um programa de alfabetização digital, em que os alunos devem produzir textos curtos em plataformas colaborativas. Um professor observa que, ao analisar a produção textual de um grupo, percebe que a maioria dos alunos utiliza conectivos de modo inadequado, resultando em sequências sem sentido lógico. Diante disso, o professor decide aplicar uma atividade de revisão de coesão textual. Qual das alternativas abaixo descreve corretamente a função dos conectivos no contexto da coesão textual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45586,
+        "texto": "Estabelecem a relação de causa e consequência entre as ideias apresentadas.",
+        "correta": false
+      },
+      {
+        "id": 45587,
+        "texto": "Garantem a concordância verbal e nominal entre os elementos da frase.",
+        "correta": false
+      },
+      {
+        "id": 45588,
+        "texto": "Unem sentenças e orações, facilitando a compreensão do fluxo de ideias.",
+        "correta": true
+      },
+      {
+        "id": 45589,
+        "texto": "Indicam o tempo verbal das ações descritas no texto.",
+        "correta": false
+      },
+      {
+        "id": 45590,
+        "texto": "Aprimoram a pontuação, substituindo vírgulas por pontos finais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10652,
+    "texto": "Texto: Em um cenário de crescente digitalização, a corporação TechNova lançou em 2023 um programa de capacitação em comunicação corporativa. O curso, denominado \"Comunicação Ágil\", tem duração de 12 semanas e aborda, entre outros tópicos, a estruturação de textos técnicos, a adequação de linguagem ao público-alvo e a aplicação de recursos multimídia para reforçar a mensagem. Os participantes são avaliados por meio de projetos práticos, nos quais devem produzir relatórios, apresentações e e-mails corporativos, todos avaliados quanto à clareza, concisão e coerência. O programa também enfatiza a importância da revisão gramatical e ortográfica, bem como o uso de ferramentas digitais de correção automática. Considerando o texto acima, a prática de revisão automática, quando usada sem supervisão humana, pode levar a erros de interpretação do contexto e, consequentemente, comprometer a qualidade do texto final.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45584,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45585,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10651,
+    "texto": "Em 2024, a Lei nº 14.000, que regulamenta o uso de linguagem inclusiva no ambiente corporativo, determina que todas as comunicações internas devem adotar pronomes neutros em 100% dos casos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45582,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45583,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10650,
+    "texto": "No contexto de textos argumentativos, a estratégia de utilização de conectores de contraste, como \"porém\" e \"no entanto\", é fundamental para a manutenção da coesão textual e evita repetições de ideias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45580,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45581,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10649,
+    "texto": "No português contemporâneo, o uso do gerúndio como substituto de perífrase verbal tem sido amplamente reconhecido como forma correta de indicar simultaneidade de ações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45578,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45579,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10648,
+    "texto": "A oração subordinada adverbial de causa, quando introduzida por \"porquanto\", tem sua função sintática de circunstância de tempo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45576,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45577,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10610,
+    "texto": "Um edital de concurso para o cargo de auditor fiscal foi publicado com a seguinte cláusula: \"Os candidatos que apresentarem documentação incompleta serão considerados desclassificados, salvo quando a omissão for comprovada como erro de digitação e corrigida no prazo de até 48 horas.\" Qual é a alternativa que melhor identifica a falha de concordância e a falta de clareza no enunciado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45446,
+        "texto": "A cláusula apresenta concordância correta e clareza suficiente.",
+        "correta": false
+      },
+      {
+        "id": 45447,
+        "texto": "A cláusula deveria usar \"serão consideradas desclassificadas\" para concordar com o sujeito composto.",
+        "correta": true
+      },
+      {
+        "id": 45448,
+        "texto": "A cláusula deveria substituir \"erros de digitação\" por \"erros de digitação ou de preenchimento\".",
+        "correta": false
+      },
+      {
+        "id": 45449,
+        "texto": "A cláusula deveria especificar que a correção deve ser feita por meio de e‑mail.",
+        "correta": false
+      },
+      {
+        "id": 45450,
+        "texto": "A cláusula deveria usar \"serão consideradas desclassificadas\" e \"será corrigida\".",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10607,
+    "texto": "A oração 'Embora o projeto tenha sido aprovado, o orçamento ainda não foi aprovado' contém duas orações coordenadas assindéticas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45434,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45435,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10606,
+    "texto": "Na construção 'Se o candidato se apresentar com a documentação correta, ele será aprovado', o verbo 'aprovado' está no particípio passado e funciona como predicativo do sujeito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45432,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45433,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10605,
+    "texto": "A frase 'O relatório, que foi entregue ontem, contém dados atualizados' apresenta um verbo no particípio que funciona como adjunto adverbial de tempo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45430,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45431,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10604,
+    "texto": "Considerando o texto abaixo: 'Em 2024, o Ministério da Educação publicou uma diretriz que exige que todas as escolas públicas adotem um sistema de avaliação de desempenho baseado em competências. O documento define competências como habilidades, conhecimentos e atitudes que os estudantes devem demonstrar ao final do curso. A diretriz prevê que o acompanhamento das competências será realizado por meio de relatórios trimestrais elaborados pelos professores, que serão avaliados por um comitê de coordenação escolar. O objetivo principal é promover a transparência e a melhoria contínua do ensino. A adoção da diretriz implicará a revisão de todo o currículo escolar, exigindo que os materiais didáticos sejam atualizados para refletir as competências estabelecidas.'",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45428,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45429,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10603,
+    "texto": "Na oração 'O engenheiro, que havia concluído o projeto, foi elogiado pelo conselho', a expressão 'que havia concluído o projeto' funciona como oração subordinada adjetiva restritiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45426,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45427,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10601,
+    "texto": "Um texto argumentativo apresenta, de forma estruturada, uma tese, argumentos que a sustentam e uma conclusão. Se um candidato escrever um ensaio sobre a importância da preservação da biodiversidade, qual elemento seria considerado a tese?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45416,
+        "texto": "A descrição das espécies em perigo de extinção.",
+        "correta": false
+      },
+      {
+        "id": 45417,
+        "texto": "A conclusão que reforça a necessidade de políticas públicas.",
+        "correta": false
+      },
+      {
+        "id": 45418,
+        "texto": "A afirmação de que a biodiversidade é vital para o equilíbrio ecológico.",
+        "correta": true
+      },
+      {
+        "id": 45419,
+        "texto": "Os dados estatísticos sobre a perda de habitats.",
+        "correta": false
+      },
+      {
+        "id": 45420,
+        "texto": "A introdução que contextualiza o tema.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10600,
+    "texto": "Considerando o texto abaixo: \n\n\"Em 2024, o Ministério da Educação lançou um programa de alfabetização digital para jovens de 14 a 18 anos, com foco em competências de leitura crítica e produção textual em ambientes virtuais. O programa prevê a utilização de plataformas de aprendizagem adaptativa, que ajustam o nível de dificuldade conforme o desempenho do aluno. Além disso, será disponibilizado um portal de recursos multimídia, contendo vídeos, podcasts e textos interativos, para estimular a leitura e a escrita de forma colaborativa. O objetivo é reduzir a lacuna de alfabetização digital entre regiões urbanas e rurais, promovendo o acesso igualitário à informação.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45411,
+        "texto": "O programa visa apenas melhorar a velocidade de leitura dos estudantes.",
+        "correta": false
+      },
+      {
+        "id": 45412,
+        "texto": "O portal de recursos multimídia será utilizado apenas por professores.",
+        "correta": false
+      },
+      {
+        "id": 45413,
+        "texto": "A plataforma de aprendizagem adaptativa ajusta o nível de dificuldade com base no desempenho individual do aluno.",
+        "correta": true
+      },
+      {
+        "id": 45414,
+        "texto": "O programa será implementado apenas em escolas de cidades grandes.",
+        "correta": false
+      },
+      {
+        "id": 45415,
+        "texto": "O objetivo principal é aumentar a produção de textos acadêmicos em nível universitário.",
+        "correta": false
+      }
+    ]
+  }
+]

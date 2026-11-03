@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2864,
+    "texto": "Em relação à gerência de projetos, julgue os itens que se seguem. No PMBOK, o estabelecimento de métricas inclui a definição dos limites para indicar o desempenho do trabalho.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23510,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23511,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2858,
+    "texto": "Julgue os itens a seguir, acerca de subestações e de equipamentos elétricos. O transformador de corrente do tipo janela é adequado para instalação nas buchas dos transformadores de potência das subestações de média potência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23498,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23499,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2783,
+    "texto": "Acerca de projetos e execução de serviços de obras de edificações, julgue os seguintes itens. Nos projetos de contenção de taludes em escavações profundas para edificações, a adoção de sistemas de escoramento provisório pode dispensar a verificação das condições globais de estabilidade do maciço, desde que os elementos estruturais do escoramento atendam aos limites últimos de resistência e serviço.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23348,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23349,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2758,
+    "texto": "Acerca de projetos e execução de serviços de obras de edificações, julgue o item: Nos projetos de contenção de taludes em escavações profundas para edificações, a adoção de sistemas de escoramento provisório pode dispensar a verificação das condições globais de estabilidade do maciço, desde que os elementos estruturais do escoramento atendam aos limites últimos de resistência e serviço.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23298,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23299,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2735,
+    "texto": "Acerca de estabilidade e qualidade do voo, julgue os próximos itens. A condição necessária para que uma aeronave tenha estabilidade estática longitudinal é que a derivada do coeficiente de momento em relação ao ângulo de ataque seja maior que zero.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23252,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23253,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2729,
+    "texto": "Acerca da modelagem das rotações de aeronaves, julgue os itens a seguir. Em simuladores de voo, a representação da rotação de uma aeronave é computacionalmente mais eficiente, em termos de custo computacional e utilização de memória, quando feita diretamente por meio de uma matriz de rotação, em comparação com quatérnios.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23240,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23241,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2722,
+    "texto": "Acerca do posicionamento de satélites: No problema inverso de determinação orbital a partir de duas observações de posição e velocidade em instantes diferentes, existe solução única para os elementos keplerianos caso o vetor de momento angular resultante seja perpendicular ao vetor posição média.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23226,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23227,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2516,
+    "texto": "À luz das disposições da Portaria SFC/CGU n.º 1.037/2019, julgue: A matriz de achados consiste em documento auxiliar para a estruturação dos achados, o exercício da supervisão e o planejamento da redação do relatório.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22814,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22815,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2439,
+    "texto": "À luz das disposições da Portaria SFC/CGU n.º 1.037/2019, a matriz de achados consiste em documento auxiliar para a estruturação dos achados, o exercício da supervisão e o planejamento da redação do relatório.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22660,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22661,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2419,
+    "texto": "Acerca do ambiente de controle nas organizações públicas: A análise da probabilidade e do impacto dos riscos identificados é atividade específica a ser trabalhada no componente ambiente de controle como um dos constituintes dos controles internos organizacionais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22620,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22621,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2410,
+    "texto": "Ao usar técnicas de amostragem estatística em uma auditoria, o auditor deve fazê-lo de modo que cada unidade de amostragem da população tenha a mesma chance de ser selecionada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22602,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22603,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2405,
+    "texto": "Ao utilizar um método de amostragem não estatística, o auditor deve estar ciente que obterá evidência apropriada, mas não suficiente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22592,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22593,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2387,
+    "texto": "Conforme a Instrução Normativa n.º 5/2017 da Secretaria de Gestão do Ministério do Planejamento, Desenvolvimento e Gestão, que dispõe acerca das regras e diretrizes do procedimento de contratação de serviços sob o regime de execução indireta no âmbito da administração pública, julgue os itens seguintes. Nas contratações de serviços continuados com regime de dedicação exclusiva de mão de obra, a repactuação para reajuste do contrato em razão de novo acordo, convenção ou dissídio coletivo de trabalho deve repassar integralmente o aumento de custos da mão de obra decorrente desses instrumentos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22556,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22557,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2369,
+    "texto": "Suponha que, após determinada empresa pública atingir 97% do limite de despesa com pessoal, o gestor de recursos humanos tenha autorizado o pagamento de horas extras a servidores. Nessa situação hipotética, o referido gestor está amparado pela Lei de Responsabilidade Fiscal, segundo a qual, ultrapassado o limite prudencial, ficam vedadas a criação de cargos e a alteração de carreira, não havendo menção expressa a vantagens temporárias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22520,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22521,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2356,
+    "texto": "No que concerne à governança e à reforma do aparelho do Estado, julgue os itens seguintes. Para aumentar a governança e a eficiência administrativa, a reforma do aparelho do Estado estabeleceu a transferência integral da propriedade de serviços não exclusivos para a iniciativa privada, visando à obtenção de lucro e à total desoneração do ente público quanto à regulação dessas atividades.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22494,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22495,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2090,
+    "texto": "O chamado último teorema de Fermat afirma que, dado um número natural n ≥ 3, então não existem números inteiros positivos x, y e z soluções da equação xn + yn = zn. Os números complexos surgiram como solução para equações do segundo grau e durante muito tempo acreditou-se que eles fossem inúteis, até que foram utilizados, por exemplo, como ferramentas na engenharia, em estudos de circuitos elétricos de correntes alternadas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21962,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21963,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1855,
+    "texto": "Acerca da rede municipal de ensino do Recife, julgue os próximos itens. O projeto de escola cidadã e democrática contempla, na estrutura curricular, a construção dos ideais de uma cultura única, formada a partir de uma matriz étnica com valores ocidentais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21492,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21493,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1691,
+    "texto": "Com base no que prevê o Currículo de Pernambuco — Ensino Fundamental a respeito da arte, julgue os itens que se seguem. Os aspectos cognitivos e afetivos que o conhecimento artístico engloba são necessários ao desenvolvimento integral da pessoa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21164,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21165,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1617,
+    "texto": "Texto CB1A1-I: Nesse período, desenvolveu trabalhos com o pedagogo Anísio Teixeira (1900-1971), uma das principais referências em educação no Brasil e defensor do ensino básico integral. Sua influência perduraria por toda a trajetória de Darcy Ribeiro e se concretizaria no projeto dos centros integrados de educação pública (CIEP), escolas de tempo integral criadas no Rio de Janeiro nos anos 80 do século passado. \n\nCom base no texto CB1A1-I, julgue o item: A colaboração entre Darcy Ribeiro e Anísio Teixeira foi fundamental para a concepção dos CIEPs, refletindo a defesa de ambos por um modelo de educação básica em tempo integral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21016,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21017,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1443,
+    "texto": "O salário benefício é baseado no somatório da idade e do tempo de contribuição, incluídas as frações, e equivalente a 81 (oitenta e um) pontos, se mulher, aos quais serão acrescidos, a partir de 01/01/2020, 1 (um) ponto a cada ano para mulher, até atingir o limite de 92 (noventa e dois) pontos, se mulher, e apurado na forma da lei. A carência exigida é de 180 contribuições mensais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20670,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20671,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 8931,
+    "motivo": "Nenhuma opção é consequência das premissas A→B, B→C e D→C. A=B=C=verdadeiro e D=falso refuta o gabarito. D=C=verdadeiro e A=B=falso refuta as opções sobre D→A e C→A. A com ¬C é impossível; todos falsos satisfazem as regras.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8929,
+    "motivo": "Questão de múltipla escolha com opções A–E incorporadas ao enunciado, mas cadastrada como CE com alternativas Certo/Errado. Não há proposição única explicitamente indicada para julgamento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8928,
+    "motivo": "Falta explicitar que cada pessoa possui exatamente um objeto distinto e que todos os objetos foram distribuídos. Com essa hipótese Carla tem o caderno; sem ela a conclusão não é necessária. Ambiguidade relevante na distribuição pretendida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8925,
+    "motivo": "Gabarito CERTO incompatível com contraexemplo: primeiro=5, segundo=2, terceiro=1. A diferença 5−2=3 iguala 2+1, mas 2−1=1 é positiva. A premissa não determina o sinal alegado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8752,
+    "motivo": "Mais de uma conclusão correta em lógica proposicional: a falsidade de P→Q impõe P verdadeiro e Q falso, tornando verdadeiras a opção A (P∧¬Q) e a opção E (Q→P). O comando pede conclusão correta, não uma equivalência exata da negação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8749,
+    "motivo": "Gabarito ERRADO incompatível com o padrão explicitado: diferenças 3, 6, 12, 24; próxima diferença 48; 57+48=105. O item é verdadeiro sob a regra fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

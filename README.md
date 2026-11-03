@@ -1,9 +1,11 @@
+> Estado atual: consulte [DEPLOY_RAILWAY.md](DEPLOY_RAILWAY.md) para publicação. O acesso está gratuito; referências a preços, cotas Free/PRO e comandos antigos abaixo são históricas e precisam de revisão.
+
 # SantuarioEdu
 
 Plataforma web brasileira de preparação para concursos públicos com foco em **aprendizado adaptativo apoiado por IA**. Cobre desde questões geradas por IA até simulados multiplayer em tempo real, revisão espaçada, gamificação e materiais de apoio contextuais.
 
-- **Stack:** Django 6 · Python 3.12 · PostgreSQL (prod) / SQLite (dev) · Groq + Gemini · Tailwind CSS
-- **Deploy:** Railway (web) · Nixpacks builder · Whitenoise + Gunicorn
+- **Stack:** Django 6 · Python 3.14 · PostgreSQL (prod) / SQLite (dev) · Groq + Gemini · Tailwind CSS
+- **Deploy:** Railway (web) · Railpack builder · Whitenoise + Gunicorn
 - **Repositório:** privado — este README documenta o projeto completo para o dono
 
 ---
@@ -47,7 +49,7 @@ Comparado a Qconcursos, TEC, Gran Cursos, Estratégia:
 
 | Camada | Tecnologia |
 |---|---|
-| Backend | Django 6.0 + Python 3.12 |
+| Backend | Django 6.0 + Python 3.14 |
 | Banco | PostgreSQL (prod, via `dj-database-url`) · SQLite (dev) |
 | Frontend | Templates Django + Tailwind CDN + Material Symbols + Chart.js + Mermaid.js |
 | IA | Groq (Llama 3.3 70B) principal + Gemini (2.0/3.x Flash) fallback |
@@ -55,7 +57,7 @@ Comparado a Qconcursos, TEC, Gran Cursos, Estratégia:
 | Segurança | django-csp · django-axes (brute-force) · django-ratelimit · Sentry |
 | Notificações | Discord webhook · Telegram · Email SMTP · Web Push |
 | Pagamento | Mercado Pago (checkout + webhook) |
-| Deploy | Railway (Nixpacks) · Gunicorn · Whitenoise |
+| Deploy | Railway (Railpack) · Gunicorn · Whitenoise |
 | Extração de PDF | pypdf (texto) · PyMuPDF (imagens + layout) · Gemini File API (visão) |
 
 ## Arquitetura
@@ -279,7 +281,7 @@ Rodar com `python manage.py <nome>`:
 ## Setup local
 
 ```bash
-# Requisitos: Python 3.12+, git
+# Requisitos: Python 3.14+, git
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # venv\Scripts\activate   # Windows PowerShell

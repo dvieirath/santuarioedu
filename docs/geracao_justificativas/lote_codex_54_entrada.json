@@ -1,0 +1,350 @@
+[
+  {
+    "id": 1062,
+    "texto": "Judge the following items according to the text above: The text attests the worldwide spread of the English language and its relatively new status as a global language.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19893,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19894,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1061,
+    "texto": "Judge the following items according to the text above: The text presents three examples of newspapers headlines of articles that announce the present status of English .",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19891,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19892,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13846,
+    "texto": "Texto: Em 2024, a empresa de tecnologia 'LinguaTech' lançou um aplicativo de aprendizagem de português que utiliza inteligência artificial para adaptar os exercícios ao nível de cada usuário. O aplicativo registra o tempo gasto em cada atividade, a taxa de acerto e o número de revisões necessárias. Em uma reunião com o Conselho de Ética, os desenvolvedores apresentaram que esses dados são usados apenas para melhorar a experiência do usuário e não são compartilhados com terceiros. Contudo, o aplicativo também oferece a opção de sincronizar o progresso com a conta de e‑mail do usuário, permitindo que os dados sejam armazenados em servidores externos.\n\nConsiderando a Lei Geral de Proteção de Dados Pessoais (LGPD) e a necessidade de transparência nas práticas de tratamento de dados, qual das alternativas abaixo representa a medida mais adequada para garantir a conformidade do aplicativo com a legislação vigente?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55927,
+        "texto": "Eliminar a opção de sincronização com e‑mail para evitar qualquer risco de compartilhamento de dados.",
+        "correta": false
+      },
+      {
+        "id": 55928,
+        "texto": "Incluir uma cláusula de consentimento explícito que permita a sincronização, informando claramente os fins e a duração do tratamento.",
+        "correta": true
+      },
+      {
+        "id": 55929,
+        "texto": "Permitir que os usuários compartilhem seus dados com terceiros mediante pagamento de uma taxa.",
+        "correta": false
+      },
+      {
+        "id": 55930,
+        "texto": "Substituir a sincronização por e‑mail por uma opção de backup em nuvem pública.",
+        "correta": false
+      },
+      {
+        "id": 55931,
+        "texto": "Desativar o registro de tempo e taxa de acerto para evitar coleta de dados sensíveis.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13845,
+    "texto": "No contexto de um concurso público para a Secretaria de Estado de Segurança Pública, o edital exige que os candidatos apresentem, no momento da inscrição, uma redação de 1.200 palavras sobre a temática 'A importância da linguagem inclusiva na comunicação institucional'. A prova objetiva, de caráter discursivo, será corrigida segundo critérios de coesão, coerência e adequação ao tema. Qual das opções a seguir descreve corretamente o critério que deve ser aplicado para avaliar a coesão textual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55922,
+        "texto": "Avaliar a presença de conectivos que ligam frases e parágrafos.",
+        "correta": true
+      },
+      {
+        "id": 55923,
+        "texto": "Verificar se o texto contém pelo menos três citações de autores renomados.",
+        "correta": false
+      },
+      {
+        "id": 55924,
+        "texto": "Contar o número de palavras que iniciam com vogais.",
+        "correta": false
+      },
+      {
+        "id": 55925,
+        "texto": "Analisar a frequência de palavras técnicas específicas da área de segurança pública.",
+        "correta": false
+      },
+      {
+        "id": 55926,
+        "texto": "Checar a presença de um índice de complexidade lexical.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13844,
+    "texto": "Um jornal regional publicou um artigo que afirma que a expressão 'pôr a mão na massa' significa literalmente colocar as mãos em alimentos industrializados. O editor responsável por esse texto deve observar que a frase está em desacordo com o uso atual da língua. Qual dos recursos linguísticos abaixo justifica a correção do editor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55917,
+        "texto": "Princípio da clareza textual.",
+        "correta": false
+      },
+      {
+        "id": 55918,
+        "texto": "Regra de concordância verbal.",
+        "correta": false
+      },
+      {
+        "id": 55919,
+        "texto": "Lei da equivalência de sentidos.",
+        "correta": false
+      },
+      {
+        "id": 55920,
+        "texto": "Regra de adequação contextual.",
+        "correta": true
+      },
+      {
+        "id": 55921,
+        "texto": "Princípio da economia textual.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13843,
+    "texto": "Em 2025, o Ministério da Educação lançou uma plataforma digital para a distribuição de materiais didáticos em língua portuguesa. A plataforma utiliza algoritmos de recomendação que priorizam conteúdos de acordo com o nível de proficiência dos usuários. Considerando os princípios de equidade e acessibilidade previstos na Lei de Diretrizes e Bases da Educação Nacional, qual das alternativas abaixo representa a medida mais adequada para garantir que a plataforma não favoreça desproporcionalmente usuários de regiões com maior acesso à internet?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55912,
+        "texto": "Implementar um sistema de login único que não exija dados pessoais.",
+        "correta": false
+      },
+      {
+        "id": 55913,
+        "texto": "Oferecer versões offline dos materiais em dispositivos fornecidos pelo governo.",
+        "correta": true
+      },
+      {
+        "id": 55914,
+        "texto": "Exigir que todos os usuários tenham acesso à banda larga de alta velocidade.",
+        "correta": false
+      },
+      {
+        "id": 55915,
+        "texto": "Permitir que os usuários escolham a língua de preferência entre português e inglês.",
+        "correta": false
+      },
+      {
+        "id": 55916,
+        "texto": "Criar um algoritmo que priorize conteúdos de acordo com a popularidade nas redes sociais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13842,
+    "texto": "Em um exercício de interpretação textual, o candidato deve analisar a frase: \"O engenheiro, embora experiente, foi surpreendido pela complexidade do projeto.\" O ponto de vista que o verbo 'surpreendido' sugere é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55910,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55911,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13841,
+    "texto": "Considerando o seguinte texto: \"A nova legislação sobre proteção de dados pessoais impõe às empresas a obrigação de realizar avaliações de impacto de privacidade (PIA) antes de implementar qualquer sistema que envolva o tratamento de dados sensíveis. O objetivo principal dessa exigência é garantir que os direitos fundamentais dos titulares sejam respeitados e que os riscos de violação sejam mitigados. Além disso, a norma prevê sanções administrativas e multas progressivas para o descumprimento das disposições.\" Considerando o texto acima, a frase: 'As empresas devem realizar avaliações de impacto de privacidade apenas quando houver tratamento de dados pessoais em massa.' é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55908,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55909,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13840,
+    "texto": "Um candidato a concurso de Técnico em Segurança do Trabalho apresenta, em sua prova escrita, a frase: 'A empresa deverá adotar medidas preventivas para evitar acidentes no ambiente de trabalho.' O enunciado acima está em conformidade com as normas de redação exigidas pela banca Cebraspe?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55906,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55907,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13839,
+    "texto": "Ao redigir um relatório técnico sobre a implementação de um sistema de gestão de documentos eletrônicos, o autor utiliza o verbo 'analisar' no sentido de 'examinar detalhadamente'. No português padrão, o uso do verbo 'analisar' nesse contexto é considerado:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55904,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55905,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13838,
+    "texto": "No contexto de um edital de concurso para o cargo de Analista de Processos Administrativos, o edital estabelece que o candidato deverá comprovar, por meio de documento oficial, a conclusão de curso superior em Administração. O candidato, no entanto, apresenta apenas a certidão de matrícula e não a nota de conclusão. Considerando a legislação vigente, a exigência de apresentação da nota de conclusão é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55902,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55903,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13837,
+    "texto": "Maria, recém‑formada em Direito, recebe um e‑mail de um colega que a convoca para participar de um workshop sobre análise de textos jurídicos. No e‑mail, o remetente pede que Maria confirme sua presença até o dia seguinte, ressaltando que a participação é \"obrigatória\" para a continuidade do curso. Maria, ao responder, utiliza a expressão \"obrigatória\" em sentido figurado, indicando que a presença é \"necessária\" apenas para a sua própria aprendizagem.\n\nConsiderando o texto acima, a interpretação literal de \"obrigatória\" no contexto jurídico exige que Maria assista ao workshop sob pena de perder o crédito do curso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55900,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55901,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13836,
+    "texto": "A concordância verbal em frases com sujeito composto é sempre regida pelo princípio de que o verbo deve concordar com o elemento mais próximo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55898,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55899,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13835,
+    "texto": "No contexto de um texto informativo, a omissão de preposição antes de locuções verbais compostas pode ser justificada pela proximidade do verbo principal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55896,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55897,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13834,
+    "texto": "A utilização de pronomes de tratamento no início de uma carta formal pode ser considerada correta quando o destinatário for um superior hierárquico.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55894,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55895,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13833,
+    "texto": "Em uma redação dissertativa, o candidato deve observar a norma culta da língua portuguesa, evitando a inversão de sujeito e verbo em frases complexas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55892,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55893,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

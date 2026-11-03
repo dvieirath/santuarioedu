@@ -47,10 +47,16 @@ def api_justificativa_questao(request, questao_id):
         resultado = gerar_justificativa_ia(questao)
         if resultado:
             if isinstance(resultado, dict):
-                questao.justificativa = resultado.get('justificativa', '')
+                justificativa = (resultado.get('justificativa') or '').strip()
                 questao.assunto = resultado.get('assunto', questao.assunto or '')
             else:
-                questao.justificativa = str(resultado)
+                justificativa = str(resultado).strip()
+            if not justificativa:
+                return JsonResponse(
+                    {'erro': 'A IA não retornou uma explicação. Tente novamente em alguns instantes.'},
+                    status=503,
+                )
+            questao.justificativa = justificativa
             questao.save()
             return JsonResponse({'justificativa': questao.justificativa, 'gerado_agora': True})
     except Exception as e:

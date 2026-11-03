@@ -1,0 +1,74 @@
+[
+  {
+    "id": 11053,
+    "motivo": "A oração concessiva está intercalada entre sujeito e predicado e requer isolamento por pontuação. A afirmação sobre retirar as vírgulas está compatível com a análise desse período, contrariando o gabarito Errado. Conferida orientação de isolamento de segmentos deslocados: https://www12.senado.leg.br/manualdecomunicacao/estilos/virgula .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11054,
+    "motivo": "O julgamento depende da orientação de regência adotada: na tradição indireta seria “visando à otimização”, mas há admissão de regência direta no sentido de pretender. O manual do TJDFT reconhece essa variação, embora recomende a indireta nos textos oficiais. Sem referência normativa delimitada, separar para revisão: https://www.tjdft.jus.br/publicacoes/edicoes/manuais/op-5296-16-manual-de-redacao-oficial-2a-edicao_210x230.pdf/@@download/file/OP%205296-16%20Manual%20de%20Reda%C3%A7%C3%A3o%20Oficial%202%C2%AA%20Edi%C3%A7%C3%A3o_210x230.pdf .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11056,
+    "motivo": "A condenação automática de “sendo que” como vício não é consenso e não se demonstra erro sintático na frase. Uma reescrita pode ser preferível editorialmente sem tornar a construção incorreta. Conferida discussão de Evanildo Bechara na ABL: https://www.academia.org.br/artigos/sendo-que-e-uma-critica-infundada .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11058,
+    "motivo": "Alternativas classificam três ocorrências I/II/III, mas o enunciado fornece apenas uma ocorrência de “para”. A leitura de finalidade dessa única oração não resolve a estrutura tripla ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11060,
+    "motivo": "Referência constitucional incompatível: art. 37, § 10 trata de acumulação de proventos de aposentadoria com remuneração pública, não de autenticação documental. Não sustenta a interpretação indicada. Fonte: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11061,
+    "motivo": "Os números permitem comparar duas regiões agregadas, mas não demonstram uma correlação dentro de “cada região”, como diz a alternativa marcada. Faltam observações por escola ou outra unidade em cada região. Reformular para associação descritiva entre os dois agregados, sem inferência causal nem confirmação dos dados atribuídos ao MEC.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11062,
+    "motivo": "Generalização indevida: “conjunção coordenativa” abrange relações distintas, inclusive alternância excludente. Em “João ou Maria ocupará a vaga”, o verbo pode ficar no singular apesar do complemento direto. A transitividade não garante concordância plural com todos os núcleos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11064,
+    "motivo": "Afirma uma permissão exclusiva sem indicar manual ou norma editorial. A maior precisão pode justificar uma escolha, mas não constitui condição universal única para uso de estrangeirismos. O gabarito Certo precisa de revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11065,
+    "motivo": "A formulação “permite [...] quando” não afirma exclusividade. Há inversões corretas em exclamativas com verbo de ligação, como “Que bonita está a cidade!”. O gabarito Errado dependeria de interpretar indevidamente “quando” como “somente quando”. Também se menciona SVO onde a ligação se dá com predicativo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11067,
+    "motivo": "A oração matriz inicial é “A tempestade [...] foi tão violenta”, com sujeito simples e predicado nominal. A alternativa marcada parece analisar “os moradores [...] reagiram [...] e cooperaram”, outra parte do período; além disso, a primeira alternativa se sobrepõe parcialmente à terceira e a simultaneidade não é demonstrada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11068,
+    "motivo": "A alternativa marcada reduz interpretação de textos complexos à identificação da função de cada elemento de uma frase, tarefa de análise gramatical. O requisito amplo também admite outras atividades e não fornece critério que torne essa aplicação inequivocamente a melhor. Rever comando e alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11108,
+    "motivo": "O contrato não é identificado como público ou privado, nem delimita as informações protegidas. O art. 5º, XXXIII trata de informações recebidas de órgãos públicos e prevê ressalva de sigilo; a compatibilidade de uma cláusula depende do contexto ausente. Não é seguro justificar Errado apenas presumindo contratação privada. Fonte: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

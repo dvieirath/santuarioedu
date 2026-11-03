@@ -1,0 +1,74 @@
+{
+  "questoes": {
+    "1352": {
+      "id": 1352,
+      "texto": "Quesito 2.3 – Revisão e alteração de destino da CTC. Conceito 0 – Não respondeu ou respondeu de forma totalmente incorreta. Conceito 1 – Respondeu corretamente apenas uma das perguntas. Conceito 2 – Respondeu corretamente ambas as perguntas (possibilidade de revisão da CTC por erro material; vedação à alteração da destinação da certidão).",
+      "categoria_id": 254,
+      "tipo": "ME",
+      "justificativa": "",
+      "revisada": 1,
+      "imagem": "",
+      "assunto": "Direito Previdenciário",
+      "ano": 2022,
+      "banca": "Cebraspe",
+      "gerada_por_ia": 0,
+      "motivo_rejeicao": "",
+      "rejeitada_definitiva": 0,
+      "tentativas_correcao": 0,
+      "texto_hash": "93f7d69c50c62f6883bd0eceaaef05ce2fbc4ee482d445a56c7c5d3255fd83f3"
+    },
+    "6311": {
+      "id": 6311,
+      "texto": "Com relação aos princípios de gestão da qualidade, julgue os seguintes itens. A melhoria de processos com base na avaliação de dados e informação representa um dos resultados da aplicação da abordagem de processo em um sistema de gestão da qualidade.",
+      "categoria_id": 252,
+      "tipo": "CE",
+      "justificativa": "",
+      "revisada": 1,
+      "imagem": "",
+      "assunto": "Gestão da Qualidade",
+      "ano": 2021,
+      "banca": "Cebraspe",
+      "gerada_por_ia": 0,
+      "motivo_rejeicao": "",
+      "rejeitada_definitiva": 0,
+      "tentativas_correcao": 0,
+      "texto_hash": "e9abad2932b1187cf11f1bdd39d7e7b67b05f9af2b3a56762f0c9f3e25f77f52"
+    }
+  },
+  "alternativas": {
+    "1352": [
+      {
+        "id": 20482,
+        "correta": 0,
+        "questao_id": 1352,
+        "texto": "Conceito 0"
+      },
+      {
+        "id": 20483,
+        "correta": 0,
+        "questao_id": 1352,
+        "texto": "Conceito 1"
+      },
+      {
+        "id": 20484,
+        "correta": 1,
+        "questao_id": 1352,
+        "texto": "Conceito 2"
+      }
+    ],
+    "6311": [
+      {
+        "id": 32424,
+        "correta": 0,
+        "questao_id": 6311,
+        "texto": "Certo"
+      },
+      {
+        "id": 32425,
+        "correta": 1,
+        "questao_id": 6311,
+        "texto": "Errado"
+      }
+    ]
+  }
+}

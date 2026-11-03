@@ -1,0 +1,68 @@
+[
+  {
+    "id": 10600,
+    "motivo": "Há texto e alternativas, mas falta o comando que indica o que selecionar. Uma alternativa reproduz informação explícita, porém não se deve inventar a pergunta ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10604,
+    "motivo": "Apresenta apenas texto de apoio, sem assertiva ou comando que possa ser julgado Certo/Errado. Não há proposição-alvo identificada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10605,
+    "motivo": "O particípio “entregue” integra a locução passiva “foi entregue”. O adjunto adverbial de tempo é “ontem”, não o particípio. Gabarito Certo incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10606,
+    "motivo": "“Será aprovado” apresenta leitura de locução de voz passiva, com particípio de aprovar, não classificação inequívoca como predicativo. Sem delimitar leitura adjetival ou verbal, o gabarito Certo confunde função do particípio e estrutura passiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10607,
+    "motivo": "A oração introduzida por “Embora” é subordinada adverbial concessiva, seguida da principal. Não se trata de duas coordenadas assindéticas. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10610,
+    "motivo": "Gabarito incorreto: “Os candidatos” é sujeito simples de núcleo plural masculino, e “serão considerados desclassificados” concorda corretamente. A alternativa marcada propõe feminino e alega sujeito composto sem fundamento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10649,
+    "motivo": "Não exemplifica a alegada substituição de perífrase verbal pelo gerúndio. O gerúndio pode integrar perífrases e também expressar simultaneidade em outras construções; sem exemplos e critérios, a afirmação sobre reconhecimento amplo não permite julgamento seguro.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10650,
+    "motivo": "Conectores de contraste podem articular oposição, mas não garantem evitar repetição de ideias e não são indispensáveis em todo texto argumentativo. A formulação une efeitos não necessariamente associados e o gabarito Certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10657,
+    "motivo": "Não delimita se é curso preparatório privado, curso de formação integrante do certame ou outro requisito, nem aponta fundamento normativo. Gratuidade e liberdade para cursar outro curso não demonstram, por si, validade de participação obrigatória.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10658,
+    "motivo": "Não identifica a norma, o alcance de “local de prova” nem a duração e finalidade concreta da restrição após a saída. A constitucionalidade não pode ser julgada categoricamente sem esses elementos; não presumir uma proibição ilimitada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10659,
+    "motivo": "Depende expressamente do “texto acima”, que não foi fornecido. Não é possível conferir as condições de correção da prova descritas no material ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,437 @@
+[
+  {
+    "id": 13195,
+    "texto": "A frase \"O engenheiro, que havia projetado o viaduto, foi homenageado pela comunidade local\" apresenta um sintagma nominal que exerce a função de sujeito, pois indica quem é objeto da ação de homenagear.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53872,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53873,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13194,
+    "texto": "Na norma culta, o uso de crase antes de palavras femininas que não exigem preposição é considerado erro. Assim, a frase \"Vou à praia\" está correta, enquanto \"Vou à praia\" com crase seria incorreta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53870,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53871,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13193,
+    "texto": "Considerando o seguinte excerto: \"A administração pública, em consonância com o princípio da legalidade, deve assegurar que todas as ações sejam previstas em lei.\" A afirmação de que o princípio da legalidade impõe a obrigatoriedade de atos administrativos serem fundamentados em norma jurídica é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53868,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53869,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13192,
+    "texto": "No contexto de uma redação dissertativa, a expressão \"em virtude da análise preliminar\" funciona como adjunto adverbial de causa, pois indica a razão que justifica a ação subsequente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53866,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53867,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13191,
+    "texto": "A frase \"O sol, que se põe no horizonte, acende o céu de cores vibrantes\" apresenta um sintagma verbal que exerce a função de sujeito, pois é o elemento que indica quem realiza a ação de acender.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53864,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53865,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13155,
+    "texto": "Texto de apoio: Em 2024, a revista 'Linguagem Viva' publicou um artigo que analisou a evolução do uso de neologismos no português brasileiro. O texto destacou que, embora o vocabulário oficial seja mantido pelos órgãos reguladores, a linguagem popular tende a criar termos que refletem mudanças sociais e tecnológicas. Entre os neologismos mais recorrentes, observou-se a fusão de palavras de origem inglesa com o português, como 'selfie', 'hashtag', e 'blog'. A pesquisa apontou ainda que o uso desses termos varia de acordo com a faixa etária e o contexto de comunicação, sendo mais frequente em ambientes digitais e informais. O estudo concluiu que a adoção desses neologismos demonstra a flexibilidade da língua e a capacidade de adaptação às novas realidades culturais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53747,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53748,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13154,
+    "texto": "A norma culta da língua portuguesa prevê que, no caso de verbos pronominais, o pronome oblíquo átono deve acompanhar o verbo, sendo que o pronome pode ser colocado antes ou depois do verbo, conforme a necessidade de ênfase e clareza. Quando o pronome aparece antes do verbo, a estrutura se caracteriza como pronominalização antecipada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53745,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53746,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13153,
+    "texto": "No contexto da análise de textos jornalísticos, o uso de pontuação em sentenças compostas por coordenação pode alterar a interpretação do conteúdo. Quando se emprega o ponto e vírgula para separar orações coordenadas, o objetivo principal é indicar uma pausa maior que a vírgula, mas menor que o ponto final.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53743,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53744,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13152,
+    "texto": "Considerando a norma culta da língua portuguesa, o uso de crase é obrigatório quando a preposição ‘a’ se encontra antes de um artigo definido ‘a’ ou ‘as’, formando a fusão ‘à’ ou ‘às’. A crase não ocorre, contudo, diante de palavras que não exigem preposição ou diante de pronomes que não se preparam com a preposição ‘a’.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53741,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53742,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13151,
+    "texto": "Em uma obra literária contemporânea, o autor emprega a inversão sintática como recurso estilístico para enfatizar a crítica social. A inversão sintática consiste em alterar a ordem típica sujeito‑verbo‑objeto para destacar elementos de maior relevância no contexto narrativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53739,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53740,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13150,
+    "texto": "Texto de Apoio:\n\nA empresa XYZ, atuante no setor de tecnologia, lançou recentemente um aplicativo que promete revolucionar a comunicação interna entre equipes. No entanto, durante a fase de testes, os usuários relataram que a interface apresenta erros de concordância e uso inadequado de pronomes, resultando em mensagens confusas e, por vezes, ofensivas. A equipe de desenvolvimento, ao analisar os relatórios, concluiu que a falta de revisão gramatical contribuiu para a falha. Para evitar que situações semelhantes ocorram em futuros lançamentos, a empresa decide implementar um protocolo de controle de qualidade linguística.\n\nConsiderando a importância da norma culta na comunicação corporativa, qual das seguintes medidas é a mais eficaz para garantir a correção gramatical e a clareza das mensagens produzidas pelo aplicativo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53734,
+        "texto": "Implementar um sistema automático de correção ortográfica que substitua palavras incorretas por sinônimos.",
+        "correta": false
+      },
+      {
+        "id": 53735,
+        "texto": "Criar um comitê interno de revisão, composto por linguistas e especialistas em comunicação, que analise o conteúdo antes da publicação.",
+        "correta": true
+      },
+      {
+        "id": 53736,
+        "texto": "Elaborar um manual de estilo, mas não exigir revisões, pois os usuários podem adaptar a linguagem.",
+        "correta": false
+      },
+      {
+        "id": 53737,
+        "texto": "Permitir que os usuários enviem sugestões de correção via aplicativo, sem revisão prévia.",
+        "correta": false
+      },
+      {
+        "id": 53738,
+        "texto": "Substituir todo o conteúdo por textos gerados por inteligência artificial, sem revisão humana.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13149,
+    "texto": "Durante a elaboração de um edital de licitação, o responsável pela redação percebe que a cláusula de penalidades está escrita em linguagem excessivamente técnica, dificultando a compreensão de pequenos empresários. O edital deverá ser revisado para atender ao princípio da clareza e acessibilidade. Qual é a ação mais adequada a ser tomada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53729,
+        "texto": "Manter a linguagem técnica, pois o público-alvo é especializado.",
+        "correta": false
+      },
+      {
+        "id": 53730,
+        "texto": "Substituir termos técnicos por sinônimos mais simples, mantendo o conteúdo jurídico.",
+        "correta": true
+      },
+      {
+        "id": 53731,
+        "texto": "Eliminar a cláusula de penalidades, pois pode ser considerada discriminatória.",
+        "correta": false
+      },
+      {
+        "id": 53732,
+        "texto": "Adicionar um glossário ao final do edital, sem alterar o texto original.",
+        "correta": false
+      },
+      {
+        "id": 53733,
+        "texto": "Reescrever o edital em linguagem coloquial, sem referência a normas legais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13148,
+    "texto": "No contexto de um concurso público de nível médio, a prova de Língua Portuguesa costuma avaliar a interpretação de textos. Um trecho narrativo descreve um personagem que, após anos de estudo, decide abandonar a carreira acadêmica para seguir um sonho artístico. O texto destaca a tensão entre a estabilidade profissional e a realização pessoal. Qual é a principal função do narrador nesse trecho?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53724,
+        "texto": "Apresentar fatos de forma objetiva, sem juízo de valor.",
+        "correta": false
+      },
+      {
+        "id": 53725,
+        "texto": "Transmitir a subjetividade do personagem, enfatizando suas emoções.",
+        "correta": true
+      },
+      {
+        "id": 53726,
+        "texto": "Descrever apenas os eventos externos, sem foco interno.",
+        "correta": false
+      },
+      {
+        "id": 53727,
+        "texto": "Controlar o ritmo narrativo, sem revelar intenções dos personagens.",
+        "correta": false
+      },
+      {
+        "id": 53728,
+        "texto": "Reforçar a linguagem formal, evitando coloquialismos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13147,
+    "texto": "Um artigo de opinião publicado em jornal de grande circulação afirma que a linguagem coloquial deve ser evitada em textos oficiais, pois pode comprometer a formalidade do documento. Considerando os princípios da norma culta e a necessidade de clareza na comunicação institucional, qual é a alternativa que melhor descreve a postura adequada do redator ao tratar da linguagem coloquial em documentos oficiais?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53719,
+        "texto": "O redator deve substituir termos coloquiais por equivalentes cultos, mantendo a mensagem original.",
+        "correta": true
+      },
+      {
+        "id": 53720,
+        "texto": "É aceitável usar termos coloquiais, desde que a mensagem seja compreensível pelo público em geral.",
+        "correta": false
+      },
+      {
+        "id": 53721,
+        "texto": "O redator deve eliminar qualquer referência a linguagem coloquial, independentemente do contexto.",
+        "correta": false
+      },
+      {
+        "id": 53722,
+        "texto": "A linguagem coloquial pode ser empregada apenas em anexos, não no corpo do documento.",
+        "correta": false
+      },
+      {
+        "id": 53723,
+        "texto": "O redator deve incluir notas explicativas para termos coloquiais usados no texto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13146,
+    "texto": "A expressão \"cuique\" é considerada sinônimo de \"cuidado\" no português contemporâneo, pois ambos derivam da mesma raiz latina e são usados de forma intercambiável em textos formais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53717,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53718,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13145,
+    "texto": "Considerando o seguinte texto: \n\n\"Em 2024, a Secretaria de Educação publicou um edital para a contratação de professores de Língua Portuguesa em escolas públicas de todo o estado. O edital prevê, em sua cláusula 12, que os candidatos devem comprovar, em documento original, a posse de título de professor de Língua Portuguesa reconhecido pelo Ministério da Educação. Além disso, o edital estipula que a prova escrita será realizada em 15 dias corridos após o recebimento das inscrições, e que os resultados serão divulgados no mesmo mês. O edital também estabelece que, em caso de empate na pontuação, a decisão será tomada por meio de uma segunda prova, a ser realizada em até 10 dias úteis após o primeiro exame.\"\n\nCom base no texto acima, analise a afirmativa: \"O prazo de 10 dias úteis, estabelecido para a segunda prova, é suficiente para que o candidato se prepare adequadamente, considerando o nível de exigência típico de concursos públicos de língua portuguesa\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53715,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53716,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13144,
+    "texto": "O uso de linguagem inclusiva em documentos oficiais, ao substituir pronomes de gênero, pode ser considerado uma violação do princípio da neutralidade linguística, pois altera o sentido original do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53713,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53714,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13143,
+    "texto": "No contexto de um processo de apuração de culpa, a omissão de um fato relevante pelo réu, quando comprovada, pode ser interpretada como prova de culpa, de modo que a ausência de prova de culpa não impede a condenação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53711,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53712,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13142,
+    "texto": "Em um contrato de prestação de serviços de consultoria, a cláusula que estabelece o prazo de entrega em 30 dias corridos a partir da assinatura do contrato é considerada válida, pois o prazo pode ser fixado em dias corridos, independentemente do calendário civil.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53709,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53710,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12987,
+    "texto": "Texto: \"Em 2025, a Secretaria de Educação publicou um decreto que institui a obrigatoriedade de aulas de literatura contemporânea em todas as escolas públicas de nível fundamental. O decreto prevê que os professores deverão elaborar planos de aula que incluam a análise de obras de autores brasileiros que abordam temas como migração, identidade digital e sustentabilidade ambiental. A proposta visa promover a reflexão crítica e o desenvolvimento de competências linguísticas entre os estudantes. O decreto também estabelece que os professores receberão treinamento anual sobre metodologias ativas de ensino, com foco em debates, projetos colaborativos e uso de recursos multimídia. Além disso, o decreto prevê a criação de uma plataforma digital para compartilhamento de materiais didáticos e avaliação de desempenho dos professores, que será acessível a todos os usuários do sistema educacional nacional.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53216,
+        "texto": "O plano de aula deve incluir apenas a leitura de textos literários tradicionais, sem a utilização de recursos multimídia.",
+        "correta": false
+      },
+      {
+        "id": 53217,
+        "texto": "Os professores devem usar recursos multimídia, mas não precisam de treinamento anual.",
+        "correta": false
+      },
+      {
+        "id": 53218,
+        "texto": "O decreto exige que os professores elaborem planos de aula com foco em debates, projetos colaborativos e uso de recursos multimídia, além de receber treinamento anual.",
+        "correta": true
+      },
+      {
+        "id": 53219,
+        "texto": "A plataforma digital será acessível apenas aos professores, não aos estudantes.",
+        "correta": false
+      },
+      {
+        "id": 53220,
+        "texto": "A obrigatoriedade de aulas de literatura contemporânea se aplica apenas a escolas privadas.",
+        "correta": false
+      }
+    ]
+  }
+]

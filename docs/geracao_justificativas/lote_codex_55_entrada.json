@@ -1,0 +1,146 @@
+[
+  {
+    "id": 13887,
+    "texto": "Texto de apoio: Em 2024, a Lei nº 14.000, que regulamenta o uso de linguagem inclusiva nas instituições públicas, estabelece que todas as comunicações oficiais devem utilizar pronomes neutros em situações em que a identidade de gênero não seja conhecida. Em um cenário hipotético, a Secretaria de Educação publicou um edital para contratação de docentes, onde, ao invés de escrever \"Os candidatos deverão apresentar documentos pessoais\", optou por \"As candidatas e os candidatos deverão apresentar documentos pessoais\". Essa alteração atende ao disposto na referida lei.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 56060,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 56061,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13886,
+    "texto": "No português brasileiro, a palavra \"inexorável\" pode ser usada como advérbio, significando de maneira inexorável.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 56058,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 56059,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13885,
+    "texto": "A frase \"A equipe de pesquisa, composta por cientistas, desenvolveu novos algoritmos\" apresenta erro de pontuação, pois a vírgula antes de \"composta por\" é desnecessária.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 56056,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 56057,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13884,
+    "texto": "Considerando a seguinte situação: Maria, ao redigir seu relatório de estágio, utilizou a expressão \"o que a empresa exigiu\" em vez de \"o que a empresa exigia\", argumentando que a frase reflete a realidade presente. Essa escolha é correta do ponto de vista sintático e semântico.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 56054,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 56055,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13883,
+    "texto": "No contexto da norma culta, a frase \"O aluno que entregou o trabalho em atraso recebeu uma nota zero\" está correta quanto ao uso da crase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 56052,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 56053,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1025,
+    "texto": "O letramento literário em língua espanhola contribui para a formação de leitores com maior competência discursiva-intelectual, uma vez que expande o conhecimento para tradições e culturas distintas das do país do estudante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19819,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19820,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1020,
+    "texto": "Com relação ao ensino de língua espanhola no Brasil, para atingir um bom nível de competência linguística, é importante priorizar, além do ensino do conhecimento metalinguístico e de regras gramaticais, o ensino que contribua para a formação cidadã.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19809,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19810,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1018,
+    "texto": "A seguinte frase destaca a importância da tecnologia no ensino de língua espanhola: “ Los desafíos impuestos al profesor, con respecto a intentar que los alumnos introvertidos participaran más activamente de los encuentros presenciales, principalmente de las actividades de conversación, son muy parecidos con los vivenciados en las clases en línea con aquellos que preferían no prender sus cámaras o que se comunicaban solamente cuando cuestionados por el profesor.”",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19805,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19806,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

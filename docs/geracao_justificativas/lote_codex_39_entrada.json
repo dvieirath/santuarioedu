@@ -1,0 +1,467 @@
+[
+  {
+    "id": 10343,
+    "texto": "No exame de língua portuguesa, a análise de textos argumentativos requer a identificação de elementos que evidenciem a estrutura lógica, como premissas e conclusão, sendo que a ausência de conectores pode indicar falha na coerência textual.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44585,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44586,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10342,
+    "texto": "A frase \"O juiz, ao analisar o caso, determinou que a parte ré deveria pagar indenização por danos morais, mesmo sem a comprovação de culpa, cumpre o requisito de prova exigido pelo artigo 14 do Código de Processo Civil.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44583,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44584,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10341,
+    "texto": "No contexto de um contrato de prestação de serviços de consultoria, a cláusula que estipula a exclusão da responsabilidade por eventuais perdas indiretas, quando o contratado não possui culpa, é considerada válida, desde que haja expressa concordância das partes, respeitando a autonomia da vontade e os princípios da boa-fé objetiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44581,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44582,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10132,
+    "texto": "Durante a revisão de um texto acadêmico, o revisor percebe que a frase “Os resultados, que foram obtidos em 2023, indicam que o modelo preditivo é robusto” contém uma estrutura de oração subordinada adjetiva. Qual é a função sintática da oração “que foram obtidos em 2023”?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43914,
+        "texto": "Ela funciona como adjunto adverbial de tempo.",
+        "correta": false
+      },
+      {
+        "id": 43915,
+        "texto": "Ela funciona como adjunto adverbial de causa.",
+        "correta": false
+      },
+      {
+        "id": 43916,
+        "texto": "Ela funciona como adjunto adverbial de modo.",
+        "correta": false
+      },
+      {
+        "id": 43917,
+        "texto": "Ela funciona como adjunto adverbial de local.",
+        "correta": false
+      },
+      {
+        "id": 43918,
+        "texto": "Ela funciona como adjunto adverbial de tempo, especificando o período em que os resultados foram obtidos.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10131,
+    "texto": "Um edital de concurso público exige que o candidato escreva um texto dissertativo-argumentativo sobre a importância da alfabetização digital. No texto, o candidato deve evitar a ocorrência de ambiguidade lexical. Qual das alternativas abaixo exemplifica corretamente a aplicação da norma culta para evitar ambiguidade lexical?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43909,
+        "texto": "A alfabetização digital é essencial, pois capacita os indivíduos a navegar na internet.",
+        "correta": false
+      },
+      {
+        "id": 43910,
+        "texto": "A alfabetização digital é essencial, pois capacita os indivíduos a navegar na internet de maneira segura e crítica.",
+        "correta": true
+      },
+      {
+        "id": 43911,
+        "texto": "A alfabetização digital é essencial, pois capacita os indivíduos a navegar na internet, a fim de acessar conteúdos variados.",
+        "correta": false
+      },
+      {
+        "id": 43912,
+        "texto": "A alfabetização digital é essencial, pois capacita os indivíduos a navegar na internet, pois é importante.",
+        "correta": false
+      },
+      {
+        "id": 43913,
+        "texto": "A alfabetização digital é essencial, pois capacita os indivíduos a navegar na internet e a ler textos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10129,
+    "texto": "Um texto jornalístico publicado em 2024 descreve a adoção de um algoritmo de aprendizado de máquina para classificar notícias como verdadeiras ou falsas, baseando‑se em padrões linguísticos e no histórico de fontes. O algoritmo utiliza, entre outros recursos, a análise de concordância verbal e a verificação de concordância nominal para detectar anomalias sintáticas que possam indicar manipulação textual. O artigo ressalta que a verificação automática de concordância pode reduzir o tempo de revisão de textos jornalísticos em 30% e aumentar a confiabilidade das informações divulgadas. Considerando o texto acima, qual dos itens a seguir descreve corretamente a aplicação da norma culta na análise de concordância verbal em textos jornalísticos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43899,
+        "texto": "O algoritmo identifica a concordância verbal apenas quando o sujeito é explícito e singular.",
+        "correta": false
+      },
+      {
+        "id": 43900,
+        "texto": "A verificação automática verifica se o verbo está no tempo verbal adequado ao contexto temporal do texto.",
+        "correta": false
+      },
+      {
+        "id": 43901,
+        "texto": "A análise busca a correspondência entre o verbo e o sujeito em número e pessoa, independentemente da posição sintática do sujeito.",
+        "correta": true
+      },
+      {
+        "id": 43902,
+        "texto": "O algoritmo substitui verbos que não apresentam concordância verbal por formas gerúndio.",
+        "correta": false
+      },
+      {
+        "id": 43903,
+        "texto": "A norma culta exige que o verbo esteja sempre no presente do indicativo, independentemente do contexto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10128,
+    "texto": "Na oração ‘Ele, que estava cansado, decidiu continuar a jornada’, o pronome relativo ‘que’ introduz uma oração subordinada adjetiva explicativa que não pode ser omitida sem alterar o sentido da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43897,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43898,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10127,
+    "texto": "Considerando o texto abaixo: \n\n‘A partir de 2025, a Secretaria de Educação adotará um novo modelo de avaliação que prioriza competências socioemocionais e habilidades digitais. Este modelo, que será implementado em fases, prevê a capacitação de professores, a revisão de currículos e a criação de plataformas digitais interativas. A expectativa é que, ao final do primeiro ano, os estudantes apresentem um aumento médio de 15% nas competências avaliadas, conforme os indicadores estabelecidos pelo Ministério da Educação.’ \n\nNa frase ‘A expectativa é que, ao final do primeiro ano, os estudantes apresentem um aumento médio de 15% nas competências avaliadas, conforme os indicadores estabelecidos pelo Ministério da Educação’, a expressão ‘conforme os indicadores estabelecidos’ funciona como complemento circunstancial de modo e não como adjunto adnominal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43895,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43896,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10126,
+    "texto": "Em textos jurídicos, a forma verbal ‘seja’ pode ser empregada no presente do subjuntivo para expressar hipótese, como em ‘Seja o prazo estabelecido, o contrato permanecerá válido’.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43893,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43894,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10125,
+    "texto": "O uso do pronome oblíquo átono ‘me’ no início de uma oração subordinada adverbial causal, como em ‘Me alegra que você tenha chegado’, é considerado erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43891,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43892,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10124,
+    "texto": "Na frase ‘O engenheiro, ao concluir o projeto, entregou ao cliente a documentação revisada’, a vírgula após ‘engenheiro’ é necessária para separar o adjunto adnominal da oração principal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43889,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43890,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10123,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação lançou uma iniciativa chamada 'Literatura em Ação', visando promover a leitura crítica entre estudantes de escolas públicas de áreas urbanas. O programa inclui a distribuição de livros digitais, a organização de debates literários e a capacitação de professores em metodologias ativas de ensino. Em uma das primeiras etapas, os professores foram instruídos a elaborar um plano de aula que incorporasse a análise de textos narrativos contemporâneos, destacando elementos de estrutura textual, uso de linguagem figurada e estratégias de persuasão. O objetivo é que os alunos desenvolvam habilidades de interpretação e produção textual, alinhadas aos padrões da BNCC.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43884,
+        "texto": "Qual dos elementos abaixo NÃO é mencionado como foco de análise no plano de aula descrito no texto acima?",
+        "correta": false
+      },
+      {
+        "id": 43885,
+        "texto": "Estrutura textual",
+        "correta": false
+      },
+      {
+        "id": 43886,
+        "texto": "Uso de linguagem figurada",
+        "correta": false
+      },
+      {
+        "id": 43887,
+        "texto": "Estratégias de persuasão",
+        "correta": false
+      },
+      {
+        "id": 43888,
+        "texto": "Gramática normativa",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10121,
+    "texto": "Um professor de Português, ao elaborar um exame para o ensino médio, decide incluir uma questão sobre a aplicação da norma culta em textos jornalísticos. O objetivo é avaliar a capacidade do aluno de identificar e corrigir incongruências de concordância verbal em um artigo de opinião. Qual dos itens abaixo representa a alternativa correta para a correção de um trecho que apresenta incongruência?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43874,
+        "texto": "Substituir o verbo 'são' por 'é' para concordar com o sujeito 'o debate', mantendo a estrutura original.",
+        "correta": true
+      },
+      {
+        "id": 43875,
+        "texto": "Manter 'são' e acrescentar 'as', resultando em 'são as discussões', sem alterar a concordância.",
+        "correta": false
+      },
+      {
+        "id": 43876,
+        "texto": "Alterar o sujeito para 'as discussões' e manter 'são', preservando a concordância nominal.",
+        "correta": false
+      },
+      {
+        "id": 43877,
+        "texto": "Trocar 'são' por 'estão' e acrescentar 'as', criando 'estão as discussões', mantendo a concordância verbal.",
+        "correta": false
+      },
+      {
+        "id": 43878,
+        "texto": "Remover 'são' e deixar a frase sem verbo, resultando em 'o debate as discussões', sem alterar a concordância.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10120,
+    "texto": "Um edital de concurso público para o cargo de Técnico de Fiscalização Ambiental, publicado no Diário Oficial da União, descreve que o candidato deverá comprovar, em fase de avaliação, a capacidade de interpretar textos técnicos sobre legislação ambiental. Considerando o princípio da clareza e da objetividade exigido na redação normativa, qual das alternativas apresenta a forma mais adequada de expressar a exigência de conhecimento técnico no edital?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43869,
+        "texto": "Exigir que o candidato leia e interprete textos de legislação ambiental.",
+        "correta": false
+      },
+      {
+        "id": 43870,
+        "texto": "Exigir que o candidato demonstre competência na interpretação de textos técnicos relativos à legislação ambiental.",
+        "correta": true
+      },
+      {
+        "id": 43871,
+        "texto": "Exigir que o candidato cite normas ambientais em prova objetiva.",
+        "correta": false
+      },
+      {
+        "id": 43872,
+        "texto": "Exigir que o candidato explique a legislação ambiental em prova dissertativa.",
+        "correta": false
+      },
+      {
+        "id": 43873,
+        "texto": "Exigir que o candidato participe de debate sobre legislação ambiental.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10119,
+    "texto": "A vírgula empregada na sentença 'Caso o candidato obtenha a pontuação mínima, será convocado para a etapa de títulos' é obrigatória, pois isola uma oração subordinada adverbial condicional que está deslocada para o início do período.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43867,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43868,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10118,
+    "texto": "O emprego do sinal indicativo de crase é facultativo na construção 'O gestor dirigiu-se a uma sala de reuniões', uma vez que o termo regente exige preposição e o termo regido é um artigo indefinido feminino.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43865,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43866,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10117,
+    "texto": "Na oração 'Os relatórios que foram analisados pela comissão técnica revelaram inconsistências orçamentárias', a substituição do trecho 'que foram analisados' pela forma reduzida 'analisados' mantém a correção gramatical e a equivalência semântica do período.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43863,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43864,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10116,
+    "texto": "A empresa de tecnologia lançou um comunicado interno informando que, a partir do próximo mês, os colaboradores deverão priorizar a comunicação assíncrona. O texto destacava que, embora a agilidade seja um valor fundamental, a interrupção constante das atividades operacionais para reuniões presenciais tem gerado uma queda na produtividade técnica da equipe. Por essa razão, a gestão reforçou que o uso de ferramentas de mensagens instantâneas deve ser moderado, garantindo que o foco principal permaneça na execução das demandas prioritárias. Considerando o texto acima, a substituição da conjunção 'embora' pela locução 'ainda que' manteria a correção gramatical e o sentido original do período, exigindo, contudo, a alteração do modo verbal do verbo 'seja' para o futuro do subjuntivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43861,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43862,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10115,
+    "texto": "No que se refere à concordância verbal, a frase 'Houve, durante a sessão deliberativa, diversos questionamentos acerca da legalidade do procedimento administrativo' está gramaticalmente correta, visto que o verbo haver, com sentido de existir, é impessoal e deve permanecer na terceira pessoa do singular.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43859,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43860,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9924,
+    "texto": "Um documento oficial de 2023 descreve a criação de um novo termo jurídico, \"inexigibilidade\", que se refere à impossibilidade de exigir cumprimento de obrigação quando não há base legal para tal exigência. O texto define que a inexigibilidade pode ser invocada em processos de licitação quando o objeto não pode ser fornecido por meio de mercado livre, ou quando a lei expressamente impede a contratação. O documento destaca que o uso desse termo visa evitar abusos e garantir a segurança jurídica nas contratações públicas.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43255,
+        "texto": "O termo \"inexigibilidade\" indica a obrigatoriedade de cumprimento de obrigação.",
+        "correta": false
+      },
+      {
+        "id": 43256,
+        "texto": "A inexigibilidade se aplica apenas a contratos de prestação de serviços.",
+        "correta": false
+      },
+      {
+        "id": 43257,
+        "texto": "A inexigibilidade pode ser invocada quando não há base legal para exigir cumprimento de obrigação.",
+        "correta": true
+      },
+      {
+        "id": 43258,
+        "texto": "O termo \"inexigibilidade\" é usado apenas em processos de licitação de obras públicas.",
+        "correta": false
+      },
+      {
+        "id": 43259,
+        "texto": "A inexigibilidade garante que todas as contratações públicas sejam gratuitas.",
+        "correta": false
+      }
+    ]
+  }
+]

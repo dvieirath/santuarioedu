@@ -1,3 +1,5 @@
+> Documento histórico. Para o estado atual e comandos revisados, consulte [DEPLOY_RAILWAY.md](DEPLOY_RAILWAY.md). Preços, planos, backups e instruções abaixo não foram revalidados e não devem ser usados como roteiro atual.
+
 # Checklist de Deploy — SantuarioEdu
 
 ## 1. Antes de fazer o push

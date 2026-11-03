@@ -1,0 +1,362 @@
+[
+  {
+    "id": 3121,
+    "texto": "Disjuntores identificados com a letra D são projetados especificamente para aplicações em circuitos de motores elétricos, pois possuem a capacidade de tolerar as elevadas correntes de partida típicas desses equipamentos, sem disparar prematuramente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24024,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24025,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3115,
+    "texto": "Inversores de frequência podem ser utilizados para controlar a velocidade de motores de corrente alternada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24012,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24013,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3113,
+    "texto": "Em sistemas de medição industriais, a precisão dos contadores mecânicos melhora significativamente à medida que aumenta a frequência dos eventos contados, tornando-os ideais para aplicações de alta velocidade, como linhas de produção automatizadas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24008,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24009,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3110,
+    "texto": "A respeito do funcionamento e da aplicação de máquinas elétricas, julgue os próximos itens. Ao se elevar a corrente de excitação em motores shunt de corrente contínua, intensifica-se o fluxo magnético dentro do motor, o que, por sua vez, reduz a velocidade de rotação, sendo uma prática aplicada em ajustes de velocidade para cargas variáveis.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24002,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24003,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3109,
+    "texto": "Julgue os itens a seguir, no que se refere a eletromagnetismo. Em análises de campos eletromagnéticos, o vetor de Poynting é frequentemente interpretado como indicador direto da velocidade de propagação de uma onda eletromagnética, destacando tanto sua direção quanto sua magnitude.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24000,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24001,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3108,
+    "texto": "Julgue os itens a seguir, no que se refere a eletromagnetismo. Em materiais paramagnéticos, como o alumínio ou o oxigênio líquido, os momentos magnéticos dos átomos têm tendência a se alinhar paralelamente ao campo magnético externo aplicado, mas essa orientação não é permanente e depende da presença do campo externo. Isso ocorre devido à natureza dos elétrons desemparelhados presentes nesses átomos, que contribuem para o magnetismo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23998,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23999,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3106,
+    "texto": "A respeito de sistema trifásico, julgue o item a seguir. Em um sistema trifásico equilibrado, com cargas resistivas e capacitivas, a corrente de neutro do circuito é cerca de um décimo da corrente de fase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23994,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23995,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3105,
+    "texto": "Julgue os itens a seguir, relativos a potência ativa, reativa e aparente e a fator de potência. O fator de potência de uma instalação elétrica indica o aproveitamento da energia fornecida pela rede elétrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23992,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23993,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3103,
+    "texto": "Tendo como referência o circuito precedente, em que RD = 100 Ω, R2 = 20 Ω, R4 = 50 Ω, julgue os próximos itens. Quando o circuito da ponte de Wheatstone estiver em equilíbrio, o voltímetro aferirá 0 V.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23988,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23989,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3084,
+    "texto": "Com relação a processos de soldagem, julgue os itens subsequentes. No processo de soldagem por fusão, a energia é aplicada com o objetivo de provocar no material uma tensão capaz de produzir a solubilidade na fase sólida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23950,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23951,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3078,
+    "texto": "A respeito de processos de fabricação, julgue os itens que se seguem. Economizadores são trocadores de calor que utilizam os gases da combustão para preaquecimento da água de alimentação da caldeira, proporcionando uma razoável economia de combustível.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23938,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23939,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3070,
+    "texto": "Acerca da resistência dos materiais, julgue os itens subsecutivos. Para um corpo sólido, são definidos quatro tipos diferentes de esforços internos: força normal ( N), força de cisalhamento (V), momento torçor ou torque ( T) e momento fletor (M).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23922,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23923,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3066,
+    "texto": "No que se refere a ensaios de materiais, julgue os próximos itens. A tensão convencional, também conhecida como tensão nominal ou tensão de engenharia (σ), é definida pela relação σ = F/A0, em que F é a carga instantânea aplicada em uma direção perpendicular à seção reta da amostra e A0 representa a área da seção reta original antes da aplicação da carga.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23914,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23915,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3065,
+    "texto": "No que se refere a ensaios de materiais, julgue os próximos itens. A maioria dos materiais metálicos, quando submetidos a uma tensão de tração elevada, apresenta uma proporcionalidade entre a tensão aplicada e a deformação observada, conforme a relação [Fórmula], em que E é o módulo de Hooke e fornece uma indicação da rigidez do material.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23912,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23913,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3064,
+    "texto": "No que se refere a ensaios de materiais, julgue os próximos itens. O ensaio de tensão-deformação consiste na aplicação gradativa de carga de tração uniaxial nas extremidades de um corpo de prova especificado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23910,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23911,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3058,
+    "texto": "A soldagem é um dos mais importantes processos industriais de fabricação de peças metálicas. A soldagem com eletrodo de tungstênio (TIG) é um processo no qual a união dos metais é obtida pelo seu aquecimento com um arco estabelecido entre um eletrodo especial consumível revestido e a peça que se deseja soldar; a alma desse eletrodo conduz a corrente elétrica e serve como metal de adição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23898,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23899,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3055,
+    "texto": "A classificação das ondas eletromagnéticas é definida em função do comprimento de onda e da frequência... [FIGURA: espectro eletromagnético]. Com base nessas informações e considerando que a velocidade da luz no vácuo seja igual a 3 × 10^8 m/s, julgue os próximos itens. Raios X e raios gama são exemplos de radiações não ionizantes, pois não alteram significativamente a estrutura de moléculas e átomos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23892,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23893,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3054,
+    "texto": "Considerando o circuito ilustrado na figura precedente [FIGURA: circuito com resistores R1, R2, R3], em que R1 = 10 Ω, R2 = 20 Ω e R3 = 30 Ω são as resistências dos três resistores, julgue os itens a seguir. No circuito elétrico mostrado na figura, a soma total das correntes que atravessam cada resistor é igual à corrente fornecida pela fonte.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23890,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23891,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3011,
+    "texto": "No processo de fabricação por conformação mecânica, as peças alcançam o formato por meio de esforços mecânicos que ocorrem geralmente na região plástica, onde as aplicações de tensões são sempre menores que a tensão de ruptura.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23804,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23805,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3009,
+    "texto": "A soldagem a arco com eletrodos revestidos é um processo de soldagem por fusão, no qual é utilizado o calor gerado pelo arco formado entre o eletrodo de tungstênio não consumível e a peça que se deseja soldar; nesse processo, o arco elétrico produz energia térmica que impede a fusão localizada do material de base e de adição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23800,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23801,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

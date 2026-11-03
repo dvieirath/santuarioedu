@@ -1,0 +1,74 @@
+[
+  {
+    "id": 11142,
+    "motivo": "Tempos fornecidos sem tamanhos correspondentes nem coeficientes da função quadrática. Não é possível estimar tempo em tamanho 200.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11141,
+    "motivo": "Menor inteiro maior que 64 e não múltiplo de 2 é 65 (A), não 67 (B).",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11140,
+    "motivo": "Médias de janelas completas de cinco valores começam 117,125,128,136,139. Nenhuma alternativa corresponde; convenção para pontos de borda também não foi definida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11139,
+    "motivo": "Códigos iniciais contradizem a regra do primeiro dígito. Segundo dígito igual à soma dos dois últimos implica terceiro zero, incompatível com exemplos. Nenhuma alternativa começa por 4.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11135,
+    "motivo": "Parar quando chave é maior que predecessor é compatível com inserção crescente usual, supondo prefixo ordenado. Falta descrever o restante do algoritmo para concluir falha; gabarito Errado não deve receber justificativa inventada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11095,
+    "motivo": "Negação de P→(Q∨R) é P∧¬Q∧¬R: alternativa B, não A.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11094,
+    "motivo": "Mais de uma opção possível: B admite B no turno1, C no2, A no3, D no4; D admite D no1, B no2, C no3, A no4. Ambas respeitam as três restrições e turnos distintos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11092,
+    "motivo": "Comparação 4,2%>3,5% é correta, mas o texto contém métricas e previsão de aumento de acurácia que precisam ser conferidas: aumentar 92% em 12% resulta 103,04%, e em 12 pontos resulta 104%. Não preencher sem corrigir contexto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11091,
+    "motivo": "Para n=8, par, regra retorna n−1=7, não 9. Cadastro Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11089,
+    "motivo": "Recorrência de segunda ordem exige segundo termo. Com a1=2 e a2=x resulta a6=61x+84, não valor determinado 54.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10684,
+    "motivo": "R²=0,68 tem interpretação esperada da alternativa A, mas o texto infere associação positiva apenas de p<0,001 sem informar sinal do coeficiente ou teste direcional. Conferir contexto e fonte do relatório antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10683,
+    "motivo": "Cinco elementos × média de sete comparações = média de 35 comparações (A), não 45 (C). Enunciado também troca quantidade média por quantidade necessária.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

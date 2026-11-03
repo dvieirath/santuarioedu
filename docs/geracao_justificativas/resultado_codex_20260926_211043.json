@@ -1,0 +1,24 @@
+{
+  "salvas": 15,
+  "ids_salvos": [
+    9414,
+    9415,
+    9454,
+    9457,
+    9460,
+    9660,
+    2547,
+    2548,
+    2549,
+    2553,
+    2556,
+    2712,
+    2713,
+    2714,
+    2740
+  ],
+  "ignoradas": [],
+  "pendentes": 10461,
+  "backup": "C:\\Users\\USER\\Downloads\\projeto_prf\\backups\\antes_lote_codex_20260926_211043.sqlite3",
+  "origem": "Redação direta pelo Codex; sem Groq/Gemini"
+}

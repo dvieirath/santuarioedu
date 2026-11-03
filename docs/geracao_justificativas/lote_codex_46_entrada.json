@@ -1,0 +1,452 @@
+[
+  {
+    "id": 8899,
+    "texto": "Segundo a norma culta, a crase é obrigatória quando a preposição a se funde com o artigo definido a, formando a palavra 'à', em locuções prepositivas como 'à medida que', mas não em expressões de tempo como 'até às 10h'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39905,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39906,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8898,
+    "texto": "No contexto da norma de redação de textos técnicos, o uso de pronomes pessoais de tratamento (Vossa Senhoria, Vossas Excelências) é considerado adequado quando a mensagem for dirigida a autoridades públicas em documentos oficiais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39903,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39904,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8897,
+    "texto": "Em 2024, a editora Alfa publicou uma coletânea de contos que, segundo a crítica literária de João Silva, apresenta uma linguagem que mistura elementos da norma culta com construções coloquiais. O autor defende que essa mescla reflete a diversidade cultural brasileira e, ao mesmo tempo, preserva a clareza comunicativa. Considerando o texto acima, é correto afirmar que a obra de Alfa demonstra: A) Uso exclusivo de linguagem formal, sem variações regionais; B) Aplicação de regras gramaticais apenas na forma de escrita; C) Integração de elementos da norma culta com expressões coloquiais; D) Exclusão de qualquer elemento da norma culta; E) Utilização apenas de linguagem coloquial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39901,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39902,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8896,
+    "texto": "Em textos argumentativos, a inclusão de dados estatísticos sem a devida referência bibliográfica pode ser considerada prática correta, pois a apresentação de números é suficiente para sustentar a argumentação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39899,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39900,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8895,
+    "texto": "Na análise de textos literários, a identificação de metáforas implícitas requer a observação de elementos linguísticos que indiquem uma comparação não literal entre dois objetos, sendo imprescindível o contexto narrativo para sua correta interpretação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39897,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39898,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8894,
+    "texto": "Segundo a norma culta da língua portuguesa, o uso de pronomes de tratamento no singular, como 'Vossa Excelência', é considerado correto em textos formais, desde que a pessoa a quem se dirige seja única.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39895,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39896,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8893,
+    "texto": "No contexto da norma de redação de textos jornalísticos, a prática de inserir citações de fontes não verificadas pode comprometer a credibilidade da publicação, pois a verificação de fatos é imprescindível para a construção da verdade jornalística.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39893,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39894,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8735,
+    "texto": "Assinale a opção que apresenta a reescrita correta de um trecho hipotético, mantendo a correção gramatical e a coerência original do sentido.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39376,
+        "texto": "Original: 'Embora o servidor tenha solicitado o afastamento, o pedido foi indeferido.' / Reescrita: 'Apesar do servidor ter solicitado o afastamento, o pedido foi indeferido.'",
+        "correta": true
+      },
+      {
+        "id": 39377,
+        "texto": "Original: 'Caso a lei seja aprovada, os efeitos serão imediatos.' / Reescrita: 'Se a lei fosse aprovada, os efeitos seriam imediatos.'",
+        "correta": false
+      },
+      {
+        "id": 39378,
+        "texto": "Original: 'Os funcionários que não compareceram deverão justificar a ausência.' / Reescrita: 'Os funcionários que não compareceram, deverão justificar a ausência.'",
+        "correta": false
+      },
+      {
+        "id": 39379,
+        "texto": "Original: 'A medida visa combater a corrupção.' / Reescrita: 'A medida visa a combater a corrupção.' (Considere o verbo visar no sentido de objetivo, onde a regência é direta).",
+        "correta": false
+      },
+      {
+        "id": 39380,
+        "texto": "Original: 'O relatório continha erros graves, por isso foi devolvido.' / Reescrita: 'O relatório continha erros graves, contudo foi devolvido.'",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8734,
+    "texto": "Assinale a opção em que o emprego do sinal indicativo de crase está em estrita conformidade com as normas gramaticais vigentes.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39371,
+        "texto": "O gestor referiu-se à decisões tomadas pelo conselho, sem contudo apresentar as justificativas técnicas necessárias.",
+        "correta": false
+      },
+      {
+        "id": 39372,
+        "texto": "Os servidores compareceram à reunião marcada para as 14 horas, visando discutir o novo plano de cargos e salários.",
+        "correta": true
+      },
+      {
+        "id": 39373,
+        "texto": "A equipe técnica dedicou-se à analisar os dados coletados durante a pesquisa de campo realizada no último semestre.",
+        "correta": false
+      },
+      {
+        "id": 39374,
+        "texto": "O documento foi encaminhado à Vossa Excelência, que deverá apreciá-lo antes do encerramento do expediente.",
+        "correta": false
+      },
+      {
+        "id": 39375,
+        "texto": "O acesso às dependências do prédio é restrito à pessoas devidamente identificadas pela equipe de segurança patrimonial.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8733,
+    "texto": "A digitalização dos processos administrativos tem transformado a rotina dos servidores públicos, exigindo uma adaptação constante às novas plataformas tecnológicas. Embora a celeridade seja um ganho inegável, a transição para o meio virtual impõe desafios significativos, como a necessidade de capacitação técnica e o cuidado redobrado com a segurança da informação. Nesse cenário, muitos funcionários relatam um aumento na carga cognitiva, visto que a rapidez do fluxo digital demanda uma atenção contínua, que muitas vezes supera a capacidade de processamento humano em jornadas exaustivas. A implementação de sistemas integrados, por sua vez, deveria reduzir a burocracia, mas frequentemente resulta em novas exigências de preenchimento de metadados, o que acaba por gerar um paradoxo: a ferramenta criada para simplificar torna-se, em certos momentos, um obstáculo adicional ao exercício da função. Considerando o texto acima, assinale a opção que apresenta a correta análise sintática ou semântica de um trecho nele contido.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39366,
+        "texto": "No trecho 'a rapidez do fluxo digital demanda uma atenção contínua', o termo 'uma atenção contínua' exerce a função de objeto direto do verbo demandar.",
+        "correta": true
+      },
+      {
+        "id": 39367,
+        "texto": "Na oração 'a ferramenta criada para simplificar torna-se', o termo 'criada para simplificar' é uma oração subordinada substantiva apositiva.",
+        "correta": false
+      },
+      {
+        "id": 39368,
+        "texto": "A expressão 'o que' no trecho 'o que acaba por gerar um paradoxo' possui valor de pronome relativo, exercendo a função de objeto indireto.",
+        "correta": false
+      },
+      {
+        "id": 39369,
+        "texto": "O verbo 'exigindo', no primeiro período, está empregado com valor de oração coordenada sindética aditiva.",
+        "correta": false
+      },
+      {
+        "id": 39370,
+        "texto": "O termo 'desafios significativos' funciona como sujeito da oração 'a transição para o meio virtual impõe desafios significativos'.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8732,
+    "texto": "Quanto à acentuação gráfica, as palavras 'trâmite', 'público' e 'análise' recebem acento por serem classificadas como proparoxítonas, regra que determina que todas as palavras com essa tonicidade devem ser obrigatoriamente acentuadas, independentemente da terminação que apresentem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39364,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39365,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8731,
+    "texto": "A substituição do conectivo 'embora', na oração 'Embora o processo administrativo tenha sido concluído, restam pendências financeiras', pela conjunção 'conquanto', mantém a correção gramatical e o sentido original do período, uma vez que ambos os termos possuem valor concessivo e exigem o uso do modo subjuntivo na oração que introduzem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39362,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39363,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8730,
+    "texto": "No trecho 'Os servidores públicos, cujas atribuições foram redefinidas pela nova portaria, deverão submeter-se ao treinamento obrigatório', o emprego do pronome relativo 'cujas' estabelece uma relação de posse entre o antecedente 'servidores públicos' e o consequente 'atribuições', sendo correto afirmar que, caso o termo 'atribuições' fosse substituído por 'cujas funções', a correção gramatical seria preservada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39360,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39361,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8729,
+    "texto": "A recente digitalização dos serviços públicos tem transformado a maneira como o Estado se relaciona com o administrado. Embora a celeridade seja um benefício indiscutível, surge o desafio da exclusão digital para parcelas da população que não possuem acesso constante à rede mundial de computadores. Nesse contexto, é imperativo que os gestores públicos adotem estratégias híbridas, garantindo que a modernização não se torne um entrave ao exercício pleno da cidadania. A eficiência, portanto, deve caminhar lado a lado com a universalidade do acesso, sob pena de a inovação tecnológica aprofundar desigualdades sociais preexistentes em vez de mitigá-las. Considerando o texto acima, o emprego da vírgula logo após o termo 'Considerando o texto acima' é facultativo, visto que se trata de uma oração reduzida de gerúndio que exerce função de adjunto adverbial deslocado de curta extensão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39358,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39359,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8728,
+    "texto": "No que se refere à concordância verbal, na frase 'Haveriam de existir, naquela repartição pública, mecanismos mais eficientes para o atendimento ao cidadão', o uso do verbo 'haver' no plural está em conformidade com a norma culta, visto que ele atua como verbo auxiliar em uma locução verbal, devendo, portanto, flexionar-se para concordar com o sujeito composto 'mecanismos mais eficientes'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39356,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39357,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8727,
+    "texto": "No que diz respeito ao emprego das vírgulas e à pontuação em geral, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39351,
+        "texto": "O relatório final, que foi entregue hoje pela manhã, contém, entretanto, erros de digitação que precisam, ser corrigidos.",
+        "correta": false
+      },
+      {
+        "id": 39352,
+        "texto": "Apesar das dificuldades orçamentárias, o setor de compras decidiu que, caso não surjam novos impedimentos, a licitação ocorrerá na próxima semana.",
+        "correta": true
+      },
+      {
+        "id": 39353,
+        "texto": "Para que o sistema funcione adequadamente, é necessário que os usuários, após efetuarem o login, validem suas credenciais, no portal oficial.",
+        "correta": false
+      },
+      {
+        "id": 39354,
+        "texto": "Os servidores públicos, que atuam na linha de frente, recebem, periodicamente, treinamentos técnicos, visando a melhoria do atendimento ao cidadão.",
+        "correta": false
+      },
+      {
+        "id": 39355,
+        "texto": "Embora o prazo tenha encerrado, a comissão permitiu que os interessados enviassem a documentação, contudo, sem direito a recurso, posterior.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8726,
+    "texto": "Assinale a opção em que o uso do sinal indicativo de crase está em estrita conformidade com a norma padrão.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39346,
+        "texto": "O gestor dedicou-se à analisar todas as propostas, visando dar à luz um novo modelo de governança corporativa.",
+        "correta": false
+      },
+      {
+        "id": 39347,
+        "texto": "A comissão encaminhou o ofício à diretoria, solicitando que o acesso à sala de reuniões fosse restrito à convidados especiais.",
+        "correta": false
+      },
+      {
+        "id": 39348,
+        "texto": "O servidor, alheio à determinação superior, compareceu à repartição pública apenas à tarde para entregar os documentos.",
+        "correta": true
+      },
+      {
+        "id": 39349,
+        "texto": "A medida provisória estende-se à todos os órgãos da administração direta, devendo ser aplicada à partir do próximo semestre.",
+        "correta": false
+      },
+      {
+        "id": 39350,
+        "texto": "O auditor referiu-se à decisões tomadas anteriormente, as quais causaram prejuízos à toda a estrutura administrativa do departamento.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8725,
+    "texto": "No que se refere à concordância verbal e nominal, assinale a opção que apresenta redação gramaticalmente correta, considerando a norma culta da língua portuguesa.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39341,
+        "texto": "Houveram muitos problemas na execução do projeto, por isso, vossa excelência deve estar ciente de que fizeram-se necessários ajustes imediatos.",
+        "correta": false
+      },
+      {
+        "id": 39342,
+        "texto": "Devem haver soluções alternativas para o impasse, visto que restam apenas 2% da verba disponível para a conclusão das obras.",
+        "correta": false
+      },
+      {
+        "id": 39343,
+        "texto": "A maioria dos servidores públicos manifestaram descontentamento com a proposta, embora mais de um candidato tenha solicitado a revisão do edital.",
+        "correta": false
+      },
+      {
+        "id": 39344,
+        "texto": "Faz anos que os relatórios técnicos permanecem arquivados, apesar de ser necessário que sejam anexados os documentos complementares ao processo.",
+        "correta": true
+      },
+      {
+        "id": 39345,
+        "texto": "Seguem anexo as certidões negativas solicitadas pela comissão, bem como a lista de presença que deve ser assinada por todos os participantes.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8724,
+    "texto": "Na construção 'Os relatórios aos quais os auditores se referiram durante a reunião foram arquivados sem a devida conferência', a presença da preposição 'a' antes do pronome relativo 'quais' é exigida pela regência do verbo 'referir', que, nesse contexto, classifica-se como transitivo indireto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39339,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39340,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8723,
+    "texto": "A partícula 'se', presente na oração 'Discute-se, atualmente, a necessidade de revisão das normas internas da instituição', exerce a função de índice de indeterminação do sujeito, motivo pelo qual o verbo deve permanecer obrigatoriamente na terceira pessoa do singular.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39337,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39338,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "total": 13963,
+  "liberadas": 8385,
+  "rejeitadas": 240,
+  "liberadas_sem_justificativa": 6082,
+  "gerado_em": "2026-10-20T17:50:35.090462+00:00",
+  "questoes_com_sinais": 11712,
+  "grupos_texto_repetido": 0,
+  "flags_liberadas": {
+    "enunciado_termina_em_pontuacao_incompleta": 161,
+    "termina_em_conjuncao": 214,
+    "referencia_a_texto_ausente": 336,
+    "referencia_a_imagem_sem_imagem": 179,
+    "espaco_antes_pontuacao": 35,
+    "espacos_duplicados": 5,
+    "letras_flutuantes": 80,
+    "sem_justificativa": 6082,
+    "marcador_conteudo_faltando": 24,
+    "numero_alts_invalido_me": 3,
+    "texto_muito_curto": 14,
+    "alternativa_muito_curta": 2
+  }
+}

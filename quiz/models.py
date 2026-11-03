@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
@@ -97,9 +98,13 @@ class Categoria(models.Model):
         """IDs de todas as sub-categorias recursivamente (nao inclui self).
         Usado pra filtrar questoes de toda uma subarvore."""
         ids = []
+        visitados = {self.pk}
         pilha = list(self.filhos.all())
         while pilha:
             cat = pilha.pop()
+            if cat.pk in visitados:
+                continue
+            visitados.add(cat.pk)
             ids.append(cat.id)
             pilha.extend(list(cat.filhos.all()))
         return ids
@@ -1189,6 +1194,18 @@ def _gerar_codigo():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
 
+class TentativaDesafio(models.Model):
+    """Estado autoritativo de uma partida, inclusive retries e pontuação."""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    questoes_ids = models.JSONField(default=list)
+    respostas = models.JSONField(default=list)
+    segundos_por_questao = models.PositiveSmallIntegerField(default=30)
+    aberta_em = models.DateTimeField(null=True, blank=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
+    resultado = models.JSONField(null=True, blank=True)
+
+
 class Duelo(models.Model):
     """
     Representa uma partida 1v1 entre dois usuários.
@@ -1221,6 +1238,7 @@ class Duelo(models.Model):
     questao_atual = models.PositiveSmallIntegerField(default=0,
                                                      help_text='Índice 0-based')
     iniciado_em   = models.DateTimeField(null=True, blank=True)
+    questao_iniciada_em = models.DateTimeField(null=True, blank=True)
     encerrado_em  = models.DateTimeField(null=True, blank=True)
     criado_em     = models.DateTimeField(auto_now_add=True)
 
@@ -1233,6 +1251,11 @@ class Duelo(models.Model):
 
     def __str__(self):
         return f'Duelo #{self.codigo} — {self.criador} vs {self.adversario or "?"}'
+
+    def segundos_restantes_questao(self):
+        from django.utils import timezone
+        inicio = self.questao_iniciada_em or self.iniciado_em or self.criado_em
+        return max(0, self.tempo_por_q - (timezone.now() - inicio).total_seconds())
 
     @property
     def questoes_lista(self):
@@ -1291,6 +1314,7 @@ class SimuladoColetivo(models.Model):
     status        = models.CharField(max_length=20, choices=STATUS, default='aguardando')
     questao_atual = models.PositiveSmallIntegerField(default=0)
     iniciado_em   = models.DateTimeField(null=True, blank=True)
+    questao_iniciada_em = models.DateTimeField(null=True, blank=True)
     encerrado_em  = models.DateTimeField(null=True, blank=True)
     criado_em     = models.DateTimeField(auto_now_add=True)
 
@@ -1299,6 +1323,11 @@ class SimuladoColetivo(models.Model):
 
     def __str__(self):
         return f'Coletivo #{self.codigo} por {self.criador}'
+
+    def segundos_restantes_questao(self):
+        from django.utils import timezone
+        inicio = self.questao_iniciada_em or self.iniciado_em or self.criado_em
+        return max(0, self.tempo_por_q - (timezone.now() - inicio).total_seconds())
 
     @property
     def questoes_lista(self):

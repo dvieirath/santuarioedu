@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1345,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\n\nA seção de princípios norteadores do Currículo de Pernambuco inclui expressamente formação integral e educação em direitos humanos, ao lado de equidade e excelência e de inclusão. O item identifica corretamente dois desses princípios.\n\n## ⚠️ O erro típico\n\nConfundir formação integral com simples aumento da jornada escolar; o documento trata das diversas dimensões do desenvolvimento humano.\n\n## 🧠 Conceito-chave\n\nEquidade exige considerar necessidades distintas e garantir condições de aprendizagem com qualidade.\n\n## 📚 Onde aprofundar\n\n[Currículo de Pernambuco — Ensino Fundamental, seção 1.3](https://portal.educacao.pe.gov.br/wp-content/uploads/2024/08/CURRICULO-DE-PERNAMBUCO-ENSINO-FUNDAMENTAL.pdf).\n\n## 💡 Padrão a memorizar\n\nDireitos humanos e formação integral fazem parte dos princípios do currículo."
+  },
+  {
+    "id": 1150,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\n\nO determinante é linear em cada coluna, mas o termo adicional é o determinante da matriz obtida substituindo a segunda coluna de A por v, não o módulo de v. Por exemplo, com A igual à identidade 2 × 2 e v = (1,0), B tem linhas (1,1) e (0,1): det(B)=1, enquanto det(A)+‖v‖=2.\n\n## ⚠️ O erro típico\n\nConfundir a contribuição de uma coluna no determinante com o comprimento do vetor acrescentado.\n\n## 🧠 Conceito-chave\n\nA linearidade em uma coluna mantém todas as outras colunas fixas.\n\n## 📚 Onde aprofundar\n\nEstude multilinearidade do determinante, expansão por cofatores e efeito das operações sobre colunas.\n\n## 💡 Padrão a memorizar\n\nSomar v a uma coluna soma outro determinante, não a norma de v."
+  },
+  {
+    "id": 1149,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\n\nUma matriz quadrada é não singular exatamente quando possui inversa, o que equivale a ter determinante diferente de zero. Portanto, a condição indicada é necessária e também suficiente.\n\n## ⚠️ O erro típico\n\nConfundir determinante nulo com invertibilidade; determinante zero indica dependência linear das colunas.\n\n## 🧠 Conceito-chave\n\nPara matrizes quadradas, invertibilidade, posto completo e determinante não nulo são condições equivalentes.\n\n## 📚 Onde aprofundar\n\nEstude matrizes inversas, posto e o critério do determinante para singularidade.\n\n## 💡 Padrão a memorizar\n\nMatriz não singular tem determinante diferente de zero."
+  },
+  {
+    "id": 1148,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\n\nTer menos equações que incógnitas não impede a existência de solução. Por exemplo, A=(1 0) e b=1 geram x₁=1, com x₂ livre, produzindo infinitas soluções. O sistema pode ser compatível ou incompatível, conforme A e b.\n\n## ⚠️ O erro típico\n\nConfundir ausência de solução única com ausência de qualquer solução.\n\n## 🧠 Conceito-chave\n\nSe m<n e o sistema é compatível, o núcleo tem dimensão positiva e há infinitas soluções reais.\n\n## 📚 Onde aprofundar\n\nEstude o critério dos postos de A e da matriz aumentada e o papel das variáveis livres.\n\n## 💡 Padrão a memorizar\n\nMenos equações que incógnitas: pode haver infinitas soluções ou nenhuma."
+  },
+  {
+    "id": 1145,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\n\nExistem C(10,2)=45 pares não ordenados de bolas distintos. Os pares favoráveis são (1,2), (2,3), ..., (9,10), totalizando nove. Logo, a probabilidade é 9/45=1/5=20%.\n\n## ⚠️ O erro típico\n\nContar dez pares consecutivos incluindo (10,1), cuja diferença em módulo é nove, ou misturar contagem ordenada com não ordenada.\n\n## 🧠 Conceito-chave\n\nSem reposição, todos os pares distintos têm a mesma probabilidade.\n\n## 📚 Onde aprofundar\n\nEstude combinações e contagem de eventos equiprováveis em retiradas sem reposição.\n\n## 💡 Padrão a memorizar\n\nNove pares consecutivos entre 45 pares possíveis: 20%."
+  },
+  {
+    "id": 1141,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\n\nComo z+z̅=2x, a equação torna-se (2x−1)²+4y²+8x²=1. Simplificando e completando quadrados, obtém-se 12(x−1/6)²+4y²=1/3. É uma elipse, mas seu centro é (1/6,0), e não (1/2,0).\n\n## ⚠️ O erro típico\n\nUsar apenas o termo |2z−1|² para identificar o centro e ignorar a contribuição de 2|z+z̅|².\n\n## 🧠 Conceito-chave\n\nA soma de z com seu conjugado elimina a parte imaginária; o centro resulta do quadrado completo.\n\n## 📚 Onde aprofundar\n\nEstude conjugação complexa, módulo ao quadrado e redução de equações de cônicas.\n\n## 💡 Padrão a memorizar\n\nExpanda todos os termos antes de determinar o centro da elipse."
+  },
+  {
+    "id": 1132,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\n\nSe b é o outro cateto e c a hipotenusa, então c²−b²=196 e (c−b)(c+b)=196. Os dois fatores positivos devem ter a mesma paridade. As únicas possibilidades são (2,98), que dão b=48 e c=50, ou (14,14), que dá b=0 e não forma triângulo. Portanto, o outro cateto mede 48 cm, acima de 40 cm.\n\n## ⚠️ O erro típico\n\nAdmitir o caso degenerado b=0 ou pares de fatores de paridades diferentes, que não produzem b e c inteiros.\n\n## 🧠 Conceito-chave\n\nA diferença de quadrados converte a busca de lados inteiros em análise de divisores.\n\n## 📚 Onde aprofundar\n\nEstude o teorema de Pitágoras, fatoração de c²−b² e ternas pitagóricas.\n\n## 💡 Padrão a memorizar\n\nCom cateto inteiro 14, a solução não degenerada é a terna 14, 48, 50."
+  },
+  {
+    "id": 1124,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\n\nA sequência constante 2,2,2,2,... é uma PA de razão zero, pois as diferenças sucessivas são zero, e uma PG de razão um, pois cada termo é o anterior multiplicado por um. Esse exemplo comprova a existência afirmada.\n\n## ⚠️ O erro típico\n\nSupor que toda PA deve variar ou que toda PG precisa crescer ou decrescer.\n\n## 🧠 Conceito-chave\n\nDefinições de PA e PG incluem sequências constantes não nulas.\n\n## 📚 Onde aprofundar\n\nEstude as definições de progressões por diferença constante e por quociente constante.\n\n## 💡 Padrão a memorizar\n\nSequência constante não nula: PA de razão 0 e PG de razão 1."
+  }
+]

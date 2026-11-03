@@ -1,0 +1,56 @@
+[
+  {
+    "id": 836,
+    "motivo": "Expressão entre aspas sem texto de origem. A distinção aristotélica é pertinente em certos usos, mas não é possível confirmar a interpretação contextual de existente em ato sem a passagem.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 819,
+    "motivo": "Texto de referência ausente. A afirmação geral sobre planejamento não explica o gabarito Errado; recuperar argumento e dados do texto antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 802,
+    "motivo": "Modelo de Fitts e Posner reconhece fases cognitiva, associativa e autônoma, mas máxima consistência e nenhum erro grosseiro podem ser descrição idealizada, não garantia absoluta. Conferir referência adotada antes de sustentar Certo sem ressalva que altere o alcance do item.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 797,
+    "motivo": "Pendência histórica: a redação sugere inserção inicial do esporte na escola por volta de 1960 e relação causal com vitórias nas Copas, embora a esportivização tenha antecedentes. Conferir fonte e alcance de passou a ser inserido e da comparação com ginástica antes de justificar Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 796,
+    "motivo": "Gabarito Errado exige esclarecer o recorte temporal pós-Reforma Leôncio de Carvalho e as características atribuídas aos métodos europeus. Não foi identificado fundamento primário suficiente para negar especificamente a base biológica do método francês; revisão histórica necessária.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 789,
+    "motivo": "Redação legal imprecisa: menciona distúrbios agonizados, enquanto o Decreto-Lei 1.044/1969 usa agudizados e impõe condições de incapacidade relativa, duração e laudo. A mera presença de afecção não basta automaticamente. Conferir texto original e enquadramento no art.26, §3º, IV, da LDB antes de sustentar Certo. Fonte: https://www.planalto.gov.br/ccivil_03/decreto-lei/del1044.htm.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 788,
+    "motivo": "Divergência de gabarito: ficha oficial do PL 3929/2019 informa mínimo de três horas-aulas semanais, não duas aulas. Conferir versão temporal do projeto e original da questão; não alterar gabarito. Fonte: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao/?idProposicao=2211324 .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 786,
+    "motivo": "Texto precedente exigido pelo comando ausente. Embora futebol integre usualmente a cultura corporal, não preencher questão vinculada a contexto textual não fornecido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 783,
+    "motivo": "Ambiguidade na relação entre resultado esportivo e indicação de saúde: resultado não é medida direta ou suficiente de saúde, mas pode conter informação de desempenho. Falta contexto ou definição de parâmetros que permita negar exatamente a afirmação sem acrescentar exclusividade ou suficiência não escritas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

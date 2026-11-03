@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1122,
+    "motivo": "Enunciado truncado: faltam a sequência, as condições e o parâmetro cujo valor seria determinado. Não é possível avaliar a progressão geométrica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1000,
+    "motivo": "A ausência de til em claramente está correta, mas a classificação como sobresdrújula é problemática: a RAE exclui os advérbios em -mente da classificação ordinária por possuírem dois acentos. Não justificar integralmente Certo sem revisar a redação. Fonte: https://www.rae.es/sites/default/files/libro_de_estilo_prensa_rae.pdf, p. 15.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 914,
+    "motivo": "Faltam a figura original e a equação vetorial, explicitamente descrita como ilegível. Impossível julgar a relação física.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 881,
+    "motivo": "A formulação não explicita o modelo de queda vertical perto da superfície com gravidade constante. Nessa aproximação seria correta, mas na mecânica newtoniana queda livre também inclui movimento orbital, não necessariamente unidimensional nem com aceleração constante. Conferir contexto original para evitar validar generalização. Fonte: https://science.nasa.gov/learn/basics-of-space-flight/chapter3-4/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 822,
+    "motivo": "O comando exige resposta com base no texto, mas o texto-base não está presente. A afirmação geral é plausível, porém não substitui a verificação da relação com o material exigido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 678,
+    "motivo": "Provável gabarito incompatível: NADH fornece poder redutor, não oxidante. O transporte eletrônico alimenta o bombeamento de prótons da matriz para o espaço intermembranas; não é correto substituir esse fluxo de prótons pelo transporte de elétrons descrito. Conferir também contexto da etapa inicial. Fonte: https://www.ncbi.nlm.nih.gov/books/NBK26904/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

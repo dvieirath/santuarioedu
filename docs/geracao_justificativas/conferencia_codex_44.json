@@ -1,0 +1,39 @@
+{
+  "salvas": 8,
+  "revisao": 12,
+  "pendentes_agora": 10976,
+  "novas_questoes_concorrentes": [
+    13603,
+    13604,
+    13605,
+    13606,
+    13607,
+    13608,
+    13609,
+    13610,
+    13611,
+    13612,
+    13613,
+    13614,
+    13615,
+    13616,
+    13617,
+    13618,
+    13619,
+    13620,
+    13621
+  ],
+  "novas_alternativas_concorrentes": 62,
+  "campos_preexistentes_preservados": true,
+  "justificativas_alteradas": [
+    8954,
+    8955,
+    8956,
+    9377,
+    9383,
+    9384,
+    9386,
+    9390
+  ],
+  "integridade": "ok"
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "id": 8951,
+    "texto": "Na construção ‘Ele, sem dúvida, demonstrou competência’, o uso de vírgula antes do advérbio ‘sem dúvida’ é obrigatório segundo a regra de pontuação que separa elementos de ênfase em frases declarativas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40069,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40070,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8950,
+    "texto": "Considerando o texto acima, que descreve a situação de um trabalhador que, após anos de dedicação, recebe um título de mérito por sua atuação em projetos sociais, o enunciado afirma que o uso do substantivo ‘mérito’ no sentido de ‘reconhecimento de esforço’ é aceitável no registro formal da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40067,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40068,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8949,
+    "texto": "A expressão ‘o fato de que a empresa não recebeu o pagamento’ é uma locução conjuntiva que introduz oração subordinada substantiva objetiva direta. Assim, a frase apresenta estrutura sintática correta segundo a norma culta da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40065,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40066,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8948,
+    "texto": "No contexto de um contrato de prestação de serviços de consultoria em gestão de riscos, o contratado utiliza o verbo ‘analisar’ no sentido de avaliar a probabilidade de ocorrência de eventos adversos. A frase emprega o verbo no sentido literal, sem ambiguidade semântica, o que caracteriza uso adequado do verbo no presente do indicativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40063,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40064,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8947,
+    "texto": "No âmbito da norma culta, o uso de pronomes de tratamento tem implicações formais e sociais. Em um documento oficial emitido pelo Poder Executivo, qual das opções abaixo representa a forma correta de tratamento ao se dirigir a um cidadão comum, em conformidade com a norma culta vigente?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40058,
+        "texto": "Senhor(a) D. João da Silva.",
+        "correta": false
+      },
+      {
+        "id": 40059,
+        "texto": "Excelentíssimo(a) Senhor(a) João da Silva.",
+        "correta": false
+      },
+      {
+        "id": 40060,
+        "texto": "Vossa Excelência, João da Silva.",
+        "correta": false
+      },
+      {
+        "id": 40061,
+        "texto": "Senhor João da Silva,",
+        "correta": true
+      },
+      {
+        "id": 40062,
+        "texto": "Caro(a) Sr(a) João da Silva.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8946,
+    "texto": "Em 2023, a Editora Literária lançou uma coletânea intitulada \"Fragmentos do Tempo\", composta por 12 contos de autores contemporâneos. Cada conto possui, em média, 1.200 palavras, distribuídas em capítulos de 300 a 400 palavras. A coletânea foi publicada em formato digital e impresso, sendo que a versão digital apresenta hiperlinks que conduzem a textos complementares sobre os temas abordados nos contos. Em 2024, a Editora decidiu criar um aplicativo móvel que disponibiliza os contos em formato de audiolivro, com narração em voz ativa. O aplicativo inclui, além dos textos originais, um módulo de análise semântica que destaca palavras-chave e oferece explicações de seus significados em contexto. A Editora também pretende lançar uma versão interativa, na qual os leitores podem escolher diferentes desdobramentos narrativos, alterando a sequência de capítulos e, consequentemente, a ordem dos eventos narrados.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40053,
+        "texto": "O aplicativo móvel deve conter apenas a narração dos contos, sem qualquer recurso adicional.",
+        "correta": false
+      },
+      {
+        "id": 40054,
+        "texto": "A versão interativa deve manter a ordem original dos capítulos, independentemente das escolhas do leitor.",
+        "correta": false
+      },
+      {
+        "id": 40055,
+        "texto": "A inclusão de explicações semânticas no aplicativo viola os direitos autorais dos autores originais.",
+        "correta": false
+      },
+      {
+        "id": 40056,
+        "texto": "O aplicativo pode apresentar diferentes desdobramentos narrativos, desde que a estrutura gramatical dos contos permaneça inalterada.",
+        "correta": true
+      },
+      {
+        "id": 40057,
+        "texto": "O formato digital dos contos não pode conter hiperlinks, pois isso compromete a integridade textual.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8945,
+    "texto": "No contexto da norma culta da língua portuguesa, o termo 'paradigma' é frequentemente empregado em análises linguísticas. Qual das opções abaixo representa a definição mais adequada de paradigma, segundo a tradição linguística brasileira?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40048,
+        "texto": "Conjunto de palavras que compartilham a mesma origem etimológica.",
+        "correta": false
+      },
+      {
+        "id": 40049,
+        "texto": "Sequência de sons que formam uma palavra em uma língua.",
+        "correta": false
+      },
+      {
+        "id": 40050,
+        "texto": "Estrutura sintática que determina a ordem das palavras em uma frase.",
+        "correta": false
+      },
+      {
+        "id": 40051,
+        "texto": "Conjunto de formas que uma palavra pode assumir em diferentes contextos morfológicos.",
+        "correta": true
+      },
+      {
+        "id": 40052,
+        "texto": "Regras de pontuação que regulam a construção de sentenças complexas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8944,
+    "texto": "Em 2025, o Ministério da Educação publicou o Decreto nº 12.345, que institui o Programa de Avaliação Linguística (PAL) para estudantes do ensino médio. O decreto prevê que, para cada unidade curricular de Português, o professor deve elaborar uma prova contendo, no mínimo, 10 questões de múltipla escolha, sendo 3 de interpretação de textos e 7 de gramática normativa. Dentre as alternativas a seguir, qual é a exigência correta em relação à distribuição de questões de gramática normativa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40043,
+        "texto": "O professor deve incluir exatamente 5 questões de gramática normativa.",
+        "correta": false
+      },
+      {
+        "id": 40044,
+        "texto": "As questões de gramática normativa devem representar no mínimo 30% do total de questões da prova.",
+        "correta": false
+      },
+      {
+        "id": 40045,
+        "texto": "O número de questões de gramática normativa não pode ultrapassar 8, independentemente do total de questões.",
+        "correta": false
+      },
+      {
+        "id": 40046,
+        "texto": "É obrigatório que as questões de gramática normativa sejam distribuídas em pelo menos duas unidades temáticas distintas.",
+        "correta": true
+      },
+      {
+        "id": 40047,
+        "texto": "A prova deve conter, no mínimo, 7 questões de gramática normativa, mas não pode exceder 12.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8943,
+    "texto": "Em 2024, a Secretaria de Educação publicou um comunicado destacando que a adoção de textos bilíngues em escolas públicas visa promover a inclusão linguística e reduzir a desigualdade de oportunidades para alunos de comunidades rurais. Segundo o documento, a metodologia recomendada envolve a integração de materiais didáticos em português e inglês, com foco em vocabulário técnico e contextualizado. A proposta também prevê a capacitação de professores em técnicas de ensino híbrido, combinando aulas presenciais e online. A iniciativa tem como meta alcançar 70% de escolas rurais até 2026, com avaliação anual baseada em desempenho acadêmico e engajamento estudantil. O comunicado ressalta a importância de respeitar as variantes regionais do português, garantindo que a linguagem oficial seja usada de forma inclusiva e acessível a todos os estudantes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40041,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40042,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8942,
+    "texto": "A concordância verbal em frases compostas por coordenação pode ser alterada quando o sujeito composto estiver precedido de advérbio de intensidade, como em \"Muitos, porém, poucos, ainda assim, concordam com a proposta\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40039,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40040,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8941,
+    "texto": "A norma culta da língua portuguesa admite a alternância entre o uso de \"há\" e \"aí\" para indicar tempo passado em textos narrativos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40037,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40038,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8940,
+    "texto": "No português jurídico, a locução adverbial \"em virtude de\" pode ser empregada como equivalente a \"por causa de\" em cláusulas contratuais que determinam a responsabilidade das partes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40035,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40036,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8939,
+    "texto": "Em uma redação dissertativa, o uso de pronomes de tratamento no estilo formal requer a substituição de \"você\" por \"o senhor\" ou \"a senhora\" quando o interlocutor for de idade avançada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40033,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40034,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8906,
+    "texto": "Texto de Apoio: Em 2024, o Ministério da Cultura divulgou um relatório sobre o impacto da pandemia nas práticas de leitura em escolas públicas. O documento destaca que, apesar das restrições de circulação, houve um aumento de 12% no acesso a bibliotecas digitais, com 63% dos estudantes relatando que utilizam recursos audiovisuais para complementar a leitura tradicional. O relatório também aponta que 48% dos leitores digitais afirmam que o uso de materiais multimídia facilita a compreensão de textos complexos, enquanto 32% afirmam que a ausência de apoio visual dificulta a assimilação de conteúdo. Considerando esses dados, analise a afirmação a seguir: ‘A adoção de recursos multimídia nas salas de aula contribui significativamente para a inclusão de estudantes com dificuldades de leitura, reduzindo a lacuna de desempenho entre grupos socioeconômicos.’",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39928,
+        "texto": "A afirmação está correta, pois a estatística demonstra que a maioria dos estudantes beneficia-se de recursos multimídia, independentemente do contexto socioeconômico.",
+        "correta": false
+      },
+      {
+        "id": 39929,
+        "texto": "A afirmação está correta, pois o relatório indica que recursos multimídia reduzem a lacuna de desempenho, especialmente em grupos de baixa renda.",
+        "correta": true
+      },
+      {
+        "id": 39930,
+        "texto": "A afirmação está incorreta, pois o relatório não apresenta dados sobre desempenho acadêmico em relação a recursos multimídia.",
+        "correta": false
+      },
+      {
+        "id": 39931,
+        "texto": "A afirmação está incorreta, pois a estatística mostra que apenas 12% dos estudantes utilizam bibliotecas digitais, o que não sustenta a conclusão.",
+        "correta": false
+      },
+      {
+        "id": 39932,
+        "texto": "A afirmação está correta, mas apenas se considerar que o acesso a recursos multimídia é igualitário em todas as escolas do país.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8905,
+    "texto": "Um professor de português, ao elaborar um exercício de interpretação textual, decide usar um trecho de um romance contemporâneo. Ele cita apenas 15% da obra, mas o trecho contém a frase central que define o tema do exercício. O professor justifica o uso alegando que o objetivo pedagógico justifica a limitação de direitos autorais. Qual é a posição correta do legislador brasileiro sobre esse caso?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39923,
+        "texto": "O uso é permitido, pois a lei autoriza a reprodução de até 10% de obras protegidas para fins didáticos.",
+        "correta": false
+      },
+      {
+        "id": 39924,
+        "texto": "O uso é permitido, pois a lei autoriza a reprodução de até 30% de obras protegidas para fins didáticos, desde que não haja fins lucrativos.",
+        "correta": true
+      },
+      {
+        "id": 39925,
+        "texto": "O uso é proibido, pois qualquer reprodução de trecho protegido requer autorização prévia do titular.",
+        "correta": false
+      },
+      {
+        "id": 39926,
+        "texto": "O uso é permitido apenas se o trecho reproduzido for de domínio público.",
+        "correta": false
+      },
+      {
+        "id": 39927,
+        "texto": "O uso é permitido, mas o professor deve citar a fonte e garantir que o trecho não ultrapasse 20% do texto original.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8904,
+    "texto": "No contexto de uma redação oficial, o Ministério da Educação propõe a inclusão de uma nova norma que, segundo o decreto, visa ‘promover a inclusão de estudantes com deficiência nas escolas públicas’. A norma apresenta o seguinte trecho: ‘As escolas deverão disponibilizar recursos digitais adaptados, que garantam a acessibilidade plena às necessidades dos estudantes em situação de vulnerabilidade’.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39918,
+        "texto": "A norma é constitucional, pois respeita o princípio da igualdade e da dignidade da pessoa humana.",
+        "correta": true
+      },
+      {
+        "id": 39919,
+        "texto": "A norma é inconstitucional, pois viola o princípio da separação entre Estado e religião ao exigir recursos digitais específicos.",
+        "correta": false
+      },
+      {
+        "id": 39920,
+        "texto": "A norma é constitucional, mas pode ser considerada ineficaz, pois não prevê sanções para não cumprimento.",
+        "correta": false
+      },
+      {
+        "id": 39921,
+        "texto": "A norma é inconstitucional, pois impede a liberdade de escolha das escolas quanto aos recursos digitais.",
+        "correta": false
+      },
+      {
+        "id": 39922,
+        "texto": "A norma é constitucional, mas pode ser contestada em sede de ação direta de inconstitucionalidade.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8903,
+    "texto": "Um editor de revista acadêmica publica, sem autorização, um artigo que contém trechos extensos de um texto protegido por direitos autorais, alegando que o uso é justificável sob o princípio da transformação. Qual dos seguintes argumentos jurídicos melhor fundamenta a possibilidade de eximir a violação de direitos autorais nesse caso?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39913,
+        "texto": "A aplicação do princípio da liberdade de expressão, que sempre prevalece sobre o direito autoral.",
+        "correta": false
+      },
+      {
+        "id": 39914,
+        "texto": "A caracterização do uso como transformativo, desde que haja adição de comentários críticos e não haja fins lucrativos.",
+        "correta": true
+      },
+      {
+        "id": 39915,
+        "texto": "O fato de o artigo ser publicado em formato digital, que isenta o editor de responsabilidade pelo uso de conteúdo protegido.",
+        "correta": false
+      },
+      {
+        "id": 39916,
+        "texto": "O argumento de que a obra original estava em domínio público, o que elimina qualquer restrição de uso.",
+        "correta": false
+      },
+      {
+        "id": 39917,
+        "texto": "A alegação de que a obra foi citada em referência a um estudo de caso, o que automaticamente confere isenção de direitos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8902,
+    "texto": "No português brasileiro, a palavra 'pára' pode ser empregada como forma verbal do verbo parar, enquanto 'para' indica finalidade ou destino, e a confusão entre as duas pode gerar ambiguidade em textos técnicos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39911,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39912,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8901,
+    "texto": "Considerando o texto acima, a frase \"A equipe de pesquisa, juntamente com os especialistas convidados, apresentará os resultados na próxima reunião\" apresenta erro de concordância, pois o sujeito composto exige plural em ambos os verbos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39909,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39910,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8900,
+    "texto": "A concordância verbal em frases compostas por coordenação expletiva exige que o verbo principal concorde com o sujeito mais próximo, independentemente da posição do verbo subordinado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39907,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39908,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

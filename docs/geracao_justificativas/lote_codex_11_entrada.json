@@ -1,0 +1,482 @@
+[
+  {
+    "id": 8931,
+    "texto": "Em um setor de logística, quatro analistas, denominados A, B, C e D, processam pedidos de remessa. Sabe-se que: se o analista A processa um pedido, então o analista B também o faz; se o analista C não processa o pedido, então o analista D não o faz; se o analista B processa o pedido, então o analista C também o faz. Com base nessas premissas, assinale a opção correta sobre o processamento de pedidos por esses analistas.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40005,
+        "texto": "Se o analista A processa um pedido, então o analista D necessariamente o processa.",
+        "correta": true
+      },
+      {
+        "id": 40006,
+        "texto": "Se o analista D processa um pedido, então o analista A obrigatoriamente o processa.",
+        "correta": false
+      },
+      {
+        "id": 40007,
+        "texto": "O analista C processar um pedido é condição suficiente para que o analista A o processe.",
+        "correta": false
+      },
+      {
+        "id": 40008,
+        "texto": "É possível que o analista A processe um pedido e o analista C não o processe.",
+        "correta": false
+      },
+      {
+        "id": 40009,
+        "texto": "Se nenhum dos analistas processar um pedido, a regra sobre o analista C e D é violada.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8930,
+    "texto": "Em um setor de logística de um órgão público, o servidor responsável pela organização de processos estabeleceu três condições para a priorização de expedientes: se o processo é urgente, então ele deve ser analisado antes do meio-dia; se o processo não é urgente, então ele deve ser arquivado imediatamente; se o processo deve ser arquivado imediatamente, então ele não pode ser analisado antes do meio-dia. Considerando essa situação hipotética, analise a seguinte proposição lógica: a partir das premissas estabelecidas, é correto concluir que nenhum processo urgente pode ser arquivado imediatamente. Considerando o texto acima, julgue o item a seguir: A proposição lógica apresentada é uma conclusão válida derivada das premissas fornecidas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40003,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40004,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8929,
+    "texto": "Texto: Em 2025, o Ministério da Educação lançou um programa piloto de avaliação de competências cognitivas em escolas públicas, que incluiu a aplicação de testes de raciocínio lógico. O programa foi dividido em duas fases: a primeira fase contemplou 120 escolas selecionadas aleatoriamente, onde os alunos foram submetidos a provas com 20 questões de lógica proposicional, aritmética e padrões visuais. Na segunda fase, 80 escolas foram escolhidas para receber um treinamento intensivo em resolução de problemas, com foco em raciocínio dedutivo e analítico. Os resultados preliminares indicaram que, nas escolas da fase 1, a média de acertos nas questões de lógica proposicional foi de 68%, enquanto nas escolas da fase 2, a média de acertos aumentou para 82%. Os dados sugerem que a intervenção de treinamento teve impacto positivo nas habilidades lógicas dos estudantes.\nConsiderando o texto acima, qual das seguintes afirmações é verdadeira?\nA) A média de acertos nas escolas da fase 1 foi superior à da fase 2.\nB) O programa piloto envolveu apenas escolas de ensino médio.\nC) O treinamento intensivo foi aplicado em 80 escolas.\nD) A prova de lógica proposicional continha 30 questões.\nE) Os dados não permitem concluir que o treinamento teve impacto positivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40001,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40002,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8928,
+    "texto": "Em um problema de lógica envolvendo três pessoas (Ana, Bruno e Carla) e três objetos (livro, caneta e caderno), se Ana tem o livro e Bruno tem a caneta, então Carla tem o caderno.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39999,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40000,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8927,
+    "texto": "A lógica proposicional permite que a negação de uma disjunção seja equivalente à conjunção das negações de cada proposição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39997,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39998,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8926,
+    "texto": "Em um diagrama de Venn com três conjuntos A, B e C, se o conjunto A é disjunto com B e C, então a interseção de B e C é vazia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39995,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39996,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8925,
+    "texto": "Em uma sequência lógica de números inteiros, se a diferença entre o primeiro e o segundo termo for igual à soma do segundo e do terceiro termo, então a diferença entre o segundo e o terceiro termo é sempre negativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39993,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39994,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8754,
+    "texto": "Em uma repartição pública, 80 servidores foram consultados sobre o uso de dois sistemas digitais, Alfa e Beta. Verificou-se que 45 servidores utilizam o sistema Alfa, 30 utilizam o sistema Beta e 15 servidores não utilizam nenhum dos dois sistemas. Com base nesses dados, o número de servidores que utilizam ambos os sistemas é igual a:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39435,
+        "texto": "10.",
+        "correta": true
+      },
+      {
+        "id": 39436,
+        "texto": "15.",
+        "correta": false
+      },
+      {
+        "id": 39437,
+        "texto": "20.",
+        "correta": false
+      },
+      {
+        "id": 39438,
+        "texto": "25.",
+        "correta": false
+      },
+      {
+        "id": 39439,
+        "texto": "30.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8753,
+    "texto": "A diretoria de um órgão público está analisando a alocação de recursos para três novos projetos: Infraestrutura, Tecnologia e Capacitação. O gestor responsável estabeleceu as seguintes premissas para a viabilidade do orçamento: I. Se o projeto de Infraestrutura for aprovado, o de Tecnologia também deverá ser aprovado. II. O projeto de Capacitação será aprovado se, e somente se, o projeto de Tecnologia não for aprovado. III. O projeto de Infraestrutura foi aprovado. Considerando essa situação hipotética, analise o cenário de viabilidade orçamentária dos projetos. A partir das premissas apresentadas, que formam a base lógica para a tomada de decisão da diretoria, verifica-se que a estrutura de aprovação deve seguir uma ordem estrita para não violar as restrições impostas pelo orçamento público. Em um contexto de gestão por resultados, a lógica proposicional atua como ferramenta de verificação de consistência, garantindo que as metas não entrem em conflito direto durante a execução financeira. Considerando o texto acima, assinale a opção que apresenta a situação final correta dos projetos.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39430,
+        "texto": "Infraestrutura aprovado, Tecnologia aprovado e Capacitação não aprovado.",
+        "correta": true
+      },
+      {
+        "id": 39431,
+        "texto": "Infraestrutura aprovado, Tecnologia não aprovado e Capacitação aprovado.",
+        "correta": false
+      },
+      {
+        "id": 39432,
+        "texto": "Infraestrutura aprovado, Tecnologia aprovado e Capacitação aprovado.",
+        "correta": false
+      },
+      {
+        "id": 39433,
+        "texto": "Infraestrutura não aprovado, Tecnologia não aprovado e Capacitação aprovado.",
+        "correta": false
+      },
+      {
+        "id": 39434,
+        "texto": "Infraestrutura não aprovado, Tecnologia aprovado e Capacitação não aprovado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8752,
+    "texto": "Considere que a sentença 'Se o servidor público é eficiente, então ele recebe gratificação por produtividade' seja falsa. Com base nessa informação, é logicamente correto concluir que:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39425,
+        "texto": "O servidor público é eficiente e não recebe gratificação por produtividade.",
+        "correta": true
+      },
+      {
+        "id": 39426,
+        "texto": "O servidor público não é eficiente e não recebe gratificação por produtividade.",
+        "correta": false
+      },
+      {
+        "id": 39427,
+        "texto": "O servidor público não é eficiente e recebe gratificação por produtividade.",
+        "correta": false
+      },
+      {
+        "id": 39428,
+        "texto": "O servidor público é eficiente e recebe gratificação por produtividade.",
+        "correta": false
+      },
+      {
+        "id": 39429,
+        "texto": "Se o servidor público recebe gratificação por produtividade, então ele é eficiente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8751,
+    "texto": "Em um setor de logística, quatro servidores, denominados A, B, C e D, possuem tempos distintos de processamento de pedidos. Sabe-se que: (1) Se A é mais rápido que B, então C é mais rápido que D; (2) Se C não é mais rápido que D, então B é mais rápido que A; (3) B não é mais rápido que A. Com base nessas informações, é correto afirmar que:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39420,
+        "texto": "C é mais rápido que D.",
+        "correta": true
+      },
+      {
+        "id": 39421,
+        "texto": "D é mais rápido que C.",
+        "correta": false
+      },
+      {
+        "id": 39422,
+        "texto": "A não é mais rápido que B.",
+        "correta": false
+      },
+      {
+        "id": 39423,
+        "texto": "B é mais rápido que C.",
+        "correta": false
+      },
+      {
+        "id": 39424,
+        "texto": "A é mais lento que D.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8750,
+    "texto": "Em uma unidade de processamento de dados de um órgão público, três servidores — Alice, Bruno e Camila — são responsáveis por monitorar sistemas de segurança. Sabe-se que, se Alice monitora o sistema, então Bruno também o faz. Além disso, sabe-se que, ou Camila monitora o sistema, ou Bruno não o faz, mas nunca ambos simultaneamente. Em um dia específico, constatou-se que Camila não estava monitorando o sistema de segurança. Considerando o texto acima e as estruturas lógicas apresentadas, julgue o item a seguir: a partir das premissas estabelecidas, é logicamente correto concluir que, necessariamente, Alice não estava monitorando o sistema de segurança naquele dia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39418,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39419,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8749,
+    "texto": "Em uma repartição pública, o controle de acesso ao arquivo sigiloso é feito por meio de senhas digitais que seguem um padrão lógico rigoroso. O gestor do setor observou que a sequência de senhas emitidas nos últimos cinco dias foi: 12, 15, 21, 33, 57. Considerando que a lógica de formação das senhas é baseada em uma progressão onde a diferença entre os termos sucessivos dobra a cada passo, é correto afirmar que a próxima senha da sequência será 105.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39416,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39417,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8748,
+    "texto": "Para a organização de um evento institucional, a comissão avalia a contratação de fornecedores. Considere o seguinte cenário: 'Se a empresa X for contratada, a empresa Y não será'. Sabe-se que a empresa X foi contratada. Paralelamente, a comissão estabeleceu que 'A empresa Z será contratada se, e somente se, a empresa Y não for contratada'. Diante desse quadro, a conclusão lógica necessária é que a empresa Z será contratada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39414,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39415,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8747,
+    "texto": "O departamento de TI de um órgão público implementou um novo protocolo de segurança. O acesso ao sistema depende de três chaves de autenticação: A, B e C. O sistema é liberado se, e somente se, a chave A estiver ativa, ou se a chave B estiver ativa e a chave C não estiver ativa. Nesse contexto, se a chave A estiver desativada, a chave B estiver ativa e a chave C estiver ativa, o sistema será liberado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39412,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39413,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8746,
+    "texto": "A diretoria de uma autarquia analisa a produtividade de seus departamentos. Considere a proposição composta: 'Se o índice de eficiência supera a meta, então o orçamento é liberado e os projetos são executados'. A negação lógica dessa proposição é corretamente expressa pela sentença: 'O índice de eficiência supera a meta e, ou o orçamento não é liberado ou os projetos não são executados'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39410,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39411,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8745,
+    "texto": "Em um setor de logística, quatro servidores — Ana, Bruno, Carla e Diego — realizam o monitoramento de cargas. Sabe-se que, se Ana monitora a carga, então Bruno não a monitora. Além disso, sabe-se que ou Carla monitora a carga ou Diego a monitora, mas não ambos. Com base nessas condições, se for verdade que Bruno monitora a carga, então é logicamente correto afirmar que Ana não a monitora e que a condição de Carla e Diego é mutuamente exclusiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39408,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39409,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8710,
+    "texto": "O departamento de tecnologia de um órgão público está revisando a política de senhas para o acesso a dados sensíveis. O gestor da área estabeleceu a seguinte regra lógica para a criação de senhas válidas: 'Para que a senha seja considerada segura, é necessário que ela possua, no mínimo, doze caracteres e contenha, pelo menos, um caractere especial'. Durante uma auditoria, constatou-se que um grupo de servidores criou senhas que não atendem a esse critério. Considerando que a lógica de segurança da informação exige que a negação da regra de validade seja aplicada para identificar as senhas inseguras, analise a situação. De acordo com os princípios da lógica proposicional, a condição para que uma senha seja classificada como insegura, segundo o critério estabelecido, é que ela possua menos de doze caracteres ou não contenha nenhum caractere especial. Diante do exposto, assinale a opção que apresenta a conclusão lógica correta sobre a validade ou negação de uma senha.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39299,
+        "texto": "Uma senha com dez caracteres e um caractere especial é considerada segura.",
+        "correta": false
+      },
+      {
+        "id": 39300,
+        "texto": "Uma senha com doze caracteres e sem nenhum caractere especial é considerada segura.",
+        "correta": false
+      },
+      {
+        "id": 39301,
+        "texto": "A negação da regra de segurança implica que a senha deve ter menos de doze caracteres e não possuir caracteres especiais.",
+        "correta": false
+      },
+      {
+        "id": 39302,
+        "texto": "Uma senha com onze caracteres e sem caractere especial é considerada insegura.",
+        "correta": true
+      },
+      {
+        "id": 39303,
+        "texto": "A regra de segurança é satisfeita se a senha possuir apenas doze caracteres, independentemente da presença de caracteres especiais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8709,
+    "texto": "Considere a seguinte proposição lógica: 'Se o sistema de segurança está ativo e o acesso é permitido, então o alarme não dispara'. Assinale a opção que apresenta a negação lógica correta dessa proposição.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39294,
+        "texto": "O sistema de segurança está ativo e o acesso é permitido, e o alarme dispara.",
+        "correta": true
+      },
+      {
+        "id": 39295,
+        "texto": "Se o sistema de segurança não está ativo ou o acesso não é permitido, então o alarme dispara.",
+        "correta": false
+      },
+      {
+        "id": 39296,
+        "texto": "O sistema de segurança não está ativo ou o acesso não é permitido, e o alarme não dispara.",
+        "correta": false
+      },
+      {
+        "id": 39297,
+        "texto": "Se o alarme dispara, então o sistema de segurança não está ativo ou o acesso não é permitido.",
+        "correta": false
+      },
+      {
+        "id": 39298,
+        "texto": "O sistema de segurança não está ativo e o acesso não é permitido, e o alarme dispara.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8708,
+    "texto": "Em um setor de logística, quatro servidores — Ana, Beto, Caio e Duda — são responsáveis por conferir remessas de diferentes tipos: eletrônicos, vestuário, alimentos e medicamentos. Sabe-se que: 1) O servidor que confere eletrônicos é o mais eficiente do setor; 2) Ana não confere eletrônicos nem alimentos; 3) Beto confere vestuário; 4) Caio não confere alimentos; 5) Duda é menos eficiente que o servidor que confere eletrônicos. Com base nessas informações, assinale a opção que indica corretamente o servidor responsável pela conferência de eletrônicos.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39289,
+        "texto": "Ana",
+        "correta": false
+      },
+      {
+        "id": 39290,
+        "texto": "Beto",
+        "correta": false
+      },
+      {
+        "id": 39291,
+        "texto": "Caio",
+        "correta": true
+      },
+      {
+        "id": 39292,
+        "texto": "Duda",
+        "correta": false
+      },
+      {
+        "id": 39293,
+        "texto": "Nenhum dos servidores citados",
+        "correta": false
+      }
+    ]
+  }
+]

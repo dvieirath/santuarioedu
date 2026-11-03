@@ -1,0 +1,47 @@
+{
+  "lote": 58,
+  "salvas": [
+    4512,
+    4520,
+    4522,
+    4529,
+    4532,
+    4575,
+    4576,
+    4582,
+    4585
+  ],
+  "revisao": [
+    4506,
+    4513,
+    4514,
+    4517,
+    4518,
+    4523,
+    4536,
+    4602,
+    4604,
+    4606,
+    4614
+  ],
+  "cobertura_completa": true,
+  "demais_campos_preservados": true,
+  "alternativas_preservadas": true,
+  "novas_questoes": [],
+  "novas_alternativas": [],
+  "justificativas_alteradas": [
+    4512,
+    4520,
+    4522,
+    4529,
+    4532,
+    4575,
+    4576,
+    4582,
+    4585
+  ],
+  "quick_check": "ok",
+  "pendentes": 11112,
+  "backup": "backups\\antes_lote_codex_20261018_181605_654178.sqlite3",
+  "conferido_em": "2026-10-18T18:16:26.408437"
+}

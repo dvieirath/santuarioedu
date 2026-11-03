@@ -1,0 +1,86 @@
+[
+  {
+    "id": 11736,
+    "motivo": "Ambiguidade sobre instante da primeira verificação e inclusão da que detecta expiração. Em t=120,...,3480 há 29 verificações válidas; em t=3600 a 30ª detecta invalidez. Se contar t=0, contagem muda.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11735,
+    "motivo": "Profundidade não determina largura nem número de nós internos; faltam ramificação, árvore e convenção de níveis. Não se deduz máximo 4.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11543,
+    "motivo": "Relação inversa não define coeficiente de variação. X aumentar 10 não implica Y diminuir 10; faltam equações ou taxas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11542,
+    "motivo": "Média de 12% é informada para subconjunto de 68% das escolas, não para todas. Alternativa C amplia indevidamente o universo; também faltam pesos para média global.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11541,
+    "motivo": "C→A e B→¬A não afirmam C nem determinam estado. Valorações distintas satisfazem premissas. Alternativa E, não A; ausência de sólido tampouco prova estado líquido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11540,
+    "motivo": "Alternativa marcada C põe 2 antes de 1 e 5 depois de 3, violando a condicional. Sem outras restrições explícitas, A, D e E satisfazem a condicional por antecedente falso.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11538,
+    "motivo": "Ambíguo: se todas são verdadeiras sob a mesma valoração, o conjunto é satisfatível. Se apenas cada uma é individualmente satisfatível em valorações diferentes, não basta. Redação deve distinguir verdadeira de satisfatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11537,
+    "motivo": "Algoritmo de primalidade não especificado. Número de iterações depende do procedimento e da medida de entrada; não se deduz crescimento quadrático nos dígitos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11536,
+    "motivo": "Falta fixar tamanho das palavras e significado de “sem repetição”, pois RACAO já contém dois As. Usando todas as ocorrências em anagramas distintos há 5!/2!=60; usando símbolos distintos ou comprimentos variáveis surgem outros problemas. Não justificar antes de esclarecer.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11535,
+    "motivo": "Recorrência a_n=2a_(n−1)+3a_(n−2) fornece a3=31 e a4=86, não 46. Cadastro Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11499,
+    "motivo": "Condições impossíveis: A<C e B<D implicam A+B<C+D, contrariando igualdade. Não existe quádrupla nem soma válida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11498,
+    "motivo": "Faltam intervalos e regra de passagem entre as quatro categorias. Ultrapassar 10% do máximo não determina inequivocamente categoria Alta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11497,
+    "motivo": "Quarto termo não é único. Sequências 7,9,11,13,18,31 e 7,9,12,15,18,31 têm incrementos primos e mesmos extremos, mas quartos termos 13 e 15.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11496,
+    "motivo": "Não informa se o servidor inicialmente no nível 3 será promovido. Se permanecer, haverá dois no nível 3; se promovido, haverá um. Elegibilidade não implica promoção obrigatória.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

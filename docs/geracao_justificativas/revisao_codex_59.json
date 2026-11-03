@@ -1,0 +1,74 @@
+[
+  {
+    "id": 4475,
+    "motivo": "Gabarito Errado requer revisão: o processo de enfermagem ocorre em todo contexto de cuidado, e a continuidade nas fases do trauma não é por si incorreta. Não foi identificado fundamento para negar a afirmação ampla. Conferir referencial original. https://www.cofen.gov.br/resolucao-cofen-no-736-de-17-de-janeiro-de-2024/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4385,
+    "motivo": "Enunciado contém reticências indicando trecho omitido. A associação entre proteínas como fibrinogênio e sedimentação é confirmada, mas não completar a questão truncada sem original. https://pubmed.ncbi.nlm.nih.gov/10690265/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4184,
+    "motivo": "Texto 16A5 e distribuição de frequências ausentes. Não deduzir total de crianças ou frequências a partir das alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3895,
+    "motivo": "Gabarito fulguração incompatível com distinção médico-legal entre danos letais por raio (fulminação) e não letais (fulguração). Caso declara morte. Fonte universitária: https://files.cercomp.ufg.br/weby/up/703/o/Apostila_Traumatologia_Forense_-_LAMELP.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3887,
+    "motivo": "Alternativa marcada afirma fixação do eritema após morte, suspeita de erro médico-legal; as alternativas misturam classificações de profundidade e lesões incisas. Necessária conferência do original e classificação adotada antes de escolher outra alternativa. Não aplicada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3854,
+    "motivo": "Item I usa descargas elétricas ou raios sem restringir eletricidade natural; a distinção usual reserva fulminação ao dano letal atmosférico. Conferir redação original para evitar estender termo à eletricidade industrial. Fonte: https://files.cercomp.ufg.br/weby/up/703/o/Apostila_Traumatologia_Forense_-_LAMELP.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3840,
+    "motivo": "Comando da questão ausente: texto é apenas reprodução das alternativas. Além disso, mordeduras humanas admitem classificação cortocontundente em referências, gerando possível concorrência com a alternativa A. Recuperar original e conferir alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3799,
+    "motivo": "Texto 6A1-III ausente; faltam campo elétrico ou tensão e distância para calcular a aceleração.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3798,
+    "motivo": "Gráficos das alternativas A–E ausentes e texto-base incompleto. Não associar a curva esperada a uma letra sem ver os gráficos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3797,
+    "motivo": "Gabarito incompatível com cálculo independente: R=5000²/(2×3,72)=3,3602×10^6 m; M=gR²/G≈6,3001×10^23 kg. Resultado na faixa de 6 a 8×10^23, não 4 a 6×10^23 marcada. Relações: https://openstax.org/books/university-physics-volume-1/pages/13-key-equations",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3592,
+    "motivo": "Figura anunciada ausente. Embora o texto sugira colisão perfeitamente inelástica, registrar para recuperação do esquema conforme regra de não preencher itens com imagem ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3575,
+    "motivo": "Texto 1A18-I ausente: não é possível julgar a inferência textual sem o texto de referência.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

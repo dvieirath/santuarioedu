@@ -28,35 +28,42 @@ def perfil(request):
         perfil = Perfil.objects.create(usuario=request.user)
 
     if request.method == 'POST':
-        # Atualizar informações básicas do usuário
-        request.user.first_name = request.POST.get('first_name', request.user.first_name)
-        request.user.last_name = request.POST.get('last_name', request.user.last_name)
-        request.user.email = request.POST.get('email', request.user.email)
-        request.user.save()
+        from ..forms import PerfilForm
+        from django.contrib.auth.forms import PasswordChangeForm
+        from django.contrib.auth import update_session_auth_hash
+        from django.db import transaction
 
-        # Atualizar informações do perfil
-        perfil.telefone = request.POST.get('telefone', perfil.telefone)
-        perfil.bio = request.POST.get('bio', perfil.bio)
-        
-        # Atualizar foto
-        if 'foto' in request.FILES:
-            perfil.foto = request.FILES['foto']
-            
-        perfil.save()
-        
-        # Atualizar senha
-        senha = request.POST.get('senha')
-        confirmacao_senha = request.POST.get('confirmacao_senha')
-        if senha:
-            if senha == confirmacao_senha:
-                request.user.set_password(senha)
-                request.user.save()
-                from django.contrib.auth import update_session_auth_hash
+        # E-mail changes must go through allauth and ownership verification.
+        email = request.POST.get('email', request.user.email).strip()
+        if email != request.user.email:
+            messages.error(request, 'Use Gerenciar e-mail para confirmar o novo endereço.')
+            return redirect('perfil')
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        password_form = None
+        if request.POST.get('senha'):
+            password_form = PasswordChangeForm(request.user, {
+                'old_password': request.POST.get('senha_atual', ''),
+                'new_password1': request.POST.get('senha', ''),
+                'new_password2': request.POST.get('confirmacao_senha', ''),
+            })
+        valid = form.is_valid()
+        if password_form is not None:
+            valid = password_form.is_valid() and valid
+        if not valid:
+            for current_form in (form, password_form):
+                if current_form is not None:
+                    for errors in current_form.errors.values():
+                        for error in errors:
+                            messages.error(request, error)
+            return redirect('perfil')
+        with transaction.atomic():
+            request.user.first_name = form.cleaned_data['first_name']
+            request.user.last_name = form.cleaned_data['last_name']
+            request.user.save(update_fields=['first_name', 'last_name'])
+            form.save()
+            if password_form is not None:
+                password_form.save()
                 update_session_auth_hash(request, request.user)
-            else:
-                messages.error(request, 'As senhas não coincidem. Tente novamente.')
-                return redirect('perfil')
-
         messages.success(request, 'Perfil atualizado com sucesso!')
         return redirect('perfil')
 

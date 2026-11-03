@@ -1,0 +1,497 @@
+[
+  {
+    "id": 6145,
+    "texto": "No início do terceiro dia, a oferta era superior à demanda.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32092,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32093,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 541,
+    "texto": "No segundo período do segundo parágrafo do texto CG1A1, o vocábulo “exíguo” está empregado com o mesmo sentido de",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18485,
+        "texto": "difícil.",
+        "correta": false
+      },
+      {
+        "id": 18486,
+        "texto": "áureo.",
+        "correta": false
+      },
+      {
+        "id": 18487,
+        "texto": "derradeiro.",
+        "correta": false
+      },
+      {
+        "id": 18488,
+        "texto": "excelente.",
+        "correta": false
+      },
+      {
+        "id": 18489,
+        "texto": "curto.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 540,
+    "texto": "A respeito do emprego do sinal indicativo de crase no texto CG1A1, julgue os itens que se seguem.\nI No trecho “remontando à época da Inconfidência Mineira” (quarto período do primeiro parágrafo), o emprego do acento grave no vocábulo “à” justifica-se pela regência do verbo remontar e pelo caráter definido do termo feminino “época”.\nII É facultativo o emprego do acento grave no vocábulo “a” em “a mim” (primeiro período do segundo parágrafo).\nIII É obrigatório o uso do acento grave no vocábulo “à” em “à tarde” (último período do quarto parágrafo).",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18480,
+        "texto": "Nenhum item está certo.",
+        "correta": false
+      },
+      {
+        "id": 18481,
+        "texto": "Apenas os itens I e II estão certos.",
+        "correta": false
+      },
+      {
+        "id": 18482,
+        "texto": "Apenas os itens I e III estão certos.",
+        "correta": true
+      },
+      {
+        "id": 18483,
+        "texto": "Apenas os itens II e III estão certos.",
+        "correta": false
+      },
+      {
+        "id": 18484,
+        "texto": "Todos os itens estão certos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 539,
+    "texto": "Acerca de aspectos relativos a formas verbais empregadas no texto CG1A1, julgue os itens a seguir.\nI No primeiro parágrafo, as formas verbais “surgiu” (terceiro período) e “viera” (quinto período) estão flexionadas nos mesmos tempo e modo verbais, designando ações já concluídas.\nII A forma verbal “aparecera” (último período do primeiro parágrafo) estabelece concordância com o termo “alguém”.\nIII No trecho “No mundo existem algumas cidades artificiais” (início do último parágrafo), a substituição de “existem” por há manteria o sentido e a correção gramatical do texto.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18475,
+        "texto": "Apenas o item I está certo.",
+        "correta": false
+      },
+      {
+        "id": 18476,
+        "texto": "Apenas o item III está certo.",
+        "correta": false
+      },
+      {
+        "id": 18477,
+        "texto": "Apenas os itens I e II estão certos.",
+        "correta": false
+      },
+      {
+        "id": 18478,
+        "texto": "Apenas os itens II e III estão certos.",
+        "correta": true
+      },
+      {
+        "id": 18479,
+        "texto": "Todos os itens estão certos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 538,
+    "texto": "O quarto e o quinto parágrafos do texto CG1A1 desenvolvem-se com base em sequências tipológicas predominantemente",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18470,
+        "texto": "narrativas.",
+        "correta": false
+      },
+      {
+        "id": 18471,
+        "texto": "descritivas.",
+        "correta": true
+      },
+      {
+        "id": 18472,
+        "texto": "expositivas.",
+        "correta": false
+      },
+      {
+        "id": 18473,
+        "texto": "injuntivas.",
+        "correta": false
+      },
+      {
+        "id": 18474,
+        "texto": "argumentativas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 537,
+    "texto": "O sentido original e a correção gramatical do trecho “A construção de todas elas arrastou-se por anos, e algumas, apesar do tempo passado, ainda não estão de todo concluídas” (segundo período do último parágrafo do texto CG1A1) seriam preservados caso",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18465,
+        "texto": "a expressão “apesar do” fosse substituída por mesmo que o.",
+        "correta": false
+      },
+      {
+        "id": 18466,
+        "texto": "a forma verbal “arrastou” fosse flexionada no plural — arrastaram.",
+        "correta": false
+      },
+      {
+        "id": 18467,
+        "texto": "a ênclise do pronome “se” fosse alterada para sua próclise — se arrastou.",
+        "correta": true
+      },
+      {
+        "id": 18468,
+        "texto": "a palavra dela fosse incluída imediatamente após “algumas”.",
+        "correta": false
+      },
+      {
+        "id": 18469,
+        "texto": "o vocábulo “concluídas” fosse substituído por concluído.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 536,
+    "texto": "No segundo período do quarto parágrafo do texto CG1A1, o sinal de ponto e vírgula, em todas as suas ocorrências,",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18460,
+        "texto": "marca subordinação entre orações, a fim de estabelecer uma comparação entre suas ideias.",
+        "correta": false
+      },
+      {
+        "id": 18461,
+        "texto": "separa trechos coordenados nos quais há subdivisão por vírgula.",
+        "correta": true
+      },
+      {
+        "id": 18462,
+        "texto": "organiza elementos em uma gradação.",
+        "correta": false
+      },
+      {
+        "id": 18463,
+        "texto": "tem o mesmo papel do ponto final, porém se diferencia dele por sinalizar pausas mais acentuadas.",
+        "correta": false
+      },
+      {
+        "id": 18464,
+        "texto": "contribui para a coesão textual ao formar pequenos trechos com os elementos que compõem um sujeito composto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 535,
+    "texto": "No primeiro parágrafo do texto CG1A1, a forma pronominal empregada em “convertê-la” (último período) retoma:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18455,
+        "texto": "“República” (quinto período).",
+        "correta": false
+      },
+      {
+        "id": 18456,
+        "texto": "“A resposta” (segundo período).",
+        "correta": false
+      },
+      {
+        "id": 18457,
+        "texto": "“A ideia da interiorização da capital do país” (quarto período).",
+        "correta": true
+      },
+      {
+        "id": 18458,
+        "texto": "“prolongada hibernação” (último período).",
+        "correta": false
+      },
+      {
+        "id": 18459,
+        "texto": "“vida” (último período).",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 533,
+    "texto": "Assinale a opção que apresenta uma proposta de reescrita que é gramaticalmente correta e preserva o sentido do seguinte trecho do texto CG1A1: “sobre o acúmulo das maravilhas criadas pelo gênio humano” (último período do quarto parágrafo).",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18445,
+        "texto": "acima do acúmulo das maravilhas criadas pelo gênio humano",
+        "correta": true
+      },
+      {
+        "id": 18446,
+        "texto": "com relação ao acúmulo das maravilhas criadas pelo gênio humano",
+        "correta": false
+      },
+      {
+        "id": 18447,
+        "texto": "encima do acúmulo das maravilhas criadas pelo gênio humano",
+        "correta": false
+      },
+      {
+        "id": 18448,
+        "texto": "quanto o acúmulo das maravilhas criadas pelo gênio humano",
+        "correta": false
+      },
+      {
+        "id": 18449,
+        "texto": "acerca do acúmulo das maravilhas criadas pelo gênio humano",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 532,
+    "texto": "No primeiro parágrafo do texto CG1A1, o segmento “Como todas as grandes iniciativas” (terceiro período) expressa uma",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18440,
+        "texto": "consequência.",
+        "correta": false
+      },
+      {
+        "id": 18441,
+        "texto": "causa.",
+        "correta": false
+      },
+      {
+        "id": 18442,
+        "texto": "condição.",
+        "correta": false
+      },
+      {
+        "id": 18443,
+        "texto": "comparação.",
+        "correta": true
+      },
+      {
+        "id": 18444,
+        "texto": "circunstância de proporcionalidade.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2344,
+    "texto": "Concerning the previous text [Sovereign AI], judge the following items. According to the text, data security is the greatest concern of the nations that are interested in promoting their own AI sovereignty.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22470,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22471,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2178,
+    "texto": "Concerning the previous text, judge the following items. According to the text, data security is the greatest concern of the nations that are interested in promoting their own AI sovereignty.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22138,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22139,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1978,
+    "texto": "No que se refere à avaliação no ensino e na aprendizagem da língua inglesa na educação básica e aos demais aspectos relacionados a esse tema, julgue o item à luz da BNCC: Para a BNCC, a língua inglesa considerada é a do falante estrangeiro, que serve de modelo para a aprendizagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21738,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21739,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1977,
+    "texto": "Considerando os eixos organizadores propostos pela BNCC para a área de linguagens (língua inglesa), julgue o item: O caráter formativo no ensino de inglês prescinde da necessidade de questionar, por exemplo, relações entre língua, território e cultura.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21736,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21737,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1078,
+    "texto": "Analisar e compreender as intenções que compõem discursos produzidos em língua inglesa é uma habilidade relacionada à formação linguística e cidadã dos estudantes do ensino médio.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19925,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19926,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1077,
+    "texto": "Devido ao seu potencial de abertura para outras culturas do mundo, as produções textuais em língua inglesa na sala de aula devem tratar de costumes de países onde a língua inglesa é oficial, como os Estados Unidos da América.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19923,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19924,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1076,
+    "texto": "Com relação às competências e habilidades apresentadas no Currículo de Pernambuco para o componente curricular língua inglesa e para a área de linguagens e suas tecnologias, julgue os itens que se seguem. O ensino de língua inglesa na educação básica deve proporcionar um ambiente de imersão no idioma estrangeiro, sem nenhuma referência à língua materna dos estudantes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19921,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19922,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1075,
+    "texto": "Tendo como referência o assunto do texto precedente e o que orienta o Currículo de Pernambuco em relação aos processos avaliativos em língua inglesa nos ensinos fundamental e médio, julgue os itens a seguir. A aplicação de testes escritos para a averiguação do domínio das estruturas gramaticais da língua inglesa é suficiente para atender todos os aspectos avaliativos preconizados pelo Currículo de Pernambuco para o ensino desse idioma.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19919,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19920,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1064,
+    "texto": "Judge the following items according to the text above: According to the [Texto interrompido]",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19897,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19898,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1063,
+    "texto": "Judge the following items according to the text above: The British Empire maintains the same dominance around the globe as it did before, the spread of the English language being a consequence of such a situation.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19895,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19896,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

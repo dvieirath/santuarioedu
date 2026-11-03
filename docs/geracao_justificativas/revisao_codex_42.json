@@ -1,0 +1,80 @@
+[
+  {
+    "id": 9626,
+    "motivo": "A formulação “independentemente de sua posição” apresenta a regra como irrestrita, sem contemplar casos de concordância com sujeito composto posposto. Delimitar a regra geral ou o tipo de sujeito para evitar conflito com construções de atração admitidas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9628,
+    "motivo": "A restrição a interrogativas é falsa: “Chegaram os convidados” é declarativa com inversão sujeito-verbo correta. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9631,
+    "motivo": "Mistura anáfora como retomada coesiva e como repetição retórica, além de propor corrigir figuras sem indicar erro. A definição marcada corresponde a um uso retórico, mas o comando fala em recursos de coesão sem delimitar acepção. Revisar terminologia e exemplos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9633,
+    "motivo": "Não fornece os segmentos repetidos nem critério que torne a anáfora o recurso único ou mais adequado para continuidade do esforço coletivo. A expressão isolada “para que” não demonstra anáfora. Rever recorte e alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9634,
+    "motivo": "Os argumentos enumerados podem se articular por adição, não necessariamente por causa e consequência entre si. Conectivos tampouco garantem sozinhos coerência. A alternativa marcada é excessivamente restritiva para o comando.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9635,
+    "motivo": "“Vou à escola” está correto, mas “apenas” exclui indevidamente outros casos, como crase com demonstrativos em “Refiro-me àquilo”. A regra geral formulada é insuficiente e o gabarito Certo precisa de revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9636,
+    "motivo": "O exemplo anteposto está correto, mas a regra absoluta ignora concordância por atração com sujeito composto posposto, como “Chegou o diretor e o coordenador”. A ordem pode importar. Gabarito Certo endossa generalização indevida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9637,
+    "motivo": "A vírgula antes de “mas” já marca a separação entre orações; o período pode terminar normalmente em ponto final. Substituir o encerramento por vírgula não é exigência do contraste. Gabarito Certo incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9638,
+    "motivo": "Nos exemplos, a palavra seguinte a “qual” ou “que” é “é”, forma verbal, não pronome relativo. A regra de intercambialidade não é sustentada e os enunciados podem perguntar por identificação ou definição distintas. Gabarito Certo incompatível com a justificativa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9639,
+    "motivo": "O texto chama de linguagem neutra a substituição de “as estudantes” por “os estudantes”, trocando feminino por masculino sem neutralização demonstrada. Embora a proposição contradiga o caráter obrigatório descrito, o material de apoio tem premissa conceitual inadequada que requer revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9641,
+    "motivo": "25% de 30 é 7,5, quantidade inviável de questões inteiras. Sem regra de arredondamento ou distribuição de restos, nem 7 nem 8 é resposta determinada. Gabarito não justificado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9642,
+    "motivo": "O texto cita aprendizado profundo, mas não especifica arquitetura recorrente ou modelagem probabilística. Não se pode deduzir a técnica exata indicada no gabarito a partir da descrição genérica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9643,
+    "motivo": "Urgência e ênfase podem ser produzidas tanto por repetição anafórica quanto por hipérbole. Não há exemplo nem menção à repetição inicial que selecione unicamente anáfora.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

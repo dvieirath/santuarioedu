@@ -1,0 +1,86 @@
+[
+  {
+    "id": 8951,
+    "motivo": "“Sem dúvida” pode ser interpretado como locução adverbial curta integrada ou comentário modal intercalado; neste último caso, as duas vírgulas delimitam a intercalação. O comando mistura obrigatoriedade na frase já pontuada e uma regra indefinida de “elementos de ênfase”. Delimitar a análise antes de justificar o Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8950,
+    "motivo": "Remete a texto acima não fornecido e não apresenta a ocorrência exata de mérito. Mérito normalmente designa merecimento ou qualidade que justifica reconhecimento, não necessariamente o próprio ato de reconhecer; verificar o contexto antes de validar a equivalência.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8948,
+    "motivo": "Não fornece a frase contratual. “Analisar” aparece no infinitivo; não há forma no presente do indicativo para avaliar. Uso literal, ausência de ambiguidade e adequação de tempo verbal são questões independentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8946,
+    "motivo": "Falta comando ou pergunta após o texto. A condição de manter estrutura gramatical inalterada, acrescentada na opção D, não decorre do texto. Não há como selecionar resposta única para uma pergunta ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8944,
+    "motivo": "Referência normativa falsa: Decreto 12.345 é de 30/12/2024 e altera regras de armas de fogo, não institui programa de avaliação linguística. A opção D tampouco decorre da distribuição narrada. Fonte: https://planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/d12345.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8943,
+    "motivo": "Há somente texto expositivo sobre comunicado não identificado, sem afirmação destacada ou comando que determine o que julgar. Não preencher Certo como validação de fatos e metas não documentados.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8941,
+    "motivo": "Há exprime tempo decorrido em construções como há dois anos; aí não o substitui nesse uso. Pode funcionar como advérbio de lugar ou marcador de sequência narrativa, o que não autoriza a alternância afirmada. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8939,
+    "motivo": "Idade avançada, sozinha, não cria regra gramatical obrigatória de substituir você por senhor/senhora. Escolha depende da situação comunicativa, relação social e convenções do gênero. Certo transforma uma possibilidade de cortesia em obrigação geral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8906,
+    "motivo": "Os dados não segmentam grupos socioeconômicos nem medem redução de diferenças de desempenho. A opção B atribui ao relatório uma conclusão ausente; autorrelatos sobre compreensão não demonstram o efeito causal afirmado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8905,
+    "motivo": "A Lei 9.610/1998 não estabelece autorização geral para reproduzir até 30% de obra em atividade didática. Art. 46, III, exige extensão justificada pelo objetivo de estudo/crítica e indicação de autor e origem; outras hipóteses também não criam os percentuais das alternativas. Nenhuma opção fornece regra correta. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l9610.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8904,
+    "motivo": "Não há comando explícito e a norma/decreto não está identificada. A promoção de acessibilidade pode ser materialmente compatível com a Constituição, mas não basta para julgar toda a norma sem competências e procedimento; as opções A e E não são necessariamente excludentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8903,
+    "motivo": "Não se identifica jurisdição, e comentários críticos e ausência de lucro não constituem isenção automática. No Brasil, art. 46, III e VIII, da Lei 9.610/1998 exige condições adicionais; trechos extensos precisam de análise da extensão justificada e dos efeitos do uso. O gabarito B importa um critério transformativo sem base suficiente. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l9610.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8902,
+    "motivo": "Na ortografia vigente, a forma verbal para perdeu o acento diferencial. A afirmação só seria aceitável com recorte histórico explícito, ausente no comando. Fonte: Acordo Ortográfico, Decreto 6.583/2008, Base IX, e manual do Ministério da Saúde https://bvsms.saude.gov.br/bvs/publicacoes/manual_redacao_estilo_editorams_3ed.pdf .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8900,
+    "motivo": "Não existe a regra geral enunciada de concordância por proximidade em “coordenação expletiva”. O texto mistura coordenação, subordinação e concordância sem exemplo. Gabarito Certo não sustentado; requer reformulação conceitual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

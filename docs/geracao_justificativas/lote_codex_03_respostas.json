@@ -1,0 +1,58 @@
+[
+  {
+    "id": 12447,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nPela lei de De Morgan, ¬(p ∧ q) equivale a ¬p ∨ ¬q. Basta que uma das proposições seja falsa para que a conjunção seja falsa. Por exemplo, com p verdadeira e q falsa, ¬(p ∧ q) é verdadeira, mas ¬p ∧ ¬q é falsa.\n\n## ⚠️ O erro típico\nNegar cada componente e manter o conectivo “e” cria uma condição mais restritiva que a negação original.\n\n## 🧠 Conceito-chave\nA negação da conjunção troca “e” por “ou” e nega as duas parcelas. O “ou” utilizado é inclusivo: uma ou ambas podem ser verdadeiras.\n\n## 📚 Onde aprofundar\nEstude leis de De Morgan e tabelas-verdade de conjunção, disjunção e negação.\n\n## 💡 Padrão a memorizar\nNegar “ambas verdadeiras” significa “pelo menos uma falsa”."
+  },
+  {
+    "id": 12446,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nCada um dos cinco elementos tem duas possibilidades independentes na formação de um subconjunto: pertencer ou não pertencer. Pelo princípio multiplicativo, há 2 × 2 × 2 × 2 × 2 = 32 subconjuntos.\n\n## ⚠️ O erro típico\nEsquecer o conjunto vazio ou o próprio conjunto A reduz indevidamente a contagem. Ambos são subconjuntos válidos.\n\n## 🧠 Conceito-chave\nO conjunto das partes de um conjunto finito com n elementos tem cardinalidade 2^n. Não se está contando a ordem dos elementos.\n\n## 📚 Onde aprofundar\nEstude conjunto das partes e princípio fundamental da contagem.\n\n## 💡 Padrão a memorizar\nn elementos distintos geram 2^n subconjuntos, incluindo o vazio e o conjunto inteiro."
+  },
+  {
+    "id": 12445,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nPor definição, um número inteiro par pode ser escrito como 2k, com k inteiro. Dividi-lo por 2 fornece (2k)/2 = k, que é inteiro. O argumento também vale para zero e números pares negativos.\n\n## ⚠️ O erro típico\nConfundir inteiro com positivo. A definição de paridade não exige que o número seja positivo.\n\n## 🧠 Conceito-chave\nSer par significa ser um múltiplo inteiro de 2, ou seja, apresentar resto zero na divisão por 2.\n\n## 📚 Onde aprofundar\nEstude divisibilidade nos inteiros e a definição algébrica de números pares.\n\n## 💡 Padrão a memorizar\nNúmero par = 2k; ao dividir por 2, resta o inteiro k."
+  },
+  {
+    "id": 12407,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nUsando a equivalência P → Q ≡ ¬P ∨ Q, o lado esquerdo fica ¬P ∨ (Q ∧ R). Pela distributividade, isso equivale a (¬P ∨ Q) ∧ (¬P ∨ R), exatamente (P → Q) ∧ (P → R).\n\n## ⚠️ O erro típico\nDistribuir a condicional sem conferir a posição dos conectivos pode produzir equivalências falsas. Aqui, a conjunção está no consequente.\n\n## 🧠 Conceito-chave\nUma condicional com consequente conjuntivo exige as duas conclusões quando o antecedente é verdadeiro. Se P é falso, as duas expressões são verdadeiras.\n\n## 📚 Onde aprofundar\nEstude equivalência da condicional e distributividade da disjunção sobre a conjunção.\n\n## 💡 Padrão a memorizar\nP implica Q e R equivale a: P implica Q, e P implica R."
+  },
+  {
+    "id": 12200,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAs somas são diferentes: A tem 1 + 4 + 7 = 12; B tem 2 + 5 + 8 = 15; C tem 3 + 6 + 9 = 18. Portanto, a distribuição igual da quantidade de cartas não produz somas iguais.\n\n## ⚠️ O erro típico\nConfundir ter três cartas com ter a mesma soma. Quantidade de elementos e soma dos valores são grandezas diferentes.\n\n## 🧠 Conceito-chave\nA soma total é 45. Para somas iguais entre três jogadores, cada um precisaria ter 15, o que não ocorre com A e C.\n\n## 📚 Onde aprofundar\nEstude soma de números inteiros e comparação entre cardinalidade e soma dos elementos.\n\n## 💡 Padrão a memorizar\nMesmo número de parcelas não significa mesmo resultado da soma."
+  },
+  {
+    "id": 12171,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nEm um embaralhamento uniforme, qualquer carta tem a mesma chance de ocupar qualquer uma das cinco posições. Assim, P(carta 3 na posição 3) = 1/5 e P(carta 5 na posição 5) = 1/5. Não há superioridade.\n\n## ⚠️ O erro típico\nAtribuir maior chance a uma carta por seu número. Os rótulos identificam as cartas, mas não alteram a distribuição uniforme das posições.\n\n## 🧠 Conceito-chave\nHá 5! permutações equiprováveis e 4! delas colocam uma carta fixada em uma posição fixada. A razão é 4!/5! = 1/5.\n\n## 📚 Onde aprofundar\nEstude permutações simples e probabilidade em espaços amostrais equiprováveis.\n\n## 💡 Padrão a memorizar\nEm n posições equiprováveis, uma carta fixada ocupa uma posição fixada com probabilidade 1/n."
+  },
+  {
+    "id": 12170,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA negação troca o valor lógico: se p é verdadeira, ¬p é falsa. Além disso, a conjunção só é verdadeira quando ambas as parcelas são verdadeiras; portanto, F ∧ F = F. As duas afirmações do item estão corretas.\n\n## ⚠️ O erro típico\nConfundir conjunção com outros conectivos. O fato de duas parcelas terem o mesmo valor falso não torna sua conjunção verdadeira.\n\n## 🧠 Conceito-chave\nNa lógica proposicional clássica, cada proposição recebe V ou F; os conectivos determinam o valor de expressões compostas por tabelas-verdade.\n\n## 📚 Onde aprofundar\nEstude as tabelas-verdade da negação e da conjunção na lógica clássica.\n\n## 💡 Padrão a memorizar\nNegação inverte V e F; “e” exige duas parcelas verdadeiras."
+  },
+  {
+    "id": 12172,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNa lógica proposicional, uma tautologia é verdadeira em todas as atribuições de valores às proposições atômicas. A forma p → q é falsa quando p é verdadeira e q é falsa. A relação entre terça-feira e quarta-feira decorre do significado dos dias, não torna essa forma uma tautologia.\n\n## ⚠️ O erro típico\nConfundir uma afirmação garantida por uma convenção do calendário com uma verdade decorrente apenas da forma lógica.\n\n## 🧠 Conceito-chave\nAo testar uma tautologia por tabela-verdade, consideram-se todas as valorações formais das proposições atômicas, sem acrescentar vínculos semânticos externos.\n\n## 📚 Onde aprofundar\nEstude tautologia, contingência e tabela-verdade da implicação material.\n\n## 💡 Padrão a memorizar\nVerdade pelo significado não basta: tautologia exige V em todas as linhas da tabela."
+  },
+  {
+    "id": 11993,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO enunciado determina um triângulo equilátero de lado 60 km. Logo, a distância entre qualquer par de centros é 60 km, não 30 km. No ponto médio do segmento AB, a distância até A e até B é 60/2 = 30 km, não 15 km.\n\n## ⚠️ O erro típico\nConfundir o raio da região atendida com a distância entre centros ou dividir o segmento ao meio duas vezes.\n\n## 🧠 Conceito-chave\nUm ponto médio divide um segmento em duas partes iguais. Em um triângulo equilátero, os três lados têm a mesma medida.\n\n## 📚 Onde aprofundar\nEstude ponto médio de um segmento e propriedades do triângulo equilátero.\n\n## 💡 Padrão a memorizar\nLado AB = 60 km implica metade = 30 km; distância entre centros continua sendo 60 km."
+  },
+  {
+    "id": 11994,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nEm resistores ligados em série, a corrente I é a mesma. Como R_total = R₁ + R₂ + …, a potência dissipada é P_total = I²R_total = I²R₁ + I²R₂ + …, isto é, a soma das potências individuais.\n\n## ⚠️ O erro típico\nSomar correntes em um único caminho de série ou tratar a potência total como a potência de apenas um resistor.\n\n## 🧠 Conceito-chave\nPara cada resistor, a potência dissipada é P = UI = I²R. Aplicar a mesma corrente a todos permite fatorar I² na soma.\n\n## 📚 Onde aprofundar\nEstude associação de resistores em série, lei de Ohm e potência elétrica em resistores.\n\n## 💡 Padrão a memorizar\nEm série: mesma corrente, resistências somadas e potências dissipadas somadas."
+  },
+  {
+    "id": 3591,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nAs hipóteses estabelecem gravidade constante e resistência do ar desprezível. Assim, durante o voo a aceleração é o vetor gravitacional, com módulo g e direção vertical para baixo constantes. A velocidade muda, mas a aceleração não.\n\n## ⚠️ O erro típico\nPensar que a aceleração desaparece no ponto mais alto. Nesse ponto, apenas a componente vertical da velocidade se anula momentaneamente.\n\n## 🧠 Conceito-chave\nO lançamento oblíquo ideal combina movimento horizontal uniforme com movimento vertical uniformemente acelerado: a_x = 0 e a_y = −g, com eixo vertical orientado para cima.\n\n## 📚 Onde aprofundar\nEstude lançamento oblíquo e decomposição vetorial do movimento sob gravidade constante.\n\n## 💡 Padrão a memorizar\nNo voo ideal, a gravidade atua inclusive no topo: aceleração sempre para baixo."
+  },
+  {
+    "id": 2972,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nPara um material isotrópico, as três dimensões apresentam o mesmo coeficiente linear. Escrevendo V = L_x L_y L_z e derivando em relação à temperatura, obtém-se (1/V)dV/dT = 3(1/L)dL/dT. Portanto, β = 3α.\n\n## ⚠️ O erro típico\nAplicar a relação sem considerar a isotropia ou tomar uma expressão linear aproximada para variações finitas como fórmula exata para qualquer intervalo de temperatura.\n\n## 🧠 Conceito-chave\nOs coeficientes instantâneos são definidos por α = (1/L)dL/dT e β = (1/V)dV/dT. Para pequenas variações, ΔV ≈ 3αV₀ΔT.\n\n## 📚 Onde aprofundar\nEstude dilatação térmica linear e volumétrica, com atenção à isotropia e às aproximações para pequenos intervalos.\n\n## 💡 Padrão a memorizar\nIsotrópico: três direções equivalentes dão β = 3α."
+  },
+  {
+    "id": 12205,
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa C está correta: o bloco contém sete valores distintos, 0xAB, 0xCD, 0xEF, 0x01, 0x23, 0x45 e 0x67. Nenhum se repete dentro do bloco; a próxima ocorrência de 0xAB inicia o ciclo seguinte.\n\n## ⚠️ Armadilhas\nA e B contam menos valores que os sete apresentados. D e E incluem posições adicionais depois de iniciado um novo ciclo. Cada par hexadecimal representa um byte; não se contam os caracteres da escrita.\n\n## 🧠 Conceito-chave\nO período apresentado tem sete posições e, neste caso, sete valores distintos. Período e quantidade de valores distintos podem diferir em outros padrões com repetições internas.\n\n## 🎯 O que esta questão testa\nContagem de elementos distintos em um padrão periódico explicitamente fornecido.\n\n## 📚 Onde aprofundar\nEstude sequências periódicas e a diferença entre posições e valores distintos.\n\n## 💡 Padrão a memorizar\nConte o bloco antes do reinício e verifique se há valores repetidos dentro dele."
+  },
+  {
+    "id": 3661,
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa A está correta: somente III é verdadeiro. No item I, as quantidades diárias começam 12, 9, 9, …, com diferenças −3 e 0, portanto não formam PA. No item II, os totais acumulados têm incrementos de 9 e depois 8, também sem razão constante. No item III, a soma é 12 + 6 × 9 + 13 × 8 = 170.\n\n## ⚠️ Armadilhas\nB aceita I e II, ambos falsos. C aceita I; D aceita II; E aceita os dois. Do segundo ao sétimo dia são seis dias, e do oitavo ao vigésimo são treze dias: os extremos são incluídos.\n\n## 🧠 Conceito-chave\nUma progressão aritmética exige diferença constante entre termos consecutivos em toda a sequência. Em totais acumulados, essa diferença é a quantidade acrescentada a cada dia.\n\n## 🎯 O que esta questão testa\nDistinção entre valores diários e acumulados, identificação de PA e contagem inclusiva de intervalos.\n\n## 📚 Onde aprofundar\nEstude progressões aritméticas, somas por blocos e sequências de totais acumulados.\n\n## 💡 Padrão a memorizar\nPara testar PA, compare diferenças; para somar dias de a até b, conte b − a + 1."
+  }
+]

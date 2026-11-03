@@ -1,0 +1,74 @@
+[
+  {
+    "id": 6146,
+    "motivo": "Falta gráfico ou tabela de oferta e demanda para comparar os valores do primeiro ao quarto dia. Nenhuma imagem cadastrada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6133,
+    "motivo": "Faltam dados ou gráfico do fluxo da usina A ao longo do período. Não se pode localizar o máximo no segundo dia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6131,
+    "motivo": "Faltam gráfico e contexto dos fluxos das usinas A e B; não há base para afirmar exclusividade entre os dias 3 e 6.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6130,
+    "motivo": "Falta o gráfico/tabela que identifica a usina fornecedora no começo do quinto dia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6127,
+    "motivo": "O conjunto S não é definido no enunciado. Não é possível verificar subespaço ou dimensão sem suas equações ou elementos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6126,
+    "motivo": "Não há definição do conjunto de soluções S nem sistema associado. Não se pode decidir se é infinito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6125,
+    "motivo": "Faltam relações/equações que liguem manutenção, revenda e distribuição. Os dois valores fornecidos não determinam o custo de distribuição.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5995,
+    "motivo": "A média é 10 e a soma dos desvios quadráticos é 10. Variância descritiva das cinco cotações é 10/5=2; estimador amostral corrigido seria 10/4=2,5. Gabarito ERRADO depende de convenção amostral não indicada; revisar contexto antes de explicar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4065,
+    "motivo": "As três primeiras colunas da tabela-verdade são mencionadas, mas não estão presentes e não há imagem. A ordem de cima para baixo depende dessas linhas; não presumir a ordem usual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3987,
+    "motivo": "Tabela de P, Q e R mencionada como 'conforme a seguir' está ausente. Sem sua ordem de linhas, não é possível selecionar a sequência vertical exigida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3979,
+    "motivo": "Texto CG1A1-I ausente; a oração citada termina antes da principal. Falta contexto para decidir o valor causal, temporal ou conformativo de 'Como' e preservação das ideias.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3671,
+    "motivo": "P→(Q∨R) tem exatamente uma linha falsa: P=V, Q=F, R=F. Mesmo a associação (P→Q)∨R tem a mesma única linha falsa. Gabarito marca 2, mas resultado é 1.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

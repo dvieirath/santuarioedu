@@ -36,9 +36,10 @@ from django_ratelimit.decorators import ratelimit
 from django.utils import timezone
 from django.db.models import Count, Q, Avg, Sum, F, FloatField
 from django.db.models.functions import TruncDate, TruncWeek, Cast
-from django.db import models
+from django.db import models, transaction
 from datetime import timedelta
 import json
+import math
 from django.contrib.auth.models import User
 from ..models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
                      Categoria, Perfil, Simulado, RespostaSimulado,
@@ -1717,12 +1718,12 @@ from django.views.decorators.cache import cache_control
 from django.http import HttpResponse
 from django.templatetags.static import static as _static_url
 
-@cache_control(max_age=86400)
+@cache_control(no_cache=True, max_age=0, must_revalidate=True)
 def pwa_sw(request):
     """Serve service worker from root so it has full-site scope."""
     import os
     sw_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         'static', 'quiz', 'sw.js'
     )
     try:
@@ -1738,7 +1739,7 @@ def pwa_manifest(request):
     """Serve manifest.json from root."""
     import os, json as _j
     mf_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         'static', 'quiz', 'manifest.json'
     )
     try:
@@ -1845,11 +1846,14 @@ def _heatmap_data(user):
 # ─── 11E — MODO DESAFIO ──────────────────────────────────────────────────────
 
 @login_required(login_url='account_login')
+@ratelimit(key='user', rate='30/m', method='GET', block=True)
+@ratelimit(key='user', rate='120/m', method='POST', block=True)
+@transaction.atomic
 def modo_desafio(request):
     """
     Modo Desafio: 10 questões aleatórias, 30s cada.
-    GET       → configura e exibe a tela de quiz (JS controla o timer)
-    POST      → recebe respostas e exibe resultado
+    GET       → cria a partida e exibe questões sem gabarito
+    POST      → abre/corrige questões e finaliza com relógio do servidor
     """
     if request.method == 'POST':
         # Processa respostas enviadas em JSON pelo JS
@@ -1858,46 +1862,20 @@ def modo_desafio(request):
         except Exception:
             return JsonResponse({'erro': 'JSON inválido'}, status=400)
 
-        respostas_raw = data.get('respostas', [])  # [{questao_id, alternativa_id, tempo_seg}]
-        acertos = 0
-        total   = len(respostas_raw)
-        tempo_total = 0
-
-        for item in respostas_raw:
-            alt_id = item.get('alternativa_id')
-            tempo  = float(item.get('tempo_seg', 0))
-            tempo_total += tempo
-
-            if not alt_id:
-                continue
-
-            try:
-                alt = Alternativa.objects.select_related('questao').get(id=alt_id)
-                acertou = alt.correta
-                if acertou:
-                    acertos += 1
-                RespostaUsuario.objects.create(
-                    usuario=request.user,
-                    questao=alt.questao,
-                    acertou=acertou,
-                )
-            except Alternativa.DoesNotExist:
-                pass
-
-        # Pontuação: acerto em 30s=10pts, bônus de velocidade
-        pontos = 0
-        for item in respostas_raw:
-            alt_id = item.get('alternativa_id')
-            tempo  = float(item.get('tempo_seg', 30))
-            if not alt_id:
-                continue
-            try:
-                alt = Alternativa.objects.get(id=alt_id)
-                if alt.correta:
-                    bonus = max(0, round((30 - tempo) / 30 * 5))
-                    pontos += 10 + bonus
-            except Alternativa.DoesNotExist:
-                pass
+        from ..desafios import processar_acao
+        resposta, tentativa = processar_acao(request.user, data)
+        if resposta is not None:
+            return resposta
+        respostas_raw = tentativa.respostas
+        total = len(respostas_raw)
+        acertos = sum(item['feedback']['acertou'] for item in respostas_raw)
+        pontos = sum(item['feedback']['pontos'] for item in respostas_raw)
+        tempo_total = sum(item['tempo_seg'] for item in respostas_raw)
+        RespostaUsuario.objects.bulk_create([
+            RespostaUsuario(usuario=request.user, questao_id=item['questao_id'],
+                            acertou=item['feedback']['acertou'])
+            for item in respostas_raw
+        ])
 
         tempo_medio = round(tempo_total / total, 1) if total else 0
 
@@ -1959,7 +1937,7 @@ def modo_desafio(request):
         )
         posicao = usuarios_acima + 1
 
-        return JsonResponse({
+        resultado_data = {
             'pontos':       pontos,
             'acertos':      acertos,
             'total':        total,
@@ -1970,7 +1948,11 @@ def modo_desafio(request):
             'posicao':      posicao,
             'top10':        top10_clean,
             'resultado_id': resultado.id,
-        })
+        }
+
+        tentativa.resultado = resultado_data
+        tentativa.save(update_fields=['resultado'])
+        return JsonResponse(resultado_data)
 
     # GET — prepara questões para o quiz JS
     cat_id = request.GET.get('categoria', '')
@@ -1995,20 +1977,13 @@ def modo_desafio(request):
             'mensagem': 'Não há questões suficientes para o Modo Desafio.',
         })
 
-    questoes_data = []
-    for q in questoes:
-        alts = list(q.alternativa_set.all())
-        questoes_data.append({
-            'id': q.id,
-            'texto': q.texto,
-            'tipo': q.tipo,
-            'categoria': q.categoria.nome,
-            'imagem_url': q.imagem.url if q.imagem else None,
-            'alternativas': [
-                {'id': a.id, 'texto': a.texto, 'correta': a.correta}
-                for a in alts
-            ],
-        })
+    from ..models import TentativaDesafio
+    tentativa = TentativaDesafio.objects.create(
+        usuario=request.user, questoes_ids=[q.pk for q in questoes],
+        segundos_por_questao=cfg['seg'],
+    )
+    # Conteúdo só é entregue ao abrir a questão, quando o relógio começa.
+    questoes_data = [{'id': q.pk} for q in questoes]
 
     # Ranking global modo desafio
     from django.db.models import Max as _Max
@@ -2043,7 +2018,8 @@ def modo_desafio(request):
 
     import json as _json
     return render(request, 'quiz/modo_desafio.html', {
-        'questoes_json': _json.dumps(questoes_data, ensure_ascii=False),
+        'questoes_data': questoes_data,
+        'tentativa_id': str(tentativa.pk),
         'total_questoes': len(questoes_data),
         'segundos_por_questao': cfg['seg'],
         'dificuldade':    dificuldade,
@@ -4978,10 +4954,11 @@ def api_duelo_entrar(request):
 
 
 @login_required
+@transaction.atomic
 def duelo_jogar(request, duelo_id):
     """Tela principal do jogo — polling via JS a cada 1s."""
     user  = request.user
-    duelo = get_object_or_404(Duelo, pk=duelo_id)
+    duelo = get_object_or_404(Duelo.objects.select_for_update(), pk=duelo_id)
 
     if duelo.criador != user and duelo.adversario != user:
         messages.error(request, 'Voce nao faz parte deste duelo.')
@@ -5024,27 +5001,26 @@ def duelo_jogar(request, duelo_id):
         'oponente':         oponente,
         'meus_acertos':     meus_acertos,
         'acertos_oponente': acertos_oponente,
-        'tempo_por_q':      duelo.tempo_por_q,
+        'tempo_por_q':      max(0, math.ceil(duelo.segundos_restantes_questao())),
     })
 
 
 @login_required
 @require_POST
 @ratelimit(key='user', rate='60/m', method='POST', block=True)
+@transaction.atomic
 def api_duelo_responder(request, duelo_id):
     """API — registra resposta e avanca questao se ambos responderam."""
     import json as _json
     from django.utils import timezone as _tz
     from django.db import transaction as _tx
 
-    duelo = get_object_or_404(Duelo, pk=duelo_id)
+    duelo = get_object_or_404(Duelo.objects.select_for_update(), pk=duelo_id)
     user  = request.user
 
     if duelo.criador != user and duelo.adversario != user:
         return JsonResponse({'erro': 'Acesso negado'}, status=403)
 
-    if duelo.status != 'em_andamento':
-        return JsonResponse({'erro': 'Duelo nao esta em andamento'}, status=400)
 
     try:
         body     = _json.loads(request.body)
@@ -5055,22 +5031,33 @@ def api_duelo_responder(request, duelo_id):
         return JsonResponse({'erro': 'Payload invalido'}, status=400)
 
     questoes_lista = list(duelo.questoes_lista)
-    if q_index >= len(questoes_lista):
+    if not 0 <= q_index < len(questoes_lista) or tempo_ms < 0:
         return JsonResponse({'erro': 'Indice invalido'}, status=400)
 
     questao = questoes_lista[q_index]
 
-    if RespostaDuelo.objects.filter(duelo=duelo, usuario=user, questao=questao).exists():
-        return JsonResponse({'ok': True, 'duplicado': True})
+    anterior = RespostaDuelo.objects.filter(duelo=duelo, usuario=user, questao=questao).first()
+    correta = questao.alternativa_set.filter(correta=True).first()
+    if anterior:
+        return JsonResponse({'ok': True, 'duplicado': True, 'acertou': anterior.acertou,
+                             'correta_id': correta.pk if correta else None})
 
+    if duelo.status != 'em_andamento':
+        return JsonResponse({'erro': 'Duelo nao esta em andamento'}, status=400)
+
+    if q_index != duelo.questao_atual:
+        return JsonResponse({'erro': 'Questão fora de ordem'}, status=409)
+
+    restante = duelo.segundos_restantes_questao()
+    tempo_ms = round((duelo.tempo_por_q - restante) * 1000)
     acertou     = False
     alternativa = None
     if alt_id:
         try:
             alternativa = questao.alternativa_set.get(pk=alt_id)
-            acertou     = alternativa.correta
-        except Exception:
-            _silencioso("view_bloco_12")
+            acertou     = alternativa.correta and restante > 0
+        except (Alternativa.DoesNotExist, ValueError, TypeError):
+            return JsonResponse({"erro": "Alternativa inválida"}, status=400)
     RespostaDuelo.objects.create(
         duelo=duelo,
         usuario=user,
@@ -5091,6 +5078,7 @@ def api_duelo_responder(request, duelo_id):
             duelo_locked = Duelo.objects.select_for_update().get(pk=duelo.pk)
             if duelo_locked.questao_atual == q_index:
                 duelo_locked.questao_atual += 1
+                duelo_locked.questao_iniciada_em = _tz.now()
                 if duelo_locked.questao_atual >= duelo_locked.n_questoes:
                     pts_c = RespostaDuelo.objects.filter(
                         duelo=duelo, usuario=duelo.criador, acertou=True).count()
@@ -5103,13 +5091,14 @@ def api_duelo_responder(request, duelo_id):
                     duelo_locked.encerrado_em      = _tz.now()
                     duelo_locked.save(update_fields=[
                         'questao_atual', 'pontos_criador', 'pontos_adversario',
-                        'status', 'encerrado_em'])
+                        'status', 'encerrado_em', 'questao_iniciada_em'])
                     encerrou = True
                 else:
-                    duelo_locked.save(update_fields=['questao_atual'])
+                    duelo_locked.save(update_fields=['questao_atual', 'questao_iniciada_em'])
                 proxima_questao = duelo_locked.questao_atual
 
     return JsonResponse({
+        'correta_id': correta.pk if correta else None,
         'ok':              True,
         'acertou':         acertou,
         'proxima_questao': proxima_questao,
@@ -5321,10 +5310,11 @@ def coletivo_sala(request, codigo):
 
 @login_required
 @require_POST
+@transaction.atomic
 def coletivo_iniciar(request, sala_id):
     """Criador inicia o simulado — só ele pode."""
     user = request.user
-    sala = get_object_or_404(SimuladoColetivo, pk=sala_id)
+    sala = get_object_or_404(SimuladoColetivo.objects.select_for_update(), pk=sala_id)
 
     if sala.criador != user:
         return JsonResponse({'erro': 'Apenas o criador pode iniciar'}, status=403)
@@ -5386,26 +5376,25 @@ def coletivo_jogar(request, sala_id):
         'n_responderam': n_responderam,
         'n_total':       n_total,
         'meus_pontos':   meus_pontos,
-        'tempo_por_q':   sala.tempo_por_q,
+        'tempo_por_q':   max(0, math.ceil(sala.segundos_restantes_questao())),
     })
 
 
 @login_required
 @require_POST
 @ratelimit(key='user', rate='60/m', method='POST', block=True)
+@transaction.atomic
 def api_coletivo_responder(request, sala_id):
     """Registra resposta — avanca questao quando todos responderam ou timer expirou."""
     import json as _json
     from django.utils import timezone as _tz
     from django.db import transaction as _tx
 
-    sala = get_object_or_404(SimuladoColetivo, pk=sala_id)
+    sala = get_object_or_404(SimuladoColetivo.objects.select_for_update(), pk=sala_id)
     user = request.user
 
     if not ParticipanteColetivo.objects.filter(simulado=sala, usuario=user).exists():
         return JsonResponse({'erro': 'Acesso negado'}, status=403)
-    if sala.status != 'em_andamento':
-        return JsonResponse({'erro': 'Simulado nao em andamento'}, status=400)
 
     try:
         body     = _json.loads(request.body)
@@ -5416,22 +5405,33 @@ def api_coletivo_responder(request, sala_id):
         return JsonResponse({'erro': 'Payload invalido'}, status=400)
 
     questoes_lista = list(sala.questoes_lista)
-    if q_index >= len(questoes_lista):
+    if not 0 <= q_index < len(questoes_lista) or tempo_ms < 0:
         return JsonResponse({'erro': 'Indice invalido'}, status=400)
 
     questao = questoes_lista[q_index]
 
-    if RespostaColetivo.objects.filter(simulado=sala, usuario=user, questao=questao).exists():
-        return JsonResponse({'ok': True, 'duplicado': True})
+    anterior = RespostaColetivo.objects.filter(simulado=sala, usuario=user, questao=questao).first()
+    correta = questao.alternativa_set.filter(correta=True).first()
+    if anterior:
+        return JsonResponse({'ok': True, 'duplicado': True, 'acertou': anterior.acertou,
+                             'correta_id': correta.pk if correta else None})
 
+    if sala.status != 'em_andamento':
+        return JsonResponse({'erro': 'Simulado nao em andamento'}, status=400)
+
+    if q_index != sala.questao_atual:
+        return JsonResponse({'erro': 'Questão fora de ordem'}, status=409)
+
+    restante = sala.segundos_restantes_questao()
+    tempo_ms = round((sala.tempo_por_q - restante) * 1000)
     acertou     = False
     alternativa = None
     if alt_id:
         try:
             alternativa = questao.alternativa_set.get(pk=alt_id)
-            acertou     = alternativa.correta
-        except Exception:
-            _silencioso("view_bloco_13")
+            acertou     = alternativa.correta and restante > 0
+        except (Alternativa.DoesNotExist, ValueError, TypeError):
+            return JsonResponse({"erro": "Alternativa inválida"}, status=400)
     RespostaColetivo.objects.create(
         simulado=sala,
         usuario=user,
@@ -5458,16 +5458,18 @@ def api_coletivo_responder(request, sala_id):
             sala_lock = SimuladoColetivo.objects.select_for_update().get(pk=sala.pk)
             if sala_lock.questao_atual == q_index:
                 sala_lock.questao_atual += 1
+                sala_lock.questao_iniciada_em = _tz.now()
                 if sala_lock.questao_atual >= sala_lock.n_questoes:
                     sala_lock.status       = 'finalizado'
                     sala_lock.encerrado_em = _tz.now()
-                    sala_lock.save(update_fields=['questao_atual', 'status', 'encerrado_em'])
+                    sala_lock.save(update_fields=['questao_atual', 'status', 'encerrado_em', 'questao_iniciada_em'])
                     encerrou = True
                 else:
-                    sala_lock.save(update_fields=['questao_atual'])
+                    sala_lock.save(update_fields=['questao_atual', 'questao_iniciada_em'])
                 proxima = sala_lock.questao_atual
 
     return JsonResponse({
+        'correta_id': correta.pk if correta else None,
         'ok':      True,
         'acertou': acertou,
         'proxima': proxima,

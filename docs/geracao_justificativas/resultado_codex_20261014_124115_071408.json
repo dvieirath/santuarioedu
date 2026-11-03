@@ -1,0 +1,23 @@
+{
+  "salvas": 10,
+  "ids_salvos": [
+    8896,
+    8895,
+    8893,
+    8734,
+    8733,
+    8732,
+    8731,
+    8729,
+    8726,
+    8724
+  ],
+  "ignoradas": [],
+  "pendentes": 11001,
+  "entradas": [
+    "lote_codex_46_entrada.json"
+  ],
+  "respostas": "lote_codex_46_respostas.json",
+  "backup": "C:\\Users\\USER\\Downloads\\projeto_prf\\backups\\antes_lote_codex_20261014_124115_071408.sqlite3",
+  "origem": "Redação direta pelo Codex; sem Groq/Gemini"
+}

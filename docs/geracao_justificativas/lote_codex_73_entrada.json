@@ -1,0 +1,1082 @@
+[
+  {
+    "id": 144,
+    "texto": "I - Na exploração de atividade rural em regime de economia familiar, é possível a utilização, pelo próprio grupo familiar, de processo de beneficiamento ou industrialização artesanal que não esteja sujeito à incidência do imposto sobre produtos industrializados (IPI), sem se descaracterizar a condição de segurado especial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17032,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17033,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "texto": "IV - O grupo familiar poderá utilizar-se de empregados contratados por prazo determinado à razão de, no máximo, cem pessoas por dia no ano civil, em períodos corridos ou intercalados, sem, todavia, poder utilizar-se de tempo equivalente em horas de trabalho.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17038,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17039,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "texto": "V - Desde 1.º de janeiro de 2023, por exigência legal, a comprovação da condição e do exercício da atividade rural do segurado especial deve ocorrer, exclusivamente, pelas informações constantes do cadastro dos segurados especiais no Cadastro Nacional de Informações Sociais (CNIS).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17040,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17041,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "texto": "Entre um grupo de pessoas legalmente classificadas como idosas, não há que se falar em necessidade de prioridade em razão da idade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17131,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17132,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 183,
+    "texto": "Desde que não excedam o limite normativo, é legítima a execução de honorários advocatícios de sucumbência por requisição de pequeno valor, mesmo que o crédito do valor principal tenha de ser recebido por meio do regime dos precatórios.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17137,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17138,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 184,
+    "texto": "No caso de rejeição de impugnação ao cumprimento de sentença contra a fazenda pública, deve ser fixada nova verba honorária de sucumbência em favor do exequente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17139,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17140,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "texto": "Para a obtenção do benefício da gratuidade de justiça, o cidadão estrangeiro, além de provar sua hipossuficiência econômica, deve comprovar residência no território brasileiro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17141,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17142,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "texto": "Conforme lei processual, a reconvenção pode ser proposta pelo réu em litisconsórcio com terceiro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17145,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17146,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "texto": "Quando o autor da ação cível for pessoa natural, a intimação para a audiência de conciliação deverá ser feita pessoalmente, sendo, nesse caso, vedada a intimação por intermédio de advogado, em razão das consequências jurídicas decorrentes de eventual ausência na audiência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17151,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17152,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 194,
+    "texto": "De acordo com o STJ, a prerrogativa de prazo em dobro para as manifestações processuais aplica-se a escritórios de prática jurídica de instituições públicas ou privadas de ensino superior.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17159,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17160,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 195,
+    "texto": "As sentenças de improcedência em ação civil pública e em ação de improbidade administrativa sujeitam-se ao reexame necessário independentemente do valor atribuído à causa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17161,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17162,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 196,
+    "texto": "É vedado ao autor optar pelo juízo comum se, na comarca em que tiver decidido propor sua ação, existir juizado especial da fazenda pública e sua demanda versar sobre matéria que seja da competência e da alçada do juizado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17163,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17164,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 197,
+    "texto": "O acordo de não persecução civil, que tenha como fundamento a prática de ato de improbidade administrativa, pode ser realizado no curso de investigação para a apuração de ato ímprobo, durante o trâmite de ação de improbidade e na fase de cumprimento de sentença condenatória.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17165,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17166,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "texto": "Considere que, ao apreciar pedido de suspensão de liminar, o presidente do STJ tenha determinado a suspensão dos efeitos de tutela provisória contra a fazenda pública, tendo, para isso, prolatado decisão monocrática que não foi objeto de impugnação recursal no momento processual adequado. Nessa situação hipotética, de acordo com a jurisprudência do STJ, a referida decisão somente poderá ser desconstituída pelo ajuizamento de ação rescisória caso exista hipótese legal que justifique o cabimento dessa medida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17169,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17170,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "texto": "É constitucional a exigência judicial de contracautela, na forma de caução, depósito ou fiança, para a concessão de liminar em mandado de segurança.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17171,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17172,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 202,
+    "texto": "No que se refere à dispensa de João por justa causa, esta decorreu da prática de falta grave por parte do referido empregado ou por circunstância de força maior, devidamente comprovadas, e as hipóteses que constituem justa causa para a rescisão do contrato por parte do empregador estão previstas expressamente na Consolidação das Leis do Trabalho (CLT).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17175,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17176,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 204,
+    "texto": "Na situação em apreço, não foi correta a condenação ao pagamento do saldo salarial, porquanto, nessa hipótese de rescisão, o empregado não tem direito a verbas rescisórias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17179,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17180,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "texto": "De acordo com a lei trabalhista, mesmo tendo estabilidade em decorrência dos anos de serviço prestados na empresa, João poderia ter sido despedido por justa causa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17181,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17182,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 209,
+    "texto": "O ajuste celebrado configura convenção coletiva de trabalho.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17189,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17190,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "texto": "Conforme o Tribunal Superior do Trabalho (TST), é considerado válido o sistema de compensação de horário previsto no documento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17191,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17192,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 211,
+    "texto": "A Constituição Federal de 1988 prevê que o salário dos empregados é intangível, não possibilitando redução salarial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17193,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17194,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 212,
+    "texto": "De acordo com o Tribunal Superior do Trabalho (TST), é inválida a cláusula de termo aditivo que prorroga a vigência de instrumento coletivo originário por prazo indeterminado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17195,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17196,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 213,
+    "texto": "A jornada de trabalho que alterna a prestação de 48 horas em uma semana e a prestação de 40 horas em outra semana é denominada semana inglesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17197,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17198,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 214,
+    "texto": "O estado da federação, quando representado em juízo por seus procuradores, não precisa juntar instrumento de mandato nem comprovar o ato de nomeação, devendo o signatário, entretanto, declarar-se exercente do cargo de procurador.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17199,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17200,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "texto": "Tratando-se de reclamações trabalhistas plúrimas, a aferição do que vem a ser obrigação de pequeno valor, para efeito de dispensa de formação de precatório, deve ser realizada considerando-se os créditos de cada reclamante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17201,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17202,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 216,
+    "texto": "A fazenda pública, quando condenada subsidiariamente pelas obrigações trabalhistas devidas pela empregadora principal, beneficia-se da limitação dos juros prevista na Lei n.º 9.494/1997, que disciplina a aplicação da tutela antecipada contra a fazenda pública.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17203,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17204,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 217,
+    "texto": "Quando o chefe do Poder Executivo municipal agir na qualidade de ordenador de despesas, competirá ao tribunal de contas do respectivo estado o julgamento de suas contas, de modo definitivo, sem participação posterior da câmara municipal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17205,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17206,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 218,
+    "texto": "Não conflita com a garantia constitucional de autonomia política dos entes federativos a regra contida na LRF segundo a qual os estados e municípios devem encaminhar ao Poder Executivo da União, para fins de consolidação e divulgação, os dados relativos às contas públicas estaduais e municipais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17207,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17208,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 219,
+    "texto": "No caso de dúvida registral, após a juntada dos documentos pela parte interessada, o Ministério Público será ouvido no prazo de 10 dias, apesar da natureza administrativa do procedimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17209,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17210,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "texto": "O texto constitucional reconhece o direito fundamental ao meio ambiente ecologicamente equilibrado, restringindo ao poder público o dever fundamental de defendê-lo e preservá-lo para as presentes e futuras gerações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17241,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17242,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "texto": "O zoneamento ecológico-econômico, instrumento da Política Nacional do Meio Ambiente, busca delimitar áreas de livre exploração econômica dos recursos naturais, sem a imposição de limitações ou vedações àquelas faixas de distribuição espacial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17243,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17244,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "texto": "O Conselho Nacional do Meio Ambiente (CONAMA) é o órgão central do Sistema Nacional do Meio Ambiente (SISNAMA) e responsável por deliberar, no âmbito de sua competência, sobre normas e padrões compatíveis com o meio ambiente ecologicamente equilibrado e essencial à sadia qualidade de vida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17245,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17246,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 238,
+    "texto": "O licenciamento ambiental pode ser compreendido como um processo administrativo em cujo decorrer ou final pode ocorrer a concessão da licença ambiental por ato do Poder Executivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17247,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17248,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "texto": "Uma avaliação de impacto ambiental pode ocorrer dentro ou fora de um processo",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17249,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17250,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 314,
+    "texto": "(CRQ-10º Região/Quadrix/2021) Acerca dos direitos sociais, julgue o item. A reserva do possível como limite para a efetivação de direitos sociais encontra limite, por sua vez, no princípio do mínimo existencial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17610,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17611,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 316,
+    "texto": "(CRESS - SC/Quadrix/2019) Quanto aos direitos e às garantias fundamentais, julgue o item. São direitos do trabalhador uma relação de emprego protegida contra despedida arbitrária ou sem justa causa e seguro‐desemprego, em caso de desemprego involuntário.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17614,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17615,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 317,
+    "texto": "(CRMV-AM/Quadrix/2020) De acordo com a Constituição Federal de 1988, julgue o item a respeito dos direitos sociais. O salário mínimo deve ser capaz de atender as necessidades vitais básicas do trabalhador e às de sua família, com reajustes periódicos que lhe preservem o poder aquisitivo, sendo vedada sua vinculação para qualquer fim.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17616,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17617,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 323,
+    "texto": "(CREFITO 4º Região (MG)/Quadrix/2021) São direitos dos trabalhadores urbanos e rurais, além de outros que visem à melhoria de sua condição social, o seguro-desemprego, em caso de desemprego involuntário, a participação nos lucros ou resultados, desvinculada da remuneração, e, excepcionalmente, a participação na gestão da empresa, conforme definido em lei.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17643,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17644,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 327,
+    "texto": "(FUB/CESPE/2016) À luz das disposições constitucionais relativas aos direitos sociais, julgue o item a seguir. Cabe ao sindicato da categoria definir, no caso de greve, os serviços ou atividades essenciais que serão disponibilizados à coletividade, assim como dispor sobre o atendimento das necessidades inadiáveis da comunidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17658,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17659,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 328,
+    "texto": "(CREFONO - 3ª Região/Quadrix/2021) O capítulo II do Título II da Constituição Federal de 1988 é destinado aos direitos sociais. A respeito desse tema, julgue o item. Quando, nos colegiados dos órgãos públicos, estiverem em discussão os interesses profissionais dos trabalhadores, não será assegurada a participação dos empregadores nas discussões.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17660,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17661,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "texto": "(CRQ 10º Região/Quadrix/2021) Os portugueses residentes permanentemente no Brasil possuirão, desde que naturalizados, os mesmos direitos dos brasileiros.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17687,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17688,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "texto": "(CEBRASPE - PGE-PB/CESPE/2021) O cancelamento da naturalização por sentença transitada em julgado implica perda dos direitos políticos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17699,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17700,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "texto": "(Criciúma - SC/Unesc/2021/Adaptada) Brasileiro que adquirir outra nacionalidade como condição para exercício de direitos políticos não perderá a nacionalidade brasileira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17701,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17702,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "texto": "(CREF - 11ª Região (MS -MT)/Quadrix/2019) Os partidos políticos possuem natureza jurídica de direito público e adquirem personalidade própria a partir de seu registro junto ao Tribunal Superior Eleitoral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17760,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17761,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "texto": "(PGE-PE/CESPE/2019) A respeito dos direitos políticos e dos partidos políticos, julgue o item seguinte: A adoção do modelo proporcional em eleições de deputados fere o princípio da eleição direta, pois a eleição de um deputado não deve depender dos votos recebidos por outros candidatos do partido ou por sua legenda.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17772,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17773,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "texto": "(TJ-ES/CESPE/2023) As funções de confiança e os cargos em comissão destinam-se apenas às atribuições de direção, chefia e assessoramento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17816,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17817,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "texto": "Conforme a Constituição da República Federativa do Brasil, somente por lei específica poderá ser criada autarquia e autorizada a instituição de empresa pública, de sociedade de economia mista e de fundação, cabendo à lei complementar, neste último caso, definir as áreas de sua atuação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17828,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17829,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 370,
+    "texto": "O servidor público titular de cargo efetivo poderá ser readaptado para exercício de cargo cujas atribuições e responsabilidades sejam compatíveis com a limitação que tenha sofrido em sua capacidade física ou mental, enquanto permanecer em tal condição, desde que possua a habilitação e o nível de escolaridade exigidos para o cargo de destino, mantida a remuneração do cargo de origem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17840,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17841,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 391,
+    "texto": "(CRO-MS/Quadrix/2023) Os princípios constitucionais explícitos que devem ser obedecidos pela Administração Pública são a legalidade, a impessoalidade, a moralidade, a publicidade e a eficiência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17935,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17936,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 394,
+    "texto": "(TC-DF/CESPE/2021) A subsidiariedade da atuação estatal à iniciativa privada na ordem econômica é princípio implícito do texto constitucional, uma vez que o principal papel reservado ao Estado é o de agente normativo e regulador da atividade econômica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17947,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17948,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 399,
+    "texto": "No que se refere à organização administrativa, ao controle da administração pública e à Lei nº 8.429/1992, julgue o item subsequente: Fundação de direito privado instituída pelo poder público pode auferir receita de suas atividades, sem que essa ação descaracterize sua natureza de entidade não lucrativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17969,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 17970,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 400,
+    "texto": "Quanto aos princípios básicos de administração pública e às características da Administração Pública Federal, julgue o item: É vedada a instituição de empresas públicas com a participação de apenas uma pessoa jurídica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 17971,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 17972,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 411,
+    "texto": "Suponha‐se que um casal de estrangeiros que estava a serviço de seu país no Brasil tenha tido uma criança, nascida no território brasileiro. Nesse caso, a criança será considerada como brasileira nata.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18013,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 18014,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 412,
+    "texto": "ao país dos pais de Carlos e lá teve um filho, chamado João. Com base nesse caso hipotético e na Constituição Federal de 1988, julgue o item: Carlos, por ter nascido no Brasil, será considerado como brasileiro nato.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18015,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 18016,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 413,
+    "texto": "(CESPE - 2014 - MDIC - Agente Administrativo) No que se refere aos Poderes Legislativo, Executivo e Judiciário, bem como às funções essenciais à justiça, julgue o seguinte item: Considere que Ana, cidadã brasileira, casada com Vladimir, cidadão russo, ocupe posto diplomático brasileiro na China quando Victor, filho do casal, nascer. Nessa situação, Victor será considerado brasileiro nato.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18017,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 18018,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 415,
+    "texto": "(CESPE - 2012 - TJ-RR - Técnico Judiciário) No que se refere aos direitos e garantias fundamentais e à cidadania, julgue o próximo item: Suponha que Jean tenha nascido na França quando sua mãe, diplomata brasileira de carreira, morava naquele país em razão de missão oficial. Nessa hipótese, segundo a CF, Jean será automaticamente considerado brasileiro naturalizado, com todos os direitos e deveres previstos no ordenamento jurídico brasileiro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18024,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 18025,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 425,
+    "texto": "Brasil, onde conheceu Ana, brasileira nata, com quem se casou. O casal Carlos e Ana retornou ao país dos pais de Carlos e lá teve um filho, chamado João. Com base nesse caso hipotético e na Constituição Federal de 1988, julgue o item. Helmer e Lindy, por terem tido um filho na cidade de Manaus ‐AM, poderão ser considerados como brasileiros natos, desde que apresentem a certidão de nascimento de seu filho Carlos em qualquer cartório de registro civil de pessoas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18070,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 18071,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 426,
+    "texto": "Com relação à nacionalidade na Constituição Federal de 1988, julgue o item: A naturalização pode ser expressa ou tácita, somente se admitindo no Brasil, atualmente, a primeira modalidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18072,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 18073,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 427,
+    "texto": "Com relação à nacionalidade na Constituição Federal de 1988, julgue o item: As espécies de naturalização no Brasil, por decorrerem da própria ideia de soberania, são todas uma discricionariedade estatal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18074,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 18075,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 428,
+    "texto": "Sobre o tema da nacionalidade na Constituição Federal de 1988, julgue a assertiva abaixo: São brasileiros naturalizados os estrangeiros de qualquer nacionalidade, residentes na República Federativa do Brasil há mais de cinco anos ininterruptos e s em condenação penal, desde que requeiram a nacionalidade brasileira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 18076,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 18077,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  }
+]

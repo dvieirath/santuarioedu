@@ -1,0 +1,57 @@
+{
+  "salvas": 3,
+  "removidas": [
+    717,
+    14210,
+    14208,
+    14204,
+    14203,
+    14200,
+    14197
+  ],
+  "pendencias_revisao_lote": 10,
+  "pendentes_sem_justificativa_banco": 11249,
+  "backup_remocoes": "backups\\antes_remocoes_72_20261020_144710.sqlite3",
+  "campos_alterados": {
+    "717": [
+      "revisada",
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14197": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14200": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14203": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14204": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14205": [
+      "justificativa"
+    ],
+    "14207": [
+      "justificativa"
+    ],
+    "14208": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14210": [
+      "motivo_rejeicao",
+      "rejeitada_definitiva"
+    ],
+    "14211": [
+      "justificativa"
+    ]
+  },
+  "alternativas_preservadas": true,
+  "integridade": "ok"
+}

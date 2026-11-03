@@ -382,6 +382,12 @@ function filtrar(tipo) {
   });
 }
 
+function escapeExplanation(value) {
+  const text = document.createElement('span');
+  text.textContent = String(value);
+  return text.innerHTML;
+}
+
 async function pedirIA(questaoId, btn) {
   btn.disabled = true;
   btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:16px;">sync</span> Gerando…';
@@ -399,10 +405,10 @@ async function pedirIA(questaoId, btn) {
             <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">lightbulb</span>
             Análise da questão${data.gerado_agora ? ' <span class="text-secondary normal-case font-normal">(gerado agora)</span>' : ''}
           </p>
-          <div>${data.justificativa.replace(/\n/g, '<br>')}</div>
+          <div>${escapeExplanation(data.justificativa).replace(/\n/g, '<br>')}</div>
         </div>`;
     } else {
-      container.innerHTML = `<p class="text-sm text-error">❌ ${data.erro || 'Erro ao gerar comentário.'}</p>`;
+      container.innerHTML = `<p class="text-sm text-error">❌ ${escapeExplanation(data.erro || 'Erro ao gerar comentário.')}</p>`;
     }
   } catch (e) {
     document.getElementById('justif-' + questaoId).innerHTML = `<p class="text-sm text-error">❌ Falha na conexão.</p>`;

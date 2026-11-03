@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2731,
+    "texto": "Acerca da modelagem das rotações de aeronaves, julgue os itens a seguir. Na formulação matemática da atitude de uma aeronave quando se utilizam ângulos de Euler (guinada, arfagem, rolamento), a orientação final do corpo no espaço é independente da ordem em que as rotações são aplicadas, devido à propriedade comutativa das rotações finitas em três dimensões.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23244,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23245,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2277,
+    "texto": "Em uma sala de aula há 30 estudantes. Caso, em um conjunto com 30 estudantes, 12 estudantes gostem de matemática, 15 estudantes gostem de geografia e 7 estudantes gostem de matemática e geografia, então a probabilidade de um estudante selecionado ao acaso gostar de matemática ou de geografia será igual a 2/3.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22336,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22337,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2175,
+    "texto": "P: “Se eu falar palavras difíceis, corro o risco de não ser compreendido.” Q: “Se eu falar palavras com duplo sentido, corro o risco de não ser compreendido.” R: “Falo palavras difíceis, mas não com duplo sentido.” Considerando as proposições P, Q e R precedentes, julgue os itens seguintes. É válido o argumento que tem por premissas as proposições P, Q e R e por conclusão a proposição “Corro risco de não ser compreendido.”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22132,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22133,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2092,
+    "texto": "No que se refere a letramento matemático e modelagem matemática, julgue os itens seguintes. Modelagem matemática é a criação e o desenvolvimento de uma explicação padrão, por meio de uma expressão ou equação, para se explicar e compreender situações-problema do mundo real.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21966,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21967,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2088,
+    "texto": "Um questionário aplicado em determinada escola revelou que 20% dos estudantes gostam de matemática. A mesma pesquisa mostrou que 32 é o número que corresponde a 5% da quantidade de estudantes que não gostam de matemática. A quantidade total de estudantes na referida escola é superior a 500 estudantes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21958,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21959,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2084,
+    "texto": "Em uma turma, a nota final da prova de matemática do primeiro trimestre é diretamente proporcional à quantidade de horas estudadas pelo estudante e inversamente proporcional à quantidade de faltas do estudante. Se um estudante que faltou 5 aulas no trimestre tiver tirado nota 80, então um estudante que faltou 8 aulas no trimestre terá tirado uma nota superior a 60.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21950,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21951,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1947,
+    "texto": "Situação hipotética: Murilo é professor de matemática. No início de cada ano letivo, ele faz uma avaliação para detectar o nível de aprendizagem de seus estudantes. Julgue o item: A avalição aplicada no início de cada ano letivo é conhecida como avaliação diagnóstica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21676,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21677,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1889,
+    "texto": "Texto CB1A1: [contexto do último parágrafo]. Item: No início do último parágrafo, o emprego da conjunção “entretanto” objetiva evidenciar uma contraposição com o que se afirma no parágrafo anterior; por isso,",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21560,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21561,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1682,
+    "texto": "Com base nos conceitos metodológicos específicos das áreas de português, matemática, história, geografia e ciências do ensino fundamental, julgue os itens a seguir. A organização da matriz curricular na área de geografia é feita em eixos que se repetem do primeiro ao quinto ano do ensino fundamental para proporcionar aos estudantes uma linearidade, visto que, para a aquisição do pensamento geográfico, é necessária a apropriação dos aspectos socioculturais e socioambientais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21146,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21147,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1676,
+    "texto": "Explorar a história da matemática em sala de aula pode ser um importante recurso pedagógico se integrado a situações que propiciem a reflexão e contribuam para a compreensão dos conceitos matemáticos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21134,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21135,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1675,
+    "texto": "O ensino da matemática deve orientar-se prioritariamente para a apropriação, pelo estudante, do conhecimento científico constituído pela humanidade, considerando-se menos importante o desenvolvimento de competências relacionadas ao espírito investigativo e à produção de argumentos convincentes na resolução de problemas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21132,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21133,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1674,
+    "texto": "Os aplicativos matemáticos não devem ser utilizados como recurso pedagógico no ensino da matemática pois prejudicam o desenvolvimento do raciocínio dos estudantes, provocando sua dependência em relação a essas ferramentas para a resolução de situações matemáticas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21130,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21131,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1673,
+    "texto": "A discussão de diferentes estratégias de solução de situações-problema é propícia para a aprendizagem matemática, pois o compartilhamento de diferentes soluções pode oportunizar o desenvolvimento do pensamento matemático pelo estudante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21128,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21129,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1578,
+    "texto": "Texto CB1A1: [Contexto completo fornecido]. Item: No início do último parágrafo, o emprego da conjunção “entretanto” objetiva evidenciar uma contraposição com o que se afirma no parágrafo anterior; por isso,",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20938,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20939,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1476,
+    "texto": "A negação da proposição “meu filho lembrou-se de mim e quer ser lembrado por mim” pode ser expressa por meu filho não se lembrou de mim nem quer ser lembrado por mim .",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20736,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20737,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1475,
+    "texto": "A tabela-verdade da proposição P possui 16 linhas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20734,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20735,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1171,
+    "texto": "Considerando as competências e habilidades do Currículo de Pernambuco para o componente curricular de matemática nos ensinos fundamental e médio, julgue os itens seguintes. O educador deve orientar os estudantes a não estimarem medidas de comprimento usando passos ou palmos, visto que essas medidas são muito imprecisas e variam de pessoa para pessoa, o que dificulta o aprendizado das unidades do Sistema Internacional de Medidas (SI), como o centímetro e o metro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20111,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20112,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1170,
+    "texto": "O reconhecimento da matemática como uma ciência humana e viva inerente às necessidades das diferentes culturas em diferentes contextos históricos é competência específica da disciplina de matemática para o ensino fundamental.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20109,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20110,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1169,
+    "texto": "Compete à matemática investigar, organizar e representar aspectos quantitativos das práticas sociais e culturais, porém investigar os aspectos qualitativos é responsabilidade das ciências humanas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20107,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20108,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1167,
+    "texto": "Dada a importância das experimentações na aprendizagem de matemática, o professor deve estimular as soluções apresentadas pelos alunos, sem corrigir eventuais soluções encontradas, mesmo que o estudante tenha chegado a uma conclusão errada, pois o erro é um fator inerente ao aprendizado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20103,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20104,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

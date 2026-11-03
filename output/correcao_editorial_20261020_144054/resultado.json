@@ -1,0 +1,20 @@
+{
+  "backup": "C:\\Users\\USER\\Downloads\\projeto_prf\\backups\\antes_correcao_editorial_20261020_144054.sqlite3",
+  "alteracoes": {
+    "1352": {
+      "revisada": [
+        1,
+        0
+      ]
+    },
+    "6311": {
+      "categoria_id": [
+        252,
+        339
+      ]
+    }
+  },
+  "justificativas_e_gabaritos_preservados": true,
+  "fonte_tema_6311": "https://www.iso.org/iso/pub100080.pdf",
+  "integridade": "ok"
+}

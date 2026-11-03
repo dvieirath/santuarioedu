@@ -1,0 +1,56 @@
+[
+  {
+    "id": 5836,
+    "motivo": "Gabarito Certo incompatível com relação 30:1. AHA indica 30 compressões e 2 ventilações no adulto sem via aérea avançada: https://cpr.heart.org/en/resources/what-is-cpr . Não alterar gabarito automaticamente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5815,
+    "motivo": "Definições de Biot variam entre agrupamentos respiratórios e padrão atáxico. Irregularidade/apneia são compatíveis, mas hipoventilação não é definição uniforme. Necessária referência precisa para sustentar gabarito Errado; caso ATS descreve respiração rápida superficial e apneias: https://site.thoracic.org/assemblies/cp/ats-quick-hits/the-breathing-pause .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5755,
+    "motivo": "A afirmação quantitativa na maioria dos casos não informa população, período ou fonte. Fatores de risco não demonstram prevalência superior a 50% nem ocorrência conjunta; requer evidência epidemiológica delimitada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5655,
+    "motivo": "Caso substituído por reticências e marcador de sintomas compatíveis com fibromialgia. Ausência de dados impede classificar lombalgia e avaliar indicação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5596,
+    "motivo": "Comparação exige confirmar conjuntamente débito e prolapso entre duas colostomias em alça. Fontes localizadas misturam local anatômico e técnica dividida versus alça; não extrapolar esses resultados. Pendente verificação especializada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5525,
+    "motivo": "Descrição parece compatível com critérios clássicos de PAIR, em conflito com gabarito Errado. Conferir fonte normativa original e intervalo de progressão antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5497,
+    "motivo": "Afirmação biomecânica e ressalva mesmo sem envolvimento metatarsofalangeano exigem fonte especializada específica. Não foi obtida evidência suficiente para fundamentar o gabarito sem adaptar o raciocínio.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5460,
+    "motivo": "Última oração parece incompatível com benefício da extração do cristalino no fechamento angular. O ensaio EAGLE localizado estuda controle pressórico e tratamento, não confirma diretamente a formulação sobre risco agudo em toda cirurgia de catarata. Pendente delimitação e fonte: https://research-repository.st-andrews.ac.uk/handle/10023/9581 .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5458,
+    "motivo": "Percentuais de acuidade não informam estudo, população, grau de miopia nem acompanhamento. Necessária fonte clínica para maioria 20/20 e mais de 90% 20/30, sem tratar como taxas universais.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

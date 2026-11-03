@@ -1,0 +1,362 @@
+[
+  {
+    "id": 5457,
+    "texto": "Julgue o item: As lentes de contato de visão simples (lentes monofocais) — sejam elas gelatinosas convencionais ou gás-permeáveis — não alteram a progressão da miopia, mesmo que a intervenção ocorra no primeiro ano de detecção da miopia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30716,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30717,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5456,
+    "texto": "Julgue o item: A hipocorreção da miopia desacelera a progressão miópica, pois o embaçamento residual auxilia na capacidade do olho de se tornar emétrope, razão pela qual a hipocorreção está indicada para retardar a progressão miópica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30714,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30715,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5455,
+    "texto": "Estima-se que 4,8 bilhões de pessoas serão afetadas pela miopia até 2050. Devido à sua relação com várias condições patológicas, como degeneração macular, descolamento de retina, glaucoma e catarata, tem ocorrido um aumento nos esforços para retardar a progressão da miopia. Acerca de tais intervenções para retardar a progressão da miopia, julgue o item: Pacientes míopes apresentam grande risco de desenvolver neovascularização macular da coroide; esse risco é cerca de duas vezes maior para pacientes com 1 D a 2 D de miopia em relação aos não míopes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30712,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30713,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5434,
+    "texto": "Os sinais e sintomas de gravidez são classificados em três grupos: de presunção, de probabilidade e de certeza. Acerca desses achados, julgue os seguintes itens. A percepção de movimentos fetais e de partes fetais pelo examinador, identificada normalmente a partir de 24 semanas de gestação, é um sinal de certeza de gravidez.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30670,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30671,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5390,
+    "texto": "Com base na classificação das epilepsias e nos conceitos atuais para seu manejo, julgue os itens subsequentes. A epilepsia atualmente pode ser definida por uma das seguintes condições: pelo menos duas crises não provocadas (ou reflexas) que ocorram com mais de 24 horas de intervalo; uma crise não provocada (ou reflexa) e a probabilidade de novas crises semelhante ao risco geral de recorrência (pelo menos 60%) após duas crises espontâneas, nos próximos 10 anos; ou diagnóstico de uma síndrome epilética.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30582,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30583,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5353,
+    "texto": "A icterícia neonatal grave é uma causa importante de neurodeficiência evitável. A esse respeito, julgue os itens seguintes. A icterícia neonatal grave é muito mais comum em países de baixa e média renda, sendo necessária a melhora dos sistemas de saúde para diminuir os neurodisabilidades.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30508,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30509,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5238,
+    "texto": "Julgue os próximos itens, relativos às normas específicas para médicos que atendem o trabalhador. Considerando as condições de vida e trabalho como determinantes sociais de saúde, além do trabalho como fator adjuvante no tratamento de determinadas doenças, o médico do trabalho é o especialista cuja atuação permite promover os ajustes necessários no contexto do trabalho.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30278,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30279,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5221,
+    "texto": "O carcinoma de mama é incomum em mulheres jovens. Pacientes jovens têm maior probabilidade de apresentarem histologias mais agressivas e doença localmente avançada e de já necessitarem de tratamento sistêmico no diagnóstico, porém, caso se opte pelo tratamento conservador, seguido de radioterapia adjuvante, elas têm o mesmo risco de recidiva local após cirurgia conservadora, em comparação com mulheres de maior idade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30244,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30245,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5171,
+    "texto": "O achado de ducto único dilatado descrito na 5. a edição do Atlas BI RADS® apresenta uma probabilidade maior que 2% de malignidade, devendo ser categorizado como suspeito BI RADS® 4A.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30144,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30145,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5086,
+    "texto": "As miocardiopatias são afecções do músculo cardíaco com múltiplas etiologias, o que implica tratamentos diferentes, especialmente em causas específicas que apresentem terapêuticas que possam afetar a progressão da insuficiência cardíaca associada. A respeito desse assunto, julgue os itens subsequentes.\n\nA cardiomiopatia não compactada apresenta tratamento específico capaz de mudar a evolução para insuficiência cardíaca.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29974,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29975,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5038,
+    "texto": "Os principais componentes do eritron humano são a medula eritroide, que é responsável pela produção de glóbulos vermelhos (eritropoiese), e os glóbulos vermelhos circulantes, que transportam oxigênio dos pulmões para os tecidos corporais. A perda de sangue associada a cirurgia é o principal determinante da anemia perioperatória, em que os níveis de hepcidina estão baixos e os de ferritina elevados, a Epo sérica está baixa e os reticulócitos estão baixos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29878,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29879,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4919,
+    "texto": "Com relação à candidíase, julgue o item: A glossite romboide mediana e a queilite angular são manifestações da candidíase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29640,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29641,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4852,
+    "texto": "O cirurgião pode optar pelo uso de shunt intraoperatório como conduta de proteção cerebral durante o clampeamento das carótidas baseado no fato de não ter o polígono de Willis completo, porém também poderia optar por monitoramento de alguns parâmetros cerebrais para verificar a necessidade durante o intraoperatório do uso do shunt tais como: a pressão de coto da carótida interna, fluxo na cerebral média medido por Doppler transcraniano e eletroencefalograma e potencial evocado somatossensorial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29506,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29507,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4806,
+    "texto": "Em relação aos princípios e técnicas de expansão tecidual, julgue os itens a seguir. O critério determinante para a escolha do expansor é o tamanho de sua base e sua largura — aspectos mais relevantes que seu volume —, devendo o expansor ser colocado através de uma incisão separada daquela planejada para reconstrução.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29414,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29415,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4746,
+    "texto": "A respeito da avaliação das metástases linfonodais cervicais, julgue os próximos itens.\n\nNa avaliação da distribuição e localização das metástases cervicais, são considerados limites anatômicos/cirúrgicos e radiológicos. Quanto a estes, é considerado na subdivisão do nível V o plano horizontal definido pela borda inferior da cartilagem cricoide.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29294,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29295,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4732,
+    "texto": "Paciente, de 12 anos de idade, sexo masculino, indígena, buscou atendimento devido relato de diversos episódios de epistaxe. Ao exame endoscópico nasal, observou-se massa irregular em nasofaringe. A investigação revelou nasoagiobibroma juvenil. Com base nesse caso clínico, julgue os itens subsequentes. O tratamento é exclusivamente cirúrgico, visando ressecção ampla da lesão, e não há necessidade de cirurgia conjunta com outras especialidades, como a neurocirurgia, mesmo para casos envolvendo fossa média.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29266,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29267,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4650,
+    "texto": "No que se refere a doenças cardiovasculares, julgue os itens a seguir. Na nova revisão dos critérios de Jones para doença reumática, a poliartralgia migratória e a monoartrite foram incluídas entre as manifestações maiores nos países de média e alta prevalência da doença.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29102,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29103,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4599,
+    "texto": "Os cuidados pós-parada cardiorrespiratória e retorno da circulação espontânea são componentes críticos do suporte avançado de vida e podem ser fator determinante no desfecho do paciente. Acerca das medidas que podem ser tomadas nesse período, julgue os itens subsequentes. A hipotermia deve ser utilizada em indivíduos comatosos e deve ser continuada por pelo menos 48 h. O objetivo da hipotermia induzida é manter a temperatura corporal entre 30 °C e 34 °C.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29000,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29001,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4594,
+    "texto": "Acerca do comportamento dos anestésicos venosos, julgue o item: O etomidato apresenta mínimo ou nenhum efeito sobre a pressão arterial média, pressão da artéria pulmonar, pressão venosa central, volume sistólico, índice cardíaco, resistência vascular sistêmica e resistência vascular pulmonar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28990,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28991,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4587,
+    "texto": "A respeito dos anestésicos locais, julgue o item: A aplicação de anestésicos locais produz uma progressão ordenada de déficits sensórios e motores, iniciando-se comumente pelo desaparecimento da sensação de temperatura e seguindo-se, nessa ordem, pela propriocepção, função motora, dor aguda e, finalmente, toques finos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28976,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28977,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

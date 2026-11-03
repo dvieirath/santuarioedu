@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciar e-mail — SantuarioEdu</title>
+  {% include "account/_auth_head.html" %}
+</head>
+<body class="min-h-screen bg-surface-container-low px-4 py-8">
+<main class="max-w-lg mx-auto bg-white rounded-xl p-8 space-y-6">
+  <h1 class="font-serif text-2xl text-primary">Gerenciar e-mail</h1>
+  <p>Confirme o novo endereço antes de defini-lo como principal.</p>
+  {% for message in messages %}<p role="status">{{ message }}</p>{% endfor %}
+  {% if form.errors %}<div role="alert">{{ form.errors }}</div>{% endif %}
+  {% if emailaddresses %}
+  <form method="post" action="{% url 'account_email' %}" class="space-y-4">
+    {% csrf_token %}
+    {% for address in emailaddresses %}
+    <label class="block">
+      <input type="radio" name="email" value="{{ address.email }}" {% if address.primary %}checked{% endif %}>
+      {{ address.email }} — {% if address.verified %}Confirmado{% else %}Aguardando confirmação{% endif %}
+      {% if address.primary %}(principal){% endif %}
+    </label>
+    {% endfor %}
+    <button class="underline" name="action_primary" type="submit">Definir como principal</button>
+    <button class="underline" name="action_send" type="submit">Reenviar confirmação</button>
+  </form>
+  {% endif %}
+  {% if can_add_email %}
+  <form method="post" action="{% url 'account_email' %}" class="space-y-4">
+    {% csrf_token %}
+    <label for="id_email" class="block">Novo e-mail</label>
+    <input class="border rounded p-2 w-full" id="id_email" type="email" name="email" required autocomplete="email" value="{{ form.email.value|default:'' }}">
+    <button class="bg-primary text-white rounded px-4 py-2" name="action_add" type="submit">Enviar confirmação</button>
+  </form>
+  {% endif %}
+  <a class="block underline" href="{% url 'perfil' %}">Voltar ao perfil</a>
+</main>
+</body>
+</html>

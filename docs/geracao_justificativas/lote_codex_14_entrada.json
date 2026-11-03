@@ -1,0 +1,467 @@
+[
+  {
+    "id": 6146,
+    "texto": "Entre o início do 1.º dia e o início do 4.º dia, a oferta foi sempre superior à demanda.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32094,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32095,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6133,
+    "texto": "O valor máximo do fluxo de energia elétrica da usina A para a indústria ocorreu no decorrer do segundo dia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32068,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32069,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6131,
+    "texto": "Do início do 3.º dia até o início do 6.º dia, o fluxo de energia veio exclusivamente da usina B.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32064,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32065,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6130,
+    "texto": "No início do 5.º dia, o fluxo de energia elétrica para a indústria vinha da usina B.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32062,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32063,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6127,
+    "texto": "O conjunto S é um subespaço de ℝ3 de dimensão 3.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32056,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32057,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6126,
+    "texto": "O conjunto de soluções S é um conjunto infinito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32054,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32055,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6125,
+    "texto": "Se o custo de manutenção for igual a 3 milhões de reais e o valor total de revenda for igual a 11 milhões de reais, então o custo de distribuição é inferior a 8 milhões.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32052,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32053,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5996,
+    "texto": "Se, de 2016 a 2020, o total de petróleo produzido pela PETROBRAS, em milhões de barris, foi respectivamente 2,51; 2,62; 2,59; 2,78 e 2,94, então, nesse período, a PETROBRAS produziu, em média, mais de 2,72 milhões de barris de petróleo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31794,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31795,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5995,
+    "texto": "Se, em determinada semana, as ações da PETROBRAS fecharam o pregão com as cotações, em unidades monetária, iguais a 10,0; 9,0; 11,0; 12,0 e 8,0, respectivamente de segunda à sexta-feira, então a variância dessas cotações foi igual a 2,0.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31792,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31793,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5994,
+    "texto": "Considere que, em uma sala de provas de um concurso, ao se selecionar aleatoriamente um candidato para acompanhar a abertura do envelope de provas, a probabilidade de ele ter estudado em escola particular é 0,32 e a probabilidade de ele ter estudado em escola particular e ser um candidato forte à aprovação é 0,24. Nessa situação, se o candidato selecionado estudou em escola particular, então a probabilidade de ele ser um candidato forte à aprovação é 0,75.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31790,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31791,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5618,
+    "texto": "A tomografia computadorizada (TC) utiliza um computador para a reconstrução matemática de uma imagem axial do corpo humano, a partir de medições feitas pela transmissão de raios X através de finos cortes de tecido do paciente. A TC mostra cada corte separadamente, sem a sobreposição de estruturas borradas que é vista nas tomografias convencionais. Um feixe de raios X colimado é gerado em um dos lados do paciente. Ressonância magnética (RM) é uma técnica que produz imagens tomográficas por meio de campos magnéticos e ondas de rádio. Em relação a essas técnicas de obtenção de imagens, julgue os itens a seguir.\n\nEmbora a capacidade da RM de produzir imagens nos planos sagital e coronal seja uma nítida vantagem, comparativamente às imagens produzidas por TC, esta, diferentemente da RM, dispensa o uso de contraste intravenoso para identificação dos vasos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31038,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31039,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5405,
+    "texto": "A prevalência do transtorno específico da aprendizagem nos domínios acadêmicos da leitura (dislexia), da escrita e da matemática (discalculia) juntos corresponde a cerca de 30% a 40% entre as crianças em idade escolar. As características desse transtorno não podem ser atribuíveis a deficiências intelectuais, a atraso global do desenvolvimento, nem a deficiências auditivas ou visuais, ou a problemas neurológicos ou motores.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30612,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30613,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4094,
+    "texto": "Assinale a opção que apresenta uma proposição que seja logicamente equivalente à negação da seguinte proposição: “Se João participar do concurso e discursar, ele será premiado”.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27419,
+        "texto": "“Se João não participar do concurso e não discursar, ele não será premiado”.",
+        "correta": false
+      },
+      {
+        "id": 27420,
+        "texto": "“Se João não participar do concurso e não discursar, ele será premiado”.",
+        "correta": false
+      },
+      {
+        "id": 27421,
+        "texto": "“João participará do concurso e discursará, mas ele não será premiado”.",
+        "correta": true
+      },
+      {
+        "id": 27422,
+        "texto": "“João não será premiado, não participará do concurso ou não discursará”.",
+        "correta": false
+      },
+      {
+        "id": 27423,
+        "texto": "“João participará do concurso, discursará e será premiado”.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4065,
+    "texto": "A seguir, são apresentadas as primeiras três colunas da tabela-verdade da proposição lógica P ⇒ (Q ∨ R), em que são utilizados os conectivos lógicos usuais e as letras maiúsculas representam proposições lógicas. A partir dessas informações, assinale a opção que apresenta corretamente os valores V ou F da última coluna da tabela-verdade, listados de cima para baixo.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27274,
+        "texto": "V V V V F F F F",
+        "correta": false
+      },
+      {
+        "id": 27275,
+        "texto": "V V F V F V V F",
+        "correta": false
+      },
+      {
+        "id": 27276,
+        "texto": "V V V F V V V V",
+        "correta": true
+      },
+      {
+        "id": 27277,
+        "texto": "V V V F V F V F",
+        "correta": false
+      },
+      {
+        "id": 27278,
+        "texto": "V V V V V F F F",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3987,
+    "texto": "Considere os conectivos lógicos usuais e assuma que as letras maiúsculas P, Q e R representam proposições lógicas; considere também as primeiras três colunas da tabela-verdade da proposição lógica (P ∧ Q) ∨ R, conforme a seguir. A partir dessas informações, infere-se que a última coluna da tabela-verdade, correspondente a (P ∧ Q) ∨ R, apresenta valores V ou F, de cima para baixo, na seguinte sequência",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26884,
+        "texto": "V F V F F V V F.",
+        "correta": false
+      },
+      {
+        "id": 26885,
+        "texto": "V V F F V V V F.",
+        "correta": false
+      },
+      {
+        "id": 26886,
+        "texto": "V V F V F V F V.",
+        "correta": false
+      },
+      {
+        "id": 26887,
+        "texto": "V V V F V F V F.",
+        "correta": true
+      },
+      {
+        "id": 26888,
+        "texto": "V V V V V F F F.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3986,
+    "texto": "A Democracia e a Justiça Social estão sempre lado a lado, e a Justiça Social é consequência direta do nível de maturidade da sociedade e do aprendizado do significado de ser humano. Considerando-se os conectivos lógicos usuais e assumindo-se que as letras maiúsculas P, Q, R e S representem proposições lógicas, o texto precedente pode ser expresso corretamente pela seguinte proposição lógica:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26879,
+        "texto": "P.",
+        "correta": false
+      },
+      {
+        "id": 26880,
+        "texto": "P ˄ Q.",
+        "correta": true
+      },
+      {
+        "id": 26881,
+        "texto": "P ˄ (Q ⇒ R).",
+        "correta": false
+      },
+      {
+        "id": 26882,
+        "texto": "(P ˄ Q) ⇒ R.",
+        "correta": false
+      },
+      {
+        "id": 26883,
+        "texto": "(P ˄ Q) ⇒ (R ˄ S).",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3979,
+    "texto": "Texto CG1A1-I. Estariam preservadas as ideias e a correção gramatical do texto CG1A1-I caso se substituísse, no segmento “Como aprendemos a falar na mais tenra infância e sem maior esforço” (início do segundo parágrafo), a conjunção “Como” por",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26844,
+        "texto": "Visto que.",
+        "correta": true
+      },
+      {
+        "id": 26845,
+        "texto": "Ao passo que.",
+        "correta": false
+      },
+      {
+        "id": 26846,
+        "texto": "Logo que.",
+        "correta": false
+      },
+      {
+        "id": 26847,
+        "texto": "Não obstante.",
+        "correta": false
+      },
+      {
+        "id": 26848,
+        "texto": "Tal qual.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3672,
+    "texto": "Considere a seguinte proposição.\n\n“Se fazemos chamadas telefônicas, não entrevistamos presencialmente nas ruas.”\n\nAssinale a opção que expressa corretamente uma negação dessa proposição.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25312,
+        "texto": "“Se não fazemos chamadas telefônicas, entrevistamos presencialmente nas ruas.”",
+        "correta": false
+      },
+      {
+        "id": 25313,
+        "texto": "“Fazemos chamadas telefônicas e entrevistamos presencialmente nas ruas.”",
+        "correta": true
+      },
+      {
+        "id": 25314,
+        "texto": "“Não fazemos chamadas telefônicas ou não entrevistamos presencialmente nas ruas.”",
+        "correta": false
+      },
+      {
+        "id": 25315,
+        "texto": "“Se não entrevistamos presencialmente nas ruas, fazemos chamadas telefônicas.”",
+        "correta": false
+      },
+      {
+        "id": 25316,
+        "texto": "“Não fazemos chamadas telefônicas e não entrevistamos presencialmente nas ruas.”",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3671,
+    "texto": "A quantidade de linhas da tabela-verdade da proposição composta P → Q ˅ R, em que P, Q e R são proposições simples e independentes entre si, que apresentam o valor lógico F é igual a",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25307,
+        "texto": "1.",
+        "correta": false
+      },
+      {
+        "id": 25308,
+        "texto": "2.",
+        "correta": true
+      },
+      {
+        "id": 25309,
+        "texto": "3.",
+        "correta": false
+      },
+      {
+        "id": 25310,
+        "texto": "4.",
+        "correta": false
+      },
+      {
+        "id": 25311,
+        "texto": "5.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2986,
+    "texto": "Com referência a metrologia, julgue os itens subsecutivos. A metrologia utiliza conceitos de matemática aplicada, por exemplo, os algarismos significativos, utilizados para monitorar erros ao se representarem números reais na base 10.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23754,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23755,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

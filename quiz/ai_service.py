@@ -110,6 +110,9 @@ def gerar_justificativa_ia(questao):
         
         # Tentar fazer o parse do JSON (o Gemini as vezes coloca markdown ```json ... ```)
         texto_resposta = response.text.strip()
+        if not texto_resposta:
+            logger.warning("A IA não retornou conteúdo para a justificativa.")
+            return None
         if texto_resposta.startswith("```json"):
             texto_resposta = texto_resposta[7:]
         if texto_resposta.startswith("```"):
@@ -124,7 +127,7 @@ def gerar_justificativa_ia(questao):
             # Fallback se não vier JSON válido
             return {
                 "assunto": "Geral",
-                "justificativa": response.text
+                "justificativa": texto_resposta,
             }
 
     except Exception as e:

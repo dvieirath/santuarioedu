@@ -1,0 +1,74 @@
+[
+  {
+    "id": 11710,
+    "motivo": "A Lei 13.429/2017 trata de trabalho temporário e prestação de serviços a terceiros, não institui o modelo de avaliação docente narrado. Faltam legislação estadual e atribuições para avaliar constitucionalidade da portaria fictícia. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13429.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11708,
+    "motivo": "Prova de conteúdo e prova de conhecimento não são categorias mutuamente excludentes definidas pelo enunciado. Ambas descrevem plausivelmente a produção sobre ISO 9001; a invocação genérica de normas não cria critério de distinção.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11707,
+    "motivo": "Comando de múltipla escolha e opções A–E embutidos em questão CE. Falta proposição única a julgar, e o gabarito Errado não identifica qual opção seria objeto da avaliação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11706,
+    "motivo": "Sem considerar feriados pode significar contagem em dias corridos ou desconsideração da prorrogação do vencimento. A validade não depende genericamente de cláusula expressa sobre eventualidades; falta regime e cláusula concreta. Conferir art. 132 do Código Civil: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11704,
+    "motivo": "O enunciado apresenta a regra ordinária de cada verbo concordar com seu sujeito; a conjunção e não a invalida. O gabarito errado não tem justificativa segura sem construção específica que exija ressalva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11703,
+    "motivo": "Você e tu promovem interlocução direta, não asseguram impessoalidade por evitar aproximação. Tu é pronome pessoal e você admite concordância de terceira pessoa. Gabarito certo incompatível com a explicação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11523,
+    "motivo": "A frase analisada não é fornecida, impedindo identificar regência. Monossilábica/polissilábica classificam palavras quanto a sílabas, não a estrutura sintática de orações. Nenhuma opção apresenta análise segura.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11522,
+    "motivo": "Alternância entre pessoas narrativas sem trecho não demonstra narrador limitado. Limitação depende do acesso às informações, que não foi descrito; o gabarito infere técnica específica de indícios insuficientes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11520,
+    "motivo": "Pode ser identificado apenas pela conjugação é verdadeiro em exemplos como chegamos. Se pretendia dizer que sempre dispensa contexto, seria falso em várias construções. A modalização torna o julgamento ambíguo; não justificar Errado substituindo pode por sempre.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11519,
+    "motivo": "Admitir artigo não significa que ele esteja presente na ocorrência. Em a pessoas, por exemplo, o nome admite artigo em outras construções, mas aqui não ocorre fusão. A regra marcada certa precisa exigir presença efetiva do artigo e considerar casos facultativos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11516,
+    "motivo": "A alternativa B é admissível, mas E também admite vírgula entre coordenadas de sujeitos diferentes e destaque de via correio eletrônico; D admite leitura destacada de por escrito. Não há unicidade segura com base em facultatividade estilística.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11515,
+    "motivo": "B segue a regência tradicional de aspirar. A exclusão de A exige delimitar o referencial normativo para visar no sentido de ter por objetivo: há divergência de uso e prescrição, inclusive registro literário de regência direta. Manter pendente para revisão dessa distinção. Fonte acadêmica consultada: https://www.filologia.org.br/xxi_cnlf/cnlf/tomo1/Cad_CNLF_XXI_Textos_completos_TOMO_1.pdf .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

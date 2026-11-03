@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1507,
+    "texto": "Texto CB1A1-I: [...] Entre os mais antigos, o percentual era de 58,3%. \n\nSeria mantida a correção gramatical do último período do segundo parágrafo caso a forma verbal “era” fosse flexionada no plural — eram —, dada a possibilidade de concordância verbal com a expressão de porcentagem que aparece logo em seguida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20796,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20797,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1506,
+    "texto": "Texto CB1A1-I: [...] Os dados, publicados no Boletim Emprego em Pauta, são do Departamento Intersindical de Estatística e Estudos Socioeconômicos (DIEESE) e foram obtidos a partir de uma análise comparativa que levou em conta os resultados referentes ao quarto trimestre de 2021 da Pesquisa Nacional por Amostra de Domicílio, realizada pelo Instituto Brasileiro de Geografia e Estatística. Ao final de 2021, o número de trabalhadores por conta própria havia crescido 6,6%. [...] \n\nO vocábulo “obtidos” (terceiro período do primeiro parágrafo) e o vocábulo “crescido” (primeiro período do segundo parágrafo) constituem adjetivos nos contextos sintáticos em que se inserem, haja vista a concordância dos referidos termos, respectivamente, com “dados” (terceiro período do primeiro parágrafo) e com “número” (primeiro período do segundo parágrafo).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20794,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20795,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1447,
+    "texto": "Texto CB1A1-I: ...entre aqueles que começaram a trabalhar mais recentemente por conta própria... Estaria preservada a coerência das ideias do último parágrafo do texto caso o segmento “mais recentemente” fosse deslocado para imediatamente depois do termo “própria”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20678,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20679,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1446,
+    "texto": "Texto CB1A1-I: Entre os mais antigos, o percentual era de 58,3%. Seria mantida a correção gramatical do último período do segundo parágrafo caso a forma verbal “era” fosse flexionada no plural — eram —, dada a possibilidade de concordância verbal com a expressão de porcentagem que aparece logo em seguida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20676,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20677,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1445,
+    "texto": "Texto CB1A1-I: Os dados... foram obtidos a partir de uma análise comparativa... o número de trabalhadores por conta própria havia crescido 6,6%. O vocábulo “obtidos” (terceiro período do primeiro parágrafo) e o vocábulo “crescido” (primeiro período do segundo parágrafo) constituem adjetivos nos contextos sintáticos em que se inserem, haja vista a concordância dos referidos termos, respectivamente, com “dados” (terceiro período do primeiro parágrafo) e com “número” (primeiro período do segundo parágrafo).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20674,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20675,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1326,
+    "texto": "A partir do texto de Patrícia Birman, julgue o item: A observação do jogo relacional como parte do modo como se estrutura a violência abrange, em uma perspectiva sociológica, a consideração dos diferentes sujeitos que constituem essa interação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20424,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20425,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1270,
+    "texto": "A partir do texto precedente, julgue os próximos itens. A observação do jogo relacional como parte do modo como se estrutura a violência abrange, em uma perspectiva sociológica, a consideração dos diferentes sujeitos que constituem essa interação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20309,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20310,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1211,
+    "texto": "No construtivismo, o professor não é visto como um simples detentor e transmissor do conhecimento, mas principalmente como um mediador que auxilia, dá suporte e estimula os alunos na construção de seus próprios conhecimentos. Os alunos, por sua vez, são vistos como sujeitos ativos nesse processo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20191,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20192,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1100,
+    "texto": "No que se refere à concordância e à morfossintaxe de períodos simples e compostos no texto 10A1-I, julgue os itens subsequentes. Em “é difícil pensar nas implicações políticas de empregar o masculino genérico” (segundo período do segundo parágrafo), o trecho “pensar nas implicações políticas de empregar o masculino genérico” exerce a função sintática de sujeito da oração principal “é difícil”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19969,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19970,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1099,
+    "texto": "Em relação à pontuação empregada no texto 10A1-I, julgue os itens a seguir. A correção do texto seria prejudicada caso fosse suprimida do texto uma das vírgulas empregadas para isolar o vocábulo “inclusive” (terceiro período do segundo parágrafo).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19967,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19968,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1098,
+    "texto": "Em relação à pontuação empregada no texto 10A1-I, julgue os itens a seguir. A junção do terceiro e do quarto períodos do quarto parágrafo em um só, substituindo-se o ponto após “feminino” pelo sinal de dois-pontos, ainda que feito o devido ajuste de maiúsculas e minúsculas, provocaria incorreção gramatical no texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19965,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19966,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1096,
+    "texto": "Em relação à pontuação empregada no texto 10A1-I, julgue os itens a seguir. A eliminação da vírgula após o vocábulo “cotidiano” (segundo período do segundo parágrafo) causaria incorreção gramatical no texto, visto que é obrigatório o emprego de vírgula para isolar oração adverbial antecipada à principal, qualquer que seja a sua extensão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19961,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19962,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1091,
+    "texto": "Estariam mantidas a correção gramatical e a coerência das ideias do texto caso o primeiro período do terceiro parágrafo fosse reescrito da seguinte forma: No entanto, com relação à essa abordagem, não há unânimidade no campo da lingüística.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19951,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19952,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1090,
+    "texto": "Dadas as possibilidades de interpretação e de regência do verbo “pensar” (segundo período do segundo parágrafo), a coerência e a correção gramatical do texto seriam mantidas caso se retirasse a preposição em da contração “nas”, deixando-se, portanto, só o artigo definido feminino plural nesse caso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19949,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19950,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1089,
+    "texto": "No sexto parágrafo, a substituição de “oferecem essa opção” por oferecem-a prejudicaria a correção gramatical e a coerência do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19947,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19948,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1036,
+    "texto": "Acerca do Iluminismo: O movimento iluminista foi marcado pela grande coesão das ideias dos seus principais expoentes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19841,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19842,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 986,
+    "texto": "Com relação às várias revoltas que ocorreram no Brasil durante o período regencial, julgue os itens a seguir. A Cabanagem ocorreu na Bahia, em decorrência da revolta dos escravizados.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19741,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19742,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 976,
+    "texto": "O movimento iluminista foi marcado pela grande coesão das ideias dos seus principais expoentes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19721,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19722,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 952,
+    "texto": "Os Parâmetros Curriculares Nacionais de História (PCNs) abordam a trajetória da disciplina escolar no Brasil, desde o seu surgimento, no século XIX, até o contexto de elaboração dos PCNs. Os conteúdos e temas sugeridos propõem o aprofundamento e o desdobramento do conhecimento histórico atrelado ao contexto dos sujeitos envolvidos na disciplina de História. Os âmbitos de discussão do currículo de História são diversos. Debates e a formulação de documentos por parte de professores e(ou) pesquisadores visam provocar o surgimento de diálogos sobre a produção do conhecimento histórico na sala de aula.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19673,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19674,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 937,
+    "texto": "Acerca das competências e habilidades do currículo de Pernambuco: A unidade temática estruturante “o sujeito e seu lugar no mundo” remete a um pensar geográfico em que o indivíduo se reconhece como transformador do espaço que ocupa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19643,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19644,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

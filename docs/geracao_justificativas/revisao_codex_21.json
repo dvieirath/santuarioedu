@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1358,
+    "motivo": "Texto-base CG1A1-II ausente. Não é possível verificar quais vantagens a autora efetivamente atestou.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1357,
+    "motivo": "Texto-base CG1A1-II, especialmente o quinto parágrafo, ausente. A referência à primeira pessoa não permite concluir participação em equipe sem ler o trecho.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1286,
+    "motivo": "Texto CG1A1-I ausente. Não é possível validar as expressões como palavras-chave do tema central apenas pela lista fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1229,
+    "motivo": "Enunciado truncado: menciona a equação, mas nenhuma equação está presente. Não reconstruir a partir de outro item semelhante.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1227,
+    "motivo": "Enunciado incompleto: o número complexo cuja parte imaginária seria examinada não foi fornecido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1222,
+    "motivo": "Expressões matemáticas ausentes após Se e tal que. A sequência e as condições sobre q não estão presentes; a afirmação de alternância de sinais não pode ser validada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1146,
+    "motivo": "Gabarito Errado incompatível com os dados: P(mulher e compra)=0,60×0,35=0,21; P(compra)=0,21+0,40×0,45=0,39. Logo P(mulher|compra)=7/13≈53,85%, superior a 50%. A assertiva é verdadeira.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1142,
+    "motivo": "Gabarito Errado incompatível: com z=x+iy, o sistema é x²−y²=4x e −2xy=4y. Se y=0, x=0 ou 4; se x=−2, y=±2√3. São quatro soluções distintas: 0, 4, −2+2√3i e −2−2√3i. A assertiva é verdadeira.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1139,
+    "motivo": "Gabarito Errado incompatível: a parte imaginária de z=√2/2+i√2/2 é √2/2>0. A assertiva é verdadeira.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1128,
+    "motivo": "Notação ambígua: f(x)=ex pode representar e multiplicado por x ou perda do expoente em e^x. No primeiro caso g∘f=e²x² é quadrático; no segundo e^(2x) não é polinômio. Conferir original antes de justificar Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1126,
+    "motivo": "Figura original ausente e gabarito incompatível com a descrição textual: raízes 0 e 2 e vértice (1,1) dão f(x)=−x²+2x e b=2, tornando a assertiva verdadeira. Restaurar imagem e conferir chave.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1123,
+    "motivo": "Enunciado truncado após Se, sem a sequência. Se lido como afirmação geral sobre PA, é falso: a PA constante converge e não alterna sinais. Gabarito Certo não sustentado; recuperar as expressões originais.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

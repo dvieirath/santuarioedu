@@ -1,0 +1,512 @@
+[
+  {
+    "id": 10682,
+    "texto": "Considerando a seguinte afirmação: \"Em uma sequência de números inteiros, se a diferença entre dois termos consecutivos for sempre positiva, a sequência é estritamente crescente.\" Qual das proposições abaixo é equivalente a esta afirmação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45683,
+        "texto": "Se a sequência for estritamente crescente, então a diferença entre dois termos consecutivos é positiva.",
+        "correta": true
+      },
+      {
+        "id": 45684,
+        "texto": "Se a diferença entre dois termos consecutivos for positiva, então a sequência é estritamente crescente.",
+        "correta": false
+      },
+      {
+        "id": 45685,
+        "texto": "A sequência pode ser estritamente crescente mesmo que a diferença entre alguns termos consecutivos seja zero.",
+        "correta": false
+      },
+      {
+        "id": 45686,
+        "texto": "A diferença entre dois termos consecutivos pode ser negativa se a sequência for estritamente crescente.",
+        "correta": false
+      },
+      {
+        "id": 45687,
+        "texto": "A sequência é estritamente crescente se e somente se a diferença entre dois termos consecutivos for negativa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10681,
+    "texto": "Um conjunto de 12 peças de um quebra‑cabeça está distribuído em uma mesa, numerado de 1 a 12. As peças 1, 4, 7 e 10 formam um quadrado; as peças 2, 5, 8 e 11 formam outro quadrado; e as peças 3, 6, 9 e 12 formam um último quadrado. Se a peça 5 for trocada com a peça 9, quantos quadrados completos ainda existirão na mesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45678,
+        "texto": "Nenhum",
+        "correta": false
+      },
+      {
+        "id": 45679,
+        "texto": "Um",
+        "correta": false
+      },
+      {
+        "id": 45680,
+        "texto": "Dois",
+        "correta": false
+      },
+      {
+        "id": 45681,
+        "texto": "Três",
+        "correta": true
+      },
+      {
+        "id": 45682,
+        "texto": "Quatro",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10679,
+    "texto": "Em um processo de classificação de imagens, cada imagem é representada por um vetor de 256 características binárias. Dois algoritmos de classificação são avaliados: Algoritmo A, que compara cada vetor com 10 vetores de referência, e Algoritmo B, que compara cada vetor com 20 vetores de referência. Se o custo de comparação entre dois vetores for constante, qual algoritmo apresenta menor complexidade temporal?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45674,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45675,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10678,
+    "texto": "Considere o seguinte enunciado: \n\n\"Um sistema de controle de tráfego aéreo utiliza um algoritmo de prioridade baseado em três critérios: distância até o ponto de destino, velocidade atual e nível de combustível. A prioridade de uma aeronave é calculada como a soma ponderada dos três critérios, onde cada critério recebe peso igual a 1. Se a distância, velocidade e combustível de uma aeronave forem 200 km, 800 km/h e 50% de combustível, respectivamente, e o critério de distância for considerado mais importante, o algoritmo pode ser reestruturado para que a distância tenha peso 2, mantendo os demais pesos iguais a 1, sem alterar a ordem de prioridade entre as aeronaves?\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45672,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45673,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10677,
+    "texto": "Um algoritmo de ordenação divide um vetor de 12 elementos em dois subvetores de tamanho igual, ordena recursivamente cada subvetor e, em seguida, combina os resultados. Se o custo de combinar os dois subvetores for proporcional ao número total de elementos, o número de comparações necessárias para ordenar o vetor completo é proporcional a qual expressão?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45670,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45671,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10676,
+    "texto": "Na sequência de uma série de números inteiros, observa‑se que a diferença entre cada par de termos consecutivos é sempre igual a 3. Se o primeiro termo for 7, qual será o sétimo termo da sequência?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45668,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45669,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10638,
+    "texto": "Um analista de sistemas recebe um algoritmo que recebe dois números inteiros, x e y, e executa as seguintes operações: se x for par, calcula z = x / 2; se y for ímpar, calcula w = y * 3; em seguida, retorna o valor de z + w. Se x = 14 e y = 9, qual é o valor retornado pelo algoritmo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45541,
+        "texto": "57",
+        "correta": false
+      },
+      {
+        "id": 45542,
+        "texto": "63",
+        "correta": true
+      },
+      {
+        "id": 45543,
+        "texto": "70",
+        "correta": false
+      },
+      {
+        "id": 45544,
+        "texto": "84",
+        "correta": false
+      },
+      {
+        "id": 45545,
+        "texto": "91",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10637,
+    "texto": "Texto: Em 2025, a Prefeitura de São Paulo lançou um sistema de gestão de resíduos que classifica os resíduos urbanos em cinco categorias: A, B, C, D e E. Cada categoria possui um número de pontos de coleta que varia de 10 a 50, em intervalos de 10. O total de pontos de coleta é 150. Se a categoria A possui 20 pontos, a categoria B possui 30 pontos e a categoria C possui 40 pontos, quantos pontos de coleta existem na categoria D e na categoria E, respectivamente?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45536,
+        "texto": "30 e 30",
+        "correta": false
+      },
+      {
+        "id": 45537,
+        "texto": "20 e 40",
+        "correta": false
+      },
+      {
+        "id": 45538,
+        "texto": "10 e 50",
+        "correta": true
+      },
+      {
+        "id": 45539,
+        "texto": "40 e 20",
+        "correta": false
+      },
+      {
+        "id": 45540,
+        "texto": "50 e 10",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10636,
+    "texto": "Em um concurso, a banca Cebraspe propõe a seguinte proposição lógica: (p ∨ q) ∧ (¬p ∨ r) → (q ∨ r). Qual é a tabela verdade que demonstra que a proposição é tautologia?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45531,
+        "texto": "A proposição é uma contradição.",
+        "correta": false
+      },
+      {
+        "id": 45532,
+        "texto": "A proposição é contingente.",
+        "correta": false
+      },
+      {
+        "id": 45533,
+        "texto": "A proposição é uma tautologia.",
+        "correta": true
+      },
+      {
+        "id": 45534,
+        "texto": "A proposição é uma negação de p.",
+        "correta": false
+      },
+      {
+        "id": 45535,
+        "texto": "A proposição é equivalente a ¬q ∧ ¬r.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10635,
+    "texto": "Um engenheiro civil, ao analisar a sequência de valores de resistência à tração de cinco barras de aço, observa que a resistência de cada barra aumenta em 2% em relação à barra imediatamente anterior, iniciando em 350 MPa. Qual é a resistência da quinta barra?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45526,
+        "texto": "392,16 MPa",
+        "correta": false
+      },
+      {
+        "id": 45527,
+        "texto": "399,55 MPa",
+        "correta": false
+      },
+      {
+        "id": 45528,
+        "texto": "407,70 MPa",
+        "correta": true
+      },
+      {
+        "id": 45529,
+        "texto": "415,93 MPa",
+        "correta": false
+      },
+      {
+        "id": 45530,
+        "texto": "424,28 MPa",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10634,
+    "texto": "Texto de apoio: Em 2024, a empresa TechNova implementou um algoritmo de aprendizado de máquina para otimizar a logística de entrega de produtos. O algoritmo utiliza um conjunto de variáveis de entrada X = {x₁, x₂, x₃, x₄}, onde x₁ representa a distância entre o centro de distribuição e o ponto de entrega, x₂ a hora do dia, x₃ a disponibilidade de veículos e x₄ o tráfego local. O modelo foi treinado com 10.000 amostras, obtendo uma acurácia de 92,3 %. Durante a fase de validação, observou‑se que a correlação entre x₁ e x₂ era de 0,78, indicando forte associação linear, enquanto a correlação entre x₃ e x₄ era de 0,12, sugerindo pouca relação. A TechNova pretende usar o modelo para prever o tempo de entrega em novos pedidos, ajustando o peso das variáveis de acordo com a importância relativa. Considere que o algoritmo utiliza o método de regressão linear múltipla.\n\nConsiderando o texto acima, a afirmação \"O aumento da distância (x₁) tende a reduzir o tempo de entrega previsto, pois a correlação entre x₁ e x₂ é negativa\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45524,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45525,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10633,
+    "texto": "Um conjunto de regras de produção em um sistema especialista define que, se a condição A for verdadeira, então a ação B será executada; se a condição B for verdadeira, então a ação C será executada. Se a condição A for falsa, a cadeia de regras não se aplica. A afirmação \"A execução da ação C depende apenas da veracidade da condição B\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45522,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45523,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10632,
+    "texto": "Na lógica proposicional, a negação de uma conjunção é equivalente à disjunção das negações. Assim, a negação de (P ∧ Q) é (¬P ∨ ¬Q). A afirmação \"A negação de (P ∨ Q) é (¬P ∧ ¬Q)\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45520,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45521,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10631,
+    "texto": "Um algoritmo de busca binária percorre um vetor ordenado de 16 elementos. Se a chave procurada está no 7.º elemento, o algoritmo fará exatamente 4 comparações. A afirmação \"O algoritmo realizará 4 comparações independentemente da posição da chave\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45518,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45519,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10630,
+    "texto": "Em um sistema de controle de estoque, a sequência de eventos é: A → B → C → D. Se a ocorrência de B implica necessariamente a ocorrência de C, e a ocorrência de D implica a ausência de A, então a afirmação \"Se B ocorrer, então A não ocorrerá\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45516,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45517,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10385,
+    "texto": "Texto: Em 2024, o Ministério da Educação lançou um programa piloto para avaliar a eficácia de métodos alternativos de ensino em escolas públicas de áreas rurais. O programa contemplou 15 escolas, distribuídas em três regiões (Norte, Sul e Centro). Cada região recebeu cinco escolas, e cada escola recebeu, aleatoriamente, um dos seguintes métodos: A (ensino híbrido), B (ensino presencial tradicional) ou C (ensino remoto). Os resultados preliminares indicaram que 40% das escolas que adotaram o método A tiveram aumento de 12% no desempenho médio dos estudantes, 30% das escolas que adotaram o método B tiveram aumento de 8% e 25% das escolas que adotaram o método C tiveram aumento de 5%. Considerando que cada região tem a mesma distribuição de métodos, qual é a probabilidade de que uma escola escolhida aleatoriamente tenha tido um aumento de desempenho de pelo menos 10%?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44726,
+        "texto": "0,08",
+        "correta": false
+      },
+      {
+        "id": 44727,
+        "texto": "0,12",
+        "correta": true
+      },
+      {
+        "id": 44728,
+        "texto": "0,15",
+        "correta": false
+      },
+      {
+        "id": 44729,
+        "texto": "0,20",
+        "correta": false
+      },
+      {
+        "id": 44730,
+        "texto": "0,25",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10384,
+    "texto": "Um tribunal de contas analisa o fluxo de recursos de um programa de assistência social. O fluxo é representado por uma sequência de números inteiros que descreve o saldo diário em reais, iniciando em 0. Cada dia subsequente, o saldo pode aumentar em 200, permanecer igual ou diminuir em 150, mas nunca pode ficar negativo. Se após 10 dias o saldo total for 1000, qual é o menor número de dias em que o saldo permaneceu constante?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44721,
+        "texto": "2",
+        "correta": false
+      },
+      {
+        "id": 44722,
+        "texto": "3",
+        "correta": true
+      },
+      {
+        "id": 44723,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 44724,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 44725,
+        "texto": "6",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10383,
+    "texto": "Um órgão público recebe 12 propostas de projetos de lei, numeradas de 1 a 12. Cada projeto pode ser aprovado (A) ou rejeitado (R). A regra de votação exige que, ao final do processo, o número de projetos aprovados seja exatamente metade do total de projetos submetidos e que nenhum número par de projetos consecutivos seja aprovado. Qual é o menor número possível de projetos que podem ser aprovados?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44716,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 44717,
+        "texto": "4",
+        "correta": true
+      },
+      {
+        "id": 44718,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 44719,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 44720,
+        "texto": "7",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10382,
+    "texto": "Um engenheiro de tráfego analisa a sequência de semáforos de uma avenida de três faixas. Cada faixa possui um semáforo que alterna entre verde (V), amarelo (A) e vermelho (R) em ciclos de 60 segundos. O semáforo da faixa A inicia com verde, o da faixa B inicia com amarelo e o da faixa C inicia com vermelho. Se a cada 15 segundos todos os semáforos mudam simultaneamente para a próxima fase do ciclo, qual é a primeira fase em que todos os semáforos exibem a mesma cor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44711,
+        "texto": "Verde",
+        "correta": false
+      },
+      {
+        "id": 44712,
+        "texto": "Amarelo",
+        "correta": false
+      },
+      {
+        "id": 44713,
+        "texto": "Vermelho",
+        "correta": true
+      },
+      {
+        "id": 44714,
+        "texto": "Não há fase em que coincidam",
+        "correta": false
+      },
+      {
+        "id": 44715,
+        "texto": "Verde e Amarelo simultaneamente",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10381,
+    "texto": "Texto: Em 2024, a Agência Nacional de Transportes Terrestres (ANTT) publicou um regulamento que estabelece que todos os veículos de transporte de cargas de mais de 10 toneladas devem possuir um sistema de rastreamento GPS com atualização a cada 30 segundos. A empresa TransLogística, que opera uma frota de 50 caminhões, decidiu instalar um sistema que atualiza a cada 45 segundos para reduzir custos de energia. Durante o período de 12 horas de operação diária, cada caminhão gera 8.000 registros de posição. Se a ANTT exigir que o número total de registros gerados não ultrapasse 200.000 por veículo por dia, a empresa excedeu a exigência? Considerando o texto acima, responda:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44709,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44710,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

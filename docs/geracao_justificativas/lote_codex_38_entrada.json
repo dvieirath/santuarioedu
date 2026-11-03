@@ -1,0 +1,482 @@
+[
+  {
+    "id": 10399,
+    "texto": "Considerando o texto abaixo: \n\n\"Em 2024, a Secretaria de Educação do Estado X lançou um programa de alfabetização digital destinado a estudantes de escolas públicas de baixa renda. O projeto, denominado ‘Literatura 4.0’, integra a leitura de textos literários clássicos com a análise crítica de narrativas produzidas por inteligência artificial. Em sua primeira fase, os alunos leram um conto contemporâneo gerado por algoritmo, seguido de uma discussão sobre a presença de metáforas e a coerência textual. O objetivo era avaliar se a IA poderia produzir textos com qualidade linguística comparável a textos humanos e, ao mesmo tempo, estimular a capacidade de interpretação crítica dos estudantes. O projeto contou com a colaboração de linguistas, professores de português e especialistas em IA, que avaliaram os textos gerados em termos de coesão, coerência, adequação léxica e riqueza de recursos estilísticos. A partir dessa experiência, a Secretaria planeja expandir o programa para incluir a produção de textos originais pelos próprios alunos, utilizando ferramentas de escrita assistida por IA.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44769,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44770,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10398,
+    "texto": "Texto: \"Em 2024, o Ministério da Educação divulgou um relatório sobre a evolução da alfabetização no país. O documento apontou que, apesar das iniciativas de inclusão digital, a taxa de alfabetização de jovens entre 15 e 19 anos permaneceu estável em 92,5%. A análise comparativa com dados de 2020 mostrou que o progresso foi de apenas 1,3 pontos percentuais. Os especialistas atribuem essa lentidão a fatores como desigualdade regional, falta de infraestrutura e baixa qualidade de ensino nas escolas públicas. Em resposta, o governo anunciou um programa de capacitação docente e investimentos em tecnologia para escolas de áreas rurais. No entanto, críticos apontam que a estratégia não contempla a formação continuada de professores nem a avaliação efetiva dos resultados.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44767,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44768,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10397,
+    "texto": "Em textos acadêmicos, o uso de pronomes de tratamento como \"vossa senhoria\" é considerado adequado e forma parte da norma culta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44765,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44766,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10396,
+    "texto": "A frase \"A análise dos dados revelou que o número de usuários aumentou em 15% no último trimestre\" contém erro de regência, pois o verbo \"revelar\" exige objeto direto, não indireto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44763,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44764,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10395,
+    "texto": "Na oração \"O relatório, que foi enviado ontem, contém informações relevantes\", a vírgula que separa o adjunto adnominal está corretamente empregada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44761,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44762,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10358,
+    "texto": "Um texto argumentativo apresenta a tese de que a adoção de algoritmos de recomendação em plataformas digitais pode comprometer a autonomia cognitiva dos usuários. Entre os recursos retóricos empregados, qual deles serve para reforçar a credibilidade da argumentação ao citar estudos de especialistas?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44636,
+        "texto": "Uso de metáfora",
+        "correta": false
+      },
+      {
+        "id": 44637,
+        "texto": "Apelo à autoridade",
+        "correta": true
+      },
+      {
+        "id": 44638,
+        "texto": "Apelo à emoção",
+        "correta": false
+      },
+      {
+        "id": 44639,
+        "texto": "Apelo à tradição",
+        "correta": false
+      },
+      {
+        "id": 44640,
+        "texto": "Apelo à novidade",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10357,
+    "texto": "Na análise de um trecho de um romance policial, observa‑se que o narrador utiliza a técnica de anáfora para criar suspense. Qual é o efeito mais significativo desse recurso no ritmo da leitura?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44631,
+        "texto": "Acelera a leitura de forma linear",
+        "correta": false
+      },
+      {
+        "id": 44632,
+        "texto": "Interrompe o fluxo narrativo com diálogos",
+        "correta": false
+      },
+      {
+        "id": 44633,
+        "texto": "Estabelece um ritmo cadenciado e repetitivo",
+        "correta": true
+      },
+      {
+        "id": 44634,
+        "texto": "Elimina a necessidade de pontuação",
+        "correta": false
+      },
+      {
+        "id": 44635,
+        "texto": "Amplifica a complexidade sintática",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10356,
+    "texto": "Um jovem jornalista, recém‑formado, trabalha em um veículo de grande circulação. Ao receber uma denúncia de irregularidades em uma empresa estatal, ele recebe, em 48 horas, uma pauta de última hora sobre um escândalo que promete repercussão nacional. Em busca de rapidez, ele decide publicar o artigo antes de confirmar a veracidade das informações, confiando apenas em uma fonte anônima que não pode ser corroborada. A publicação gera repercussão negativa, mas o veículo ganha audiência. O jornalista, ao refletir sobre o ocorrido, percebe que a decisão de publicar sem verificação pode ter implicações sérias para a credibilidade do meio de comunicação e para a reputação das pessoas envolvidas.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44626,
+        "texto": "Princípio da imparcialidade",
+        "correta": false
+      },
+      {
+        "id": 44627,
+        "texto": "Princípio da veracidade",
+        "correta": true
+      },
+      {
+        "id": 44628,
+        "texto": "Princípio da responsabilidade social",
+        "correta": false
+      },
+      {
+        "id": 44629,
+        "texto": "Princípio da rapidez editorial",
+        "correta": false
+      },
+      {
+        "id": 44630,
+        "texto": "Princípio da independência corporativa",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10355,
+    "texto": "Em uma obra literária contemporânea, o autor emprega o recurso de anacoluto para enfatizar a fragmentação da identidade do protagonista; qual é a consequência mais provável desse recurso no discurso narrativo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44621,
+        "texto": "Aumenta a velocidade do enredo",
+        "correta": false
+      },
+      {
+        "id": 44622,
+        "texto": "Desestabiliza a coerência textual",
+        "correta": true
+      },
+      {
+        "id": 44623,
+        "texto": "Reforça a clareza semântica",
+        "correta": false
+      },
+      {
+        "id": 44624,
+        "texto": "Elimina a necessidade de pontuação",
+        "correta": false
+      },
+      {
+        "id": 44625,
+        "texto": "Intensifica a pontuação de voz",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10354,
+    "texto": "Texto: Em 2024, o Ministério da Educação publicou a Portaria nº 1.234, que alterou o regulamento do concurso para a carreira de professor do ensino médio. A nova norma prevê que o candidato deve apresentar, além da prova escrita, um portfólio de atividades pedagógicas, contendo ao menos três projetos desenvolvidos em sala de aula. O edital estipula que, para a fase de avaliação do portfólio, será utilizada a escala de 0 a 10, onde 5,5 é a nota mínima exigida para aprovação. A portaria também determina que o candidato deve comprovar, por meio de documentos oficiais, a realização de cada projeto apresentado. A partir de 1º de julho, a banca examinadora terá a prerrogativa de aceitar apenas portfólios que contenham projetos de áreas de conhecimento distintas, a fim de garantir a interdisciplinaridade. Caso o candidato apresente projetos de apenas uma área, a prova de portfólio será considerada nula.\n\nConsiderando o texto acima, a exigência de comprovação documental para cada projeto apresentado no portfólio é uma exigência de caráter discriminatório, pois impede a participação de candidatos que não possuem acesso fácil a documentos oficiais.\n\nQual a veracidade da afirmação?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44619,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44620,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10353,
+    "texto": "Para o correto uso do gerúndio, é imprescindível que a ação verbal seja simultânea à principal; portanto, a frase ‘Ele estava estudando enquanto ouvindo música’ apresenta erro semântico, pois o gerúndio não pode expressar simultaneidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44617,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44618,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10352,
+    "texto": "No uso de crase, a expressão “a partir de” nunca admite a fusão com o artigo definido, pois a preposição “a” já está explícita e a crase ocorre apenas quando há a junção de duas preposições iguais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44615,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44616,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10351,
+    "texto": "A oração subordinada adverbial causal pode ser introduzida por “porque”, “uma vez que” ou “porquanto”, e a escolha entre elas depende apenas da preferência do autor, sem impacto na validade gramatical da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44613,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44614,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10350,
+    "texto": "No contexto de uma prova de concurso público, a frase “O candidato, ao responder, deve observar a norma culta da língua portuguesa” é correta quando se entende que a norma culta engloba tanto o padrão linguístico quanto a adequação ao registro formal exigido pelo edital.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44611,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44612,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10349,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação do Estado Y divulgou um relatório sobre a inclusão de tecnologias digitais no ensino fundamental. O documento destaca que, entre 2019 e 2023, o número de escolas com acesso a computadores aumentou 27%. Entretanto, a taxa de utilização efetiva desses recursos permanece abaixo de 15% nas regiões rurais, em contraste com a média nacional de 38%. A análise aponta que a falta de capacitação docente e a insuficiência de infraestrutura de internet são os principais entraves. Em resposta, a secretaria propõe a criação de um programa de formação continuada para professores e a instalação de pontos de acesso Wi‑Fi em todas as escolas até o fim do ano letivo.\" Considerando o texto acima, qual é a principal característica da linguagem utilizada no relatório?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44606,
+        "texto": "Uso de linguagem coloquial e informal",
+        "correta": false
+      },
+      {
+        "id": 44607,
+        "texto": "Uso de linguagem jurídica e normativa",
+        "correta": false
+      },
+      {
+        "id": 44608,
+        "texto": "Uso de linguagem científica e objetiva",
+        "correta": true
+      },
+      {
+        "id": 44609,
+        "texto": "Uso de linguagem persuasiva e emotiva",
+        "correta": false
+      },
+      {
+        "id": 44610,
+        "texto": "Uso de linguagem literária e descritiva",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10348,
+    "texto": "Um texto jornalístico descreve a seguinte situação: \"No último sábado, o prefeito da cidade X anunciou um plano de revitalização urbana que prevê a construção de 12 novos parques e a reforma de 30 calçadas. O plano, que custará R$ 45 milhões, será financiado por meio de convênios com o Ministério da Cidadania e a União Europeia.\" Qual das alternativas abaixo melhor identifica a modalidade de discurso utilizada no texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44601,
+        "texto": "Discurso narrativo",
+        "correta": false
+      },
+      {
+        "id": 44602,
+        "texto": "Discurso expositivo",
+        "correta": true
+      },
+      {
+        "id": 44603,
+        "texto": "Discurso argumentativo",
+        "correta": false
+      },
+      {
+        "id": 44604,
+        "texto": "Discurso persuasivo",
+        "correta": false
+      },
+      {
+        "id": 44605,
+        "texto": "Discurso descritivo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10347,
+    "texto": "Um documento oficial emitido por um órgão público contém a frase: \"A presente decisão foi tomada em conformidade com as disposições legais vigentes.\" O uso da expressão \"conformidade\" no contexto jurídico pode ser interpretado como:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44596,
+        "texto": "O documento está em total aderência às normas legais aplicáveis.",
+        "correta": true
+      },
+      {
+        "id": 44597,
+        "texto": "O documento foi elaborado sem considerar as normas legais.",
+        "correta": false
+      },
+      {
+        "id": 44598,
+        "texto": "O documento apenas cumpre parcialmente as normas legais.",
+        "correta": false
+      },
+      {
+        "id": 44599,
+        "texto": "O documento não possui respaldo legal.",
+        "correta": false
+      },
+      {
+        "id": 44600,
+        "texto": "O documento foi elaborado de acordo com a vontade do responsável, independentemente da lei.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10346,
+    "texto": "Um edital de concurso para o cargo de Analista de Processos em uma repartição federal apresenta, na seção de requisitos, a frase: \"É imprescindível que o candidato possua domínio da norma culta da língua portuguesa, demonstrado por meio de prova objetiva de interpretação de textos.\" Considerando o que dispõe o artigo 5º, inciso XXXVII, da Constituição Federal, qual a interpretação correta da exigência de domínio da norma culta para a seleção do cargo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44591,
+        "texto": "A exigência é constitucional, pois não impede a escolha de candidatos qualificados.",
+        "correta": true
+      },
+      {
+        "id": 44592,
+        "texto": "A exigência é inconstitucional, pois viola o princípio da igualdade.",
+        "correta": false
+      },
+      {
+        "id": 44593,
+        "texto": "A exigência é constitucional, mas deve ser aplicada apenas em cargos de nível superior.",
+        "correta": false
+      },
+      {
+        "id": 44594,
+        "texto": "A exigência é inconstitucional, pois contraria o princípio da legalidade.",
+        "correta": false
+      },
+      {
+        "id": 44595,
+        "texto": "A exigência é constitucional, mas pode ser considerada discriminatória se não houver critérios objetivos de avaliação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10345,
+    "texto": "Na análise de textos literários, a presença de ironia pode ser identificada quando o autor utiliza recursos estilísticos que criam um contraste entre o significado literal e o sentido implícito, provocando uma interpretação crítica por parte do leitor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44589,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44590,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10344,
+    "texto": "Considerando o seguinte texto: \"Em 2024, a Secretaria de Educação publicou a Portaria nº 123/2024, que institui o Programa de Incentivo ao Ensino de Línguas Estrangeiras nas escolas públicas estaduais. O programa prevê a formação de professores, a aquisição de materiais didáticos e a criação de um portal de recursos digitais. O objetivo principal é ampliar a oferta de aulas de língua inglesa, espanhol e francês, com foco em regiões de baixa renda. A portaria estabelece que o financiamento será realizado por meio de convênios com instituições privadas e que os resultados serão avaliados anualmente por meio de indicadores de desempenho.\" Considerando o texto acima, a afirmação a seguir é verdadeira: a Portaria nº 123/2024 tem por finalidade principal a expansão de aulas de língua inglesa, espanhol e francês em escolas públicas estaduais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44587,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44588,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

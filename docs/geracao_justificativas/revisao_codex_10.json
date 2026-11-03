@@ -1,0 +1,74 @@
+[
+  {
+    "id": 9701,
+    "motivo": "Texto debate efetividade da avaliação, mas não fornece evidência de redução da capacidade crítica dos estudantes. Distinguir medir uma capacidade de causar alteração nela.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9699,
+    "motivo": "Primeiro bit 1 exige segundo 1; último depende do penúltimo, não do primeiro. Exemplo 11000001 satisfaz regras e termina em 1. Cadastro Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9666,
+    "motivo": "Consequência ambiental plausível, mas depende de hipótese sobre combustível/emissões e relatório atribuído a órgão sem fonte identificada. Conferir contexto antes da justificativa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9665,
+    "motivo": "Diferenças circulares de deslocamento três são 3,4,1,1,4,1,1,1; soma 16, ausente das alternativas. Cadastro 32 incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9661,
+    "motivo": "Exclusão mútua protege uma seção crítica/recurso sob o mesmo mecanismo, não necessariamente qualquer acesso à mesma variável. Clarificar escopo e que B pretende entrar na seção crítica antes de impor permanência na espera.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9456,
+    "motivo": "Texto repetido, expressão “premissas condicionalmente equivalentes” indefinida e inferência de causa direta não estabelecida pela condicional fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9455,
+    "motivo": "Faltam valores do conjunto, modelo de sorteio e reposição. Em sorteio uniforme de distintos, ordens reversas têm chances iguais, mas o experimento não foi definido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9416,
+    "motivo": "Sob conjunto completo de dependências A→B,B→C e chave A, há violação de 3FN. Porém o texto não fixa chave nem exclui dependências adicionais: B→A tornaria B chave. Explicitar dependências relevantes antes de justificar categórica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8970,
+    "motivo": "Conclusão lógica sobre ausência de garantia automática é plausível, mas regulamento e alteração atribuídos à ANEEL não estão identificados; requer fonte ou enquadramento explícito como hipótese.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8968,
+    "motivo": "Colunas diferem linha a linha, mas ambas contêm três valores 1 e um 0. “Mesma distribuição” pode significar frequências iguais; reformular para equivalência dos valores em cada linha.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8966,
+    "motivo": "Antecessor e predecessor são sinônimos, sem recorrência inequívoca. Um único termo inicial tampouco determina recorrência de segunda ordem.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8932,
+    "motivo": "Alternativas A e D são equivalentes à original: A é contrapositiva e D é ¬P∨Q∨R. Questão ME possui mais de uma opção correta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

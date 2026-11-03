@@ -1,0 +1,14 @@
+[
+  {
+    "texto": "Existe uma sequência que é, simultaneamente, uma progressão aritmética e uma progressão geométrica.",
+    "sha256": "e694c659a4226f2119dbbc7b012079556ce52b9df472d5699b2285561ebd6286"
+  },
+  {
+    "texto": "Situação hipotética: Em uma brincadeira de determinada festa junina, os jogadores devem tirar de uma urna duas bolas em sequência e sem reposição. A urna contém 10 bolas, numeradas de 1 a 10. Para ganhar o jogo, os participantes da brincadeira devem tirar duas bolas cujos números mostrados possuam diferença, em módulo, igual a 1. Assertiva: Nessa situação, a probabilidade de ganhar o jogo é de 20%.",
+    "sha256": "720c02af1c3d0771c9882d4ddfc7ef74bbba15bfa9aa2558ca6ce25cc92dc51f"
+  },
+  {
+    "texto": "Considerando-se uma matriz A ∈ ℝ m×n, um vetor x ∈ ℝ n e b ∈ ℝ m, se m < n, então o sistema linear Ax = b nunca terá solução.",
+    "sha256": "9bc91bb9020db885df3549fbb2f79376cabb2353389e4100b3c77be7c6bafdb0"
+  }
+]

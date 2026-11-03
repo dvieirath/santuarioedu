@@ -1,0 +1,497 @@
+[
+  {
+    "id": 11108,
+    "texto": "No contexto de um contrato de prestação de serviços de consultoria jurídica, o profissional deve garantir que a cláusula de confidencialidade não viole o princípio da publicidade previsto no art. 5º, inciso XXXIII, da Constituição Federal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47091,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47092,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11070,
+    "texto": "Na construção de um texto expositivo sobre a importância da preservação da biodiversidade, o autor decide organizar as informações em três parágrafos. No primeiro, apresenta a definição de biodiversidade; no segundo, descreve as ameaças atuais; e no terceiro, propõe medidas de conservação. Qual das alternativas abaixo descreve corretamente a estrutura lógica adotada pelo autor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46964,
+        "texto": "O autor utiliza a estrutura de causa e consequência.",
+        "correta": false
+      },
+      {
+        "id": 46965,
+        "texto": "O autor segue a sequência de problema-solução.",
+        "correta": true
+      },
+      {
+        "id": 46966,
+        "texto": "O autor emprega a estrutura de comparação e contraste.",
+        "correta": false
+      },
+      {
+        "id": 46967,
+        "texto": "O autor adota a estrutura de narrativa cronológica.",
+        "correta": false
+      },
+      {
+        "id": 46968,
+        "texto": "O autor utiliza a estrutura de argumentação em forma de debate.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11069,
+    "texto": "Em uma análise de um texto jornalístico, o professor observa que o autor utiliza a figura de linguagem chamada 'hipérbole' para enfatizar a urgência da situação. Qual é a definição correta de hipérbole?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46959,
+        "texto": "Exagero deliberado para realçar uma ideia.",
+        "correta": true
+      },
+      {
+        "id": 46960,
+        "texto": "Comparação entre dois elementos sem o uso de ‘como’ ou ‘tal qual’.",
+        "correta": false
+      },
+      {
+        "id": 46961,
+        "texto": "Uso de palavras que têm o mesmo significado.",
+        "correta": false
+      },
+      {
+        "id": 46962,
+        "texto": "Repetição de palavras em sequência para criar ritmo.",
+        "correta": false
+      },
+      {
+        "id": 46963,
+        "texto": "Substituição de um termo por outro de sentido semelhante.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11068,
+    "texto": "No contexto de um edital de concurso para a função de analista de dados, o edital menciona que o candidato deve demonstrar proficiência em interpretação de textos complexos. Qual dos seguintes enunciados exemplifica melhor a aplicação desse requisito?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46954,
+        "texto": "O candidato deve ser capaz de resumir textos literários de forma criativa.",
+        "correta": false
+      },
+      {
+        "id": 46955,
+        "texto": "O candidato deve identificar e explicar a função de cada elemento de uma frase em um texto técnico.",
+        "correta": true
+      },
+      {
+        "id": 46956,
+        "texto": "O candidato deve escrever um texto argumentativo sobre um tema atual.",
+        "correta": false
+      },
+      {
+        "id": 46957,
+        "texto": "O candidato deve analisar a estrutura de um poema e identificar o ritmo.",
+        "correta": false
+      },
+      {
+        "id": 46958,
+        "texto": "O candidato deve traduzir um texto de inglês para português.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11067,
+    "texto": "Considerando a frase: \"A tempestade que se abateu sobre o vilarejo foi tão violenta que as casas, embora construídas com alvenaria tradicional, foram parcialmente destruídas, mas os moradores, que já haviam passado por situações adversas, reagiram com resiliência e cooperaram para reconstruir a comunidade.\" Qual das alternativas abaixo apresenta a análise correta da estrutura sintática da oração principal?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46949,
+        "texto": "O sujeito é simples e o predicado é composto por dois verbos coordenados.",
+        "correta": false
+      },
+      {
+        "id": 46950,
+        "texto": "O sujeito é composto por dois elementos ligados por conjunção coordenativa, e o predicado é simples.",
+        "correta": false
+      },
+      {
+        "id": 46951,
+        "texto": "O sujeito é simples, enquanto o predicado é composto por dois verbos coordenados que expressam ações simultâneas.",
+        "correta": true
+      },
+      {
+        "id": 46952,
+        "texto": "O sujeito é composto por um nome próprio e um substantivo comum, e o predicado é composto por um verbo transitivo direto e indireto.",
+        "correta": false
+      },
+      {
+        "id": 46953,
+        "texto": "O sujeito é simples e o predicado é composto por um verbo principal e um verbo subordinado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11066,
+    "texto": "A seguir, apresenta‑se um trecho de uma reportagem fictícia: \"No último fim‑de‑semana, a prefeitura de São José do Rio Preto anunciou a implementação de um programa de alfabetização digital para crianças de 6 a 10 anos. O projeto, que visa integrar tecnologia e educação, contará com tablets e aulas online, além de treinamento para os professores. Os responsáveis pelo programa afirmaram que a iniciativa pretende reduzir a evasão escolar e melhorar o desempenho nas avaliações nacionais. Em entrevista coletiva, o secretário de Educação, Dr. Carlos Henrique, destacou que a parceria com a empresa TechEdu será fundamental para o sucesso do projeto, pois a empresa já possui experiência em soluções educacionais para escolas públicas.\" Considerando o texto acima, julgue a seguinte afirmação: a frase \"O projeto, que visa integrar tecnologia e educação, contará com tablets e aulas online, além de treinamento para os professores\" possui uma oração subordinada adjetiva restritiva, pois o pronome relativo \"que\" introduz uma informação essencial para a compreensão da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46947,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46948,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11065,
+    "texto": "Em textos jornalísticos, a norma culta permite a inversão da ordem típica sujeito-verbo-objeto quando a oração for de caráter exclamativo e o verbo for de ligação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46945,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46946,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11064,
+    "texto": "O uso de palavras de origem estrangeira em textos técnicos, quando há equivalente em português, é permitido apenas se a palavra estrangeira for mais precisa em relação ao significado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46943,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46944,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11063,
+    "texto": "No contexto da norma culta, a utilização de pronomes oblíquos átonos no lugar de pronomes tônicos é considerada correta quando o verbo estiver no infinitivo impessoal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46941,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46942,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11062,
+    "texto": "Considerando que a norma culta da língua portuguesa estabelece que a concordância verbal deve obedecer ao sujeito da oração, julgue a seguinte afirmação: quando o sujeito é composto por termos ligados por conjunção coordenativa e a oração é transitiva direta, o verbo deve concordar em número com todos os termos do sujeito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46939,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46940,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11061,
+    "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório sobre a qualidade da alfabetização nas escolas públicas brasileiras. O documento destaca que, apesar dos avanços, ainda há disparidades significativas entre regiões, especialmente entre o Norte e o Sul do país. O relatório aponta que a taxa de alfabetização de crianças em idade escolar no Norte é de 78,5%, enquanto no Sul a taxa alcança 92,3%. Além disso, o estudo revela que a média de horas de aula de língua portuguesa por semana varia de 6 a 8 horas nas escolas do Norte, contra 10 a 12 horas no Sul. O relatório também menciona que, em 2023, 12% dos professores de língua portuguesa no Norte tinham formação continuada em literatura, em comparação com 45% no Sul. O documento conclui que, para reduzir as lacunas, é necessário investir em programas de formação docente e em políticas de incentivo ao ensino de literatura. Considerando o texto acima, qual das alternativas abaixo melhor descreve a relação entre a taxa de alfabetização e a média de horas de aula em cada região?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46934,
+        "texto": "Existe correlação positiva entre a taxa de alfabetização e a média de horas de aula em cada região.",
+        "correta": true
+      },
+      {
+        "id": 46935,
+        "texto": "A relação é inversa: quanto maior a média de horas de aula, menor a taxa de alfabetização.",
+        "correta": false
+      },
+      {
+        "id": 46936,
+        "texto": "Não há relação estatística entre as duas variáveis.",
+        "correta": false
+      },
+      {
+        "id": 46937,
+        "texto": "A taxa de alfabetização determina a média de horas de aula, mas não vice-versa.",
+        "correta": false
+      },
+      {
+        "id": 46938,
+        "texto": "A correlação é negativa apenas no Norte, positiva no Sul.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11060,
+    "texto": "A seguir, um trecho de um edital de concurso público: \"Os candidatos deverão apresentar, no prazo de até 15 dias, cópia autenticada de todos os documentos comprobatórios de escolaridade, bem como do título de eleitor, caso haja exigência.\" Considerando o que dispõe o art. 37, § 10, da Constituição Federal, qual é a correta interpretação da exigência de cópia autenticada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46929,
+        "texto": "A exigência é legítima, pois visa garantir a veracidade das informações apresentadas pelo candidato.",
+        "correta": true
+      },
+      {
+        "id": 46930,
+        "texto": "A exigência é inconstitucional, pois contraria o princípio da publicidade.",
+        "correta": false
+      },
+      {
+        "id": 46931,
+        "texto": "A exigência é legítima apenas se houver risco de fraude, caso contrário, pode ser dispensada.",
+        "correta": false
+      },
+      {
+        "id": 46932,
+        "texto": "A exigência é inconstitucional, pois viola o princípio da razoabilidade.",
+        "correta": false
+      },
+      {
+        "id": 46933,
+        "texto": "A exigência é legítima, mas apenas se o edital for publicado em jornal de grande circulação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11059,
+    "texto": "No texto a seguir, identifique a figura de linguagem predominante: \"O silêncio da sala parecia um espelho que reflete a ausência de voz, como se cada sussurro fosse um eco distante.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46924,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 46925,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 46926,
+        "texto": "Símile",
+        "correta": true
+      },
+      {
+        "id": 46927,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 46928,
+        "texto": "Oxítona",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11058,
+    "texto": "Em uma mensagem de e-mail enviada por um servidor público a um colega de trabalho, o remetente utiliza a expressão: \"Aguardamos sua resposta para avançarmos com a pauta.\" Qual é a classificação correta dessa frase quanto ao uso da preposição \"para\"?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46919,
+        "texto": "I. Preposição de finalidade; II. Preposição de causa; III. Preposição de tempo.",
+        "correta": false
+      },
+      {
+        "id": 46920,
+        "texto": "I. Preposição de finalidade; II. Preposição de modo; III. Preposição de lugar.",
+        "correta": false
+      },
+      {
+        "id": 46921,
+        "texto": "I. Preposição de finalidade; II. Preposição de finalidade; III. Preposição de finalidade.",
+        "correta": true
+      },
+      {
+        "id": 46922,
+        "texto": "I. Preposição de finalidade; II. Preposição de causa; III. Preposição de modo.",
+        "correta": false
+      },
+      {
+        "id": 46923,
+        "texto": "I. Preposição de finalidade; II. Preposição de modo; III. Preposição de causa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11057,
+    "texto": "No enunciado 'Aos candidatos, coube a tarefa de organizar os documentos, mas, infelizmente, não lhes foi dada a devida orientação', a substituição do termo 'lhes' pelo pronome pessoal 'os' manteria a correção gramatical e o sentido original da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46917,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46918,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11056,
+    "texto": "Na construção 'Os relatórios foram analisados pela comissão técnica, sendo que os resultados serão apresentados em breve', o uso do gerúndio no trecho 'sendo que' configura um vício de linguagem, sendo recomendável sua substituição por uma conjunção coordenativa ou por uma estrutura que estabeleça uma relação lógica mais clara entre as orações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46915,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46916,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11055,
+    "texto": "Na frase 'Faz mais de dez anos que a instituição promove cursos de capacitação', o emprego do verbo 'fazer' está em estrita conformidade com a norma culta, pois, ao indicar tempo decorrido, o verbo deve permanecer na terceira pessoa do singular.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46913,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 46914,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11054,
+    "texto": "Considerando a evolução das comunicações digitais e a formalidade exigida no serviço público, analise o seguinte fragmento: 'A Secretaria de Gestão, visando a otimização dos fluxos de trabalho, implementou novas diretrizes para o atendimento ao cidadão. Tais medidas, que foram discutidas em assembleia, visam a que o servidor público se sinta mais amparado. Contudo, percebe-se que, devido a falhas técnicas, as metas de desempenho ainda não foram alcançadas plenamente. É imperativo que a chefia imediata proceda à revisão dos processos, visto que a eficiência do setor depende da colaboração de todos os envolvidos.' Considerando o texto acima, a regência do verbo 'visar' foi aplicada corretamente em todas as suas ocorrências no texto, mantendo-se o sentido de objetivo ou finalidade em cada uma delas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46911,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46912,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11053,
+    "texto": "No trecho 'Os servidores públicos, embora enfrentem desafios cotidianos, mantêm a eficiência na prestação dos serviços', a supressão das vírgulas que isolam a oração concessiva alteraria a correção gramatical do período, uma vez que o uso da pontuação é obrigatório para separar orações de natureza adverbial deslocadas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46909,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 46910,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10853,
+    "texto": "Texto de apoio: \"Em um cenário de crescente digitalização, a Fundação Nacional de Estudos Linguísticos (FNEL) realizou uma pesquisa com 1.200 candidatos de concursos públicos, analisando a relação entre o domínio de recursos de linguagem e o desempenho nas provas de Português. Os resultados indicaram que candidatos que demonstraram proficiência em análise sintática e interpretação de textos complexos obtiveram, em média, 15% de pontuação superior às médias de suas respectivas bancas. A pesquisa também observou que a familiaridade com figuras de linguagem, como metáforas e hipérboles, correlacionou-se positivamente com a capacidade de inferir sentidos implícitos em passagens extensas. Por fim, os pesquisadores concluíram que a prática regular de leitura crítica, combinada com a revisão sistemática de gramática, representa o principal diferencial para o sucesso em avaliações de língua portuguesa. Considerando os dados apresentados, qual é a principal recomendação para candidatos que visam melhorar sua performance em provas de Português?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 46248,
+        "texto": "Focar exclusivamente em exercícios de gramática normativa.",
+        "correta": false
+      },
+      {
+        "id": 46249,
+        "texto": "Dedicar a maior parte do tempo à memorização de regras gramaticais.",
+        "correta": false
+      },
+      {
+        "id": 46250,
+        "texto": "Combinar a leitura crítica de textos complexos com revisões sistemáticas de gramática.",
+        "correta": true
+      },
+      {
+        "id": 46251,
+        "texto": "Priorizar a prática de exercícios de vocabulário sem contextualização.",
+        "correta": false
+      },
+      {
+        "id": 46252,
+        "texto": "Concentrar-se apenas em questões de interpretação de textos simples.",
+        "correta": false
+      }
+    ]
+  }
+]

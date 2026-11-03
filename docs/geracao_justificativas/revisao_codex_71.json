@@ -1,0 +1,56 @@
+[
+  {
+    "id": 782,
+    "motivo": "Relação entre saúde e ênfase em volume/intensidade depende do enquadramento pedagógico e dos determinantes considerados. Falta referência para sustentar a leitura restritiva pretendida sem acrescentar premissas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 781,
+    "motivo": "A avaliação de aptidão pode subsidiar planejamento, mas a eficiência das ações de saúde não decorre automaticamente da identificação de padrões. Pendente conferência da referência e do alcance do item antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 779,
+    "motivo": "Ambiguidade entre avaliação de aptidão física e avaliação de aprendizagem: testes e antropometria podem compor atividades pedagógicas. O gabarito Errado não pode ser sustentado por proibição geral desses instrumentos; conferir referência original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 778,
+    "motivo": "A redação diz que os exercícios podem ser considerados em provas, sem afirmar avaliação exclusiva por rendimento. O gabarito Errado exige contexto adicional; não presumir exclusividade ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 774,
+    "motivo": "Identificar talentos pode coexistir com finalidades educativas. A redação não diz que seja finalidade única, mas atribui valor singular sem definir o referencial. Conferir contexto antes de justificar Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 763,
+    "motivo": "Necessária fonte histórica específica para a associação entre higienismo e eugenismo sem tratar os conceitos como equivalentes. Conferência primária não concluída nesta rodada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 762,
+    "motivo": "Possível divergência de gabarito: o movimento renovador é associado à crítica pedagógica, não simplesmente à passagem da ginástica ao esporte. Conferir periodização da fonte original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 761,
+    "motivo": "Possível divergência histórica: as origens escolares têm forte presença de ginástica e influências médico-militares; esportes e competições não descrevem, sem recorte adicional, as primeiras tentativas. Recuperar fonte.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 760,
+    "motivo": "Possível divergência histórica: os anos 1980 também marcam a crítica ao modelo biologicista e a renovação pedagógica. A afirmação geral marcada Certo requer referência que esclareça o recorte.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

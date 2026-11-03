@@ -1,0 +1,467 @@
+[
+  {
+    "id": 8722,
+    "texto": "Na frase 'Caso os gestores analisassem os indicadores de desempenho com maior rigor, certamente evitariam decisões precipitadas que comprometem o orçamento anual', o uso do modo subjuntivo no verbo 'analisassem' estabelece uma relação de condicionalidade que é corroborada pelo uso do futuro do pretérito na oração principal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39335,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39336,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8721,
+    "texto": "Considerando o fragmento: 'A implementação de novas tecnologias no setor administrativo gerou um impacto significativo na rotina dos colaboradores. Embora o treinamento tenha sido disponibilizado a todos, a resistência à mudança ainda se faz presente em setores específicos, onde os processos manuais são mantidos por hábito. Especialistas apontam que a transição digital exige não apenas ferramentas adequadas, mas também uma reestruturação da cultura organizacional, visando mitigar possíveis falhas operacionais e otimizar o fluxo de trabalho.' Com base no texto, a substituição da forma verbal 'exige' por 'exigem' manteria a correção gramatical do período, uma vez que o sujeito do verbo poderia ser identificado tanto como 'a transição digital' quanto como o conjunto de elementos 'ferramentas' e 'reestruturação'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39333,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39334,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8720,
+    "texto": "No trecho 'Os servidores que se dedicam ao atendimento público devem, com frequência, atualizar seus conhecimentos técnicos para que a prestação do serviço seja eficiente', o emprego da vírgula logo após a palavra 'frequência' é obrigatório, visto que isola um adjunto adverbial de modo deslocado para o interior da oração principal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39331,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39332,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8682,
+    "texto": "Assinale a opção em que a concordância verbal e nominal está em estrita observância à norma-padrão da língua portuguesa.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39213,
+        "texto": "Houveram muitos problemas durante a execução do projeto, por isso, a diretoria decidiu adiar a entrega.",
+        "correta": false
+      },
+      {
+        "id": 39214,
+        "texto": "Faziam anos que a instituição não recebia investimentos tão vultosos para a modernização de sua infraestrutura.",
+        "correta": false
+      },
+      {
+        "id": 39215,
+        "texto": "A maioria dos servidores públicos manifestaram-se favoráveis às novas diretrizes estabelecidas pelo órgão.",
+        "correta": false
+      },
+      {
+        "id": 39216,
+        "texto": "Devem existir mecanismos mais eficazes para garantir que as metas de produtividade sejam alcançadas pelos setores.",
+        "correta": true
+      },
+      {
+        "id": 39217,
+        "texto": "Vossa Excelência estais ciente das implicações legais decorrentes do descumprimento dos prazos estabelecidos?",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8681,
+    "texto": "No que se refere à pontuação e ao emprego dos sinais de pontuação em textos oficiais, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39208,
+        "texto": "O uso da vírgula antes de conjunções conclusivas, em períodos compostos, é facultativo, independentemente da extensão da oração.",
+        "correta": false
+      },
+      {
+        "id": 39209,
+        "texto": "A vírgula deve ser empregada para isolar o adjunto adverbial deslocado, ainda que este apresente curta extensão, para garantir a clareza do período.",
+        "correta": false
+      },
+      {
+        "id": 39210,
+        "texto": "O emprego dos dois-pontos é obrigatório após vocativos em correspondências oficiais, substituindo a vírgula para conferir maior formalidade ao texto.",
+        "correta": false
+      },
+      {
+        "id": 39211,
+        "texto": "A vírgula é indispensável para separar elementos que exercem a mesma função sintática em uma enumeração, exceto se houver conjunção aditiva entre os dois últimos elementos.",
+        "correta": true
+      },
+      {
+        "id": 39212,
+        "texto": "O ponto e vírgula é utilizado exclusivamente para separar orações coordenadas que já possuam vírgulas internas, sendo proibido seu uso em enumerações longas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8680,
+    "texto": "A implementação de políticas públicas voltadas à digitalização dos serviços estatais tem demandado dos gestores uma postura proativa, visto que a celeridade processual depende, em larga medida, da eficiência das ferramentas tecnológicas adotadas. Nesse cenário, observa-se que a resistência à mudança, embora compreensível sob a ótica da psicologia organizacional, acaba por inviabilizar a modernização almejada pela administração pública contemporânea. É imperativo, portanto, que se estabeleçam protocolos de treinamento contínuo, a fim de que os servidores possam se adaptar às novas demandas do setor, garantindo, assim, que o cidadão receba um atendimento ágil e desburocratizado. Considerando o texto precedente, assinale a opção que apresenta a correta reescrita de um trecho, mantendo a correção gramatical e o sentido original do período: 'a celeridade processual depende, em larga medida, da eficiência das ferramentas tecnológicas adotadas'.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39203,
+        "texto": "A celeridade processual depende, em largas medidas, da eficiência das ferramentas tecnológicas adotadas.",
+        "correta": false
+      },
+      {
+        "id": 39204,
+        "texto": "Depende a celeridade processual, em larga medida, da eficiência das ferramentas tecnológicas adotadas.",
+        "correta": true
+      },
+      {
+        "id": 39205,
+        "texto": "A celeridade processual depende, em larga medida, das eficiências das ferramentas tecnológicas adotadas.",
+        "correta": false
+      },
+      {
+        "id": 39206,
+        "texto": "A celeridade processual depende, em larga medida, da eficiência das ferramentas tecnológicas que se adotaram.",
+        "correta": false
+      },
+      {
+        "id": 39207,
+        "texto": "A celeridade processual depende, em larga medida, da eficiência das ferramentas tecnológicas adotada.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8679,
+    "texto": "A frase 'O relatório foi entregue ao diretor pelo analista, o qual revisou minuciosamente os dados contidos no documento' apresenta um uso correto do pronome relativo 'o qual', que, nesse contexto, exerce a função de sujeito da oração adjetiva e retoma o antecedente 'analista'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39201,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39202,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8678,
+    "texto": "O emprego do acento indicativo de crase em 'O servidor público deve obediência às normas estabelecidas pelo regimento interno' é facultativo, visto que o termo regente 'obediência' admite tanto a regência com preposição quanto a construção direta com o artigo definido feminino.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39199,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39200,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8677,
+    "texto": "Na frase 'Aos candidatos que almejam o cargo, recomenda-se que mantenham o foco nos estudos e na disciplina', a substituição do termo 'aos candidatos' por 'os candidatos' implicaria a necessidade de alterar a forma verbal 'recomenda-se' para 'recomendam-se', visando preservar a concordância entre o sujeito e o verbo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39197,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39198,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8676,
+    "texto": "A empresa de tecnologia implementou um novo protocolo de segurança digital para mitigar os riscos de vazamento de dados sensíveis dos usuários. Recentemente, uma auditoria interna revelou que, apesar das melhorias, ainda restam vulnerabilidades que precisam ser corrigidas com urgência. A diretoria, preocupada com a imagem institucional, solicitou que o departamento de TI apresentasse um cronograma detalhado de ações corretivas. Nesse cenário, o engajamento da equipe técnica é fundamental para que o projeto seja concluído antes do encerramento do trimestre fiscal. Considerando o texto acima, a forma verbal 'restam', presente no segundo período, concorda com o sujeito composto 'melhorias e vulnerabilidades' que, por estar posposto ao verbo, admite a flexão no singular por atração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39195,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39196,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8675,
+    "texto": "No trecho 'Os gestores públicos, embora cientes dos desafios orçamentários, priorizaram a execução das políticas sociais', a supressão das vírgulas que isolam a oração intercalada 'embora cientes dos desafios orçamentários' manteria a correção gramatical do período, uma vez que a conjunção concessiva exerce papel meramente acessório na estrutura sintática.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39193,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39194,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8674,
+    "texto": "A pontuação é um recurso essencial para a organização do pensamento e a clareza do discurso jurídico e administrativo. Assinale a opção em que o uso das vírgulas está plenamente adequado às regras sintáticas vigentes.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39188,
+        "texto": "Os candidatos, que não apresentaram a documentação exigida no edital, foram automaticamente desclassificados do certame público.",
+        "correta": true
+      },
+      {
+        "id": 39189,
+        "texto": "Apesar das dificuldades orçamentárias, o projeto avançou, e, a equipe técnica, conseguiu finalizar o relatório final no prazo estipulado.",
+        "correta": false
+      },
+      {
+        "id": 39190,
+        "texto": "O servidor, que trabalha no setor de licitações, informou que, a partir de segunda-feira, o atendimento ao público será suspenso.",
+        "correta": false
+      },
+      {
+        "id": 39191,
+        "texto": "Para que o processo seja concluído com êxito, é necessário que, todos os departamentos enviem os documentos solicitados, até o final do dia.",
+        "correta": false
+      },
+      {
+        "id": 39192,
+        "texto": "A decisão, proferida pelo magistrado, causou estranheza, visto que, os fundamentos legais não foram devidamente esclarecidos na sentença.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8673,
+    "texto": "No que se refere à regência nominal e verbal, bem como ao emprego do sinal indicativo de crase, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39183,
+        "texto": "O diretor visou o cargo de secretário com o intuito de implementar mudanças estruturais, mas não visou aos benefícios financeiros da função.",
+        "correta": false
+      },
+      {
+        "id": 39184,
+        "texto": "Os documentos foram entregues à diretoria, que os encaminhou à análise técnica, a fim de que fossem submetidos à apreciação do conselho.",
+        "correta": true
+      },
+      {
+        "id": 39185,
+        "texto": "O servidor preferiu mais a estabilidade do cargo público do que a remuneração variável oferecida pela iniciativa privada.",
+        "correta": false
+      },
+      {
+        "id": 39186,
+        "texto": "A empresa informou aos funcionários que não haveria tolerância quanto à atrasos, sob pena de advertência escrita imediata.",
+        "correta": false
+      },
+      {
+        "id": 39187,
+        "texto": "O acesso à informações sigilosas é restrito àqueles que possuem autorização expressa da autoridade competente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8672,
+    "texto": "Assinale a opção em que a concordância verbal está em estrita observância à norma-padrão da língua portuguesa, considerando as regras de flexão dos verbos impessoais e dos sujeitos compostos.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39178,
+        "texto": "Houveram muitos problemas técnicos durante a implementação do novo sistema de gestão de dados na repartição pública.",
+        "correta": false
+      },
+      {
+        "id": 39179,
+        "texto": "Faziam mais de dez anos que os servidores não recebiam uma atualização salarial compatível com a inflação do período.",
+        "correta": false
+      },
+      {
+        "id": 39180,
+        "texto": "Devem existir mecanismos de controle social capazes de fiscalizar a execução orçamentária dos projetos municipais.",
+        "correta": true
+      },
+      {
+        "id": 39181,
+        "texto": "Nem o gestor nem o secretário municipal estavam presentes na reunião que definiram as metas para o próximo semestre.",
+        "correta": false
+      },
+      {
+        "id": 39182,
+        "texto": "A maioria dos funcionários públicos compareceram à assembleia para discutir a nova proposta de reestruturação da carreira.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8671,
+    "texto": "A implementação de tecnologias de inteligência artificial no setor público brasileiro tem gerado debates intensos sobre a eficiência administrativa e a transparência dos atos decisórios. Embora muitos gestores defendam a automação como ferramenta indispensável para a celeridade processual, especialistas em direito digital alertam para os riscos de opacidade algorítmica. Nesse contexto, a linguagem utilizada nos documentos técnicos deve ser clara e precisa, evitando ambiguidades que possam comprometer a interpretação dos procedimentos automatizados pelos cidadãos e pelos órgãos de controle. A padronização da comunicação institucional, portanto, não é apenas uma questão de estilo, mas uma exigência constitucional para garantir o princípio da publicidade. Considerando o texto acima, assinale a opção correta acerca da estrutura gramatical e dos aspectos linguísticos do fragmento.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39173,
+        "texto": "A substituição do termo 'embora' por 'conquanto' manteria a correção gramatical e o sentido original do período, exigindo, contudo, a flexão do verbo subsequente no modo subjuntivo.",
+        "correta": true
+      },
+      {
+        "id": 39174,
+        "texto": "A supressão da vírgula logo após o termo 'portanto' tornaria o texto mais fluido, visto que se trata de uma conjunção conclusiva cujo uso de pontuação é facultativo em qualquer posição do período.",
+        "correta": false
+      },
+      {
+        "id": 39175,
+        "texto": "A forma verbal 'tem gerado' poderia ser substituída por 'vêm gerando', sem que houvesse necessidade de alteração na concordância do sujeito, uma vez que o verbo manteria o sentido de ação contínua.",
+        "correta": false
+      },
+      {
+        "id": 39176,
+        "texto": "O uso da crase em 'à celeridade processual' é facultativo, dado que o substantivo feminino 'celeridade' admite a anteposição de artigo definido, mas não exige a preposição regida pelo adjetivo 'indispensável'.",
+        "correta": false
+      },
+      {
+        "id": 39177,
+        "texto": "A expressão 'dos atos decisórios' exerce a função de complemento nominal do substantivo 'transparência', sendo, portanto, um termo integrante indispensável para a regência do nome.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8670,
+    "texto": "No que se refere à concordância verbal e nominal em textos oficiais, a flexão do verbo 'haver', quando utilizado com sentido de tempo decorrido em orações impessoais, deve permanecer obrigatoriamente na terceira pessoa do singular, independentemente de o termo que o sucede estar no plural.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39171,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39172,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8669,
+    "texto": "A implementação de políticas públicas voltadas à digitalização dos serviços governamentais tem gerado debates intensos entre especialistas em gestão pública e cidadãos. Enquanto alguns estudiosos argumentam que a transição para o ambiente virtual democratiza o acesso à informação e otimiza o tempo do contribuinte, outros alertam para o risco de exclusão digital de populações vulneráveis que não possuem letramento tecnológico adequado. Nesse cenário, o papel da comunicação institucional torna-se fundamental para garantir que as diretrizes administrativas sejam compreendidas por todos, independentemente de sua condição socioeconômica ou do nível de instrução formal que possuam. Considerando o texto acima, julgue o item a seguir: O emprego do acento indicativo de crase em 'à digitalização' justifica-se pela regência do substantivo 'políticas', que exige o complemento introduzido pela preposição 'a', somado ao artigo definido feminino que determina o substantivo 'digitalização'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39169,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39170,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8668,
+    "texto": "Em relação à pontuação, a inserção de vírgulas isolando o adjunto adverbial de tempo 'durante a reunião' no trecho 'Os diretores discutiram durante a reunião as estratégias de expansão' é obrigatória, dado que se trata de termo deslocado de longa extensão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39167,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39168,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8667,
+    "texto": "Na oração 'Faz dez anos que a comissão de ética analisa as denúncias de má conduta', o verbo fazer está empregado de maneira incorreta, devendo ser flexionado no plural para concordar com o numeral 'dez', que indica tempo decorrido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39165,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39166,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8666,
+    "texto": "A respeito do emprego do sinal indicativo de crase, a sentença 'O servidor encaminhou o processo àquela unidade administrativa, a fim de que fosse dada prioridade à resolução do conflito' está redigida em estrita conformidade com a norma-padrão da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39163,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 39164,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

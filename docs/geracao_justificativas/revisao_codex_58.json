@@ -1,0 +1,68 @@
+[
+  {
+    "id": 4614,
+    "motivo": "Gabarito Certo incompatível: aferência do reflexo oculocardíaco pelo trigêmeo, não facial; eferência pelo vago. Fonte: https://www.openanesthesia.org/keywords/oculocardiac-reflex/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4606,
+    "motivo": "Gabarito Errado precisa de revisão: ondas V proeminentes na PVC podem ocorrer em regurgitação tricúspide e isquemia ventricular direita; não há erro inequívoco sustentado pela fonte consultada. Fonte: https://www.openanesthesia.org/keywords/central-venous-pressure-and-pulmonary-artery-wedge-pressure/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4604,
+    "motivo": "Figura de passagem do cateter ausente; descrição textual da letra C não substitui o traçado necessário para julgar sua identificação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4602,
+    "motivo": "Gabarito Errado não sustentado de forma inequívoca. Coorte pediátrica encontrou 0,8%, contrastando com 0,1–0,2% em adultos, compatível com mais de três vezes; estimativas variam conforme método de detecção. Conferir fonte/época original. https://pubmed.ncbi.nlm.nih.gov/15728046/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4536,
+    "motivo": "Dados gasométricos internamente incompatíveis: Henderson-Hasselbalch com HCO3=30 e PaCO2=50 resulta pH aproximadamente 7,40, não 7,30. Não corrigir bicarbonato nem justificar seletivamente ignorando a inconsistência. Parâmetros ventilatórios também merecem conferência.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4523,
+    "motivo": "Gabarito Errado exige conferência do referencial e da intensidade inicial pretendida. ACSM admite início leve a moderado em sedentários assintomáticos; o enunciado não indica doença nem condição que torne toda a prescrição listada incorreta. https://journals.lww.com/acsm-msse/fulltext/2015/11000/updating_acsm_s_recommendations_for_exercise.28.aspx",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4518,
+    "motivo": "Gabarito Certo incompatível com FABER: flexão, abdução e rotação externa, com calcanhar sobre joelho contralateral, não adução/extensão/rotação interna sobre tornozelo. Fonte: https://pmc.ncbi.nlm.nih.gov/articles/PMC6797256/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4517,
+    "motivo": "A ausência de reperfusão ao liberar a ulnar pode indicar circulação ulnar insuficiente, tornando o gabarito Errado duvidoso. Contudo, o texto restringe a observação a dois dedos e não explicita abertura da mão/tempo de retorno; conferir original e protocolo. OMS: https://www.ncbi.nlm.nih.gov/books/NBK138652/?report=printable",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4514,
+    "motivo": "Exemplos são compatíveis com cadeia fechada, mas afirmações comparativas de menor risco de lesão e menor aceleração/desaceleração não definem comparador, carga ou condição clínica. A busca confirmou classificação do ciclismo, sem validar todas as generalizações. Revisão especializada: https://www.mdpi.com/2411-5142/2/3/32/pdf?version=1504181483",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4513,
+    "motivo": "Gabarito Certo incompatível com a própria descrição: apoio entre potência e resistência define alavanca interfixa/de primeira classe, não interpotente/de terceira. Fonte didática: https://openstax.org/books/college-physics-2e/pages/9-5-simple-machines",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4506,
+    "motivo": "Primeira parte sobre apoio de cerca de 60% na marcha é compatível com descrição habitual, mas maioria passar a antepé ao correr é generalização sem delimitação de velocidade/calçado/distância. Estudo de corredores recreacionais encontrou predomínio de retropé; gabarito Certo exige revisão. https://pubmed.ncbi.nlm.nih.gov/31212983/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

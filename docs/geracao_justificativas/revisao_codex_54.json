@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1062,
+    "motivo": "Texto-base ausente: não se pode verificar o que o texto atesta sobre difusão e novidade do inglês global.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1061,
+    "motivo": "Texto-base ausente: não se pode contar ou classificar exemplos de manchetes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13844,
+    "motivo": "Expressão pode ser literal em contexto culinário ou idiomática; falta contexto do artigo. Alternativas usam rótulos vagos e não oferecem explicitamente sentido figurado/expressão idiomática. Necessário delimitar o uso para resposta inequívoca.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13842,
+    "motivo": "Comando termina em “é:” sem proposição para julgar; tipo Certo/Errado incompatível com pergunta aberta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13841,
+    "motivo": "Texto afirma obrigação normativa geral sem identificar legislação ou jurisdição. Antes de justificar, identificar fonte ou explicitar cenário fictício; não apresentar a obrigação universal de PIA como regra da LGPD.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13840,
+    "motivo": "Não há edital ou critérios específicos da Cebraspe para verificar conformidade atribuída à banca. Frase gramatical isolada não comprova cumprimento de normas não fornecidas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13839,
+    "motivo": "Comando incompleto em “é considerado:”, sem predicado julgável. Analisar como examinar detalhadamente é uso possível; gabarito Errado não corresponde a afirmação completa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13838,
+    "motivo": "Comando termina em “é:” sem afirmação a julgar. Nota de conclusão é expressão imprecisa; faltam cargo, regime e fase para verificar exigência documental.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13837,
+    "motivo": "Perda de crédito não está explicitada na condição de continuidade do curso; consequência jurídica extrapola texto e depende de regras não fornecidas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13835,
+    "motivo": "Não existe regra geral de supressão de preposição por proximidade do verbo principal. Falta exemplo e identificação da regência; gabarito Certo não fundamentado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13834,
+    "motivo": "A afirmação de possibilidade é em princípio correta: pronomes de tratamento podem dirigir-se a superiores. Sem pronome ou contexto específico, gabarito Errado não se sustenta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13833,
+    "motivo": "Norma-padrão permite inversão sujeito-verbo. Complexidade da frase não a proíbe; gabarito Certo precisa de revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1737,
+    "motivo": "Gabarito incompatível com o cálculo: F = 1,8C + 32 e F = 2C resultam em C = 160 e F = 320. A frase é correta sob a interpretação usual de valores indicados nas escalas, mas o cadastro marca Errado. Conferir original; não alterar gabarito. Fonte: https://openstax.org/books/university-physics-volume-2/pages/1-2-thermometers-and-temperature-scales.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1245,
+    "motivo": "Faltam as informações iniciais e o mecanismo da reação do ozônio. A afirmação geral sobre deduzir lei de velocidade da reação global é inadequada para mecanismos multietapas, mas o caso específico e sua expressão não podem ser conferidos sem o texto de referência. Fonte conceitual: https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1243,
+    "motivo": "Mecanismo proposto e etapa II ausentes. Não é possível contextualizar a comparação de energias do complexo ativado e dos reagentes nem conferir o diagrama eventualmente associado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1201,
+    "motivo": "Lei de velocidade específica da degradação do ozônio citada sem mecanismo ou condições experimentais. A regra geral da reação global não basta, mas não preencher o contexto químico incompleto. Fonte: https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1198,
+    "motivo": "Etapa II e mecanismo proposto não fornecidos; falta contexto para a afirmação sobre energia potencial do complexo ativado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 943,
+    "motivo": "Divergência de gabarito: a teoria trata de circuitos superior e inferior coexistentes na economia urbana dos países subdesenvolvidos, não de uma divisão de países desenvolvidos versus subdesenvolvidos em circuitos separados. Cadastro marca Certo. Fonte primária de Milton Santos: https://publicacoes.agb.org.br/index.php/boletim-paulista/article/view/1096 . Conferir original sem alterar gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 908,
+    "motivo": "O currículo em questão não é identificado nem reproduzido. Não há como verificar se suas habilidades fazem referência direta à física quântica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 880,
+    "motivo": "Contexto do jovem e definição dos pontos A e C ausentes. A propriedade de trabalho gravitacional nulo em trajetória fechada é válida em campo conservativo estático, mas a tarefa exige não preencher enunciado contextual incompleto; recuperar texto/figura original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 878,
+    "motivo": "Pista, ponto P e hipóteses de força/atrito não fornecidos. Partir do repouso não garante aceleração constante; falta geometria e contexto para decidir.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 877,
+    "motivo": "Ponto C e trajetória não definidos. Necessários perfil da pista, condições iniciais e perdas para verificar onde ocorre velocidade máxima.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 876,
+    "motivo": "Faltam figura/dados da pista e condições do esqueitista. Não se pode calcular ou comparar a velocidade no ponto B com 10 m/s.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 870,
+    "motivo": "Textos 4A3-I e 4A3-II ausentes. O comando pede julgamento a partir deles; não substituir o conteúdo de referência por uma exposição geral sobre preconceito e padrões normativos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

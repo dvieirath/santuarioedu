@@ -1,0 +1,38 @@
+[
+  {
+    "id": 3103,
+    "motivo": "Circuito precedente ausente. Embora uma ponte ideal equilibrada tenha diferença de potencial nula entre pontos apropriados, falta verificar a ligação do voltímetro na figura citada. Não preencher sem a figura original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3070,
+    "motivo": "Possível divergência de gabarito: normal, cortante, torção e flexão são famílias usuais de resultantes internas. Em três dimensões existem seis componentes, agrupadas nessas famílias; isso não torna automaticamente falsa a classificação em quatro tipos. Recuperar fonte/contexto e revisar gabarito Errado. Referência consultada: https://engineeringstatics.org/Chapter_08-internal-forces.html .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3065,
+    "motivo": "Fórmula essencial substituída por [Fórmula]. Recuperar a expressão e a redação original antes de justificar, inclusive o trecho tensão elevada e a denominação módulo de Hooke.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3055,
+    "motivo": "Figura do espectro explicitamente referenciada, mas ausente e substituída por marcador. Não preencher antes de recuperar o material original, conforme regra para imagens ausentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3054,
+    "motivo": "Topologia do circuito ausente; a figura com R1, R2 e R3 foi substituída por marcador. A afirmação sobre soma das correntes depende das ligações e não pode ser validada apenas pelas resistências.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3011,
+    "motivo": "Generalização relevante: sempre menores que a tensão de ruptura não especifica tensão nominal/verdadeira, estado multiaxial, critério de falha ou operação de conformação. O limite de um ensaio uniaxial não pode ser imposto indistintamente a processos predominantemente compressivos. Conferir fonte e gabarito Certo antes de formular explicação universal.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

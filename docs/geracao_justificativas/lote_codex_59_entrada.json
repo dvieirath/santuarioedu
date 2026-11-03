@@ -1,0 +1,527 @@
+[
+  {
+    "id": 4476,
+    "texto": "Quanto à parada cardiorrespiratória (PCR), julgue os itens que se seguem.\n\nQuando ocorre fibrilação ventricular (FV) fina, a frequência cardíaca é elevada e desorganizada, apesar de haver complexo QRS de aparência normal no traçado do ECG.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28754,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28755,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4475,
+    "texto": "Um ciclista de 69 anos de idade foi encaminhado pelo SAMU à emergência hospitalar, após colisão frontal com veículo de passeio que trafegava acima da velocidade máxima permitida e na contramão de uma via urbana local. O paciente, consciente, porém ansioso, relatou à equipe a cinemática do trauma, e o socorrista repassou os principais sinais observados durante avaliação pré-hospitalar inicial: dispneia com retração costal paradoxal, dor torácica ao esforço respiratório e batimentos das asas do nariz; deformidade pélvica, crepitação óssea à manipulação e dor nessa região. Tendo como referência esse caso clínico hipotético e a conduta na sala de emergência, julgue os itens a seguir.\n\nOs diagnósticos e as intervenções de enfermagem devem ser estabelecidos e implantados na avaliação primária, na avaliação secundária e no tratamento definitivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28752,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28753,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4396,
+    "texto": "A potência de um fármaco depende de um único fator: a afinidade com o receptor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28594,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28595,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4385,
+    "texto": "O exame de velocidade de hemossedimentação (VHS) é um exame sensível, mas pouco específico... A sedimentação dos eritrócitos ocorre muito mais rapidamente na presença de uma alta concentração de proteínas, sobretudo no caso de proteínas denominadas reagentes de fase aguda.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28572,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28573,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4184,
+    "texto": "Ainda com relação à distribuição de frequência da idade dos pacientes apresentada no texto 16A5, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27869,
+        "texto": "Se forem escolhidas duas crianças aleatoriamente para fazerem um exame clínico, a probabilidade de as duas crianças terem 2 anos de idade é de 8,0%.",
+        "correta": false
+      },
+      {
+        "id": 27870,
+        "texto": "Caso seja escolhida aleatoriamente uma criança para fazer um exame clínico, a probabilidade de ela ter 3 anos ou mais é de 60,0%.",
+        "correta": false
+      },
+      {
+        "id": 27871,
+        "texto": "Se todas as crianças com quatro anos ou mais estiverem brincando no jardim do hospital no momento que foi escolhida aleatoriamente uma criança com 3 anos para também ir ao jardim, a chance de uma criança específica ser a escolhida é de 26,9%.",
+        "correta": false
+      },
+      {
+        "id": 27872,
+        "texto": "Caso uma criança seja escolhida aleatoriamente para fazer um exame clínico e, no dia seguinte, mais uma criança seja escolhida aleatoriamente para fazer este mesmo exame, a probabilidade de a mesma criança ser escolhida nos dois dias é de 3,3%.",
+        "correta": true
+      },
+      {
+        "id": 27873,
+        "texto": "Se forem escolhidas quatro crianças aleatoriamente para fazer um exame clínico, a probabilidade de nenhuma delas ter 3 anos ou mais é de 14,1%.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4001,
+    "texto": "O carro de Pedro foi apreendido por força de mandado de busca e apreensão expedido por juízo cível competente, para servir de garantia a uma dívida executada judicialmente. Conforme ordenado, o veículo apreendido foi levado para o pátio aberto do DETRAN, onde deveria ficar até ulterior decisão judicial que nomeasse a pessoa do diretor da referida instituição como depositário. Contudo, inconformado com a apreensão do veículo, Pedro foi ao local e, utilizando uma chave mestra, retirou-o de lá sem que os funcionários percebessem. Nessa situação hipotética, Pedro praticou",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26954,
+        "texto": "crime de furto de coisa comum, previsto no art. 156 do CP, pois subtraiu o veículo de quem legitimamente o detinha.",
+        "correta": false
+      },
+      {
+        "id": 26955,
+        "texto": "uma forma especial do crime de exercício arbitrário das próprias razões, tipificado no art. 346 do CP, pois resolveu fazer justiça com as próprias mãos.",
+        "correta": true
+      },
+      {
+        "id": 26956,
+        "texto": "crime de desobediência a decisão judicial, previsto no art. 359 do CP, pois exerceu direito do qual estava suspenso.",
+        "correta": false
+      },
+      {
+        "id": 26957,
+        "texto": "delito contra a administração da justiça, tipificado no art. 358 do CP, pois impediu arrematação judicial.",
+        "correta": false
+      },
+      {
+        "id": 26958,
+        "texto": "crime de furto qualificado pelo emprego de chave falsa e pela destreza com que ludibriou os funcionários do DETRAN.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3895,
+    "texto": "No início de um temporal, um trabalhador da companhia de energia elétrica sofreu uma descarga cósmica durante a manutenção de uma torre de alta tensão, o que lhe causou a morte. Nesse caso, considerando-se os danos causados pela eletricidade, é correto afirmar que",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26424,
+        "texto": "a morte decorreu de lesão causada por fulminação e fulguração.",
+        "correta": false
+      },
+      {
+        "id": 26425,
+        "texto": "o trabalhador sofreu fulminação.",
+        "correta": false
+      },
+      {
+        "id": 26426,
+        "texto": "a morte foi causada por fulguração.",
+        "correta": true
+      },
+      {
+        "id": 26427,
+        "texto": "a causa do óbito se deu por eletroplessão.",
+        "correta": false
+      },
+      {
+        "id": 26428,
+        "texto": "a morte foi provocada por eletrocução e fulguração.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3887,
+    "texto": "Com relação às queimaduras, lesões resultantes da atuação direta do calor que podem ser simples ou complexas, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26384,
+        "texto": "Cadáveres com queimaduras de terceiro grau podem apresentar grande redução de peso e de volume.",
+        "correta": false
+      },
+      {
+        "id": 26385,
+        "texto": "Nas queimaduras de segundo grau, ocorre carbonização superficial ou profunda de todos os tecidos.",
+        "correta": false
+      },
+      {
+        "id": 26386,
+        "texto": "Bordas regulares, ausência de pontes de tecido no fundo da lesão e hemorragia abundante são características de queimaduras.",
+        "correta": false
+      },
+      {
+        "id": 26387,
+        "texto": "Nas queimaduras de primeiro grau, somente a pele é atingida e, no cadáver, a coagulação fixa o eritema após a morte.",
+        "correta": true
+      },
+      {
+        "id": 26388,
+        "texto": "Há comprometimento e necrose de todo o tecido dermoepidérmico e da tela celular subcutânea nas queimaduras de quarto grau.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3854,
+    "texto": "Acerca de traumatologia forense, julgue os itens a seguir.\nI Fulminação corresponde à morte instantânea decorrente de descargas elétricas ou raios.\nII Fulguração refere-se às lesões causadas pela eletricidade natural.\nIII Eletroplessão é a denominação que se dá às lesões causadas pela energia elétrica artificial ou industrial.\nIV O tipo de corrente, o tempo de contato com a fonte elétrica, o isolamento, a densidade da corrente elétrica, o trajeto da corrente e a presença de cardiopatias podem interferir no resultado dos acidentes elétricos.\nAssinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26219,
+        "texto": "Apenas os itens I, II e III estão certos.",
+        "correta": false
+      },
+      {
+        "id": 26220,
+        "texto": "Apenas os itens I, II e IV estão certos.",
+        "correta": false
+      },
+      {
+        "id": 26221,
+        "texto": "Apenas os itens I, III e IV estão certos.",
+        "correta": false
+      },
+      {
+        "id": 26222,
+        "texto": "Apenas os itens II, III e IV estão certos.",
+        "correta": false
+      },
+      {
+        "id": 26223,
+        "texto": "Todos os itens estão certos.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3840,
+    "texto": "A instrumentos perfurantes produzem lesões punctórias, que se apresentam de pequeno diâmetro e de raro sangramento. B a cauda de escoriação é uma característica típica de lesões provocadas por projétil expelido por arma de fogo. C as lesões cortantes possuem bordas regulares e comprimento menor que a profundidade. D as lesões produzidas por mordedura provocada pela arcada dentária humana são classificadas como cortocontundentes. E as feridas causadas por instrumentos cortocontundentes, em razão da transferência de energia cinética de forma mista, apresentam sangramento maior que as lesões causadas por instrumentos cortantes.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26149,
+        "texto": "A instrumentos perfurantes produzem lesões punctórias, que se apresentam de pequeno diâmetro e de raro sangramento.",
+        "correta": true
+      },
+      {
+        "id": 26150,
+        "texto": "a cauda de escoriação é uma característica típica de lesões provocadas por projétil expelido por arma de fogo.",
+        "correta": false
+      },
+      {
+        "id": 26151,
+        "texto": "as lesões cortantes possuem bordas regulares e comprimento menor que a profundidade.",
+        "correta": false
+      },
+      {
+        "id": 26152,
+        "texto": "as lesões produzidas por mordedura provocada pela arcada dentária humana são classificadas como cortocontundentes.",
+        "correta": false
+      },
+      {
+        "id": 26153,
+        "texto": "as feridas causadas por instrumentos cortocontundentes, em razão da transferência de energia cinética de forma mista, apresentam sangramento maior que as lesões causadas por instrumentos cortantes.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3833,
+    "texto": "No frame relay, o identificador de circuito virtual é denominado",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26114,
+        "texto": "A cell relay identifier.",
+        "correta": false
+      },
+      {
+        "id": 26115,
+        "texto": "foward explicit congestion identifier.",
+        "correta": false
+      },
+      {
+        "id": 26116,
+        "texto": "data link connection identifier.",
+        "correta": true
+      },
+      {
+        "id": 26117,
+        "texto": "frame relay identifier.",
+        "correta": false
+      },
+      {
+        "id": 26118,
+        "texto": "circuit connection identifier.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3799,
+    "texto": "Em relação ao texto 6A1-III, após todo o sistema estar ligado, quando um elétron atingir o anteparo na borda das placas, ele terá aceleração, na direção y, igual a",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25947,
+        "texto": "5,71 x 10^-12 m/s².",
+        "correta": false
+      },
+      {
+        "id": 25948,
+        "texto": "5,71 x 10^-10 m/s².",
+        "correta": false
+      },
+      {
+        "id": 25949,
+        "texto": "7,57 x 10^6 m/s².",
+        "correta": false
+      },
+      {
+        "id": 25950,
+        "texto": "1,75 x 10^14 m/s².",
+        "correta": true
+      },
+      {
+        "id": 25951,
+        "texto": "1,75 x 10^12 m/s².",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3798,
+    "texto": "Com base no texto 6A1-III (ampola evacuada, capacitor de placas paralelas, fonte de tensão, resistor), assinale a opção que mostra graficamente a diferença de potencial entre as placas do capacitor em função do tempo, após a fonte de tensão ser ligada e antes de a fonte termiônica ser ligada.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25942,
+        "texto": "Gráfico A",
+        "correta": false
+      },
+      {
+        "id": 25943,
+        "texto": "Gráfico B",
+        "correta": false
+      },
+      {
+        "id": 25944,
+        "texto": "Gráfico C",
+        "correta": false
+      },
+      {
+        "id": 25945,
+        "texto": "Gráfico D",
+        "correta": true
+      },
+      {
+        "id": 25946,
+        "texto": "Gráfico E",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3797,
+    "texto": "Considerando-se os dados apresentados no texto 6A1-II (aceleração da gravidade = 3,72 m/s², velocidade de escape = 5 km/s, G = 6,667 x 10^-11), infere-se que a massa do planeta Marte, em kg, é",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25937,
+        "texto": "inferior a 4 x 10^23.",
+        "correta": false
+      },
+      {
+        "id": 25938,
+        "texto": "superior a 10 x 10^23.",
+        "correta": false
+      },
+      {
+        "id": 25939,
+        "texto": "superior a 4 x 10^23 e inferior a 6 x 10^23.",
+        "correta": true
+      },
+      {
+        "id": 25940,
+        "texto": "superior a 6 x 10^23 e inferior a 8 x 10^23.",
+        "correta": false
+      },
+      {
+        "id": 25941,
+        "texto": "superior a 8 x 10^23 e inferior a 10 x 10^23.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3796,
+    "texto": "Considere os dados a respeito do planeta Marte: aceleração da gravidade = 3,72 m/s², velocidade de escape = 5 km/s, constante gravitacional de Newton = 6,667 x 10^-11 m³*kg^-1*s^-2. A partir dos dados apresentados no texto 6A1-II, infere-se que o raio do planeta Marte, em metros, é",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25932,
+        "texto": "inferior a 1 x 10^6.",
+        "correta": false
+      },
+      {
+        "id": 25933,
+        "texto": "superior a 1 x 10^6 e inferior a 2 x 10^6.",
+        "correta": false
+      },
+      {
+        "id": 25934,
+        "texto": "superior a 2 x 10^6 e inferior a 4 x 10^6.",
+        "correta": true
+      },
+      {
+        "id": 25935,
+        "texto": "superior a 4 x 10^6 e inferior a 6 x 10^6.",
+        "correta": false
+      },
+      {
+        "id": 25936,
+        "texto": "superior a 6 x 10^6.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3617,
+    "texto": "Acerca do registrador instantâneo e inalterável de velocidade e tempo: É de seis meses o prazo em que as informações relativas às últimas vinte e quatro horas de operação do veículo devem ficar à disposição das autoridades competentes em caso de acidente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25091,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 25092,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3616,
+    "texto": "Acerca do registrador instantâneo e inalterável de velocidade e tempo: Em caso de operação de fiscalização do registrador instantâneo e inalterável de velocidade e tempo, o policial rodoviário federal deve identificar-se e assinar o verso do disco ou da fita diagrama, além de mencionar o local, a data e horário em que ocorreu a fiscalização.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25089,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 25090,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3615,
+    "texto": "Acerca do registrador instantâneo e inalterável de velocidade e tempo: O equipamento em questão deve apresentar o tempo de movimentação do veículo, bem como suas interrupções.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25087,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 25088,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3592,
+    "texto": "Um projétil, de massa m e velocidade v, colidiu frontalmente com um bloco de madeira de massa M que estava em repouso em uma superfície horizontal sem atrito, preso a uma mola ideal de constante elástica k. Após a colisão, o projétil e o bloco desenvolveram um movimento solidário, o que provocou, na mola, uma compressão máxima igual a x, conforme mostra a figura a seguir [FIGURA: Esquema de um projétil colidindo com um bloco preso a uma mola]. Na posição de compressão máxima, a energia potencial elástica armazenada na mola tem valor menor que o da energia cinética do projétil antes da colisão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25041,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 25042,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3575,
+    "texto": "Texto 1A18-I: Conclui-se do texto que o monopólio da violência legítima pelo Estado deveu-se à necessidade de reação aos índices insustentáveis de violência física entre os indivíduos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25007,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 25008,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

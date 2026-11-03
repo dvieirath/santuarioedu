@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1784,
+    "texto": "As vivências de práticas corporais lúdicas nas aulas de educação física passam por momentos de sentimentos internos e únicos de cada estudante, sendo uma expressão intrínseca, que não se materializa no outro, no objeto ou no ambiente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21350,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21351,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1779,
+    "texto": "Julgue os itens que se seguem, referentes a aspectos da aprendizagem motora. O tempo de reação ocorre entre a apresentação do estímulo e o início da resposta, por isso a velocidade desse processo só tem função importante em atividades esportivas, sendo irrelevante em atividades não esportivas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21340,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21341,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1778,
+    "texto": "Julgue os itens que se seguem, referentes a aspectos da aprendizagem motora. O controle de circuito aberto compreende a execução do movimento do tipo balístico, sem envolvimento de feedback, pois não há tempo para processar a informação sobre erros.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21338,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21339,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1777,
+    "texto": "Julgue os itens que se seguem, referentes a aspectos da aprendizagem motora. No controle de circuito fechado, há o envolvimento do feedback sensorial e a atividade dos processos de detecção e correção de erro para manter o objetivo almejado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21336,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21337,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1775,
+    "texto": "Considerando que o conteúdo é uma construção social e, portanto, o que se ensina extrapola o conhecimento formalizado nos planos de ensino ou nos documentos oficiais, julgue os itens subsequentes. As teorias pós-críticas trouxeram questionamentos que impactaram os currículos das disciplinas escolares e fizeram surgir, na educação física, a denominada perspectiva cultural, ou, simplesmente, currículo cultural.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21332,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21333,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1772,
+    "texto": "No que se refere a ginástica, dança, jogo e esporte: O ensino do futebol, como conteúdo do componente curricular educação física, deve estar atrelado diretamente à prática de jogar futebol, já que esse esporte é o mais popular no Brasil.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21326,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21327,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1770,
+    "texto": "Com relação ao processo de ensino e de aprendizagem na educação física: A concepção pedagógica do construtivismo, influenciada por Jean Piaget, foi difundida como uma proposta metodológica para a educação física escolar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21322,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21323,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1768,
+    "texto": "Com relação ao processo de ensino e de aprendizagem na educação física: Em uma perspectiva não tecnicista, no processo de ensino-aprendizagem da educação física escolar, é necessário retirar ou recusar o ensino da técnica como conteúdo específico das aulas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21318,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21319,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1767,
+    "texto": "Com relação ao processo de ensino e de aprendizagem na educação física: Devido aos diferentes níveis de desenvolvimento dos alunos nos ciclos/séries, os conteúdos a serem trabalhados não podem se repetir para que eles possam ter acesso a todos os elementos da cultura corporal durante o processo de escolarização na educação básica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21316,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21317,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1766,
+    "texto": "Com relação ao processo de ensino e de aprendizagem na educação física: Os conteúdos trabalhados pela educação física na escola estão relacionados à cultura corporal, por exemplo, jogos, esportes, danças, lutas e ginásticas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21314,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21315,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1765,
+    "texto": "Com relação ao processo de ensino e de aprendizagem na educação física: Um dos objetivos da educação física é levar à compreensão da expressão corporal como linguagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21312,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21313,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1764,
+    "texto": "No que se refere ao entendimento de que avaliação é um processo mais complexo, já que vai além da simples atribuição de uma nota: O processo de avaliação na educação física escolar deve incluir o estudante para que ele consiga perceber suas facilidades e dificuldades bem como identificar, principalmente, seus avanços para continuar se desenvolvendo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21310,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21311,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1763,
+    "texto": "As mudanças sociais do século XIX foram determinantes para a concepção da educação física, tendo em vista a elaboração de conceitos básicos sobre o corpo e a sua utilização como força de trabalho. A educação física escolar teve um papel fundamental no processo de higienização, adestramento e disciplina dos indivíduos para o fortalecimento da sociedade emergente, pós-revoluções dos séculos XVIII e XIX.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21308,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21309,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1762,
+    "texto": "Em relação à atmosfera na Terra, julgue o próximo item. O gás metano (CH 4), um dos elementos que constitui a atmosfera da Terra, é altamente eficiente na retenção de calor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21306,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21307,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1749,
+    "texto": "Com relação às camadas da Terra, julgue o item: A formação do campo magnético terrestre ocorre devido ao fato de o núcleo da Terra se manter estático, em relação ao planeta, enquanto este gira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21280,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21281,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1746,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: Em um sistema isolado, em que somente forças conservativas atuam, podem ocorrer variações da energia cinética e da energia potencial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21274,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21275,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1745,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: Se, em um local em que a aceleração da gravidade é g, um carrinho de montanha-russa de massa m passar pelo ponto A, como mostrado na figura a seguir, com velocidade v, então a energia potencial gravitacional do carrinho será sempre igual a m×g×h, independentemente do referencial adotado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21272,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21273,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1744,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: A medida da energia cinética de um corpo depende do sistema de referência adotado, uma vez que é necessário se conhecer a velocidade e a massa do corpo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21270,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21271,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1743,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: O peso de uma pessoa pode variar dependendo do local onde ela se encontra.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21268,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21269,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1742,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: Uma balança típica, como as usadas em farmácias, mede, diretamente, o peso da pessoa que se coloca sobre seu piso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21266,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21267,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

@@ -373,16 +373,24 @@
 </main>
 
 
+{{ questoes_data|json_script:"desafio-questoes" }}
+{{ tentativa_id|json_script:"desafio-tentativa" }}
 <script>
-const QUESTOES        = {{ questoes_json|safe }};
+const QUESTOES = JSON.parse(document.getElementById('desafio-questoes').textContent);
+const TENTATIVA = JSON.parse(document.getElementById('desafio-tentativa').textContent);
 const TOTAL           = QUESTOES.length;
 const SEG_POR_QUESTAO = {{ segundos_por_questao }};
 const CSRF            = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
 const POST_URL        = '{% url "modo_desafio" %}';
 
-let qIdx = 0, acertos = 0, pontosAtu = 0, respostas = [];
-let timerInterval = null, timerSeg = SEG_POR_QUESTAO, questaoInicio = 0, respondeu = false;
+let qIdx = 0, acertos = 0, pontosAtu = 0;
+let timerInterval = null, timerSeg = SEG_POR_QUESTAO, respondeu = false;
 
+function escapeText(value) {
+  const span = document.createElement('span');
+  span.textContent = String(value);
+  return span.innerHTML;
+}
 function setDif(d) {
   document.getElementById('dif-input').value = d;
   document.getElementById('form-cfg').submit();
@@ -391,66 +399,79 @@ function setDif(d) {
 function iniciarDesafio() {
   document.getElementById('tela-inicio').classList.add('hidden');
   document.getElementById('tela-quiz').classList.remove('hidden');
-  qIdx = 0; acertos = 0; pontosAtu = 0; respostas = [];
+  qIdx = 0; acertos = 0; pontosAtu = 0;
   mostrarQuestao();
 }
 
-function reiniciarDesafio() {
-  document.getElementById('tela-resultado').classList.add('hidden');
-  document.getElementById('tela-inicio').classList.remove('hidden');
-}
+function reiniciarDesafio() { window.location.reload(); }
 
-function mostrarQuestao() {
+async function mostrarQuestao() {
   if (qIdx >= TOTAL) { finalizarDesafio(); return; }
 
   respondeu = false;
-  const q = QUESTOES[qIdx];
-  questaoInicio = Date.now();
+  try {
+    const data = await enviarAcao({acao: 'abrir', indice: qIdx});
+    const q = data.questao;
 
-  const pct = Math.round(qIdx / TOTAL * 100);
-  document.getElementById('q-progresso').textContent = `Questão ${qIdx + 1} / ${TOTAL}`;
-  document.getElementById('q-acertos-header').textContent = `${acertos} acerto${acertos !== 1 ? 's' : ''}`;
-  document.getElementById('q-pontos-header').textContent = `${pontosAtu}pts`;
-  document.getElementById('q-barra').style.width = pct + '%';
+    const pct = Math.round(qIdx / TOTAL * 100);
+    document.getElementById('q-progresso').textContent = `Questão ${qIdx + 1} / ${TOTAL}`;
+    document.getElementById('q-acertos-header').textContent = `${acertos} acerto${acertos !== 1 ? 's' : ''}`;
+    document.getElementById('q-pontos-header').textContent = `${pontosAtu}pts`;
+    document.getElementById('q-barra').style.width = pct + '%';
 
-  const imgWrap = document.getElementById('q-imagem-wrap');
-  if (q.imagem_url) {
-    document.getElementById('q-imagem').src = q.imagem_url;
-    imgWrap.classList.remove('hidden');
-  } else {
-    imgWrap.classList.add('hidden');
+    const imgWrap = document.getElementById('q-imagem-wrap');
+    if (q.imagem_url) {
+      document.getElementById('q-imagem').src = q.imagem_url;
+      imgWrap.classList.remove('hidden');
+    } else {
+      imgWrap.classList.add('hidden');
+    }
+
+    document.getElementById('q-categoria').textContent = q.categoria;
+    document.getElementById('q-texto').textContent = q.texto;
+
+    const container = document.getElementById('q-alts');
+    container.innerHTML = '';
+    const isCe = q.tipo === 'CE';
+    const letras = isCe ? ['C','E'] : ['A','B','C','D','E'];
+
+    q.alternativas.forEach((alt, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'alt-card w-full text-left';
+      btn.dataset.altId   = alt.id;
+      const letra = document.createElement('span');
+      letra.className = 'alt-letra';
+      letra.textContent = letras[i] || i + 1;
+      const texto = document.createElement('span');
+      texto.className = 'flex-1 text-[14px] leading-relaxed text-on-surface pr-1';
+      texto.textContent = alt.texto;
+      btn.append(letra, texto);
+      btn.disabled = true;
+      btn.onclick = () => selecionar(btn);
+      container.appendChild(btn);
+    });
+
+    document.getElementById('q-feedback').classList.add('hidden');
+    document.getElementById('btn-proxima').classList.add('hidden');
+
+    document.querySelectorAll('.alt-card').forEach(b => b.disabled = false);
+    iniciarTimer(Math.ceil(data.restante));
+  } catch (error) {
+    const fb = document.getElementById('q-feedback');
+    fb.classList.remove('hidden');
+    fb.textContent = error.message;
+    const retry = document.createElement('button');
+    retry.textContent = 'Tentar novamente';
+    retry.className = 'block underline mt-2';
+    retry.onclick = mostrarQuestao;
+    fb.appendChild(retry);
   }
-
-  document.getElementById('q-categoria').textContent = q.categoria;
-  document.getElementById('q-texto').textContent = q.texto;
-
-  const container = document.getElementById('q-alts');
-  container.innerHTML = '';
-  const isCe = q.tipo === 'CE';
-  const letras = isCe ? ['C','E'] : ['A','B','C','D','E'];
-
-  q.alternativas.forEach((alt, i) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'alt-card w-full text-left';
-    btn.dataset.altId   = alt.id;
-    btn.dataset.correta = alt.correta;
-    btn.innerHTML = `
-      <span class="alt-letra">${letras[i] || i+1}</span>
-      <span class="flex-1 text-[14px] leading-relaxed text-on-surface pr-1">${alt.texto}</span>`;
-    btn.onclick = () => selecionar(btn, q.id);
-    container.appendChild(btn);
-  });
-
-  document.getElementById('q-feedback').classList.add('hidden');
-  document.getElementById('btn-proxima').classList.add('hidden');
-
-  iniciarTimer();
 }
 
-function iniciarTimer() {
+function iniciarTimer(restante = SEG_POR_QUESTAO) {
   clearInterval(timerInterval);
-  timerSeg = SEG_POR_QUESTAO;
+  timerSeg = restante;
   atualizarTimer();
   timerInterval = setInterval(() => {
     timerSeg--;
@@ -474,41 +495,45 @@ function atualizarTimer() {
   document.getElementById('timer-num').style.color = cor;
 }
 
-function expirar() {
-  respondeu = true;
-  const q = QUESTOES[qIdx];
-  respostas.push({ questao_id: q.id, alternativa_id: null, tempo_seg: SEG_POR_QUESTAO });
-  mostrarGabarito(null, false);
-  document.getElementById('btn-proxima').classList.remove('hidden');
+async function enviarAcao(payload) {
+  const response = await fetch(POST_URL, {
+    method: 'POST', headers: {'Content-Type': 'application/json', 'X-CSRFToken': CSRF},
+    body: JSON.stringify({...payload, tentativa_id: TENTATIVA}),
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.erro || 'Não foi possível salvar. Tente novamente.');
+  return data;
 }
-
-function selecionar(btn, qId) {
+function expirar() { registrarResposta(null); }
+function selecionar(btn) { registrarResposta(Number(btn.dataset.altId)); }
+async function registrarResposta(altId) {
   if (respondeu) return;
   respondeu = true;
   clearInterval(timerInterval);
-
-  const tempo = (Date.now() - questaoInicio) / 1000;
-  const altId   = parseInt(btn.dataset.altId);
-  const correta = btn.dataset.correta === 'True' || btn.dataset.correta === 'true';
-
-  respostas.push({ questao_id: qId, alternativa_id: altId, tempo_seg: tempo.toFixed(2) });
-
-  if (correta) {
-    acertos++;
-    const bonus = Math.max(0, Math.round((SEG_POR_QUESTAO - tempo) / SEG_POR_QUESTAO * 5));
-    pontosAtu += 10 + bonus;
+  document.querySelectorAll('.alt-card').forEach(b => b.disabled = true);
+  try {
+    const data = await enviarAcao({acao: 'responder', indice: qIdx, alternativa_id: altId});
+    if (data.acertou) acertos++;
+    pontosAtu += data.pontos;
+    mostrarGabarito(data.expirou ? null : altId, data.acertou, data.correta_id, data.pontos);
+    document.getElementById('btn-proxima').classList.remove('hidden');
+  } catch (error) {
+    const fb = document.getElementById('q-feedback');
+    fb.classList.remove('hidden');
+    fb.textContent = 'Não foi possível confirmar a resposta. ' + error.message;
+    const retry = document.createElement('button');
+    retry.className = 'block underline mt-2';
+    retry.textContent = 'Tentar salvar novamente';
+    retry.onclick = () => { respondeu = false; registrarResposta(altId); };
+    fb.appendChild(retry);
   }
-
-  btn.classList.add('selecionada');
-  mostrarGabarito(altId, correta);
-  document.getElementById('btn-proxima').classList.remove('hidden');
 }
 
-function mostrarGabarito(altIdEscolhida, acertou) {
+function mostrarGabarito(altIdEscolhida, acertou, corretaId, pontos) {
   document.querySelectorAll('.alt-card').forEach(b => {
     b.disabled = true;
     b.classList.remove('selecionada');
-    const correta = b.dataset.correta === 'True' || b.dataset.correta === 'true';
+    const correta = Number(b.dataset.altId) === corretaId;
     if (correta) b.classList.add('correta-reveal');
     else if (parseInt(b.dataset.altId) === altIdEscolhida && !acertou) b.classList.add('errada-reveal');
   });
@@ -519,8 +544,7 @@ function mostrarGabarito(altIdEscolhida, acertou) {
     fb.className = 'mt-2 rounded-2xl px-4 py-3 text-sm font-medium bg-surface-container-low text-on-surface-variant border border-[#e5e1d8]';
     fb.innerHTML = '<span class="material-symbols-outlined align-middle text-amber-500 mr-1" style="font-size:16px;">timer_off</span> Tempo esgotado!';
   } else if (acertou) {
-    const tempo = (Date.now() - questaoInicio) / 1000;
-    const bonus = Math.max(0, Math.round((SEG_POR_QUESTAO - tempo) / SEG_POR_QUESTAO * 5));
+    const bonus = Math.max(0, pontos - 10);
     fb.className = 'mt-2 rounded-2xl px-4 py-3 text-sm font-semibold bg-secondary-container/40 text-secondary border border-secondary/30';
     fb.innerHTML = `<span class="material-symbols-outlined align-middle mr-1" style="font-size:16px;font-variation-settings:'FILL' 1;">check_circle</span> Correto! +10pts${bonus > 0 ? ` <span class="text-secondary">+${bonus}pts bônus de velocidade</span>` : ''}`;
   } else {
@@ -529,19 +553,17 @@ function mostrarGabarito(altIdEscolhida, acertou) {
   }
 }
 
-function proximaQuestao() { qIdx++; mostrarQuestao(); }
+function proximaQuestao() {
+  document.getElementById('btn-proxima').classList.add('hidden');
+  qIdx++; mostrarQuestao();
+}
 
 async function finalizarDesafio() {
   document.getElementById('tela-quiz').classList.add('hidden');
   document.getElementById('tela-resultado').classList.remove('hidden');
 
   try {
-    const resp = await fetch(POST_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
-      body: JSON.stringify({ respostas }),
-    });
-    const data = await resp.json();
+    const data = await enviarAcao({acao: 'finalizar'});
 
     const pontos = data.pontos || 0;
     const pct    = data.total ? Math.round(data.acertos / data.total * 100) : 0;
@@ -567,7 +589,7 @@ async function finalizarDesafio() {
         return `
           <div class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg ${cls}">
             <span class="w-6 text-center text-sm font-serif font-bold text-on-surface-variant">${medal}</span>
-            <span class="flex-1 text-xs text-on-surface truncate">${r.nome}${meTag}</span>
+            <span class="flex-1 text-xs text-on-surface truncate">${escapeText(r.nome)}${meTag}</span>
             <span class="text-xs font-serif font-bold text-amber-600">${r.melhor}</span>
           </div>`;
       }).join('');
@@ -576,7 +598,11 @@ async function finalizarDesafio() {
   } catch(e) {
     console.error(e);
     document.getElementById('res-pontos').textContent = '?';
-    document.getElementById('res-acertos').textContent = `${acertos} de ${TOTAL} acertos`;
+    document.getElementById('res-acertos').textContent = 'Resultado ainda não confirmado. Tente salvar novamente.';
+    const retry = document.createElement('button');
+    retry.textContent = 'Salvar resultado';
+    retry.onclick = () => { retry.remove(); finalizarDesafio(); };
+    document.getElementById('res-acertos').appendChild(retry);
   }
 }
 

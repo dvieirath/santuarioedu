@@ -1,0 +1,34 @@
+[
+  {
+    "id": 4476,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNa fibrilação ventricular, a atividade elétrica ventricular é desorganizada e não produz complexos QRS normais identificáveis. A qualificação fina se refere à baixa amplitude das oscilações, não à preservação de um QRS normal.\n\n## ⚠️ O erro típico\nConfundir fibrilação ventricular com uma taquiarritmia que ainda apresenta despolarizações ventriculares organizadas.\n\n## 🧠 Conceito-chave\nA perda de organização elétrica impede contração ventricular coordenada e débito cardíaco efetivo. Não cabe interpretar o traçado como uma sequência regular de QRS normais.\n\n## 📚 Onde aprofundar\nOpenAnesthesia, Ventricular Tachycardia and Ventricular Fibrillation: https://www.openanesthesia.org/keywords/ventricular-tachycardia-and-ventricular-fibrillation/\n\n## 💡 Padrão a memorizar\nFV fina: oscilações de baixa amplitude, sem QRS normais organizados."
+  },
+  {
+    "id": 4396,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA afinidade contribui para a potência, mas não a determina sozinha. Eficácia do agonista, densidade de receptores e capacidade de acoplamento da resposta também influenciam a concentração necessária para obter um efeito.\n\n## ⚠️ O erro típico\nIgualar ligação ao receptor à resposta funcional produzida pelo sistema.\n\n## 🧠 Conceito-chave\nPotência relaciona dose ou concentração ao efeito; afinidade descreve a interação de ligação. A mesma afinidade não garante a mesma potência em diferentes sistemas.\n\n## 📚 Onde aprofundar\nAssay Guidance Manual, efeito da densidade de receptores: https://www.ncbi.nlm.nih.gov/books/NBK549462/figure/pcgpcr.F5/\n\n## 💡 Padrão a memorizar\nAfinidade é um determinante da potência, não seu único determinante."
+  },
+  {
+    "id": 4001,
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa correta é a que aponta o art. 346 do Código Penal. Pedro retirou coisa própria que estava em poder de terceiro por ordem judicial. A apreensão e a custódia já decorriam dessa ordem, ainda que a nomeação formal do depositário estivesse pendente.\n\n## ⚠️ Armadilhas\nNão há coisa alheia para o furto qualificado nem copropriedade descrita para o furto de coisa comum. O caso tampouco relata impedimento de arrematação ou exercício de função, atividade, direito, autoridade ou múnus suspenso nos termos da alternativa sobre o art. 359.\n\n## 🧠 Conceito-chave\nA propriedade do bem não autoriza seu titular a desfazer por conta própria a custódia imposta judicialmente. O art. 346 protege a administração da justiça nessa situação específica.\n\n## 🎯 O que esta questão testa\nReconhecimento da subtração de coisa própria sob custódia legítima, distinguindo-a dos crimes patrimoniais indicados nas demais alternativas.\n\n## 📚 Onde aprofundar\nCódigo Penal, art. 346, texto reproduzido no acervo do Senado: https://www2.senado.leg.br/bdsf/bitstream/handle/id/224149/000349824.pdf?isAllowed=y&sequence=1\n\n## 💡 Padrão a memorizar\nCoisa própria em poder de terceiro por ordem judicial: sua retirada pode configurar o art. 346."
+  },
+  {
+    "id": 3833,
+    "justificativa": "## 🔍 Por que a resposta é essa\nA denominação correta é data link connection identifier, abreviada DLCI. Esse identificador associa o quadro ao circuito virtual no enlace Frame Relay.\n\n## ⚠️ Armadilhas\nCell relay remete a outra terminologia; as opções frame relay identifier e circuit connection identifier não são o nome do campo. A alternativa sobre congestionamento confunde identificação de circuito com sinalização de congestionamento.\n\n## 🧠 Conceito-chave\nO DLCI integra o cabeçalho do quadro e normalmente tem significado local no enlace, permitindo distinguir circuitos que compartilham a conexão física.\n\n## 🎯 O que esta questão testa\nTerminologia e função do identificador de circuito virtual em Frame Relay.\n\n## 📚 Onde aprofundar\nCisco, Troubleshooting Frame Relay Connections: https://www.cisco.com/en/US/docs/internetworking/troubleshooting/guide/tr1918.html\n\n## 💡 Padrão a memorizar\nFrame Relay identifica o circuito virtual pelo DLCI."
+  },
+  {
+    "id": 3796,
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa correta é superior a 2 × 10^6 e inferior a 4 × 10^6 m. Com g = GM/R² e v² = 2GM/R, resulta v² = 2gR. Assim, R = 5000²/(2 × 3,72) ≈ 3,36 × 10^6 m.\n\n## ⚠️ Armadilhas\nConverter 5 km/s para 5000 m/s antes de elevar ao quadrado. As faixas abaixo de 2 × 10^6 m e acima de 4 × 10^6 m não contêm o resultado.\n\n## 🧠 Conceito-chave\nCombinar gravidade superficial e velocidade de escape permite eliminar GM e determinar diretamente o raio.\n\n## 🎯 O que esta questão testa\nUso conjunto de duas relações gravitacionais e conversão de unidades.\n\n## 📚 Onde aprofundar\nOpenStax, University Physics, equações de gravitação: https://openstax.org/books/university-physics-volume-1/pages/13-key-equations\n\n## 💡 Padrão a memorizar\nCom gravidade superficial e escape conhecidos: R = v²/(2g)."
+  },
+  {
+    "id": 3617,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nEm acidente, o art. 9º estabelece um ano de disponibilidade das informações das últimas 24 horas, não seis meses.\n\n## ⚠️ O erro típico\nConfundir o prazo especial de acidente com o prazo ordinário.\n\n## 🧠 Conceito-chave\nPeríodo registrado e prazo de disponibilidade são medidas diferentes.\n\n## 📚 Onde aprofundar\nResolução CONTRAN 938/2022: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9382022.pdf\n\n## 💡 Padrão a memorizar\nAcidente: dados das últimas 24 horas disponíveis por um ano."
+  },
+  {
+    "id": 3616,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO art. 6º, § 2º, exige identificação, assinatura no verso do disco ou fita e indicação de local, data e horário.\n\n## ⚠️ O erro típico\nOmitir elementos que documentam a fiscalização realizada.\n\n## 🧠 Conceito-chave\nO registro identifica o agente e situa a fiscalização.\n\n## 📚 Onde aprofundar\nResolução CONTRAN 938/2022: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9382022.pdf\n\n## 💡 Padrão a memorizar\nFiscalização: identificação, assinatura, local, data e horário."
+  },
+  {
+    "id": 3615,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO registro deve informar a movimentação do veículo e suas interrupções.\n\n## ⚠️ O erro típico\nLimitar o equipamento ao registro da velocidade instantânea.\n\n## 🧠 Conceito-chave\nO cronotacógrafo também documenta a dimensão temporal da operação.\n\n## 📚 Onde aprofundar\nResolução CONTRAN 938/2022: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9382022.pdf\n\n## 💡 Padrão a memorizar\nCronotacógrafo registra movimento e interrupções."
+  }
+]

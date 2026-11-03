@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1784,
+    "motivo": "Ambiguidade teórica sobre ludicidade como estado interno e sua relação com manifestações externas. A frase pode se referir à experiência subjetiva, não à ausência de interação social; autor/modelo não identificado. Não concluir Errado apenas negando que existam sentimentos internos. Requer conferência da fonte pedagógica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1772,
+    "motivo": "Redação ambígua: estar atrelado diretamente à prática não equivale necessariamente a restringir o ensino exclusivamente ao jogar. A popularidade não basta como fundamento curricular, mas falta explicitar o alcance pretendido. Conferir original antes de justificar Errado mediante inserção de exclusividade não escrita.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1745,
+    "motivo": "Figura indicada no enunciado ausente, campo imagem vazio. Recuperar definição de h e ponto A. Não preencher mesmo havendo um erro geral na independência do referencial de energia potencial.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1742,
+    "motivo": "Ambiguidade entre peso e força de contato medida pela balança. Em repouso horizontal, os módulos podem coincidir; em movimento acelerado, diferem. Conferir o sentido de mede diretamente e o contexto original antes de sustentar Errado. Fonte: https://openstax.org/books/university-physics-volume-1/pages/13-2-gravitation-near-earths-surface.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1165,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nQuestões objetivas restringem a resposta a opções ou resultados previamente definidos. Podem permitir correção rápida, mas não são, por isso, os melhores instrumentos para observar livre expressão e criação de soluções próprias.\n\n## ⚠️ O erro típico\nRapidez de correção não implica adequação a qualquer objetivo avaliativo.\n\n## 🧠 Conceito-chave\nO instrumento precisa produzir evidências da habilidade que se quer avaliar. Uma resposta construída expõe caminhos que uma simples marcação pode ocultar.\n\n## 📚 Onde aprofundar\nEstude alinhamento entre objetivos de aprendizagem e instrumentos de avaliação.\n\n## 💡 Padrão a memorizar\nPara avaliar criação de estratégias, é preciso dar espaço para o estudante apresentá-las."
+  },
+  {
+    "id": 1164,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA avaliação diagnóstica procura identificar conhecimentos já adquiridos e dificuldades para orientar o ensino. Comparar e classificar estudantes não é seu objetivo principal.\n\n## ⚠️ O erro típico\nConfundir diagnóstico das necessidades com classificação por desempenho.\n\n## 🧠 Conceito-chave\nOs resultados diagnósticos subsidiam intervenções e planejamento pedagógico.\n\n## 📚 Onde aprofundar\nConsulte a [definição da SEDU/ES](https://sedu.es.gov.br/avaliacao-diagnostica).\n\n## 💡 Padrão a memorizar\nDiagnosticar orienta o que ensinar e retomar; não se reduz a ordenar alunos."
+  },
+  {
+    "id": 1158,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nSe H é a carga total, a coordenação em A corresponde a 0,04 × 0,60H = 0,024H. Em B, corresponde a 0,02 × 0,40H = 0,008H. Somando, obtemos 0,032H, ou 3,2% do total.\n\n## ⚠️ O erro típico\nA média simples de 4% e 2% seria 3%, mas as escolas não têm pesos iguais.\n\n## 🧠 Conceito-chave\nUma taxa global combina as taxas parciais ponderadas pelas respectivas parcelas do total.\n\n## 📚 Onde aprofundar\nEstude porcentagens sucessivas e médias ponderadas.\n\n## 💡 Padrão a memorizar\nPondere cada taxa pela carga da escola: 4% × 60% + 2% × 40%."
+  },
+  {
+    "id": 1154,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nSe a média inicial é m, as 19 notas somam 19m. A nota incluída vale 2m. A nova média é (19m + 2m)/20 = 1,05m: aumento de 5% para m positivo, não 3%.\n\n## ⚠️ O erro típico\nDividir a soma por 19 novamente ou somar percentuais sem atualizar o número de alunos altera o cálculo.\n\n## 🧠 Conceito-chave\nA soma das observações é a média multiplicada pela quantidade. A nova observação altera tanto a soma quanto o divisor.\n\n## 📚 Onde aprofundar\nEstude atualização da média pela soma total. Se m = 0, não há aumento percentual definido.\n\n## 💡 Padrão a memorizar\nA nova soma é 21m, dividida por 20: a média passa a 1,05m."
+  },
+  {
+    "id": 5960,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA verificação do estado-limite último não substitui a de serviço. Uma estrutura pode resistir ao colapso e, ainda assim, apresentar deformações ou vibrações incompatíveis com seu uso.\n\n## ⚠️ O erro típico\nTratar resistência ao colapso como garantia automática de bom funcionamento.\n\n## 🧠 Conceito-chave\nEstados-limite últimos e de serviço examinam critérios distintos de desempenho estrutural.\n\n## 📚 Onde aprofundar\nConsulte a [base de projeto estrutural do JRC/Comissão Europeia](https://eurocodes.jrc.ec.europa.eu/EN-Eurocodes/eurocode-basis-structural-design), que distingue segurança e aptidão ao serviço.\n\n## 💡 Padrão a memorizar\nResistir às ações não basta para garantir condições adequadas de utilização."
+  },
+  {
+    "id": 5900,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO limite ocupacional de dose efetiva é 20 mSv, com a regra de média quinquenal e teto de 50 mSv em um ano. Os limites gerais não se aplicam às exposições médicas dos pacientes; inexiste o teto universal de 10 mSv/ano afirmado.\n\n## ⚠️ O erro típico\nConfundir limite ocupacional com referência para exposição médica.\n\n## 🧠 Conceito-chave\nExposições médicas exigem justificação e otimização, não um limite anual universal para o paciente.\n\n## 📚 Onde aprofundar\nConfira os arts. 52 e 54 da [norma aprovada pela Resolução CNEN 344/2025](https://www.gov.br/cnen/pt-br/acesso-rapido/normas/grupo-3/copy2_of_NormaCNENNN3.01.pdf).\n\n## 💡 Padrão a memorizar\nSepare exposição ocupacional de exposição médica ao interpretar os valores normativos."
+  },
+  {
+    "id": 5897,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA tabela da CNEN NN 3.01/2014 estabelece 1 mSv como limite anual de dose efetiva para o público, não 10 mSv.\n\n## ⚠️ O erro típico\nTrocar a categoria de exposição ou acrescentar um zero muda o limite.\n\n## 🧠 Conceito-chave\nDose efetiva e dose equivalente em órgãos são grandezas distintas na tabela.\n\n## 📚 Onde aprofundar\nVeja o item 5.4.2.1 da [CNEN NN 3.01/2014](https://www.gov.br/cnen/pt-br/acesso-rapido/normas/grupo-3/grupo3-nrm301.pdf).\n\n## 💡 Padrão a memorizar\nPara o público, o valor geral de dose efetiva na norma citada é 1 mSv/ano."
+  },
+  {
+    "id": 5895,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA tabela de 2014 indica 20 mSv para o cristalino do trabalhador exposto. A nota esclarece: média em cinco anos consecutivos, sem exceder 50 mSv em qualquer ano.\n\n## ⚠️ O erro típico\nLer 20 mSv como teto absoluto de cada ano isolado ignora a nota da tabela.\n\n## 🧠 Conceito-chave\nO limite deve ser interpretado junto com sua regra temporal.\n\n## 📚 Onde aprofundar\nConsulte tabela e nota b do item 5.4.2.1 da [CNEN NN 3.01/2014](https://www.gov.br/cnen/pt-br/acesso-rapido/normas/grupo-3/grupo3-nrm301.pdf).\n\n## 💡 Padrão a memorizar\nCristalino ocupacional: 20 mSv na média quinquenal e teto anual de 50 mSv."
+  },
+  {
+    "id": 5752,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nAs necessidades podem mudar entre medo de contágio, adoecimento, isolamento, luto e recuperação. Isso exige reavaliar as intervenções ao longo da situação, em vez de pressupor uma demanda psicológica fixa.\n\n## ⚠️ O erro típico\nImaginar que uma única resposta atende igualmente todas as pessoas e fases.\n\n## 🧠 Conceito-chave\nA intervenção acompanha as necessidades identificadas e as mudanças do contexto.\n\n## 📚 Onde aprofundar\nConsulte o material da [Fiocruz sobre cuidado em saúde mental na covid-19](https://25anos.ead.fiocruz.br/materiaisead/especializacao/gestao-de-risco-de-emergencias-e-desastres-em-saude-publica/percurso/documents/covid-19_saude_mental_emergencia_do_cuidado.pdf).\n\n## 💡 Padrão a memorizar\nMudanças no contexto e nas necessidades pedem reavaliação do cuidado."
+  },
+  {
+    "id": 5706,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO item inverte a comparação. Os triglicerídeos de cadeia média apresentam digestão e absorção mais facilitadas, com menor dependência de sais biliares que os de cadeia longa. Não se caracterizam por maior demora na solubilização e absorção.\n\n## ⚠️ O erro típico\nAtribuir às cadeias médias a maior dependência de formação de micelas típica das cadeias longas.\n\n## 🧠 Conceito-chave\nO comprimento da cadeia influencia solubilidade, absorção e transporte dos lipídios.\n\n## 📚 Onde aprofundar\nConsulte o [material de nutrição da NASPGHAN](https://members.naspghan.org/App_Themes/Members/docs/Section8_Nutrition.pdf).\n\n## 💡 Padrão a memorizar\nCadeias médias têm menor dependência de sais biliares; a comparação do item está invertida."
+  },
+  {
+    "id": 5651,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO FAN em células HEp-2 utiliza imunofluorescência indireta, não direta. HEp-2 é uma linhagem celular humana, não um protozoário. São dois erros independentes no item.\n\n## ⚠️ O erro típico\nConfundir o método de detecção com o substrato celular empregado.\n\n## 🧠 Conceito-chave\nNa técnica indireta, um reagente marcado detecta os anticorpos ligados ao substrato. HEp-2 e Crithidia não são o mesmo substrato.\n\n## 📚 Onde aprofundar\nVeja o [Consenso Brasileiro de Autoanticorpos](https://www.hep-2.com.br/guidelines) e a [identificação de HEp-2 pela ATCC](https://www.atcc.org/products/ccl-23).\n\n## 💡 Padrão a memorizar\nFAN HEp-2: imunofluorescência indireta em células humanas."
+  },
+  {
+    "id": 5617,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO item expressa a otimização: reduzir exposições na medida razoavelmente praticável, considerando fatores sociais e econômicos.\n\n## ⚠️ O erro típico\nConfundir otimização com eliminação absoluta de toda exposição, inclusive a necessária a um procedimento justificado.\n\n## 🧠 Conceito-chave\nOtimizar é ajustar a proteção e a exposição à finalidade, sem doses desnecessárias.\n\n## 📚 Onde aprofundar\nConsulte o item 5.4.3.1 da [CNEN NN 3.01/2014](https://www.gov.br/cnen/pt-br/acesso-rapido/normas/grupo-3/grupo3-nrm301.pdf).\n\n## 💡 Padrão a memorizar\nProteção otimizada evita exposição desnecessária preservando a finalidade do procedimento."
+  },
+  {
+    "id": 5574,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nIntolerância à lactose produz predominantemente manifestações digestivas, como diarreia, distensão e gases. Ela não explica adequadamente a hipoglicemia profunda de 10 mg/dL associada a convulsões descrita no caso.\n\n## ⚠️ O erro típico\nConcluir intolerância à lactose apenas porque os episódios ocorrem após mamadas.\n\n## 🧠 Conceito-chave\nA relação com alimentação precisa ser interpretada junto com o padrão clínico e laboratorial. Os dados não autorizam fixar outro diagnóstico único.\n\n## 📚 Onde aprofundar\nConsulte os [sintomas e causas de intolerância à lactose no NIDDK/NIH](https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/symptoms-causes).\n\n## 💡 Padrão a memorizar\nSintomas após leite não bastam: a hipótese precisa explicar também os achados graves."
+  },
+  {
+    "id": 5566,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA melanose pustulosa neonatal costuma estar presente ao nascimento, com pústulas sem eritema ao redor, seguidas de manchas pigmentadas. A descrição eritematosa nas primeiras 72 horas aproxima-se mais do eritema tóxico neonatal.\n\n## ⚠️ O erro típico\nUsar apenas a regressão espontânea para distinguir duas condições benignas.\n\n## 🧠 Conceito-chave\nMorfologia, presença de eritema, momento de aparecimento e evolução das lesões ajudam no diagnóstico diferencial.\n\n## 📚 Onde aprofundar\nConsulte a seção de melanose pustulosa no [guia de cuidados da pele do recém-nascido da SBP](https://www.sbp.com.br/fileadmin/user_upload/sbp/2024/abril/11/_24424L-GPA_ISBN_-_Cuidado_Pele_e_Anexos_do_RN.pdf).\n\n## 💡 Padrão a memorizar\nPústulas sem halo eritematoso e pigmentação residual favorecem melanose pustulosa."
+  },
+  {
+    "id": 5540,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA autoridade dos pais não obriga o médico a conceder alta em qualquer circunstância. Se a saída expõe a criança a risco relevante, a proteção de sua saúde pode exigir continuidade da assistência e medidas de proteção. Fornecer documentação não equivale a concordar com a alta.\n\n## ⚠️ O erro típico\nTratar autonomia dos responsáveis como poder irrestrito sobre a segurança da criança.\n\n## 🧠 Conceito-chave\nA representação legal deve ser exercida em benefício do menor; o pedido não elimina a responsabilidade assistencial.\n\n## 📚 Onde aprofundar\nVeja os [esclarecimentos do CFM sobre recusa terapêutica envolvendo menores](https://portal.cfm.org.br/noticias/cfm-esclarece-pontos-da-resolucao-que-trata-da-recusa-terapeutica-e-objecao-de-consciencia).\n\n## 💡 Padrão a memorizar\nPedido de relatório e decisão de alta são questões distintas; a proteção do menor permanece."
+  },
+  {
+    "id": 5517,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNão é correto presumir predomínio de malignidade em toda nodulação de glândula salivar maior. Na parótida, a mais frequentemente acometida por tumores salivares, predominam tumores benignos. A probabilidade varia conforme a glândula e as características da lesão.\n\n## ⚠️ O erro típico\nTransformar a possibilidade de câncer em maior probabilidade de câncer para qualquer nódulo.\n\n## 🧠 Conceito-chave\nFrequências gerais não definem o diagnóstico de uma lesão individual.\n\n## 📚 Onde aprofundar\nConsulte o [material do NCI sobre tumores das glândulas salivares](https://www.cancer.gov/types/head-and-neck/hp/adult/salivary-gland-treatment-pdq).\n\n## 💡 Padrão a memorizar\nA localização importa: nodulação salivar não significa malignidade predominante."
+  },
+  {
+    "id": 5489,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA maturidade óssea importa, mas a conclusão sobre estabilização está invertida. Na escoliose idiopática do adolescente, o crescimento rápido é um período de risco de progressão. Muitas curvas desaceleram ao atingir a maturidade, e algumas continuam progredindo depois.\n\n## ⚠️ O erro típico\nPresumir que a curva idiopática tende a estabilizar justamente enquanto ainda há crescimento importante.\n\n## 🧠 Conceito-chave\nCrescimento remanescente e magnitude da curva influenciam o risco de progressão.\n\n## 📚 Onde aprofundar\nConsulte a [Scoliosis Research Society sobre escoliose idiopática](https://www.srs.org/Patients/Conditions/Scoliosis/Idiopathic-Scoliosis).\n\n## 💡 Padrão a memorizar\nCrescimento remanescente exige atenção à progressão; maturidade não garante estabilidade de toda curva."
+  }
+]

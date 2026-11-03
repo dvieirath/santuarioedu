@@ -1,0 +1,78 @@
+[
+  {
+    "id": 3203,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo engrenamento ideal, as velocidades tangenciais nos círculos primitivos têm o mesmo módulo. Assim, n₂ = n₁r₁/r₂ = 20 × 10/20 = 10 rpm. O raio duplicado reduz a rotação à metade.\n\n## ⚠️ O erro típico\nNão iguale as rotações de rodas de raios diferentes que engrenam entre si.\n\n## 🧠 Conceito-chave\nA transmissão por engrenamento relaciona as rotações inversamente aos raios primitivos; engrenagens externas giram em sentidos opostos.\n\n## 📚 Onde aprofundar\nOpenStax, [Rotation Angle and Angular Velocity](https://openstax.org/books/college-physics/pages/6-1-rotation-angle-and-angular-velocity). Estude a relação v = ωr.\n\n## 💡 Padrão a memorizar\nEngrenadas: n₁r₁ = n₂r₂ em módulo."
+  },
+  {
+    "id": 3201,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAs engrenagens solidárias ao mesmo eixo têm a mesma velocidade angular. Porém, nos círculos primitivos, v = ωr: durante a rotação, raios diferentes produzem velocidades tangenciais diferentes. A afirmação reúne uma igualdade correta e outra incorreta.\n\n## ⚠️ O erro típico\nConfundir velocidade angular comum com velocidade linear comum leva ao erro.\n\n## 🧠 Conceito-chave\nEm um corpo rígido que gira, todos os pontos compartilham ω, mas v depende da distância ao eixo.\n\n## 📚 Onde aprofundar\nOpenStax, [Rotation Angle and Angular Velocity](https://openstax.org/books/college-physics/pages/6-1-rotation-angle-and-angular-velocity). Estude a relação v = ωr.\n\n## 💡 Padrão a memorizar\nMesmo eixo: mesma ω; maior raio: maior v."
+  },
+  {
+    "id": 3185,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAtuadores pneumáticos podem operar rapidamente, mas sua velocidade e precisão têm limites. Vazão disponível, compressibilidade do ar, carga e atrito influenciam o movimento. A ausência de limitações afirmada no item é falsa.\n\n## ⚠️ O erro típico\nAlta velocidade possível não significa velocidade ilimitada nem precisão irrestrita.\n\n## 🧠 Conceito-chave\nO desempenho do atuador depende do dimensionamento e das condições físicas do sistema.\n\n## 📚 Onde aprofundar\nFesto, [cilindros pneumáticos](https://www.festo.com/de/en/c/products/actuators/pneumatic-cylinders-id_pim135) e [controle de pressão e vazão](https://www.festo.com.cn/cn/en/e/blog/innovation/efficient-pressure-and-flow-regulators-id_2153756).\n\n## 💡 Padrão a memorizar\nPneumática: rapidez possível, limites físicos presentes."
+  },
+  {
+    "id": 3181,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA potência absorvida pelo resistor é o produto da tensão em seus terminais pela corrente que o atravessa: P = VI. Pela lei de Ohm, também P = RI² = V²/R.\n\n## ⚠️ O erro típico\nNão multiplique a tensão do resistor por uma corrente de outro ramo.\n\n## 🧠 Conceito-chave\nPotência é energia por unidade de tempo. A relação instantânea é p(t) = v(t)i(t); para resistor ideal, valores eficazes também fornecem a potência média por V eficaz × I eficaz.\n\n## 📚 Onde aprofundar\nOpenStax, [Electrical Energy and Power](https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power).\n\n## 💡 Padrão a memorizar\nNo resistor: P = VI = RI² = V²/R."
+  },
+  {
+    "id": 3180,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nElementos em paralelo compartilham os mesmos dois nós e, portanto, a mesma tensão. As correntes dos ramos dependem das respectivas resistências. Por exemplo, sob 12 V, resistores de 6 Ω e 12 Ω recebem 2 A e 1 A.\n\n## ⚠️ O erro típico\nA igualdade de corrente caracteriza elementos em série, sem derivações intermediárias.\n\n## 🧠 Conceito-chave\nEm paralelo, a corrente total é a soma das correntes dos ramos.\n\n## 📚 Onde aprofundar\nOpenStax, [Resistors in Series and Parallel](https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel).\n\n## 💡 Padrão a memorizar\nParalelo iguala tensão; série iguala corrente."
+  },
+  {
+    "id": 3178,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO flip-flop JK é biestável: armazena um bit, com saída Q igual a 0 ou 1. Nas condições usuais de clock, J = K = 0 mantém o estado; 01 zera; 10 define; 11 alterna o estado anterior. Alternar não constitui um terceiro estado armazenado.\n\n## ⚠️ O erro típico\nNão confunda operações de atualização com estados lógicos.\n\n## 🧠 Conceito-chave\nO estado seguinte depende das entradas, do clock e, em certas combinações, do estado anterior.\n\n## 📚 Onde aprofundar\nTexas Instruments, [Dual J-K Flip-Flops With Preset and Clear](https://www.ti.com/lit/ds/symlink/sn5476.pdf), tabela funcional.\n\n## 💡 Padrão a memorizar\nJK tem dois estados e pode manter, zerar, definir ou alternar."
+  },
+  {
+    "id": 3174,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo regime permanente de corrente contínua, a tensão do capacitor ideal já carregado é constante. Como i = C dv/dt, sua corrente é zero; por isso ele equivale a um circuito aberto nessa condição.\n\n## ⚠️ O erro típico\nNão estenda essa equivalência ao transitório de carga ou descarga, quando há corrente.\n\n## 🧠 Conceito-chave\nA corrente capacitiva depende da variação temporal da tensão. Capacitores reais também podem apresentar fuga.\n\n## 📚 Onde aprofundar\nOpenStax, [resumo de circuitos de corrente contínua](https://openstax.org/books/university-physics-volume-2/pages/10-summary), circuitos RC.\n\n## 💡 Padrão a memorizar\nCapacitor ideal em CC permanente: corrente nula."
+  },
+  {
+    "id": 3173,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo RLC série ideal, |Z| = √[R² + (ωL − 1/ωC)²]. Na ressonância, as reatâncias se cancelam, restando |Z| = R, seu mínimo para R constante.\n\n## ⚠️ O erro típico\nNão transfira automaticamente a conclusão para um circuito RLC em paralelo.\n\n## 🧠 Conceito-chave\nA frequência angular de ressonância é ω₀ = 1/√(LC); a impedância do circuito série torna-se puramente resistiva.\n\n## 📚 Onde aprofundar\nOpenStax, [Resonance in an AC Circuit](https://openstax.org/books/university-physics-volume-2/pages/15-5-resonance-in-an-ac-circuit).\n\n## 💡 Padrão a memorizar\nRLC série em ressonância: XL = XC e |Z| = R."
+  },
+  {
+    "id": 3158,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nCLPs podem receber e fornecer sinais analógicos por interfaces apropriadas. Módulos de entrada convertem sinais de tensão ou corrente em valores numéricos, e módulos de saída realizam a conversão inversa. Logo, a incapacidade absoluta afirmada é falsa.\n\n## ⚠️ O erro típico\nO processamento digital interno não impede a interface com grandezas analógicas.\n\n## 🧠 Conceito-chave\nA compatibilidade depende dos módulos e das faixas elétricas admitidas pelo equipamento.\n\n## 📚 Onde aprofundar\nSiemens, [manual do S7-1200](https://cache.industry.siemens.com/dl/files/829/109814829/att_1120874/v1/s71200_system_manual_en-US_en-US.pdf), módulos analógicos.\n\n## 💡 Padrão a memorizar\nCLP digital pode controlar processos com sinais analógicos."
+  },
+  {
+    "id": 3152,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nTacômetros medem a velocidade de rotação de eixos e outros componentes rotativos, frequentemente expressa em rotações por minuto. A leitura pode empregar contato mecânico ou detecção óptica, conforme o instrumento.\n\n## ⚠️ O erro típico\nNão confunda tacômetro com instrumento de torque: rotação e momento de força são grandezas distintas.\n\n## 🧠 Conceito-chave\nA taxa de rotação indica quantas voltas ocorrem por unidade de tempo.\n\n## 📚 Onde aprofundar\nSKF, [tacômetro digital TKRT 21](https://www.skf.com/jp/products/condition-monitoring-systems/basic-condition-monitoring-products/speed-measurement/multi-functional-digital-tachometer).\n\n## 💡 Padrão a memorizar\nTacômetro mede rotação; rpm significa voltas por minuto."
+  },
+  {
+    "id": 3141,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO disjuntor já está danificado e sua substituição busca restaurar a função perdida. A intervenção responde a uma falha existente, caracterizando manutenção corretiva.\n\n## ⚠️ O erro típico\nNão classifique toda substituição como preventiva: importa o motivo da intervenção.\n\n## 🧠 Conceito-chave\nA manutenção corretiva corrige defeitos identificados; a preventiva procura reduzir a ocorrência de falhas antes que se manifestem.\n\n## 📚 Onde aprofundar\nIBM, [Solicitando manutenção corretiva](https://www.ibm.com/docs/pt-br/tririga/11.5?topic=services-requesting-corrective-maintenance).\n\n## 💡 Padrão a memorizar\nFalha já constatada e função restaurada: manutenção corretiva."
+  },
+  {
+    "id": 3138,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA NBR 5410:2004 inclui instalações temporárias em seu campo de aplicação, como as de canteiros de obras, feiras e exposições. A exclusão proposta pelo item contraria esse escopo.\n\n## ⚠️ O erro típico\nTemporário não significa dispensado dos requisitos de segurança elétrica.\n\n## 🧠 Conceito-chave\nA duração limitada da instalação não a exclui, por si só, da norma.\n\n## 📚 Onde aprofundar\nABNT, [NBR 5410:2004](https://www.ipaam.am.gov.br/wp-content/uploads/2021/01/NBR-05410-05-Instala%C3%A7%C3%B5es-El%C3%A9tricas-de-baixa-Tens%C3%A3o.pdf), seção 1, campo de aplicação; cópia disponibilizada pelo IPAAM.\n\n## 💡 Padrão a memorizar\nInstalações temporárias também integram o escopo da NBR 5410."
+  },
+  {
+    "id": 3136,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nExistem linhas de transmissão em alta tensão e corrente contínua. O sistema associado a Itaipu, por exemplo, transmite energia em 600 kV em corrente contínua. Esse contraexemplo refuta a exclusividade da corrente alternada alegada no item.\n\n## ⚠️ O erro típico\nNão confunda predominância de uma tecnologia com uso exclusivo.\n\n## 🧠 Conceito-chave\nA escolha entre transmissão CA e CC depende das condições técnicas e econômicas do projeto.\n\n## 📚 Onde aprofundar\nItaipu, [Produção e suprimento de energia](https://itaipu.gov.br/wp-content/uploads/2024/12/Rel-Sust-2013-4.pdf), sistema de transmissão em corrente contínua.\n\n## 💡 Padrão a memorizar\nAlta tensão pode transmitir energia tanto em CA como em CC."
+  },
+  {
+    "id": 3131,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA tensão nominal de 220 V, isoladamente, não determina o número de polos. A alimentação pode ser fase-neutro, com proteção monopolar da fase quando admissível, ou fase-fase, com proteção bipolar. A configuração e os requisitos de seccionamento precisam ser considerados.\n\n## ⚠️ O erro típico\nNão conclua que todo circuito de 220 V possui duas fases.\n\n## 🧠 Conceito-chave\nOs polos dependem dos condutores e das exigências de proteção e seccionamento.\n\n## 📚 Onde aprofundar\nABNT, [NBR 5410:2004](https://www.ipaam.am.gov.br/wp-content/uploads/2021/01/NBR-05410-05-Instala%C3%A7%C3%B5es-El%C3%A9tricas-de-baixa-Tens%C3%A3o.pdf), itens 5.3.2 e 5.6.2–5.6.3.\n\n## 💡 Padrão a memorizar\n220 V não determina sozinho quantos polos serão necessários."
+  },
+  {
+    "id": 3127,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO wattímetro precisa obter informações de tensão e corrente para medir potência. A potência ativa corresponde à média temporal do produto dos valores instantâneos dessas grandezas. No instrumento eletrodinâmico, isso envolve circuitos de tensão e de corrente.\n\n## ⚠️ O erro típico\nSomente tensão ou somente corrente não basta para determinar a potência de uma carga genérica.\n\n## 🧠 Conceito-chave\nEm CA senoidal, P = V eficaz × I eficaz × cos φ; a defasagem também importa.\n\n## 📚 Onde aprofundar\nYokogawa, [princípio de medição do wattímetro](https://tmi.yokogawa.com/library/resources/training-modules/power-meter-tutorials-background/).\n\n## 💡 Padrão a memorizar\nWattímetro combina tensão e corrente para medir potência."
+  },
+  {
+    "id": 3125,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNo modo de amperímetro CA, o instrumento mede corrente alternada e apresenta o resultado em amperes. Hertz é unidade de frequência, medida por um frequencímetro ou por uma função específica de um instrumento multifunção.\n\n## ⚠️ O erro típico\nA presença do modo CA não transforma uma medição de corrente em medição de frequência.\n\n## 🧠 Conceito-chave\nGrandeza e unidade devem corresponder: corrente em A, frequência em Hz.\n\n## 📚 Onde aprofundar\nFluke, [perguntas sobre medições elétricas](https://www.fluke.com/en-us/learn/blog/electrical/basic-electrical-measurement-faq).\n\n## 💡 Padrão a memorizar\nAmperímetro: amperes; frequencímetro: hertz."
+  },
+  {
+    "id": 3124,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNa medição direta com amperímetro convencional, ele é inserido em série para ser atravessado pela corrente do dispositivo. A ligação em paralelo, sob a mesma tensão, caracteriza a medição com voltímetro.\n\n## ⚠️ O erro típico\nLigar um amperímetro de baixa resistência em paralelo pode produzir corrente excessiva.\n\n## 🧠 Conceito-chave\nO amperímetro ideal tem resistência nula; o voltímetro ideal tem resistência infinita. Sensores como alicates medem corrente sem inserção em série.\n\n## 📚 Onde aprofundar\nOpenStax, [resumo de circuitos de corrente contínua](https://openstax.org/books/university-physics-volume-2/pages/10-summary), instrumentos elétricos.\n\n## 💡 Padrão a memorizar\nMedição direta: amperímetro em série e voltímetro em paralelo."
+  },
+  {
+    "id": 3123,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO ohmímetro aplica uma excitação elétrica ao componente e observa a resposta para determinar sua resistência. Uma implementação injeta corrente conhecida e mede a tensão resultante, calculando R = V/I.\n\n## ⚠️ O erro típico\nO ohmímetro não deve depender da alimentação normal do circuito para fazer essa medição.\n\n## 🧠 Conceito-chave\nA medição de resistência envolve uma relação entre tensão e corrente de teste, com o componente desenergizado.\n\n## 📚 Onde aprofundar\nFluke, [manual do multímetro 1281](https://assets.fluke.com/manuals/1281____umeng0000.pdf), medição de resistência com corrente de teste.\n\n## 💡 Padrão a memorizar\nOhmímetro excita o componente e calcula a resistência."
+  },
+  {
+    "id": 3122,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO valor eficaz é a raiz quadrada da média do quadrado da tensão ao longo de um período. Para uma onda periódica com amplitude e forma estáveis, esse resultado é constante, embora a tensão instantânea varie. Um voltímetro adequado fornece essa medida.\n\n## ⚠️ O erro típico\nNão confunda valor eficaz constante com tensão instantânea constante.\n\n## 🧠 Conceito-chave\nPara ondas não senoidais, a medição exige instrumento compatível, como true RMS dentro de suas especificações. Em senoide, V eficaz = V pico/√2.\n\n## 📚 Onde aprofundar\nFluke, [What is true RMS?](https://www.fluke.com/en-us/learn/blog/electrical/what-is-true-rms).\n\n## 💡 Padrão a memorizar\nOnda estável: valor eficaz estável, tensão instantânea variável."
+  }
+]

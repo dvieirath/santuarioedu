@@ -1,0 +1,62 @@
+[
+  {
+    "id": 4481,
+    "motivo": "Material ausente: o enunciado faz referência a gráfico e estrutura molecular não disponibilizados. Embora a afirmação isolada sobre o mecanismo da claritromicina seja verificável, preservar a questão para restauração do material conforme a regra de não preencher itens com imagem ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4461,
+    "motivo": "Revisão de gabarito e recorte temporal: as modalidades listadas são reconhecidas nas orientações oficiais; não foi demonstrado erro suficiente para justificar Errado. É necessário conferir o prazo específico da triagem auditiva na referência exigida, distinguindo momento preferencial antes da alta do limite de realização. Fontes: https://www.gov.br/saude/pt-br/composicao/saes/triagem-neonatal e https://www.cofen.gov.br/wp-content/uploads/2025/05/Parecer-16-2025.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4435,
+    "motivo": "Provável incompatibilidade de gabarito: o conteúdo coincide com diretrizes de integralidade e prioridade da atenção básica da PNAISH. A fonte oficial pesquisada sustenta as ações de promoção, prevenção, assistência e recuperação nos diferentes níveis. Conferir gabarito original antes de explicar Errado. Fonte: https://bvsms.saude.gov.br/bvs/publicacoes/politica_nacional_atencao_homem.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4366,
+    "motivo": "Ambiguidade entre campanha de conscientização e diretriz formal da PNAISH. A finalidade ampla pode ser compatível com atenção integral, mas o texto pode ser entendido como endosso a rastreamento populacional, que o INCA não recomenda. Exige conferir referência e sentido de teleologicamente sem transformar a campanha em recomendação universal de exames. Fonte: https://www.inca.gov.br/publicacoes/notas-tecnicas/nota-tecnica-recomendacao-pelo-nao-rastreamento-populacional-do-cancer-de",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4203,
+    "motivo": "Enunciado incompleto: faltam as medições da situação hipotética 17A4-I. Não é possível calcular médias e desvios-padrão dos aparelhos A e B.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4183,
+    "motivo": "Enunciado incompleto: a distribuição de frequências do texto 16A5 não está presente. Média, mediana e moda não podem ser reconstruídas a partir das alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3969,
+    "motivo": "Faltam figuras do cromatograma, espectros e tabela mencionados no texto 13A6-I. Não preencher antes de restaurar o material de referência; a plausibilidade de uma alternativa não substitui a questão completa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3954,
+    "motivo": "Faltam estrutura genérica, equação da reação e figura de uma alternativa. Além disso, a condensação simples glicina+cisteína resulta em 75+121−18=178 g/mol, não 179 g/mol. Necessário conferir imagem e gabarito original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3952,
+    "motivo": "Enunciado menciona equação de ionização da valina, mas ela não foi disponibilizada. Restaurar a equação para verificar os estados de protonação e o contexto químico antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3913,
+    "motivo": "Referência experimental necessária para associar o material descrito como metal feldspático à alteração exata a 800 °C. Foi localizada a prova original, mas ela não é evidência técnica do comportamento térmico. Não confirmar amolecimento sem fonte primária e identificação adequada do material. Prova: https://cdn.cebraspe.org.br/concursos/pc_pb_21/arquivos/627_PCPB_011_01.PDF",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

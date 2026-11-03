@@ -206,10 +206,13 @@ tailwind.config = {
           {% if escolha.questao.justificativa %}
             {{ escolha.questao.justificativa|markdown|safe }}
           {% else %}
-            <div id="analise-loading" class="flex items-center gap-2 py-3 text-primary/70 text-sm">
-              <span class="material-symbols-outlined animate-spin" style="font-size:18px;">sync</span>
-              <span>Gerando análise com IA... (pode levar até 15s)</span>
-            </div>
+            <p class="text-on-surface-variant text-sm">Esta questão ainda não tem uma explicação revisada disponível.</p>
+            <button id="gerar-justificativa-btn"
+                    onclick="gerarJustificativa({{ escolha.questao.id }})"
+                    class="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-white hover:bg-primary-container transition-colors">
+              <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
+              Gerar explicação da questão
+            </button>
           {% endif %}
         </div>
       </div>
@@ -455,50 +458,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 {% include "quiz/includes/confetti.html" %}
 
-<!-- Justificativa IA — carrega async se ainda nao existe -->
-{% if not escolha.questao.justificativa %}
-<script>
-(function() {
-  const wrap = document.getElementById('analise-questao-wrap');
-  const conteudo = document.getElementById('analise-conteudo');
-  const status = document.getElementById('analise-status');
-  if (!wrap || !conteudo) return;
-
-  const url = "{% url 'api_justificativa_questao' escolha.questao.id %}";
-
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': '{{ csrf_token }}',
-    },
-    body: JSON.stringify({}),
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.justificativa) {
-      // Converte quebras de linha basicas em HTML (justificativa vem em plain text)
-      const html = data.justificativa
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/\n\n/g, '</p><p class="mt-2">')
-        .replace(/\n/g, '<br>');
-      conteudo.innerHTML = '<p>' + html + '</p>';
-      if (status) status.textContent = data.gerado_agora ? 'Gerado agora' : '';
-    } else {
-      conteudo.innerHTML = '<p class="text-on-surface-variant italic text-sm">Não foi possível gerar a análise no momento. Tente recarregar a página.</p>';
-    }
-  })
-  .catch(err => {
-    conteudo.innerHTML = '<p class="text-on-surface-variant italic text-sm">Erro ao carregar análise. Verifique sua conexão.</p>';
-  });
-})();
-</script>
-{% endif %}
-
 <script>
 const CSRF = '{{ csrf_token }}';
+
+async function gerarJustificativa(questaoId) {
+  const btn = document.getElementById('gerar-justificativa-btn');
+  const status = document.getElementById('analise-status');
+  const conteudo = document.getElementById('analise-conteudo');
+  if (btn) {
+    btn.disabled = true;
+    btn.classList.add('opacity-60', 'cursor-wait');
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:16px;">sync</span> Gerando explicação…';
+  }
+  status.textContent = 'A IA está preparando a explicação…';
+  try {
+    const resposta = await fetch(`/api/justificativa/${questaoId}/`, {
+      method: 'POST',
+      headers: { 'X-CSRFToken': CSRF },
+    });
+    const dados = await resposta.json();
+    if (!resposta.ok || !dados.justificativa) {
+      throw new Error(dados.erro || 'Não foi possível gerar a explicação.');
+    }
+    conteudo.innerHTML = dados.justificativa
+      .split('\n')
+      .map(linha => `<p>${linha.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</p>`)
+      .join('');
+    status.textContent = dados.gerado_agora ? 'Explicação gerada agora.' : 'Explicação disponível.';
+  } catch (erro) {
+    status.textContent = erro.message || 'Falha ao gerar a explicação.';
+    if (btn) {
+      btn.disabled = false;
+      btn.classList.remove('opacity-60', 'cursor-wait');
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px;">refresh</span> Tentar gerar novamente';
+    }
+  }
+}
 
 function toggleAnotacao() {
   document.getElementById('anotacao-body').classList.toggle('hidden');

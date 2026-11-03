@@ -1,0 +1,482 @@
+[
+  {
+    "id": 9390,
+    "texto": "Durante a análise de um documento histórico, observa‑se que o autor utilizou a expressão \"no entanto\" em diversas passagens para introduzir contrastes. A seguir, descreve‑se um trecho fictício de 200 palavras que exemplifica o uso dessa expressão em contexto acadêmico.\n\n\nTexto: \"No entanto, a teoria de que a língua portuguesa evolui de maneira linear tem sido contestada por linguistas que apontam para a influência de fatores socioculturais. No entanto, a resistência a essa perspectiva pode ser atribuída à tradição acadêmica que privilegia modelos clássicos. No entanto, estudos recentes demonstram que a variação linguística é inevitável e que a norma culta deve ser vista como um conjunto dinâmico. No entanto, a aplicação de regras rígidas pode levar à exclusão de variantes legítimas, criando barreiras de acesso à linguagem. No entanto, a inclusão de diferentes registros linguísticos na educação pode promover a valorização da diversidade cultural e linguística. No entanto, a crítica à norma culta não deve ser confundida com a rejeição de padrões gramaticais, mas sim com a busca por uma linguagem mais representativa e inclusiva. No entanto, a discussão sobre a evolução da língua permanece em aberto, exigindo contínua pesquisa e debate entre especialistas.\"\n\n\nConsiderando o texto acima, a afirmação \"O uso repetitivo da expressão 'no entanto' pode enfraquecer a coesão textual, pois cria redundância sem aportar novas informações\" é verdadeira ou falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41508,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41509,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9389,
+    "texto": "No contexto de um contrato administrativo, o termo \"cláusula de não concorrência\" pode ser interpretado como uma restrição que impede o contratado de atuar em atividades concorrentes com o objeto do contrato. A afirmação \"A cláusula de não concorrência deve ser redigida de forma a não restringir a liberdade profissional do contratado além do prazo estipulado no contrato\" está correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41506,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41507,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9388,
+    "texto": "Em uma redação dissertativa, o candidato deve apresentar argumentos que justifiquem a necessidade de se incluir o uso de linguagem inclusiva na norma culta da língua portuguesa. O enunciado pede que se defina se a afirmação \"A linguagem inclusiva, quando utilizada em textos acadêmicos, pode comprometer a clareza e a precisão do conteúdo\" é verdadeira ou falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41504,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41505,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9387,
+    "texto": "A análise sintática de uma oração subordinada substantiva objetiva direta requer a identificação de verbo de ligação, verbo transitivo direto e verbo de ligação. Esta afirmação é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41502,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41503,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9386,
+    "texto": "No contexto da norma culta, a expressão 'cerca de' pode ser empregada como sinônimo de 'aproximadamente' sem alterar o sentido do enunciado. Esta afirmação é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41500,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41501,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9385,
+    "texto": "Em um contrato de prestação de serviços, a cláusula que estabelece a obrigação de pagamento em parcelas mensais, com juros de mora de 1,5% ao mês, é considerada uma cláusula de direito real ou de direito pessoal? A resposta correta é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41498,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41499,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9384,
+    "texto": "Texto: \"Na última edição da revista linguística, publicada em 2024, os autores analisaram a evolução do uso da pontuação em textos digitais. Observou-se que a pontuação em mensagens instantâneas tende a ser mais concisa, com ênfase na omissão de vírgulas e pontos finais, favorecendo a fluidez da comunicação. Entretanto, o estudo aponta que a ausência desses sinais pode comprometer a clareza e a interpretação do conteúdo, sobretudo em textos de caráter formal. A pesquisa, conduzida por pesquisadores da Universidade Federal de Minas Gerais, utilizou uma amostra de 1.200 mensagens enviadas em plataformas de chat, classificando-as em categorias de formalidade e identificando padrões de uso de pontuação. Os resultados sugerem que, embora a informalidade permita certa flexibilidade, a manutenção de regras básicas de pontuação é essencial para garantir a compreensão adequada do texto, especialmente em ambientes profissionais e acadêmicos.\" Considerando o texto acima, qual é a principal conclusão do estudo sobre o uso da pontuação em mensagens instantâneas?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41493,
+        "texto": "A pontuação em mensagens instantâneas não influencia a compreensão do conteúdo",
+        "correta": false
+      },
+      {
+        "id": 41494,
+        "texto": "A ausência de vírgulas e pontos finais aumenta a clareza das mensagens",
+        "correta": false
+      },
+      {
+        "id": 41495,
+        "texto": "A omissão de pontuação pode comprometer a clareza e a interpretação do conteúdo",
+        "correta": true
+      },
+      {
+        "id": 41496,
+        "texto": "A pontuação em textos digitais segue exatamente as regras da norma culta",
+        "correta": false
+      },
+      {
+        "id": 41497,
+        "texto": "O uso de pontuação em mensagens instantâneas é irrelevante em ambientes profissionais",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9383,
+    "texto": "A norma culta do português brasileiro reconhece a flexão de gênero em substantivos derivados de nomes de profissões. Quando o termo ‘engenheiro’ é usado para designar uma mulher, qual é a forma correta e mais aceita na escrita?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41488,
+        "texto": "Engenheira",
+        "correta": true
+      },
+      {
+        "id": 41489,
+        "texto": "Engenheira(a)",
+        "correta": false
+      },
+      {
+        "id": 41490,
+        "texto": "Engenheiro(a)",
+        "correta": false
+      },
+      {
+        "id": 41491,
+        "texto": "Engenheirinha",
+        "correta": false
+      },
+      {
+        "id": 41492,
+        "texto": "Engenheirinha(a)",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9382,
+    "texto": "No contexto da norma padrão, o uso da crase em frases que incluem locuções prepositivas pode gerar confusão. Em que situação a crase é obrigatória ao se referir a uma cidade feminina?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41483,
+        "texto": "Quando a cidade é antecedida por preposição e o verbo exige regência prepositiva",
+        "correta": true
+      },
+      {
+        "id": 41484,
+        "texto": "Quando a cidade é antecedida por preposição e o verbo exige regência verbal",
+        "correta": false
+      },
+      {
+        "id": 41485,
+        "texto": "Quando a cidade é precedida por artigo definido",
+        "correta": false
+      },
+      {
+        "id": 41486,
+        "texto": "Quando a cidade é precedida por pronome relativo",
+        "correta": false
+      },
+      {
+        "id": 41487,
+        "texto": "Quando a cidade é precedida por advérbio de lugar",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9381,
+    "texto": "Em uma banca de concurso, o candidato João lê o trecho a seguir: \"O verbo, como elemento essencial da estrutura sintática, pode atuar em diversas funções, sendo o núcleo do predicado, o agente da passiva ou o complemento de verbos modais. Quando empregado em locuções verbais, o verbo pode indicar simultaneidade, continuidade ou habitualidade, conforme o contexto.\" Considerando o texto acima, assinale a alternativa que apresenta a função sintática do verbo \"indicar\".",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41478,
+        "texto": "Núcleo do predicado",
+        "correta": false
+      },
+      {
+        "id": 41479,
+        "texto": "Complemento direto",
+        "correta": false
+      },
+      {
+        "id": 41480,
+        "texto": "Complemento indireto",
+        "correta": false
+      },
+      {
+        "id": 41481,
+        "texto": "Objeto indireto",
+        "correta": false
+      },
+      {
+        "id": 41482,
+        "texto": "Complemento de verbo modal",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9380,
+    "texto": "Na análise de textos literários, a figura de linguagem chamada ‘metonímia’ ocorre quando um elemento é substituído por outro com o qual mantém relação de causa e efeito, como em ‘o palco foi invadido pela plateia’.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41476,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41477,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9379,
+    "texto": "Considerando o texto abaixo:\n\n\"Em 2024, a Secretaria de Educação publicou um edital que prevê a contratação de profissionais de língua portuguesa para atuarem em escolas públicas. O edital estabelece que os candidatos devem possuir, além da formação superior em Letras, experiência comprovada em projetos de alfabetização digital. A proposta visa integrar tecnologias de realidade aumentada ao ensino tradicional, permitindo que os alunos interajam com textos literários em ambientes virtuais. Os profissionais deverão conduzir oficinas de interpretação de textos, utilizando recursos multimídia e promovendo debates críticos sobre obras clássicas e contemporâneas. O objetivo final é fortalecer a compreensão leitora e estimular a criatividade dos estudantes, alinhando o currículo às demandas do mercado de trabalho do século XXI.\"\n\nConsiderando o texto acima, assinale a alternativa que melhor descreve a natureza jurídica da exigência de experiência comprovada em projetos de alfabetização digital, prevista no edital.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41474,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41475,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9378,
+    "texto": "A concordância verbal em orações coordenadas sindéticas aditivas exige que o verbo seja conjugado no singular quando a oração principal está no singular, independentemente do número da oração subordinada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41472,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41473,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9377,
+    "texto": "Na norma culta da língua portuguesa, o uso de ‘tão’ antes de advérbios de intensidade, como em ‘tão rápido quanto’, é considerado correto em textos formais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41470,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41471,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9376,
+    "texto": "Em um contrato de prestação de serviços, a cláusula que estipula o prazo de entrega em 30 dias a partir da assinatura é considerada válida, desde que haja prova escrita da aceitação pelo cliente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41468,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41469,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8956,
+    "texto": "Texto de Apoio: Em 2024, a Rede Brasileira de Ensino a Distância (RBEAD) lançou uma plataforma de cursos livres de Português, com foco em alfabetização de adultos. O curso “Leitura e Produção Textual” é estruturado em três módulos: 1) Introdução à leitura crítica; 2) Produção de textos argumentativos; 3) Análise de gêneros literários contemporâneos. Cada módulo inclui atividades práticas e avaliações formativas. O curso tem como objetivo principal capacitar os participantes a ler e interpretar textos complexos, bem como a produzir textos claros e coerentes. A plataforma utiliza recursos multimídia, como vídeos explicativos, podcasts e fóruns de discussão, para enriquecer o aprendizado. Em 2025, a RBEAD recebeu o certificado de qualidade ISO 9001, reconhecendo a eficácia do processo de desenvolvimento de conteúdo e a satisfação dos usuários. Considerando o texto acima, qual das alternativas abaixo descreve corretamente a aplicação do princípio da qualidade de ensino nas avaliações de cursos livres de língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40088,
+        "texto": "As avaliações devem ser realizadas apenas por professores universitários.",
+        "correta": false
+      },
+      {
+        "id": 40089,
+        "texto": "As avaliações devem ser baseadas em critérios de desempenho previamente definidos e alinhados aos objetivos do curso.",
+        "correta": true
+      },
+      {
+        "id": 40090,
+        "texto": "As avaliações podem ser feitas de forma aleatória, desde que sejam divulgadas no edital do curso.",
+        "correta": false
+      },
+      {
+        "id": 40091,
+        "texto": "As avaliações devem ser eliminadas para evitar cobrança excessiva.",
+        "correta": false
+      },
+      {
+        "id": 40092,
+        "texto": "As avaliações devem ser aplicadas apenas ao final do curso, sem feedback intermediário.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8955,
+    "texto": "Em 2023, a Secretaria da Educação do Estado de Minas Gerais lançou um edital para a contratação de professor de Português para a rede pública. O edital exigia que os candidatos apresentassem, além da prova objetiva, um portfólio contendo textos produzidos em diferentes gêneros textuais. O candidato João, que tem experiência em jornalismo digital, enviou um portfólio composto por artigos de opinião e reportagens. A comissão de seleção considerou que a produção não demonstrava a capacidade de escrever textos dissertativos, essenciais para a função. De acordo com o princípio da proporcionalidade, qual das alternativas abaixo representa a melhor justificativa para a exigência de portfólio em gêneros específicos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40083,
+        "texto": "A exigência de portfólio em gêneros específicos deve ser eliminada, pois não há relação direta com a função.",
+        "correta": false
+      },
+      {
+        "id": 40084,
+        "texto": "A exigência deve ser mantida apenas se houver comprovação de que o candidato já trabalhou com esses gêneros.",
+        "correta": false
+      },
+      {
+        "id": 40085,
+        "texto": "A exigência deve ser proporcional ao grau de complexidade da função e ao nível de exigência do cargo.",
+        "correta": true
+      },
+      {
+        "id": 40086,
+        "texto": "A exigência pode ser aplicada de forma arbitrária, desde que seja divulgada no edital.",
+        "correta": false
+      },
+      {
+        "id": 40087,
+        "texto": "A exigência deve ser aplicada apenas a candidatos que não possuem diploma universitário.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8954,
+    "texto": "O professor de Português da Escola Secundária Estadual de São Paulo propõe que os alunos leiam e analisem o trecho de um romance contemporâneo para identificar o uso de metáforas e hipérboles. Em seguida, pede que escrevam um texto argumentativo sobre a relevância dessas figuras de linguagem na construção de narrativas. A proposta é contestada por um diretor, que alega que a atividade não atende ao objetivo de desenvolver a compreensão textual, pois se concentra apenas em recursos estilísticos. Qual das alternativas abaixo reflete a interpretação correta do princípio da adequação curricular, segundo a legislação vigente?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40078,
+        "texto": "O conteúdo deve ser escolhido aleatoriamente, sem relação com os objetivos de aprendizagem.",
+        "correta": false
+      },
+      {
+        "id": 40079,
+        "texto": "O conteúdo deve ser selecionado apenas se for de domínio público.",
+        "correta": false
+      },
+      {
+        "id": 40080,
+        "texto": "O conteúdo deve ser pertinente aos objetivos de aprendizagem e ao desenvolvimento de competências específicas.",
+        "correta": true
+      },
+      {
+        "id": 40081,
+        "texto": "O conteúdo deve ser escolhido apenas por quem o professor julgar interessante.",
+        "correta": false
+      },
+      {
+        "id": 40082,
+        "texto": "O conteúdo pode ser qualquer que seja de interesse dos alunos, independentemente dos objetivos curriculares.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8953,
+    "texto": "Um edital de concurso para a função de analista de processos na Secretaria Municipal de Educação, publicado em 12 de março de 2024, apresenta a seguinte frase no item de requisitos: \"Ser fluente em português e demonstrar capacidade de interpretação de textos complexos\". A redação do edital é considerada ambígua, pois não define critérios objetivos para aferir a fluência. A comissão organizadora, em reunião realizada em 20 de março, decidiu que a prova objetiva de Português será composta por questões de interpretação de textos, análise de estilo e identificação de figuras de linguagem. Diante dessa decisão, a candidata Ana, que possui curso de extensão em Literatura Brasileira, argumenta que a prova deve incluir questões de análise de obras clássicas, pois isso reflete melhor a fluência exigida. Qual das alternativas abaixo descreve corretamente a posição do princípio da objetividade na aplicação de provas de concurso público, segundo a jurisprudência consolidada do STF?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40073,
+        "texto": "A prova deve abranger todos os domínios da língua portuguesa, independentemente da relação direta com a função a ser desempenhada.",
+        "correta": false
+      },
+      {
+        "id": 40074,
+        "texto": "A prova pode incluir apenas questões de gramática, pois são os critérios mais objetivos para mensurar fluência.",
+        "correta": false
+      },
+      {
+        "id": 40075,
+        "texto": "A prova deve avaliar aspectos que são diretamente relevantes para o desempenho da função, de forma clara e mensurável.",
+        "correta": true
+      },
+      {
+        "id": 40076,
+        "texto": "A prova pode ser elaborada de forma arbitrária, desde que seja divulgada no edital.",
+        "correta": false
+      },
+      {
+        "id": 40077,
+        "texto": "A prova pode incluir qualquer conteúdo, desde que não haja penalização por não saber responder.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8952,
+    "texto": "No trecho ‘Os resultados indicam que a intervenção foi eficaz, contudo, não se pode afirmar que houve redução dos custos operacionais’, a conjunção ‘contudo’ introduz uma oração coordenada adversativa, sendo a pontuação correta a colocação da vírgula antes da conjunção.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40071,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40072,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

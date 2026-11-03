@@ -1,0 +1,446 @@
+[
+  {
+    "id": 13639,
+    "texto": "No contexto de um concurso para o cargo de Técnico de Fiscalização de Licitações, o candidato recebe a frase: \"A licitação deve ser conduzida de forma transparente, objetiva e isenta, garantindo a competitividade e a eficiência do processo.\" Qual é o significado mais adequado da expressão \"isenta\" nesse contexto, segundo a norma culta da língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55279,
+        "texto": "Indica que o processo não está sujeito a penalidades.",
+        "correta": false
+      },
+      {
+        "id": 55280,
+        "texto": "Significa que o processo está livre de influência indevida ou parcialidade.",
+        "correta": true
+      },
+      {
+        "id": 55281,
+        "texto": "Refere-se à ausência de custos adicionais no processo.",
+        "correta": false
+      },
+      {
+        "id": 55282,
+        "texto": "Denota que o processo não requer documentação específica.",
+        "correta": false
+      },
+      {
+        "id": 55283,
+        "texto": "Sinaliza que o processo não pode ser alterado após sua conclusão.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13638,
+    "texto": "Um candidato a cargo de Analista de Comunicação Pública deve analisar um relatório que contém a frase: \"A política de comunicação interna visa fortalecer a coesão organizacional e aprimorar a transparência nas relações entre os setores.\" Qual é a aplicação correta do termo \"coesão\" no contexto acima, segundo a norma culta da língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55274,
+        "texto": "Refere-se à integração funcional entre departamentos.",
+        "correta": true
+      },
+      {
+        "id": 55275,
+        "texto": "Indica a uniformização de políticas de comunicação.",
+        "correta": false
+      },
+      {
+        "id": 55276,
+        "texto": "Representa a conformidade legal das mensagens internas.",
+        "correta": false
+      },
+      {
+        "id": 55277,
+        "texto": "Sugere a padronização de linguagem em documentos oficiais.",
+        "correta": false
+      },
+      {
+        "id": 55278,
+        "texto": "Denota a estabilidade financeira da organização.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13637,
+    "texto": "Considerando o texto abaixo, responda a questão.\n\nTexto: \"Em 2024, o Ministério da Educação publicou a Diretriz de Ensino de Português para o Ensino Médio, que estabelece a obrigatoriedade de aulas de literatura contemporânea, com enfoque em autores negros e indígenas. A diretriz prevê a realização de debates e produção textual sobre obras selecionadas, visando a promoção da inclusão e da valorização da diversidade cultural. Os professores deverão avaliar a capacidade de argumentação, uso de recursos estilísticos e domínio da norma padrão do português, bem como a sensibilidade ao contexto histórico e social das obras. A proposta tem como objetivo principal ampliar o repertório cultural dos estudantes e estimular a produção de textos críticos e reflexivos.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55269,
+        "texto": "O critério de avaliação mais relevante para a produção textual é a correção gramatical.",
+        "correta": false
+      },
+      {
+        "id": 55270,
+        "texto": "A avaliação deve considerar a capacidade de argumentação e a sensibilidade ao contexto histórico das obras.",
+        "correta": true
+      },
+      {
+        "id": 55271,
+        "texto": "A avaliação deve priorizar a criatividade na escolha de temas de debate.",
+        "correta": false
+      },
+      {
+        "id": 55272,
+        "texto": "A avaliação deve focar exclusivamente no domínio da norma culta da língua.",
+        "correta": false
+      },
+      {
+        "id": 55273,
+        "texto": "A avaliação deve incluir a análise de recursos estilísticos apenas em textos literários.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13636,
+    "texto": "Um edital de concurso público para o cargo de Analista de Políticas Públicas apresenta, no item de requisitos, a exigência de que o candidato possua conhecimento avançado em interpretação de textos. Em uma das provas de língua portuguesa, o candidato recebe a seguinte frase: \"O que se fez, se fez; o que se deixou, se deixou; o que se pode fazer, é o que se faz.\" Qual é a interpretação mais adequada dessa frase, segundo a norma culta da língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55264,
+        "texto": "A frase expressa a ideia de que a ação humana tem consequências inevitáveis.",
+        "correta": true
+      },
+      {
+        "id": 55265,
+        "texto": "A frase indica que o futuro é previsível a partir das ações passadas.",
+        "correta": false
+      },
+      {
+        "id": 55266,
+        "texto": "A frase demonstra a importância da repetição de ações para a consolidação de hábitos.",
+        "correta": false
+      },
+      {
+        "id": 55267,
+        "texto": "A frase sugere que a liberdade de escolha é limitada pelo passado.",
+        "correta": false
+      },
+      {
+        "id": 55268,
+        "texto": "A frase reflete a necessidade de planejamento estratégico em políticas públicas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13635,
+    "texto": "Em um ensaio argumentativo, o uso de conectivos de contraste como ‘por outro lado’ e ‘em contrapartida’ serve para reforçar a lógica de oposição entre duas ideias apresentadas pelo autor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55262,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55263,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13634,
+    "texto": "A norma culta da língua portuguesa exige que, em textos formais, as palavras de uso popular sejam evitadas para manter a adequação do registro, salvo quando o contexto exigir a aproximação ao discurso coloquial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55260,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55261,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13633,
+    "texto": "Considerando o texto acima, a frase ‘A tempestade, embora intensa, não destruiu a estrutura da ponte’ apresenta uma oração subordinada adverbial causal, pois explica a razão pela qual a ponte permaneceu intacta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55258,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55259,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13632,
+    "texto": "Na análise de um texto narrativo, a presença de verbos no modo subjuntivo indica que o autor está expressando uma hipótese ou desejo, e não um fato real.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55256,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 55257,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 13631,
+    "texto": "Em um contrato de prestação de serviços de consultoria, a cláusula que estipula a exclusividade de atuação do contratado em relação a terceiros é considerada válida, desde que não haja conflito com a legislação consumerista que protege a livre concorrência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55254,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55255,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13630,
+    "texto": "Um candidato a cargo de nível superior em um órgão federal foi aprovado em todas as fases do concurso, mas foi posteriormente excluído por ter mantido, durante o período de inscrição, um contrato de prestação de serviços com empresa de consultoria que atua no mesmo setor de atuação do órgão. O edital, porém, não menciona explicitamente a incompatibilidade de contratos com empresas do setor. A exclusão do candidato pode ser considerada:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55249,
+        "texto": "Legal, pois o princípio da moralidade administrativa impede a contratação de servidores com vínculos comerciais no mesmo setor.",
+        "correta": false
+      },
+      {
+        "id": 55250,
+        "texto": "Ilegal, pois o edital não prevê a incompatibilidade de contratos com empresas do setor.",
+        "correta": true
+      },
+      {
+        "id": 55251,
+        "texto": "Legal, desde que o candidato tenha sido notificado previamente sobre a incompatibilidade.",
+        "correta": false
+      },
+      {
+        "id": 55252,
+        "texto": "Ilegal, pois a exclusão deve ocorrer apenas em processos de seleção subsequentes, não na fase de aprovação.",
+        "correta": false
+      },
+      {
+        "id": 55253,
+        "texto": "Legal, pois a incompatibilidade é inerente ao cargo, independentemente da menção no edital.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13629,
+    "texto": "Texto: Em 2025, o Ministério da Educação publicou um decreto que institui a obrigatoriedade de que todos os concursos públicos de nível médio incluam, no edital, um módulo de capacitação em comunicação digital, com duração mínima de 40 horas, destinado a preparar os candidatos para o uso de tecnologias de informação no exercício de suas funções. O objetivo declarado do módulo é melhorar a eficiência administrativa e a transparência nos processos decisórios. Considerando a Lei nº 8.112/1990 e o princípio da eficiência, a exigência de capacitação em comunicação digital pode ser considerada:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55244,
+        "texto": "Legal, pois a capacitação contribui diretamente para a eficiência administrativa.",
+        "correta": false
+      },
+      {
+        "id": 55245,
+        "texto": "Ilegal, pois a exigência ultrapassa o limite de atribuições do cargo.",
+        "correta": false
+      },
+      {
+        "id": 55246,
+        "texto": "Legal, desde que o módulo seja opcional e não impacte a pontuação final.",
+        "correta": true
+      },
+      {
+        "id": 55247,
+        "texto": "Ilegal, pois a capacitação em comunicação digital não é uma competência exigida por lei para cargos de nível médio.",
+        "correta": false
+      },
+      {
+        "id": 55248,
+        "texto": "Legal, mas apenas se houver previsão em lei específica para a capacitação em comunicação digital.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13628,
+    "texto": "Em um concurso público de nível superior, o edital prevê que os candidatos deverão responder a questões discursivas sobre a interpretação de textos literários e, em seguida, participar de um teste prático de redação. A prova de redação será avaliada com base na estrutura textual, uso de conectivos, e adequação ao tema, mas não será considerada a norma culta da língua. Qual é a consequência mais provável dessa regra para a correção da prova?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55239,
+        "texto": "A prova será considerada inválida, pois a norma culta é obrigatória em concursos públicos.",
+        "correta": false
+      },
+      {
+        "id": 55240,
+        "texto": "Os candidatos que apresentarem textos com desvios gramaticais serão automaticamente desclassificados.",
+        "correta": false
+      },
+      {
+        "id": 55241,
+        "texto": "A avaliação será realizada, mas a correção pode sofrer questionamentos de candidatos que acreditem em violação ao princípio da razoabilidade.",
+        "correta": true
+      },
+      {
+        "id": 55242,
+        "texto": "A prova será reavaliada por um órgão externo para garantir a conformidade com a norma culta.",
+        "correta": false
+      },
+      {
+        "id": 55243,
+        "texto": "Os examinadores terão liberdade total para avaliar sem considerar a norma culta, pois não há exigência legal.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13627,
+    "texto": "Um órgão público estadual decide publicar um edital de concurso para cargos de nível médio. O edital contém a expressão \"os candidatos deverão apresentar, no prazo de até 30 dias, o comprovante de inscrição em curso de formação técnica reconhecido pelo Ministério da Educação, com validade mínima de 12 meses, e a declaração de que não possui vínculo com sindicato que represente a categoria. Considerando a Constituição Federal e a Lei nº 8.112/1990, a exigência de declaração de não vínculo sindical é:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55234,
+        "texto": "Legal, pois impede a influência sindical na seleção de servidores.",
+        "correta": false
+      },
+      {
+        "id": 55235,
+        "texto": "Ilegal, pois contraria o princípio da isonomia e da liberdade sindical.",
+        "correta": true
+      },
+      {
+        "id": 55236,
+        "texto": "Legal, pois o edital pode estabelecer requisitos específicos para o cargo.",
+        "correta": false
+      },
+      {
+        "id": 55237,
+        "texto": "Ilegal, apenas se a exigência for aplicada a todos os cargos, independentemente do nível.",
+        "correta": false
+      },
+      {
+        "id": 55238,
+        "texto": "Ilegal, pois a exigência não pode ser exigida em edital, mas apenas em ato administrativo posterior.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13626,
+    "texto": "Na construção de textos argumentativos, a estratégia de apresentar contra-argumentos antes de refutá‑los pode aumentar a persuasão do discurso, pois demonstra abertura ao debate e fortalece a credibilidade do autor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55232,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55233,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13625,
+    "texto": "Texto: Em 2024, a Secretaria de Educação publicou o Decreto nº 12.345, que institui o Programa Nacional de Alfabetização Digital (PNAD). O decreto estabelece que todas as escolas públicas de ensino fundamental deverão disponibilizar, no mínimo, duas horas semanais de aulas de alfabetização digital, utilizando recursos multimídia. O objetivo é reduzir a lacuna digital entre estudantes de diferentes regiões do país. Para cumprir a norma, as escolas devem comprovar mensalmente a carga horária ministrada, por meio de relatórios eletrônicos enviados ao Ministério da Educação. Caso a carga horária não seja atingida, a escola ficará sujeita a sanções administrativas, incluindo advertência e, em casos recorrentes, suspensão de recursos.\n\nConsiderando o texto acima, julgue a seguinte afirmação: a exigência de duas horas semanais de aulas de alfabetização digital implica que o Ministério da Educação terá o poder de fiscalizar a carga horária real ministrada nas escolas públicas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55230,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55231,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13624,
+    "texto": "O emprego de pontuação em textos jornalísticos costuma obedecer a regras de estilo que priorizam a clareza e a concisão. Quando se trata de listas numeradas, a norma culta recomenda que cada item seja separado por ponto e que o último item seja seguido de ponto final.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55228,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55229,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13623,
+    "texto": "No contexto da norma culta da língua portuguesa, a regência verbal exige que o verbo 'conceder' seja seguido de um objeto direto e, quando acompanhado de um complemento, este deve ser introduzido por preposição. Assim, a frase ‘Ele concedeu ao candidato a bolsa de estudos’ está correta quanto à regência do verbo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55226,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55227,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 13622,
+    "texto": "Na análise de textos literários contemporâneos, a presença de diálogos entre personagens que utilizam a primeira pessoa do singular pode ser interpretada como um recurso estilístico que reforça a subjetividade do narrador. Considerando esta hipótese, julgue a seguinte afirmação: o uso predominante de diálogos em primeira pessoa no romance contemporâneo tende a diminuir a distância entre leitor e personagem, favorecendo a identificação do público com a trama.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 55224,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 55225,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

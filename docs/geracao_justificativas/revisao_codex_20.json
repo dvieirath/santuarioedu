@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2858,
+    "motivo": "Necessária fonte técnica específica para o uso do tipo janela nas buchas e delimitação de média potência. A documentação de fabricante consultada descreve a passagem do condutor pela janela, mas não confirma integralmente a aplicação enunciada. Não confundir classificação tipo janela com tipo bucha sem conferir a referência. Fonte: https://cache.industry.siemens.com/dl/files/973/45315973/att_829939/v1/SENTRON_Measuring_Devices_and_Power_Monitoring_complete_English_10_2014_201502111517462644.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2410,
+    "motivo": "Gabarito Certo requer revisão: amostragem estatística exige probabilidades conhecidas, não necessariamente iguais para todas as unidades; igualdade é característica de desenhos específicos. A unidade monetária e a estratificação também exigem atenção ao significado de unidade amostral. Fonte CFC: https://cfc.org.br/wp-content/uploads/2024/06/manual_auditoria_2022_FIM.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2090,
+    "motivo": "Formulação histórica imprecisa: o desenvolvimento dos números complexos está fortemente ligado a problemas cúbicos, embora raízes de negativos apareçam em equações quadráticas. O texto mistura introdução sobre Fermat com afirmação histórica sem comando claro. Conferir original e referência histórica antes de justificar o gabarito Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1691,
+    "motivo": "Provável incompatibilidade do gabarito Errado: o Currículo de Pernambuco afirma que conhecimento artístico abrange aspectos intelectuais, cognitivos e afetivos, e valoriza o desenvolvimento do pensamento criador e autonomia. Não há fundamento identificado para negar sua contribuição ao desenvolvimento integral. Fonte: https://portal.educacao.pe.gov.br/wp-content/uploads/2024/08/CURRICULO-DE-PERNAMBUCO-ENSINO-FUNDAMENTAL.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

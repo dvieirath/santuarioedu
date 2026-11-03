@@ -1,0 +1,62 @@
+[
+  {
+    "id": 3496,
+    "motivo": "Afirmação temporal sobre suspensão na PRF sem data ou ato indicado. Encontrados atos antigos e aquisição de espargidores em 2020, insuficientes para afirmar situação institucional atual ou da prova. Conferir marco temporal e norma aplicável. https://www.gov.br/prf/pt-br/acesso-a-informacao/licitacoes-e-contratos/contratos/estados/ba",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3494,
+    "motivo": "Comparação específica entre modelo Phoenix e doutrina PRF exige diagramas/manuais institucionais da edição cobrada. Busca encontrou material de outra corporação, sem validar ambos os enquadramentos. Não inferir correspondências.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3492,
+    "motivo": "Preferência de postura durante algemação depende de protocolo operacional e avaliação da situação. Não localizado manual PRF aplicável que sustente a negação ou regra categórica; conferir fonte original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3479,
+    "motivo": "Gabarito Errado incompatível com Resolução 798/2020: radar portátil em via urbana exige limite igual ou superior a 60 km/h, e o caso informa 40. Também há limites próprios rurais. Conferir data da prova e redação original. https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao7982020.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3451,
+    "motivo": "Tríade doutrinária específica sem edição/manual PRF identificado. Verificação documental inconclusiva; não atribuir formulação exata à instituição sem fonte.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3431,
+    "motivo": "Enunciado sem contexto da sinalização ou operação a que se refere; a enumeração de áreas parece pertencer a procedimento específico. Recuperar comando/texto-base e manual aplicável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3419,
+    "motivo": "Gabarito Certo suspeito: mistura ambulâncias (regime de emergência) com veículos prestadores de utilidade pública previstos em categoria distinta. Conferir CTB art.29 VII/VIII e Resolução970 art.6 antes de aplicar. https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolucao9702022.pdf/@@download/file",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3373,
+    "motivo": "Gabarito Certo incompatível com conceito: inclinação transversal em curva é superelevação; superlargura é acréscimo de largura. Fonte DNIT: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/licitacoes-e-contratos/licitacoes/rfb/unidades-federativas-uf/pr/srrf09/2023/cc-01-2023/edital-e-anexos/020-anexo-ix-do-anexo-x-anexo-do-evte-p10.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3295,
+    "motivo": "Afirmação sobre modelo institucional atualmente adotado sem data ou edição; não localizado manual vigente que permita confirmar origem e papel atribuído ao modelo Gillespie. Necessária verificação documental.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3207,
+    "motivo": "Faltam geometria, carregamento e figura do entalhe para calcular tensão máxima. Não é possível avaliar 270 MPa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

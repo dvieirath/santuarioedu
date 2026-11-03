@@ -1,0 +1,68 @@
+[
+  {
+    "id": 13637,
+    "motivo": "Falta comando específico após o texto: “responda a questão” não informa o que selecionar. Além disso, a diretriz de 2024 é apresentada como real sem identificação verificável; requer fonte ou indicação de texto hipotético.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13636,
+    "motivo": "A frase enfatiza ações feitas e possibilidades presentes; não estabelece necessariamente consequências inevitáveis. Gabarito extrapola o trecho, e as alternativas não oferecem paráfrase inequívoca.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13634,
+    "motivo": "“Palavras de uso popular” é expressão ambígua, podendo significar vocabulário corrente ou marcas de registro coloquial. A ressalva contextual torna inadequada uma refutação baseada em proibição absoluta. Necessária revisão da redação para sustentar o gabarito Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13633,
+    "motivo": "Embora introduz concessão, não causa. Gabarito Certo incompatível com a classificação explícita do trecho; não alterar gabarito automaticamente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13631,
+    "motivo": "Validade da exclusividade depende de contexto contratual, limites materiais e regime aplicável. A referência à legislação consumerista como proteção suficiente da livre concorrência é imprecisa; faltam condições para validar a generalização jurídica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13630,
+    "motivo": "Omissão no edital, isoladamente, não exclui impedimento previsto em lei. Faltam cargo, regime e norma aplicável para concluir ilegalidade apenas pelo silêncio editalício.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13629,
+    "motivo": "Decreto do MEC não identificado e premissa de obrigatoriedade conflita com alternativa que condiciona validade à opcionalidade. Requer fonte normativa e revisão das alternativas, sem presumir que eficiência baste como autorização.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13628,
+    "motivo": "“Consequência mais provável” e possibilidade genérica de questionamento não definem critério jurídico verificável. Faltam cargo, regras aplicáveis e fundamentação para uma resposta objetiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13625,
+    "motivo": "Referência normativa incompatível: Decreto federal 12.345/2024 altera o Decreto 11.615/2023 relacionado à Lei 10.826/2003, não institui o programa educacional descrito. Fonte oficial: https://planalto.gov.br/ccivil_03/_ato2023-2026/2024/decreto/_decretos2024.htm . Necessário corrigir a referência ou explicitar ficção antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13624,
+    "motivo": "Regra generalizada de ponto em todos os itens não é universal: itens que completam frase introdutória podem terminar em ponto e vírgula. Conferido Manual de Comunicação do Senado, verbete Enumeração: https://www12.senado.leg.br/manualdecomunicacao/estilos/enumeracao . Gabarito Certo requer revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13622,
+    "motivo": "Confunde primeira pessoa nas falas das personagens com subjetividade do narrador. Predomínio de diálogos não estabelece por si tendência de identificação do público; faltam texto e delimitação teórica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

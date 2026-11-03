@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2315,
+    "texto": "Julgue os itens a seguir, a respeito de governança de TI. Segundo o princípio do sistema de governança dinâmico, na implementação do COBIT 2019 sob a ótica da ISO/IEC 38500, o design da governança deve ser reavaliado sempre que houver mudanças nos fatores de design da organização, conectando-se à responsabilidade de monitoramento da direção prevista na norma ISO para garantir que a TI responda às novas necessidades de negócio.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22412,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22413,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2275,
+    "texto": "Em uma turma com 20 estudantes, 5 têm 9 anos, 11 têm 10 anos, 3 têm 11 anos e 1 estudante tem 12 anos. A amplitude total das idades dos estudantes da turma é igual a 20.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22332,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22333,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2173,
+    "texto": "Considerando o texto sobre streaming, julgue o item: No primeiro período do terceiro parágrafo, o segmento “Com a explosão das plataformas sob demanda” expressa uma consequência da perda de força da programação linear tradicional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22128,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22129,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2082,
+    "texto": "Turma com 20 estudantes: 5 com 9 anos, 11 com 10 anos, 3 com 11 anos, 1 com 12 anos. A amplitude total das idades dos estudantes da turma é igual a 20.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21946,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21947,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2041,
+    "texto": "Com relação às camadas da Terra: A formação do campo magnético terrestre ocorre devido ao fato de o núcleo da Terra se manter estático, em relação ao planeta, enquanto este gira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21864,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21865,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2038,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: Em um sistema isolado, em que somente forças conservativas atuam, podem ocorrer variações da energia cinética e da energia potencial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21858,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21859,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2037,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: Se, em um local em que a aceleração da gravidade é g, um carrinho de montanha-russa de massa m passar pelo ponto A, como mostrado na figura a seguir, com velocidade v, então a energia potencial gravitacional do carrinho será sempre igual a m×g×h, independentemente do referencial adotado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21856,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21857,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2036,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: A medida da energia cinética de um corpo depende do sistema de referência adotado, uma vez que é necessário se conhecer a velocidade e a massa do corpo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21854,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21855,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2035,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: O peso de uma pessoa pode variar dependendo do local onde ela se encontra.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21852,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21853,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2034,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: Uma balança típica, como as usadas em farmácias, mede, diretamente, o peso da pessoa que se coloca sobre seu piso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21850,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21851,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2033,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: A aceleração da gravidade tem o mesmo valor em qualquer ponto sobre a superfície terrestre e ao nível do mar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21848,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21849,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2032,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho: Caso um tenista, no momento do saque, lance a bola verticalmente para cima, o trabalho realizado pela força gravitacional sobre a bola será negativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21846,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21847,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2030,
+    "texto": "Relativos a energia térmica, calor e temperatura: Se a temperatura de três corpos A,B e C forem, respectivamente, iguais a −30 °C, 200 K e 0 °F, então o corpo B será o mais frio.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21842,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21843,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2029,
+    "texto": "Relativos a energia térmica, calor e temperatura: A temperatura na escala Fahrenheit que corresponde ao dobro da temperatura indicada na escala Celsius é 320 F.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21840,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21841,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2028,
+    "texto": "Relativos a energia térmica, calor e temperatura: Caso dois corpos com diferentes temperaturas sejam colocados em contato, ocorrerá troca de calor entre eles até que o equilíbrio térmico seja atingido; ao se atingir esse equilíbrio térmico, os corpos possuirão a mesma quantidade de calor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21838,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21839,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1834,
+    "texto": "Acerca das forças atuantes no relevo terrestre, julgue os itens seguintes. Os processos exógenos dividem-se em físicos e químicos, e alteração das rochas passa pela ação física e química, denominada intemperismo ou meteorização.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21450,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21451,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1792,
+    "texto": "A respeito da compreensão de cultura corporal e da sua relação pedagógica com a educação física escolar, julgue os seguintes itens. A educação física aborda diferentes ações humanas que, orientadas para a realidade concreta, são necessárias para a aquisição do conhecimento científico e indispensáveis ao desenvolvimento do pensamento sobre a cultura corporal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21366,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21367,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1789,
+    "texto": "Com base na relação entre cultura e educação física e, em particular, no que se refere à apropriação do conceito de cultura nas abordagens pedagógicas da educação física escolar, julgue os itens seguintes. O termo cultura tornou-se parte da formação em educação física, sobretudo, a partir momento em que se estabeleceu relações entre a educação física e as áreas de conhecimento das ciências humanas e sociais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21360,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21361,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1788,
+    "texto": "No que se refere à educação física, julgue os itens a seguir, com base na Base Nacional Comum Curricular (BNCC) e na Lei de Diretrizes e Bases da Educação Nacional (LDBEN). Na BNCC, a fruição é uma das dimensões do conhecimento da educação física que implica a apreciação estética gerada pelas vivências corporais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21358,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21359,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1785,
+    "texto": "A educação física escolar voltada para o desenvolvimento motor, no estágio de performance, deve propor atividades que levem os estudantes a superar o medo do ridículo e a priorizar o prazer e a alegria em detrimento do ato de vencer, de maneira a permitir a participação de todos, com criatividade para resolver o desafio juntos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21352,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21353,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

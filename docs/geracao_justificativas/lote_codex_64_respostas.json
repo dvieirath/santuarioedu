@@ -1,0 +1,42 @@
+[
+  {
+    "id": 2855,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA identificação de frequência excessiva exige uma função de medição e proteção de sobrefrequência, usualmente ANSI 81O. Relés de anúncio e desligamento podem executar ações posteriores, mas sua ligação em série não é requisito para medir a frequência.\n\n## ⚠️ O erro típico\nNão confunda detecção da grandeza com sinalização ou comando de abertura.\n\n## 🧠 Conceito-chave\nUma função de proteção compara a frequência medida com seus ajustes e pode comandar alarme ou desligamento.\n\n## 📚 Onde aprofundar\nSEL, [folha de dados SEL-751](https://selinc.com/api/download/10734/), elementos 81O e 81U.\n\n## 💡 Padrão a memorizar\nSobrefrequência é detectada por função de frequência, não pela associação de anunciadores."
+  },
+  {
+    "id": 2853,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nPara a mesma potência ativa e tensão, aumentar o fator de potência reduz a corrente necessária. Em sistema trifásico equilibrado, I = P/(√3 V FP). Portanto, é o baixo fator de potência que tende a exigir maior capacidade dos circuitos.\n\n## ⚠️ O erro típico\nCompare situações com potência ativa e tensão mantidas; não atribua o aumento de corrente ao alto fator de potência.\n\n## 🧠 Conceito-chave\nO fator de potência relaciona potência ativa e aparente: FP = P/S.\n\n## 📚 Onde aprofundar\nABB, [controle do fator de potência](https://new.abb.com/news/detail/50884/abb-launches-the-next-generation-rvc-power-factor-controller).\n\n## 💡 Padrão a memorizar\nMesma potência e tensão: maior FP implica menor corrente."
+  },
+  {
+    "id": 2852,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNo modelo dielétrico sem perdas usado com os parâmetros fornecidos, β = (ω/c)√(εrμr). Logo, β = (10⁸/(3 × 10⁸))√(9π²) = π rad/m, aproximadamente 3,14 rad/m, menor que 5 rad/m.\n\n## ⚠️ O erro típico\nNão confunda frequência angular com frequência em hertz: ω já incorpora o fator 2π.\n\n## 🧠 Conceito-chave\nA constante de fase é β = ω/v; em meio sem perdas, v = c/√(εrμr).\n\n## 📚 Onde aprofundar\nGeorgia Tech, [Phase velocity and refractive index](https://bklein.ece.gatech.edu/laser-photonics/phase-velocity-and-refractive-index/).\n\n## 💡 Padrão a memorizar\nUse β = ω√(εμ); neste caso, β = π rad/m."
+  },
+  {
+    "id": 2851,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA escolha coerente das bases pode eliminar a relação de transformação do transformador ideal no modelo p.u., mas não elimina a impedância do transformador real. Sob carga, essa impedância produz variações de tensão; as tensões terminais em p.u. não são necessariamente iguais.\n\n## ⚠️ O erro típico\nNormalização de unidades não transforma um equipamento real em transformador ideal.\n\n## 🧠 Conceito-chave\nNo circuito equivalente, resistência e reatância de dispersão continuam presentes em p.u.\n\n## 📚 Onde aprofundar\nOregon State University, [Power Transformers](https://web.engr.oregonstate.edu/~webbky/ESE470_files/Section%203%20Power%20Transformers.pdf), impedância e queda de tensão.\n\n## 💡 Padrão a memorizar\nBases coerentes simplificam a relação ideal; quedas sob carga permanecem."
+  },
+  {
+    "id": 2850,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo sistema trifásico equilibrado senoidal, as três correntes têm amplitudes iguais e defasagens de 120°. A identidade sen θ + sen(θ − 120°) + sen(θ + 120°) = 0 mostra que sua soma instantânea é nula.\n\n## ⚠️ O erro típico\nNão some os valores eficazes como se fossem correntes instantâneas em fase.\n\n## 🧠 Conceito-chave\nA conclusão corresponde ao modelo equilibrado senoidal; componentes harmônicas de sequência zero requerem análise própria.\n\n## 📚 Onde aprofundar\nSchneider Electric, [corrente de neutro e cargas equilibradas](https://www.se.com/ph/en/faqs/FA367158/).\n\n## 💡 Padrão a memorizar\nTrês senoides equilibradas, defasadas de 120°, somam zero."
+  },
+  {
+    "id": 2849,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nMantendo a mesma tensão de linha e três resistores iguais de resistência R, em estrela cada resistor recebe V linha/√3. Assim, P estrela = V linha²/R. Em delta, cada resistor recebe V linha e P delta = 3V linha²/R. A potência em estrela é um terço da potência em delta.\n\n## ⚠️ O erro típico\nA comparação deve manter a fonte e os resistores; a tensão em cada resistor muda com a ligação.\n\n## 🧠 Conceito-chave\nPotência resistiva é V²/R, usando a tensão efetivamente aplicada ao elemento.\n\n## 📚 Onde aprofundar\nABB, [Star-delta start](https://library.e.abb.com/public/6b4e1a3530814df0c12579bb0030e58b/1SFC132060M0201.pdf), relações entre ligações; OpenStax, potência elétrica.\n\n## 💡 Padrão a memorizar\nMesma tensão de linha e resistores: P delta = 3P estrela."
+  },
+  {
+    "id": 2847,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo curto-circuito trifásico simétrico, as correntes de falta são equilibradas. Como I₀ = (Ia + Ib + Ic)/3 e a soma fasorial é zero, a componente de sequência zero é nula.\n\n## ⚠️ O erro típico\nA sequência zero não aparece apenas por haver correntes elevadas; ela depende da combinação das três fases.\n\n## 🧠 Conceito-chave\nA falta trifásica simétrica é representada pela rede de sequência positiva no modelo usual.\n\n## 📚 Onde aprofundar\nSEL, [A Simple Method for Determining Fault Location](https://static.selinc.com/assets/Literature/Publications/Technical%20Papers/6788_SimpleMethod_LW_20170504_Web3.pdf?v=20171017-152905), redes de sequência e falta trifásica.\n\n## 💡 Padrão a memorizar\nFalta trifásica simétrica: sequência zero nula."
+  },
+  {
+    "id": 2846,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nElementos não lineares podem gerar produtos entre componentes dos sinais de entrada. Para duas senoides, o produto contém termos nas frequências soma e diferença, permitindo deslocar o espectro e realizar conversão de frequência.\n\n## ⚠️ O erro típico\nUma soma linear de sinais não cria, por si só, novas frequências.\n\n## 🧠 Conceito-chave\nMisturadores exploram não linearidade ou variação temporal e utilizam filtragem para selecionar os produtos desejados.\n\n## 📚 Onde aprofundar\nAnalog Devices, [RF Signal Chain Discourse, Part 2](https://www.analog.com/en/resources/analog-dialogue/articles/rf-signal-chain-discourse-part-2-essential-building-blocks.html).\n\n## 💡 Padrão a memorizar\nMistura gera componentes em f₁ + f₂ e |f₁ − f₂|."
+  },
+  {
+    "id": 2845,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAs definições foram invertidas. Na máquina de Moore, a saída depende apenas do estado atual. Na máquina de Mealy, depende do estado atual e das entradas.\n\n## ⚠️ O erro típico\nA entrada influencia a transição de estado nos dois modelos, mas sua influência direta na saída distingue Mealy de Moore.\n\n## 🧠 Conceito-chave\nMoore: y = g(estado). Mealy: y = g(estado, entrada).\n\n## 📚 Onde aprofundar\nUniversity of Texas, [Finite State Machines](https://users.ece.utexas.edu/~valvano/mspm0/ebook/Ch4_FiniteStateMachines.html).\n\n## 💡 Padrão a memorizar\nMoore: saída pelo estado; Mealy: saída pelo estado e entrada."
+  },
+  {
+    "id": 2761,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nParafusos de alta resistência podem ser instalados com pré-tensão controlada quando a ligação exigir esse regime. Parafusos comuns, como os ASTM A307, são instalados com aperto de ajuste, sem o procedimento de protensão plena próprio das ligações pré-tensionadas.\n\n## ⚠️ O erro típico\nNão conclua que toda ligação com parafuso de alta resistência exige pré-tensão: isso depende do tipo de ligação.\n\n## 🧠 Conceito-chave\nAperto de ajuste e pré-tensão especificada são condições diferentes; o aperto comum também pode gerar alguma força de tração.\n\n## 📚 Onde aprofundar\nAISC, [Bolting FAQs](https://www.aisc.org/aisc/solutions-center/engineering-faqs/6-bolting/), aperto de ajuste e parafusos comuns.\n\n## 💡 Padrão a memorizar\nAlta resistência pode exigir pré-tensão; parafuso comum recebe aperto de ajuste."
+  }
+]

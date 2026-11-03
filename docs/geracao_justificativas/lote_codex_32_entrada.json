@@ -1,0 +1,497 @@
+[
+  {
+    "id": 11514,
+    "texto": "A implementação de tecnologias de inteligência artificial no setor público tem gerado debates intensos sobre a eficiência administrativa e a transparência dos atos decisórios. Embora muitos gestores defendam a automatização como um caminho para a celeridade, críticos alertam que a substituição de servidores por algoritmos pode comprometer a subjetividade necessária na análise de casos complexos, onde o discernimento humano é indispensável para garantir a justiça social e a equidade no tratamento dos cidadãos. Diante desse cenário, a governança digital precisa ser pautada por diretrizes éticas que assegurem a prestação de contas, evitando que a opacidade tecnológica se torne um obstáculo ao controle social. Considerando o texto acima, assinale a opção que apresenta a correta reescrita de um trecho hipotético, mantendo a correção gramatical e os sentidos originais: 'A substituição de servidores por algoritmos pode comprometer a subjetividade necessária na análise de casos complexos.'",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48431,
+        "texto": "A subjetividade necessária, na análise de casos complexos, podem ser comprometidas pela substituição de servidores por algoritmos.",
+        "correta": false
+      },
+      {
+        "id": 48432,
+        "texto": "Pode ser comprometida, pela substituição de servidores por algoritmos, a subjetividade necessária na análise de casos complexos.",
+        "correta": true
+      },
+      {
+        "id": 48433,
+        "texto": "Pode comprometer a subjetividade necessária na análise de casos complexos a substituição de servidores por algoritmos, visto que estes não possuem discernimento humano.",
+        "correta": false
+      },
+      {
+        "id": 48434,
+        "texto": "A substituição, por algoritmos, de servidores podem comprometer a subjetividade necessária para a análise de casos complexos.",
+        "correta": false
+      },
+      {
+        "id": 48435,
+        "texto": "Compromete-se a subjetividade necessária na análise de casos complexos quando da substituição de servidores por algoritmos, sendo estes últimos ineficientes.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11513,
+    "texto": "Texto de apoio: O Ministério da Educação publicou, em 12 de março de 2024, uma diretriz que estabelece que todas as escolas públicas de ensino médio devem incluir no currículo um módulo sobre a importância da leitura crítica, com carga horária mínima de 30 horas. A diretriz prevê que os professores sejam capacitados em oficinas de 40 horas cada, a serem realizadas em ciclos semestrais. A norma também estipula que os materiais didáticos utilizados sejam produzidos por empresas privadas, desde que aprovados pelo Ministério. Considerando o texto acima, qual das alternativas a seguir descreve corretamente a relação entre a diretriz e a obrigatoriedade de uso de materiais didáticos produzidos por empresas privadas?\n1) A diretriz torna obrigatório o uso de materiais produzidos por empresas privadas, independentemente de aprovação prévia. 2) A diretriz exige apenas a aprovação prévia dos materiais produzidos por empresas privadas, mas não os torna obrigatórios. 3) A diretriz permite o uso de materiais produzidos por empresas privadas, desde que aprovados, mas não os obriga. 4) A diretriz proíbe o uso de materiais produzidos por empresas privadas, a menos que sejam aprovados. 5) A diretriz obriga o uso de materiais produzidos por empresas privadas, mas não exige aprovação prévia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48429,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48430,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11512,
+    "texto": "O uso de pronomes de tratamento no início de uma carta formal deve seguir a ordem hierárquica de acordo com a norma culta da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48427,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48428,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11511,
+    "texto": "Na análise de um texto dissertativo, a presença de repetição de palavras de mesmo significado em frases próximas caracteriza erro de redundância, o que prejudica a coerência textual.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48425,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48426,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11510,
+    "texto": "No contexto de um contrato de prestação de serviços, a cláusula que determina a responsabilidade por danos indiretos é considerada válida, desde que expressamente prevista pelas partes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48423,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48424,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11509,
+    "texto": "A frase \"O juiz, ao analisar o caso, percebeu que a evidência era insuficiente para sustentar a acusação\" apresenta erro de concordância nominal, pois o substantivo \"evidência\" está no singular e o verbo \"era\" deve concordar em número.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48421,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48422,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11470,
+    "texto": "Durante a revisão de um texto acadêmico, o revisor percebe que o autor empregou a expressão 'porquanto' em três lugares diferentes, cada vez com sentido distinto: em uma frase como explicação causal, em outra como concessão e em outra ainda como negação. Qual é a recomendação mais adequada para o revisor, considerando a norma culta e a clareza do texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48292,
+        "texto": "Manter a expressão 'porquanto' em todas as ocorrências, pois sua versatilidade enriquece o texto.",
+        "correta": false
+      },
+      {
+        "id": 48293,
+        "texto": "Substituir todas as ocorrências de 'porquanto' por 'porque', mantendo a coesão textual.",
+        "correta": false
+      },
+      {
+        "id": 48294,
+        "texto": "Alterar apenas as ocorrências que funcionam como concessão, substituindo por 'embora', e revisar as demais para garantir a adequação semântica.",
+        "correta": true
+      },
+      {
+        "id": 48295,
+        "texto": "Eliminar todas as ocorrências de 'porquanto', pois a expressão é considerada arcaica.",
+        "correta": false
+      },
+      {
+        "id": 48296,
+        "texto": "Reescrever o texto inteiro, removendo 'porquanto' e substituindo por 'devido a', para uniformizar o estilo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11469,
+    "texto": "A seguir, apresentamos um trecho de texto argumentativo que discute a relação entre linguagem inclusiva e a clareza comunicativa: \"A adoção de termos neutros pode, em alguns casos, obscurecer a mensagem, especialmente quando o público-alvo não está familiarizado com essa forma de expressão. Contudo, a inclusão de pronomes que não discriminam gênero tem o potencial de ampliar a compreensão e a aceitação social. O desafio reside em equilibrar a necessidade de precisão linguística com o imperativo de acessibilidade. Assim, a escolha de palavras deve ser guiada por critérios de eficácia comunicativa, não apenas por ideologias.\" Considerando o texto acima, qual dos enunciados a seguir melhor descreve o argumento principal apresentado pelo autor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48287,
+        "texto": "A linguagem inclusiva é sempre prejudicial à clareza comunicativa.",
+        "correta": false
+      },
+      {
+        "id": 48288,
+        "texto": "A escolha de palavras deve ser baseada exclusivamente em ideologias sociais.",
+        "correta": false
+      },
+      {
+        "id": 48289,
+        "texto": "O autor defende que a linguagem inclusiva pode ser benéfica se aplicada com critério de eficácia comunicativa.",
+        "correta": true
+      },
+      {
+        "id": 48290,
+        "texto": "A adoção de termos neutros é recomendada sem considerar a familiaridade do público.",
+        "correta": false
+      },
+      {
+        "id": 48291,
+        "texto": "A clareza comunicativa não depende da escolha de palavras, mas apenas da estrutura gramatical.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11468,
+    "texto": "No contexto de um contrato administrativo, o princípio da motivação exige que a decisão que autoriza a contratação de serviços seja acompanhada de justificativa. Se a autoridade competente, ao conceder a licitação, omite essa justificativa no documento, qual é a consequência mais provável para a validade do ato?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48282,
+        "texto": "O ato permanece válido, pois a motivação é opcional em contratos administrativos.",
+        "correta": false
+      },
+      {
+        "id": 48283,
+        "texto": "O ato é nulo, mas a decisão pode ser confirmada por meio de recurso administrativo.",
+        "correta": false
+      },
+      {
+        "id": 48284,
+        "texto": "O ato é anulável, podendo ser revogado pelo Tribunal de Contas.",
+        "correta": true
+      },
+      {
+        "id": 48285,
+        "texto": "O ato é suspenso, aguardando a apresentação da motivação em documento posterior.",
+        "correta": false
+      },
+      {
+        "id": 48286,
+        "texto": "O ato é considerado inválido apenas se houver contestação formal por parte de um contratado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11467,
+    "texto": "Em uma análise de estilo literário, o autor de um romance contemporâneo utiliza a inversão sintática para enfatizar a atmosfera de desorientação urbana. Considerando a norma culta da língua portuguesa, qual das alternativas apresenta a oração que melhor exemplifica essa inversão, mantendo a coerência textual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48277,
+        "texto": "O silêncio, que permeava a sala, era tão denso que quase se podia ouvir.",
+        "correta": false
+      },
+      {
+        "id": 48278,
+        "texto": "Permeava o silêncio, a sala, tão denso que quase se podia ouvir.",
+        "correta": false
+      },
+      {
+        "id": 48279,
+        "texto": "O silêncio, tão denso que quase se podia ouvir, permeava a sala.",
+        "correta": true
+      },
+      {
+        "id": 48280,
+        "texto": "Permeava, tão denso que quase se podia ouvir, o silêncio da sala.",
+        "correta": false
+      },
+      {
+        "id": 48281,
+        "texto": "O silêncio, permeava a sala, tão denso que quase se podia ouvir.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11466,
+    "texto": "Na norma culta, a palavra 'sua' pode funcionar como pronome oblíquo átono ou como pronome possessivo, dependendo do contexto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48275,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48276,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11465,
+    "texto": "O uso de crase é obrigatório na expressão 'à vista de' quando se refere a uma situação de percepção visual.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48273,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48274,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11464,
+    "texto": "Considerando o texto acima, que descreve uma empresa de tecnologia que adotou práticas de escrita inclusiva, a afirmação de que a frase \"Ele e ela trabalharam juntos\" está correta em relação ao uso do pronome de tratamento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48271,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48272,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11463,
+    "texto": "Na construção de sentenças interrogativas, o uso do pronome relativo 'que' é obrigatório quando se quer indicar a causa da ação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48269,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48270,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11462,
+    "texto": "A frase \"O futuro, que se anuncia nas nuvens, é apenas uma metáfora para a incerteza da vida moderna\", apresenta erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48267,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48268,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11461,
+    "texto": "Texto: Em 2023, a Associação Brasileira de Linguística Aplicada (ABLA) publicou um relatório que destaca a crescente demanda por profissionais capazes de analisar e produzir textos em diferentes gêneros comunicacionais, especialmente no contexto de comunicação corporativa e governamental. O relatório aponta que, entre 2020 e 2023, houve um aumento de 25% no número de vagas de emprego em áreas de comunicação institucional, com 60% delas exigindo domínio avançado de escrita formal e 40% exigindo habilidades de interpretação de textos técnicos. A ABLA conclui que a capacitação em análise de textos forma parte essencial do currículo de cursos de graduação em Letras e de pós-graduação em Comunicação. Considerando o cenário descrito acima, qual dos itens abaixo representa a principal implicação para a elaboração de provas de concursos que avaliam competências de leitura e escrita em língua portuguesa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48262,
+        "texto": "As provas devem incluir apenas questões de interpretação de textos literários, pois são mais desafiadoras para os candidatos.",
+        "correta": false
+      },
+      {
+        "id": 48263,
+        "texto": "As provas devem enfatizar a capacidade de produzir textos argumentativos formais, sem avaliar a interpretação de textos técnicos.",
+        "correta": false
+      },
+      {
+        "id": 48264,
+        "texto": "As provas devem equilibrar questões de interpretação de textos técnicos e literários, refletindo a demanda atual do mercado de trabalho.",
+        "correta": true
+      },
+      {
+        "id": 48265,
+        "texto": "As provas devem eliminar questões de interpretação de textos, pois a escrita formal já cobre todas as competências necessárias.",
+        "correta": false
+      },
+      {
+        "id": 48266,
+        "texto": "As provas devem priorizar a análise de textos jornalísticos, pois esses são os mais utilizados em comunicação corporativa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11460,
+    "texto": "Em 2024, um órgão público federal publicou um edital de concurso para o cargo de Analista de Políticas Públicas. O edital, em seu item de requisitos, incluiu a exigência de que o candidato possua, no mínimo, dois anos de experiência em projetos de inclusão digital em escolas públicas. A exigência foi contestada por um grupo de candidatos alegando que a lei federal de 2019 sobre a contratação de servidores públicos não prevê tal requisito. Qual é a consequência jurídica mais adequada para a exigência questionada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48257,
+        "texto": "A exigência pode ser mantida, pois a experiência em projetos de inclusão digital é considerada competência técnica do cargo.",
+        "correta": false
+      },
+      {
+        "id": 48258,
+        "texto": "A exigência deve ser considerada inválida, pois não está prevista na legislação federal vigente.",
+        "correta": true
+      },
+      {
+        "id": 48259,
+        "texto": "A exigência pode ser mantida, desde que o edital especifique a forma de comprovação da experiência.",
+        "correta": false
+      },
+      {
+        "id": 48260,
+        "texto": "A exigência pode ser mantida, mas apenas se houver autorização expressa do Poder Legislativo.",
+        "correta": false
+      },
+      {
+        "id": 48261,
+        "texto": "A exigência deve ser mantida, pois a lei federal permite a inclusão de requisitos adicionais em concursos públicos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11459,
+    "texto": "Um candidato a um cargo de nível médio em uma repartição pública apresenta, em sua candidatura, uma redação cujo tema é \"A importância da preservação da memória histórica nas escolas públicas do Brasil\". O texto contém, além de argumentos, uma crítica velada a uma decisão judicial recente sobre a obrigatoriedade de ensino de história indígena nas escolas. A banca avaliadora, ao analisar a redação, observa que o candidato faz uso de linguagem formal e técnica, mas emprega termos que podem ser interpretados como incitação à contestação da legislação vigente. Qual é a posição correta da banca quanto ao caráter da crítica expressa no texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48252,
+        "texto": "A crítica é admissível, pois faz parte do debate democrático, desde que não contenha linguagem agressiva.",
+        "correta": false
+      },
+      {
+        "id": 48253,
+        "texto": "A crítica é inadmissível, pois a redação oficial não pode conter qualquer forma de contestação a decisões judiciais.",
+        "correta": false
+      },
+      {
+        "id": 48254,
+        "texto": "A crítica é admissível, mas deve ser acompanhada de referências bibliográficas que fundamentem a opinião do candidato.",
+        "correta": false
+      },
+      {
+        "id": 48255,
+        "texto": "A crítica é admissível, pois a redação oficial permite a expressão de opiniões pessoais, contanto que não seja difamatória.",
+        "correta": true
+      },
+      {
+        "id": 48256,
+        "texto": "A crítica é inadmissível, pois a banca exige que o candidato demonstre total concordância com a legislação vigente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11458,
+    "texto": "Em um edital de concurso público, a cláusula de exigência de domicílio nacional foi interpretada de forma a restringir a participação de candidatos estrangeiros que residiam no Brasil há mais de três anos. Considerando a jurisprudência recente sobre a constitucionalidade de requisitos discriminatórios, qual é a alternativa que melhor descreve a posição do Supremo Tribunal Federal a respeito desse requisito?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48247,
+        "texto": "O requisito é constitucional, pois garante a seleção de candidatos com vínculo permanente com o território nacional.",
+        "correta": false
+      },
+      {
+        "id": 48248,
+        "texto": "O requisito é inconstitucional, pois contraria o princípio da igualdade e a vedação à discriminação arbitrária.",
+        "correta": true
+      },
+      {
+        "id": 48249,
+        "texto": "O requisito é constitucional, desde que acompanhado de justificativa objetiva e proporcional.",
+        "correta": false
+      },
+      {
+        "id": 48250,
+        "texto": "O requisito pode ser mantido apenas nos concursos de cargos de confiança.",
+        "correta": false
+      },
+      {
+        "id": 48251,
+        "texto": "O requisito é constitucional, mas pode ser revogado apenas pelo Poder Legislativo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11457,
+    "texto": "O uso de pronomes relativos que introduzem orações subordinadas restritivas pode, em certas situações, alterar a interpretação do sujeito da oração principal, especialmente quando o pronome relativo possui valor de antecedente indefinido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48245,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48246,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

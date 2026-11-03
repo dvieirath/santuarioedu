@@ -1,0 +1,497 @@
+[
+  {
+    "id": 12986,
+    "texto": "Um candidato a concurso para a função de professor de língua portuguesa tem como prova escrita a análise de um trecho literário. O objetivo é avaliar a capacidade de identificar figuras de linguagem e analisar seu efeito no texto. Qual das opções abaixo descreve corretamente a figura de linguagem presente no trecho: 'O vento sussurrou segredos que o tempo esqueceu'?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53211,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 53212,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 53213,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 53214,
+        "texto": "Aliteração",
+        "correta": false
+      },
+      {
+        "id": 53215,
+        "texto": "Personificação",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12985,
+    "texto": "Considerando o seguinte texto: \"A frase 'O juiz, que estava presente, decidiu pela absolvição' contém uma oração subordinada adjetiva explicativa. A oração que exerce a função de explicar o substantivo 'juiz' é a oração que apresenta um verbo no passado e que está introduzida por uma conjunção subordinativa que indica causa.\" Qual é a oração correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53206,
+        "texto": "O juiz, que estava presente, decidiu pela absolvição.",
+        "correta": false
+      },
+      {
+        "id": 53207,
+        "texto": "O juiz, que estava presente, decidiu pela absolvição.",
+        "correta": false
+      },
+      {
+        "id": 53208,
+        "texto": "O juiz, que estava presente, decidiu pela absolvição.",
+        "correta": true
+      },
+      {
+        "id": 53209,
+        "texto": "O juiz, que estava presente, decidiu pela absolvição.",
+        "correta": false
+      },
+      {
+        "id": 53210,
+        "texto": "O juiz, que estava presente, decidiu pela absolvição.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12984,
+    "texto": "Um edital de concurso público para a função de analista de dados da Receita Federal apresenta o seguinte trecho: \"O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.\" Qual das alternativas abaixo representa corretamente a aplicação da regra de concordância verbal no contexto apresentado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53201,
+        "texto": "O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.",
+        "correta": false
+      },
+      {
+        "id": 53202,
+        "texto": "O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.",
+        "correta": false
+      },
+      {
+        "id": 53203,
+        "texto": "O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.",
+        "correta": false
+      },
+      {
+        "id": 53204,
+        "texto": "O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.",
+        "correta": false
+      },
+      {
+        "id": 53205,
+        "texto": "O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12983,
+    "texto": "Em 2025, a Secretaria de Educação do Estado de São Paulo publicou um edital para a contratação de professor de língua portuguesa para escolas públicas. O edital previa que o candidato deveria possuir, além da formação superior, um certificado de proficiência em língua portuguesa obtido em exame reconhecido pelo Ministério da Educação. O candidato João, formado em Letras, realizou o exame de proficiência em 2023, mas o certificado foi emitido apenas em 2024, após a publicação do edital. O edital estabelecia prazo de 30 dias a partir da publicação para apresentação de documentos, com a possibilidade de prorrogação de 15 dias por justificativa fundamentada. João apresentou o certificado no prazo de 45 dias, alegando que o exame havia sido concluído antes da publicação do edital. A comissão de seleção, ao analisar o caso, decidiu aceitar o certificado, argumentando que a exigência era de comprovação de proficiência, não de prova realizada dentro do prazo. A decisão foi contestada pelo candidato Maria, que alegou que a lei exige que o certificado seja apresentado no prazo estipulado. Em sua contestação, Maria cita o princípio da legalidade e a Súmula 423 do STJ, que afirma que \"a exigência de documentos deve observar o prazo legalmente estipulado, independentemente de justificativa\". Considerando o texto acima, qual é a posição correta da legislação quanto ao prazo de apresentação do certificado de proficiência? \"A comissão de seleção pode aceitar o certificado apresentado após o prazo, desde que o candidato comprove que o exame foi realizado antes da publicação do edital\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53199,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53200,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12982,
+    "texto": "Considerando o seguinte excerto: \"No contexto da redação de textos técnicos, a coerência textual pressupõe a continuidade lógica entre as orações, enquanto a coesão depende do emprego de elementos conectivos que estabelecem relações explícitas de causa, consequência ou contraste. Assim, a ausência de conectivos pode comprometer a compreensão global, mas não necessariamente inviabiliza a mensagem, desde que a sequência de ideias seja intrinsecamente lógica.\" A frase abaixo é correta quanto à relação entre coerência e coesão? \"A falta de conectivos torna o texto incoerente, pois impede a ligação entre as ideias.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53197,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53198,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12981,
+    "texto": "A norma culta da língua portuguesa, ao ser aplicada em documentos oficiais, exige que os pronomes de tratamento sejam utilizados apenas quando houver relação hierárquica ou de respeito, não sendo obrigatória a sua inclusão em todo o texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53195,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53196,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12980,
+    "texto": "Considerando o texto abaixo: \n\n\"Em 2024, o Ministério da Educação divulgou uma pesquisa que indica que 68% dos estudantes de ensino médio afirmam que o uso de redes sociais influencia negativamente suas notas. A pesquisa, realizada em 15 escolas públicas de diferentes regiões do país, analisou a correlação entre tempo de uso das redes sociais e desempenho acadêmico. Os autores do estudo afirmam que, embora exista uma relação estatística, não é possível afirmar causalidade, pois fatores como motivação, suporte familiar e qualidade do ensino também desempenham papéis significativos. Além disso, o estudo destaca que o uso moderado e direcionado de plataformas digitais pode ser benéfico para o aprendizado, desde que haja supervisão e orientação adequada. O relatório conclui que a educação deve integrar o uso das redes sociais como ferramenta pedagógica, promovendo o desenvolvimento de competências digitais e sociais.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53193,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53194,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12979,
+    "texto": "Em uma análise de texto literário, a presença de hipérbole não altera a interpretação literal das informações, mas pode intensificar o efeito retórico do autor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53191,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53192,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12978,
+    "texto": "A oração subordinada adverbial causal introduzida por \"pois\" pode ser omitida sem prejuízo de sentido quando o contexto já deixa clara a causa do fato.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53189,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53190,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12943,
+    "texto": "No contexto de interpretação textual, o princípio da literalidade costuma ser aplicado para evitar que o intérprete dê sentidos que não estejam presentes no texto. Em um caso hipotético, o juiz deve analisar o texto da lei e, se houver ambiguidade, buscar o sentido mais amplo ou mais restrito? Qual é a orientação correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53074,
+        "texto": "O juiz deve buscar o sentido mais amplo, pois isso favorece a aplicação da norma.",
+        "correta": false
+      },
+      {
+        "id": 53075,
+        "texto": "O juiz deve buscar o sentido mais restrito, pois evita interpretações que extrapolem o texto.",
+        "correta": false
+      },
+      {
+        "id": 53076,
+        "texto": "O juiz deve analisar o contexto histórico da lei e escolher o sentido mais apropriado.",
+        "correta": false
+      },
+      {
+        "id": 53077,
+        "texto": "O juiz deve aplicar o princípio da literalidade, interpretando o texto de acordo com a redação literal e, se houver ambiguidade, buscar o sentido mais restrito.",
+        "correta": true
+      },
+      {
+        "id": 53078,
+        "texto": "O juiz pode escolher livremente o sentido que melhor se adequar ao caso concreto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12942,
+    "texto": "Texto: Em 2025, a Prefeitura de Vila Verde divulgou um edital de licitação para a construção de uma nova escola. O edital estabeleceu, como requisito de habilitação, a comprovação de que o contratado possui experiência comprovada em projetos de infraestrutura educacional de até 10 anos. O edital, porém, não especificou critérios de avaliação da experiência. Em vista disso, qual das alternativas abaixo melhor descreve a interpretação jurídica mais adequada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53069,
+        "texto": "O edital pode ser considerado inválido por omissão de critérios, pois viola o princípio da publicidade.",
+        "correta": false
+      },
+      {
+        "id": 53070,
+        "texto": "O edital é válido, pois a exigência de experiência já cumpre o princípio da razoabilidade.",
+        "correta": false
+      },
+      {
+        "id": 53071,
+        "texto": "O edital deve ser reformulado para incluir critérios objetivos de avaliação, sob pena de violar o princípio da impessoalidade.",
+        "correta": false
+      },
+      {
+        "id": 53072,
+        "texto": "O edital pode ser mantido, desde que a autoridade competente esclareça, em ato administrativo, os critérios de avaliação da experiência.",
+        "correta": true
+      },
+      {
+        "id": 53073,
+        "texto": "O edital deve ser anulado, pois a falta de critérios constitui violação ao princípio da eficiência.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12941,
+    "texto": "Em 2024, a Secretaria de Educação do Estado X adotou um sistema digital de avaliação de desempenho docente que utiliza algoritmos de aprendizado de máquina para classificar professores. Diante desse cenário, qual das opções abaixo representa a aplicação correta da regra de transposição de normas no contexto de avaliação de desempenho?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53064,
+        "texto": "O sistema pode aplicar a regra de transposição apenas se houver previsão expressa no estatuto docente.",
+        "correta": false
+      },
+      {
+        "id": 53065,
+        "texto": "A regra de transposição é dispensável, pois o algoritmo já incorpora critérios objetivos.",
+        "correta": false
+      },
+      {
+        "id": 53066,
+        "texto": "A transposição deve ocorrer apenas se a norma superior for de natureza normativa geral e não específica.",
+        "correta": false
+      },
+      {
+        "id": 53067,
+        "texto": "A regra de transposição é obrigatória quando a norma superior for de caráter constitucional e a norma inferior for de natureza infraconstitucional.",
+        "correta": true
+      },
+      {
+        "id": 53068,
+        "texto": "Não há necessidade de transposição, pois a avaliação é de competência exclusiva da secretaria.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12940,
+    "texto": "Considerando que a norma jurídica que rege a administração pública prevê a necessidade de compatibilidade entre atos administrativos e princípios constitucionais, qual é o princípio que, de modo específico, impede a adoção de medidas que contrariem a dignidade da pessoa humana?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53059,
+        "texto": "Princípio da Legalidade",
+        "correta": false
+      },
+      {
+        "id": 53060,
+        "texto": "Princípio da Moralidade",
+        "correta": false
+      },
+      {
+        "id": 53061,
+        "texto": "Princípio da Dignidade da Pessoa Humana",
+        "correta": true
+      },
+      {
+        "id": 53062,
+        "texto": "Princípio da Eficiência",
+        "correta": false
+      },
+      {
+        "id": 53063,
+        "texto": "Princípio da Impessoalidade",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12939,
+    "texto": "Em 2024, a Secretaria de Educação publicou um comunicado oficial que afirmava: \"As escolas municipais deverão implementar o uso de plataformas digitais para a entrega de trabalhos acadêmicos, garantindo assim a inclusão de estudantes com deficiência auditiva.\" Considerando o texto acima, a frase \"garantindo assim a inclusão de estudantes com deficiência auditiva\" é um sintagma verbal que funciona como complemento circunstancial de finalidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53057,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53058,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12938,
+    "texto": "No processo de normalização textual, a aplicação do ponto de exclamação em títulos de documentos oficiais é recomendada para enfatizar a importância do conteúdo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53055,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53056,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12937,
+    "texto": "Na análise de textos informativos, a utilização de advérbios de intensidade, como \"excepcionalmente\" ou \"notavelmente\", não altera a estrutura sintática da oração, mas pode influenciar o grau de subjetividade do enunciado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53053,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53054,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12936,
+    "texto": "Em um contrato de prestação de serviços, a cláusula que determina o prazo de entrega de 30 dias a partir da assinatura do contrato é considerada cláusula penal, pois impõe sanção em caso de atraso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53051,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53052,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12935,
+    "texto": "No contexto da norma de redação institucional, a frase \"o servidor, ao apresentar o relatório, deve assegurar que todos os dados estejam corretos\" apresenta erro de concordância, pois o verbo \"assegurar\" deveria concordar com o sujeito composto \"o servidor, ao apresentar o relatório\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53049,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53050,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12934,
+    "texto": "Texto de apoio: Em 2023, a Biblioteca Nacional lançou um projeto de digitalização de manuscritos antigos que incluía a criação de um glossário interativo para auxiliar leitores na compreensão de termos arcaicos. A equipe de curadores desenvolveu uma seção intitulada \"Palavras em Desuso\", onde cada entrada apresentava a palavra, sua origem, e exemplos de uso em textos clássicos. O objetivo era não apenas preservar o vocabulário, mas também incentivar a análise crítica do uso de linguagem em diferentes períodos históricos. Considerando o glossário acima, qual das alternativas abaixo descreve corretamente a função sintática da palavra \"antiquado\" na frase: \"O manuscrito, antiquado e empoeirado, foi preservado em temperatura controlada.\"?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53044,
+        "texto": "É um predicativo do sujeito.",
+        "correta": false
+      },
+      {
+        "id": 53045,
+        "texto": "É um atributo do sujeito.",
+        "correta": true
+      },
+      {
+        "id": 53046,
+        "texto": "É um complemento nominal.",
+        "correta": false
+      },
+      {
+        "id": 53047,
+        "texto": "É um objeto direto.",
+        "correta": false
+      },
+      {
+        "id": 53048,
+        "texto": "É um adjunto adverbial de modo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12933,
+    "texto": "No contexto da modernização da linguagem jurídica, a Lei nº 15.000/2024 introduziu a possibilidade de utilização de linguagem inclusiva em documentos oficiais. Em um contrato de prestação de serviços, a cláusula 4.2 estabelece: \"O CONTRATADO se compromete a prestar os serviços de forma inclusiva, respeitando a diversidade de gênero e orientação sexual de todos os envolvidos.\" Qual é a consequência correta da aplicação do princípio de neutralidade linguística no tratamento de pronomes nesta cláusula?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53039,
+        "texto": "O uso de pronomes neutros pode ser dispensado se o contrato já contiver termos inclusivos.",
+        "correta": false
+      },
+      {
+        "id": 53040,
+        "texto": "O contrato deve ser redigido em linguagem neutra, sem a utilização de pronomes pessoais.",
+        "correta": false
+      },
+      {
+        "id": 53041,
+        "texto": "O uso de pronomes de gênero neutro é obrigatório apenas quando houver referência direta a indivíduos.",
+        "correta": false
+      },
+      {
+        "id": 53042,
+        "texto": "O princípio de neutralidade linguística permite a substituição de pronomes pessoais por pronomes de gênero neutro em todas as ocorrências.",
+        "correta": false
+      },
+      {
+        "id": 53043,
+        "texto": "O princípio de neutralidade linguística exige que, sempre que possível, sejam empregados pronomes de gênero neutro, preservando a clareza e a precisão do texto.",
+        "correta": true
+      }
+    ]
+  }
+]

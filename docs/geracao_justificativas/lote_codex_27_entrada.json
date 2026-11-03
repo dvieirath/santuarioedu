@@ -1,0 +1,437 @@
+[
+  {
+    "id": 12192,
+    "texto": "Em uma prova de interpretação textual, o candidato recebe o seguinte excerto: “O vento, que soprou forte, parecia um grito de liberdade que atravessava as colinas.” Qual é a função sintática da expressão ‘que atravessava as colunas’?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50618,
+        "texto": "Adjunto adverbial de modo",
+        "correta": false
+      },
+      {
+        "id": 50619,
+        "texto": "Complemento nominal",
+        "correta": false
+      },
+      {
+        "id": 50620,
+        "texto": "Adjunto adverbial de causa",
+        "correta": false
+      },
+      {
+        "id": 50621,
+        "texto": "Adjunto adverbial de tempo",
+        "correta": true
+      },
+      {
+        "id": 50622,
+        "texto": "Adjunto adverbial de lugar",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12191,
+    "texto": "Um edital de concurso para a função de analista de políticas públicas apresenta, entre as exigências, a redação de um texto dissertativo sobre a importância da linguagem inclusiva no âmbito institucional. O candidato, ao elaborar a resposta, utiliza a expressão “as pessoas de todas as identidades” em vez de “os cidadãos”. Esse uso pode ser interpretado como:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50613,
+        "texto": "A demonstração de domínio da norma culta da língua portuguesa",
+        "correta": false
+      },
+      {
+        "id": 50614,
+        "texto": "Um deslize linguístico que pode comprometer a correção gramatical da redação",
+        "correta": false
+      },
+      {
+        "id": 50615,
+        "texto": "Uma estratégia de adequação ao público-alvo do concurso, sem prejuízo da correção textual",
+        "correta": true
+      },
+      {
+        "id": 50616,
+        "texto": "Um erro de concordância verbal que afeta a coerência do texto",
+        "correta": false
+      },
+      {
+        "id": 50617,
+        "texto": "Um recurso estilístico que evidencia a criatividade do candidato",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12190,
+    "texto": "Texto: Em 2024, a Associação Brasileira de Línguas (ABL) publicou um relatório sobre a evolução do uso de neologismos em textos jornalísticos. O estudo revelou que, entre 2019 e 2023, o número de neologismos inseridos em artigos de opinião aumentou em 27%, enquanto a frequência de palavras arcaicas diminuiu em 15%. Os autores do relatório atribuem essa tendência à crescente influência das redes sociais na formação de novas expressões e à valorização de uma linguagem mais direta e coloquial. Eles também destacam que a predominância de neologismos ocorre principalmente em publicações digitais, onde a rapidez na publicação favorece a adoção de termos emergentes. No entanto, o relatório aponta que, apesar do aumento, a maioria dos neologismos não ultrapassa a barreira de 5% do vocabulário total de cada artigo.\n\nConsiderando o texto acima, a afirmação de que a adoção de neologismos em textos jornalísticos tem sido impulsionada principalmente por fatores internos ao jornalismo tradicional é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50611,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50612,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12189,
+    "texto": "Considerando a norma culta da língua portuguesa, a utilização de pronomes de tratamento no meio de uma frase informal, como \"Você, meu caro, tem razão\", é aceitável em textos acadêmicos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50609,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50610,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12188,
+    "texto": "Um texto expositivo que descreve o processo de fabricação de um produto eletrônico pode ser classificado como texto narrativo, pois relata uma sequência de eventos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50607,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50608,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12187,
+    "texto": "No contexto de interpretação textual, a frase \"o juiz, ao analisar o relatório, concluiu que a evidência era insuficiente\" é um exemplo de frase complexa, pois contém mais de uma oração subordinada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50605,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50606,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12186,
+    "texto": "Um edital de concurso público prevê que a prova de língua portuguesa terá duração de 90 minutos e consistirá em 40 questões de múltipla escolha, cada uma com quatro alternativas. Considerando a norma geral de avaliação de concursos, a afirmação de que a banca pode alterar a quantidade de questões apenas após a publicação do edital é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50603,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50604,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12185,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação do Estado do Norte anunciou a implementação de um programa de alfabetização digital para crianças de 6 a 10 anos. O programa, denominado 'Letras & Bytes', pretende integrar o ensino tradicional de leitura e escrita com atividades de programação básica e uso consciente da tecnologia. Para cada turma, os professores receberão treinamento em metodologias ativas, como o método de aprendizagem baseada em projetos (ABP), e serão responsáveis por criar projetos que envolvam a criação de pequenos aplicativos que contem histórias interativas. A iniciativa tem como objetivo principal promover a alfabetização cognitiva, reduzir a evasão escolar e preparar os estudantes para o mercado de trabalho do século XXI. Em 2025, os resultados preliminares mostraram um aumento de 22% na proficiência em leitura e um engajamento de 35% nas atividades digitais. Os gestores do programa destacam que a abordagem híbrida, que combina aulas presenciais e virtuais, foi fundamental para o sucesso do projeto.\" Considerando o texto acima, qual dos seguintes enunciados descreve corretamente o conceito de 'alfabetização digital' conforme aplicado no programa 'Letras & Bytes'?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50598,
+        "texto": "A alfabetização digital refere-se apenas ao uso de computadores e dispositivos móveis em sala de aula.",
+        "correta": false
+      },
+      {
+        "id": 50599,
+        "texto": "É a capacidade de ler e escrever textos em plataformas digitais, sem considerar habilidades de programação.",
+        "correta": false
+      },
+      {
+        "id": 50600,
+        "texto": "Envolve o domínio de tecnologias digitais, a compreensão crítica de conteúdos online e a produção de conteúdo digital, integrando leitura, escrita e programação.",
+        "correta": true
+      },
+      {
+        "id": 50601,
+        "texto": "Consiste exclusivamente na familiarização com softwares de edição de texto.",
+        "correta": false
+      },
+      {
+        "id": 50602,
+        "texto": "É a aquisição de conhecimentos sobre segurança cibernética, sem relação com a leitura ou escrita.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12184,
+    "texto": "Em um concurso para o cargo de Agente de Fiscalização de Licitações, o candidato recebe a seguinte situação hipotética: \"A empresa X apresentou um contrato de prestação de serviços para o órgão público Y. Durante a análise, foi identificado que o valor contratado excede em 15% o valor de mercado, o que pode indicar prática de superfaturamento. O agente deverá, portanto, avaliar a documentação, verificar a existência de justificativas técnicas e analisar se houve violação de princípios constitucionais. Diante disso, qual dos princípios constitucionais é mais diretamente violado quando há superfaturamento em contratos públicos?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50593,
+        "texto": "Legalidade",
+        "correta": false
+      },
+      {
+        "id": 50594,
+        "texto": "Impessoalidade",
+        "correta": false
+      },
+      {
+        "id": 50595,
+        "texto": "Motivação",
+        "correta": false
+      },
+      {
+        "id": 50596,
+        "texto": "Publicidade",
+        "correta": false
+      },
+      {
+        "id": 50597,
+        "texto": "Eficiência",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12183,
+    "texto": "Um edital de concurso para o cargo de Técnico em Segurança do Trabalho estabelece que o candidato deverá responder a questões de gramática, ortografia e interpretação de textos. Em uma das questões, o candidato encontra o seguinte trecho: \"Os engenheiros, ao planejar a obra, consideram não apenas a viabilidade técnica, mas também a sustentabilidade ambiental e o impacto social nas comunidades locais.\" A pergunta pede para indicar a função sintática da palavra \"sustentabilidade\". Qual alternativa corresponde à correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50588,
+        "texto": "Objeto direto",
+        "correta": false
+      },
+      {
+        "id": 50589,
+        "texto": "Complemento nominal",
+        "correta": true
+      },
+      {
+        "id": 50590,
+        "texto": "Adjunto adverbial",
+        "correta": false
+      },
+      {
+        "id": 50591,
+        "texto": "Complemento de verbo",
+        "correta": false
+      },
+      {
+        "id": 50592,
+        "texto": "Adjunto adnominal",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12182,
+    "texto": "Em 2024, a Associação Brasileira de Normas Técnicas (ABNT) publicou uma norma que, entre outras atualizações, alterou a regra de uso da crase em locuções prepositivas. A norma estabelece que a crase deve ser empregada apenas quando a preposição for \"a\" e o substantivo que a segue for feminino e singular, independentemente de contexto.\n\nConsiderando o texto acima, julgue a seguinte afirmação: \"Na frase \"Vou à festa\" a crase é obrigatória, pois a preposição é \"a\" e o substantivo \"festa\" é feminino e singular.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50586,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50587,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12181,
+    "texto": "Na análise de textos jornalísticos, a presença de advérbios de modo, como \"claramente\" e \"exatamente\", não interfere na avaliação da correção gramatical do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50584,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50585,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12180,
+    "texto": "A norma culta da língua portuguesa admite a inversão do sujeito e do verbo em orações interrogativas indiretas, desde que o verbo esteja no modo indicativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50582,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50583,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12179,
+    "texto": "A concordância verbal em frases compostas, quando o sujeito é composto por termos ligados por \"e\", exige a concordância no plural, independentemente de qualquer elemento de ordem temporal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50580,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50581,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12178,
+    "texto": "No contexto de uma redação dissertativa, a utilização de conectivos que indicam contraste, tais como \"porém\" e \"entretanto\", é considerada uma estratégia válida para organizar o texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50578,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50579,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12149,
+    "texto": "Texto: Em 2024, a Secretaria de Educação publicou um comunicado oficial sobre a implementação de um novo modelo de avaliação de competências para estudantes do ensino médio. O documento destaca que, a partir de janeiro do próximo ano, as provas serão baseadas em projetos interdisciplinares, permitindo que os alunos demonstrem habilidades de pesquisa, escrita e análise crítica. O comunicado enfatiza que a avaliação será realizada em duas etapas: uma fase de produção de textos e uma fase de apresentação oral, cada uma ponderada em 50% do total. A proposta visa reduzir a dependência de questões de múltipla escolha e aumentar a capacidade de argumentação dos estudantes. Além disso, o documento menciona que os professores receberão treinamento específico para orientar os alunos nesse novo formato, garantindo que o processo seja justo e transparente.\nConsiderando o texto acima, julgue a seguinte afirmação: o modelo de avaliação proposto pela Secretaria de Educação pode ser interpretado como uma aplicação prática dos princípios da Teoria da Aprendizagem Significativa de Ausubel, pois enfatiza a construção de conhecimento a partir de experiências prévias e a integração de novos conteúdos com estruturas cognitivas já existentes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50484,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50485,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12148,
+    "texto": "Na construção de frases interrogativas indiretas, a ordem sintática pode ser alterada sem que haja mudança no sentido, desde que se mantenha a inversão verbo-substantivo. Assim, a frase ‘Ele perguntou se eu tinha concluído o trabalho’ pode ser reescrita como ‘Ele perguntou eu tinha concluído o trabalho’ mantendo a mesma estrutura interrogativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50482,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50483,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12147,
+    "texto": "Considerando o seguinte trecho de um relatório técnico: ‘O equipamento apresentou falha, contudo, a equipe de manutenção conseguiu restaurar a funcionalidade em menos de 30 minutos’. A frase contém um período composto por coordenação assindética, pois a conjunção ‘contudo’ não está acompanhada de vírgula.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50480,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50481,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12146,
+    "texto": "A norma culta da língua portuguesa estabelece que o pronome oblíquo átono ‘lhe’ pode ser substituído por ‘a’ quando se refere a objeto direto feminino. Assim, a frase ‘Ele entregou o presente a Maria’ pode ser reescrita como ‘Ele entregou o presente lhe Maria’ sem prejuízo de clareza ou correção gramatical.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50478,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50479,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12145,
+    "texto": "Na análise de textos narrativos contemporâneos, o uso de pontuação em períodos de contraste pode alterar a ênfase sem modificar o sentido global. Considerando essa premissa, julgue a seguinte afirmação: a inserção de vírgula após o termo ‘no entanto’ em uma frase que introduz uma ideia contrária é sempre obrigatória segundo a norma culta da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50476,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50477,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

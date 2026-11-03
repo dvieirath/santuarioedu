@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1507,
+    "motivo": "Gabarito Certo incompatível, em princípio, com o recorte: em “o percentual era de 58,3%”, o sujeito é singular e a expressão percentual está introduzida por de. Não aplicar automaticamente a regra de concordância com numeral predicativo. Conferir original e gabarito antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1446,
+    "motivo": "Mesmo problema de concordância: “o percentual eram de 58,3%” não é legitimado apenas pela porcentagem após a preposição de. Conferir original e gabarito Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1447,
+    "motivo": "Deslocamento do advérbio pode manter leitura temporal no trecho disponível. Falta o parágrafo completo para fundamentar a perda de coerência indicada pelo gabarito Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1326,
+    "motivo": "Questão exige interpretação do texto de Patrícia Birman, não incluído. Não substituir a leitura da fonte por uma explicação sociológica genérica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1270,
+    "motivo": "Texto precedente não fornecido; não é possível validar a interpretação contextual sobre violência apenas pelo item.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1099,
+    "motivo": "Falta o período que contém inclusive e as duas vírgulas. Necessário verificar a estrutura e o efeito de suprimir cada sinal.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1098,
+    "motivo": "Faltam os períodos a unir; não é possível aferir a relação que legitimaria os dois-pontos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1096,
+    "motivo": "Falta a oração adverbial e sua posição no período. A generalização sobre extensão não substitui a análise do texto e requer conferência do original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1090,
+    "motivo": "A regência transitiva direta de pensar pode ser admitida com sentido de conceber/refletir. O recorte disponível em 1100 não basta para justificar perda de coerência e correção; conferir o texto completo e a intenção da substituição.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 11958,
+    "motivo": "Média declarada implica 30×1200=36000; ciclo implica 5×8400=42000. Dados contraditórios e nenhum desses resultados consta das alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11957,
+    "motivo": "Índice = 0,4×85+0,3×90+0,3×80+5 = 90, ausente das alternativas; cadastro 84.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11956,
+    "motivo": "Operação sobre conjunto não definida. Se for triplo da soma mais 7, a soma seria 31, impossível para cinco inteiros consecutivos cuja soma é múltipla de 5.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11954,
+    "motivo": "Resistência em série 10+20+30=60 ohms; I=60/60=1 A. Afirmação 2 A cadastrada Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11953,
+    "motivo": "Pelo texto fornecido há penalidades: a afirmação de que não há é falsa, logo o julgamento da frase final seria Certo, não Errado. Norma real citada também requer verificação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11778,
+    "motivo": "Falta a proporção de caminhões da classe média. Resultado é P(média)×0,70; 0,28 exige proporção 0,40 não fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11777,
+    "motivo": "O(n) não fornece constante nem número exato ou máximo de instruções. Frequência do processador não basta para obter o tempo pedido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11774,
+    "motivo": "Texto não fornece requisitos de pré-processamento. Normalização pode ser útil, mas não é exigência universal de toda rede convolucional; questão exige delimitar arquitetura e dados.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11772,
+    "motivo": "Redação fala em atribuição de “valores verdadeiros”, podendo restringir todas as variáveis a V. Definição correta admite V e F. Busca exaustiva em profundidade exige conjunto finito e árvore de atribuições definida. Clarificar antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11738,
+    "motivo": "Redução percentual do tempo não informa quantidade de transformadores afetados. Dados insuficientes para escolher 2000; nome da agência também requer revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11737,
+    "motivo": "Lista tem 15 inversões; inserção com trocas adjacentes realiza 15 trocas (D), não 13 (B). Implementação por deslocamentos precisa distinguir trocas de atribuições.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

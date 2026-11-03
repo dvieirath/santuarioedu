@@ -1,0 +1,512 @@
+[
+  {
+    "id": 12932,
+    "texto": "Um edital de concurso público para o cargo de Analista de Dados da Receita Federal prevê que o candidato deve demonstrar conhecimento em interpretação de textos. No enunciado de uma prova, aparece a frase: \"O Ministério da Fazenda, em sua última reunião, decidiu que a reforma tributária seria implementada no próximo semestre.\" Qual das alternativas abaixo apresenta a análise correta da oração subordinada adverbial de tempo presente no exemplo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53034,
+        "texto": "É uma oração subordinada adverbial de tempo que indica uma ação futura em relação ao presente.",
+        "correta": false
+      },
+      {
+        "id": 53035,
+        "texto": "É uma oração subordinada adverbial de tempo que indica uma ação passada em relação ao presente.",
+        "correta": false
+      },
+      {
+        "id": 53036,
+        "texto": "É uma oração subordinada adverbial de tempo que indica uma ação futura em relação ao passado.",
+        "correta": false
+      },
+      {
+        "id": 53037,
+        "texto": "É uma oração subordinada adverbial de tempo que indica uma ação futura em relação ao presente, mas a estrutura verbal está incorreta.",
+        "correta": false
+      },
+      {
+        "id": 53038,
+        "texto": "É uma oração subordinada adverbial de tempo que indica uma ação futura em relação ao presente, com a correta utilização do presente do indicativo no verbo \"seria\".",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12931,
+    "texto": "Em 2025, a Secretaria de Educação do Estado X adotou um programa de alfabetização digital que integra a análise de textos literários com o uso de inteligência artificial para avaliar a compreensão dos alunos. Considerando que o programa visa promover a leitura crítica e o pensamento argumentativo, qual das alternativas abaixo descreve corretamente o princípio gramatical que regula a concordância verbal em frases compostas por meio de coordenação, quando o sujeito é composto por termos de natureza diversa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53029,
+        "texto": "O verbo deve concordar com o elemento mais próximo do verbo.",
+        "correta": false
+      },
+      {
+        "id": 53030,
+        "texto": "O verbo deve concordar com todos os termos do sujeito, independentemente da ordem.",
+        "correta": false
+      },
+      {
+        "id": 53031,
+        "texto": "O verbo deve concordar com o termo mais próximo do verbo, exceto quando esse termo estiver em posição inicial.",
+        "correta": false
+      },
+      {
+        "id": 53032,
+        "texto": "O verbo deve concordar com o primeiro termo do sujeito, se este estiver em singular.",
+        "correta": false
+      },
+      {
+        "id": 53033,
+        "texto": "O verbo deve concordar com o elemento que precede o verbo, mas se houver elementos de natureza diferente, a concordância se dá com o primeiro desses elementos.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12930,
+    "texto": "Texto: Em 2024, o Ministério da Educação publicou um decreto que prevê a inclusão de aulas de literatura contemporânea nas escolas públicas. O decreto estabelece que, a partir do próximo ano letivo, cada escola deverá oferecer, no mínimo, duas horas semanais de estudo de autores brasileiros contemporâneos, com foco em obras que abordem questões sociais relevantes, como desigualdade, meio‑ambiente e inclusão digital. Além disso, o documento determina que os professores sejam capacitados por meio de cursos de formação continuada, visando a atualização de metodologias de ensino e a integração de tecnologias digitais no processo pedagógico. O decreto também prevê a criação de uma plataforma online, onde os estudantes poderão acessar materiais didáticos, participar de debates virtuais e submeter trabalhos em formato multimídia.\n\nConsiderando o texto acima, a afirmação \"O decreto exige que as escolas ofereçam aulas de literatura contemporânea em todas as modalidades de ensino, inclusive no ensino médio técnico\" é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53027,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53028,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12929,
+    "texto": "O uso de crase é obrigatório quando se tem a expressão \"à vista\", mas não quando se usa a locução \"para a vista\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53025,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53026,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12928,
+    "texto": "A frase \"O relatório foi entregue ao diretor, cujo prazo de entrega era a data de ontem\" contém um erro de colocação pronominal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53023,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53024,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12927,
+    "texto": "Considerando que a norma padrão admite a inversão da ordem de palavras para enfatizar o sujeito, a construção \"Naquela manhã, o juiz, sem hesitar, decidiu suspender a execução\" é considerada correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53021,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 53022,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12926,
+    "texto": "No contexto da norma culta, a frase \"Ele, que estudou diligentemente, obteve boas notas\" apresenta um erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 53019,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 53020,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12434,
+    "texto": "Texto de Apoio: Em 2024, o Ministério da Educação lançou o Programa Nacional de Alfabetização Digital, cujo objetivo é melhorar a leitura e escrita digital de estudantes de escolas públicas de todo o país. O programa prevê a criação de materiais didáticos interativos em formato de e-books, com textos que combinam linguagem formal e informal para tornar a leitura mais atraente. Os materiais contêm seções que apresentam exemplos de frases, diálogos e textos narrativos, e incluem exercícios de compreensão e produção textual. O programa também disponibiliza um módulo de avaliação que mede a capacidade de interpretação de textos e a produção de textos coesos e coerentes, com foco em identificar a diferença entre linguagem formal e informal, além de avaliar a capacidade de aplicar regras gramaticais no contexto digital.\n\nConsiderando o texto acima, qual das alternativas apresenta a descrição correta da diferença entre linguagem formal e informal em relação à estrutura e ao uso de regras gramaticais?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51435,
+        "texto": "A linguagem formal utiliza apenas a norma culta, enquanto a linguagem informal permite a inclusão de gírias e regionalismos sem restrição.",
+        "correta": false
+      },
+      {
+        "id": 51436,
+        "texto": "A linguagem formal é caracterizada por estruturas complexas e uso de jargões técnicos, enquanto a linguagem informal privilegia frases curtas e coloquiais, mas ambas seguem estritamente as mesmas regras gramaticais.",
+        "correta": false
+      },
+      {
+        "id": 51437,
+        "texto": "A linguagem formal mantém a norma culta, evitando expressões coloquiais e respeitando regras de concordância e regência, enquanto a linguagem informal pode incluir gírias, expressões idiomáticas e abreviações, mas ainda deve obedecer às regras básicas de ortografia e gramática.",
+        "correta": true
+      },
+      {
+        "id": 51438,
+        "texto": "A linguagem formal e informal são indistinguíveis em textos digitais, pois ambos se adaptam ao meio eletrônico, mantendo a mesma estrutura textual.",
+        "correta": false
+      },
+      {
+        "id": 51439,
+        "texto": "A linguagem informal pode ser usada em qualquer situação, inclusive em documentos oficiais, sem necessidade de observar regras gramaticais, enquanto a linguagem formal é restrita a textos literários.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12433,
+    "texto": "Durante a prova objetiva de português, o candidato se depara com a seguinte frase: \"A sentença foi proferida com o objetivo de assegurar a efetividade do princípio da legalidade.\" O examinador pede que o candidato indique a alternativa que melhor descreve o papel da norma culta no contexto jurídico. Qual alternativa é a correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51430,
+        "texto": "A norma culta é dispensável no contexto jurídico, pois o foco é a interpretação do conteúdo, não a forma.",
+        "correta": false
+      },
+      {
+        "id": 51431,
+        "texto": "A norma culta serve apenas para conferir estética ao texto jurídico, não influenciando a interpretação legal.",
+        "correta": false
+      },
+      {
+        "id": 51432,
+        "texto": "A norma culta assegura a clareza, a precisão e a uniformidade na redação de textos jurídicos, facilitando a interpretação e evitando ambiguidades.",
+        "correta": true
+      },
+      {
+        "id": 51433,
+        "texto": "A norma culta é relevante apenas na redação de leis, mas não se aplica a sentenças e decisões judiciais.",
+        "correta": false
+      },
+      {
+        "id": 51434,
+        "texto": "A norma culta é usada apenas em textos de orientação pública, não em documentos internos da justiça.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12432,
+    "texto": "Um edital de concurso público para o cargo de Analista de Processos de Gestão Pública apresenta a seguinte frase: \"O candidato deverá comprovar domínio da norma culta da língua portuguesa, demonstrando competência para redigir documentos oficiais, relatórios e comunicações internas.\" O Ministério da Administração Civil, ao analisar a redação do edital, observa que a expressão \"domínio da norma culta\" pode ser interpretada de forma ambígua. Qual alternativa apresenta a melhor reformulação do trecho, alinhada ao princípio da clareza e da precisão exigido pela CESPE?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51425,
+        "texto": "O candidato deve comprovar conhecimento da língua portuguesa em todos os seus registros, incluindo textos literários e jornalísticos.",
+        "correta": false
+      },
+      {
+        "id": 51426,
+        "texto": "O candidato deverá comprovar domínio da norma culta da língua portuguesa, demonstrando habilidade para elaborar textos formais e técnicos.",
+        "correta": false
+      },
+      {
+        "id": 51427,
+        "texto": "O candidato deverá comprovar domínio da norma culta da língua portuguesa, evidenciando capacidade de redigir textos formais, como relatórios e comunicados oficiais.",
+        "correta": true
+      },
+      {
+        "id": 51428,
+        "texto": "O candidato deve comprovar domínio da norma culta da língua portuguesa, apresentando provas de fluência em conversação e escrita informal.",
+        "correta": false
+      },
+      {
+        "id": 51429,
+        "texto": "O candidato deve comprovar domínio da norma culta da língua portuguesa, com ênfase na produção de textos acadêmicos e científicos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12431,
+    "texto": "Em um artigo de opinião publicado na revista \"Diálogo Público\", o autor afirma que a linguagem coloquial, quando empregada em textos formais, pode enriquecer a clareza do conteúdo, desde que não haja excessos que comprometam a precisão. Considerando a norma culta da língua portuguesa, qual das alternativas apresenta a alternativa que melhor descreve a aplicação correta da norma padrão em textos oficiais?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51420,
+        "texto": "A linguagem coloquial pode substituir a norma culta em qualquer documento oficial, pois a clareza é o único critério de qualidade.",
+        "correta": false
+      },
+      {
+        "id": 51421,
+        "texto": "A norma culta deve ser preservada em textos oficiais, mas pode ser suavizada com expressões coloquiais quando o público-alvo for leigo e o conteúdo for técnico.",
+        "correta": false
+      },
+      {
+        "id": 51422,
+        "texto": "Em documentos oficiais, a norma culta deve ser observada em sua forma padrão, evitando-se o uso de gírias e regionalismos que possam gerar ambiguidade.",
+        "correta": true
+      },
+      {
+        "id": 51423,
+        "texto": "A norma culta pode ser substituída por linguagem coloquial sempre que a mensagem exigir empatia, independentemente da natureza do documento.",
+        "correta": false
+      },
+      {
+        "id": 51424,
+        "texto": "A norma culta pode ser parcialmente dispensada em textos oficiais, desde que o autor inclua uma nota de rodapé explicativa sobre o uso de termos coloquiais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12430,
+    "texto": "Assinale a opção em que o uso do sinal indicativo de crase está em estrita observância à norma culta da língua portuguesa.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51415,
+        "texto": "A comissão técnica dirigiu-se àquela sala de reuniões para avaliar a viabilidade das propostas apresentadas pelas empresas licitantes.",
+        "correta": true
+      },
+      {
+        "id": 51416,
+        "texto": "O acesso à informações privilegiadas foi vedado aos servidores que não possuíam autorização formal do departamento de segurança.",
+        "correta": false
+      },
+      {
+        "id": 51417,
+        "texto": "O projeto de lei foi submetido à análise de especialistas, os quais se mostraram contrários à medidas que restringiam o acesso dos cidadãos.",
+        "correta": false
+      },
+      {
+        "id": 51418,
+        "texto": "A partir de segunda-feira, o atendimento ao público passará a ser realizado das 08h00 à 14h00, ininterruptamente.",
+        "correta": false
+      },
+      {
+        "id": 51419,
+        "texto": "O relatório final foi entregue à diretoria, que o encaminhou à instâncias superiores para a devida homologação do certame.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12429,
+    "texto": "Considere o seguinte fragmento de um editorial fictício sobre a modernização do serviço público: 'A transformação digital, embora promissora, exige cautela. Não se trata apenas de substituir o papel pelo arquivo eletrônico, mas de reestruturar processos obsoletos. Muitos gestores, contudo, ignoram essa premissa, focando apenas na economia de insumos, o que acaba por gerar gargalos operacionais em vez de agilidade. Para que a eficiência seja alcançada, é imperativo que a cultura organizacional acompanhe o ritmo das inovações tecnológicas, sob pena de o investimento resultar em frustração coletiva.' Considerando o texto acima, assinale a opção correta quanto aos aspectos gramaticais e de coesão.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51410,
+        "texto": "O termo 'essa' faz referência anafórica à ideia de 'substituir o papel pelo arquivo eletrônico' mencionada anteriormente.",
+        "correta": false
+      },
+      {
+        "id": 51411,
+        "texto": "A expressão 'sob pena de' introduz uma oração com valor semântico de consequência em relação ao que foi dito sobre a necessidade de mudança cultural.",
+        "correta": false
+      },
+      {
+        "id": 51412,
+        "texto": "O conectivo 'contudo' estabelece uma relação de oposição entre a postura dos gestores e a necessidade de reestruturação de processos.",
+        "correta": true
+      },
+      {
+        "id": 51413,
+        "texto": "A forma verbal 'seja alcançada' encontra-se no modo indicativo, denotando uma certeza absoluta quanto ao resultado da modernização.",
+        "correta": false
+      },
+      {
+        "id": 51414,
+        "texto": "A vírgula após 'inovação tecnológica' é facultativa, uma vez que isola uma oração subordinada adverbial de tempo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12428,
+    "texto": "No que tange à concordância verbal e nominal em documentos oficiais, assinale a opção em que a frase está redigida em conformidade com as normas gramaticais vigentes.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51405,
+        "texto": "Devem haver, em cada processo administrativo, as certidões necessárias para a comprovação da regularidade fiscal do licitante.",
+        "correta": false
+      },
+      {
+        "id": 51406,
+        "texto": "Fazem mais de dez anos que o setor de protocolo não realiza a atualização dos registros de entrada de documentos externos.",
+        "correta": false
+      },
+      {
+        "id": 51407,
+        "texto": "É necessário que se enviem, anexo ao ofício, as cópias autenticadas dos documentos solicitados pela auditoria interna.",
+        "correta": false
+      },
+      {
+        "id": 51408,
+        "texto": "A maioria dos servidores públicos que atuam na área de tecnologia da informação manifestaram-se favoráveis à nova política de segurança cibernética.",
+        "correta": true
+      },
+      {
+        "id": 51409,
+        "texto": "Vossa Excelência, apesar de todos os esforços empreendidos, pareceis não estar ciente dos prazos estabelecidos pelo cronograma de execução.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12427,
+    "texto": "Em um relatório técnico sobre a implementação de políticas públicas de inclusão digital, o redator utilizou o seguinte trecho: 'Apesar de a Secretaria ter disponibilizado os equipamentos, os resultados esperados não foram alcançados, visto que a população ainda carece de letramento digital básico.' Assinale a opção que apresenta a reescrita gramaticalmente correta e que preserva o sentido original do período.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51400,
+        "texto": "Conquanto a Secretaria tenha disponibilizado os equipamentos, os resultados esperados não foram alcançados, dado que a população ainda carece de letramento digital básico.",
+        "correta": true
+      },
+      {
+        "id": 51401,
+        "texto": "Não obstante a Secretaria haver disponibilizado os equipamentos, os resultados esperados não foram alcançados, porquanto a população ainda carece de letramento digital básico.",
+        "correta": false
+      },
+      {
+        "id": 51402,
+        "texto": "A despeito de a Secretaria ter disponibilizado os equipamentos, os resultados esperados não foram alcançados, uma vez que a população ainda carece do letramento digital básico.",
+        "correta": false
+      },
+      {
+        "id": 51403,
+        "texto": "Embora a Secretaria disponibilizou os equipamentos, os resultados esperados não foram alcançados, posto que a população ainda carece de letramento digital básico.",
+        "correta": false
+      },
+      {
+        "id": 51404,
+        "texto": "Apesar da Secretaria ter disponibilizado os equipamentos, os resultados esperados não foram alcançados, haja vista que a população ainda carece por letramento digital básico.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12426,
+    "texto": "Em 2024, a Secretaria de Educação publicou o edital de concurso para professor de Língua Portuguesa, no qual exigia que os candidatos apresentassem, em prova escrita, uma análise comparativa entre a sintaxe do português brasileiro e a do português europeu, destacando as principais diferenças na estrutura de orações subordinadas adverbiais. Considerando o texto acima, julgue a seguinte afirmação: A exigência de comparação sintática entre as variantes do português não está em conformidade com o princípio da unidade da língua, pois tal princípio impede a distinção entre variantes regionais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51398,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51399,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12425,
+    "texto": "A frase \"O futuro pertence àqueles que acreditam na beleza de seus sonhos\" é considerada um exemplo de hipérbole, pois exagera a ideia de que o futuro é exclusivo dos que têm sonhos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51396,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51397,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12424,
+    "texto": "Texto: O Ministério da Educação divulgou recentemente um relatório que destaca a necessidade de revisão dos currículos escolares para incorporar competências digitais. O documento enfatiza que a alfabetização digital deve ser considerada parte integrante da formação básica, junto com a alfabetização tradicional. Segundo o relatório, o uso de tecnologias interativas, como realidade aumentada e simuladores virtuais, pode melhorar a compreensão de conceitos científicos complexos. Entretanto, a adoção dessas ferramentas requer investimento em infraestrutura, capacitação de professores e atualização constante dos conteúdos. O relatório também aponta que, em regiões com menor acesso à internet, a implementação deve ser gradual, priorizando recursos de baixo consumo de dados e dispositivos móveis. Além disso, recomenda-se a criação de parcerias público-privadas para garantir a sustentabilidade financeira das iniciativas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51394,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51395,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12423,
+    "texto": "A análise do uso de pronomes de tratamento em textos jornalísticos exige que o autor sempre evite o uso de pronomes de tratamento quando se dirige a um público geral, a fim de manter a objetividade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51392,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51393,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12422,
+    "texto": "A norma culta da língua portuguesa, segundo os critérios de gramática normativa, admite a inversão da ordem sintática em frases interrogativas sem que haja alteração no sentido da mensagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51390,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51391,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "id": 9868,
+    "motivo": "“Que” introduz o conteúdo de “decidiu” como conjunção integrante, não retoma “reforma tributária” como pronome relativo. Não há antecedente relativo na construção. Gabarito Certo incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9870,
+    "motivo": "Trocar a relação causal/explicativa por adversativa não preserva o sentido: “foi ao médico, mas estava se sentindo mal” expressa oposição, não a justificativa original. Gabarito Certo incompatível, independentemente da classificação de “pois”.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9871,
+    "motivo": "“Quando bem aplicada” admite análise temporal com verbo elíptico, embora no contexto também possa sugerir condição. O gabarito Errado não deve ser sustentado excluindo sem discussão a leitura temporal expressamente introduzida por “quando”.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9872,
+    "motivo": "Não há regra fornecida que imponha a distribuição de 20 respostas na primeira etapa e 10 na segunda. O total de 30 não determina essa divisão. Há também imprecisão ao chamar questões de múltipla escolha de dissertativas. Gabarito acrescenta condição ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9873,
+    "motivo": "Não foi indicada regra normativa que imponha preferência por “neologismo” sobre a paráfrase. Além disso, circulação recente não basta para definir novidade lexical em todos os contextos. Rever a alegação de recomendação da norma culta e as alternativas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9911,
+    "motivo": "A norma culta admite ordem inversa em declarativas, por exemplo “Chegaram os convidados”. O gabarito Errado contraria a possibilidade descrita; não há exemplo de inversão inadequada que sustente a marcação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9912,
+    "motivo": "O singular depende do número de destinatários e não confere por si maior formalidade. A generalização de preferência por “Vossa Senhoria” desconsidera normas específicas; Decreto 9.758/2019 prevê “senhor” no âmbito por ele regulado. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9758.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9913,
+    "motivo": "A falta de requisito de autenticidade não implica necessariamente a consequência jurídica de invalidade definitiva para apreciação. Faltam regime processual, decisão e eventual possibilidade de saneamento. A alternativa marcada extrapola a informação textual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9914,
+    "motivo": "Não identifica o edital do MEC e não formula assertiva gramatical concreta a conferir. O gabarito Errado não pode ser justificado presumindo inexistência do documento ou impropriedade de avaliar crase.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9915,
+    "motivo": "Não identifica vício formal que implique anulação. Eventual dúvida entre a data inicial e o dia mensal de pagamento demanda esclarecimento, mas não demonstra automaticamente invalidade do contrato. Gabarito Certo sem fundamento suficiente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9917,
+    "motivo": "Duas alternativas atendem à concordância solicitada: “analisaram” e “analisam” estão na terceira pessoa do plural e concordam com o sujeito composto anteposto. O comando não fixa tempo verbal. Não há resposta única.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9919,
+    "motivo": "A expressão é oração subordinada adjetiva explicativa, modificadora de “crise econômica”, e não adjunto adverbial de tempo. Nenhuma alternativa oferece a função correspondente; gabarito incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9922,
+    "motivo": "Há situação e cláusula contratual, mas falta comando que estabeleça o que selecionar. A alternativa pretendida reproduz informação do trecho, porém não cabe inventar a pergunta ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 8707,
+    "motivo": "As premissas são A→B e C→B, pois Bruno é condição necessária para Carla. ¬C não implica ¬A. Contraexemplo: A e B verdadeiros, C falso satisfazem tudo e refutam a conclusão marcada CERTO.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8527,
+    "motivo": "Não é possível determinar a contagem observada de outliers sem os dados/quartis amostrais. Mesmo usando quartis populacionais normais, as cercas são aproximadamente média ±2,698 desvios; a contagem esperada em 200 é cerca de 1,395, não 8. Referência sobre cercas de 1,5 IQR: https://www.itl.nist.gov/div898/handbook/eda/section3/boxplot.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8526,
+    "motivo": "Enunciado termina no texto de apoio e não contém comando de escolha. O gabarito ainda postula aumento de probabilidade sem modelo ou dados que o sustentem; 15 é exatamente cinco vezes 3, não excede cinco vezes. Não foi validada a alegação temporal sobre o sistema real; a incompletude já impede preencher.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8525,
+    "motivo": "Substituição direta dá (500×25)/(4+1)=12500/5=2500, segunda alternativa. O gabarito cadastrado marca 1250.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8524,
+    "motivo": "A proporcionalidade explicitada exige 120:80=3:2, razão ausente das alternativas. O gabarito 2:1 não corresponde aos dados, independentemente da duração total do ciclo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8523,
+    "motivo": "Pergunta numérica aberta sobre metade de 12 (6 questões), cadastrada como Certo/Errado sem proposição a julgar. A atribuição de diretriz ao MEC também não traz referência; não é necessário validar essa alegação para identificar a falha estrutural.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8522,
+    "motivo": "O(n log n) não fixa constante multiplicativa nem limite para n específico. Não autoriza o teto de 10240 comparações em n=1024 sem algoritmo e constantes. Referência primária: https://xlinux.nist.gov/dads/HTML/bigOnotation.html . Gabarito CERTO não sustentado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8519,
+    "motivo": "Pergunta 'qual é o décimo termo?' cadastrada como CE, sem afirmação para julgar. Na progressão de razão +3, o resultado seria 7+9×3=34; falta opção ou proposição correspondente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8486,
+    "motivo": "Percentuais fornecidos somam 90%; o restante é 10% de 4000000=400000 reais. Nenhuma alternativa corresponde; gabarito 1800000 incompatível. A falha aritmética independe da existência do relatório citado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8482,
+    "motivo": "Texto afirma causalidade, mas a descrição de regressão e controle socioeconômico não apresenta hipóteses de identificação suficientes para demonstrá-la. Ambiguidade entre reproduzir a afirmação textual e avaliá-la estatisticamente; relatório não identificado. Revisar antes de explicar como causalidade comprovada. Fonte sobre confundimento e estudos observacionais: https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8481,
+    "motivo": "O teto de quatro comparações não vale para a busca binária usual inclusiva. Em índices 0..15, chave maior que o máximo visita 7,11,13,14,15: cinco sondagens. A contagem de comparações primitivas pode ser ainda maior. Implementação primária conferida: https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BinarySearch.java.html . Gabarito CERTO exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

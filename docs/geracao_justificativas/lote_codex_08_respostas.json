@@ -1,0 +1,10 @@
+[
+  {
+    "id": 10632,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nPela lei de De Morgan, ¬(P ∨ Q) equivale a ¬P ∧ ¬Q. A disjunção inclusiva é falsa somente quando P e Q são ambas falsas; sua negação, portanto, exige as duas negações verdadeiras. A regra da conjunção citada no início também está correta.\n\n## ⚠️ O erro típico\nNegar as parcelas sem trocar o conectivo. Manter “ou” produziria uma expressão verdadeira quando apenas uma parcela fosse falsa, embora a disjunção original ainda pudesse ser verdadeira.\n\n## 🧠 Conceito-chave\nAs leis de De Morgan são ¬(P ∧ Q) ≡ ¬P ∨ ¬Q e ¬(P ∨ Q) ≡ ¬P ∧ ¬Q. Elas preservam os valores lógicos em todas as linhas da tabela-verdade.\n\n## 📚 Onde aprofundar\nEstude leis de De Morgan e tabelas-verdade de negação, conjunção e disjunção inclusiva.\n\n## 💡 Padrão a memorizar\nAo negar uma expressão com “e” ou “ou”, negue as parcelas e troque o conectivo."
+  },
+  {
+    "id": 10631,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA quantidade de elementos examinados depende da posição da chave. Na busca usual que escolhe o meio inferior, uma lista de 16 posições é examinada primeiro na posição 8: se a chave estiver ali, a busca termina imediatamente. Para a posição 7, o percurso é 8, 4, 6, 7. Quatro exames nesse caso particular não significam quatro em todas as buscas.\n\n## ⚠️ O erro típico\nTransformar a contagem de um percurso em uma regra fixa para todas as posições. Também é preciso distinguir comparações com elementos de avaliações individuais de operadores no código.\n\n## 🧠 Conceito-chave\nA busca binária reduz o intervalo e para quando encontra a chave. Seu custo de pior caso é logarítmico, mas uma chave no primeiro ponto médio é encontrada em tempo constante. A contagem exata depende da implementação e do critério de contagem.\n\n## 📚 Onde aprofundar\n[Princeton — BinarySearch.java: cálculo do ponto médio e retorno ao encontrar a chave](https://algs4.cs.princeton.edu/11model/BinarySearch.java.html).\n\n## 💡 Padrão a memorizar\nComplexidade logarítmica não significa número fixo de comparações: encontrar a chave encerra a busca."
+  }
+]

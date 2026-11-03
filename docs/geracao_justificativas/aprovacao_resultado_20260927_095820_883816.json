@@ -1,0 +1,481 @@
+{
+  "aprovadas": 18,
+  "ids_aprovados": [
+    8209,
+    9414,
+    9415,
+    9454,
+    9457,
+    9460,
+    9660,
+    11993,
+    11994,
+    12170,
+    12171,
+    12172,
+    12200,
+    12205,
+    12407,
+    12445,
+    12446,
+    12447
+  ],
+  "ignoradas_por_alteracao": [],
+  "mantidas_pendentes": [
+    {
+      "id": 8103,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8104,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8118,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8123,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8135,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8136,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8137,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8160,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8168,
+      "motivo": "Tema é direito autoral na categoria Português; referência central sobre independência de registro deve ser art. 18 da LDA.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8169,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8170,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8171,
+      "motivo": "Explicação atribui exigências não fornecidas ao edital e confunde citação com referência completa.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta",
+        "termina_em_conjuncao"
+      ]
+    },
+    {
+      "id": 8176,
+      "motivo": "Conceito central plausível, mas referências bibliográficas específicas não verificadas.",
+      "flags": [
+        "referencia_a_imagem_sem_imagem"
+      ]
+    },
+    {
+      "id": 8177,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente",
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8183,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8184,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta",
+        "aspa_desbalanceada"
+      ]
+    },
+    {
+      "id": 8191,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8194,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8201,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8210,
+      "motivo": "Há também omissão de informação; justificativa generaliza improbidade e cita súmula que precisa ser verificada.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8212,
+      "motivo": "Contagem de incidências inconsistente: 20 elementos em 3 pares cada dão 60 incidências, equivalentes a 30 pares, não 12.",
+      "flags": []
+    },
+    {
+      "id": 8215,
+      "motivo": "Média ponderada não informa pesos; explicação assume igualdade de pesos sem explicitação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8220,
+      "motivo": "(4×3+2)/2=7, ausente das alternativas; cadastro marca 10.",
+      "flags": [
+        "alternativa_muito_curta"
+      ]
+    },
+    {
+      "id": 8221,
+      "motivo": "A escolha do meio não é especificada; com meio inferior o oitavo elemento é encontrado na primeira comparação, não na terceira.",
+      "flags": [
+        "alternativa_muito_curta"
+      ]
+    },
+    {
+      "id": 8222,
+      "motivo": "Dados não determinam a: (3,8,10,17) e (4,8,10,16) satisfazem todas as condições.",
+      "flags": [
+        "termina_em_conjuncao",
+        "alternativa_muito_curta"
+      ]
+    },
+    {
+      "id": 8238,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8243,
+      "motivo": "Diretriz e seção bibliográfica alegadas não verificadas; ausência de menção não demonstra por si a conclusão.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8250,
+      "motivo": "Resposta atende ao edital hipotético, mas manual e capítulo atribuídos ao Cebraspe não foram verificados.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8260,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_imagem_sem_imagem",
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8263,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_imagem_sem_imagem",
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8265,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta",
+        "termina_em_conjuncao"
+      ]
+    },
+    {
+      "id": 8275,
+      "motivo": "Texto exige atualizações de firmware, enquanto a proposição nega essa necessidade e está marcada Certo.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8281,
+      "motivo": "Referências específicas não verificadas e memorização generaliza indevidamente todo custo dependente da entrada como O(n).",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8284,
+      "motivo": "Justificativa contém fórmula corrompida e regra “O(N²) sempre” que não explica o melhor caso linear.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8286,
+      "motivo": "Sequência finita sem regra suficientemente definida para determinar o próximo termo.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta",
+        "letras_flutuantes"
+      ]
+    },
+    {
+      "id": 8287,
+      "motivo": "t(50)−t(30)=105−65=40. Gabarito Errado incompatível se t estiver em minutos; unidade também deve ser explicitada.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8288,
+      "motivo": "Condição do WHILE não garante distância mínima sem conhecer movimento, passo e leitura de sensores.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8289,
+      "motivo": "Cálculo correto, mas resolução e artigo atribuídos à ANTT não foram verificados.",
+      "flags": [
+        "referencia_a_texto_ausente",
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8291,
+      "motivo": "Regra de eliminação de pares de letras ambígua.",
+      "flags": [
+        "alternativa_muito_curta"
+      ]
+    },
+    {
+      "id": 8292,
+      "motivo": "Nova marcação nas posições 2,6,10: três elementos. União com 1,4,7,10 tem seis, não quatro.",
+      "flags": [
+        "alternativa_muito_curta"
+      ]
+    },
+    {
+      "id": 8299,
+      "motivo": "Pergunta ME cadastrada como CE; justificativa seleciona letra E e usa referências jurídicas não pertinentes.",
+      "flags": []
+    },
+    {
+      "id": 8315,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente",
+        "enunciado_termina_em_pontuacao_incompleta",
+        "termina_em_conjuncao"
+      ]
+    },
+    {
+      "id": 8316,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8317,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8318,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente",
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8321,
+      "motivo": "Justificativa atribui participação política ao art. 5, XXXVII e voto eletrônico ao art. 14, §4; dispositivos não tratam disso.",
+      "flags": []
+    },
+    {
+      "id": 8338,
+      "motivo": "Justificativa restringe indevidamente controle judicial a conflitos de competência; exige correção de conteúdo.",
+      "flags": []
+    },
+    {
+      "id": 8340,
+      "motivo": "Referência da igualdade atribuída indevidamente ao §1 do art. 5 da CF; conferir também fonte do caso.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8366,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8369,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8377,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_texto_ausente"
+      ]
+    },
+    {
+      "id": 8379,
+      "motivo": "Alerta de estrutura/contexto ou fonte ainda não resolvido; requer revisão de conteúdo antes de aprovação.",
+      "flags": [
+        "referencia_a_imagem_sem_imagem"
+      ]
+    },
+    {
+      "id": 8393,
+      "motivo": "Referência à individualização da pena está incorreta: CF art. 5, XLVI, não XLVIII. Programa e conclusão precisam de revisão.",
+      "flags": []
+    },
+    {
+      "id": 8398,
+      "motivo": "Caso narrativo sem proposição final clara; explicação acrescenta conteúdo de lei local não fornecido.",
+      "flags": []
+    },
+    {
+      "id": 8400,
+      "motivo": "Caso narrativo sem proposição final clara; justificativa presume validade da distinção sem fundamento apresentado.",
+      "flags": []
+    },
+    {
+      "id": 8410,
+      "motivo": "Afirma obrigatoriedade e nulidade automática com referências incompatíveis; necessária revisão jurídica.",
+      "flags": []
+    },
+    {
+      "id": 8413,
+      "motivo": "Justificativa contém instrução residual “Máximo 4 frases” e referências incompatíveis com a hipótese penal.",
+      "flags": []
+    },
+    {
+      "id": 8418,
+      "motivo": "Requer esclarecer registro do medicamento versus registro do fornecedor e conferir contexto sanitário antes de aprovar.",
+      "flags": [
+        "referencia_a_texto_ausente",
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8431,
+      "motivo": "Justificativa declara vício insanável e indeferimento inevitável sem tratar adequadamente da emenda do art. 321 do CPC.",
+      "flags": [
+        "enunciado_termina_em_pontuacao_incompleta"
+      ]
+    },
+    {
+      "id": 8432,
+      "motivo": "A mera alegação em embargos não suspende automaticamente a execução: CPC art. 919. Referência a §1 do art. 924 inadequada.",
+      "flags": []
+    },
+    {
+      "id": 8433,
+      "motivo": "Cita art. 1793 do CPC e leilão universalmente obrigatório; referência e explicação precisam de correção.",
+      "flags": []
+    },
+    {
+      "id": 8434,
+      "motivo": "Enunciado exige laudo preliminar, mas a própria justificativa afirma que não é obrigatório.",
+      "flags": []
+    },
+    {
+      "id": 8435,
+      "motivo": "Justificativa impede revogação da liminar antes do mérito, contrariando CPC art. 296.",
+      "flags": []
+    },
+    {
+      "id": 8436,
+      "motivo": "Alternativas C e D materialmente semelhantes; contexto usa suposto limite de isenção do CDC sem base.",
+      "flags": []
+    },
+    {
+      "id": 8437,
+      "motivo": "Referência à Súmula 545/STJ não corresponde ao tema descrito; conferir fontes antes de liberar.",
+      "flags": []
+    },
+    {
+      "id": 8438,
+      "motivo": "Suposto limite de isenção no art. 1 do CDC não sustenta suspensão de execução fiscal.",
+      "flags": []
+    }
+  ],
+  "excecoes_conferidas": {
+    "8209": "Imagem institucional é reputação, não figura ausente. Transparência confirmada na Lei 12.527/2011, arts. 3 e 7.",
+    "11993": "A, B e C são nomes dos centros, não letras corrompidas. Geometria e justificativa conferidas.",
+    "12205": "Texto de apoio consta integralmente; alternativas de um dígito são números válidos. Sete bytes distintos conferidos."
+  },
+  "backup": "C:\\Users\\USER\\Downloads\\projeto_prf\\backups\\antes_aprovacao_20260927_095820_883816.sqlite3",
+  "total_aprovadas": 7847,
+  "fontes": [
+    "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
+    "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",
+    "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  ]
+}

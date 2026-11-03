@@ -1,0 +1,362 @@
+[
+  {
+    "id": 4614,
+    "texto": "Criança de 8 anos de idade, do sexo masculino, pesando 25 kg, foi submetida a anestesia geral para cirurgia de correção de estrabismo. A indução anestésica foi realizada com fentanil, propofol e cisatracúrio, e a manutenção foi feita com sevoflurano e óxido nitroso. Durante a manipulação cirúrgica, a criança apresentou bradicardia sinusal súbita, com frequência cardíaca de 38 bpm. A partir desse caso clínico hipotético, julgue os itens subsecutivos. A bradicardia pode ser justificada por reflexo autonômico mediado pelo nervo facial como membro aferente e pelo nervo vago como membro eferente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29030,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29031,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4606,
+    "texto": "O aparecimento de ondas v proeminentes durante a monitorização da pressão venosa central pode sugerir isquemia dos músculos papilares do ventrículo direito e regurgitação tricúspide.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29014,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29015,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4604,
+    "texto": "Considerando a figura precedente, julgue os itens que se seguem. [FIGURA: passagem de um cateter de artéria pulmonar, em que a letra C representa as ondas de pressão no ventrículo direito]. A imagem a seguir ilustra a passagem de um cateter de artéria pulmonar, em que a letra C representa as ondas de pressão no ventrículo direito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29010,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29011,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4602,
+    "texto": "Recentemente, tem-se utilizado o processamento de ondas eletroencefalográficas para monitorizar a profundidade da anestesia. Um dos aparelhos mais comumente vistos na prática clínica é o índice biespectral (BIS Covidien, King of Prussia, PA). Com relação à interpretação dos parâmetros desse dispositivo, julgue os itens a seguir. Em comparação com os adultos, os pacientes pediátricos têm uma incidência mais de três vezes maior de consciência durante anestesia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29006,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29007,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4585,
+    "texto": "A respeito dos anestésicos locais, julgue o item: A potência dos anestésicos locais está relacionada à solubilidade lipídica: no geral, agentes mais potentes são menos lipossolúveis.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28972,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28973,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4582,
+    "texto": "Com referência aos anestésicos inalatórios, julgue o item: O aumento do volume-minuto (volume corrente × frequência respiratória) ou o aumento da capacidade residual funcional são duas formas de aumentar a velocidade de indução sob a máscara.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28966,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28967,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4576,
+    "texto": "Julgue os próximos itens, a respeito da avaliação eletrofisiológica da audição e seus achados em pacientes com perda auditiva de caráter condutivo. Na avaliação do potencial evocado auditivo de tronco encefálico em pacientes com perda auditiva condutiva, encontra-se a onda I com latência aumentada, levando consigo as demais ondas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28954,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28955,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4575,
+    "texto": "Acerca da avaliação vestibular por meio da vectoeletronistagmografia (VENG), que auxilia no diagnóstico de alterações vestibulares, julgue os itens subsequentes. Nas provas rotatórias decrescentes, o parâmetro de avaliação é a frequência nistágmica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28952,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28953,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4536,
+    "texto": "Homem de 60 anos de idade, peso ideal de 70 kg, foi admitido na unidade de terapia intensiva com necessidade de intubação orotraqueal e ventilação mecânica invasiva (VMI). Os parâmetros ventilatórios no momento são: modo assistido/controlado, pressão controlada de 20 cmH2O, volume corrente de 600 ml, tempo inspiratório de 1,2 segundo, PEEP de 8 cmH2O, frequência respiratória de 20 rpm, FiO2 de 80%, pressão de pico de 45 cmH2O e pressão de platô de 35 cmH2O. Com esses parâmetros ventilatórios foi coletada a seguinte gasometria arterial pH = 7.30, PaCO2 = 50mmHg, PaO2 = 100 mmHg, HCO3 30 mEq/L e SaO2 = 91%. A gasometria arterial apresenta acidose respiratória.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28874,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28875,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4532,
+    "texto": "As disfunções causadas pela pandemia da covid-19 trouxeram à tona a discussão sobre os efeitos da eletroestimulação como recurso terapêutico para aumento da força muscular no caso de pacientes com fraqueza muscular. A respeito da eletroestimulação, julgue os itens subsecutivos. A estimulação elétrica neuromuscular envolve a aplicação de uma série de estímulos intermitentes na superfície muscular, com o objetivo de produzir contração muscular por meio de ativação nervosa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28866,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28867,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4529,
+    "texto": "A hidroterapia produz efeitos favoráveis no equilíbrio e na força muscular de pacientes após acidente vascular encefálico, haja vista as propriedades da água, tais como flutuabilidade, pressão hidrostática, termodinâmica, forças hidrodinâmicas e viscosidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28860,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28861,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4523,
+    "texto": "Com base nas recomendações atuais para prescrição de exercício: As recomendações atuais quanto aos componentes de um programa completo de exercício para indivíduos descondicionados ou sedentários incluem exercícios aeróbios em intensidade moderada, exercícios de força com intensidade moderada, exercícios de flexibilidade e treino neuromotor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28848,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28849,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4522,
+    "texto": "Com base nas recomendações atuais para prescrição de exercício: Os componentes da aptidão física relacionados à saúde são a força muscular, a resistência muscular, a capacidade cardiorrespiratória, a flexibilidade e a composição corporal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28846,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28847,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4520,
+    "texto": "O teste de gaveta é muito usado na detecção de lesão de ligamento cruzado posterior e avalia a frouxidão articular do joelho no plano posterior: com o joelho a 30° de flexão, uma das mãos do examinador estabiliza o fêmur e a outra força uma anteriorização da tíbia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28842,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28843,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4518,
+    "texto": "Um teste que auxilia na detecção de inflamação sacroilíaca é o teste de Patrick, ou teste de Fabere: com o paciente em decúbito dorsal, com adução, extensão e rotação interna do quadril, o calcanhar do membro em questão será posicionado sobre o tornozelo contralateral e será feita uma força, para baixo, sobre o joelho a ser testado. O resultado será positivo em caso de dor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28838,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28839,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4517,
+    "texto": "Na realização do teste de Allen em paciente submetido à cirurgia de mão, para verificação do estado das artérias radial e ulnar, após o paciente fechar a mão com força, o trajeto no punho de ambas as artérias é comprimido pelo examinador; será evidenciado déficit de vascularização da artéria ulnar se o examinador, depois de liberar o trajeto correspondente ao quarto e ao quinto dedos, observar que esses dedos estão pálidos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28836,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28837,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4514,
+    "texto": "Agachamento com membros inferiores, bicicleta ergométrica e sentar/levantar de uma cadeira são exemplos de exercícios de cadeia cinética fechada para o quadril que têm menor risco de lesões, melhor controle da estabilidade dinâmica e menos movimentos de aceleração/desaceleração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28830,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28831,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4513,
+    "texto": "Considerando aspectos relacionados à biomecânica e à cinesiologia, julgue o item: Ao se estender o cotovelo contra uma resistência, como em um exercício para fortalecimento do tríceps, o braço de potência e o braço de resistência ficam separados pelo ponto de apoio, que, nesse caso, é a articulação do cotovelo. Esse é um exemplo de alavanca interpotente, ou de terceira classe.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28828,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28829,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4512,
+    "texto": "No que se refere a conceitos em biomecânica e sua aplicabilidade, julgue o item: Pela natureza viscoelástica dos músculos esqueléticos, os alongamentos devem ser preferencialmente realizados de maneira lenta e gradativa, para que, dessa forma, o aumento da força e, portanto, da resistência sobre a unidade músculo-tendão seja minimizado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28826,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28827,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4506,
+    "texto": "A respeito de postura e análise de marcha, julgue o item: Em um padrão de marcha normal, a fase de apoio corresponde a cerca de 60% do ciclo de marcha, reduzindo-se à medida que se aumenta a velocidade (corrida), e a maioria das pessoas passa a realizar com o antepé o contato inicial com o solo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28814,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28815,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

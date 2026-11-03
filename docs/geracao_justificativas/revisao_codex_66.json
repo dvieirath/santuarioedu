@@ -1,0 +1,38 @@
+[
+  {
+    "id": 2173,
+    "motivo": "Texto sobre streaming ausente; falta o terceiro parágrafo necessário para interpretar a relação semântica do segmento. Não inferir o contexto a partir do fragmento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2037,
+    "motivo": "Figura mencionada ausente e campo imagem vazio. Embora a independência do zero de energia potencial seja incorreta em geral, não preencher item com figura ausente conforme critério da tarefa; recuperar a definição gráfica de h e do ponto A.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2034,
+    "motivo": "Ambiguidade entre peso e peso aparente em balança típica. O instrumento responde à força de contato; em repouso horizontal ela pode igualar o peso e ser convertida em massa indicada. O enunciado não explicita aceleração nem o sentido de diretamente. Conferir intenção original antes de sustentar Errado. Fonte: https://openstax.org/books/university-physics-volume-1/pages/13-2-gravitation-near-earths-surface.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2029,
+    "motivo": "Gabarito incompatível com cálculo: F = 9C/5 + 32 e F = 2C fornecem C = 160 e F = 320. Portanto, a afirmação está correta, mas o cadastro marca Errado. Conferir original; não alterar gabarito. Fonte: https://openstax.org/books/university-physics-volume-2/pages/1-2-thermometers-and-temperature-scales.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1792,
+    "motivo": "Afirmação pedagógica ampla com qualificadores necessárias e indispensáveis, ligada a uma concepção de cultura corporal não identificada. Localizada redação em prova Cebraspe SEDUC Recife 2023, mas não concluída a verificação do fundamento teórico primário. Requer revisão especializada sem justificar a partir do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1785,
+    "motivo": "Não confirmada a associação das recomendações inclusivas ao estágio de performance de um modelo específico de desenvolvimento motor. A expressão pode designar estágio de aprendizagem em taxonomia particular; identificar autor/modelo e texto primário antes de atribuir essas características ao estágio.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

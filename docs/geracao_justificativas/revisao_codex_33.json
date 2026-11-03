@@ -1,0 +1,80 @@
+[
+  {
+    "id": 11111,
+    "motivo": "“Seu Excelência” não corresponde à forma de tratamento apresentada como culta; o possessivo deve concordar com “Excelência”, como em “Sua Excelência”. O gabarito Certo endossa uma forma inadequada, independentemente da discussão sobre autoridades.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11113,
+    "motivo": "Não transcreve norma específica de licitações ou contratos: apresenta uma exigência genérica de capacidade do candidato. A referência a “norma jurídica citada” é indeterminada e a alternativa acrescenta sanções sem indicar seu fundamento ou hipótese.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11117,
+    "motivo": "Comando pergunta se há vício “de forma ou de conteúdo”, mas oferece apenas Certo/Errado, sem proposição declarativa que identifique qual hipótese está sendo julgada. Item malformado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11118,
+    "motivo": "A avaliação jurídica da omissão de critérios exige delimitar a modalidade de prova, o conjunto do edital e a forma de divulgação dos critérios. O enunciado isolado não sustenta afastar categoricamente a violação com o gabarito Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11119,
+    "motivo": "A ausência da expressão exata “em síntese” não demonstra incapacidade de sintetizar. Atribuir zero por esse único indício não se sustenta pela justificativa apresentada; o gabarito Certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11120,
+    "motivo": "O item mistura estrutura gramatical, ausência de ambiguidade e abrangência teórica da análise semântica. Não explicita a suposta dupla leitura que sustentaria o gabarito Errado; discordar de “todas as palavras” não demonstra ambiguidade da frase.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11122,
+    "motivo": "Os neologismos que o candidato teria citado estão ausentes. Sem as palavras, não há como classificar seus processos de formação ou escolher a sequência indicada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11123,
+    "motivo": "O artigo e a oração no futuro do subjuntivo não foram fornecidos. O comando exige função no contexto, que não se determina apenas pelo nome do tempo verbal.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11125,
+    "motivo": "O texto e a alternativa marcada usam “análise corpórea” onde o contexto anuncia análise de corpora digitais. A alternativa pretendida é identificável por repetição, mas a terminologia do conteúdo está defeituosa e precisa de revisão editorial antes de justificar o item como isento de erro. Não foi verificada como fato a existência do relatório ou da entidade mencionados.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11453,
+    "motivo": "A invariância semântica é afirmada de modo geral, sem exemplo que delimite a inversão. Alterações de ordem podem afetar interpretação, escopo ou relações sintáticas; a manutenção do sentido não decorre automaticamente da finalidade estilística. Gabarito Certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11454,
+    "motivo": "Não define “condição absoluta” nem apresenta a oração ou norma a interpretar. A formulação “pode, em tese” não permite distinguir uma possibilidade contextual de uma pretensa regra geral; faltam elementos para julgamento inequívoco.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11455,
+    "motivo": "Gabarito Certo incompatível com a exclusão da coesão: a repetição de palavras-chave pode estabelecer coesão lexical entre segmentos. A palavra “exclusivamente” e a negação de qualquer influência na coesão invalidam a afirmação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11456,
+    "motivo": "Há apenas texto de apoio, sem assertiva ou comando que permita julgamento Certo/Errado. Não é possível determinar o que deve ser julgado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

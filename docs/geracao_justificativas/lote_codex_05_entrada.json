@@ -1,0 +1,512 @@
+[
+  {
+    "id": 11958,
+    "texto": "Em uma fábrica de componentes eletrônicos, a produção diária segue um padrão de 3 dias de alta produção, 2 dias de média produção e 1 dia de baixa produção, em um ciclo contínuo de 6 dias. Em um determinado período de 30 dias, a média diária de peças produzidas foi de 1.200 unidades. Se a produção nos dias de alta produção é 1.800 unidades, nos dias de média produção 1.200 unidades e nos dias de baixa produção 600 unidades, qual é a soma total das peças produzidas nos 30 dias?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49877,
+        "texto": "54.000",
+        "correta": false
+      },
+      {
+        "id": 49878,
+        "texto": "60.000",
+        "correta": true
+      },
+      {
+        "id": 49879,
+        "texto": "66.000",
+        "correta": false
+      },
+      {
+        "id": 49880,
+        "texto": "72.000",
+        "correta": false
+      },
+      {
+        "id": 49881,
+        "texto": "78.000",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11957,
+    "texto": "Considerando o texto abaixo, responda a pergunta.\n\nTexto: \"Em 2024, a Secretaria de Educação implementou um programa de avaliação de desempenho docente baseado em métricas quantitativas. Cada professor recebe um índice que resulta da soma de três componentes: 40% da média das avaliações dos alunos, 30% da participação em cursos de capacitação e 30% do cumprimento de metas de projetos pedagógicos. O índice total varia de 0 a 100 pontos. Um professor, chamado Dr. Silva, obteve as seguintes notas: 85 na avaliação dos alunos, 90 na capacitação e 80 nas metas de projetos. Ele também tem um bônus de 5 pontos por ter participado de um intercâmbio internacional. O índice final é calculado somando o valor ponderado dos três componentes e o bônus, caso haja. Qual é o índice final do Dr. Silva?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49872,
+        "texto": "81,5",
+        "correta": false
+      },
+      {
+        "id": 49873,
+        "texto": "82,5",
+        "correta": false
+      },
+      {
+        "id": 49874,
+        "texto": "84,0",
+        "correta": true
+      },
+      {
+        "id": 49875,
+        "texto": "85,5",
+        "correta": false
+      },
+      {
+        "id": 49876,
+        "texto": "86,0",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11956,
+    "texto": "Um conjunto de cinco números inteiros consecutivos é multiplicado por 3, e o resultado é somado a 7. O produto obtido é 100. Qual é o menor número do conjunto original?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49867,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 49868,
+        "texto": "6",
+        "correta": true
+      },
+      {
+        "id": 49869,
+        "texto": "7",
+        "correta": false
+      },
+      {
+        "id": 49870,
+        "texto": "8",
+        "correta": false
+      },
+      {
+        "id": 49871,
+        "texto": "9",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11955,
+    "texto": "Um órgão público disponibiliza um sistema de agendamento de consultas em três horários distintos: 08h, 12h e 16h. Em um determinado dia, 120 pessoas comparecem ao órgão. A distribuição de comparecimento segue a seguinte regra: o número de pessoas que comparecem em 08h é igual a 20% do total; o número que comparecem em 12h é igual ao dobro do número que comparecem em 08h; o restante comparece em 16h. Quantas pessoas compareceram no horário das 12h?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49862,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 49863,
+        "texto": "24",
+        "correta": false
+      },
+      {
+        "id": 49864,
+        "texto": "48",
+        "correta": true
+      },
+      {
+        "id": 49865,
+        "texto": "60",
+        "correta": false
+      },
+      {
+        "id": 49866,
+        "texto": "96",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11954,
+    "texto": "Um circuito elétrico possui três resistores em série, com valores de 10 Ω, 20 Ω e 30 Ω. Se a tensão aplicada ao circuito é de 60 V, a corrente que atravessa cada resistor é de 2 A.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49860,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49861,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11953,
+    "texto": "Considerando o seguinte texto: \n\n\"Em 2024, a Agência Nacional de Energia Elétrica (ANEEL) publicou a Resolução nº 4.500, que instituiu a obrigatoriedade de relatórios mensais de consumo de energia elétrica para todos os consumidores industriais. A resolução prevê que o prazo para entrega desses relatórios seja até o dia 15 de cada mês, com penalidades de multa de 1% ao mês sobre o valor do consumo não informado. Além disso, a resolução estabelece que, em caso de não entrega, o consumidor pode ser suspenso de suas atividades até que o relatório seja apresentado. A ANEEL ressalta que o objetivo principal da medida é melhorar a transparência e a eficiência na gestão da rede de distribuição de energia elétrica.\"\n\nConsiderando o texto acima, a afirmação de que a Resolução nº 4.500 não cria penalidades para consumidores que não entregam os relatórios mensais é falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49858,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49859,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11952,
+    "texto": "Um algoritmo que recebe uma lista de palavras e retorna a lista em ordem alfabética, utilizando a comparação lexicográfica, é um exemplo de algoritmo de ordenação por comparação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49856,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49857,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11951,
+    "texto": "Um conjunto de 12 cartas numeradas de 1 a 12 é embaralhado aleatoriamente. Se retirarmos duas cartas sem reposição, a probabilidade de que a soma dos valores seja múltiplo de 4 é menor que 1/4.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49854,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49855,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11950,
+    "texto": "Em uma sequência de números inteiros, a diferença entre cada par de termos consecutivos é constante. Se o primeiro termo é 7 e o segundo termo é 13, a diferença comum é 6. Considerando essa propriedade, a afirmação de que a sequência é aritmética é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49852,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49853,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11778,
+    "texto": "Texto: Em 2025, a Agência Nacional de Transportes Terrestres (Antr) publicou um relatório sobre a eficiência energética de veículos de carga. O estudo avaliou 1.200 caminhões de diferentes fabricantes, agrupando-os em três classes de potência: baixa (até 200 hp), média (201 a 350 hp) e alta (acima de 350 hp). Os resultados mostraram que, na classe média, 70% dos veículos apresentaram consumo médio inferior a 5,5 km/l, enquanto na classe alta apenas 45% atingiram esse patamar. Na classe baixa, 90% dos caminhões apresentaram consumo superior a 6,0 km/l. Considerando a distribuição percentual das classes, qual é a probabilidade de que, ao selecionar aleatoriamente um caminhão do conjunto analisado, ele pertença à classe média e tenha consumo médio inferior a 5,5 km/l?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49295,
+        "texto": "0,21",
+        "correta": false
+      },
+      {
+        "id": 49296,
+        "texto": "0,28",
+        "correta": true
+      },
+      {
+        "id": 49297,
+        "texto": "0,35",
+        "correta": false
+      },
+      {
+        "id": 49298,
+        "texto": "0,42",
+        "correta": false
+      },
+      {
+        "id": 49299,
+        "texto": "0,49",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11777,
+    "texto": "Um algoritmo de ordenação em tempo linear (O(n)) é aplicado a um vetor de 10.000 elementos, onde cada elemento possui um identificador único de 32 bits. Se o algoritmo for executado em um processador que realiza 2,5 bilhões de instruções por segundo, qual é o tempo máximo, em segundos, que o algoritmo pode levar para concluir a ordenação, considerando que cada instrução executa exatamente uma comparação ou troca?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49290,
+        "texto": "0,004",
+        "correta": false
+      },
+      {
+        "id": 49291,
+        "texto": "0,016",
+        "correta": false
+      },
+      {
+        "id": 49292,
+        "texto": "0,032",
+        "correta": true
+      },
+      {
+        "id": 49293,
+        "texto": "0,048",
+        "correta": false
+      },
+      {
+        "id": 49294,
+        "texto": "0,064",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11776,
+    "texto": "Considere a sequência lógica 3, 6, 12, 24, … . Se a cada passo for multiplicado por um número inteiro k, e o resultado for arredondado para o número inteiro mais próximo, qual é o valor de k que faz com que a sequência mantenha a propriedade de ser estritamente crescente e, ao mesmo tempo, que o 10º termo seja menor que 2000?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49285,
+        "texto": "1",
+        "correta": false
+      },
+      {
+        "id": 49286,
+        "texto": "2",
+        "correta": true
+      },
+      {
+        "id": 49287,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 49288,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 49289,
+        "texto": "5",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11775,
+    "texto": "Um conjunto de dados binários é organizado em uma matriz 4×4, onde cada elemento pode assumir valor 0 ou 1. O operador lógico XOR (exclusive or) é aplicado entre cada par de elementos adjacentes horizontalmente, gerando uma nova matriz de 4×3. A soma dos valores da nova matriz resulta em 12. Qual é a quantidade mínima de elementos iguais a 1 na matriz original que possibilita tal resultado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49280,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 49281,
+        "texto": "8",
+        "correta": true
+      },
+      {
+        "id": 49282,
+        "texto": "10",
+        "correta": false
+      },
+      {
+        "id": 49283,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 49284,
+        "texto": "14",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11774,
+    "texto": "Texto: \"Em 2024, a empresa TechNova lançou um algoritmo de recomendação que utiliza redes neurais profundas para analisar padrões de consumo de usuários em tempo real. O sistema processa milhões de eventos por segundo, agrupando-os em clusters dinâmicos que refletem mudanças de comportamento em poucos segundos. Cada cluster é representado por um vetor de características extraídas por camadas convolucionais, e a decisão de recomendação é tomada por uma camada totalmente conectada que pondera esses vetores. O algoritmo foi projetado para operar em um ambiente distribuído, com tolerância a falhas e escalabilidade horizontal, permitindo que novos nós sejam adicionados sem interromper o serviço.\"\n\nConsiderando o texto acima, a afirmação de que a utilização de redes neurais convolucionais em sistemas de recomendação não requer a normalização dos dados de entrada é correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49278,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49279,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11773,
+    "texto": "Em lógica de predicados, o quantificador universal ∀ afirma que uma propriedade se aplica a todos os elementos de um domínio. A afirmação de que a negação de ∀x P(x) é equivalente a ∃x ¬P(x) é correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49276,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49277,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11772,
+    "texto": "Um conjunto de proposições lógicas pode ser considerado satisfatível se existir pelo menos uma atribuição de valores verdadeiros que torne todas as proposições verdadeiras simultaneamente. A afirmação de que a satisfatibilidade de um conjunto de proposições pode ser verificada por meio de um algoritmo de busca em profundidade é correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49274,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49275,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11771,
+    "texto": "Em uma sequência de números inteiros, a propriedade de que a diferença entre dois termos consecutivos é constante caracteriza uma progressão aritmética. A afirmação de que essa diferença pode ser negativa é correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49272,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49273,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11770,
+    "texto": "Considerando que um algoritmo de ordenação por inserção insere elementos de uma lista em ordem crescente, a afirmação de que a complexidade média desse algoritmo é O(n) é correta ou incorreta?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49270,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49271,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11738,
+    "texto": "Texto: Em 2025, a Agência Nacional de Energia Eletrônica (ANEE) publicou um relatório sobre a eficiência energética de redes de distribuição. O documento destaca que, em média, as redes que adotaram sistemas de controle adaptativo apresentaram redução de 18% no consumo de energia durante picos de demanda, comparado às redes tradicionais. Além disso, o relatório indica que a implementação de sensores IoT permite a detecção de falhas em tempo real, reduzindo em 25% o tempo médio de reparo. Em uma rede que opera com 10.000 transformadores, quantos transformadores, em média, tiveram seu tempo de reparo reduzido em 25% após a adoção do sistema de sensores IoT?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49170,
+        "texto": "1.500",
+        "correta": false
+      },
+      {
+        "id": 49171,
+        "texto": "2.000",
+        "correta": true
+      },
+      {
+        "id": 49172,
+        "texto": "2.500",
+        "correta": false
+      },
+      {
+        "id": 49173,
+        "texto": "3.000",
+        "correta": false
+      },
+      {
+        "id": 49174,
+        "texto": "3.500",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11737,
+    "texto": "Um algoritmo de ordenação por inserção é aplicado a uma lista de 8 elementos. Se a lista inicial for {5, 3, 8, 1, 7, 2, 6, 4}, quantas trocas de posição ocorrerão durante todo o processo de ordenação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49165,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 49166,
+        "texto": "13",
+        "correta": true
+      },
+      {
+        "id": 49167,
+        "texto": "14",
+        "correta": false
+      },
+      {
+        "id": 49168,
+        "texto": "15",
+        "correta": false
+      },
+      {
+        "id": 49169,
+        "texto": "16",
+        "correta": false
+      }
+    ]
+  }
+]

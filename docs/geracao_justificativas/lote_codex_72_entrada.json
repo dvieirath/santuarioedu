@@ -1,0 +1,497 @@
+[
+  {
+    "id": 717,
+    "texto": "A aprendizagem baseada em projeto incentiva a criatividade, como se observa no caso abordado no texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19203,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 19204,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14212,
+    "texto": "Texto: Em 2024, o Tribunal de Contas da União (TCU) publicou um relatório apontando que, em 2023, 12% dos recursos destinados ao Programa Nacional de Desenvolvimento de Infraestrutura Urbana (PNDIU) foram desviados para fins não previstos no edital. O relatório destaca que a destinação dos recursos era exclusiva para construção de ciclovias, mas, em diversos municípios, os valores foram aplicados em obras de pavimentação de ruas comuns. O TCU concluiu que a violação ocorreu por falta de controle interno e por não observância das normas de licitação e contratação. O relatório recomenda a criação de um sistema de monitoramento eletrônico em tempo real para garantir a correta aplicação dos recursos. Considerando o texto acima, qual das alternativas abaixo melhor descreve a violação constitucional que ocorreu no caso?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57112,
+        "texto": "A violação se deu na inobservância do princípio da legalidade, pois os recursos foram aplicados em atividades não previstas no edital.",
+        "correta": 0
+      },
+      {
+        "id": 57113,
+        "texto": "A violação se deu na inobservância do princípio da eficiência, pois os recursos foram aplicados em obras de menor custo.",
+        "correta": 0
+      },
+      {
+        "id": 57114,
+        "texto": "A violação se deu na inobservância do princípio da publicidade, pois o uso dos recursos não foi devidamente divulgado ao público.",
+        "correta": 0
+      },
+      {
+        "id": 57115,
+        "texto": "A violação se deu na inobservância do princípio da moralidade administrativa, pois os recursos foram desviados de seu objeto previsto.",
+        "correta": 1
+      },
+      {
+        "id": 57116,
+        "texto": "A violação se deu na inobservância do princípio da responsabilidade fiscal, pois os recursos não foram contabilizados corretamente.",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14211,
+    "texto": "Um município, em 2025, adotou uma política de incentivo à instalação de empresas de energia solar, concedendo isenção de IPTU e parcelamento facilitado de contribuições municipais. Em 2026, a União propõe a criação de um imposto federal sobre a geração de energia solar, com alíquota de 5% sobre o valor da energia produzida. O município sustenta que tal imposto federal inviabilizaria o objetivo da política local e, portanto, violaria a autonomia municipal. Qual princípio constitucional fundamenta essa argumentação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57107,
+        "texto": "Princípio da Supremacia da Constituição Federal sobre normas estaduais e municipais.",
+        "correta": 0
+      },
+      {
+        "id": 57108,
+        "texto": "Princípio da Legalidade, que impede a criação de impostos sem autorização legislativa.",
+        "correta": 0
+      },
+      {
+        "id": 57109,
+        "texto": "Princípio da Autonomia Local, que garante ao município a liberdade de legislar sobre assuntos de interesse local, desde que não contrariem a Constituição.",
+        "correta": 1
+      },
+      {
+        "id": 57110,
+        "texto": "Princípio da Proporcionalidade, que impede a criação de impostos que causem desequilíbrio econômico.",
+        "correta": 0
+      },
+      {
+        "id": 57111,
+        "texto": "Princípio da Responsabilidade Fiscal, que limita a criação de tributos que onerem a população.",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14210,
+    "texto": "O Tribunal Regional Federal, ao julgar recurso de um servidor público federal, concluiu que a aplicação de um limite de 20% sobre o valor de gratificações de cargos públicos, sem previsão constitucional, violaria o princípio da legalidade. Em seu entendimento, o limite deveria ser revogado. Qual é a fundamentação constitucional mais adequada para essa conclusão?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57102,
+        "texto": "O limite excede o que a Constituição admite sobre remuneração, pois não há previsão de limite máximo para gratificações.",
+        "correta": 0
+      },
+      {
+        "id": 57103,
+        "texto": "A Constituição garante a livre fixação de remuneração, mas não impede a criação de limites, desde que observada a proporcionalidade.",
+        "correta": 0
+      },
+      {
+        "id": 57104,
+        "texto": "O princípio da legalidade impede qualquer restrição à remuneração sem previsão expressa no texto constitucional.",
+        "correta": 1
+      },
+      {
+        "id": 57105,
+        "texto": "O limite é constitucional, pois o Poder Executivo pode legislar sobre remuneração de servidores.",
+        "correta": 0
+      },
+      {
+        "id": 57106,
+        "texto": "A Constituição permite limites de gratificação, mas apenas em casos de crise econômica.",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14209,
+    "texto": "A Assembleia Legislativa de um estado aprova, por maioria qualificada, a criação de um fundo estadual de apoio a microempreendedores individuais, com recursos provenientes de tributos estaduais e de contribuições de empresas privadas. O decreto que institui o fundo estabelece, entre outras normas, que os recursos destinados a microempreendedores individuais não podem ser utilizados para fins de custeio de despesas administrativas do Estado. Considerando o princípio da separação de poderes e a autonomia legislativa, qual das alternativas abaixo melhor reflete a análise constitucional desse decreto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57097,
+        "texto": "A norma viola a separação de poderes, pois delega ao Legislativo a competência de criar fundos de custeio que deveriam ser de responsabilidade do Executivo.",
+        "correta": 0
+      },
+      {
+        "id": 57098,
+        "texto": "O decreto é constitucional, pois o Legislativo pode criar fundos, desde que respeite a competência privativa do Executivo para a arrecadação de tributos.",
+        "correta": 0
+      },
+      {
+        "id": 57099,
+        "texto": "O decreto é constitucional, pois a criação de fundo não interfere no poder de custeio do Executivo, mas apenas na destinação de recursos.",
+        "correta": 1
+      },
+      {
+        "id": 57100,
+        "texto": "A norma é inconstitucional, pois a Constituição Federal veda a criação de fundos estaduais sem autorização expressa do Congresso Nacional.",
+        "correta": 0
+      },
+      {
+        "id": 57101,
+        "texto": "O decreto é constitucional, desde que o fundo seja aprovado por votação em plenário e não por maioria qualificada.",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14208,
+    "texto": "O artigo 5º, inciso LXXIII, da Constituição Federal assegura que a liberdade de expressão não pode ser restringida por lei que proíba a divulgação de opiniões divergentes sobre políticas públicas, salvo quando a divulgação incite à violência ou à prática de crimes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57095,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57096,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14207,
+    "texto": "Em um cenário de crise hídrica, a União pode, por meio de decreto, suspender temporariamente a cobrança de tarifas de água nos municípios que apresentem déficit hídrico, desde que a suspensão seja revogada em até 90 dias e não haja prejuízo para a manutenção dos serviços públicos de abastecimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57093,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 57094,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 14206,
+    "texto": "A Constituição Federal, ao reconhecer o direito à proteção de dados pessoais, estabelece que qualquer tratamento de dados pessoais, inclusive em bases de dados públicas, deve observar a finalidade legítima e a proporcionalidade, sendo vedado o uso de dados para fins de controle social sem o devido consentimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57091,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57092,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14205,
+    "texto": "Considerando a seguinte situação: Um município, em 2025, decide criar um programa de incentivo fiscal que isenta totalmente os contribuintes de pagamento de impostos sobre a renda de profissionais liberais que atuam em áreas de saúde. A medida tem como objetivo acelerar a oferta de serviços de saúde na região, mas não prevê qualquer limite de tempo para a isenção. A Constituição Federal, em seu artigo 150, inciso I, prevê que a isenção de impostos é permitida apenas quando expressamente prevista em lei, e que a isenção deve observar o princípio da igualdade. Assim, a lei municipal que concede isenção total e indefinida a profissionais de saúde pode ser considerada inconstitucional por violar o princípio da igualdade e a necessidade de previsão legal específica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57089,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 57090,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 14204,
+    "texto": "O Poder Legislativo, ao aprovar uma lei que institui a cobrança de taxa sobre a emissão de boletos bancários, pode restringir a liberdade de iniciativa privada, desde que a taxa seja proporcional ao custo do serviço e não haja excesso de discriminação entre os emissores.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57087,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57088,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14203,
+    "texto": "Texto: Em 2023, a União publicou a Lei nº 15.000, que institui um regime de proteção de dados pessoais para empresas de tecnologia. A lei prevê que, em caso de violação de dados, a empresa deverá indenizar os titulares e pagar multa de até 2% do faturamento anual. O Conselho Nacional de Justiça (CNJ) emitiu parecer, alegando que a aplicação de multa em relação ao faturamento anual pode ser considerada uma forma de tributação, violando o princípio da legalidade tributária. A empresa, por sua vez, argumenta que a multa é uma sanção administrativa e não uma imposição tributária. Considerando o entendimento do Supremo Tribunal Federal (STF) sobre a natureza das sanções administrativas, qual é a posição mais adequada do CNJ?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57082,
+        "texto": "A multa é uma sanção administrativa, não tributária, pois não gera receita para a União.",
+        "correta": 0
+      },
+      {
+        "id": 57083,
+        "texto": "A multa é tributária, pois está vinculada ao faturamento, e portanto, exige lei específica.",
+        "correta": 0
+      },
+      {
+        "id": 57084,
+        "texto": "A multa pode ser considerada tributária se houver previsão de arrecadação para o Estado.",
+        "correta": 0
+      },
+      {
+        "id": 57085,
+        "texto": "A multa é uma sanção administrativa, mas pode ser considerada tributária se houver previsão de arrecadação para o Estado.",
+        "correta": 0
+      },
+      {
+        "id": 57086,
+        "texto": "A multa é uma sanção administrativa, não tributária, pois não gera receita para a União, mas pode ser considerada tributária se houver previsão de arrecadação para o Estado.",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 14202,
+    "texto": "No contexto de uma reforma administrativa, o Poder Executivo federal propôs a criação de um órgão autárquico com competência exclusiva para regular a utilização de recursos de tecnologia da informação em órgãos públicos. O órgão, chamado Agência Nacional de Infraestrutura Digital, teria autonomia de gestão, mas estaria sujeito à fiscalização do Congresso. A proposta foi contestada por entidades de classe que alegam violação ao princípio da separação dos poderes. Qual é a tese constitucional que melhor explica a resistência das entidades?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57077,
+        "texto": "Princípio da autonomia administrativa",
+        "correta": 0
+      },
+      {
+        "id": 57078,
+        "texto": "Princípio da supremacia do Poder Legislativo",
+        "correta": 0
+      },
+      {
+        "id": 57079,
+        "texto": "Princípio da separação dos poderes",
+        "correta": 1
+      },
+      {
+        "id": 57080,
+        "texto": "Princípio da eficiência administrativa",
+        "correta": 0
+      },
+      {
+        "id": 57081,
+        "texto": "Princípio da legalidade",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14201,
+    "texto": "A Lei Orgânica do Município Y, em seu artigo 15, estabelece que a prestação de serviços públicos de saúde será gratuita, mas permite a cobrança de taxa simbólica para a emissão de documentos de saúde. A Procuradoria-Geral do Município sustenta que tal cobrança está em consonância com o princípio da eficiência administrativa. O Ministério Público questiona a constitucionalidade da norma. Qual é o fundamento constitucional que melhor sustenta a tese do Ministério Público?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57072,
+        "texto": "Princípio da supremacia do direito tributário",
+        "correta": 0
+      },
+      {
+        "id": 57073,
+        "texto": "Princípio da legalidade tributária",
+        "correta": 0
+      },
+      {
+        "id": 57074,
+        "texto": "Princípio da publicidade dos atos administrativos",
+        "correta": 0
+      },
+      {
+        "id": 57075,
+        "texto": "Princípio da legalidade e da impessoalidade",
+        "correta": 1
+      },
+      {
+        "id": 57076,
+        "texto": "Princípio da eficiência e da razoabilidade",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14200,
+    "texto": "Em 2024, o Tribunal de Justiça do Estado X decidiu, em processo de revisão de lei estadual, que a norma que proíbe a cobrança de taxa de registro em cartório para documentos de propriedade de menores de 18 anos viola o princípio da dignidade da pessoa humana. O órgão argumentou que a cobrança impõe ônus desproporcional e impede o exercício pleno da cidadania. Considerando a decisão, qual dos seguintes princípios constitucionais foi invocado como fundamento principal da análise?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57067,
+        "texto": "Princípio da legalidade",
+        "correta": 0
+      },
+      {
+        "id": 57068,
+        "texto": "Princípio da igualdade",
+        "correta": 0
+      },
+      {
+        "id": 57069,
+        "texto": "Princípio da dignidade da pessoa humana",
+        "correta": 1
+      },
+      {
+        "id": 57070,
+        "texto": "Princípio da separação dos poderes",
+        "correta": 0
+      },
+      {
+        "id": 57071,
+        "texto": "Princípio da motivação das decisões administrativas",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14199,
+    "texto": "Em 2023, o Tribunal Regional Federal de São Paulo decidiu que a exigência de comprovação de renda por parte de candidatos a concursos públicos de nível médio violava o princípio da igualdade de oportunidades. O tribunal fundamentou sua decisão em que a exigência seria discriminatória e desproporcional, pois não há relação direta entre a renda e a capacidade de desempenhar as funções exigidas pelo cargo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57065,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57066,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14198,
+    "texto": "No contexto de uma reforma tributária, a proposta de criar um imposto sobre o consumo de energia elétrica para financiar programas sociais pode ser considerada constitucional, pois o Estado possui competência para instituir tributos que visem a promoção de políticas públicas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57063,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 57064,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 14197,
+    "texto": "O artigo 5º, inciso XXXVII, da Constituição Federal garante a todos os cidadãos o direito à liberdade de expressão, desde que não haja incitação ao ódio ou à violência, sendo essa exceção a única restrição prevista no texto constitucional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57061,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57062,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14196,
+    "texto": "A Constituição Federal de 1988 estabelece que o Poder Judiciário pode, em caráter excepcional, suspender a aplicação de uma norma infraconstitucional quando esta for contrária a direitos fundamentais, desde que haja decisão judicial expressa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57059,
+        "texto": "Certo",
+        "correta": 0
+      },
+      {
+        "id": 57060,
+        "texto": "Errado",
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": 14195,
+    "texto": "Considerando que o Poder Executivo decretou, em 2024, a suspensão temporária de um serviço público municipal de transporte coletivo, alegando necessidade de ajustes estruturais para atender a demandas de acessibilidade, o decreto contém vício de ilegalidade, pois viola o princípio da continuidade do serviço público.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57057,
+        "texto": "Certo",
+        "correta": 1
+      },
+      {
+        "id": 57058,
+        "texto": "Errado",
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": 14194,
+    "texto": "Em 2023, o Supremo Tribunal Federal (STF) julgou recurso de habeas corpus de um cidadão que havia sido preso em flagrante por posse de arma de fogo, alegando que a prisão violava o direito à liberdade de expressão, pois a arma era usada para fins de protesto político. O STF decidiu que a prisão era constitucional. Qual dos princípios constitucionais foi mais relevante na decisão?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 57052,
+        "texto": "Princípio da separação dos poderes.",
+        "correta": 0
+      },
+      {
+        "id": 57053,
+        "texto": "Princípio da legalidade, pois a lei prevê prisão para posse ilegal de arma.",
+        "correta": 1
+      },
+      {
+        "id": 57054,
+        "texto": "Princípio da motivação das decisões judiciais.",
+        "correta": 0
+      },
+      {
+        "id": 57055,
+        "texto": "Princípio da proporcionalidade das sanções.",
+        "correta": 0
+      },
+      {
+        "id": 57056,
+        "texto": "Princípio da dignidade da pessoa humana.",
+        "correta": 0
+      }
+    ]
+  }
+]

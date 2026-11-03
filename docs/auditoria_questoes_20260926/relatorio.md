@@ -1,0 +1,418 @@
+# Auditoria do banco de questões
+
+Todas as 12.568 questões do levantamento passaram pela triagem estrutural. Os indícios de imagens ausentes foram conferidos manualmente. Esta análise não certifica a correção de todos os gabaritos nem substitui revisão pedagógica integral.
+
+Questões removidas: 393. Banco antes: 12568; depois: 12175.
+Backup integral: `C:\Users\USER\Downloads\projeto_prf\backups\antes_limpeza_questoes_20260926_143014.sqlite3`.
+
+Registros alterados depois do levantamento foram preservados. Questões sem justificativa, afirmações falsas intencionais e dúvidas de conteúdo não foram excluídas por esses motivos.
+
+## Motivos (uma questão pode ter mais de um)
+
+Verificação final: integridade SQLite OK, nenhuma violação de chaves estrangeiras, 12.175 questões restantes e página inicial respondendo HTTP 200. A categoria Redes de Computadores e suas seis subcategorias foram preservadas.
+
+Foram separados 1.073 alertas em `revisao_pendente.json`. São suspeitas automáticas, com possíveis falsos positivos, e não 1.073 erros confirmados. Essas questões permanecem no banco. A remoção também excluiu 973 alternativas e uma resposta antiga vinculada; todos esses registros estão no backup e na exportação `registros_excluidos_20260926_143014.json`.
+
+- Enunciado sem o texto, a definição ou a situação indispensável: 11
+- Gabarito ausente ou múltiplo: 163
+- Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual: 150
+- Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente: 50
+- Menos de duas alternativas: 6
+- Alternativas com texto idêntico (preservada a distinção de maiúsculas): 23
+- Erro claro de redação: repetição acidental «devido devido»: 1
+
+## Registros removidos
+
+- 46: Enunciado sem o texto, a definição ou a situação indispensável.
+- 47: Gabarito ausente ou múltiplo.
+- 95: Gabarito ausente ou múltiplo.
+- 96: Gabarito ausente ou múltiplo.
+- 97: Gabarito ausente ou múltiplo.
+- 98: Gabarito ausente ou múltiplo.
+- 99: Gabarito ausente ou múltiplo.
+- 100: Gabarito ausente ou múltiplo.
+- 109: Gabarito ausente ou múltiplo.
+- 149: Enunciado sem o texto, a definição ou a situação indispensável.
+- 274: Gabarito ausente ou múltiplo.
+- 534: Enunciado sem o texto, a definição ou a situação indispensável.
+- 544: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 668: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 669: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 670: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 671: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 718: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 719: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 742: Gabarito ausente ou múltiplo.
+- 812: Gabarito ausente ou múltiplo.
+- 857: Gabarito ausente ou múltiplo.
+- 859: Gabarito ausente ou múltiplo.
+- 873: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 874: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 875: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 883: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 885: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 890: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 892: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 915: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 917: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 920: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 977: Gabarito ausente ou múltiplo.
+- 1037: Gabarito ausente ou múltiplo.
+- 1066: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1068: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1080: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1137: Enunciado sem o texto, a definição ou a situação indispensável.
+- 1138: Enunciado sem o texto, a definição ou a situação indispensável.
+- 1152: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1153: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1168: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 1180: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1181: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1182: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1183: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1184: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1185: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1186: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1187: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1223: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1237: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1255: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1256: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1257: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1258: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1263: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1347: Gabarito ausente ou múltiplo.
+- 1439: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 1440: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 1470: Gabarito ausente ou múltiplo.
+- 1472: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1473: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1480: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 1509: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1510: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1522: Gabarito ausente ou múltiplo.
+- 1609: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1732: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 1802: Gabarito ausente ou múltiplo.
+- 1806: Gabarito ausente ou múltiplo.
+- 1962: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2060: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2061: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2063: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2064: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2065: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2066: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 2070: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2071: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2074: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2075: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2077: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2133: Gabarito ausente ou múltiplo.
+- 2179: Gabarito ausente ou múltiplo.
+- 2243: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2244: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2272: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2345: Gabarito ausente ou múltiplo.
+- 2492: Gabarito ausente ou múltiplo.
+- 2753: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2838: Gabarito ausente ou múltiplo.
+- 2879: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2890: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2922: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2976: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2977: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2978: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 2997: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3003: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3018: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3051: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3052: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3060: Gabarito ausente ou múltiplo.
+- 3076: Gabarito ausente ou múltiplo.
+- 3079: Gabarito ausente ou múltiplo.
+- 3104: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3107: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3191: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3206: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3208: Enunciado sem o texto, a definição ou a situação indispensável.
+- 3209: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3215: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3229: Gabarito ausente ou múltiplo.
+- 3232: Gabarito ausente ou múltiplo.
+- 3233: Gabarito ausente ou múltiplo.
+- 3234: Gabarito ausente ou múltiplo.
+- 3235: Gabarito ausente ou múltiplo.
+- 3236: Gabarito ausente ou múltiplo.
+- 3237: Gabarito ausente ou múltiplo; Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 3468: Enunciado sem o texto, a definição ou a situação indispensável.
+- 3613: Gabarito ausente ou múltiplo.
+- 3639: Enunciado sem o texto, a definição ou a situação indispensável.
+- 3640: Enunciado sem o texto, a definição ou a situação indispensável.
+- 3666: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3680: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3686: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3690: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3691: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3696: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3768: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 3787: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3794: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3815: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3896: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 3947: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3956: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3960: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3961: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3988: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 3990: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 4066: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 4067: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 4068: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 4073: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 4119: Gabarito ausente ou múltiplo.
+- 4149: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 4204: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 4210: Enunciado sem o texto, a definição ou a situação indispensável.
+- 4284: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 4307: Gabarito ausente ou múltiplo.
+- 4351: Gabarito ausente ou múltiplo.
+- 4353: Gabarito ausente ou múltiplo.
+- 4356: Gabarito ausente ou múltiplo.
+- 4482: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 4494: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 4583: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 4593: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5279: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5280: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5281: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5282: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5283: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5427: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5428: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5429: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5430: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5604: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5607: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5880: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5954: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5962: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 5963: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6022: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6025: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6032: Gabarito ausente ou múltiplo.
+- 6036: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6037: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6051: Gabarito ausente ou múltiplo; Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6071: Gabarito ausente ou múltiplo.
+- 6108: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6109: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6110: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6111: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6112: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6113: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6119: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6123: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6124: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6128: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6129: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6132: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6134: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6135: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6136: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6137: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6144: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6147: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6149: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6151: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6152: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6153: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6154: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6155: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6156: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6158: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6159: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6160: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6161: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6170: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6171: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6172: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6173: Gabarito ausente ou múltiplo; Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6174: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6175: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6176: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6182: Gabarito ausente ou múltiplo.
+- 6183: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6185: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6186: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6189: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6316: Gabarito ausente ou múltiplo.
+- 6402: Enunciado sem o texto, a definição ou a situação indispensável.
+- 6538: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6539: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6540: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6541: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6542: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6555: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6556: Extração corrompida: códigos de glifos ou conteúdo explicitamente ilegível/ausente.
+- 6565: Gabarito ausente ou múltiplo.
+- 6587: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6588: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6589: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6590: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6591: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6592: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6593: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6597: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6598: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6599: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6600: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6601: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6602: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6603: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6623: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6638: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6639: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6640: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6670: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6671: Gabarito ausente ou múltiplo; Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6672: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6673: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6674: Gabarito ausente ou múltiplo; Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6675: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6676: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6680: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6692: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6693: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6694: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6773: Gabarito ausente ou múltiplo.
+- 6892: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6893: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 6895: Figura, tabela, gráfico ou fórmula indispensável ausente; conferência manual.
+- 7059: Gabarito ausente ou múltiplo.
+- 7916: Gabarito ausente ou múltiplo.
+- 7934: Gabarito ausente ou múltiplo.
+- 7935: Gabarito ausente ou múltiplo.
+- 8014: Gabarito ausente ou múltiplo.
+- 8033: Gabarito ausente ou múltiplo.
+- 8095: Gabarito ausente ou múltiplo.
+- 8218: Gabarito ausente ou múltiplo.
+- 8219: Gabarito ausente ou múltiplo.
+- 8249: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 8251: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 8285: Gabarito ausente ou múltiplo.
+- 8303: Gabarito ausente ou múltiplo.
+- 8330: Gabarito ausente ou múltiplo.
+- 8331: Gabarito ausente ou múltiplo.
+- 8332: Gabarito ausente ou múltiplo.
+- 8386: Gabarito ausente ou múltiplo.
+- 8407: Gabarito ausente ou múltiplo.
+- 8477: Gabarito ausente ou múltiplo.
+- 8483: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 8485: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 8588: Gabarito ausente ou múltiplo.
+- 8589: Gabarito ausente ou múltiplo.
+- 8982: Gabarito ausente ou múltiplo.
+- 9036: Gabarito ausente ou múltiplo.
+- 9037: Gabarito ausente ou múltiplo.
+- 9038: Gabarito ausente ou múltiplo.
+- 9217: Gabarito ausente ou múltiplo.
+- 9218: Gabarito ausente ou múltiplo.
+- 9234: Gabarito ausente ou múltiplo.
+- 9235: Gabarito ausente ou múltiplo.
+- 9253: Gabarito ausente ou múltiplo.
+- 9338: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 9431: Gabarito ausente ou múltiplo.
+- 9467: Gabarito ausente ou múltiplo.
+- 9510: Gabarito ausente ou múltiplo.
+- 9646: Gabarito ausente ou múltiplo.
+- 9648: Gabarito ausente ou múltiplo.
+- 9662: Gabarito ausente ou múltiplo.
+- 9681: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 9682: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 9719: Gabarito ausente ou múltiplo.
+- 9720: Gabarito ausente ou múltiplo.
+- 9721: Gabarito ausente ou múltiplo.
+- 9792: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 9888: Gabarito ausente ou múltiplo.
+- 10004: Gabarito ausente ou múltiplo.
+- 10011: Gabarito ausente ou múltiplo.
+- 10012: Gabarito ausente ou múltiplo.
+- 10013: Gabarito ausente ou múltiplo.
+- 10014: Gabarito ausente ou múltiplo.
+- 10015: Gabarito ausente ou múltiplo.
+- 10059: Gabarito ausente ou múltiplo.
+- 10060: Gabarito ausente ou múltiplo.
+- 10061: Gabarito ausente ou múltiplo.
+- 10122: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10130: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10213: Gabarito ausente ou múltiplo.
+- 10214: Gabarito ausente ou múltiplo.
+- 10215: Gabarito ausente ou múltiplo.
+- 10293: Gabarito ausente ou múltiplo.
+- 10295: Gabarito ausente ou múltiplo.
+- 10336: Gabarito ausente ou múltiplo.
+- 10379: Gabarito ausente ou múltiplo.
+- 10380: Gabarito ausente ou múltiplo.
+- 10477: Gabarito ausente ou múltiplo.
+- 10602: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10608: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10609: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10611: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10663: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 10680: Gabarito ausente ou múltiplo.
+- 10746: Gabarito ausente ou múltiplo.
+- 10781: Gabarito ausente ou múltiplo.
+- 10782: Gabarito ausente ou múltiplo.
+- 10783: Gabarito ausente ou múltiplo.
+- 10803: Gabarito ausente ou múltiplo.
+- 10804: Gabarito ausente ou múltiplo.
+- 10805: Gabarito ausente ou múltiplo.
+- 10844: Menos de duas alternativas; Gabarito ausente ou múltiplo.
+- 10919: Gabarito ausente ou múltiplo.
+- 10958: Gabarito ausente ou múltiplo.
+- 10959: Gabarito ausente ou múltiplo.
+- 11110: Gabarito ausente ou múltiplo.
+- 11145: Gabarito ausente ou múltiplo.
+- 11146: Gabarito ausente ou múltiplo.
+- 11147: Gabarito ausente ou múltiplo.
+- 11180: Gabarito ausente ou múltiplo.
+- 11181: Gabarito ausente ou múltiplo.
+- 11289: Gabarito ausente ou múltiplo.
+- 11303: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 11410: Gabarito ausente ou múltiplo.
+- 11411: Gabarito ausente ou múltiplo.
+- 11429: Gabarito ausente ou múltiplo.
+- 11473: Gabarito ausente ou múltiplo.
+- 11524: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 11555: Gabarito ausente ou múltiplo.
+- 11556: Gabarito ausente ou múltiplo.
+- 11557: Gabarito ausente ou múltiplo.
+- 11564: Gabarito ausente ou múltiplo.
+- 11565: Gabarito ausente ou múltiplo.
+- 11566: Gabarito ausente ou múltiplo.
+- 11647: Gabarito ausente ou múltiplo.
+- 11720: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 11723: Gabarito ausente ou múltiplo.
+- 11724: Gabarito ausente ou múltiplo.
+- 11725: Gabarito ausente ou múltiplo.
+- 11751: Gabarito ausente ou múltiplo.
+- 11760: Gabarito ausente ou múltiplo.
+- 11859: Gabarito ausente ou múltiplo.
+- 11860: Gabarito ausente ou múltiplo.
+- 11861: Gabarito ausente ou múltiplo.
+- 11875: Gabarito ausente ou múltiplo.
+- 11882: Gabarito ausente ou múltiplo.
+- 11883: Gabarito ausente ou múltiplo.
+- 11884: Gabarito ausente ou múltiplo.
+- 11975: Alternativas com texto idêntico (preservada a distinção de maiúsculas).
+- 11981: Gabarito ausente ou múltiplo.
+- 12094: Gabarito ausente ou múltiplo.
+- 12095: Gabarito ausente ou múltiplo.
+- 12096: Gabarito ausente ou múltiplo.
+- 12105: Erro claro de redação: repetição acidental «devido devido».
+- 12335: Gabarito ausente ou múltiplo.
+- 12336: Gabarito ausente ou múltiplo.
+- 12337: Gabarito ausente ou múltiplo.
+- 12372: Gabarito ausente ou múltiplo.
+- 12438: Gabarito ausente ou múltiplo.
+- 12451: Alternativas com texto idêntico (preservada a distinção de maiúsculas).

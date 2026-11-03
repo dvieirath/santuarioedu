@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2742,
+    "motivo": "Possível divergência de gabarito: o cadastro indica Errado, mas a associação de problemas de origem elétrica em motores de indução a componente em duas vezes a frequência de rede é documentada pela SKF (https://skftechnicalsupport.zendesk.com/hc/en-us/article_attachments/360042513054). Conferir redação original e terminologia desbalanceamento elétrico; 2 × 60 Hz = 120 Hz. Não criar justificativa para negar essa assinatura sem contexto adicional.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2720,
+    "motivo": "Figuras 11A1-I, II e III ausentes, campo imagem vazio. O item depende da ligação desenhada e o comportamento descrito corresponde à ligação three-way usual, em conflito aparente com Errado. Conferir circuito original antes de decidir.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2454,
+    "motivo": "Ambiguidade jurídica relevante: afirma obrigatoriedade de cláusula ampla de alteração para força maior/caso fortuito ou adequação técnica, sem delimitar matriz de riscos. A Lei 13.303/2016 exige matriz (arts. 42 e 69) e veda aditivos por eventos alocados à contratada (art. 81, §8º). Conferir fonte da redação e alcance pretendido antes de sustentar Certo. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/lei/l13303.htm.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2340,
+    "motivo": "Texto de referência sobre streaming ausente. A função semântica do trecho no primeiro período do terceiro parágrafo não pode ser confirmada pelo fragmento isolado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

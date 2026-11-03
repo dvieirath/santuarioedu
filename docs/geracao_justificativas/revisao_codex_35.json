@@ -1,0 +1,92 @@
+[
+  {
+    "id": 10660,
+    "motivo": "Há contradição entre “curso de graduação” e “curso de nível médio”, sem explicar se se trata do certificado, do cargo ou de equivalência específica. A expressão “a norma” também não identifica regra aplicável. Reformular antes de justificar o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10661,
+    "motivo": "Não informa lei, edital completo ou momento previsto de comprovação. A ausência de exigência documental no dia da prova não demonstra, por si, invalidade da condição. O gabarito Certo se apoia em consequência não estabelecida no enunciado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10664,
+    "motivo": "A menção a dolo ou culpa aponta para responsabilidade subjetiva, mas não permite concluir natureza extracontratual pela existência de dano moral. A alternativa marcada acrescenta classificação não demonstrada. A formulação genérica sobre fornecedor também exige cautela diante do regime do CDC art. 14 e sua ressalva para profissionais liberais. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10837,
+    "motivo": "O comando pede escolher entre prazo de pagamento e de entrega, mas só oferece Certo/Errado. Não existe proposição declarativa correspondente ao gabarito. Item malformado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10838,
+    "motivo": "Usa “sentença proferida por juiz de segunda instância” e “definitiva” sem distinguir decisão de mérito, julgamento colegiado e trânsito em julgado. A condição de não ser última instância não é critério de definitividade. Separado para corrigir a terminologia, sem presumir sentido único. CPC arts. 203, 204 e 502: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10839,
+    "motivo": "O enunciado apresenta saldo devedor e crédito equivalente como condição suficiente, sem autorização legal e requisitos do crédito do sujeito passivo. CTN art. 170 exige lei autorizadora e créditos líquidos e certos contra a Fazenda; art. 170-A prevê restrição em litígio judicial. Gabarito Certo exige revisão. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10842,
+    "motivo": "O texto apresenta condições de redação, mas não traz comando de questão. As alternativas acrescentam orientações de vocabulário e conclusão não explicitadas como requisitos; não há base inequívoca para selecionar a marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10843,
+    "motivo": "Há situação narrativa, mas falta pergunta ou assertiva que estabeleça o critério de escolha. A atualização de 2024 não é identificada por ato normativo. Não transformar exemplos práticos em exigência legal específica sem fundamento nem preencher o comando ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10845,
+    "motivo": "A afirmação de que a repetição não altera sentido é genérica e não há trecho para demonstrá-la. Repetições podem produzir intensificação e novos efeitos de sentido; não é seguro endossar invariância semântica irrestrita.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10846,
+    "motivo": "O próprio texto diz que a nova redação fica mais clara e objetiva, mantendo os requisitos legais. Isso corresponde ao princípio de clareza descrito, contrariando o gabarito Errado. Não há cláusula transcrita que autorize presumir perda de validade ou precisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10847,
+    "motivo": "A restrição “apenas quando” é falsa. “Chegaram os convidados” é uma inversão correta sem advérbio de modo inicial. O gabarito Certo precisa de revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10848,
+    "motivo": "Gabarito Errado incompatível com a possibilidade de plural em pronomes de tratamento: “Vossas Senhorias” pode dirigir-se a vários interlocutores. A norma padrão não proíbe o plural; restrições de determinados órgãos não foram delimitadas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10849,
+    "motivo": "A relevância social de uma notícia não é critério gramatical suficiente para atribuir valor exclamativo a uma frase informativa. Sem frase concreta ou orientação editorial, o gabarito Certo transforma importância do fato em regra de pontuação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10850,
+    "motivo": "Não fornece a frase a analisar. Dois núcleos coordenados permitem reconhecer sujeito composto, mas não determinam predicado verbal e objeto indireto, como exige a alternativa marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10851,
+    "motivo": "A aproximação inicial usa o marcador expresso “como”, caracterizando símile, e há outras imagens figuradas no restante. A opção de símile acrescenta função de contraste não demonstrada; a marcada como metáfora não resolve a comparação explícita. Falta alternativa inequivocamente adequada ao par figura/função.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

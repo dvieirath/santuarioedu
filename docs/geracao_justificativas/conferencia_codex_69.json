@@ -1,0 +1,49 @@
+{
+  "lote": 69,
+  "salvas": [
+    787,
+    791,
+    792,
+    793,
+    798,
+    800,
+    801,
+    814,
+    815,
+    816,
+    863
+  ],
+  "revisao": [
+    783,
+    786,
+    788,
+    789,
+    796,
+    797,
+    802,
+    819,
+    836
+  ],
+  "cobertura_completa": true,
+  "demais_campos_preservados": true,
+  "alternativas_preservadas": true,
+  "novas_questoes": 0,
+  "novas_alternativas": 0,
+  "justificativas_alteradas": [
+    787,
+    791,
+    792,
+    793,
+    798,
+    800,
+    801,
+    814,
+    815,
+    816,
+    863
+  ],
+  "quick_check": "ok",
+  "pendentes": 11095,
+  "backup": "backups/antes_lote_codex_20261019_182856_584573.sqlite3",
+  "conferido_em": "2026-10-19T18:29:17.129794"
+}

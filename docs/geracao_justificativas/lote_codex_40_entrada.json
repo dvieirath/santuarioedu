@@ -1,0 +1,512 @@
+[
+  {
+    "id": 9923,
+    "texto": "Durante a elaboração de um relatório técnico sobre a qualidade da redação de estudantes de ensino médio, o professor observa que a maioria dos textos apresenta problemas de coesão textual, especialmente no uso de conectivos que indicam contraste. O professor decide aplicar uma intervenção pedagógica que inclui a análise de exemplos de textos bem estruturados e a prática de exercícios de substituição de conectivos. Após a intervenção, observa-se que a frequência de uso de conectivos contrastivos aumentou em 18,7 %. Qual princípio da norma padrão da língua portuguesa explica a necessidade de utilização adequada desses conectivos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43250,
+        "texto": "Princípio da clareza e concisão.",
+        "correta": false
+      },
+      {
+        "id": 43251,
+        "texto": "Princípio da adequação textual.",
+        "correta": false
+      },
+      {
+        "id": 43252,
+        "texto": "Princípio da coesão e coerência.",
+        "correta": true
+      },
+      {
+        "id": 43253,
+        "texto": "Princípio da variedade lexical.",
+        "correta": false
+      },
+      {
+        "id": 43254,
+        "texto": "Princípio da pontuação correta.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9922,
+    "texto": "Um edital de concurso público para o cargo de Analista de Processos Administrativos prevê que o candidato deve demonstrar conhecimento em interpretação de textos complexos, incluindo a identificação de relações de causa e consequência em textos de natureza jurídica. Para avaliar essa habilidade, o órgão disponibiliza ao candidato um trecho de um contrato de prestação de serviços, no qual a cláusula 12 estabelece que: \"O contratado se obriga a executar as atividades previstas no Anexo I, sob pena de rescisão contratual imediata, caso não cumpra os prazos estipulados.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43245,
+        "texto": "O contrato prevê a possibilidade de rescisão unilateral pelo contratante.",
+        "correta": false
+      },
+      {
+        "id": 43246,
+        "texto": "A cláusula 12 estabelece que a não execução das atividades implica em multa, mas não rescisão.",
+        "correta": false
+      },
+      {
+        "id": 43247,
+        "texto": "O contratado tem a obrigação de cumprir os prazos, sob pena de rescisão imediata do contrato.",
+        "correta": true
+      },
+      {
+        "id": 43248,
+        "texto": "A cláusula 12 se aplica apenas a contratos de longo prazo.",
+        "correta": false
+      },
+      {
+        "id": 43249,
+        "texto": "A obrigação de executar as atividades está condicionada à aprovação prévia do contratante.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9921,
+    "texto": "Em um texto jornalístico publicado em 2024, o repórter descreve a adoção de um novo sistema de escrita digital que permite a inserção automática de diacríticos em palavras que, em versões anteriores, eram grafadas sem acentos. O sistema utiliza algoritmos de aprendizado de máquina para identificar a pronúncia correta e, consequentemente, a grafia adequada. O texto afirma que a implementação do sistema resultou em um aumento de 12,3 % na taxa de acurácia ortográfica dos textos produzidos pelos colaboradores da redação. Considerando a descrição acima, assinale a alternativa que melhor caracteriza o fenômeno linguístico que o sistema pretende corrigir.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43240,
+        "texto": "A omissão de acentos em palavras paroxítonas que deveriam ser acentuadas.",
+        "correta": false
+      },
+      {
+        "id": 43241,
+        "texto": "A substituição de letras minúsculas por maiúsculas em nomes próprios.",
+        "correta": false
+      },
+      {
+        "id": 43242,
+        "texto": "A remoção de pontuação excessiva em sentenças complexas.",
+        "correta": false
+      },
+      {
+        "id": 43243,
+        "texto": "A correção de grafias que não correspondem à norma padrão da língua portuguesa.",
+        "correta": true
+      },
+      {
+        "id": 43244,
+        "texto": "A uniformização de gírias regionais em textos formais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9920,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação lançou uma campanha nacional de alfabetização digital, visando integrar tecnologias de comunicação ao ensino fundamental. A iniciativa, intitulada ‘Letras & Bytes’, foi concebida por um grupo de especialistas em linguística aplicada, educação e ciência da computação. O projeto prevê a disponibilização de materiais didáticos interativos, que combinam textos narrativos com recursos multimídia, além de oficinas de escrita criativa em ambientes virtuais de aprendizagem. Em 2025, o Ministério da Educação divulgou resultados preliminares, indicando que 78% dos alunos participantes demonstraram melhora significativa na compreensão leitora e na produção textual em comparação com o ano anterior. A campanha, que já conta com o apoio de diversas empresas de tecnologia, pretende expandir para outras regiões do país, com foco em escolas de baixa renda.\" Considerando o texto acima, qual das alternativas a seguir descreve corretamente o objetivo principal da campanha ‘Letras & Bytes’?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43235,
+        "texto": "Promover a alfabetização digital entre estudantes de ensino médio.",
+        "correta": false
+      },
+      {
+        "id": 43236,
+        "texto": "Desenvolver habilidades de programação em crianças de 5 a 7 anos.",
+        "correta": false
+      },
+      {
+        "id": 43237,
+        "texto": "Integrar tecnologias de comunicação ao ensino fundamental para melhorar a compreensão leitora e a produção textual.",
+        "correta": true
+      },
+      {
+        "id": 43238,
+        "texto": "Capacitar professores em metodologias de ensino tradicional.",
+        "correta": false
+      },
+      {
+        "id": 43239,
+        "texto": "Fomentar a leitura de literatura clássica em escolas de áreas urbanas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9919,
+    "texto": "Um edital de concurso para a função de técnico de comunicação prevê que o candidato deverá responder a questões de interpretação de textos jornalísticos. Em um dos itens, é apresentado o seguinte trecho: \"A crise econômica, que tem afetado diversos setores, levanta questões sobre a sustentabilidade das políticas públicas.\" Qual é a função sintática da expressão \"que tem afetado diversos setores\" no contexto da frase?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43230,
+        "texto": "Adjunto adverbial de causa",
+        "correta": false
+      },
+      {
+        "id": 43231,
+        "texto": "Adjunto adverbial de modo",
+        "correta": false
+      },
+      {
+        "id": 43232,
+        "texto": "Adjunto adverbial de tempo",
+        "correta": true
+      },
+      {
+        "id": 43233,
+        "texto": "Adjunto adverbial de lugar",
+        "correta": false
+      },
+      {
+        "id": 43234,
+        "texto": "Adjunto adverbial de finalidade",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9918,
+    "texto": "Um professor de português propõe aos alunos a leitura de um texto literário contemporâneo, solicitando que identifiquem e analisem a presença de recursos de linguagem figurada. Dentre os recursos citados, qual deles é caracterizado por atribuir a um objeto inanimado uma qualidade ou ação típica de um ser vivo, de modo a enfatizar uma ideia ou emoção?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43225,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 43226,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 43227,
+        "texto": "Personificação",
+        "correta": true
+      },
+      {
+        "id": 43228,
+        "texto": "Eufemismo",
+        "correta": false
+      },
+      {
+        "id": 43229,
+        "texto": "Paradoxo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9917,
+    "texto": "Um edital de concurso para a função de analista de dados de uma agência reguladora de telecomunicações contém a seguinte frase: \"O candidato deverá demonstrar, em prova objetiva, domínio de conceitos de análise de discurso e de interpretação textual, bem como de normas gramaticais do português contemporâneo.\" Considerando a exigência de domínio de normas gramaticais, qual das alternativas abaixo representa corretamente a aplicação da regra de concordância verbal em frases que apresentam sujeito composto com elementos de diferentes gêneros?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43220,
+        "texto": "O juiz e a promotora analisaram os autos.",
+        "correta": true
+      },
+      {
+        "id": 43221,
+        "texto": "O juiz e a promotora analisou os autos.",
+        "correta": false
+      },
+      {
+        "id": 43222,
+        "texto": "O juiz e a promotora analisam os autos.",
+        "correta": false
+      },
+      {
+        "id": 43223,
+        "texto": "O juiz e a promotora analisava os autos.",
+        "correta": false
+      },
+      {
+        "id": 43224,
+        "texto": "O juiz e a promotora analisará os autos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9916,
+    "texto": "No trecho a seguir, extraído de um relatório de auditoria interna de uma empresa de tecnologia, observa-se a aplicação de uma norma gramatical específica: \n\n\"A equipe de desenvolvimento, juntamente com o departamento de qualidade, revisou os requisitos de negócio, verificando que a funcionalidade proposta atendia aos critérios de aceitação. Contudo, identificou‑se que a documentação de teste continha inconsistências de terminologia, o que poderia comprometer a rastreabilidade das alterações.\"\n\nConsiderando o texto acima, julgue a seguinte proposição: \"O uso do pronome relativo 'que' em 'que poderia comprometer a rastreabilidade' é correto, pois introduz uma oração subordinada adjetiva restritiva.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43218,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43219,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9915,
+    "texto": "A frase abaixo, empregada em um contrato de prestação de serviços de consultoria, apresenta um vício de forma que a sua validade será anulada: \"O CONTRATANTE concorda em pagar ao CONTRATADO a quantia de R$ 50.000,00, a ser quitada em 12 parcelas mensais, nos dias 05 de cada mês, a partir de 01/02/2024.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43216,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43217,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9914,
+    "texto": "Em 2024, o Ministério da Educação publicou um edital que prevê a aplicação de critérios de avaliação linguística em concursos de professores. Entre os critérios, destaca-se a exigência de que o candidato demonstre domínio de normas gramaticais, incluindo a correta utilização de crase em locuções prepositivas. A aplicação desse critério visa garantir que os futuros docentes possam transmitir a norma culta de forma consistente e precisa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43214,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43215,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9913,
+    "texto": "Considerando o seguinte trecho: \"O juiz, ao apreciar a petição, observou que os documentos anexados não atendiam ao requisito de autenticidade exigido pela legislação.\" Em relação à frase acima, julgue a proposição: A expressão \"não atendiam ao requisito de autenticidade\" implica que os documentos foram considerados inválidos para a apreciação do caso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43212,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43213,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9912,
+    "texto": "No contexto de redação oficial, o uso de pronomes de tratamento no singular, como \"Vossa Senhoria\", é preferível em documentos que tratam de assuntos administrativos, pois confere maior formalidade ao texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43210,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43211,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9911,
+    "texto": "A norma culta da língua portuguesa admite a inversão de sujeito e predicado em frases declarativas, desde que a estrutura sintática não comprometa a clareza do enunciado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43208,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43209,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9874,
+    "texto": "Um texto jornalístico publicado em 12 de junho de 2024 relata que a Prefeitura Municipal de São João da Barra, em parceria com a Secretaria de Educação, pretende implementar um programa de alfabetização digital para alunos do ensino fundamental. O programa, chamado ‘Leitura 4.0’, prevê o uso de tablets e plataformas de leitura interativa. A proposta inclui a leitura de textos literários, a escrita de resumos e a realização de debates online. Considerando as diretrizes curriculares nacionais e as competências de linguagem propostas pelo Ministério da Educação, qual das alternativas a seguir melhor descreve a abordagem pedagógica adotada pelo programa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43083,
+        "texto": "O programa foca exclusivamente na produção textual, ignorando a compreensão leitora, pois a alfabetização digital prioriza a escrita em dispositivos móveis.",
+        "correta": false
+      },
+      {
+        "id": 43084,
+        "texto": "A abordagem pedagógica é baseada na leitura de textos literários, mas não incorpora a análise crítica de conteúdo, o que limita o desenvolvimento das competências de linguagem.",
+        "correta": false
+      },
+      {
+        "id": 43085,
+        "texto": "O programa adota uma abordagem centrada na interação multimídia, mas não contempla a avaliação formativa, sendo insuficiente para atender às diretrizes curriculares.",
+        "correta": false
+      },
+      {
+        "id": 43086,
+        "texto": "A proposta integra a leitura, a produção textual e a discussão crítica em ambientes digitais, alinhando-se às competências de linguagem previstas nas Diretrizes Curriculares Nacionais.",
+        "correta": true
+      },
+      {
+        "id": 43087,
+        "texto": "O programa enfatiza apenas a leitura de textos técnicos, desconsiderando a literatura, o que contraria as diretrizes de formação de leitores críticos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9873,
+    "texto": "Durante a leitura de um artigo acadêmico sobre a evolução do uso de neologismos no português brasileiro, o candidato percebe que o autor utiliza a expressão ‘palavra de uso emergente’ para se referir a termos que ganharam circulação recente. Considerando o conceito de neologismo e a norma culta da língua, qual das alternativas a seguir apresenta a análise correta da expressão citada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43078,
+        "texto": "A expressão está correta, pois ‘palavra de uso emergente’ é equivalente a ‘neologismo’ e está em conformidade com a norma culta.",
+        "correta": false
+      },
+      {
+        "id": 43079,
+        "texto": "A expressão está incorreta, pois ‘palavra de uso emergente’ não é reconhecida como neologismo pela norma culta, sendo apenas um jargão técnico.",
+        "correta": false
+      },
+      {
+        "id": 43080,
+        "texto": "A expressão está correta, mas deve ser acompanhada de ‘em evolução’ para atender à norma culta.",
+        "correta": false
+      },
+      {
+        "id": 43081,
+        "texto": "A expressão está incorreta, pois o termo ‘emergente’ não pode ser usado em conjunto com ‘palavra’, violando a norma culta.",
+        "correta": false
+      },
+      {
+        "id": 43082,
+        "texto": "A expressão está correta, mas a norma culta recomenda a utilização de ‘neologismo’ em vez de ‘palavra de uso emergente’ para maior precisão lexical.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9872,
+    "texto": "Um edital de concurso para a Secretaria de Educação Pública, publicado em 15 de março de 2024, descreve que a prova de língua portuguesa terá 40 questões de múltipla escolha, todas de caráter dissertativo‑interpretativo, e que o candidato deve responder apenas 30 delas. O edital estabelece que a prova será aplicada em duas etapas: a primeira, em 10 de abril, com 20 questões de interpretação de texto, e a segunda, em 20 de abril, com 20 questões de análise sintática. Considerando a legislação vigente sobre concursos públicos e a natureza das provas de língua portuguesa, qual das alternativas a seguir descreve corretamente a aplicação das regras de prova do edital?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43073,
+        "texto": "A prova deve ser aplicada em uma única etapa, com todas as 40 questões, pois a divisão em etapas não é permitida por lei.",
+        "correta": false
+      },
+      {
+        "id": 43074,
+        "texto": "As duas etapas são permitidas, desde que a soma das questões de cada etapa não ultrapasse 40, e a escolha das 30 questões deve ser feita pelo candidato antes da prova.",
+        "correta": false
+      },
+      {
+        "id": 43075,
+        "texto": "A prova pode ser dividida em duas etapas, mas o candidato só pode responder a 30 questões no total, sendo que a escolha das questões a serem respondidas deve ser feita após a conclusão de cada etapa.",
+        "correta": false
+      },
+      {
+        "id": 43076,
+        "texto": "As duas etapas são permitidas, mas o candidato deve responder todas as 40 questões, sendo que apenas 30 serão consideradas para o resultado final.",
+        "correta": false
+      },
+      {
+        "id": 43077,
+        "texto": "A prova pode ser dividida em duas etapas, sendo que o candidato deve responder 20 questões na primeira etapa e 10 na segunda, totalizando 30 questões que serão avaliadas.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9871,
+    "texto": "Texto de apoio: No contexto de uma campanha de conscientização sobre o uso correto da língua portuguesa, a equipe de comunicação desenvolveu uma série de cartazes que abordam diferentes aspectos da norma culta. Em um dos cartazes, destaca-se a frase: \"A concordância verbal, quando bem aplicada, garante a coerência e a clareza do texto, evitando ambiguidades que possam comprometer a compreensão do leitor.\" A frase foi elaborada por um especialista em linguística aplicada, com o objetivo de reforçar a importância da concordância verbal em textos formais.\n\nConsiderando o texto acima, julgue a afirmativa: a frase \"A concordância verbal, quando bem aplicada, garante a coerência e a clareza do texto, evitando ambiguidades que possam comprometer a compreensão do leitor.\" contém uma oração subordinada adverbial temporal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43071,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43072,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9870,
+    "texto": "A frase \"Ele foi ao médico, pois estava se sentindo mal\" contém uma oração subordinada causal. A conjunção 'pois' funciona como uma conjunção subordinativa causal. Julgue a afirmativa: a oração subordinada causal pode ser substituída por uma oração coordenada adversativa sem alterar o sentido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43069,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43070,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9869,
+    "texto": "Durante a redação de um relatório técnico, o redator utiliza a expressão 'conforme previsto' para indicar que uma norma foi aplicada. Essa expressão é considerada um advérbio de modo. Julgue a afirmativa: a expressão 'conforme previsto' pode ser classificada como advérbio de modo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43067,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43068,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9868,
+    "texto": "Um artigo de opinião publicado em um jornal de grande circulação apresenta a frase: \"O governo, em sua última reunião, decidiu que a reforma tributária será implementada no próximo ano.\" A frase contém um elemento de ambiguidade quanto à quem se refere o pronome relativo. Julgue a afirmação: o pronome relativo 'que' está corretamente empregado, pois se refere à reforma tributária.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43065,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43066,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

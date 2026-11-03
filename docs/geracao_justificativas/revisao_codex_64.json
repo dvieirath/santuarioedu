@@ -1,0 +1,62 @@
+[
+  {
+    "id": 2859,
+    "motivo": "O cálculo simplificado 1,10 × 68/1,7 = 44 kV seria menor que 53 kV, mas a seleção da tensão de operação contínua depende do esquema de aterramento e das sobretensões temporárias. O texto não explicita essas hipóteses; verificar fonte e critério de dimensionamento antes de confirmar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2848,
+    "motivo": "Necessária verificação especializada do mecanismo de descarga e atuação da proteção. Raio na torre aterrada não implica automaticamente falta monofásica; depende de sobretensão, isolamento e eventual descarga disruptiva. Não justificar por indutância mútua sem conferir as hipóteses e a fonte original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2778,
+    "motivo": "Gabarito Errado requer revisão. Limitar cloretos é coerente com a proteção do aço de protensão; a atribuição específica a corrosão sob tensão precisa ser cotejada com a fonte e a norma da questão, sem negar genericamente o risco dos cloretos. Fonte consultada: https://www.fhwa.dot.gov/publications/research/infrastructure/structures/bridge/14039/index.cfm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2843,
+    "motivo": "Tabela-verdade precedente ausente; falta o material usado como referência para a implementação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2842,
+    "motivo": "Diagrama dos transistores PMOS e NMOS ausente; não é possível identificar a porta lógica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2841,
+    "motivo": "Circuito do amplificador ausente; valores de componentes não recuperam as conexões nem os capacitores de acoplamento e desvio.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2840,
+    "motivo": "Ilustração da fonte e ponte retificadora ausente; recuperar circuito, carga e filtragem.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2839,
+    "motivo": "Circuito associado à resposta ao degrau ausente; não é possível verificar a expressão de transferência.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2837,
+    "motivo": "Circuito precedente ausente; não se deduz VS apenas pelos valores fornecidos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2775,
+    "motivo": "Figura da viga substituída por marcador; recuperar carregamentos, apoios e diagrama original antes de preencher.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

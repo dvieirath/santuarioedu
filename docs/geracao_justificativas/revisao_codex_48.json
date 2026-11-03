@@ -1,0 +1,86 @@
+[
+  {
+    "id": 5956,
+    "motivo": "As figuras I e II não foram fornecidas: há apenas marcador de figura e campo imagem vazio. Não completar uma questão explicitamente dependente do esquema estrutural ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5953,
+    "motivo": "A matriz de confusão referida como a seguir está ausente. A conclusão sobre menores valores diagonais é conceitualmente problemática, mas o item inclui análise de uma matriz com três classes não disponibilizada; registrar sem preencher conforme regra de imagem ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5792,
+    "motivo": "Falta o primeiro parágrafo ao qual se remete. Brincava e brincasse podem ocorrer em construções desse tipo, mas a manutenção de coerência exige o contexto não fornecido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5775,
+    "motivo": "A expressão agrupamento de fatos avaliados isoladamente é tecnicamente imprecisa e não está contextualizada em uma abordagem ou instrumento. Necessita fonte específica para distinguir integração contextual de informações de avaliação fragmentada; não confirmar o Certo sem essa verificação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4072,
+    "motivo": "Necessário conferir texto consolidado oficial da LC paraibana 85/2008 e alterações quanto à competência para demissão por abandono. Foram localizados atos oficiais de demissão e referências à lei, mas não confirmação primária suficiente da competência privativa vigente. Não preencher por inferência do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4344,
+    "motivo": "Falta o relato sobre Amanda e a construção de conhecimento mencionada. Não há contexto suficiente para julgar a descrição.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4060,
+    "motivo": "Texto CG1A1-I ausente; alternativas contêm fragmentos de períodos. A função de assim e a organização dos demais adjuntos dependem do contexto para avaliar preservação de coerência e coesão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4003,
+    "motivo": "O gabarito atribui ao direito brasileiro a acessoriedade mínima, ao passo que a formulação usual é a acessoriedade limitada, exigindo fato típico e ilícito. C descreve mera conivência sem dever de agir e aparenta ser a opção correta. Revisar gabarito com fonte doutrinária/jurisprudencial específica antes de justificar D.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3654,
+    "motivo": "Falta o primeiro parágrafo do texto 1A2-II. Não é possível julgar os efeitos das intervenções pontuais oferecidas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3650,
+    "motivo": "Falta o segundo parágrafo do texto 1A2-I; não há como determinar sujeito, tempo e relação semântica de gerando para selecionar uma reescrita.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3649,
+    "motivo": "Falta o primeiro período do texto 1A2-I. Não se identifica antecedente, gênero, número ou regência que autorize a troca de em que por na qual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3645,
+    "motivo": "A opção E cria delimitação mista do aposto com vírgula de abertura e travessão de fechamento (“meu avô, pai da minha mãe — morreu”), sem contexto que a justifique. A substituição por vírgula na opção A pode ser gramatical como justaposição explicativa. Necessário conferir texto completo e gabarito; não justificar E como regra regular.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3644,
+    "motivo": "Gabarito C incorreto: fui é pretérito perfeito, enquanto assustava e atraía são imperfeitos. D tem serviram e desapareceram, ambos no pretérito perfeito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3582,
+    "motivo": "Falta o texto 1A18-I para avaliar preservação dos sentidos. Retirar os pode alterar a determinação do conjunto de campos de saber; correção isolada da construção não garante equivalência contextual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

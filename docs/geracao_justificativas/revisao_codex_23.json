@@ -1,0 +1,68 @@
+[
+  {
+    "id": 13195,
+    "motivo": "Nenhuma alternativa correta marcada no banco. Não é possível aplicar justificativa sem alterar gabarito. A redação também mistura sujeito sintático e objeto/paciente semântico.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13194,
+    "motivo": "Enunciado contraditório: reproduz exatamente Vou à praia como exemplo correto e incorreto. Provável perda de contraste na elaboração; revisar redação antes de preencher.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13155,
+    "motivo": "Não há assertiva a julgar: apenas texto de apoio. Nenhuma alternativa correta está marcada. Não inventar pergunta nem validar como fatos a publicação e a pesquisa citadas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13154,
+    "motivo": "Nenhuma alternativa correta marcada. Além disso, pronome antes do verbo denomina-se próclise; a colocação normativa não depende apenas de ênfase e clareza. Conferir texto e chave.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13153,
+    "motivo": "Nenhuma alternativa correta marcada. Necessário definir o gabarito e conferir a formulação que reduz a função principal do ponto e vírgula à duração da pausa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13152,
+    "motivo": "Redação defeituosa: pronomes que não se preparam com a preposição não é descrição gramatical clara; também atribui a exigência de preposição às palavras subsequentes de forma ambígua. Revisar antes de sustentar o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13148,
+    "motivo": "O trecho narrativo efetivo não foi apresentado, apenas uma sinopse. A tensão temática entre carreira e realização não determina, sozinha, o foco interno ou a função predominante do narrador. Falta base para excluir narração externa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13146,
+    "motivo": "Provável gabarito incompatível: cuique é forma latina associada a quisque, com sentido distributivo a cada um; não há sustentação para sinonímia intercambiável com cuidado em português. Fonte: dicionário Lewis and Short no Perseus, https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n40248/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13144,
+    "motivo": "Generalização sem definição: não especifica a substituição, o texto original nem a norma que estabeleceria o alegado princípio da neutralidade linguística. Não é possível concluir alteração de sentido ou violação só por mencionar linguagem inclusiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13142,
+    "motivo": "Ambiguidade em independentemente do calendário civil: dias corridos seguem contagem no calendário; validade concreta e termo final dependem de regras e convenções aplicáveis. O art. 132 do Código Civil trata da contagem e ressalva disposição em contrário. Não sustentar Certo sem esclarecer a expressão. Fonte: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12987,
+    "motivo": "Falta comando após o texto de apoio. A alternativa marcada ainda transfere para os planos de aula o foco atribuído ao treinamento anual, sem reprodução inequívoca dessa obrigação no texto. Não inventar critério de escolha nem tratar o decreto hipotético como verificado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

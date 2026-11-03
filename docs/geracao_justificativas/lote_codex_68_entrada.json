@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1741,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: A aceleração da gravidade tem o mesmo valor em qualquer ponto sobre a superfície terrestre e ao nível do mar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21264,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21265,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1740,
+    "texto": "No que se refere a gravidade, energia mecânica e trabalho, julgue o item: Caso um tenista, no momento do saque, lance a bola verticalmente para cima, o trabalho realizado pela força gravitacional sobre a bola será negativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21262,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21263,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1738,
+    "texto": "Julgue o item relativo a energia térmica, calor e temperatura: Se a temperatura de três corpos A,B e C forem, respectivamente, iguais a −30 °C, 200 K e 0 °F, então o corpo B será o mais frio.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21258,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21259,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1737,
+    "texto": "Julgue o item relativo a energia térmica, calor e temperatura: A temperatura na escala Fahrenheit que corresponde ao dobro da temperatura indicada na escala Celsius é 320 F.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21256,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21257,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1736,
+    "texto": "Julgue o item relativo a energia térmica, calor e temperatura: Caso dois corpos com diferentes temperaturas sejam colocados em contato, ocorrerá troca de calor entre eles até que o equilíbrio térmico seja atingido; ao se atingir esse equilíbrio térmico, os corpos possuirão a mesma quantidade de calor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21254,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21255,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1735,
+    "texto": "Acerca de óptica e de suas leis, de ondas eletromagnéticas, de visão e de espectro eletromagnético, julgue o item: O olho humano pode ser considerado um dispositivo detector de ondas eletromagnéticas de determinada faixa do espectro eletromagnético.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21252,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21253,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1734,
+    "texto": "A respeito de átomo, eletricidade, modelos atômicos e ondas eletromagnéticas, julgue os seguintes itens. Considerando-se a carga elementar e = 1,6×10−19 C, é correto afirmar que o número de elétrons transferidos para um corpo que recebe uma carga elétrica de – 1,0 C é inferior a 1×1019.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21250,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21251,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1245,
+    "texto": "Com base nas informações sobre a reação do ozônio, julgue os próximos itens. A lei de velocidade de reações que ocorrem em muitas etapas é determinada pela reação global e, no caso da degradação do ozônio, ela é igual a ν = k [O3]2 [O2]3, em que ν representa a velocidade da reação, k, a constante de velocidade e [O3] e [O2], as concentrações em quantidade de matéria de O3 e O2, respectivamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20259,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20260,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1243,
+    "texto": "Com base nas informações sobre a reação do ozônio, julgue os próximos itens. A reação da etapa II do mecanismo proposto ocorrerá se a energia potencial do complexo ativado for menor que a dos reagentes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20255,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20256,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1201,
+    "texto": "A lei de velocidade de reações que ocorrem em muitas etapas é determinada pela reação global e, no caso da degradação do ozônio, ela é igual a ν = k [O3]2 [O2]3, em que ν representa a velocidade da reação, k, a constante de velocidade e [O3] e [O2], as concentrações em quantidade de matéria de O3 e O2, respectivamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20171,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20172,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1198,
+    "texto": "A reação da etapa II do mecanismo proposto ocorrerá se a energia potencial do complexo ativado for menor que a dos reagentes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20165,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20166,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 943,
+    "texto": "Julgue os itens a seguir, acerca da economia e das desigualdades socioespaciais em escala mundial, assim como suas repercussões no Brasil. A teoria dos dois circuitos da economia urbana, criada por Milton Santos, põe os países desenvolvidos na instância do circuito superior e os países subdesenvolvidos na instância do circuito inferior.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19655,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19656,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 908,
+    "texto": "As habilidades previstas no currículo em questão não fazem referência direta aos desenvolvimentos específicos da física quântica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19585,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19586,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 895,
+    "texto": "Um telescópio refrator é constituído por duas lentes convergentes: uma objetiva, de distância focal igual a 50,0 cm; e uma ocular, de distância focal igual a 2,0 cm. Tendo como referência essas informações, julgue os itens subsequentes. Ao se utilizar o referido telescópio para observar objetos distantes, como a Lua, planetas e estrelas, a imagem da lente objetiva será formada a uma distância de 52,0 cm dessa lente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19559,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19560,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 893,
+    "texto": "O experimento proposto por Faraday consiste em uma bobina de cobre conectada a um amperímetro de alta sensibilidade, formando-se um circuito fechado, além de um ímã que pode ser afastado ou aproximado da bobina. Tendo como referência inicial o experimento de Faraday, julgue os itens seguintes. Se, para o imã fixo, a bobina girar em movimento circular uniforme próximo a ele, de modo que o plano da bobina varie de perpendicular à tangente com relação ao campo magnético do imã, então a corrente gerada na bobina será contínua.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19555,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19556,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 880,
+    "texto": "Considerando-se o trajeto fechado de ida ao ponto C e volta ao ponto A, o trabalho realizado pela força gravitacional sob o jovem é nulo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19529,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19530,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 878,
+    "texto": "Se o jovem partisse do ponto P com uma velocidade inicial nula, o seu movimento sobre a pista de treino seria do tipo movimento uniformemente variado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19525,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19526,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 877,
+    "texto": "No ponto C, o jovem atingirá a velocidade máxima.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19523,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19524,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 876,
+    "texto": "No ponto B, a velocidade do esqueitista é inferior a 10,0 m/s.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19521,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19522,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 870,
+    "texto": "A partir do texto 4A3-I e do texto 4A3-II, julgue os itens subsecutivos, acerca da inclusão social e do combate ao preconceito e à discriminação. O padrão de beleza, perfeição e funcionalidade instituído pela sociedade ocidental como normal e aceitável estigmatiza aqueles que não são normotípicos relativamente a saúde mental, funcionalidades motoras ou completude física.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19509,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19510,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

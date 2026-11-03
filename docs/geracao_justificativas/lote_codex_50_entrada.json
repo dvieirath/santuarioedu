@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2006,
+    "texto": "Julgue o item acerca de coesão e coerência do texto 8A3: Na penúltima estrofe, o pronome “Essa” tem emprego catafórico, uma vez que anuncia uma ideia ainda não expressa pelo texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21794,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21795,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2005,
+    "texto": "Julgue o item acerca de coesão e coerência do texto 8A3: A locução “estou vendo” (penúltima estrofe) indica simultaneidade entre as ações veiculadas pela forma verbal “estou vendo” e pela forma verbal “escorre”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21792,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21793,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2004,
+    "texto": "Julgue o item relativo a figuras de linguagem no texto 8A3: A expressão “desejos já maduros” (terceira estrofe) é exemplo de comparação, figura de linguagem que traça um paralelo entre o termo denotado e o termo conotado, nesse caso, entre desejos e frutos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21790,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21791,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2003,
+    "texto": "Julgue o item relativo a figuras de linguagem no texto 8A3: A personificação, figura de linguagem em que características humanas são atribuídas a algo inanimado ou abstrato, evidencia-se nas passagens da penúltima estrofe.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21788,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21789,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2002,
+    "texto": "Julgue o item relativo a figuras de linguagem no texto 8A3: Na terceira estrofe, é possível identificar a ocorrência de paronomásia, figura de linguagem que extrai expressividade de vocábulos que apresentam semelhança fônica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21786,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21787,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2000,
+    "texto": "Julgue o item relativo a figuras de linguagem no texto 8A3: Em “ouço mãos que se conversam”, na última estrofe, há sinestesia, figura de linguagem em que sensações diferentes se combinam em uma única expressão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21782,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21783,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1992,
+    "texto": "Texto 8A2-I. O vocábulo “conversa” (último período do terceiro parágrafo) pertence à classe gramatical dos substantivos e está exercendo a função de sujeito da oração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21766,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21767,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1989,
+    "texto": "Texto 8A2-I. O emprego do sinal indicativo de crase em “às páginas de um livro” (último período do primeiro parágrafo) é facultativo, já que sua supressão não prejudicaria a correção gramatical nem o sentido original do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21760,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21761,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1982,
+    "texto": "Texto 8A2-I. No trecho “esses adultos íntimos que deram vida às páginas de um livro, essas vozes que liam para nós, essas mãos e esses rostos que nos apresentavam os mundos possíveis e as emoções dos livros” (último período do primeiro parágrafo), há presença da figura de linguagem denominada metonímia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21746,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21747,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1980,
+    "texto": "Texto 8A1-I. Julgue os itens seguintes, relativos à classificação gramatical de palavras, à pontuação e à sintaxe de concordância e regência no texto 8A1-I. A palavra “muita” (primeiro período do quarto parágrafo), que expressa intensidade, pertence à classe gramatical dos advérbios.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21742,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21743,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1975,
+    "texto": "De acordo com a Base Nacional Comum Curricular (BNCC) — área de linguagens (língua inglesa): O componente curricular deve garantir que o estudante possa identificar o lugar de si e o do outro em um mundo plurilíngue e multicultural, sendo capaz de refletir criticamente sobre como a aprendizagem da língua inglesa contribui para a inserção dos sujeitos no mundo globalizado, inclusive no que concerne ao mundo do trabalho.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21732,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21733,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1888,
+    "texto": "Texto CB1A1: [contexto sobre pontuação]. Item: O emprego das vírgulas após os trechos “De acordo com o último relatório da Organização Internacional do Trabalho (OIT)” (no segundo período do primeiro parágrafo) e “Conforme definição da OIT” (no início do segundo parágrafo) justifica-se pelo mesmo motivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21558,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21559,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1887,
+    "texto": "Texto CB1A1: [contexto do segundo parágrafo]. Item: Seria preservada a coerência das ideias do texto se, no segundo parágrafo, a expressão “na medida em que” fosse substituída pelo vocábulo pois.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21556,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21557,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1886,
+    "texto": "Texto CB1A1: [contexto do terceiro parágrafo]. Item: No terceiro parágrafo, o segmento “a ideia” (segundo período) retoma, por coesão, a “noção” descrita no primeiro período.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21554,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21555,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1790,
+    "texto": "Com relação a práticas corporais em educação física, julgue os itens que se seguem. As práticas corporais correspondem a exercícios físicos realizados pelos sujeitos para ampliar a saúde física.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21362,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21363,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1783,
+    "texto": "Em uma aula de educação física, os estudantes foram separados em duas equipes conforme a quantidade de números (par ou ímpar) das letras de seus nomes, para jogar uma espécie de voleibol. O objetivo do jogo era estabelecer recordes de passagens da bola de um lado para o outro da rede, sem interrupção do jogo, o que aconteceria toda vez que alguém tocasse duas vezes seguidas na bola ou a segurasse. Além disso, para validar a pontuação, em conjunto, deveriam ocorrer, no mínimo, três formas motoras diferentes em cada jogada, sendo obrigatório haver, pelo menos, uma manchete. Considerando a situação hipotética apresentada, julgue os itens seguintes. O objetivo dessa aula está voltado para a performance motora, em uma abordagem competitivista da educação física escolar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21348,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 21349,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1653,
+    "texto": "Segundo a teoria psicológica de Vygotsky acerca da aprendizagem, a aprendizagem é um processo interno e ativo do sujeito, mas também interpessoal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 21088,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 21089,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1576,
+    "texto": "Texto CB1A1: [Contexto completo fornecido]. Item: Seria preservada a coerência das ideias do texto se, no segundo parágrafo, a expressão “na medida em que” fosse substituída pelo vocábulo pois.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20934,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20935,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1575,
+    "texto": "Texto CB1A1: [Contexto completo fornecido]. Item: No terceiro parágrafo, o segmento “a ideia” (segundo período) retoma, por coesão, a “noção” descrita no primeiro período.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20932,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20933,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1508,
+    "texto": "Texto CB1A1-I: [...] Os técnicos do DIEESE sugerem as seguintes hipóteses para explicar esse percentual menor de inscrição no cadastro nacional da pessoa jurídica (CNPJ) entre aqueles que começaram a trabalhar mais recentemente por conta própria: [...] \n\nEstaria preservada a coerência das ideias do último parágrafo do texto caso o segmento “mais recentemente” fosse deslocado para imediatamente depois do termo “própria”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20798,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20799,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

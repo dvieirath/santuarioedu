@@ -1,0 +1,482 @@
+[
+  {
+    "id": 11762,
+    "texto": "Em uma análise de estilo de escrita, observa‑se que a autora de um romance histórico emprega, de forma recorrente, a inversão de ordem sintática para enfatizar determinados elementos da frase. Um dos exemplos mais citados é a construção: ‘Não apenas o rei, mas também a rainha, detinha o poder’. A inversão, nesse caso, tem a finalidade de:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49245,
+        "texto": "Realizar a negação de forma mais enfática.",
+        "correta": false
+      },
+      {
+        "id": 49246,
+        "texto": "Destacar a hierarquia entre os personagens.",
+        "correta": true
+      },
+      {
+        "id": 49247,
+        "texto": "Indicar que a rainha detinha o poder em vez do rei.",
+        "correta": false
+      },
+      {
+        "id": 49248,
+        "texto": "Eliminar a necessidade de usar a preposição ‘de’.",
+        "correta": false
+      },
+      {
+        "id": 49249,
+        "texto": "Introduzir um elemento de surpresa no discurso.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11761,
+    "texto": "Um professor de literatura, ao elaborar um exercício de interpretação textual, apresenta ao aluno um trecho de um conto contemporâneo que descreve um cenário urbano em que o narrador observa as mudanças no ritmo de vida dos moradores. O texto apresenta, de forma recorrente, a alternância entre verbos no presente e no passado, bem como a utilização de expressões coloquiais e de termos técnicos da sociologia urbana. O objetivo do professor é avaliar a capacidade do estudante de identificar a função dos verbos no contexto narrativo e de analisar a influência do registro linguístico na construção de sentido. Qual das alternativas a seguir representa corretamente a análise de um dos verbos no presente, considerando a função sintática e semântica no contexto descrito?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49240,
+        "texto": "O verbo ‘cresce’ funciona como verbo de ligação, estabelecendo equivalência entre o sujeito e o predicativo.",
+        "correta": false
+      },
+      {
+        "id": 49241,
+        "texto": "O verbo ‘cresce’ funciona como verbo de ação, indicando uma mudança de estado no sujeito.",
+        "correta": true
+      },
+      {
+        "id": 49242,
+        "texto": "O verbo ‘cresce’ funciona como verbo de estado, descrevendo uma condição permanente do sujeito.",
+        "correta": false
+      },
+      {
+        "id": 49243,
+        "texto": "O verbo ‘cresce’ funciona como verbo de percepção, refletindo a sensação do narrador.",
+        "correta": false
+      },
+      {
+        "id": 49244,
+        "texto": "O verbo ‘cresce’ funciona como verbo de desejo, expressando anseios dos personagens.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11759,
+    "texto": "Texto: \"Em 2024, a Associação Nacional de Linguística publicou um relatório que destaca a crescente influência da tecnologia de processamento de linguagem natural na análise textual. O estudo, realizado em colaboração com universidades de São Paulo e Rio de Janeiro, analisou mais de 10.000 textos jornalísticos produzidos entre 2019 e 2023, identificando padrões de uso de neologismos e variações regionais. Os autores afirmam que, apesar das diferenças regionais, há uma tendência de convergência lexical em textos de divulgação científica. A pesquisa também observa que a adoção de termos técnicos internacionais tem se acelerado, sobretudo em áreas de biotecnologia e inteligência artificial. Por fim, o relatório recomenda a inclusão de módulos de atualização lexical em sistemas de tradução automática para melhor refletir a realidade linguística contemporânea.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49236,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49237,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11758,
+    "texto": "A norma culta do português brasileiro prevê que a palavra \"pouco\" pode funcionar como advérbio de intensidade. Diante disso, a frase \"Ele correu pouco\" é correta quanto ao uso da palavra?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49234,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49235,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11757,
+    "texto": "Em uma análise de textos literários, a inversão de ordem sintática pode ser empregada para enfatizar a ideia central. Assim, a frase \"o futuro, o futuro, o futuro\" é um exemplo de que tipo de inversão?",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49232,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49233,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11756,
+    "texto": "No contexto de uma prova de concurso para o cargo de analista de comunicação institucional, o candidato deve identificar a figura de linguagem que melhor descreve a expressão \"o silêncio ecoou na sala vazia\". A opção que apresenta a figura correta é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49230,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49231,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11755,
+    "texto": "Em 2023, a Secretaria de Cultura do Distrito Federal publicou um edital para a seleção de projetos de preservação de patrimônio histórico. O edital exigia que os proponentes apresentassem, entre outros requisitos, uma análise de impacto socioambiental de acordo com a Lei nº 12.651/2012. Se o edital não especificar claramente os critérios de avaliação desse requisito, qual a consequência mais provável para a validade do edital?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49225,
+        "texto": "O edital permanece válido, pois a lei não exige critérios explícitos.",
+        "correta": false
+      },
+      {
+        "id": 49226,
+        "texto": "O edital será considerado inválido, pois a falta de critérios impede a aplicação do princípio da isonomia.",
+        "correta": true
+      },
+      {
+        "id": 49227,
+        "texto": "O edital será suspenso, mas não anulado, permitindo a posterior inclusão dos critérios.",
+        "correta": false
+      },
+      {
+        "id": 49228,
+        "texto": "O edital pode ser impugnado apenas por candidatos inadimplentes, não afetando a validade geral.",
+        "correta": false
+      },
+      {
+        "id": 49229,
+        "texto": "O edital será considerado inválido apenas se houver recurso administrativo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11754,
+    "texto": "Em 2025, o Tribunal de Justiça do Estado de São Paulo julgou uma ação que impugnou a publicação de um decreto que alterava a redação de um artigo do Código Civil, sem observar o procedimento de consulta pública previsto na Lei de Acesso à Informação. Qual dos dispositivos legais é o mais adequado para fundamentar a decisão de anulação do decreto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49220,
+        "texto": "A Lei de Diretrizes Orçamentárias (LDO) – que regula a elaboração de políticas públicas.",
+        "correta": false
+      },
+      {
+        "id": 49221,
+        "texto": "A Lei de Improbidade Administrativa – que trata de atos que causam dano ao erário.",
+        "correta": false
+      },
+      {
+        "id": 49222,
+        "texto": "O Decreto-Lei nº 10.048/2001 – que estabelece normas de consulta pública em atos normativos.",
+        "correta": true
+      },
+      {
+        "id": 49223,
+        "texto": "A Lei de Responsabilidade Fiscal – que disciplina a gestão fiscal dos entes federativos.",
+        "correta": false
+      },
+      {
+        "id": 49224,
+        "texto": "O Código de Processo Civil – que regula os procedimentos judiciais de natureza civil.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11753,
+    "texto": "Considerando que o Ministério da Educação instituiu, em 2024, um programa de alfabetização digital para crianças de 6 a 10 anos, o qual prevê o uso de jogos educativos em realidade aumentada, qual das alternativas abaixo melhor descreve a aplicação do princípio da adequação normativa ao desenvolvimento de políticas públicas de educação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49215,
+        "texto": "A adequação normativa exige que a política seja compatível com a Constituição, mas não necessariamente com a legislação infraconstitucional.",
+        "correta": false
+      },
+      {
+        "id": 49216,
+        "texto": "A adequação normativa implica que a política seja formulada de acordo com a legislação vigente, independentemente de sua compatibilidade constitucional.",
+        "correta": false
+      },
+      {
+        "id": 49217,
+        "texto": "A adequação normativa requer que a política seja compatível com a Constituição e com a legislação infraconstitucional, assegurando a legalidade e a legitimidade das ações.",
+        "correta": true
+      },
+      {
+        "id": 49218,
+        "texto": "A adequação normativa é um princípio que se aplica apenas a atos administrativos, não a políticas públicas.",
+        "correta": false
+      },
+      {
+        "id": 49219,
+        "texto": "A adequação normativa garante que a política seja executada de forma a respeitar os princípios da eficiência e da economicidade, sem considerar a legislação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11752,
+    "texto": "Em textos jornalísticos, o uso de voz ativa é preferido em relação à voz passiva para transmitir maior dinamismo e clareza na narrativa, especialmente em reportagens de fato.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49213,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49214,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11750,
+    "texto": "No português brasileiro, a crase é obrigatória antes de palavras que indicam tempo, como em 'às 10 horas' e 'à tarde', mas não é usada antes de palavras que indicam lugar, como em 'a casa' e 'a escola'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49209,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49210,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11749,
+    "texto": "Em um contexto de oratória, o uso de pronomes de tratamento no singular, como 'Vossa Senhoria', é considerado inadequado quando dirigido a um público plural.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49207,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49208,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11748,
+    "texto": "Na construção de frases, o verbo transitivo direto pode ser substituído por um substantivo que funcione como objeto direto, mantendo a mesma estrutura sintática.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49205,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49206,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11719,
+    "texto": "Em um exame de português, o candidato recebe um trecho de um texto argumentativo que discute a importância da preservação de línguas indígenas. O texto apresenta uma estrutura de causa e consequência, onde a causa é a marginalização cultural e a consequência é o risco de extinção linguística. A questão pede para identificar a figura de linguagem utilizada no trecho que expressa a relação entre causa e consequência. Qual é a figura de linguagem mais adequada para descrever essa relação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49105,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 49106,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 49107,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 49108,
+        "texto": "Causa e efeito",
+        "correta": false
+      },
+      {
+        "id": 49109,
+        "texto": "Causa e consequência",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11718,
+    "texto": "Um texto narrativo descreve um cenário em que um professor de língua portuguesa, ao elaborar uma prova para o concurso de técnico administrativo, decide incluir uma passagem que relata a visita de um grupo de estudantes a um museu de arte contemporânea. A passagem contém uma frase que apresenta uma oração subordinada adjetiva restritiva, seguida de uma oração subordinada substantiva objetiva direta. O objetivo do professor é avaliar a capacidade de análise sintática dos candidatos. Diante desse contexto, qual das opções abaixo identifica corretamente a função sintática da oração subordinada adjetiva restritiva presente na frase?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49100,
+        "texto": "Complemento nominal",
+        "correta": false
+      },
+      {
+        "id": 49101,
+        "texto": "Adjunto adverbial",
+        "correta": false
+      },
+      {
+        "id": 49102,
+        "texto": "Objeto direto",
+        "correta": false
+      },
+      {
+        "id": 49103,
+        "texto": "Adjunto adnominal",
+        "correta": false
+      },
+      {
+        "id": 49104,
+        "texto": "Adjunto adjetivo",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11717,
+    "texto": "Um edital de concurso para a função de analista de processos administrativos, publicado em 15 de março de 2024, prevê que os candidatos deverão responder a uma prova objetiva composta por 80 questões de múltipla escolha. Dentre as questões, 20 são de interpretação de textos e 60 de conhecimentos gerais. O edital estabelece que a pontuação máxima será de 100 pontos, sendo que cada questão correta vale 1,25 ponto, cada questão incorreta desconta 0,25 ponto e questões não respondidas não impactam a nota. A banca examinadora, Cebraspe, é conhecida por aplicar questões de análise textual em que o candidato deve identificar a função sintática de termos específicos. Considerando esse contexto, qual das alternativas abaixo apresenta corretamente a distribuição de pontos atribuídos a uma prova que contenha 80 questões, 20 de interpretação de textos e 60 de conhecimentos gerais, levando em conta a regra de pontuação descrita no edital?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49095,
+        "texto": "20 pontos por interpretação de textos e 60 pontos por conhecimentos gerais",
+        "correta": false
+      },
+      {
+        "id": 49096,
+        "texto": "25 pontos por interpretação de textos e 55 pontos por conhecimentos gerais",
+        "correta": false
+      },
+      {
+        "id": 49097,
+        "texto": "20 pontos por interpretação de textos e 60 pontos por conhecimentos gerais, totalizando 80 pontos",
+        "correta": false
+      },
+      {
+        "id": 49098,
+        "texto": "20 pontos por interpretação de textos e 60 pontos por conhecimentos gerais, totalizando 80 pontos, sendo que a pontuação máxima é 100 pontos",
+        "correta": false
+      },
+      {
+        "id": 49099,
+        "texto": "20 pontos por interpretação de textos e 60 pontos por conhecimentos gerais, totalizando 80 pontos, mas a pontuação máxima é 100 pontos, pois cada questão vale 1,25 ponto",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11716,
+    "texto": "O verbo 'caber' pode ser usado no sentido de 'conter' em frases que envolvem limites físicos, como em 'O volume cabe na caixa', mas não pode ser empregado em contextos de capacidade mental, por exemplo: 'Ele cabe todas as ideias em sua mente'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49093,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49094,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11715,
+    "texto": "Na norma culta da língua portuguesa, o uso de 'quem' como pronome relativo pode ser substituído por 'que' sem alteração de sentido, quando a oração subordinada for adjetiva restritiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49091,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49092,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11714,
+    "texto": "Considerando o texto abaixo:\n\n'Em 2024, a Agência Nacional de Petróleo, Gás Natural e Biocombustíveis (ANP) divulgou um relatório que apontou um aumento de 12% na produção de biocombustíveis no Brasil, impulsionado principalmente pelo cultivo de cana-de-açúcar para etanol. O estudo destacou que a adoção de tecnologias de fermentação avançada reduziu os custos de produção em 8% e aumentou a eficiência energética em 15%. Além disso, o relatório apontou que a exportação de etanol para países da América Latina cresceu 20% no mesmo período, refletindo a demanda crescente por combustíveis mais sustentáveis. Os dados sugerem que a política de incentivos fiscais, implementada em 2022, contribuiu significativamente para o crescimento do setor, já que empresas que investiram em biotecnologia obtiveram benefícios fiscais que reduziram a carga tributária em até 30%.' \n\nConsiderando o texto acima, a afirmação de que 'o aumento de 12% na produção de biocombustíveis no Brasil em 2024 foi exclusivamente devido à adoção de tecnologias de fermentação avançada' é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49089,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49090,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11713,
+    "texto": "A frase 'O céu é azul, pois a atmosfera reflete a luz do sol em todas as cores igualmente' apresenta um erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49087,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49088,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

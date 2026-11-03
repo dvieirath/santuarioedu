@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1358,
+    "texto": "Considerando os sentidos e as propriedades linguísticas do texto CG1A1-II: Entre as vantagens do funcionamento escolar em tempo integral atestadas pela autora do texto em sua observação das escolas de ensino médio em Pernambuco, estão o fortalecimento dos governos locais e a valorização da carreira docente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20495,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20496,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1357,
+    "texto": "Considerando os sentidos e as propriedades linguísticas do texto CG1A1-II: No quinto parágrafo, o emprego da primeira pessoa do singular indica que a autora do texto integrou a equipe de pesquisadores que avaliaram os impactos da educação integral em Pernambuco.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20493,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20494,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1345,
+    "texto": "Com base no Currículo de Pernambuco, julgue o item: A fim de garantir equidade na educação, o Currículo de Pernambuco adota, entre outros princípios norteadores, a educação em direitos humanos e a formação integral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20462,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20463,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1286,
+    "texto": "Texto CG1A1-I. É correto considerar como palavras-chave do tema central do texto as expressões “mudança permanente”, “escola em tempo integral”, “revolução da vida atual” e “simples memorização”, por exemplo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20341,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20342,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1229,
+    "texto": "Quando z = a + bi é um número complexo, então a equação define, no plano complexo, uma elipse com centro no ponto (1/2, 0).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20227,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20228,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1227,
+    "texto": "A respeito dos números complexos, a parte imaginária do número complexo é positiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20223,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20224,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1222,
+    "texto": "Se é uma progressão aritmética com razão q, tal que, então não é convergente, pois seus termos alternam entre positivo e negativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20213,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20214,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1150,
+    "texto": "Considere-se v ∈ ℝ n, A ∈ ℝ n×n e a matriz B ∈ ℝ n×n cujas entradas sejam dadas da seguinte forma: bij = aij, para todo i ∈ {1,2,3, … , n} e j ∈ {1,3,4, … , n}, e bi2 = ai2 + vi, i ∈ {1,2,3, … , n}. Nesse caso, é correto concluir que det(B) = det(A) + |v|.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20069,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20070,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1149,
+    "texto": "Para que a matriz A não seja singular, é necessário que o determinante seja diferente de zero.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20067,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20068,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1148,
+    "texto": "Considerando-se uma matriz A ∈ ℝ m×n, um vetor x ∈ ℝ n e b ∈ ℝ m, se m < n, então o sistema linear Ax = b nunca terá solução.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20065,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20066,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1146,
+    "texto": "Situação hipotética: O público de determinada festa junina é formado por 60% de mulheres e 40% de homens. Desse público, sabe-se que 35% das mulheres compraram a rifa de São João, enquanto a porcentagem dos homens que a compraram foi de 45%. Assertiva: Nessa situação, a probabilidade de que um participante da festa que comprou a rifa de São João seja mulher é superior a 50%.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20061,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20062,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1145,
+    "texto": "Situação hipotética: Em uma brincadeira de determinada festa junina, os jogadores devem tirar de uma urna duas bolas em sequência e sem reposição. A urna contém 10 bolas, numeradas de 1 a 10. Para ganhar o jogo, os participantes da brincadeira devem tirar duas bolas cujos números mostrados possuam diferença, em módulo, igual a 1. Assertiva: Nessa situação, a probabilidade de ganhar o jogo é de 20%.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20059,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20060,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1142,
+    "texto": "Se z = x + iy for um número complexo, então o conjunto solução da equação z̅² = 4z possuirá quatro elementos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20053,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20054,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1141,
+    "texto": "Quando z = x + iy é um número complexo, então a equação |2z - 1|² + 2|z + z̅|² = 1 define, no plano complexo, uma elipse com centro no ponto (1/2, 0).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20051,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20052,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1139,
+    "texto": "A respeito dos números complexos e de suas propriedades, a parte imaginária do número complexo z = √2/2 + i√2/2 é positiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20047,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20048,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1132,
+    "texto": "Julgue os itens a seguir, relativos a triângulos retângulos, funções trigonométricas e geometria analítica. Se um triângulo retângulo possui lados cujos comprimentos são números inteiros e um dos catetos mede 14 cm, então o outro cateto mede mais de 40 cm.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20033,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20034,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1128,
+    "texto": "Se f: ℝ→ℝ e g: ℝ→ℝ são funções tais que f(x) = ex e g(x) = x², então a composição g∘f é um polinômio do segundo grau.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20025,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20026,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1126,
+    "texto": "Considere-se que f: ℝ → ℝ seja um polinômio do segundo grau dado por f(x) = ax² + bx + c, cujo gráfico é mostrado a seguir. [FIGURA: Parábola com raízes em x=0 e x=2, vértice em x=1, y=1]. Nesse caso, b = 2.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20021,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20022,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1124,
+    "texto": "Existe uma sequência que é, simultaneamente, uma progressão aritmética e uma progressão geométrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20017,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20018,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1123,
+    "texto": "Se é uma progressão aritmética com razão q, então não é convergente, pois seus termos alternam entre positivo e negativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20015,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20016,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

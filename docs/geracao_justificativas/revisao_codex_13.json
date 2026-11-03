@@ -1,0 +1,68 @@
+[
+  {
+    "id": 8478,
+    "motivo": "Número exato de trocas depende de implementação e de contar autotrocas. Versão que evita trocar posição consigo mesma pode fazer zero em vetor ordenado; a versão de Princeton realiza n chamadas de troca, incluindo a última. N−1 pode contar passagens de outra variante, não trocas necessariamente. Fonte: https://algs4.cs.princeton.edu/21elementary/ .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6832,
+    "motivo": "Não se informa se o pagamento anual é só de juros ou renda uniforme que também devolve o capital. Só juros sobre 5000 rende 1500 anuais (<2700); anuidade postecipada de recuperação em três anos a 30% resulta em cerca de 2753,13 (>2700). Gabarito ERRADO depende de hipótese omitida sobre o fluxo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6828,
+    "motivo": "45/(6×5)=1,5 kg por macaco por dia; 14×9×1,5=189 kg. Sob a proporcionalidade do enunciado, afirmação verdadeira, mas gabarito ERRADO.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6827,
+    "motivo": "Premissas incompatíveis com contagens inteiras: F=f, M=2f antes dos nascimentos; (2f+2)/(3f+8)=0,30 implica f=4/11. Além disso, a conclusão 9 machos e 21 fêmeas implicaria antes 7 machos e 15 fêmeas, não o dobro. Registrar inconsistência em vez de justificar uma população impossível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6826,
+    "motivo": "Resultado 5590,20 corresponde exatamente a 4200×1,1³, mas o enunciado não explicita capitalização composta. No regime simples, a taxa seria (5590,20/4200−1)/3=11,0333...% ao ano. A confirmação de 10% pressupõe regime omitido; revisar contexto original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6561,
+    "motivo": "Área do losango/paralelogramo gerado por a=(7,1,0) e b=(1,7,0) é |7×7−1×1|=48 km², inferior a 50. Gabarito ERRADO incompatível com a interpretação geométrica fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6560,
+    "motivo": "Ângulo θ não é definido no texto e não há figura. Faltam configuração geométrica e restrição de volume para determinar a função de área e seu mínimo. Não assumir imagem ou condições ausentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6559,
+    "motivo": "Não há definição de θ, figura nem expressão da área em função do ângulo. A descrição não permite estabelecer o limite quando θ tende a 90 graus.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6558,
+    "motivo": "Enunciado termina em 'a seguinte solução positiva' sem apresentar a expressão a julgar. Também falta definir θ geometricamente e indicar o centro da aproximação quadrática. Material incompleto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6191,
+    "motivo": "Tabela contém um preço desconhecido '?', sem dado adicional. Isso altera a média e a probabilidade. Se ?=6,40, média=6,49 e 7/20 acima; se ?=20, média=7,17 e só 1/20 acima. A desigualdade muda de valor lógico.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 6148,
+    "motivo": "Afirmação depende de gráfico/tabela de oferta e demanda em dez dias que não está no enunciado nem em imagem cadastrada. Não é possível comparar curvas e máximo global.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

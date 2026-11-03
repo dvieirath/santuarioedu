@@ -1,0 +1,362 @@
+[
+  {
+    "id": 3008,
+    "texto": "A soldagem com eletrodo de tungstênio (TIG) é um processo no qual a união dos metais é obtida pelo seu aquecimento com um arco estabelecido entre um eletrodo especial consumível revestido e a peça que se deseja soldar; a alma desse eletrodo conduz a corrente elétrica e serve como metal de adição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23798,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23799,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3004,
+    "texto": "Considerando que uma amostra de 3 toneladas de petróleo a uma temperatura inicial de 100 °C seja armazenada em um tanque e que, após 8 h, esse petróleo esteja com temperatura igual a 20 °C e não apresente mudança de estado; considerando, também, que o calor específico do petróleo seja constante e igual a 0,50 kcal/(kg∙°C) quando sua temperatura estiver entre 10 °C e 100 °C; e considerando, por fim, que 1 cal = 4 J, julgue o item: Na situação proposta, a potência média do calor emitido pelo petróleo durante seu resfriamento será igual a 2,0×10^5 W.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23790,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23791,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3002,
+    "texto": "Considere que a temperatura do petróleo extraído em uma bacia terrestre seja igual a 110 °C. Nesse caso, se esse petróleo for bombeado por meio de longas tubulações metálicas até chegar aos tanques de armazenamento, o petróleo não trocará calor com o meio externo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23786,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23787,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3001,
+    "texto": "Se forem utilizadas tubulações de paredes duplas em um processo de escoamento de petróleo no qual se produza vácuo entre elas, haverá uma diminuição da transferência de calor por condução e convecção entre o petróleo e o meio externo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23784,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23785,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3000,
+    "texto": "Caso o petróleo extraído de um poço esteja armazenado em um tanque metálico por um tempo longo e suficiente para que esse petróleo esteja em equilíbrio térmico com as paredes do tanque e o meio externo, então, nessa situação, não haverá trocas de energia térmica entre o petróleo e o meio externo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23782,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23783,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2999,
+    "texto": "Com base nessas informações e considerando que a velocidade da luz no vácuo seja igual a 3 × 10^8 m/s, julgue os próximos itens. Uma onda eletromagnética com comprimento de onda de 550 nm possui uma frequência de 200 Hz.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23780,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23781,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2996,
+    "texto": "Considerando o circuito ilustrado na figura precedente [FIGURA: Circuito elétrico com resistores R1, R2 e R3], em que R1 = 10 Ω, R2 = 20 Ω e R3 = 30 Ω são as resistências dos três resistores, julgue os itens a seguir. No circuito elétrico mostrado na figura, a soma total das correntes que atravessam cada resistor é igual à corrente fornecida pela fonte.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23774,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23775,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2995,
+    "texto": "Um navio petroleiro transporta produtos derivados de petróleo... Acerca dessa situação hipotética, e considerando que a massa de cada boia esférica seja igual a 2,0 kg, que a densidade da água seja igual a 10^3 kg/m3 e que a aceleração da gravidade seja igual a 10 m/s2, julgue os itens que se seguem. As boias flutuam parcialmente submersas porque são menos densas que a água. Nesse sentido, é correto afirmar que qualquer objeto flutuará se sua densidade for menor que a do fluido em que ele estiver inserido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23772,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23773,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2985,
+    "texto": "Um corpo rígido é aquele que não sofre deformações, independentemente das forças que lhe forem aplicadas, ainda que varie a distância relativa entre quaisquer dois pontos constantes, enquanto tensores são utilizados para descrever tensões, deformações e as relações entre essas quantidades de força aplicadas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23752,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23753,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2984,
+    "texto": "A segunda lei de Newton afirma que a aceleração de um corpo será diretamente proporcional à massa desse corpo e à força a ele aplicada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23750,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23751,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2934,
+    "texto": "Um homem de 32 anos de idade, com aproximadamente 70 kg, dormia em sua residência quando um incêndio se iniciou. Ao acordar, ele teve dificuldade de abandonar a casa em chamas. Quando a equipe de bombeiros e dos socorristas do SAMU chegou ao local, encontrou a vítima consciente, levemente desorientada e sem sangramentos, com frequência cardíaca de 106 bpm; frequência respiratória de 26 ipm e pressão arterial de 90 mmHg × 62 mmHg. Foram observadas queimaduras de 2.º grau nas vibrissas nasais, nas sobrancelhas e nos membros superiores (posteriormente). Acerca desse quadro clínico hipotético, julgue os itens que se seguem. Há indícios de lesão por inalação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23650,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23651,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2897,
+    "texto": "No que se refere ao gerenciamento de rede, julgue os itens que se seguem. O protocolo SNMP utiliza preferencialmente o TCP na camada de transporte, devido à maior velocidade e leveza do TCP em comparação ao UDP.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23576,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23577,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2881,
+    "texto": "No que se refere aos conceitos relativos à medição e inspeção de análises de espectro magnéticos, julgue os itens a seguir. O valor numérico da potência EIRP é superior ao da potência ERP para qualquer tipo de antena.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23544,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23545,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2880,
+    "texto": "No que diz respeito à propagação de ondas eletromagnéticas e seus fenômenos, julgue os itens subsequentes. A intensidade de campo elétrico irradiado por uma antena isotrópica, a 100 MHz, com potência de entrada igual a 30 W e a 100 m de distância da antena, é menor que 0,5 V/m.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23542,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23543,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2874,
+    "texto": "No que se refere aos fundamentos de sistemas de comunicação e à identificação de seus componentes, suas funcionalidades e seus parâmetros, julgue os itens subsequentes. Se o sistema transmissor de um sistema de comunicação for constituído de dois amplificadores em cascata, o ponto de intercepção de terceira ordem ( third-order intercept point — ponto IP3) equivalente do conjunto cascateado, quando referido à saída do sistema transmissor, será tão mais próximo do valor do IP3 do segundo amplificador do cascateamento quanto maior for o ganho de potência desse segundo amplificador.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23530,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23531,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2873,
+    "texto": "No que concerne aos fundamentos de sistemas de comunicação, sua terminologia e sua classificação, bem como ao espectro eletromagnético, julgue os seguintes itens. Na faixa de frequências do espectro eletromagnético correspondente à banda Ka, efeitos da atmosfera decorrentes de eventos como chuva, neve, nuvens e absorção por gases têm, comparativamente às bandas L e S, maior impacto na atenuação da potência da onda eletromagnética propagada, o que dificulta a garantia de requisitos de confiabilidade de serviços de telecomunicações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23528,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23529,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2871,
+    "texto": "Com relação a sistemas de comunicação, bem como a sua terminologia, seus elementos e seus componentes, julgue os itens seguintes. Em um sistema transmissor, a EIRP ( equivalent isotropically radiated power ) depende da potência entregue à antena transmissora e do ganho desta antena em relação à antena isotrópica, em determinada direção.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23524,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23525,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2869,
+    "texto": "Acerca de sistemas de medição, julgue os seguintes itens. Um sistema de medição de potência elétrica, com faixa de medida (range) de entrada de 10 W a 200 W, possui alcance (span) de entrada de 200 W.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23520,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23521,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2862,
+    "texto": "Julgue os itens subsecutivos, a respeito da segurança em instalações e em serviços de eletricidade, conforme a NR 10 e suas alterações. As medidas de proteção coletiva previstas na referida norma compreendem prioritariamente o emprego de tensão de segurança e, na sua impossibilidade, a desenergização elétrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23506,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23507,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2860,
+    "texto": "Julgue os itens seguintes, que versam sobre instalações elétricas em baixa tensão. No tipo de acionamento estrela-triângulo em motores de indução trifásicos, o estator do motor, durante a partida, é submetido a uma tensão superior à da rede.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23502,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23503,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

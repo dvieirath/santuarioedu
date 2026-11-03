@@ -1,0 +1,44 @@
+[
+  {
+    "id": 5455,
+    "motivo": "Não foi confirmada em fonte primária a estimativa específica de duplicação do risco de neovascularização coroideana com 1–2 D de miopia. Não confundir risco de maculopatia miópica com o desfecho específico de neovascularização. Necessária fonte epidemiológica original para validar o número e o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5434,
+    "motivo": "Gabarito Errado exige conferência: movimentos e partes fetais percebidos pelo examinador são sinais de certeza. A data aproximada de 24 semanas não deve ser rejeitada usando dados sobre percepção materna. O manual MS consultado menciona movimentos entre 18–20 semanas, sem resolver a formulação específica do examinador. Fonte: https://bvsms.saude.gov.br/bvs/publicacoes/cadernos_atencao_basica_32_prenatal.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5390,
+    "motivo": "Provável gabarito incompatível: as três condições reproduzem a definição clínica operacional da ILAE, incluindo intervalo superior a 24 horas e risco de recorrência de pelo menos 60% em dez anos. A definição sustenta Certo, mas o banco registra Errado. Fonte: https://www.ilae.org/guidelines/guidelines-and-reports/a-practical-clinical-definition-of-epilepsy",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5353,
+    "motivo": "Provável gabarito incompatível: maior carga de icterícia neonatal grave em países de baixa/média renda e necessidade de fortalecer os sistemas de saúde são compatíveis com os estudos consultados. Não encontrado fundamento para Errado. Fonte: https://pubmed.ncbi.nlm.nih.gov/29637134/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5171,
+    "motivo": "Conferência documental necessária da 5ª edição do Atlas BI-RADS: não foi possível verificar diretamente a subclassificação obrigatória 4A, em vez da indicação genérica de categoria 4, para ducto único dilatado. Referência a versão posterior não valida automaticamente a edição exigida. Não preencher sem confirmar o trecho original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4806,
+    "motivo": "A regra absoluta de incisão separada requer contextualização da técnica e do sítio reconstrutivo. A literatura apresenta variações de posicionamento e acesso conforme defeito e retalho; não foi confirmado que a exigência valha universalmente. Revisar redação e referência original antes de justificar Certo. Estudos consultados: https://pubmed.ncbi.nlm.nih.gov/7972482/ e https://pubmed.ncbi.nlm.nih.gov/2052909/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4650,
+    "motivo": "Provável gabarito incompatível: a revisão de Jones reconhece monoartrite e poliartralgia como critérios maiores em populações de risco moderado/alto, após excluir outras causas. O conteúdo central sustenta Certo; esclarecer também que a estratificação é populacional, não automaticamente por país. Fonte: https://www.cdc.gov/group-a-strep/hcp/clinical-guidance/diagnosing-acute-rheumatic-fever.html",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

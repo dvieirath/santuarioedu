@@ -1,0 +1,41 @@
+[
+  {
+    "command": [
+      "check",
+      "--deploy",
+      "--fail-level",
+      "WARNING"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "collectstatic",
+      "--noinput"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "migrate",
+      "--noinput"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "makemigrations",
+      "--check",
+      "--dry-run"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "shell",
+      "-c",
+      "from django.test import Client; c=Client(); paths=['/','/health/','/accounts/login/','/robots.txt']; results=[(p,c.get(p,secure=True).status_code) for p in paths]; print(results); assert all(code==200 for _,code in results)"
+    ],
+    "exit_code": 0
+  }
+]

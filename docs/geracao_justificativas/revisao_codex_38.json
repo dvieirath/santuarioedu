@@ -1,0 +1,62 @@
+[
+  {
+    "id": 10346,
+    "motivo": "Referência constitucional incorreta: o art. 5º, XXXVII veda juízo ou tribunal de exceção; não estabelece requisito linguístico para seleção de servidores. As alternativas também apresentam justificativas distintas sem critério suficiente de exclusão. Fonte: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10350,
+    "motivo": "Mistura “norma culta”, “norma padrão” e adequação ao registro formal como uma definição única. A frase citada é gramaticalmente adequada, mas o critério conceitual acrescentado depende da terminologia adotada. Revisar a formulação para evitar confusão entre conceitos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10351,
+    "motivo": "Não fornece frase em que a troca entre conectores causais provoque invalidade gramatical. A alegação ampla de preferência exclusiva é discutível, mas não permite inventar restrição concreta para justificar Errado. Delimitar contexto e distinguir registro, sentido e gramaticalidade.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10352,
+    "motivo": "A conclusão de não usar crase em “a partir de” é correta, mas a justificativa é falsa: a crase não se define pela junção de duas preposições. Neste caso não há artigo feminino antes do infinitivo “partir”. O gabarito Certo endossa explicação incorreta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10354,
+    "motivo": "Não identifica com precisão a portaria nem oferece base para julgar a proporcionalidade da exigência documental. O texto permite reconhecer sua finalidade comprobatória, mas não decidir categoricamente sua natureza discriminatória sem contexto de aplicação. Separado para conferência documental.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10355,
+    "motivo": "Anacoluto envolve ruptura da construção sintática, não perda necessária de coerência textual. Sem trecho, não se demonstra que o recurso desestabilize a coerência; ele pode ser coerente com a intenção de representar fragmentação. Rever comando e gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10356,
+    "motivo": "O enunciado descreve uma situação, mas não pergunta qual princípio foi violado ou é predominante. Veracidade e responsabilidade social podem ser pertinentes; não inventar comando para tornar única a alternativa marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10397,
+    "motivo": "A adequação do pronome de tratamento depende do gênero e da situação de interlocução. “Vossa Senhoria” não deixa de pertencer à norma culta por ser pouco usual na exposição acadêmica; sem delimitação, o gabarito Errado não pode ser sustentado como proibição geral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10398,
+    "motivo": "O texto não apresenta comando ou assertiva a ser julgada. A contextualização sobre índices de alfabetização não define qual proposição corresponde ao gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10399,
+    "motivo": "Há apenas texto de apoio, sem assertiva para julgamento Certo/Errado. Não preencher inventando uma proposição-alvo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

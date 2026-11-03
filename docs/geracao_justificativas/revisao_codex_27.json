@@ -1,0 +1,68 @@
+[
+  {
+    "id": 12192,
+    "motivo": "O trecho que atravessava... é oração adjetiva vinculada a grito de liberdade, não adjunto adverbial de tempo. Nenhuma alternativa apresenta essa análise. Há ainda troca de colinas por colunas no comando.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12189,
+    "motivo": "A aceitabilidade depende do gênero acadêmico e da função da passagem. A frase pode ocorrer em citação, exemplo ou diálogo analisado; você não é por si um erro gramatical. Sem delimitação, o gabarito errado confunde adequação contextual com proibição geral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12186,
+    "motivo": "Não identifica a suposta norma geral de avaliação, a esfera ou as condições de retificação. Apenas após a publicação admite leituras distintas e não define a alteração considerada. Não redigir conclusão jurídica genérica sem base e contexto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12184,
+    "motivo": "Preço acima da referência é indício de sobrepreço; superfaturamento pressupõe dano, conforme art. 6º, LVI e LVII, da Lei 14.133. Eficiência e legalidade podem estar simultaneamente envolvidas; o texto não fornece critério único para mais diretamente violado. Fonte primária: https://legislacao.presidencia.gov.br/ficha/?%2Flegisla%2Flegislacao.nsf%2Fwebsearch=&codigo=14.133&data=20210401&ementa=2&tipo=LEI .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12183,
+    "motivo": "Sustentabilidade é núcleo de segmento do objeto direto de consideram, coordenado a viabilidade e impacto. Não completa um nome; o gabarito complemento nominal é incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12182,
+    "motivo": "Atribui à ABNT uma norma gramatical de 2024 sem identificação e formula regra falsa de crase independente do contexto. Vou à festa está corretamente grafado na construção dada; a fundamentação do item mistura acerto do exemplo e premissa inadequada. Revisar enunciado e critério de julgamento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12181,
+    "motivo": "Falta frase concreta para avaliar emprego, posição e sentido dos advérbios. A presença de advérbio não gera erro automaticamente, mas seu uso também não é irrelevante a toda análise gramatical. Claramente e exatamente podem ter funções discursivas diversas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12180,
+    "motivo": "A condição desde que esteja no indicativo não esclarece se pretende ser suficiente ou necessária. A admissibilidade depende da construção e da ordem, não de uma condição universal de modo isolada. Sem exemplo, o gabarito errado não é seguro.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12179,
+    "motivo": "Generaliza a concordância plural sem tratar sujeito posposto, núcleos sinônimos ou outras construções que admitem singular. A expressão elemento de ordem temporal é indefinida. Gabarito certo requer delimitação da regra.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12149,
+    "motivo": "O texto descreve projetos e formas de avaliação, mas não informa diagnóstico de conhecimentos prévios nem articulação explícita com estruturas cognitivas existentes. A afirmação acrescenta características teóricas não demonstradas pelo texto; não atribuir a Ausubel somente por haver projetos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12147,
+    "motivo": "Contudo é conectivo adversativo presente: trata-se de coordenação sindética, não assindética. O trecho ainda exibe vírgulas junto ao conectivo, contrariando a própria alegação. Gabarito certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.utils import timezone
 from django.db.models import Count, Q
+from django.db import transaction
 from datetime import timedelta
 
 from ..models import (
@@ -27,7 +28,9 @@ def simulado_edital(request):
     POST → recebe edital_id e gera simulado conforme a distribuição oficial
     """
     # Mapa: nome de categoria (case-insensitive) → Categoria object (com qtd)
-    cats_qs = Categoria.objects.annotate(qtd=Count('questao')).filter(qtd__gt=0)
+    cats_qs = Categoria.objects.annotate(qtd=Count('questao', filter=Q(
+        questao__revisada=True, questao__rejeitada_definitiva=False,
+    ))).filter(qtd__gt=0)
     cat_por_nome = {c.nome.lower(): c for c in cats_qs}
 
     # Para cada edital, calcula quantas questões REAIS podem ser geradas
@@ -139,14 +142,14 @@ def iniciar_simulado(request):
     return redirect('simulado_questao', simulado_id=simulado.id, numero=1)
 
 @login_required(login_url='account_login')
+@transaction.atomic
 def simulado_questao(request, simulado_id, numero):
-    simulado = Simulado.objects.filter(id=simulado_id, usuario=request.user).first()
+    simulado = Simulado.objects.select_for_update().filter(id=simulado_id, usuario=request.user).first()
     if not simulado:
         return redirect('escolher_tema')
 
     if simulado.finalizado or simulado.segundos_restantes() == 0:
         if not simulado.finalizado:
-            from django.utils import timezone
             simulado.finalizado = True
             simulado.finalizado_em = timezone.now()
             simulado.save()
@@ -163,7 +166,10 @@ def simulado_questao(request, simulado_id, numero):
     alternativas = questao.alternativa_set.all()
 
     if request.method == 'POST':
-        alt_id = request.POST.get('alternativa_id')
+        alt_id = request.POST.get('alternativa_id', '').strip()
+        if alt_id and not (alt_id.isascii() and alt_id.isdecimal() and len(alt_id) <= 18):
+            messages.error(request, 'Selecione uma alternativa válida para esta questão.')
+            return redirect('simulado_questao', simulado_id=simulado.id, numero=numero)
         primeira_resposta = resposta_atual.alternativa_escolhida is None
         if alt_id:
             try:
@@ -176,22 +182,25 @@ def simulado_questao(request, simulado_id, numero):
                 # (evita farm via trocar-resposta N vezes na mesma questao).
                 if primeira_resposta and simulado.modo != 'prova_real':
                     try:
-                        meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
-                        meta.atualizar_streak()
-                        srs, _ = RevisaoEspacada.objects.get_or_create(
-                            usuario=request.user, questao=questao,
-                            defaults={'proxima_revisao': timezone.localdate()},
-                        )
-                        srs.atualizar(alternativa.correta)
-                        if alternativa.correta:
-                            _dar_xp(request.user, 10, request.session)
-                        novas = verificar_conquistas(request.user)
-                        if novas:
-                            request.session['novas_conquistas'] = novas
+                        with transaction.atomic():
+                            meta, _ = MetaEstudo.objects.get_or_create(usuario=request.user)
+                            meta.atualizar_streak()
+                            srs, _ = RevisaoEspacada.objects.get_or_create(
+                                usuario=request.user, questao=questao,
+                                defaults={'proxima_revisao': timezone.localdate()},
+                            )
+                            srs.atualizar(alternativa.correta)
+                            if alternativa.correta:
+                                _dar_xp(request.user, 10, request.session)
+                            novas = verificar_conquistas(request.user)
+                            if novas:
+                                request.session['novas_conquistas'] = novas
                     except Exception:
-                        pass  # nunca deixa a gamificacao bloquear o simulado
+                        import logging
+                        logging.getLogger(__name__).exception("Falha na gamificação do simulado %s", simulado.pk)
             except Alternativa.DoesNotExist:
-                pass
+                messages.error(request, 'Selecione uma alternativa válida para esta questão.')
+                return redirect('simulado_questao', simulado_id=simulado.id, numero=numero)
 
         acao = request.POST.get('acao', 'proxima')
         if acao == 'finalizar':

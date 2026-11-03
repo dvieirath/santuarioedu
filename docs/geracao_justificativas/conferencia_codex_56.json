@@ -1,0 +1,21 @@
+{
+  "salvas": 11,
+  "revisao": 9,
+  "pendentes_agora": 11131,
+  "novas_questoes_concorrentes": [],
+  "campos_preexistentes_preservados": true,
+  "justificativas_alteradas": [
+    1166,
+    2557,
+    5432,
+    5459,
+    5483,
+    5616,
+    5776,
+    5779,
+    5813,
+    5867,
+    5882
+  ],
+  "integridade": "ok"
+}

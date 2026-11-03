@@ -1,0 +1,512 @@
+[
+  {
+    "id": 11142,
+    "texto": "Um conjunto de dados representa o tempo (em segundos) que um algoritmo consome para processar arquivos de tamanhos crescentes. Os tempos são 10, 20, 30, 50, 80, 130. A relação entre o tamanho do arquivo e o tempo de processamento é assumida ser quadrática. Se o algoritmo processa um arquivo de 200 unidades de tamanho, qual será o tempo estimado de processamento?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47201,
+        "texto": "250 segundos",
+        "correta": false
+      },
+      {
+        "id": 47202,
+        "texto": "350 segundos",
+        "correta": false
+      },
+      {
+        "id": 47203,
+        "texto": "500 segundos",
+        "correta": true
+      },
+      {
+        "id": 47204,
+        "texto": "650 segundos",
+        "correta": false
+      },
+      {
+        "id": 47205,
+        "texto": "800 segundos",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11141,
+    "texto": "Em um experimento de lógica matemática, a sequência 2, 4, 8, 16, 32, ... é seguida por uma sequência de números que não são múltiplos de 2. Se o próximo número da sequência original for 64, qual é o primeiro número da sequência subsequente que não é múltiplo de 2, considerando que a regra é que cada número subsequente deve ser o menor número inteiro maior que o anterior que não seja múltiplo de 2?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47196,
+        "texto": "65",
+        "correta": false
+      },
+      {
+        "id": 47197,
+        "texto": "67",
+        "correta": true
+      },
+      {
+        "id": 47198,
+        "texto": "69",
+        "correta": false
+      },
+      {
+        "id": 47199,
+        "texto": "71",
+        "correta": false
+      },
+      {
+        "id": 47200,
+        "texto": "73",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11140,
+    "texto": "Considerando o texto abaixo, responda a questão.\n\nTexto: \"Em 2024, a Receita Federal lançou um novo algoritmo de auditoria que analisa séries temporais de transações financeiras. O algoritmo aplica um filtro de média móvel de ordem 5 para suavizar flutuações e, em seguida, calcula a diferença entre cada valor suavizado e o valor original. Se a diferença exceder 20% do valor original, a transação é marcada como suspeita. Em uma amostra de 10 transações, 3 foram marcadas como suspeitas. A média móvel de ordem 5, aplicada a uma sequência de valores [100, 120, 110, 130, 125, 140, 135, 150, 145, 160], resulta em quais valores para os cinco primeiros pontos da série suavizada?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47191,
+        "texto": "[120, 115, 125, 122, 127]",
+        "correta": false
+      },
+      {
+        "id": 47192,
+        "texto": "[120, 115, 125, 127, 131]",
+        "correta": false
+      },
+      {
+        "id": 47193,
+        "texto": "[120, 115, 125, 122, 125]",
+        "correta": true
+      },
+      {
+        "id": 47194,
+        "texto": "[120, 115, 125, 127, 125]",
+        "correta": false
+      },
+      {
+        "id": 47195,
+        "texto": "[120, 115, 125, 122, 131]",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11139,
+    "texto": "Um sistema de controle de acesso a um prédio corporativo utiliza uma sequência de códigos numéricos de três dígitos. O código 123 abre a porta A, 456 a porta B e 789 a porta C. Se a regra de geração dos códigos é que o primeiro dígito representa a ordem de entrada (1 para a primeira porta, 2 para a segunda, 3 para a terceira), o segundo dígito é a soma dos dois últimos dígitos, e o terceiro dígito é a diferença entre o primeiro e o segundo dígito, qual código abre a porta D, que seria a quarta porta a ser acessada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47186,
+        "texto": "321",
+        "correta": false
+      },
+      {
+        "id": 47187,
+        "texto": "654",
+        "correta": false
+      },
+      {
+        "id": 47188,
+        "texto": "987",
+        "correta": false
+      },
+      {
+        "id": 47189,
+        "texto": "213",
+        "correta": true
+      },
+      {
+        "id": 47190,
+        "texto": "543",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11138,
+    "texto": "Texto: Em 2024, a Secretaria de Educação do Estado X lançou um programa de capacitação para professores de matemática, com foco em raciocínio lógico. O programa inclui três módulos principais: (1) lógica formal, abordando proposições, conectivos e tabelas verdade; (2) lógica de predicados, introduzindo quantificadores e relações; (3) raciocínio dedutivo aplicado, com exercícios de prova de concursos. Cada módulo tem duração de 10 horas, totalizando 30 horas de treinamento. Os participantes recebem certificado ao concluir todos os módulos. Considerando o texto acima, a seguinte afirmação é verdadeira: o número total de horas de treinamento oferecido pelo programa é 30.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47184,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47185,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11137,
+    "texto": "Um conjunto de cinco proposições lógicas, todas verdadeiras, é composto por P, Q, R, S e T. Se a proposição P implica Q, Q implica R, R implica S e S implica T, então a proposição P implica T é considerada correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47182,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47183,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11136,
+    "texto": "Em um jogo de lógica, o jogador deve escolher um número entre 1 e 9. Se o número for par, ele recebe 2 pontos; se for ímpar, ele recebe 1 ponto. Se o jogador escolher 7, a afirmação a seguir é verdadeira: o jogador receberá 2 pontos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47180,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47181,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11135,
+    "texto": "Um algoritmo de ordenação por inserção percorre uma lista de 10 elementos, iniciando pela segunda posição. Se o elemento atual for maior que o anterior, o algoritmo interrompe a inserção e avança para a próxima posição. Diante desse procedimento, a declaração a seguir é correta: o algoritmo garante que a lista final esteja ordenada em ordem crescente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47178,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47179,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11134,
+    "texto": "O conjunto de números 3, 6, 9, 12 e 15 satisfaz a propriedade de que a soma de qualquer dois elementos consecutivos é sempre múltiplo de 3. Considerando essa característica, a afirmação a seguir é verdadeira: a diferença entre o maior e o menor elemento do conjunto é múltiplo de 3.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47176,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47177,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11097,
+    "texto": "O departamento de Tecnologia da Informação de um tribunal está realizando um levantamento sobre a utilização de sistemas por seus servidores. A base de dados revela que, dos 100 servidores entrevistados, 60 utilizam o Sistema de Processos Eletrônicos, 45 utilizam o Sistema de Gestão de Pessoas e 20 utilizam ambos os sistemas. Diante desse cenário, um analista precisa determinar a quantidade de servidores que não utilizam nenhum dos dois sistemas mencionados para fins de planejamento de treinamento. Considerando o texto acima, assinale a opção que apresenta o número correto de servidores que não utilizam nenhum dos dois sistemas.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47054,
+        "texto": "10",
+        "correta": false
+      },
+      {
+        "id": 47055,
+        "texto": "15",
+        "correta": true
+      },
+      {
+        "id": 47056,
+        "texto": "20",
+        "correta": false
+      },
+      {
+        "id": 47057,
+        "texto": "25",
+        "correta": false
+      },
+      {
+        "id": 47058,
+        "texto": "35",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11096,
+    "texto": "Uma auditoria interna analisou o desempenho de três departamentos (Alfa, Beta e Gama) em relação ao cumprimento de metas anuais. A auditoria constatou que: (1) Se o departamento Alfa atingiu a meta, então o departamento Beta também atingiu. (2) Se o departamento Beta atingiu a meta, então o departamento Gama não atingiu. (3) O departamento Gama atingiu a meta. Considerando que todas as afirmações da auditoria são verdadeiras, conclui-se corretamente que:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47049,
+        "texto": "O departamento Alfa atingiu a meta e o departamento Beta não atingiu.",
+        "correta": false
+      },
+      {
+        "id": 47050,
+        "texto": "O departamento Alfa não atingiu a meta e o departamento Beta atingiu.",
+        "correta": false
+      },
+      {
+        "id": 47051,
+        "texto": "O departamento Alfa não atingiu a meta e o departamento Beta não atingiu.",
+        "correta": true
+      },
+      {
+        "id": 47052,
+        "texto": "O departamento Alfa atingiu a meta e o departamento Beta atingiu.",
+        "correta": false
+      },
+      {
+        "id": 47053,
+        "texto": "O departamento Alfa não atingiu a meta, mas não é possível determinar a situação do departamento Beta.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11095,
+    "texto": "Considere que um gestor público afirmou a seguinte sentença: 'Se o orçamento for aprovado, então o projeto será executado ou a equipe será remanejada'. Para que a negação lógica dessa proposição seja verdadeira, é necessário que ocorra a seguinte situação.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47044,
+        "texto": "O orçamento não foi aprovado e o projeto não será executado e a equipe não será remanejada.",
+        "correta": true
+      },
+      {
+        "id": 47045,
+        "texto": "O orçamento foi aprovado e o projeto não será executado e a equipe não será remanejada.",
+        "correta": false
+      },
+      {
+        "id": 47046,
+        "texto": "O orçamento não foi aprovado ou o projeto não será executado e a equipe não será remanejada.",
+        "correta": false
+      },
+      {
+        "id": 47047,
+        "texto": "O orçamento foi aprovado ou o projeto não será executado ou a equipe não será remanejada.",
+        "correta": false
+      },
+      {
+        "id": 47048,
+        "texto": "Se o orçamento não for aprovado, então o projeto não será executado e a equipe não será remanejada.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11094,
+    "texto": "Em um setor de logística, quatro servidores, denominados Alberto, Beatriz, Carlos e Daniela, foram designados para realizar a conferência de cargas em quatro turnos distintos. Sabe-se que: (1) Se Alberto faz a conferência no primeiro turno, então Beatriz faz no segundo. (2) Ou Carlos faz a conferência no terceiro turno, ou Daniela faz no quarto, mas não ambos. (3) Se Daniela faz a conferência no quarto turno, então Carlos não faz no terceiro. Com base nessas informações, assinale a opção que apresenta uma situação logicamente possível para a ocupação dos turnos.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47039,
+        "texto": "Alberto no primeiro turno, Beatriz no segundo, Carlos no terceiro e Daniela no quarto.",
+        "correta": false
+      },
+      {
+        "id": 47040,
+        "texto": "Alberto não está no primeiro turno, Beatriz não está no segundo, Carlos não está no terceiro e Daniela está no quarto.",
+        "correta": true
+      },
+      {
+        "id": 47041,
+        "texto": "Alberto no primeiro turno, Beatriz no segundo, Carlos não está no terceiro e Daniela não está no quarto.",
+        "correta": false
+      },
+      {
+        "id": 47042,
+        "texto": "Alberto não está no primeiro turno, Beatriz está no segundo, Carlos está no terceiro e Daniela não está no quarto.",
+        "correta": false
+      },
+      {
+        "id": 47043,
+        "texto": "Alberto no primeiro turno, Beatriz não está no segundo, Carlos está no terceiro e Daniela não está no quarto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11093,
+    "texto": "Um raciocínio dedutivo afirma que, se todas as A são B, e alguns C são A, então alguns C são B. Se todas as flores são plantas, e alguns cactos são flores, conclui-se que alguns cactos são plantas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47037,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47038,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11092,
+    "texto": "Considerando o seguinte texto: \"Em 2024, a empresa TechNova lançou um novo algoritmo de classificação de dados que utiliza uma árvore de decisão de profundidade máxima de 5 níveis. O algoritmo foi testado em um conjunto de 1.200 amostras, obtendo 92% de acurácia. A equipe de ciência de dados identificou que a taxa de falsos positivos era de 3,5% e a taxa de falsos negativos de 4,2%. Em seguida, o algoritmo foi integrado ao sistema de monitoramento de segurança, reduzindo em 18% o tempo médio de resposta a incidentes críticos. A análise de custos mostrou que a implementação do algoritmo gerou uma economia de R$ 75.000,00 ao ano, considerando a redução de horas de trabalho manual. A equipe planeja ampliar a aplicação para outros módulos, prevendo um aumento de 12% na acurácia ao ajustar os parâmetros de regularização.\" Considerando o texto acima, a afirmação de que o algoritmo possui taxa de falsos negativos superior à taxa de falsos positivos é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47035,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47036,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11091,
+    "texto": "Um algoritmo que recebe um número inteiro n e devolve n+1 apenas quando n é ímpar, devolve n‑1 quando n é par. Assim, para n = 8, a saída será 9.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47033,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47034,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11090,
+    "texto": "Um conjunto de números pares é organizado em ordem crescente. Se o terceiro número da lista for 12, então o sétimo número será 28.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47031,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 47032,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11089,
+    "texto": "Em uma sequência lógica, cada termo é obtido somando-se o dobro do termo anterior ao triplo do termo ante‑passado. Se o primeiro termo da série é 2, o sexto termo será 54.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 47029,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 47030,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10684,
+    "texto": "Texto: Em 2025, a Secretaria de Educação Nacional divulgou um relatório que analisou a correlação entre o tempo médio de estudo diário e o desempenho em testes padronizados em escolas públicas. O estudo incluiu 3.200 estudantes de 10 escolas diferentes, com idades entre 12 e 18 anos. Os dados foram coletados em dois períodos: antes e depois da implementação de um programa de reforço escolar. Cada estudante respondeu a um questionário que registrou o número de horas de estudo por semana, o tempo de sono e a frequência de participação em atividades extracurriculares. A análise estatística utilizou regressão linear múltipla, onde a variável dependente foi a pontuação no teste padronizado e as variáveis independentes foram horas de estudo, horas de sono e frequência de atividades extracurriculares. O coeficiente de determinação (R²) obtido foi 0,68, indicando que 68% da variação nas pontuações pode ser explicada pelo modelo. O teste de hipótese para a inclinação da variável “horas de estudo” apresentou p‑valor < 0,001, sugerindo forte evidência de associação positiva.\n\nConsiderando o texto acima, qual das alternativas descreve corretamente a interpretação do coeficiente de determinação obtido no estudo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45693,
+        "texto": "O modelo explica 68% da variação total das pontuações nos testes padronizados.",
+        "correta": true
+      },
+      {
+        "id": 45694,
+        "texto": "O modelo explica 32% da variação total das pontuações nos testes padronizados.",
+        "correta": false
+      },
+      {
+        "id": 45695,
+        "texto": "O modelo explica 68% da variação média das pontuações nos testes padronizados.",
+        "correta": false
+      },
+      {
+        "id": 45696,
+        "texto": "O modelo explica 32% da variação média das pontuações nos testes padronizados.",
+        "correta": false
+      },
+      {
+        "id": 45697,
+        "texto": "O modelo explica 68% das pontuações individuais nos testes padronizados.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10683,
+    "texto": "Um algoritmo de ordenação divide um vetor de 10 elementos em duas sub‑listas de 5 elementos cada, ordena cada sub‑lista recursivamente e, em seguida, combina as duas sub‑listas ordenadas. Se a fase de combinação requer, em média, 7 comparações por elemento da sub‑lista menor, quantas comparações são necessárias para combinar as duas sub‑listas ordenadas?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45688,
+        "texto": "35",
+        "correta": false
+      },
+      {
+        "id": 45689,
+        "texto": "40",
+        "correta": false
+      },
+      {
+        "id": 45690,
+        "texto": "45",
+        "correta": true
+      },
+      {
+        "id": 45691,
+        "texto": "50",
+        "correta": false
+      },
+      {
+        "id": 45692,
+        "texto": "55",
+        "correta": false
+      }
+    ]
+  }
+]

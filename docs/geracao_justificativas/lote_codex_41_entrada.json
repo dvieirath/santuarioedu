@@ -1,0 +1,512 @@
+[
+  {
+    "id": 9867,
+    "texto": "Na análise de um texto literário contemporâneo, o autor utiliza o recurso de inversão sintática para enfatizar o contraste entre o presente e o futuro. Essa inversão, segundo a norma culta, altera a ordem típica sujeito-verbo-objeto. Considerando essa característica, julgue a afirmativa: a inversão sintática pode ser considerada um erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43063,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43064,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9866,
+    "texto": "Texto: Em 2024, a Agência Nacional de Processos Eletrônicos (ANPE) divulgou uma orientação para a elaboração de documentos digitais oficiais. O texto afirma que a assinatura eletrônica deve conter, no mínimo, a identificação do signatário, a data de assinatura, o algoritmo de hash utilizado e a validade da assinatura. Em seguida, a ANPE recomenda que os documentos sejam assinados em sequência, de modo que cada assinatura contenha a referência à assinatura anterior, garantindo a integridade da cadeia. Considerando o texto acima, qual das alternativas a seguir descreve corretamente a função da referência à assinatura anterior na cadeia de assinaturas eletrônicas?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43058,
+        "texto": "Garante que cada assinatura seja independente das demais.",
+        "correta": false
+      },
+      {
+        "id": 43059,
+        "texto": "Permite a verificação da validade de cada assinatura individualmente.",
+        "correta": false
+      },
+      {
+        "id": 43060,
+        "texto": "Assegura que a alteração de qualquer assinatura invalide todas as subsequentes.",
+        "correta": true
+      },
+      {
+        "id": 43061,
+        "texto": "Facilita a auditoria ao registrar o tempo de cada assinatura.",
+        "correta": false
+      },
+      {
+        "id": 43062,
+        "texto": "Elimina a necessidade de comprovar a identidade do signatário.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9865,
+    "texto": "Um edital de concurso para o cargo de Técnico em Segurança do Trabalho, publicado em 2023, utiliza a expressão: \"O candidato deverá comprovar, no prazo de até 15 dias, a regularidade de seu registro profissional, mediante apresentação de certificado emitido pela entidade reguladora, ou, na ausência deste, comprovação de inscrição em curso de especialização reconhecido pelo Ministério do Trabalho.\" Qual é a alternativa que melhor descreve a natureza jurídica da expressão \"ou, na ausência deste\"?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43053,
+        "texto": "Uma cláusula de exclusão de responsabilidade.",
+        "correta": false
+      },
+      {
+        "id": 43054,
+        "texto": "Uma condição suspensiva para a exigência de certificado.",
+        "correta": false
+      },
+      {
+        "id": 43055,
+        "texto": "Uma alternativa de prova, equivalente ao certificado.",
+        "correta": true
+      },
+      {
+        "id": 43056,
+        "texto": "Um requisito de prazo, que pode ser prorrogado.",
+        "correta": false
+      },
+      {
+        "id": 43057,
+        "texto": "Um requisito de comprovação de curso de especialização.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9864,
+    "texto": "Em 2025, um edital de concurso para o cargo de Analista de Processos da Receita Federal traz a seguinte frase: \"Os candidatos que apresentarem documentação incompleta serão desclassificados, salvo se apresentarem justificativa plausível e comprovação de eventual impedimento legal.\" Qual princípio da linguagem jurídica está sendo aplicado ao permitir exceções à regra de desclassificação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43048,
+        "texto": "Princípio da legalidade.",
+        "correta": false
+      },
+      {
+        "id": 43049,
+        "texto": "Princípio da publicidade.",
+        "correta": false
+      },
+      {
+        "id": 43050,
+        "texto": "Princípio da razoabilidade.",
+        "correta": true
+      },
+      {
+        "id": 43051,
+        "texto": "Princípio da ampla defesa.",
+        "correta": false
+      },
+      {
+        "id": 43052,
+        "texto": "Princípio da motivação das decisões.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9863,
+    "texto": "Considerando que a norma de redação oficial da Presidência da República determina que as frases de instrução devem ser claras e objetivas, a seguinte instrução foi publicada em 12 de março de 2024: \"Para a elaboração do relatório anual, os servidores deverão anexar o sumário executivo, a análise de risco e o plano de contingência, seguindo o modelo padrão, e submeter o documento ao gestor de área até o dia 30 de abril.\" Qual é a alternativa que melhor identifica a característica da norma que orienta a estrutura da instrução?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43043,
+        "texto": "A exigência de anexar documentos adicionais ao relatório anual.",
+        "correta": false
+      },
+      {
+        "id": 43044,
+        "texto": "A imposição de prazos específicos para submissão do relatório.",
+        "correta": false
+      },
+      {
+        "id": 43045,
+        "texto": "A orientação de que o relatório siga um modelo padrão.",
+        "correta": true
+      },
+      {
+        "id": 43046,
+        "texto": "A obrigatoriedade de incluir o sumário executivo em todas as instruções.",
+        "correta": false
+      },
+      {
+        "id": 43047,
+        "texto": "A recomendação de que o gestor de área revise o relatório antes da publicação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9862,
+    "texto": "Na norma culta, o uso de crase em locuções prepositivas como \"a fim de\" é obrigatório, pois a crase indica a fusão da preposição \"a\" com o artigo definido \"o\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43041,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43042,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9861,
+    "texto": "Texto: Em 2024, a Assembleia Legislativa do Estado de São Paulo aprovou a Lei nº 5.678, que institui o Programa de Incentivo à Leitura Escolar. O programa prevê a distribuição de livros digitais gratuitos para estudantes de ensino fundamental, com a condição de que esses livros contenham pelo menos 40% de conteúdo em língua portuguesa. O objetivo é promover o hábito da leitura e reduzir a evasão escolar. O programa também estabelece que as escolas devem disponibilizar um espaço dedicado à leitura digital, equipado com dispositivos de acesso à internet e com materiais de apoio pedagógico. A lei prevê, ainda, a criação de um conselho consultivo, composto por representantes de professores, pais e estudantes, para avaliar a eficácia do programa e propor ajustes nas diretrizes. A legislação foi motivada pela necessidade de adaptar a educação às novas tecnologias e garantir que os materiais didáticos estejam alinhados com a língua oficial do país. Considerando o texto acima, julgue a seguinte proposição: A Lei nº 5.678 exige que todos os materiais digitais distribuídos pelo Programa de Incentivo à Leitura Escolar contenham exclusivamente conteúdo em língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43039,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43040,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9860,
+    "texto": "A norma culta da língua portuguesa prevê que o uso de pronomes oblíquos átonos em posição inicial de oração pode ser considerado inadequado, pois a norma favorece a colocação de pronomes na posição pós‑verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43037,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 43038,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9859,
+    "texto": "Em textos jornalísticos, a inversão do sujeito e do predicado pode ser utilizada para enfatizar a ação principal. Quando a estrutura sintática é invertida, a clareza da mensagem permanece inalterada, pois a ordem das palavras não interfere na compreensão do sentido geral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43035,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43036,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9858,
+    "texto": "Na análise de textos literários contemporâneos, a presença de neologismos de origem estrangeira pode indicar a expansão semântica de determinados conceitos. Considerando que o uso de tais neologismos tende a conferir maior densidade informativa ao texto, julgue a seguinte proposição: o emprego de neologismos de origem estrangeira em textos literários contemporâneos não altera a interpretação semântica do leitor, pois a compreensão depende exclusivamente do contexto narrativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 43033,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 43034,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9688,
+    "texto": "Texto de apoio: Em 2024, a Academia Brasileira de Letras publicou um documento que propõe a inclusão de novas palavras na norma culta do português brasileiro. Entre as sugestões, destaca-se a palavra \"desinteressante\", que seria usada para indicar algo que não desperta interesse. A proposta argumenta que a língua evolui e que a inclusão de termos que descrevem estados de desinteresse pode enriquecer a expressão verbal. A Academia também recomenda que a adoção de novos termos seja gradual, acompanhada de estudos de uso e aceitação entre os falantes. Considerando o texto acima, julgue a alternativa correta:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42485,
+        "texto": "A palavra \"desinteressante\" já faz parte do dicionário da Academia desde 2010.",
+        "correta": false
+      },
+      {
+        "id": 42486,
+        "texto": "A proposta de inclusão da palavra \"desinteressante\" visa reduzir a ambiguidade lexical no português.",
+        "correta": false
+      },
+      {
+        "id": 42487,
+        "texto": "A Academia recomenda que a adoção de novos termos seja acompanhada de estudos de uso e aceitação entre os falantes.",
+        "correta": true
+      },
+      {
+        "id": 42488,
+        "texto": "A palavra \"desinteressante\" seria usada apenas em textos acadêmicos.",
+        "correta": false
+      },
+      {
+        "id": 42489,
+        "texto": "A inclusão de novos termos não requer aprovação da Academia.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9687,
+    "texto": "A seguir, leia o trecho: \"No silêncio da madrugada, o relógio marcava as duas e a cidade ainda dormia, enquanto o vento sussurrava segredos que ninguém ousava ouvir. A noite, então, revelou segredos que o dia jamais teria permitido.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42480,
+        "texto": "A metáfora está presente na expressão \"o vento sussurrava segredos\".",
+        "correta": false
+      },
+      {
+        "id": 42481,
+        "texto": "O trecho apresenta hipérbole ao afirmar que o dia jamais teria permitido segredos.",
+        "correta": false
+      },
+      {
+        "id": 42482,
+        "texto": "O trecho utiliza a antítese entre a noite e o dia.",
+        "correta": true
+      },
+      {
+        "id": 42483,
+        "texto": "Há um uso de aliteração nas palavras \"silêncio\" e \"sussurrava\".",
+        "correta": false
+      },
+      {
+        "id": 42484,
+        "texto": "O trecho contém ironia ao sugerir que a cidade dorme em silêncio.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9686,
+    "texto": "Um editor de revista especializada em tecnologia publica um artigo que descreve, em linguagem coloquial, o funcionamento de um algoritmo de aprendizado de máquina. O texto contém a expressão: \"O algoritmo aprende com os dados, como se fosse um estudante que se adapta a cada lição.\" Qual é a classificação gramatical da expressão \"como se fosse\"?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42475,
+        "texto": "Advérbio de modo.",
+        "correta": false
+      },
+      {
+        "id": 42476,
+        "texto": "Conjunção subordinativa causal.",
+        "correta": false
+      },
+      {
+        "id": 42477,
+        "texto": "Conjunção subordinativa comparativa.",
+        "correta": true
+      },
+      {
+        "id": 42478,
+        "texto": "Pronome relativo.",
+        "correta": false
+      },
+      {
+        "id": 42479,
+        "texto": "Preposição de finalidade.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9685,
+    "texto": "Considerando que a norma de redação de textos jornalísticos exige a inversão do sujeito e do verbo em frases exclamativas, julgue a alternativa correta:",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42470,
+        "texto": "A inversão é obrigatória apenas em textos literários.",
+        "correta": false
+      },
+      {
+        "id": 42471,
+        "texto": "A inversão ocorre quando o verbo está no infinitivo.",
+        "correta": false
+      },
+      {
+        "id": 42472,
+        "texto": "A inversão é recomendada quando o sujeito é longo e o verbo curto.",
+        "correta": false
+      },
+      {
+        "id": 42473,
+        "texto": "A inversão é obrigatória quando o verbo está no presente do indicativo.",
+        "correta": false
+      },
+      {
+        "id": 42474,
+        "texto": "A inversão é recomendada para dar ênfase ao verbo em frases exclamativas.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9684,
+    "texto": "Em um edital de concurso público, o edital menciona que a prova de Língua Portuguesa terá 40 questões de múltipla escolha, distribuídas em quatro blocos temáticos: (I) Análise sintática; (II) Coesão textual; (III) Interpretação de textos; (IV) Ortografia e morfologia. Para cada bloco, o candidato deve responder apenas as questões de um mesmo bloco. Se o candidato escolher o bloco II, ele deve responder apenas questões de coesão textual, sem responder questões de análise sintática. Qual é a consequência de não cumprir essa regra, segundo a legislação vigente?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42465,
+        "texto": "O candidato pode ser desclassificado e perder a vaga em todas as etapas.",
+        "correta": true
+      },
+      {
+        "id": 42466,
+        "texto": "O candidato terá que refazer apenas a etapa de coesão textual.",
+        "correta": false
+      },
+      {
+        "id": 42467,
+        "texto": "O candidato será advertido, mas não perde a vaga.",
+        "correta": false
+      },
+      {
+        "id": 42468,
+        "texto": "O candidato pode ser suspenso por 30 dias, mas mantém a vaga.",
+        "correta": false
+      },
+      {
+        "id": 42469,
+        "texto": "O candidato terá que pagar multa, mas permanece na disputa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9683,
+    "texto": "Um autor de romance contemporâneo utiliza em seu texto a construção de frases com orações subordinadas adverbiais de condição, muitas vezes iniciadas por \"caso\". Em um trecho, ele escreve: \"Caso o vento sopre forte, a vela se moverá, e a história seguirá seu curso inesperado.\" Qual das alternativas abaixo apresenta a análise correta da oração subordinada adverbial de condição, considerando a norma culta da língua?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42460,
+        "texto": "\"Caso o vento sopre forte\" é oração subordinada adverbial de condição; o verbo está no presente do indicativo, concordando com a condição futura.",
+        "correta": true
+      },
+      {
+        "id": 42461,
+        "texto": "\"Caso o vento sopre forte\" é oração subordinada adverbial de condição; o verbo está no futuro do subjuntivo, pois indica hipótese.",
+        "correta": false
+      },
+      {
+        "id": 42462,
+        "texto": "\"Caso o vento sopre forte\" é oração subordinada adverbial de causa; o verbo está no presente do indicativo, pois indica causa.",
+        "correta": false
+      },
+      {
+        "id": 42463,
+        "texto": "\"Caso o vento sopre forte\" é oração subordinada adverbial de tempo; o verbo está no presente do indicativo, pois indica tempo.",
+        "correta": false
+      },
+      {
+        "id": 42464,
+        "texto": "\"Caso o vento sopre forte\" é oração subordinada adverbial de finalidade; o verbo está no presente do indicativo, pois indica finalidade.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9680,
+    "texto": "Texto: Em 2024, a Associação Brasileira de Linguística Aplicada (ABLA) publicou um relatório que destaca a crescente adoção de neologismos oriundos do inglês em textos acadêmicos de áreas exatas, como física e química. O estudo, baseado em corpus de 10.000 artigos publicados em revistas internacionais, concluiu que 27,5% das palavras novas introduzidas nos últimos cinco anos têm origem em termos técnicos anglo-saxões. Além disso, a pesquisa identificou que a maioria desses neologismos apresenta variações fonéticas que se adaptam ao sistema fonológico brasileiro, resultando em pronúncias como /fɪŋkʃən/ para \"function\" e /kɪmɪstri/ para \"chemistry\". O relatório alerta que a adoção desses termos pode gerar desafios na uniformização terminológica, especialmente em documentos oficiais e em materiais didáticos, onde a clareza e a consistência lexicais são cruciais. Considerando o texto acima, a afirmação de que a adoção de neologismos de origem inglesa em textos científicos brasileiros tende a reduzir a necessidade de padronização terminológica é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42448,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42449,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9679,
+    "texto": "No português jurídico, a expressão \"sem prejuízo de\" pode ser empregada como equivalente a \"excluindo a possibilidade de\" em cláusulas contratuais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42446,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42447,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9678,
+    "texto": "A aplicação do chamado \"princípio de negação dupla\" em textos argumentativos implica que a negação de uma negação sempre resulta em uma afirmação equivalente, sem necessidade de considerar o contexto semântico.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42444,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42445,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9677,
+    "texto": "No português brasileiro, a norma culta aceita a inversão da ordem sintática em frases interrogativas sem que haja alteração no valor semântico da oração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42442,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42443,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

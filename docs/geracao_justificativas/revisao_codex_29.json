@@ -1,0 +1,68 @@
+[
+  {
+    "id": 11940,
+    "motivo": "A frase contém foram duas vezes e foi uma vez, não foi em duas locuções como afirma o gabarito. Repetir auxiliares de voz passiva não constitui automaticamente redundância semântica. Alternativa marcada incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11939,
+    "motivo": "Apesar de é locução prepositiva que introduz oração reduzida concessiva. A função adverbial é desempenhada pela oração inteira; o comando confunde classificação do conectivo, função sintática e valor semântico. Necessária reformulação antes de validar o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11938,
+    "motivo": "O sujeito de significa é O fato de o servidor ter sido dispensado, com núcleo fato, singular. Não existe sujeito composto servidor e contribuição. O problema visível é a vírgula entre sujeito e predicado, não concordância; nenhuma alternativa corrige esse problema.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11937,
+    "motivo": "Somente texto de apoio, sem proposição a julgar. Não inferir a afirmação verdadeira a partir do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11936,
+    "motivo": "A frase não tem erro de concordância, mas o item pergunta se há erro ou não e oferece Certo/Errado sem definir a proposição julgada. Certo pode referir-se à correção da frase ou à alegação de erro; falta comando inequívoco.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11935,
+    "motivo": "Solicita identificar figura de linguagem, mas fornece apenas Certo/Errado e nenhuma classificação proposta. Formato incompatível com o comando.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11933,
+    "motivo": "A premissa legal é falsa: art. 5º, IV, da Lei 8.112 exige escolaridade correspondente ao exercício do cargo, não ensino superior para todo cargo de nível médio. Faltam cargo e lei específica para avaliar exigência de inglês e momento da comprovação; não concluir constitucionalidade isolada a partir desse texto. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l8112cons.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11928,
+    "motivo": "Questão cadastrada como CE contém comando de múltipla escolha e alternativas A–E embutidas no enunciado. Não há proposição única para relacionar ao gabarito Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11927,
+    "motivo": "O gabarito errado não é sustentado pela alegação de permissão em contexto técnico: software e hardware podem ser utilizados em textos formais. Adaptação fonética também não se confunde com adaptação gráfica. Se pretendia proibir uso fora de contexto técnico, precisa explicitar e revisar essa restrição.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11925,
+    "motivo": "Por ora e por enquanto são equivalentes temporais usuais. A expressão pode integrar enunciado de suspensão temporária, embora o efeito jurídico dependa do restante da decisão. O gabarito errado não se justifica pela possibilidade afirmada; revisar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11763,
+    "motivo": "O gabarito pronominalização excessiva não corresponde à construção: não há excesso de substituição por pronomes. Senhora e nomeada concordam entre si; nome próprio isolado não permite inferir tratamento adequado à pessoa. Falta alternativa tecnicamente segura.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -45,20 +45,26 @@ def escolher_tema(request):
     def _subarvore_ids(cat_id):
         """BFS in-memory — evita queries recursivas ao BD."""
         resultado = [cat_id]
+        visitados = {cat_id}
         pilha = list(filhos_map.get(cat_id, []))
         while pilha:
             f = pilha.pop()
+            if f.id in visitados:
+                continue
+            visitados.add(f.id)
             resultado.append(f.id)
             pilha.extend(filhos_map.get(f.id, []))
         return resultado
 
     parent = None
     breadcrumb = []
-    if parent_id.isdigit():
+    if parent_id.isascii() and parent_id.isdecimal() and len(parent_id) <= 18:
         parent = id_map.get(int(parent_id))
         if parent:
             no = parent
-            while no:
+            visitados = set()
+            while no and no.id not in visitados:
+                visitados.add(no.id)
                 breadcrumb.insert(0, {'id': no.id, 'nome': no.nome})
                 no = id_map.get(no.parent_id) if no.parent_id else None
 
@@ -86,7 +92,8 @@ def escolher_tema(request):
     for ids in subarvores.values():
         todos_ids_relevantes.update(ids)
 
-    counts_qs = (Questao.objects.filter(categoria_id__in=todos_ids_relevantes)
+    counts_qs = (Questao.objects.filter(categoria_id__in=todos_ids_relevantes,
+                                        revisada=True, rejeitada_definitiva=False)
                  .values('categoria_id')
                  .annotate(
                      total=Count('id'),
@@ -97,7 +104,8 @@ def escolher_tema(request):
 
     # Query 2: respondidas do usuario por categoria_id
     resp_qs = (RespostaUsuario.objects
-               .filter(usuario=request.user, questao__categoria_id__in=todos_ids_relevantes)
+               .filter(usuario=request.user, questao__categoria_id__in=todos_ids_relevantes,
+                       questao__revisada=True, questao__rejeitada_definitiva=False)
                .values('questao__categoria_id')
                .annotate(n=Count('questao_id', distinct=True)))
     resp_map = {r['questao__categoria_id']: r['n'] for r in resp_qs}
@@ -166,11 +174,13 @@ def iniciar_quiz(request, categoria_id=None):
 
         # Valida alternativa_id (evita 500 se payload malformado)
         alternativa_id = request.POST.get('alternativa_id', '').strip()
-        if not alternativa_id.isdigit():
+        if not (alternativa_id.isascii() and alternativa_id.isdecimal()
+                and len(alternativa_id) <= 18):
             messages.error(request, 'Selecione uma alternativa antes de confirmar.')
             return redirect('escolher_tema')
 
-        escolha = get_object_or_404(Alternativa, id=int(alternativa_id))
+        escolha = get_object_or_404(Alternativa, id=int(alternativa_id),
+                                   questao__revisada=True, questao__rejeitada_definitiva=False)
         cat_id_post = request.POST.get('categoria_id')
 
         # ── Idempotencia: se ja respondeu essa questao HOJE, nao duplica ──
@@ -266,8 +276,10 @@ def iniciar_quiz(request, categoria_id=None):
     # (IA sem justificativa, texto de apoio ausente, sem gabarito) ficam fora.
     questoes = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
 
+    categoria = None
     if categoria_id:
-        questoes = questoes.filter(categoria_id=categoria_id)
+        categoria = get_object_or_404(Categoria, pk=categoria_id)
+        questoes = questoes.filter(categoria_id__in=categoria.subarvore_ids())
 
     # Filtros avançados via GET
     f_banca  = request.GET.get('banca', '').strip()
@@ -279,7 +291,10 @@ def iniciar_quiz(request, categoria_id=None):
     if f_banca:
         questoes = questoes.filter(banca__icontains=f_banca)
     if f_ano:
-        questoes = questoes.filter(ano=f_ano)
+        if not (f_ano.isascii() and f_ano.isdecimal() and len(f_ano) <= 4):
+            messages.error(request, 'Informe um ano válido para filtrar as questões.')
+            return redirect('escolher_tema')
+        questoes = questoes.filter(ano=int(f_ano))
     if f_tipo:
         questoes = questoes.filter(tipo=f_tipo)
     if f_origem == 'real':
@@ -334,6 +349,7 @@ def iniciar_quiz(request, categoria_id=None):
             ).count()
             resp_cat = RespostaUsuario.objects.filter(
                 usuario=request.user, questao__categoria_id__in=ids_sub,
+                questao__revisada=True, questao__rejeitada_definitiva=False,
             ).values('questao').distinct().count()
             progresso_ctx = {
                 'categoria_nome':       cat.nome,

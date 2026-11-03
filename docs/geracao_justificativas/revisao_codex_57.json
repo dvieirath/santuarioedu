@@ -1,0 +1,62 @@
+[
+  {
+    "id": 5284,
+    "motivo": "O texto anuncia eletrocardiograma, mas não há imagem anexada. Não reconstruir o ECG nem presumir a estratégia coronariana para justificar a conduta com prasugrel.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 5063,
+    "motivo": "A expressão maior frequência não explicita se compara HIV à população geral ou a frequência relativa dos subtipos entre pessoas com HIV; também abrevia linfoma de derrame primário para derrame primário. NCI confirma associações, mas isso não resolve a comparação epidemiológica de todo o conjunto, em especial linfomas T periféricos. Conferir redação original. Fonte: https://www.cancer.gov/types/lymphoma/hp/aids-related-treatment-pdq",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4994,
+    "motivo": "Caso clínico ausente: essa paciente não é identificada e faltam diagnóstico, contraindicações e contexto para indicar atenolol.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4992,
+    "motivo": "Gabarito Certo não sustentado pela descrição PAINAD: choro constante, rigidez/punhos cerrados e inconsolabilidade já somam 6; respiração ocasionalmente difícil soma 1 e expressão facial descrita soma ao menos 1, totalizando 8 ou 9, não a faixa usual moderada. Conferir versão PAINAD-Br e expressão facial original. Fonte da escala: https://pressbooks.gvsu.edu/palliativecarenotes/chapter/pain-assessment-in-advanced-dementia-scale-painad/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4989,
+    "motivo": "Metabolismo da vitamina D é expressão imprecisa: não esclarece deficiência, correção, suplementação nem desfecho/intervenção. Não substituir silenciosamente metabolismo por suplementação nem afirmar benefício indiscriminado em quedas. Conferir original e população-alvo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4961,
+    "motivo": "Conferência encontrou maior esofagite/refluxo objetivo após POEM que após Heller-Dor, mas o item afirma especificamente menos sintomas. Não equiparar esofagite endoscópica a sintomas sem dados do desfecho sintomático comparativo. Revisão especializada da redação e evidência necessária. Ensaio: https://www.nejm.org/doi/pdf/10.1056/NEJMoa1905380?articleTools=true",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4954,
+    "motivo": "Gabarito Certo incompatível com a composição de Rockall: hemoglobina não integra o modelo; além disso, FC descrita é 100, não maior que 100 bpm. O risco clínico elevado não valida a enumeração errada. Fonte original: https://pmc.ncbi.nlm.nih.gov/articles/PMC1383057/",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4716,
+    "motivo": "Caso resumido sem dados hemodinâmicos e alvo sistólico abaixo de 160 mmHg inadequadamente permissivo para manejo anti-impulso habitual da síndrome aórtica aguda. Conferir original, contexto e gabarito sem corrigi-los automaticamente. Diretriz: https://doi.org/10.1161/CIR.0000000000001106",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4695,
+    "motivo": "Sequência de cinco ventilações seguida de 30:2 é respaldada pelo algoritmo europeu adulto, porém faltam idade e protocolo adotado; pediatria treinada pode empregar 15:2. Como recomendação universal a redação é ambígua. Conferir contexto antes de aplicar. Fontes: https://lms.resus.org.uk/modules/m45-v2-special-cirumstances/10346/m45/t35/content/m45_t35_010sr.htm e https://www.erc.edu/umbraco/api/download-page/download/053c0724-acae-4886-960e-c4e3e31c4cd2",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 4685,
+    "motivo": "Suspeita de gabarito incompatível: defeito septal atrioventricular não é raro no isomerismo direito; série de pacientes com isomerismo direito identificou 55,4%. Não confundir número de casos em coorte selecionada por defeito septal com prevalência em cada isomerismo. Comparação exige revisão especializada. Fonte: https://library.childrenhospital.go.th/elib/multim/km/629.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

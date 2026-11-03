@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1165,
+    "texto": "No que concerne à avaliação em educação matemática: As avaliações objetivas são ótimos instrumentos para avaliar, de forma rápida, a criatividade e a livre expressão dos estudantes em relação ao conteúdo ensinado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20099,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20100,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1164,
+    "texto": "No que concerne à avaliação em educação matemática: O principal objetivo de uma avaliação diagnóstica de conteúdos é comparar e classificar os diversos estudantes de acordo com os conteúdos ensinados.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20097,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20098,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1158,
+    "texto": "Situação hipotética: Um professor de matemática cumpre 60% da sua carga horária na escola A e 40% na escola B. Na escola A, 4% das horas de trabalho equivalem a horas de coordenação, enquanto na escola B essa quantidade é de 2%. Assertiva: Nesse cenário, a quantidade de horas de coordenação que o professor cumpre equivale a 3,2% da sua carga horária total.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20085,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20086,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1154,
+    "texto": "Situação hipotética: Determinado professor calculou a média aritmética das notas de 19 alunos na primeira prova de matemática do bimestre. Porém, logo após o cálculo, o professor percebeu que se esquecera de incluir a nota de um 20.º aluno, que havia tirado na prova uma nota correspondente a duas vezes a média aritmética anteriormente calculada. Assertiva: Nessa situação, após a inclusão da nota do 20.º aluno, a média aritmética das notas dos 20 alunos será 3% maior que a média dos 19 alunos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20077,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20078,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

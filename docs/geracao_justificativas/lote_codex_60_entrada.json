@@ -1,0 +1,362 @@
+[
+  {
+    "id": 3496,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. No âmbito da PRF, o uso de gás de pimenta foi suspenso diante da existência de estudos que indicam seu prejuízo à saúde.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24849,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24850,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3495,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. O emprego de instrumentos de menor potencial ofensivo em operações policiais permite ao policial exercer mais controle sobre uma situação de força, além de proporcionar mais flexibilidade e liberdade de ação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24847,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24848,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3494,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. O modelo Phoenix de uso progressivo da força prevê o emprego de agentes químicos no caso de resistência defensiva, enquanto o modelo de uso diferenciado da força pela Polícia Rodoviária Federal (PRF) prevê o controle físico em caso de resistência ativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24845,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24846,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3493,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. No exercício de suas funções, o policial rodoviário federal deve, sempre que possível, fazer uso moderado e proporcional da força, visando reduzi-la, o que caracteriza a aplicação do princípio da necessidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24843,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24844,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3492,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. Para garantir sua própria segurança, o policial rodoviário federal que, no exercício de suas funções, necessitar fazer uso de algema, deverá, preferencialmente, manter ajoelhada a pessoa infratora, ainda que esta pareça cooperativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24841,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24842,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3491,
+    "texto": "Com relação ao uso diferenciado da força, julgue os itens subsequentes. Os princípios básicos sobre o uso da força e das armas de fogo destacam, entre outros pontos, que os governos devem, respeitada a legislação, assegurar a punição de policial que fizer uso arbitrário da força e das armas de fogo, sendo esse ato configurado como delito criminal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24839,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24840,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3479,
+    "texto": "Situação hipotética: Uma equipe da Polícia Rodoviária Federal, visando coibir excesso de velocidade em determinado trecho de sua circunscrição, posicionou, ostensivamente, radar portátil em ponto específico, o que resultou em várias autuações, devidamente registradas em imagens. O trecho fiscalizado tinha como velocidade máxima 40 km/h, devidamente sinalizada. Assertiva: Nesse caso, é incabível o uso do referido equipamento para fins de autuação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24815,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24816,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3451,
+    "texto": "Sobre o uso diferenciado da força pelo policial rodoviário federal, julgue os itens seguintes. Uso diferenciado da força baseia-se na avaliação de três situações: percepção do policial em relação ao indivíduo suspeito; alternativas disponíveis para o uso da força legal; e tempo de resposta do policial.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24759,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24760,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3431,
+    "texto": "A sinalização deve ser planejada considerando a necessidade das áreas de atendimento, de estacionamento, de acumulação e de redução gradual da velocidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24719,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24720,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3419,
+    "texto": "Entre outros, os veículos de utilidade pública incluem as ambulâncias e aqueles destinados a manutenção e reparo de redes de energia elétrica, de água e esgotos, de gás combustível canalizado e de comunicações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24695,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24696,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3393,
+    "texto": "Considerando o uso diferenciado da força pelo policial rodoviário federal, julgue os itens subsequentes. Não é permitido o emprego de força, salvo a indispensável no caso de resistência do preso, como única exceção.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24643,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24644,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3373,
+    "texto": "Superlargura refere-se a inclinações existentes nas curvas, cuja função é compensar a atuação da força centrífuga nos veículos em movimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24603,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24604,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3299,
+    "texto": "A precaução é um dos princípios que pauta o uso da força pelos profissionais de segurança pública.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24455,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24456,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3298,
+    "texto": "O uso da força policial pode ocorrer somente nos casos de resistência ativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24453,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24454,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3295,
+    "texto": "O modelo de uso da força adotado pela PRF atualmente foi desenvolvido internamente para refletir sua doutrina operacional, sendo o modelo GILLESPIE o principal pilar do manual da instituição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24447,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24448,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3294,
+    "texto": "Independentemente de dano iminente ou de planejamento específico, o princípio da precaução autoriza o uso preventivo da força para evitar futuras ameaças.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24445,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24446,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3292,
+    "texto": "A respeito de conceitos, instrumentos e procedimentos relacionados ao uso da força, bem como de tecnologias de menor potencial ofensivo: O sucesso da ação do Taser 10 está relacionado à dispersão entre os dardos e à tecnologia de incapacitação neuromuscular, que atua sobre os nervos motores e sensoriais, promovendo estimulação involuntária.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24441,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24442,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3220,
+    "texto": "Em relação aos motores de combustão interna, julgue os itens subsequentes. Superalimentação e turboalimentação são meios de promover o aumento da potência desenvolvida por um motor do ciclo Diesel pelo aumento da pressão do ar fornecido ao cilindro; na turboalimentação, o compressor é montado coaxialmente a uma turbina, que utiliza os gases de exaustão para o seu acionamento, enquanto, na superalimentação, o compressor é conectado diretamente ao motor e usa uma parte da potência deste para o seu acionamento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24222,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24223,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3219,
+    "texto": "A respeito do funcionamento de compressores alternativos, julgue os seguintes itens. Compressores de diafragma são máquinas de deslocamento positivo nas quais dois rotores helicoidais, um com lóbulos convexos e o outro com lóbulos côncavos, rotor macho e rotor fêmea, comprimem um fluido de trabalho, que, por sua vez, aciona diafragmas metálicos para comprimir um gás em um circuito isolado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24220,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24221,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3207,
+    "texto": "A tensão máxima ocorre no entalhe e vale 270 MPa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24196,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24197,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

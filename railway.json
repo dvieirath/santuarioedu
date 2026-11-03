@@ -1,13 +1,13 @@
 {
-  "$schema": "https://railway.app/railway.schema.json",
+  "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
+    "builder": "RAILPACK",
     "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput --clear"
   },
   "deploy": {
     "startCommand": "python manage.py migrate --noinput && gunicorn prf_master.wsgi --bind 0.0.0.0:$PORT --workers 3 --threads 2 --timeout 60 --access-logfile - --error-logfile -",
     "healthcheckPath": "/health/",
-    "healthcheckTimeout": 30,
+    "healthcheckTimeout": 120,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 3
   }

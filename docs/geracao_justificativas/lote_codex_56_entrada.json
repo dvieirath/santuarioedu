@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2557,
+    "texto": "O modelo de regressão para as duas v.a. quantitativas, X e Y, se escreve como E(Y|x) = α + βx. Para se determinar os parâmetros α e β, são feitas n observações xi e yi e, nesse caso, o modelo pode ser escrito como yi = E(Y|xi) + ei = α + βxi + ei, em que i = 1, 2, ..., n, e em que ei é o erro do modelo frente à i-ésima observação, devendo-se encontrar os valores mais prováveis para α e β, segundo algum critério, a partir das n observações de pares de valores de (X, Y). No modelo de regressão linear simples estimado pelo método dos mínimos quadrados ordinários (MQO), a soma dos resíduos é sempre igual a zero.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22896,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22897,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 1166,
+    "texto": "Considerando-se que o letramento matemático possibilita aos estudantes estabelecer uma correlação entre os conhecimentos matemáticos e suas aplicações no cotidiano, é correto definir letramento matemático como as competências e habilidades de raciocinar, representar, comunicar e argumentar, matematicamente, na resolução de problemas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20101,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 20102,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5882,
+    "texto": "No que se refere a análises microbiológicas, é essencial a esterilização de meios, soluções e material de vidro ou metal que serão utilizados nos experimentos. A respeito das diferentes técnicas de esterilização empregadas na preparação desses materiais, julgue os próximos itens. A autoclavagem é uma técnica que emprega calor seco, levando à desnaturação e coagulação das proteínas e fluidificação dos lipídeos presentes nos microrganismos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31566,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31567,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5867,
+    "texto": "A força eluente aumenta quando se usam solventes menos polares na cromatografia líquida de fase reversa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31536,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31537,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5836,
+    "texto": "Para um atendimento de qualidade junto ao paciente em parada cardiorrespiratória (PCR), o técnico de enfermagem deve comprimir o tórax com força (pelo menos 5 cm) e rapidamente (100 a 120/min) e aguardar o retorno total do tórax, em uma relação de compressão-ventilação de 30:1.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31474,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31475,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5815,
+    "texto": "Com relação aos sinais vitais: A respiração de Biot é caracterizada por frequência e profundidade respiratória irregulares, com alternância entre períodos de apneia e hipoventilação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31432,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31433,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5813,
+    "texto": "Com relação aos sinais vitais: Durante a febre, importante mecanismo de defesa, as frequências cardíaca e respiratória aumentam para atender às necessidades metabólicas de nutrientes do organismo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31428,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31429,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5779,
+    "texto": "Homem, 48 anos de idade, casado, trabalhador de hospital de campanha no enfrentamento da pandemia da Covid-19, afastou-se de suas atividades laborais por exaustão mental e física. A alta demanda por internação no hospital gerou, nesse trabalhador, uma sobrecarga de trabalho, devido às extensas jornadas e horas extras, exposição ao risco ocupacional pela ausência de equipamentos de proteção individual, o que causou sintomas de ansiedade, estresse ocupacional, alteração na sua rotina diária e na qualidade do sono. Tendo como referência o caso clínico hipotético precedente, julgue os próximos itens. A anamnese clínico-ocupacional é uma ferramenta para a investigação inicial da relação entre saúde e trabalho, a partir da coleta de informações junto ao trabalhador.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31360,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31361,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5776,
+    "texto": "As avaliações nos diferentes grupos populacionais são efetivas quando o terapeuta ocupacional compreende as atividades cotidianas, as necessidades, os desejos, as conquistas e possibilidades dos indivíduos avaliados. Considerando a singularidade desses aspectos, julgue os itens a seguir. Na reabilitação de membros superiores, a mensuração da capacidade funcional é parte do trabalho do terapeuta ocupacional. Nesse trabalho, é comum a utilização de goniômetros para medir a força muscular e de monofilamentos para mensurar a amplitude de movimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31354,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31355,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5755,
+    "texto": "Em relação a terceira idade e violência: Na maioria dos casos de violência física cometida contra o idoso, o agressor tem como características biopsicossociais o uso abusivo de álcool ou outras drogas e a dependência financeira ou emocional do idoso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31312,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31313,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5655,
+    "texto": "Caso clínico: Uma mulher com trinta e dois anos de idade, professora de ensino fundamental, foi encaminhada ao reumatologista com queixa de dor lombar... [descrição de sintomas compatíveis com fibromialgia]. No caso clínico considerado, a dor lombar referida pela paciente tem característica mecânica, de forma que se deve sugerir a ela a realização de cinesioterapia associada a mudanças de estilo de vida, com foco na realização de atividade física.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31112,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31113,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5616,
+    "texto": "Tendo em vista que a radiologia cardiovascular é uma subespecialidade compartilhada por radiologistas e cardiologistas e que, embora quase todas as imagens cardíacas sejam realizadas por cardiologistas, os radiologistas ainda desempenham papel importante no diagnóstico das cardiopatias, julgue os itens seguintes.\n\nO transdutor de ultrassom — dispositivo que gera energia mecânica (sonora) a partir da excitação elétrica — contém um ou mais elementos piezelétricos que, sob a aplicação de um pulso elétrico, vibram em suas frequências de ressonância, emitindo, assim, o ultrassom.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31034,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31035,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5596,
+    "texto": "Com referência às diversas condições clínicas e cirúrgicas que levam à necessidade de confecção de estomas intestinais, temporários ou permanentes, julgue os itens seguintes. A colostomia em alça do cólon transverso apresenta maior débito fecal e maior frequência de prolapso, quando comparada com a colostomia em alça no cólon sigmoide.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30994,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30995,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5525,
+    "texto": "Com relação às deficiências auditivas, julgue os itens a seguir. A perda auditiva induzida por pressão sonora elevada (PAINPSE) ou perda auditiva induzida por ruído (PAIR) é sempre neurossensorial e irreversível, por acometimento endococlear e, geralmente, sob condições estáveis de ruído, atinge o nível máximo para as frequências de 3, 4 e 6 kHz nos primeiros 10 a 15 anos de exposição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30852,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30853,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5497,
+    "texto": "Com relação à artrite reumatoide, julgue os itens a seguir. Na artrite reumatoide a hiperpronação do antepé força o hálux a adquirir uma deformidade em valgo, mesmo sem o envolvimento da articulação metatarsofalangeana.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30796,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30797,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5483,
+    "texto": "A respeito dos condromas, julgue os itens seguintes. Condromas são lesões que aparecem com maior frequência nos ossos longos e nas costelas e com menor regularidade nos ossos das mãos e dos pés.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30768,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30769,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5460,
+    "texto": "Em relação à fisiopatologia do glaucoma, acredita-se que a pressão intraocular elevada e(ou) a pressão de perfusão baixa aumentem o gradiente através da lâmina crivosa e causem hipoperfusão no disco óptico, levando a alterações estruturais e remodelamento da lâmina crivosa e ao transporte axonal prejudicado nas fibras do nervo óptico. Julgue o item: O tratamento cirúrgico da catarata reduz o risco de ângulo estreito, pois a lente artificial fina aprofunda a câmara anterior e causa achatamento da íris e alargamento do ângulo da câmara, porém a cirurgia de catarata não altera o risco de fechamento agudo do ângulo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30722,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30723,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5459,
+    "texto": "Julgue o item: As queixas mais comuns ao usar atropina são miose e paralisia temporária de acomodação, que pode ser atenuada por óculos com lentes de adição progressiva fotocromáticas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30720,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30721,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5458,
+    "texto": "Julgue o item: A ortoceratologia permite uma boa acuidade visual, com a maioria dos pacientes alcançando 20/20 e mais de 90% atingindo 20/30; as queixas mais significativas com a ortoceratologia são o desconforto das lentes ou halos secundários à aberração esférica, o que pode também reduzir a acuidade visual e a sensibilidade ao contraste.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30718,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30719,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5432,
+    "texto": "A cardiotocografia é um método biofísico de avaliação da vitalidade fetal. Por meio desse exame, é possível avaliar sinais de sofrimento fetal, com o intuito de estabelecer condutas. A respeito desse exame, julgue os itens subsequentes. Em uma gestação de 36 semanas, com a gestante fora de trabalho de parto, é considerado um padrão reativo (tranquilizador) a presença de, pelo menos, duas acelerações em 20 minutos de registro, ou seja, a frequência cardíaca fetal deve se elevar pelo menos 20 bpm acima da linha de base por pelo menos 20 segundos duas vezes durante os 20 minutos de exame.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30666,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30667,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

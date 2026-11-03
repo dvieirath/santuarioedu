@@ -1,0 +1,512 @@
+[
+  {
+    "id": 12421,
+    "texto": "No contexto da norma normativa que regula o uso de linguagem inclusiva no âmbito da administração pública, o legislador brasileiro prevê que a adoção de termos neutros em documentos oficiais é opcional, desde que a instituição justifique sua escolha por motivos de clareza e eficiência comunicacional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51388,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51389,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12385,
+    "texto": "Um candidato a cargo de analista de dados em uma empresa estatal apresenta, no processo seletivo, um relatório de análise de dados que inclui tabelas, gráficos e comentários. O relatório foi elaborado em formato de documento PDF, contendo apenas texto e imagens em alta resolução. O candidato não utilizou nenhum software de visualização de dados para criar os gráficos, mas apenas copiou e colou imagens de fontes externas. Em seguida, o candidato enviou o documento PDF para o recrutador, que o armazenou em um sistema de gestão de processos seletivos. Considerando a legislação brasileira sobre proteção de dados pessoais, qual das alternativas abaixo descreve corretamente a obrigação da empresa em relação ao tratamento desses dados?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51268,
+        "texto": "A empresa deve solicitar o consentimento do candidato para o tratamento dos dados contidos no relatório, pois se tratam de dados pessoais sensíveis.",
+        "correta": false
+      },
+      {
+        "id": 51269,
+        "texto": "A empresa pode tratar os dados pessoais do candidato sem qualquer base legal, pois se tratam apenas de informações profissionais.",
+        "correta": false
+      },
+      {
+        "id": 51270,
+        "texto": "A empresa deve assegurar que o tratamento dos dados pessoais do candidato seja limitado ao fim específico de seleção, e deve garantir a segurança e confidencialidade do arquivo PDF.",
+        "correta": true
+      },
+      {
+        "id": 51271,
+        "texto": "A empresa deve publicar os dados pessoais do candidato em seu site institucional para fins de transparência.",
+        "correta": false
+      },
+      {
+        "id": 51272,
+        "texto": "A empresa deve excluir os dados pessoais do candidato imediatamente após a seleção, pois não há necessidade de armazená-los.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12384,
+    "texto": "Um edital de concurso para o cargo de analista de comunicação institucional de uma autarquia pública prevê que os candidatos deverão comprovar, no ato da inscrição, a posse de título de bacharel em Comunicação Social ou áreas afins, bem como a realização de curso de extensão de no mínimo 120 horas na área de marketing digital. Em vista disso, a autarquia publica uma nota explicativa que afirma: \"O requisito de curso de extensão será considerado equivalente a título de bacharel quando o candidato comprovar que o curso possui carga horária mínima de 180 horas e que o conteúdo abrange os temas de marketing digital, mídias sociais e análise de dados.\" Qual das alternativas abaixo melhor descreve a natureza jurídica desse requisito?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51263,
+        "texto": "O requisito de curso de extensão é uma condição absoluta, pois é exigido no edital.",
+        "correta": false
+      },
+      {
+        "id": 51264,
+        "texto": "O requisito de curso de extensão é uma condição discricionária, pois pode ser dispensada caso o candidato possua experiência profissional.",
+        "correta": false
+      },
+      {
+        "id": 51265,
+        "texto": "O requisito de curso de extensão é um requisito de natureza jurídica de equivalência, pois substitui o título de bacharel quando atende aos critérios estabelecidos.",
+        "correta": true
+      },
+      {
+        "id": 51266,
+        "texto": "O requisito de curso de extensão é uma condição de natureza administrativa, pois não tem respaldo legal.",
+        "correta": false
+      },
+      {
+        "id": 51267,
+        "texto": "O requisito de curso de extensão é um requisito de natureza normativa, pois está previsto na lei que regula concursos públicos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12383,
+    "texto": "No último semestre, a Secretaria de Educação de um estado brasileiro lançou um programa de alfabetização digital, com o objetivo de reduzir a lacuna de acesso à tecnologia entre estudantes de áreas rurais e urbanas. O programa prevê a entrega de tablets com acesso à internet para alunos de escolas públicas, bem como a formação de professores em metodologias de ensino híbrido. Em 2025, o programa alcançou 12.000 alunos em 150 escolas, mas o governo estadual registrou que apenas 30% dos dispositivos foram efetivamente utilizados em sala de aula, enquanto 70% ficaram inativos. Os responsáveis pelo programa citaram falta de treinamento dos docentes e problemas de manutenção dos equipamentos como principais causas desse baixo aproveitamento. Em resposta, o governo propôs a criação de um conselho consultivo, composto por representantes de universidades, empresas de tecnologia e organizações da sociedade civil, para avaliar e aprimorar a implementação do projeto.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51258,
+        "texto": "A criação do conselho consultivo demonstra a aplicação do princípio da eficiência, pois busca otimizar o uso dos recursos públicos.",
+        "correta": true
+      },
+      {
+        "id": 51259,
+        "texto": "O conselho consultivo é uma medida de controle interno, pois visa fiscalizar o uso dos dispositivos.",
+        "correta": false
+      },
+      {
+        "id": 51260,
+        "texto": "O programa viola o princípio da universalidade, pois não distribui tablets igualmente entre todas as escolas.",
+        "correta": false
+      },
+      {
+        "id": 51261,
+        "texto": "O baixo aproveitamento dos dispositivos indica que o programa não cumpre o princípio da legalidade.",
+        "correta": false
+      },
+      {
+        "id": 51262,
+        "texto": "A proposta de criar o conselho consultivo caracteriza um ato administrativo de natureza delegatória.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12382,
+    "texto": "Um edital de concurso para a função de técnico de fiscalização ambiental contém a seguinte cláusula: \"O candidato deverá apresentar, no ato da inscrição, documento que comprove a conclusão de curso superior em áreas correlatas, salvo quando o candidato possua experiência profissional equivalente a, no mínimo, cinco anos em atividades de monitoramento de recursos hídricos.\" A norma da banca Cebraspe considera que a exigência de diploma superior é \"discricionária\". Qual alternativa apresenta corretamente a interpretação dessa cláusula sob a ótica do direito administrativo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51253,
+        "texto": "A exigência de diploma superior é condição absoluta, pois o edital a prevê expressamente.",
+        "correta": false
+      },
+      {
+        "id": 51254,
+        "texto": "A exigência é facultativa, pois a lei não determina a necessidade de diploma para o cargo.",
+        "correta": false
+      },
+      {
+        "id": 51255,
+        "texto": "A exigência é discricionária, pois pode ser dispensada quando houver comprovação de experiência equivalente.",
+        "correta": true
+      },
+      {
+        "id": 51256,
+        "texto": "A exigência é obrigatória, mas pode ser substituída por curso técnico na mesma área.",
+        "correta": false
+      },
+      {
+        "id": 51257,
+        "texto": "A exigência é condicional, dependendo do número de vagas disponíveis no concurso.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12381,
+    "texto": "No contexto de um edital de concurso, a palavra ‘exclusividade’ pode ser interpretada como ‘exclusão de outras possibilidades’, implicando que o candidato não pode participar de outros concursos simultaneamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51251,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51252,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12380,
+    "texto": "A expressão ‘em razão de’ pode ser substituída por ‘por causa de’ sem alterar o sentido da frase, pois ambas são equivalentes em todos os contextos formais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51249,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51250,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12379,
+    "texto": "Na oração \"O relatório, que foi elaborado pela equipe, foi aprovado pelo conselho\", a oração subordinada adjetiva restritiva está no tempo verbal pretérito mais-que-perfeito composto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51247,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51248,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12378,
+    "texto": "Considerando o texto abaixo, analise a afirmação a seguir: \n\n\"A norma culta da língua portuguesa, quando aplicada ao registro formal, exige a substituição de pronomes de tratamento por pronomes de tratamento de tratamento de segunda pessoa do singular, como ‘você’ e ‘tu’, em situações que envolvem interlocutores de status social igual ou inferior ao do locutor.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51245,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51246,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12377,
+    "texto": "Na frase \"O juiz, ao deliberar, considerou que a prova testemunhal era insuficiente\", a oração subordinada substantiva objetiva direta está no tempo verbal futuro do presente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51243,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51244,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12376,
+    "texto": "Texto: \"No último semestre, a Secretaria de Educação de São Paulo divulgou um relatório sobre a inclusão de estudantes com necessidades educacionais especiais nas escolas regulares. O documento, elaborado em parceria com a Associação Brasileira de Educação Inclusiva (ABEI), destaca que 62,3% dos alunos atendidos em programas de inclusão relataram melhora significativa em habilidades socioemocionais, enquanto 37,7% observaram progresso apenas em aspectos cognitivos. O relatório também aponta que, apesar dos avanços, ainda há desafios na formação de professores e na adequação de recursos pedagógicos.\" Considerando o texto acima, qual afirmação sobre a inclusão educacional no contexto brasileiro está correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51238,
+        "texto": "A inclusão de estudantes com necessidades especiais ocorre apenas em escolas privadas.",
+        "correta": false
+      },
+      {
+        "id": 51239,
+        "texto": "Os resultados do relatório indicam que a maioria dos alunos percebeu avanços apenas em habilidades cognitivas.",
+        "correta": false
+      },
+      {
+        "id": 51240,
+        "texto": "O relatório aponta que a formação de professores continua sendo um dos principais obstáculos para a efetiva inclusão.",
+        "correta": true
+      },
+      {
+        "id": 51241,
+        "texto": "O percentual de alunos que relataram melhora em habilidades socioemocionais é inferior ao de quem relatou progresso cognitivo.",
+        "correta": false
+      },
+      {
+        "id": 51242,
+        "texto": "O documento sugere que a inclusão já está plenamente consolidada em todas as escolas públicas do estado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12375,
+    "texto": "Durante a preparação para um concurso de nível superior, o candidato lê o seguinte excerto de um artigo acadêmico: \"A análise semântica dos textos narrativos contemporâneos evidencia um deslocamento do foco narrativo para a subjetividade do narrador, refletindo uma tendência de fragmentação da identidade textual.\" Qual conceito linguístico melhor descreve o fenômeno apontado pelo autor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51233,
+        "texto": "Narratologia",
+        "correta": false
+      },
+      {
+        "id": 51234,
+        "texto": "Foco narrativo",
+        "correta": true
+      },
+      {
+        "id": 51235,
+        "texto": "Estrutura de discurso",
+        "correta": false
+      },
+      {
+        "id": 51236,
+        "texto": "Paradigma textual",
+        "correta": false
+      },
+      {
+        "id": 51237,
+        "texto": "Teoria da coesão",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12374,
+    "texto": "Em um processo de seleção para o cargo de técnico de comunicação, a banca examinadora elabora uma prova discursiva sobre a análise de textos jornalísticos. A questão pede que o candidato identifique e explique a figura de linguagem presente no seguinte trecho: \"O protesto, como um mar de mãos erguidas, inundou a avenida principal, trazendo um clamor que ecoou pelos quatro cantos da cidade.\" Qual figura de linguagem está sendo empregada?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51228,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 51229,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 51230,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 51231,
+        "texto": "Símile",
+        "correta": true
+      },
+      {
+        "id": 51232,
+        "texto": "Personificação",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12373,
+    "texto": "No contexto de um edital de concurso para a função de analista de processos, o candidato deve analisar o trecho de edital que afirma: \"O candidato que apresentar documentação incompleta será automaticamente desclassificado, salvo se comprovar que a falta se deve a circunstância de força maior, comprovada por documento oficial.\" Considerando a redação do edital, qual alternativa apresenta a interpretação correta da norma?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51223,
+        "texto": "A desclassificação automática é absoluta, independentemente da comprovação de força maior.",
+        "correta": false
+      },
+      {
+        "id": 51224,
+        "texto": "A desclassificação automática pode ser evitada apenas se o candidato apresentar prova documental que comprove a força maior.",
+        "correta": true
+      },
+      {
+        "id": 51225,
+        "texto": "O edital permite ao candidato contestar a desclassificação sem necessidade de comprovação documental.",
+        "correta": false
+      },
+      {
+        "id": 51226,
+        "texto": "A norma impõe a desclassificação automática apenas quando a falta de documentação se refere a documentos de identidade.",
+        "correta": false
+      },
+      {
+        "id": 51227,
+        "texto": "A desclassificação automática é válida apenas se o candidato não contestar dentro do prazo de 48 horas.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12371,
+    "texto": "Em textos narrativos, a inversão da ordem sintática (inversão de sujeito e verbo) é considerada um recurso estilístico que pode ser empregado em qualquer nível de registro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51219,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51220,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12370,
+    "texto": "A norma culta do português brasileiro não admite a utilização de palavras de origem inglesa em textos acadêmicos, salvo quando se trata de termos técnicos reconhecidos internacionalmente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51217,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51218,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12369,
+    "texto": "No português jurídico, a concordância verbal em orações subordinadas adverbiais de causa é obrigatória apenas quando a oração é introduzida por \"porquanto\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51215,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51216,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12368,
+    "texto": "O uso de pronomes de tratamento no português brasileiro contemporâneo, quando empregado em comunicações oficiais, deve obedecer estritamente à norma culta, excluindo variações regionais que possam ocorrer em textos jornalísticos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 51213,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51214,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12194,
+    "texto": "O texto a seguir descreve uma situação hipotética: \"Em uma sessão de mediação de conflitos, o mediador observa que as partes apresentam linguagem carregada de termos técnicos e jargões específicos do setor. Para facilitar a compreensão e evitar mal-entendidos, ele propõe a substituição de termos técnicos por expressões mais simples, mantendo o conteúdo essencial das mensagens. Ao final da sessão, as partes concordam em usar um vocabulário mais acessível em futuras negociações. Essa prática demonstra a aplicação de qual princípio linguístico?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50628,
+        "texto": "Princípio da Adequação ao Contexto",
+        "correta": false
+      },
+      {
+        "id": 50629,
+        "texto": "Princípio da Claridade e Simplicidade",
+        "correta": true
+      },
+      {
+        "id": 50630,
+        "texto": "Princípio da Formalidade Linguística",
+        "correta": false
+      },
+      {
+        "id": 50631,
+        "texto": "Princípio da Coesão Textual",
+        "correta": false
+      },
+      {
+        "id": 50632,
+        "texto": "Princípio da Coerência Lógica",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12193,
+    "texto": "Considerando o texto abaixo: “Em 2024, o Ministério da Educação divulgou um relatório que destaca a necessidade de revisão dos critérios de avaliação de desempenho docente, apontando que a métrica atual, baseada exclusivamente em resultados de provas padronizadas, não reflete adequadamente a qualidade do ensino. O documento recomenda a adoção de indicadores qualitativos, como feedback de alunos e autoavaliação pedagógica.” Qual das alternativas a seguir representa corretamente a interpretação da proposta de mudança de critérios de avaliação?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50623,
+        "texto": "A proposta visa reduzir a carga de avaliações formais, mantendo apenas a prova padronizada como critério de avaliação",
+        "correta": false
+      },
+      {
+        "id": 50624,
+        "texto": "A proposta sugere a substituição total da prova padronizada por indicadores qualitativos, sem considerar métricas quantitativas",
+        "correta": false
+      },
+      {
+        "id": 50625,
+        "texto": "A proposta indica a complementação da prova padronizada com indicadores qualitativos, buscando uma avaliação mais holística",
+        "correta": true
+      },
+      {
+        "id": 50626,
+        "texto": "A proposta recomenda a eliminação de feedback de alunos como indicador de desempenho docente",
+        "correta": false
+      },
+      {
+        "id": 50627,
+        "texto": "A proposta defende a manutenção dos critérios atuais, reforçando a importância das provas padronizadas",
+        "correta": false
+      }
+    ]
+  }
+]

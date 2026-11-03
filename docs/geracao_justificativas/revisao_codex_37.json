@@ -1,0 +1,68 @@
+[
+  {
+    "id": 10403,
+    "motivo": "A diretriz de 2023 não foi identificada por número, título, referência ou texto suficiente. Como a pergunta exige resposta “de acordo com essa diretriz”, não é possível atribuir-lhe a regra da alternativa sem acesso ao documento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10405,
+    "motivo": "Não fornece a frase complexa a ser analisada. O uso de subordinadas causais e condicionais é possível na norma culta, mas não permite verificar a correção de construções concretas não apresentadas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10407,
+    "motivo": "O poema não foi fornecido. “Silêncio” é normalmente substantivo; uma eventual função adverbial de construção com esse termo depende do trecho. Não presumir conversão de classe ou locução ausente para sustentar o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10408,
+    "motivo": "“Cada sala [...] foi equipada” apresenta concordância correta no singular feminino. “30 alunos” integra outra estrutura e não determina a flexão de “foi equipada”. Gabarito Certo incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10410,
+    "motivo": "“Conquista a alma” apresenta imagem metafórica, e não necessariamente exagero. A alternativa de metáfora é defensável; não há critério que torne hipérbole inequivocamente a única análise correta. Rever gabarito e opções.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10411,
+    "motivo": "Há sobreposição de alternativas: uma multa por atraso pode ser cláusula penal moratória e obrigação acessória exigível junto do cumprimento principal. Assim, a primeira alternativa não é claramente falsa em relação à segunda. CC art. 411; conferido em fonte judiciária: https://www5.tjmg.jus.br/jurisprudencia/relatorioEspelhoAcordao.do?ano=25&codigoOrigem=0000&inteiroTeor=true&numero=445970&sequencial=001&sequencialAcordao=0&ttriCodigo=1 .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10412,
+    "motivo": "O comando pergunta pela função da ironia “no contexto textual”, mas não fornece os dois textos ou trechos irônicos. A descrição genérica de crítica social não basta para demonstrar o mecanismo específico de distanciamento da alternativa marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10413,
+    "motivo": "Apresenta texto e alternativas, mas não contém comando que determine a operação solicitada. A alternativa pretendida é identificável, porém a pergunta ausente precisa de revisão antes do preenchimento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10596,
+    "motivo": "A locução “é que” pode atuar como recurso de realce em interrogativas. Não há base para condenar categoricamente “o que é que eu faço” como incorreto no português culto; adequação estilística não equivale a erro gramatical. Conferida a classificação de realce em https://www.aulete.com.br/gram/cap12-05-palavras_e_locucoes_denotativas .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10598,
+    "motivo": "Não identifica base legal do requisito, atribuições do cargo ou justificativa para o mestrado. Restringir a participação por qualificação não demonstra sozinho discriminação ilegítima; a expressão “pode ser interpretado” torna o critério de julgamento impreciso.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10599,
+    "motivo": "Gabarito incompatível com o cálculo: 40% de 50.000 = 20.000, valor da quinta alternativa. A opção marcada, 10.000, equivale a 20%, não 40%.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

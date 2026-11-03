@@ -1,0 +1,290 @@
+[
+  {
+    "id": 5960,
+    "texto": "O engenheiro considerou a influência de todas as ações que poderiam impactar significativamente a estrutura, adotando, na sua análise, tanto o estado-limite de serviço como o estado-limite último. Ao considerar a influência de todas as ações que possam impactar significativamente a estrutura, o engenheiro poderia ter desprezado o estado-limite de serviço ao adotar o estado-limite último na análise.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31722,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31723,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5909,
+    "texto": "Tendo em vista o avanço tecnológico na radiologia, julgue os itens acerca da radiologia digital. Aumentando-se a matriz em uma imagem de tomografia computadorizada de 256 × 256 para 512 × 512 pixels, mantendo-se o mesmo valor de kV e mAs, obtém-se o aumento da resolução espacial da imagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31620,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31621,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5900,
+    "texto": "Os efeitos biológicos das radiações ionizantes podem surgir quando pessoas são submetidas a doses de radiação acima dos limites máximos permissíveis. Para assegurar a integridade física dos indivíduos ocupacionalmente expostos (IOE), a legislação prevê a obrigatoriedade da monitoração de área e individual. A respeito desse assunto, julgue os itens que se seguem, à luz da legislação vigente: A dose de referência para o IOE para o corpo inteiro é de 30 mSv/ano; já para o paciente não deve ultrapassar 10 mSv/ano.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31602,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31603,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5897,
+    "texto": "Com base na Norma Nuclear n.º 3.01/2014 da CNEN: O limite de dose efetiva anual para o corpo inteiro de um indivíduo em ambiente público é de 10 mSv.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31596,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31597,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5895,
+    "texto": "Com base na Norma Nuclear n.º 3.01/2014 da CNEN: O limite de dose equivalente anual para o cristalino de um indivíduo ocupacionalmente exposto é de 20 mSv.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31592,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31593,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5881,
+    "texto": "Considerando a modalidade de MS conhecida como MALDI TOF-MS, ilustrada no esquema precedente [FIGURA: esquema MALDI TOF-MS], bem como os princípios básicos dessa técnica, julgue os itens a seguir. A técnica da MALDI TOF-MS consiste na deposição de uma determinada amostra em uma matriz capaz de fornecer prótons (ou H+), indicado pela letra D no esquema, para o processo de ionização dos componentes da amostra.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31564,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31565,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5770,
+    "texto": "Considerando a Portaria de Consolidação n.º 3/2017: Um dos objetivos específicos da rede de atenção à saúde das pessoas com doenças crônicas é buscar a equidade a partir do reconhecimento dos determinantes sociais da saúde.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31342,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31343,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5752,
+    "texto": "As demandas psicológicas tendem a se modificar de acordo com a progressão da covid-19 e com fatos a ela relacionados, o que se alinha a intervenções psicológicas dinâmicas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31306,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31307,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5706,
+    "texto": "Acerca das características das gorduras, julgue os itens a seguir. Os triglicerídeos de cadeia média diferenciam-se dos triglicerídeos de cadeia longa por apresentarem maior tempo de solubilização pela bile e maior tempo de absorção pelas células intestinais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31214,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31215,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5651,
+    "texto": "O fator antinúcleo (FAN) é realizado por meio do teste de imunofluorescência direta em células HEp-2, que são células derivadas de uma linhagem de protozoário flagelado, a Crithidia lucilieae.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31104,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31105,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5617,
+    "texto": "O exame radiográfico convencional do corpo humano data dos primórdios da radiologia, quando, em 1895, Wilhelm Roentgen produziu a primeira imagem da mão de sua esposa. Tendo em vista que a radiografia convencional continua sendo um método fundamental na prática do diagnóstico por imagem, julgue os itens subsequentes.\n\nA proteção radiológica deve ser otimizada, de forma que o número de pessoas expostas e a probabilidade de exposições que resultem em doses mantenham-se tão baixos quanto possa ser razoavelmente exequível, considerando os fatores econômicos e sociais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31036,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31037,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5574,
+    "texto": "Lactente de 4 meses de idade apresentava crises de sudorese, irritabilidade e cianose de extremidades ½ hora após as mamadas desde os 10 dias de vida, quando subitamente apresentou convulsões de difícil controle. Os exames iniciais mostraram glicemia = 10 mg/dl; gasometria: pH = 7,28, pO2 = 80 mm Hg, pCO 2 = 35 mm Hg, HCO 3 = 13 mEq/L; hemograma, EAS e eletrólitos séricos dentro dos limites normais. Nesse caso, intolerância à lactose é a hipótese diagnóstica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30950,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30951,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5566,
+    "texto": "Lesões vesico-pápulo-eritematosas de limites imprecisos e atingindo toda a superfície corporal nas primeiras 72 horas de vida, com desaparecimento espontâneo, são compatíveis com o diagnóstico de melanose pustulosa neonatal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30934,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30935,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5540,
+    "texto": "O cuidado com a criança e o adolescente exige uma contínua dedicação da família, do Estado brasileiro e de outros segmentos da sociedade organizada, para o seu integral desenvolvimento físico e psicossocial. Os pais têm autonomia sobre seu filho doente, internado em hospital; caso solicitem, o médico assistente deverá fornecer o relatório médico e alta hospitalar, mesmo que não concorde.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30882,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30883,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5517,
+    "texto": "As glândulas salivares podem ser divididas em maiores — parótidas, submandibulares e sublinguais — e menores. Elas são classificadas em mucosas, serosas e mistas, de acordo com a morfologia dos ácinos. Com relação a esse tema, julgue os itens seguintes. Diante da presença de nodulação em uma glândula salivar maior, a probabilidade de se tratar de uma lesão maligna será maior do que de uma lesão benigna.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30836,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30837,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5489,
+    "texto": "A escoliose constitui uma deformação tridimensional com deslocamento vertebral nos planos frontal, sagital e transversal. Considerando esse assunto, julgue os itens subsequentes. No prognóstico e no tratamento da escoliose, deve ser considerada a maturidade óssea, sendo a escoliose do tipo idiopática aquela em que há maior probabilidade de estabilização antes da maturidade completa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30780,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30781,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

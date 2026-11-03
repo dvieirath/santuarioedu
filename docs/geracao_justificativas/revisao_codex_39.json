@@ -1,0 +1,62 @@
+[
+  {
+    "id": 9924,
+    "motivo": "Falta comando e há conteúdo jurídico defeituoso: a inexigibilidade licitatória se vincula à inviabilidade de competição, não à proibição de contratar. O termo tampouco é demonstrado como criação de 2023. Conferido art. 74 da Lei 14.133/2021: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10121,
+    "motivo": "Não fornece o trecho original a corrigir. As alternativas pressupõem elementos diferentes, e a concordância do verbo “ser” pode depender do predicativo. Não é seguro reconstruir a frase a partir da opção marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10123,
+    "motivo": "O comando foi armazenado como primeira alternativa, deixando o enunciado sem pergunta e a lista de respostas estruturalmente incorreta. Precisa de correção editorial antes de receber justificativa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10124,
+    "motivo": "“Ao concluir o projeto” é oração subordinada adverbial temporal reduzida de infinitivo, não adjunto adnominal. As vírgulas são adequadas, mas a explicação marcada como Certo está errada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10126,
+    "motivo": "O exemplo “Seja o prazo estabelecido, o contrato permanecerá válido” é ambíguo e pouco claro: pode sugerir injunção para estabelecer prazo, mas não explicita adequadamente uma hipótese. Não presumir uma oração como “qualquer que seja o prazo” ausente do texto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10127,
+    "motivo": "A expressão introduzida por “conforme” pode ser analisada como circunstância de conformidade ou critério de avaliação. “Complemento circunstancial de modo” depende de terminologia não delimitada, e não há base para tratá-la como adjunto adnominal. Rever o contraste e o critério de classificação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10128,
+    "motivo": "A oração é explicativa e pode ser retirada sem comprometer a estrutura principal, mas a retirada elimina a informação sobre o cansaço. A expressão “alterar o sentido” não distingue perda de informação e mudança do referente, tornando o julgamento ambíguo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10131,
+    "motivo": "Não identifica a ambiguidade lexical a eliminar. “Navegar na internet” já delimita o sentido de navegar nas várias alternativas; acrescentar “de maneira segura e crítica” amplia o conteúdo, mas não demonstra desambiguação exclusiva. Há mais de uma frase clara.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10132,
+    "motivo": "Nenhuma opção apresenta a função adjetiva de modificador de “resultados”, correspondente a adjunto adnominal. A oração inteira não é adjunto adverbial de tempo; apenas “em 2023” exprime tempo dentro dela. Gabarito incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10341,
+    "motivo": "Não delimita se há relação de consumo, regime de responsabilidade objetiva, contrato de adesão ou outras condições que limitem a exclusão de responsabilidade. Concordância expressa e referência genérica à boa-fé não bastam para confirmar validade em qualquer contrato de consultoria.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

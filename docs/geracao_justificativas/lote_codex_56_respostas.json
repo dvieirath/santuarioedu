@@ -1,0 +1,46 @@
+[
+  {
+    "id": 2557,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO modelo inclui intercepto α. Ao minimizar S = soma de (yi − α − βxi)², a derivada em relação a α é −2 vezes a soma dos resíduos. No mínimo, essa derivada é zero; portanto, a soma dos resíduos ajustados é zero, salvo arredondamentos numéricos.\n\n## ⚠️ O erro típico\nAplicar a propriedade a uma regressão sem intercepto ou confundir resíduos estimados com erros populacionais.\n\n## 🧠 Conceito-chave\nA equação normal associada ao intercepto impõe soma residual nula em MQO não ponderado.\n\n## 📚 Onde aprofundar\nEstude equações normais de mínimos quadrados e diferencie resíduos amostrais de erros do modelo.\n\n## 💡 Padrão a memorizar\nMQO com intercepto: soma dos resíduos igual a zero."
+  },
+  {
+    "id": 1166,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA definição é compatível com a BNCC: o letramento matemático articula raciocínio, representação, comunicação e argumentação para formular e resolver problemas em diferentes contextos.\n\n## ⚠️ O erro típico\nReduzir letramento matemático à execução automática de contas.\n\n## 🧠 Conceito-chave\nUsar conhecimentos matemáticos envolve interpretar situações e justificar procedimentos.\n\n## 📚 Onde aprofundar\nConsulte Matemática na [BNCC](https://basenacionalcomum.mec.gov.br/images/BNCC_20dez_site.pdf).\n\n## 💡 Padrão a memorizar\nLetramento matemático combina resolver, representar e explicar problemas."
+  },
+  {
+    "id": 5882,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAutoclavagem utiliza calor úmido, mediante vapor sob pressão, e não calor seco. O contato com vapor em condições controladas é central para o processo. Esse erro na classificação basta para tornar o item falso.\n\n## ⚠️ O erro típico\nConfundir autoclave com estufa de calor seco apenas porque ambas empregam aquecimento.\n\n## 🧠 Conceito-chave\nA esterilização a vapor depende de contato, temperatura, pressão e tempo apropriados.\n\n## 📚 Onde aprofundar\nConsulte [CDC — Steam Sterilization](https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/steam-sterilization.html).\n\n## 💡 Padrão a memorizar\nAutoclave: vapor e calor úmido; estufa: calor seco."
+  },
+  {
+    "id": 5867,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNa fase reversa usual, a fase estacionária é hidrofóbica. Reduzir a polaridade da fase móvel, por exemplo aumentando a proporção de metanol em água, facilita a eluição de compostos retidos. Trata-se da tendência geral nesse modo de separação.\n\n## ⚠️ O erro típico\nTransportar para fase reversa a ordem de força eluente da fase normal ou ignorar o tipo de fase estacionária.\n\n## 🧠 Conceito-chave\nForça eluente expressa a capacidade da fase móvel de promover a saída dos analitos da coluna.\n\n## 📚 Onde aprofundar\nVeja o exemplo de água/metanol da [Shimadzu — ODS Columns](https://www.shimadzu.com/an/service-support/technical-support/liquid-chromatography/essential_knowledge/ods.html).\n\n## 💡 Padrão a memorizar\nNa fase reversa, aumentar modificador orgânico geralmente aumenta a força eluente."
+  },
+  {
+    "id": 5813,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA febre eleva a demanda metabólica e costuma acompanhar-se de aumento das frequências cardíaca e respiratória. Essas respostas ajudam a atender o maior consumo de oxigênio e transporte metabólico. É uma tendência fisiológica, não um critério obrigatório presente em todo paciente.\n\n## ⚠️ O erro típico\nTratar uma resposta usual como regra sem exceções ou confundir febre com simples aquecimento externo.\n\n## 🧠 Conceito-chave\nO aumento da temperatura na febre tem custo metabólico e pode exigir maior atividade cardiorrespiratória.\n\n## 📚 Onde aprofundar\nConsulte [Merck Manual — Fever](https://www.merckmanuals.com/professional/infectious-diseases/biology-of-infectious-disease/fever).\n\n## 💡 Padrão a memorizar\nFebre costuma elevar metabolismo, frequência cardíaca e frequência respiratória."
+  },
+  {
+    "id": 5779,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA anamnese clínico-ocupacional reúne informações sobre atividades, exposições, jornadas, sintomas e sua relação temporal com o trabalho. Assim, orienta a investigação inicial do possível vínculo entre adoecimento e condições laborais. Não confirma sozinha o nexo causal.\n\n## ⚠️ O erro típico\nConfundir ferramenta inicial de investigação com prova suficiente e definitiva de causalidade.\n\n## 🧠 Conceito-chave\nA história ocupacional integra a avaliação clínica e contextualiza riscos presentes e passados.\n\n## 📚 Onde aprofundar\nConsulte o [Manual de doenças relacionadas ao trabalho, Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/doencas_relacionadas_trabalho_manual_procedimentos.pdf).\n\n## 💡 Padrão a memorizar\nOuvir a história de trabalho ajuda a investigar a relação saúde-trabalho."
+  },
+  {
+    "id": 5776,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nOs instrumentos foram associados às grandezas erradas. Goniômetros medem ângulos e amplitude de movimento articular; monofilamentos avaliam sensibilidade, especialmente tátil. Para força de preensão, utiliza-se, por exemplo, dinamômetro.\n\n## ⚠️ O erro típico\nTrocar avaliação de mobilidade, força e sensibilidade, que são dimensões diferentes da função.\n\n## 🧠 Conceito-chave\nO instrumento deve corresponder à grandeza que se pretende medir.\n\n## 📚 Onde aprofundar\nVeja a instrumentação do estudo [Ganhos funcionais em trabalhadores com lesão de mão](https://www.scienceopen.com/document?vid=ea8cfefd-f5b5-4c29-a525-5182d98ae633).\n\n## 💡 Padrão a memorizar\nGoniômetro: amplitude; dinamômetro: força; monofilamentos: sensibilidade."
+  },
+  {
+    "id": 5616,
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nNo transdutor piezelétrico, pulsos elétricos provocam deformações e vibrações do material, produzindo ondas ultrassônicas. Essa conversão elétrica em mecânica é o efeito piezelétrico inverso. A resposta de ressonância depende das características dos elementos.\n\n## ⚠️ O erro típico\nConfundir emissão de ultrassom com radiação ionizante ou imaginar que não haja conversão de energia.\n\n## 🧠 Conceito-chave\nPiezeletricidade permite conversão entre fenômenos elétricos e deformações mecânicas; na recepção, os ecos geram sinais elétricos.\n\n## 📚 Onde aprofundar\nConsulte [NIBIB — Ultrasound](https://www.nibib.nih.gov/science-education/science-topics/ultrasound).\n\n## 💡 Padrão a memorizar\nPulso elétrico → vibração piezelétrica → onda ultrassônica."
+  },
+  {
+    "id": 5483,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA distribuição apresentada não corresponde à descrição clássica dos encondromas, tumores cartilaginosos benignos frequentemente encontrados nos pequenos ossos das mãos. Eles também podem ocorrer em ossos longos, mas não se justifica relegar mãos e pés a uma localização pouco habitual como faz o item.\n\n## ⚠️ O erro típico\nConfundir distribuição de tumores cartilaginosos distintos ou ignorar a localização característica nos ossos da mão.\n\n## 🧠 Conceito-chave\nEncondroma é uma lesão cartilaginosa benigna intramedular; localização e comportamento auxiliam sua avaliação.\n\n## 📚 Onde aprofundar\nConsulte [AAOS — Enchondroma](https://www.orthoinfo.org/diseases--conditions/enchondroma).\n\n## 💡 Padrão a memorizar\nEncondroma é uma lesão característica dos pequenos ossos da mão."
+  },
+  {
+    "id": 5459,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA atropina oftálmica produz midríase, dilatação pupilar, e cicloplegia, redução ou paralisia da acomodação. O enunciado usa miose, que é contração da pupila, invertendo o efeito. Isso basta para invalidá-lo.\n\n## ⚠️ O erro típico\nTrocar midríase por miose, termos que descrevem alterações opostas do diâmetro pupilar.\n\n## 🧠 Conceito-chave\nO bloqueio muscarínico ocular pela atropina está relacionado à dilatação pupilar e à perda temporária de acomodação.\n\n## 📚 Onde aprofundar\nConsulte as indicações e farmacologia na [bula de atropina no DailyMed](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b4736dbc-b7c8-4b33-b7a8-a47c5654a127).\n\n## 💡 Padrão a memorizar\nAtropina: midríase e cicloplegia, não miose."
+  },
+  {
+    "id": 5432,
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAos 36 semanas, o critério habitual de aceleração é aumento de pelo menos 15 bpm por pelo menos 15 segundos, não 20 bpm por 20 segundos. O padrão reativo normalmente envolve duas acelerações em 20 minutos. Confundir o tempo de registro com amplitude e duração altera o critério.\n\n## ⚠️ O erro típico\nUsar o número 20 em todas as medidas: minutos do registro, batimentos por minuto e segundos são grandezas distintas.\n\n## 🧠 Conceito-chave\nA definição de aceleração fetal depende da idade gestacional; a partir de 32 semanas aplica-se o padrão 15 por 15.\n\n## 📚 Onde aprofundar\nConsulte [ACOG — Fetal Heart Tracings](https://www.acog.org/community/districts-and-sections/district-iv/whats-new/countdown-to-intern-year-week-4-fetal-heart-tracings).\n\n## 💡 Padrão a memorizar\nApós 32 semanas: aceleração 15 bpm por 15 segundos; não confundir com janela de 20 minutos."
+  }
+]

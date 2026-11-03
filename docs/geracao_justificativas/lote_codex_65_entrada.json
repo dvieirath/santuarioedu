@@ -1,0 +1,362 @@
+[
+  {
+    "id": 2752,
+    "texto": "Em relação à dinâmica de naves espaciais e satélites, julgue os itens a seguir. Sabendo-se que a conservação do momento angular exige que os momentos angulares específicos no perigeu e no apogeu sejam iguais, é correto afirmar que um satélite em órbita elíptica cujos raios de apogeu e de perigeu sejam, respectivamente, da ordem de 16.000 km e 7.000 km, a velocidade do satélite no perigeu será maior que 8.000 m/s, se sua velocidade no apogeu for igual a 4.000 m/s.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23286,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23287,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2745,
+    "texto": "O subsistema de guiagem, navegação e controle (GNC) de uma espaçonave inclui os componentes utilizados para a determinação da posição e os componentes utilizados pelo sistema de determinação e controle de atitude (ADCS). No que diz respeito a esse assunto, julgue o item: As bobinas magnéticas (magnetic torquers) geram um torque alinhado com o campo magnético externo local, permitindo o controle da atitude da espaçonave por meio da interação entre o dipolo magnético gerado pela bobina e o campo magnético ambiente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23272,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23273,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2742,
+    "texto": "Acerca de dinâmica das máquinas, vibrações e transmissibilidade, julgue os itens seguintes. O desbalanceamento elétrico em motores induzidos gera pico de vibração em frequência igual a duas vezes a frequência da rede, ou seja, será gerado um pico de vibração em 120 Hz se a frequência da rede for de 60 Hz.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23266,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23267,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2741,
+    "texto": "No que se refere a mecanismos, cinemática, dinâmica e excentricidade, julgue os itens a seguir. Mecanismo excêntrico, com biela longa, aproxima movimento harmônico senoidal para qualquer relação l/r.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23264,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23265,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2738,
+    "texto": "Acerca de estabilidade e qualidade do voo, julgue os próximos itens. O modo espiral é oscilatório e possui tipicamente alta frequência.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23258,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23259,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2737,
+    "texto": "Acerca de estabilidade e qualidade do voo, julgue os próximos itens. O modo fugoide é caracterizado principalmente por oscilações de baixa frequência que envolvem trocas significativas entre energia cinética (velocidade) e energia potencial (altitude).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23256,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23257,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2728,
+    "texto": "Considerando o problema restrito de três corpos (PRTC), no qual dois corpos principais, de massas m1 e m2, orbitam seus centros de massa sob influência gravitacional e um terceiro corpo, de massa desprezível, se move sob a ação dos dois primeiros corpos: A determinação da órbita no PRTC exige a definição das condições iniciais do terceiro corpo, como posição e velocidade, no referencial rotativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23238,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23239,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2720,
+    "texto": "A figura 11A1-I é um esboço de um circuito elétrico com dois interruptores do tipo paralelo (também conhecido como three-way), ligados à duas lâmpadas incandescentes. A figura 11A1-II representa o esboço de vários componentes ligados à rede elétrica, os quais possuem resistências elétricas ôhmicas. A corrente máxima permitida pelo fusível de proteção da rede é de 15 A. A resistência elétrica de cada lâmpada da figura 11A1-I é dada pelo gráfico na figura 11A1-III. Com base nestas informações, julgue os itens subsequentes. Na ligação circuito elétrico apresentada na figura 11A1-I, com dois interruptores do tipo paralelo (comutadores) comandando os mesmos pontos de luz, as lâmpadas poderão ter seu estado alternado (de ligadas para desligadas, ou vice-versa) caso seja acionado qualquer um dos dois interruptores, independentemente da posição do outro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23222,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23223,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2719,
+    "texto": "Com base nas leis da mecânica clássica, julgue os itens subsequentes. Em primeira aproximação (problema de dois corpos e órbita circular), a velocidade orbital da Lua ao redor do Terra é dada por v = sqrt(GM/r), em que M é a massa da Terra, r é o raio orbital e G é a constante gravitacional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23220,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23221,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2718,
+    "texto": "Com base nas leis da mecânica clássica, julgue os itens subsequentes. A 2.ª Lei de Kepler afirma que um planeta varre áreas iguais em intervalos de tempo iguais, o que implica constância em sua velocidade orbital.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23218,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23219,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2717,
+    "texto": "Com base nas leis da mecânica clássica, julgue os itens subsequentes. A força da gravidade exercida em um satélite geoestacionário é irrelevante, pois o satélite mantém sua posição fixa no céu, exclusivamente devido à sua tendência natural de persistir em um movimento retilíneo uniforme.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23216,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23217,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2716,
+    "texto": "Com base nas leis da mecânica clássica, julgue os itens subsequentes. Uma força F é dita conservativa se depender exclusivamente da posição, o que indica que, nesse cenário, o trabalho realizado pela força ao se deslocar de um ponto A para um ponto B é sempre igual em módulo, mas de sinal contrário, ao trabalho realizado no caminho inverso de B para A, isto é, WAB = −WBA.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23214,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23215,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2715,
+    "texto": "Foguetes de massa variável são veículos que mudam sua massa durante o voo, como o foguete Saturno V, principalmente pela queima e ejeção contínua de combustível, que é expelido em alta velocidade para trás, gerando impulso (empuxo) para frente, com base nas Leis de Newton. A esse respeito, considerando v e ve, respectivamente, como as velocidades final e de empuxo (ou velocidade efetiva de exaustão dos gases), m e m0 como as massas final e inicial, respectivamente, e desconsiderando forças dissipativas por atrito, julgue os itens subsequentes. Caso um foguete (sistema de massa variável) parta do repouso, em voo no vácuo e livre de forças externas, a massa do veículo decrescerá exponencialmente com o aumento da razão v/ve.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23212,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23213,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2636,
+    "texto": "No que diz respeito aos sistemas de comunicação: Por trabalhar em elevadas frequências, a banda Ku tem como desvantagem a atenuação do sinal causada pela intensidade das chuvas, tornando-se uma preocupação no uso em países tropicais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23054,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23055,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2624,
+    "texto": "Acerca dos tipos de aplicações em sistemas de telecomunicações: A modulação do sinal pode ser usada pra deslocar o espectro do sinal para frequências mais elevadas, reduzindo-se, assim, as dimensões das antenas de transmissão e recepção.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23030,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23031,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2615,
+    "texto": "No que diz respeito aos sistemas de comunicação, julgue os itens subsequentes. Por trabalhar em elevadas frequências, a banda Ku tem como desvantagem a atenuação do sinal causada pela intensidade das chuvas, tornando-se uma preocupação no uso em países tropicais.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23012,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23013,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2454,
+    "texto": "De acordo com a Lei n.º 13.303/2016, no regime de contratação integrada para projetos de alta complexidade tecnológica, o valor do contrato é, em regra, fixo, mas deve haver cláusula que estabeleça a possibilidade de alteração desse valor, por acordo entre as partes, nas hipóteses de, por exemplo, eventos de força maior, caso fortuito ou modificação do projeto para melhor adequação técnica de seus objetivos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22690,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22691,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2452,
+    "texto": "Julgue o item a respeito de governança de TI: Segundo o princípio do sistema de governança dinâmico, na implementação do COBIT 2019 sob a ótica da ISO/IEC 38500, o design da governança deve ser reavaliado sempre que houver mudanças nos fatores de design da organização, conectando-se à responsabilidade de monitoramento da direção prevista na norma ISO para garantir que a TI responda às novas necessidades de negócio.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22686,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22687,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2353,
+    "texto": "Julgue os próximos itens, em relação aos poderes da administração pública e aos agentes públicos. Denomina-se recondução a investidura do servidor em cargo de atribuições e responsabilidades compatíveis com a limitação que tenha sofrido em sua capacidade física ou mental, segundo laudo decorrente de inspeção médica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22488,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22489,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2340,
+    "texto": "Considerando o texto sobre streaming, no primeiro período do terceiro parágrafo, o segmento “Com a explosão das plataformas sob demanda” expressa uma consequência da perda de força da programação linear tradicional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22462,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22463,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 3786,
+    "motivo": "Falta a figura 5A2 com o heredograma e os perfis da geração I. A probabilidade pedida não pode ser calculada sem os genótipos e a estrutura familiar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3683,
+    "motivo": "Gabarito tropical necessita revisão: escassez de chuvas durante a maior parte do ano, calor e baixa amplitude anual também caracterizam fortemente o semiárido, que é alternativa disponível. Não há dados de sazonalidade/precipitação suficientes para sustentar exclusivamente a chave. Fonte primária: https://www.gov.br/ana/pt-br/sala-de-situacao/acudes-do-semiarido/saiba-mais",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3663,
+    "motivo": "Falta o contexto da coleta e a função/tabela dos domicílios por dia. Não é possível julgar os três itens. A chave Todos ainda requer atenção: uma PA não constante não tem máximo interno no quinto dia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3325,
+    "motivo": "Necessária conferência do manual operacional LPAT aplicável para classificação de fator determinante e forma de registro. A gravidade das lesões não prova ausência de cinto, mas não foi localizada fonte primária específica para validar a terminologia de lançamento no sistema. Preservado sem justificar por presunção.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3316,
+    "motivo": "Gabarito Certo incompatível com a distinção normativa: fabricante informa limite técnico, enquanto limite legal é estabelecido na regulamentação e sinalização. A formulação mistura conceitos. Fonte: Resolução CONTRAN 882/2021, https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8822021.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 3135,
+    "motivo": "Conferência normativa necessária: a NBR 14039:2021 abrange instalações além de recintos fechados, mas não foi confirmado o acréscimo específico de eficiência energética como finalidade formulada no item. Não validar toda a proposição só pela parte dos ambientes. Texto consultado: https://faculdadefic.edu.br/downloads/abnt-nbr-14039.pdf",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2931,
+    "motivo": "Falta definição ou valor de k. Para k>0, as raízes de h(d)=d(1−d/k) são 0 e k, e o domínio físico é [0,k]. Sem o contexto que determine k, não há base para julgar especificamente [0,12].",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2923,
+    "motivo": "Contexto incompleto: não foram informados volume do reservatório, produção inicial nem convenção de contagem dos dias. Não é possível calcular a soma geométrica para avaliar quatro dias.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

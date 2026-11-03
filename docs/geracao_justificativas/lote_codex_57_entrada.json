@@ -1,0 +1,362 @@
+[
+  {
+    "id": 5378,
+    "texto": "A respeito da doença de Parkinson, julgue os itens subsequentes. Discinesias de pico de dose em pacientes com Parkinson tratados exclusivamente com levodopa podem ser manejadas com redução das doses individuais e aumento na frequência das administrações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30558,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30559,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5342,
+    "texto": "Nos recém-nascidos, sobretudo nos prematuros, um desbalanço da temperatura corporal ocorre com maior frequência, podendo levar à hipotermia ou hipertermia; esse desequilíbrio pode ser atribuído a uma série de características do recém-nascido prematuro, quando comparado ao recém-nascido de termo. A esse respeito, julgue os itens seguintes.\n\n76 O recém-nascido prematuro apresenta maior superfície corporal relativa ao seu peso, o que leva ao aumento da perda de calor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30486,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30487,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5319,
+    "texto": "O treinamento médico para avaliação nefrourológica por meio de propedêutica com uso de equipamentos, tanto invasivos como por imagem, é fundamental para avaliações de processos obstrutivos e também de neoplasias renais. Acerca desse assunto, julgue os itens a seguir. Angiomiolipoma, também denominados hamartomas, são tumores mesenquimais benignos que acometem com maior frequência homens entre a 4.ª e a 5.ª década da vida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30440,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30441,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5310,
+    "texto": "As doenças glomerulares podem ser agrupadas em quatro síndromes clínicas: síndrome nefrótica, síndrome nefrítica, glomerulonefrite rapidamente progressiva (uma variante da síndrome nefrítica) e anormalidades assintomáticas urinárias. No que se refere às doenças glomerulares, julgue os itens subsequentes. A doença de lesão mínima apresenta, à microscopia ótica, aparência glomerular sem alterações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30422,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 30423,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5284,
+    "texto": "Um paciente de 76 anos de idade referiu episódios de dor torácica opressiva de moderada intensidade havia três dias. A referida dor surgia independentemente de atividade física e cedia espontaneamente, em menos de dez minutos. Nas últimas 24 horas, o paciente sofrera quatro episódios, porém de maior intensidade, os quais cederam espontaneamente em torno de trinta minutos. Na admissão hospitalar, ele estava assintomático do último episódio de dor, havia quatro horas. O paciente era tabagista, dislipidêmico e diabético havia vinte anos, atualmente em uso de insulina, sinvastatina e ácido acetilsalicílico. Ao exame físico, apresentava: saturação de oxigênio (em ar ambiente) de 93%, pressão arterial de 86 mmHg × 54 mmHg (média de três medidas), frequência cardíaca de 78 bpm e ritmo cardíaco regular em dois tempos sem sopros. O restante do exame físico foi normal. Observou-se troponina T ultrassensível de 1 µg/L (VR até 0,010 µg/L), e os demais exames laboratoriais de rotina não revelaram anormalidades significativas. A seguir, é mostrado o eletrocardiograma realizado pelo paciente. No caso em tela, recomenda-se a dose de ataque do prasugrel, imediatamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 30370,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 30371,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5063,
+    "texto": "Acerca da síndrome de imunodeficiência adquirida (AIDS) e às doenças hematológicas a ela associadas, julgue os itens seguintes. As entidades linfoproliferativas que ocorrem com maior frequência no contexto da infecção por HIV incluem: derrame primário, plasmablástico, linfomas periféricos de células T e doença de Castleman.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29928,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29929,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4994,
+    "texto": "Betabloqueadores, como atenolol, para melhora da frequência cardíaca concomitantemente ao controle pressórico estão indicados para essa paciente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29790,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29791,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4992,
+    "texto": "Paciente do sexo feminino, com 91 anos de idade, apresenta demência em fase grave e está acamada com contratura muscular por ter sofrido acidente vascular cerebral isquêmico (AVCI). Segundo relato do filho da paciente, a idosa é evangélica e deseja falecer sem sofrimentos em ambiente domiciliar, vontade que os seus familiares pretendem cumprir. Conforme exame físico, a paciente apresenta fácie de dor, testa franzida e assustada, com choros constantes, dificuldades ocasionais para respiração, corpo rígido com punhos cerrados, incapaz de ser consolada. De acordo com a avaliação de sinais vitais, ela está com temperatura de 36 °C, frequência respiratória de 26 irpm, frequência cardíaca de 110 bpm, saturação de oxigênio de 92% (pelo oxímetro de pulso) e pressão arterial de 150 mmHg × 70 mmHg. Tendo como referência o caso clínico hipotético apresentado, julgue os itens que se seguem. Segundo a escala de avaliação da dor em demência avançada (PAINAD-Br), a paciente em tela apresenta dor moderada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29786,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29787,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4990,
+    "texto": "A respeito da síndrome da fragilidade no idoso, julgue os itens a seguir. Os critérios de Fried de fragilidade no idoso consistem em redução de força de preensão palmar, redução da velocidade de marcha, perda de peso não intencional, humor deprimido e multimorbidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29782,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29783,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4989,
+    "texto": "A respeito da síndrome da fragilidade no idoso, julgue os itens a seguir. O metabolismo da vitamina D pode contribuir para a redução na frequência de quedas em idosos frágeis.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29780,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29781,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4961,
+    "texto": "Uma mulher com quarenta e cinco anos de idade, com queixa de disfagia e perda ponderal significativa nos últimos meses, foi submetida a videoendoscopia digestiva alta em que se identificou acalasia da cárdia, permitindo a passagem do endoscópio com resistência importante. Exame contrastado mostrou dilatação esofágica, sem desvio importante do eixo, lentificação do esvaziamento esofágico e ondas de contração terciárias. Manometria esofágica evidenciou hipertonia do esfíncter inferior do esôfago, ausência de relaxamento do esfíncter inferior do esôfago e aperistalse do corpo esofágico. Nesse caso clínico, 73 POEM ( peroral endoscopy myotomy ) é uma alternativa terapêutica possível, apresentando menos sintomas de refluxo gastroesofágico quando comparada à miotomia a Heller associada a fundoplicadura a Dor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29724,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29725,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4954,
+    "texto": "Um senhor com sessenta e oito anos de idade, paciente renal crônico, diabético insulinodependente, hipertenso, não dialítico, fez uso de anti-inflamatório não hormonal por 5 dias, em virtude de lombalgia. Apresentou episódio de sangramento vivo nas fezes durante evacuação, tendo sido encontrado inconsciente no banheiro. Foi trazido para o serviço de emergência, onde foram constatadas: pressão arterial de 85 mmHg × 65 mmHg, frequência cardíaca do 100 bpm, confusão mental e sudorese profusa. Exames laboratoriais revelaram: Hemoglobina 8,5 g/dL, Ureia 100 mg/dL, leucócitos 1.400. Foi iniciada reposição volêmica, com resposta positiva, e o paciente foi transferido para unidade de terapia intensiva, tendo sido submetido a videoendoscopia digestiva alta. Esse exame revelou úlcera de 12 mm de diâmetro, na incisura angularis, fibrina no centro, bordos elevados e sangramento em jato. Com relação ao tratamento endoscópico nesse caso clínico, julgue os itens que se seguem. Entre as variáveis que compõem o escore de prognóstico de Rockall, o paciente apresenta risco de ressangramento elevado, idade > 60 anos, hemoglobina < 10 g/dL, FC > 100 bpm, comorbidades e achados endoscópicos de sangramento ativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29710,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29711,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4906,
+    "texto": "Caso clínico: Homem, 60 anos, sedentário, sobrepeso, HAS, consumo de 350ml de vinho/dia. PA 150x85 mmHg. A alimentação adequada quanto ao consumo de sal e ao controle do peso e a prática de atividade física são fatores que precisam ser adequadamente controlados; em relação ao álcool, não há necessidade de restrição, pois se trata de um hipotensor e protetor cardiovascular.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29614,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29615,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4750,
+    "texto": "Paciente com 37 anos de idade, do sexo masculino, foi levado pela equipe do SAMU ao serviço de emergência de um hospital terciário após ter sido vítima de agressão por arma branca. O paciente apresentava-se com agitação psicomotora, desorientado no tempo e espaço, com frequência cardíaca de 133 bpm, pressão arterial igual a 82 mmHg × 40 mmHg e frequência respiratória de 33 irpm. Observou-se também lesão perfurocortante em hipocôndrio esquerdo, sem sinais de evisceração. O paciente apresenta sinais de choque hemorrágico, porém não está indicada reposição imediata de hemoderivados.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29302,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29303,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4716,
+    "texto": "Caso clínico (Paciente 31 anos, suspeita de dissecção aórtica): Para o paciente em questão, recomenda-se a analgesia, redução da pressão arterial sistólica abaixo de 160 mmHg e redução da frequência cardíaca abaixo de 70 bpm.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29234,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29235,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4696,
+    "texto": "A respeito de reanimação cardiopulmonar (RCP), julgue os itens subsequentes. Durante a RCP, ao se identificar a modalidade atividade elétrica sem pulso (AESP), é indicada desfibrilação imediata, seguida do retorno das compressões torácicas e da ventilação, com frequência 30:2, por 2 minutos, até se checar o ritmo novamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29194,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29195,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4695,
+    "texto": "A respeito de reanimação cardiopulmonar (RCP), julgue os itens subsequentes. Em caso de RCP em vítima de afogamento, é recomendado aplicar cinco respirações/ventilações de resgate assim que possível; após as ventilações, devem-se iniciar as compressões e, a partir daí, manter a frequência de trinta compressões para duas ventilações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29192,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29193,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4685,
+    "texto": "Quanto às anomalias da conexão atrioventricular, julgue os itens subsequentes. O defeito do septo atrioventricular é encontrado com maior frequência nos portadores de isomerismo esquerdo (polisplenia), e mais raramente naqueles com isomerismo direito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29172,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29173,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4677,
+    "texto": "A respeito de cardiopatias congênitas, julgue os itens subsequentes. A origem anômala de artéria coronária observada com maior frequência é a emergência da coronária direita a partir do tronco pulmonar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29156,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29157,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4630,
+    "texto": "Uma paciente de 78 anos de idade, com antecedentes de hipertensão arterial, queixava-se de cefaleia e mialgia havia três semanas. No exame físico, ela se encontrava eupneica, com pressão arterial de 136 mmHg × 82 mmHg, frequência cardíaca de 64 bpm e ritmo cardíaco regular, em três tempos (quarta bulha), com sopro diastólico (++/4) no segundo espaço intercostal à direita, sem clique ou atrito. O restante do exame físico foi normal. A velocidade de hemossedimentação foi de 78 mm/h. O eletrocardiograma não revelou anormalidades significativas. O ecocardiograma demonstrou derrame pericárdico leve e dimensão aórtica de 4 cm (seio de Valsalva), 4,4 cm (junção sinotubular) e 4,5 cm (aorta proximal ascendente). A janela acústica não permitiu uma adequada visualização da valva aórtica. A respeito do caso clínico hipotético apresentado, julgue os itens subsequentes. A paciente deverá ser submetida a angiorressonância magnética de aorta torácica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29062,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 29063,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

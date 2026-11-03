@@ -1,0 +1,362 @@
+[
+  {
+    "id": 3015,
+    "texto": "No terceiro parágrafo, a expressão “dia a dia” poderia ser grafada como dia-a-dia, sem prejuízo da correção do texto, pois as duas formas são admitidas pela ortografia oficial em vigor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23812,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23813,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2920,
+    "texto": "Texto CB1A1-II: É obrigatório o emprego do acento indicativo de crase no vocábulo “às” em “às regras gerais da administração pública” (quarto período do último parágrafo).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23622,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23623,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2918,
+    "texto": "Texto CB1A1-II: A palavra “fruto” (segundo período do primeiro parágrafo) poderia ser substituída por idéia, sem prejuízo da coerência e da correção gramatical do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23618,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23619,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2912,
+    "texto": "Texto CB1A1-I: Em nível menor, países como o Brasil têm enfrentado os mesmos problemas das maiores potências no que se refere a suprir suas necessidades energéticas. No primeiro período do último parágrafo, a forma verbal “têm” está flexionada na terceira pessoa do plural porque estabelece concordância tanto com “países” quanto com “Brasil”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23606,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23607,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2909,
+    "texto": "Texto CB1A1-I: Aqui cabe uma reflexão sobre os efeitos geopolíticos da futura mudança da matriz energética global. No segundo período do último parágrafo, a forma verbal “cabe” estabelece concordância com o termo “reflexão”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23600,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23601,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2903,
+    "texto": "Texto CB1A1-I: No terceiro parágrafo, a expressão “dia a dia” poderia ser grafada como dia-a-dia, sem prejuízo da correção do texto, pois as duas formas são admitidas pela ortografia oficial em vigor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23588,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23589,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2739,
+    "texto": "No que se refere aos princípios da estática e à estabilidade das estruturas, julgue os itens a seguir. Em uma treliça plana ideal na qual as cargas são aplicadas exclusivamente nos nós e os elementos são conectados por pinos sem atrito, os membros da estrutura podem estar sujeitos a esforços combinados de tração, compressão e momentos fletores ao longo dos seus comprimentos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23260,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23261,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2646,
+    "texto": "Tendo em vista os sistemas de avaliação e gestão de desempenho nas organizações, julgue os itens que se seguem. A participação dos sujeitos da avaliação no desenho do processo de gestão de desempenho está condicionada à possibilidade de apelarem dos resultados e solicitarem sua revisão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23074,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23075,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2602,
+    "texto": "Com base nos fundamentos teóricos relacionados à opinião pública e às relações públicas nas organizações modernas, julgue os itens subsequentes. As estratégias de comunicação interna e de relacionamento com a comunidade, quando alinhadas a práticas consistentes de responsabilidade social, contribuem para a formação de uma opinião pública favorável à organização, ao reforçarem a coerência entre discurso institucional e impacto social percebido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22986,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22987,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2358,
+    "texto": "A respeito de aspectos relacionados à gestão de pessoas, julgue o item: Garantir a coerência interna entre o discurso ético e as práticas de liderança de uma organização é um desafio crítico para a gestão de pessoas, visto que a incongruência entre os valores socioambientais e a realidade do ambiente de trabalho pode comprometer a retenção de pessoas qualificadas e a fidelidade de investidores.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22498,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22499,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2341,
+    "texto": "Considerando o texto sobre streaming, a expressão “Além disso” (segundo período do segundo parágrafo) constitui articulador discursivo de valor aditivo que estabelece, por meio de coesão, relação de sentido entre os períodos que compõem o parágrafo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22464,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22465,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2329,
+    "texto": "Considerando o texto de Ana Regina Rêgo, no trecho “a captura, a „mineração‟ e o processamento de dados” (primeiro período do segundo parágrafo), o emprego de aspas em „mineração‟ cumpre o propósito de realçar uma oposição de sentido entre esse termo e o termo “captura”, que, assim como o primeiro, funciona como núcleo do sujeito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22440,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22441,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2269,
+    "texto": "Texto 8A1-I. De acordo com a ortografia oficial em vigor, seria correta a translineação da palavra mais (no último parágrafo do texto), escrevendo-se ma- ao final de uma linha e is no início da linha seguinte.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22320,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22321,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2265,
+    "texto": "Texto 8A1-I. No trecho ‘A gente atrai as pessoas mais vulneráveis’ (primeiro período do último parágrafo), a colocação do acento indicativo de crase no vocábulo ‘as’ manteria tanto a correção gramatical quanto a coerência do texto, dada a possibilidade de emprego do verbo atrair, no contexto em questão, quer como transitivo direto, quer como transitivo indireto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22312,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22313,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2264,
+    "texto": "Texto 8A1-I. O emprego de vírgula logo após ‘médio’ (primeiro período do quinto parágrafo) prejudicaria a correção gramatical do texto, visto que, em regra, sujeito e predicado não devem ser separados por vírgula.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22310,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22311,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2262,
+    "texto": "Texto 8A1-I. Estaria mantida a correção gramatical do texto caso as formas verbais empregadas nos segmentos “20% dos universitários estão em cursos como licenciatura e pedagogia” (último período do segundo parágrafo) e “21% se interessam pela profissão” (primeiro período do quarto parágrafo) estivessem flexionadas no singular — está e interessa, respectivamente —, dada a possibilidade de concordância do verbo com a expressão por cento, representada graficamente por “%”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22306,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22307,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2260,
+    "texto": "Texto 8A1-I. Classifica-se como oração sem sujeito o segmento “há muita concorrência e maior seleção” (primeiro período do quarto parágrafo).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22302,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22303,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2255,
+    "texto": "Texto 8A1-I. No segundo período do primeiro parágrafo, o vocábulo “que” introduz uma oração subordinada substantiva objetiva direta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22292,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22293,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2174,
+    "texto": "Considerando o texto sobre streaming, julgue o item: A expressão “Além disso” (segundo período do segundo parágrafo) constitui articulador discursivo de valor aditivo que estabelece, por meio de coesão, relação de sentido entre os períodos que compõem o parágrafo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22130,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 22131,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2162,
+    "texto": "Considerando o texto de Ana Regina Rêgo, julgue o item: No trecho “a captura, a „mineração‟ e o processamento de dados” (primeiro período do segundo parágrafo), o emprego de aspas em „mineração‟ cumpre o propósito de realçar uma oposição de sentido entre esse termo e o termo “captura”, que, assim como o primeiro, funciona como núcleo do sujeito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 22106,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 22107,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

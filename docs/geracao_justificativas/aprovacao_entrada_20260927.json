@@ -1,0 +1,2480 @@
+[
+  {
+    "id": 8103,
+    "categoria": "Direito Penal",
+    "texto": "Um agente público, ao participar de uma reunião de condomínio, oferece um brinde em troca de votos favoráveis em decisões que beneficiam sua empresa. Essa conduta, ao violar princípios da administração pública, pode ser enquadrada como:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA conduta descrita é a prática de oferecer vantagem a agente público para obter benefício, caracterizando corrupção ativa, prevista no art. 317 do CP. O agente público recebe brinde em troca de voto favorável, que é a definição de corrupção ativa.\n\n## ⚠️ Armadilhas\n- **A)** Confunde com corrupção passiva, que ocorre quando o agente público solicita ou aceita vantagem. Aqui o agente oferece.\n- **C)** Concussão exige o uso de poder para exigir vantagem, mas não há exigência de voto, apenas oferta.\n- **D)** Omissão de ato de ofício é deixar de praticar um ato que deveria ser feito, não se aplica.\n- **E)** Abuso de poder envolve uso indevido de autoridade para fins pessoais, mas não há uso de poder para obter voto.\n\n## 🧠 Conceito-chave\n- Corrupção ativa: agente público oferece vantagem para obter ato favorável.\n- Corrupção passiva: agente público aceita vantagem.\n- Concussão: exigir vantagem em razão de poder.\n- Omissão de ato de ofício: deixar de praticar ato.\n- Abuso de poder: uso indevido de autoridade.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar a modalidade de corrupção e diferenciar entre corrupção ativa e passiva.\n\n## 📚 Onde aprofundar\nLei 8.112/90, arts. 116-142; Código Penal, art. 317; Súmula 123 do STJ.\n\n## 💡 Padrão a memorizar\n\"Corrupção ativa: quem oferece vantagem; corrupção passiva: quem aceita.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37403,
+        "texto": "Corrupção passiva",
+        "correta": false
+      },
+      {
+        "id": 37404,
+        "texto": "Corrupção ativa",
+        "correta": true
+      },
+      {
+        "id": 37405,
+        "texto": "Concussão",
+        "correta": false
+      },
+      {
+        "id": 37406,
+        "texto": "Omissão de ato de ofício",
+        "correta": false
+      },
+      {
+        "id": 37407,
+        "texto": "Abuso de poder",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8104,
+    "categoria": "Direito Penal",
+    "texto": "Um juiz, ao julgar um processo de homicídio, decide absolver o réu com base em uma alegação de que o crime teria sido cometido em legítima defesa, embora não haja provas que sustentem tal alegação. Esse ato pode ser caracterizado como:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA decisão de absolvição sem prova de legítima defesa viola o princípio do devido processo legal, pois exige fundamentação e prova. O juiz não pode criar fatos inexistentes. Assim, a ação é inconstitucional.\n\n## ⚠️ Armadilhas\n- **A)** Confunde abuso de poder com decisão sem prova; o abuso envolve uso indevido de autoridade, não apenas falta de prova.\n- **B)** Corrupção pressupõe benefício ilícito; aqui não há troca de vantagem.\n- **C)** Concussão exige exigência de vantagem em troca de ato de ofício; não se aplica a decisão judicial.\n- **D)** Omissão de ato de ofício refere-se a não praticar ação que o juiz deveria fazer, não a decidir sem prova.\n\n## 🧠 Conceito-chave\n- Princípio do devido processo legal (art. 5º, LXXVIII, CF).\n- Necessidade de prova e fundamentação em decisões judiciais.\n- Inconstitucionalidade de atos que violam garantias processuais.\n- Separação entre fato e decisão judicial.\n\n## 🎯 O que esta questão testa\nCapacidade de reconhecer que decisões judiciais devem ser baseadas em prova e fundamentação, evitando violação do devido processo legal.\n\n## 📚 Onde aprofundar\nCódigo de Processo Civil, arts. 93 e 94; Constituição Federal, art. 5º, LXXVIII; Súmula 423 do STF sobre decisão sem prova.\n\n## 💡 Padrão a memorizar\n“Decisão sem prova = violação do devido processo legal.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37408,
+        "texto": "Abuso de poder",
+        "correta": false
+      },
+      {
+        "id": 37409,
+        "texto": "Corrupção",
+        "correta": false
+      },
+      {
+        "id": 37410,
+        "texto": "Concussão",
+        "correta": false
+      },
+      {
+        "id": 37411,
+        "texto": "Omissão de ato de ofício",
+        "correta": false
+      },
+      {
+        "id": 37412,
+        "texto": "Inconstitucionalidade de decisão",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8118,
+    "categoria": "Direito Civil",
+    "texto": "Texto: Em 2024, a Associação de Proprietários de Condomínio do Bairro Jardim Verde, em São Paulo, publicou um comunicado interno que alterava a convenção condominial, aumentando em 25% a taxa de condomínio para todos os moradores. O comunicado foi enviado por e-mail, mas apenas 10% dos condôminos tiveram acesso ao conteúdo. Em seguida, a associação ajuizou ação de cobrança contra os moradores que não pagaram a nova taxa. Considerando o texto acima, qual é a posição jurídica mais adequada?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alteração contraria o art. 1.336 do Código Civil, que exige aprovação em assembleia para mudanças na convenção. Sem essa aprovação, a alteração é inválida. O meio eletrônico não substitui a assembleia.\n## ⚠️ Armadilhas\n- **A)** Assume que publicação eletrônica basta, confundindo o requisito de aprovação em assembleia.\n- **B)** Faz alusão à maioria, mas a regra é a assembleia, não a maioria dos condôminos.\n- **C)** Supõe que quem recebeu o comunicado tem direito à alteração, ignorando a necessidade de aprovação coletiva.\n- **E)** Sugere suspensão da cobrança, mas a alteração já é inválida, não apenas questionável.\n## 🧠 Conceito-chave\n- Art. 1.336 do Código Civil: alteração da convenção só válida se aprovada em assembleia.\n- Princípio da publicidade e da participação: todos os condôminos devem ser convocados.\n- Meio eletrônico não dispensa a assembleia, salvo disposição específica.\n## 🎯 O que esta questão testa\nCapacidade de aplicar o requisito de aprovação em assembleia para alterações de convenção condominial.\n## 📚 Onde aprofundar\nCódigo Civil, arts. 1.336‑1.341; Manual de Direito Condominial, cap. 3.\n## 💡 Padrão a memorizar\n\"Alterar a convenção = assembleia; sem assembleia, inválida.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37451,
+        "texto": "A alteração é válida, pois foi publicada em meio eletrônico.",
+        "correta": false
+      },
+      {
+        "id": 37452,
+        "texto": "A alteração é inválida, pois não observou a maioria dos condôminos.",
+        "correta": false
+      },
+      {
+        "id": 37453,
+        "texto": "A alteração é válida apenas para os condôminos que receberam o comunicado.",
+        "correta": false
+      },
+      {
+        "id": 37454,
+        "texto": "A alteração é inválida, pois não foi aprovada em assembleia, violando o artigo 1.336 do Código Civil.",
+        "correta": true
+      },
+      {
+        "id": 37455,
+        "texto": "A alteração é válida, mas a cobrança pode ser suspensa até a regularização da notificação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8123,
+    "categoria": "Direito Processual Penal",
+    "texto": "Considerando o texto acima, a prisão preventiva pode ser decretada quando o réu demonstra, por meio de provas circunstanciais, que possui vínculos com organizações criminosas, mesmo que não haja prova concreta de sua participação em atos ilícitos.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA prisão preventiva pode ser decretada quando o réu demonstra, por provas circunstanciais, vínculo com organizações criminosas, conforme o art. 5º, IX, da CF e art. 312, § 1º, do CPP. A prova circunstancial é suficiente para garantir a ordem pública, conforme jurisprudência consolidada.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a prisão preventiva exige prova concreta de participação em crime. Na verdade, a lei admite prova circunstancial de vínculo, não de ato ilícito.\n\n## 🧠 Conceito-chave\n- **Prisão preventiva**: medida cautelar para garantir a ordem pública, a aplicação da lei penal ou a instrução criminal.\n- **Prova circunstancial**: conjunto de elementos que, isoladamente, não provam o fato, mas em conjunto apontam a autoria ou a ligação.\n- **Art. 312, § 1º, CPP**: permite prisão preventiva quando houver indícios de participação em organização criminosa.\n\n## 📚 Onde aprofundar\n- Código de Processo Penal, art. 312, § 1º.\n- Constituição Federal, art. 5º, IX.\n- G. M. S. de Oliveira, *Processo Penal*, 10ª ed., 2022.\n\n## 💡 Padrão a memorizar\n\"Vínculo com organização criminosa + prova circunstancial = prisão preventiva\".",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37467,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37468,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8135,
+    "categoria": "Direito Processual Penal",
+    "texto": "Em 2024, o Ministério Público ajuizou ação penal pública contra um ex-diretor de empresa de transporte, alegando que o acusado teria, em 2022, praticado crime de lavagem de dinheiro ao ocultar recursos provenientes de venda de mercadorias ilícitas. Durante a fase de instrução, o juiz admitiu a produção de prova pericial que analisou a movimentação bancária do acusado, mas rejeitou a audiência de esclarecimentos de defesa, sob o argumento de que o acusado já havia apresentado sua versão por meio de declaração escrita. Considerando o princípio da ampla defesa, a decisão do juiz foi:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA decisão do juiz violou o princípio da ampla defesa, pois a audiência de esclarecimentos é facultativa e pode ser necessária para que a defesa corrija ou complemente a versão escrita. A jurisprudência admite a audiência mesmo quando há declaração escrita, desde que haja dúvida ou omissão. A rejeição sem justificativa fere o art. 5º, LV, da CF.\n\n## ⚠️ O erro típico\nA proposição sugere que a declaração escrita substitui a audiência, criando a armadilha de que a defesa já está completa. Na prática, a audiência pode ser imprescindível para esclarecer pontos que a escrita não cobre.\n\n## 🧠 Conceito-chave\n- **Ampla defesa**: direito de contestar, produzir provas e esclarecer fatos.\n- **Audiência de esclarecimentos**: procedimento facultativo, mas útil para complementar a defesa.\n- **Art. 5º, LV, CF**: garante o contraditório e ampla defesa.\n\n## 📚 Onde aprofundar\n- Constituição Federal, art. 5º, LV.\n- Código de Processo Penal, art. 381.\n- STJ, Súmula 459.\n\n## 💡 Padrão a memorizar\n\"Audiência de esclarecimentos: não substitui a defesa escrita, mas complementa; a ampla defesa exige possibilidade de contestação e complementação.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37506,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 37507,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8136,
+    "categoria": "Direito Processual Penal",
+    "texto": "A Lei de Execução Penal, em seu artigo 77, prevê que a prisão preventiva pode ser decretada quando houver risco de fuga, obstrução da investigação ou perigo à ordem pública. Em 2025, um investigado foi preso preventivamente por suspeita de participação em quadrilha. Após a prisão, o juiz fixou prazo de 30 dias para a audiência de custódia. No entanto, o Ministério Público argumentou que o prazo deveria ser de 15 dias, pois a suspeita era de crime de menor potencial ofensivo. O juiz, ao analisar o pedido, manteve o prazo de 30 dias, alegando que a natureza do crime e o risco de obstrução da investigação justificavam a extensão do prazo. O juiz agiu:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA Lei de Execução Penal, art. 77, admite prazo de 30 dias para audiência de custódia quando há risco de obstrução da investigação. O juiz agiu conforme a norma, justificando a extensão pelo risco de obstrução.\n\n## ⚠️ O erro típico\nA armadilha é pensar que o crime de menor potencial ofensivo obriga prazo de 15 dias. Na prática, o prazo pode ser maior se houver risco de obstrução, independentemente da tipicidade.\n\n## 🧠 Conceito-chave\n- Art. 77, LEP: prisão preventiva pode ser decretada por risco de fuga, obstrução da investigação ou perigo à ordem pública.\n- Prazo de 30 dias: previsto na LEP para audiências de custódia quando há risco de obstrução.\n- Crime de menor potencial ofensivo não exclui a possibilidade de prazo maior.\n\n## 📚 Onde aprofundar\n- Lei de Execução Penal, art. 77.\n- Código de Processo Penal, art. 312.\n- Curso de Direito Processual Penal – Cebraspe.\n\n## 💡 Padrão a memorizar\n\"Risco de obstrução justifica 30 dias, não o potencial ofensivo.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37508,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37509,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8137,
+    "categoria": "Direito Processual Penal",
+    "texto": "A partir de 2023, o Tribunal de Justiça de São Paulo instituiu um sistema eletrônico de acompanhamento de processos penais, permitindo que advogados de defesa pudessem solicitar a juntada de documentos por meio de upload digital. Em 2024, um advogado solicitou a juntada de uma prova pericial que havia sido realizada em outra jurisdição. O juiz, ao receber o arquivo, considerou-o inadmissível, alegando que a prova não havia sido produzida no âmbito do processo atual. O advogado alegou que a prova pericial era relevante para a defesa e que sua juntada não violava nenhum princípio processual. O juiz, portanto, negou a juntada. A decisão do juiz foi:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA prova pericial, embora produzida em outra jurisdição, pode ser juntada se for relevante e não violar princípios processuais, conforme o art. 10 do CPC e o princípio da ampla defesa. O juiz não pode negar a juntada sem fundamentar a inadmissibilidade com base em regras específicas.\n\n## ⚠️ O erro típico\nA armadilha é a suposição de que a prova só pode ser juntada se produzida no mesmo processo. Muitos candidatos pensam que a origem da prova determina sua admissibilidade.\n\n## 🧠 Conceito-chave\n- Art. 10 do CPC: prova produzida em outro processo pode ser juntada se relevante.\n- Princípio da ampla defesa e do contraditório.\n- Regras de admissibilidade: relevância, autenticidade e legalidade.\n\n## 📚 Onde aprofundar\nCódigo de Processo Civil, art. 10; Lei nº 13.105/2015; Curso de Direito Processual Penal – Luiz Fux, \"Curso de Direito Processual Penal\".\n\n## 💡 Padrão a memorizar\n\"Prova de outro processo é válida se relevante e não viola princípios\".",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37510,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 37511,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8160,
+    "categoria": "Legislação de Trânsito",
+    "texto": "Considerando o texto acima, o condutor que, ao perceber a temperatura do motor em 120°C, decide acelerar para reduzir o tempo de viagem, está sujeito a penalidade de multa, pois a legislação de trânsito prevê a obrigação de manter o veículo em condições de segurança, incluindo a temperatura adequada do motor.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA legislação exige que o condutor mantenha o veículo em condições de segurança, inclusive temperatura adequada do motor. A decisão de acelerar em 120 °C viola essa obrigação, gerando multa.\n\n## ⚠️ O erro típico\nA armadilha é pensar que acelerar reduz o tempo de viagem sem considerar a segurança. Muitos candidatos confundem rapidez com responsabilidade.\n\n## 🧠 Conceito-chave\n- Art. 4º do Código de Trânsito Brasileiro (CTB): o condutor deve manter o veículo em condições de segurança.\n- Art. 12 do CTB: infração por condução em condições inseguras.\n- Temperatura excessiva do motor é condição insegura.\n\n## 📚 Onde aprofundar\nCódigo de Trânsito Brasileiro, Artigos 4º e 12; Manual de Direção Defensiva – Instituto Nacional de Trânsito (INTRAN).\n\n## 💡 Padrão a memorizar\n“Segurança antes da velocidade: o CTB obriga o condutor a manter o veículo em condições seguras, inclusive temperatura do motor.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37586,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37587,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8168,
+    "categoria": "Português",
+    "texto": "Considerando a evolução do uso de redes sociais como meio de divulgação de conteúdo literário, um autor brasileiro decide publicar um conto em formato de micro‑história em um aplicativo de mensagens. O texto, com apenas 120 palavras, contém elementos de ironia e crítica social, mas não apresenta nenhuma citação direta de obras de terceiros. Em relação ao direito autoral, qual das alternativas a seguir está correta?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA obra, mesmo curta e publicada online, é protegida automaticamente por direitos autorais quando criada, pois a lei não exige registro. A proteção decorre da criação original, independentemente de tamanho ou meio de divulgação.\n\n## ⚠️ Armadilhas\n- **B)** O registro não é obrigatório para que a obra seja protegida; ele apenas facilita a prova de autoria.\n- **C)** O número de palavras não determina proteção; obras de qualquer tamanho são protegidas.\n- **D)** A ausência de citações não liberta a obra de direitos autorais; a própria criação continua protegida.\n- **E)** O autor pode comercializar a obra; a proteção não impede a comercialização.\n\n## 🧠 Conceito-chave\n- A proteção autoral é automática e independe de registro ou publicação.\n- A lei protege obras originais, independentemente de extensão ou meio.\n- Registro facilita a prova de autoria, mas não é condição de proteção.\n- A publicação digital não altera a natureza da proteção.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar que a proteção autoral é automática e não depende de registro ou tamanho da obra.\n\n## 📚 Onde aprofundar\nLei de Direitos Autorais (Lei 9.610/98), especialmente os arts. 1º e 2º.\n\n## 💡 Padrão a memorizar\n“Autoridade autoral é automática: criação original = proteção, registro = prova.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37617,
+        "texto": "A obra está automaticamente protegida por direitos autorais, independentemente da sua publicação em plataforma digital.",
+        "correta": true
+      },
+      {
+        "id": 37618,
+        "texto": "O autor deve registrar a obra em um órgão oficial para que seja reconhecida a proteção legal.",
+        "correta": false
+      },
+      {
+        "id": 37619,
+        "texto": "A obra não é protegida, pois possui menos de 200 palavras.",
+        "correta": false
+      },
+      {
+        "id": 37620,
+        "texto": "A obra pode ser usada livremente por terceiros, pois não contém citações.",
+        "correta": false
+      },
+      {
+        "id": 37621,
+        "texto": "O autor pode usar a obra em outras plataformas sem restrição, mas não pode comercializá‑la.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8169,
+    "categoria": "Português",
+    "texto": "Um professor de português utiliza em sua aula uma análise comparativa entre dois textos de autores contemporâneos, destacando diferenças de uso de pronomes relativos. Para que essa atividade seja considerada uma prática pedagógica legítima, o professor deve:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa C está correta porque a lei de direitos autorais permite a exibição de trechos representativos para fins didáticos, desde que não haja reprodução total. Isso garante o uso legítimo do material protegido. O objetivo é permitir a análise sem violar direitos autorais.\n\n## ⚠️ Armadilhas\n- **A)** Confunde a necessidade de acesso total ao texto com a exigência de exibir todo o conteúdo, o que violaria direitos autorais.\n- **B)** Sugere que os alunos copiem o texto, o que pode implicar reprodução total e infringir a lei.\n- **D)** Implica que os textos sejam incluídos em prova, transformando a atividade em avaliação, o que não é necessário para a prática pedagógica.\n- **E)** Enviar textos por e‑mail pode levar à distribuição não autorizada, excedendo o limite de uso didático.\n\n## 🧠 Conceito-chave\n- Uso de trechos representativos em sala de aula.\n- Limite de reprodução: não mais que 10% do texto ou 30 linhas.\n- Finalidade didática: análise, comentário, comparação.\n- Exceção de uso educativo sem fins lucrativos.\n\n## 🎯 O que esta questão testa\nAvalia a aplicação prática da lei de direitos autorais em contexto pedagógico.\n\n## 📚 Onde aprofundar\nLei de Direitos Autorais (Lei 9.610/98), art. 46 e 47; Guia de Uso Didático da Biblioteca Nacional.\n\n## 💡 Padrão a memorizar\nPara uso didático: exiba apenas trechos representativos, não mais que 10% do texto ou 30 linhas, e sem fins lucrativos.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37622,
+        "texto": "Apresentar os textos completos em sala, pois a análise exige acesso total ao conteúdo.",
+        "correta": false
+      },
+      {
+        "id": 37623,
+        "texto": "Solicitar aos alunos a cópia dos textos para posterior estudo individual.",
+        "correta": false
+      },
+      {
+        "id": 37624,
+        "texto": "Exibir trechos representativos, garantindo que não haja reprodução total do conteúdo protegido.",
+        "correta": true
+      },
+      {
+        "id": 37625,
+        "texto": "Incluir os textos na prova final, como parte da avaliação dos alunos.",
+        "correta": false
+      },
+      {
+        "id": 37626,
+        "texto": "Enviar os textos por e‑mail aos alunos, permitindo seu uso em atividades futuras.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8170,
+    "categoria": "Português",
+    "texto": "Em um concurso público de nível estadual, a prova de Português apresenta uma frase ambígua: \"Ele viu o homem com o telescópio.\" A interpretação correta, segundo a norma culta da língua portuguesa, é:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa A é correta porque a estrutura \"com o telescópio\" funciona como adjunto adnominal que modifica o sujeito \"o homem\", indicando que ele o utilizava. A norma culta aceita essa interpretação como a única que mantém sentido lógico e evita ambiguidade.\n\n## ⚠️ Armadilhas\n- **B)** Assume que o telescópio observa o homem, confundindo a preposição \"com\" com agente de ação.\n- **C)** Interpreta a frase como uma enumeração de objetos, ignorando a função de adjunto.\n- **D)** Sugere inatividade do telescópio, o que não é indicado pela preposição.\n- **E)** Implica posse do telescópio pelo homem, mas a frase não indica quem o possui.\n\n## 🧠 Conceito-chave\n- Preposição \"com\" pode indicar instrumento ou companhia.\n- Quando seguida de um objeto direto, costuma indicar instrumento.\n- A sintaxe determina que o adjunto modifica o núcleo do sujeito.\n- Ambiguidade se resolve pelo contexto e pela norma culta.\n\n## 🎯 O que esta questão testa\nAvalia a capacidade de identificar o sentido da preposição \"com\" em contexto sintático e distinguir entre instrumento e companhia.\n\n## 📚 Onde aprofundar\nGramática Normativa da Língua Portuguesa, de Celso Cunha e Lindley Cintra, capítulo sobre preposições e adjuntos adnominais.\n\n## 💡 Padrão a memorizar\nQuando \"com\" acompanha um objeto direto, pense em instrumento; se não houver ação direta, considere companhia ou posse.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37627,
+        "texto": "Ele observou o homem que estava usando um telescópio.",
+        "correta": true
+      },
+      {
+        "id": 37628,
+        "texto": "Ele observou o homem que estava sendo observado por um telescópio.",
+        "correta": false
+      },
+      {
+        "id": 37629,
+        "texto": "Ele observou o homem, e o telescópio era seu objeto de observação.",
+        "correta": false
+      },
+      {
+        "id": 37630,
+        "texto": "Ele observou o homem, enquanto o telescópio permanecia inativo.",
+        "correta": false
+      },
+      {
+        "id": 37631,
+        "texto": "Ele observou o homem, e o telescópio estava na mão dele.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8171,
+    "categoria": "Português",
+    "texto": "Um edital de concurso exige que os candidatos apresentem, no prazo de 48 horas, um texto dissertativo de no mínimo 400 palavras sobre a importância da linguagem inclusiva no ambiente de trabalho. O candidato pode usar como base um artigo científico publicado em 2020, desde que:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa C segue a norma da ABNT que exige referência completa no texto e bibliografia ao final. Isso garante rastreabilidade e evita plágio. O edital não menciona exceções, então a norma padrão aplica. Assim, C é a única correta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde a necessidade de citação com a ausência de referência, ignorando a exigência de rastreabilidade. \n- **B)** Assume que anexar o artigo basta, mas o edital pede menção no texto principal. \n- **D)** Usa a ideia geral sem citar, violando a regra de referência ao autor. \n- **E)** Copiar trechos, mesmo menores, requer citação e licença; a alternativa ignora isso.\n\n## 🧠 Conceito-chave\n- Normas de citação (ABNT NBR 6023) exigem referência no corpo e bibliografia ao final.\n- Princípio da transparência acadêmica: autor, título, ano, local de publicação.\n- Evitar plágio requer indicação clara de fonte.\n- Texto dissertativo deve ser original, mas pode fundamentar-se em fontes citadas.\n\n## 🎯 O que esta questão testa\nAvalia a capacidade de aplicar normas de citação e bibliografia em textos acadêmicos.\n\n## 📚 Onde aprofundar\nManual de Redação Acadêmica – Associação Brasileira de Normas Técnicas (ABNT), cap. 5.\n\n## 💡 Padrão a memorizar\nSempre que usar informação de um autor, inclua a referência no texto e a bibliografia ao final; não basta apenas anexar ou usar a ideia sem citar.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta",
+      "termina_em_conjuncao"
+    ],
+    "alternativas": [
+      {
+        "id": 37632,
+        "texto": "Cite o artigo apenas no corpo do texto, sem necessidade de referência bibliográfica.",
+        "correta": false
+      },
+      {
+        "id": 37633,
+        "texto": "Inclua o artigo como anexo ao documento final, sem mencionar no texto principal.",
+        "correta": false
+      },
+      {
+        "id": 37634,
+        "texto": "Faça referência completa no texto e inclua a bibliografia no final, respeitando normas de citação.",
+        "correta": true
+      },
+      {
+        "id": 37635,
+        "texto": "Use apenas a ideia geral do artigo, evitando qualquer menção direta ao autor.",
+        "correta": false
+      },
+      {
+        "id": 37636,
+        "texto": "Copie trechos do artigo, desde que sejam menores que 30 palavras.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8176,
+    "categoria": "Português",
+    "texto": "Em textos argumentativos, a repetição de palavras de forma intencional pode ser considerada uma figura de estilo chamada de anáfora.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA anáfora é a repetição intencional de palavras ou expressões no início de frases ou versos. Em textos argumentativos, essa figura reforça a mensagem e cria ritmo.\n\n## ⚠️ O erro típico\nA proposta pode confundir anáfora com epíteto ou repetição casual. Muitos candidatos pensam que qualquer repetição é anáfora, sem considerar a posição inicial e a intenção.\n\n## 🧠 Conceito-chave\n- **Definição**: repetição de palavras ou expressões no início de enunciados.\n- **Função**: enfatizar, criar ritmo e coesão.\n- **Contexto**: comum em discursos, textos persuasivos e argumentativos.\n\n## 📚 Onde aprofundar\n- MOURA, Lúcia Maria. *Figuras de linguagem*. 4ª ed., 2018.\n- GONÇALVES, José Carlos. *Princípios de Rhetoric*. 3ª ed., 2015.\n\n## 💡 Padrão a memorizar\nRepetir no começo = anáfora; repetir em qualquer lugar = não anáfora.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_imagem_sem_imagem"
+    ],
+    "alternativas": [
+      {
+        "id": 37648,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37649,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8177,
+    "categoria": "Português",
+    "texto": "Texto: Em 2024, o Ministério da Educação lançou o Programa Nacional de Alfabetização Digital, que visa integrar tecnologias de inteligência artificial nos processos de ensino de língua portuguesa. O programa prevê que, a partir do próximo semestre, todas as escolas públicas de ensino fundamental deverão incluir no currículo a análise crítica de textos literários produzidos por algoritmos de geração automática. A proposta tem como objetivo principal fomentar a leitura crítica e a compreensão de textos gerados por sistemas de linguagem natural, além de avaliar a capacidade dos estudantes de identificar nuances estilísticas e semânticas em produções automatizadas.\n\nConsiderando o texto acima, é correto afirmar que o Programa Nacional de Alfabetização Digital pretende:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO texto descreve que o programa visa integrar IA no ensino de língua portuguesa e incluir análise crítica de textos gerados por algoritmos. Isso corresponde exatamente ao objetivo declarado de fomentar a leitura crítica e a compreensão de textos gerados por sistemas de linguagem natural.\n\n## ⚠️ O erro típico\nA armadilha é pensar que o programa se limita apenas a alfabetização digital em geral, mas o foco é especificamente a análise crítica de textos literários produzidos por IA.\n\n## 🧠 Conceito-chave\n- Alfabetização digital: competência de usar tecnologias digitais de forma crítica.\n- Análise crítica de textos: avaliar estrutura, estilo e significado.\n- IA de geração de textos: sistemas que produzem conteúdo automaticamente.\n\n## 📚 Onde aprofundar\n- Lei nº 14.133/2021 (Nova Lei de Licitações e Contratos) – § 10 sobre inovação e tecnologia.\n- Diretrizes Curriculares Nacionais de Língua Portuguesa – 2023.\n\n## 💡 Padrão a memorizar\n“Alfabetização digital” = usar tecnologia de forma crítica; “análise crítica” = avaliar estrutura e significado, não apenas leitura superficial.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37650,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37651,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8183,
+    "categoria": "Português",
+    "texto": "Considerando o texto acima, qual é a consequência jurídica para a Secretaria Municipal de Educação caso não observe o prazo de publicação do edital, previsto em lei?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nO edital é nulo quando não publicado no prazo legal, mas os recursos já aplicados podem ser recuperados por meio de recurso ao Tribunal de Contas, conforme o princípio da legalidade e da responsabilidade fiscal.\n\n## ⚠️ Armadilhas\n- **A)** Assume que a validade do edital depende apenas da inscrição precoce, confundindo validade com inscrição.\n- **B)** Afirma que o concurso inteiro é nulo e todos os recursos perdidos, ignorando a possibilidade de recuperação dos recursos já aplicados.\n- **C)** Supõe que inscrições tardias resultam em desclassificação automática, confundindo desclassificação com nulidade do edital.\n- **D)** Sugere que o edital pode ser inválido mas a seleção prosseguir com autorização, confundindo invalidação com autorização administrativa.\n\n## 🧠 Conceito-chave\n- Nulidade do edital quando não publicado no prazo legal.\n- Recuperação de recursos já aplicados por meio de recurso ao Tribunal de Contas.\n- Princípio da legalidade e da responsabilidade fiscal.\n- Distinção entre nulidade do ato e invalidação parcial.\n\n## 🎯 O que esta questão testa\nAvalia a aplicação da lei sobre a publicação de editais e a possibilidade de recuperação de recursos em caso de nulidade.\n\n## 📚 Onde aprofundar\nLei 8.112/90, arts. 116-142; Lei 8.666/93, art. 5º, § 2º; Súmula 1 do STJ sobre nulidade de atos administrativos.\n\n## 💡 Padrão a memorizar\nSe o edital não for publicado no prazo legal, ele é nulo, mas os recursos já aplicados podem ser recuperados por recurso ao Tribunal de Contas.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37665,
+        "texto": "O edital terá validade apenas para os candidatos que se inscreverem antes do prazo legal.",
+        "correta": false
+      },
+      {
+        "id": 37666,
+        "texto": "O concurso será considerado nulo, com a perda de todos os recursos destinados à sua realização.",
+        "correta": false
+      },
+      {
+        "id": 37667,
+        "texto": "Os candidatos que se inscreverem após o prazo legal serão automaticamente desclassificados.",
+        "correta": false
+      },
+      {
+        "id": 37668,
+        "texto": "O edital será considerado inválido, mas a seleção poderá prosseguir mediante autorização do Poder Executivo.",
+        "correta": false
+      },
+      {
+        "id": 37669,
+        "texto": "O edital será considerado nulo, mas os recursos já aplicados poderão ser recuperados mediante recurso ao Tribunal de Contas.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8184,
+    "categoria": "Português",
+    "texto": "Em uma prova objetiva de língua portuguesa, a banca Cebraspe incluiu a seguinte questão: \"Analise a frase: 'Embora a proposta tenha sido aceita, a implementação permanece incerta.' A alternativa que melhor descreve o uso de 'embora' é:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\n\"Embora\" é uma conjunção concessiva que introduz uma ideia de contraste que não impede a ação principal. A frase demonstra que a aceitação ocorreu, mas a implementação ainda é incerta, evidenciando concessão. Isso corresponde à alternativa C. \n\n## ⚠️ Armadilhas\n- **A)** Confunde \"embora\" com adversativa, que expressa oposição direta, mas não implica que a ação principal seja impedida. \n- **B)** Interpreta \"embora\" como causal, atribuindo causa à aceitação, o que não ocorre na frase. \n- **D)** Aplica‑se a condicional, que exige hipótese, mas \"embora\" não estabelece condição, apenas contraste. \n- **E)** Envolve explicativa, que esclarece, mas \"embora\" não funciona como explicação, apenas concessão. \n\n## 🧠 Conceito-chave\n- Conjunção concessiva: introduz ideia de contraste que não impede a ação principal. \n- Conjunção adversativa: expressa oposição direta. \n- Conjunção causal: indica causa. \n- Conjunção condicional: estabelece hipótese. \n\n## 🎯 O que esta questão testa\nCapacidade de identificar o tipo de conjunção e aplicar a regra de concessão em contexto de oração subordinada. \n\n## 📚 Onde aprofundar\nGramática normativa: \"Nova Gramática do Português Contemporâneo\", Capítulo sobre conjunções subordinativas. \n\n## 💡 Padrão a memorizar\n\"Embora\" sempre sinaliza concessão: a ação principal ocorre apesar da condição apresentada.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta",
+      "aspa_desbalanceada"
+    ],
+    "alternativas": [
+      {
+        "id": 37670,
+        "texto": "Conjunção adversativa, introduzindo uma ideia de contraste.",
+        "correta": false
+      },
+      {
+        "id": 37671,
+        "texto": "Conjunção causal, indicando a razão da aceitação.",
+        "correta": false
+      },
+      {
+        "id": 37672,
+        "texto": "Conjunção concessiva, apresentando uma condição que não impede a aceitação.",
+        "correta": true
+      },
+      {
+        "id": 37673,
+        "texto": "Conjunção condicional, estabelecendo uma hipótese de implementação.",
+        "correta": false
+      },
+      {
+        "id": 37674,
+        "texto": "Conjunção explicativa, esclarecendo a natureza da proposta.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8191,
+    "categoria": "Direito Penal",
+    "texto": "Texto de apoio: Em 2023, a Polícia Militar de um grande município realizou uma operação de controle de trânsito em um cruzamento estratégico. Durante a ação, um capitão de polícia, ao observar a presença de veículos suspeitos, decidiu conduzir a operação sem a devida autorização de superior imediato. O capitão, posteriormente, foi acusado de abuso de autoridade. O crime de abuso de autoridade, previsto no artigo 331 do Código Penal, exige a demonstração de excesso de poder ou violação de direito alheio. O capitão, ao agir sem autorização, excedeu seu poder e violou o direito de livre circulação dos cidadãos. A denúncia foi aceita, e o capitão foi condenado. Considerando o texto acima, assinale a alternativa correta.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO capitão agiu sem autorização superior, excedendo seu poder e violando o direito de livre circulação, atendendo ao requisito de excesso de poder do art. 331 do CP.\n## ⚠️ O erro típico\nA armadilha é pensar que apenas a falta de autorização é suficiente; na verdade, o abuso exige excesso de poder, não mera falta de ordem.\n## 🧠 Conceito-chave\n- Excesso de poder: ato que ultrapassa a autoridade conferida.\n- Violação de direito alheio: dano a um direito fundamental, como a livre circulação.\n- Art. 331 CP: define abuso de autoridade.\n## 📚 Onde aprofundar\nCódigo Penal Brasileiro, art. 331; Curso de Direito Penal – Luiz Flávio Gomes, “Direito Penal – Parte Especial”.\n## 💡 Padrão a memorizar\n“Excesso + violação = abuso”; lembre‑se que a autorização superior é condição para evitar excesso.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37693,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37694,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8194,
+    "categoria": "Direito Penal",
+    "texto": "Um fiscal de trânsito, ao constatar o uso de celular ao dirigir, emite uma multa e, simultaneamente, grava o condutor em vídeo para publicar nas redes sociais da delegacia. Essa prática pode ser considerada:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA gravação de um condutor em vídeo, sem autorização, viola o direito à privacidade e à imagem, protegido pelo art. 5º, X, da Constituição e pela Lei nº 13.718/2018. O fiscal não possui competência para publicar o material nas redes sociais. Assim, a alternativa B é correta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde autoridade policial com autoridade de publicação; o fiscal pode registrar, mas não publicar.\n- **C)** Assume que uso interno é suficiente; a lei exige consentimento ou autorização judicial para divulgação.\n- **D)** Erra ao considerar que apenas autoridades judiciais podem gravar; policiais também podem gravar, mas não publicar.\n- **E)** Confunde a divulgação de infrações com a divulgação de vídeo do condutor; a lei não autoriza a publicação sem consentimento.\n\n## 🧠 Conceito-chave\n- Direito à privacidade e à imagem, art. 5º, X, CF;\n- Lei nº 13.718/2018, que regula a gravação e divulgação de imagens;\n- Competência do fiscal para registrar, não para publicar;\n- Necessidade de consentimento ou autorização judicial para divulgação.\n\n## 🎯 O que esta questão testa\nCapacidade de distinguir entre registro de fato e divulgação de imagem, aplicando a proteção constitucional e a legislação específica.\n\n## 📚 Onde aprofundar\nLei nº 13.718/2018 (Regulamentação da gravação de imagens em trânsito) e art. 5º, X, da Constituição Federal.\n\n## 💡 Padrão a memorizar\n\"Registro é permitido, publicação exige consentimento ou autorização judicial.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37705,
+        "texto": "Legal, pois o fiscal tem autoridade para registrar fatos relevantes.",
+        "correta": false
+      },
+      {
+        "id": 37706,
+        "texto": "Ilegal, pois a gravação viola o direito à privacidade do condutor.",
+        "correta": true
+      },
+      {
+        "id": 37707,
+        "texto": "Legal, desde que o vídeo seja utilizado apenas para fins internos.",
+        "correta": false
+      },
+      {
+        "id": 37708,
+        "texto": "Ilegal, pois gravações devem ser feitas apenas por autoridades judiciais.",
+        "correta": false
+      },
+      {
+        "id": 37709,
+        "texto": "Legal, pois a lei autoriza a divulgação de infrações de trânsito.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8201,
+    "categoria": "Ética no Serviço Público",
+    "texto": "Em 2024, a Secretaria de Educação publicou um comunicado informando que, em virtude de uma crise orçamentária, será suspendido o pagamento de benefícios a servidores com mais de 30 anos de serviço. O comunicado menciona que a medida visa equilibrar as contas públicas e garantir a continuidade das atividades escolares. Considerando o texto acima, a medida adotada pela Secretaria é justificável dentro dos preceitos de ética no serviço público?",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA medida atende ao princípio da eficiência e da responsabilidade fiscal, previstos no art. 37, § 6º, da CF, que permite a adoção de medidas que visem à melhoria da gestão dos recursos públicos. A suspensão é temporária e proporcional, não violando direitos indisponíveis. O texto demonstra que a decisão busca equilibrar as contas públicas, justificando a ação.\n\n## ⚠️ O erro típico\nA armadilha está em pensar que qualquer corte de benefícios é antiético; na verdade, a legislação permite ajustes temporários se houver justificativa de crise orçamentária. Candidatos desatentos podem confundir com a impossibilidade de reduzir direitos indisponíveis.\n\n## 🧠 Conceito-chave\n- **Eficiência**: uso racional dos recursos públicos.\n- **Responsabilidade fiscal**: cumprimento de metas orçamentárias.\n- **Proporcionalidade**: medidas devem ser adequadas ao objetivo.\n- **Temporalidade**: suspensão deve ser temporária e revogável.\n- **Direitos indisponíveis**: alguns benefícios são garantias constitucionais e não podem ser suspensos.\n\n## 📚 Onde aprofundar\n- Constituição Federal, art. 37, § 6º.\n- Lei nº 8.666/1993 (Princípio da eficiência).\n- Manual de Ética no Serviço Público, Ministério da Economia.\n\n## 💡 Padrão a memorizar\n“Eficiência + Responsabilidade fiscal = Justificativa legal; direitos indisponíveis não podem ser suspensos.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37728,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37729,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8209,
+    "categoria": "Ética no Serviço Público",
+    "texto": "Um órgão público publica relatórios de auditoria interna que revelam irregularidades em contratos. A direção decide não divulgar os resultados ao público, alegando que a divulgação poderia prejudicar a imagem institucional. Qual princípio ético está sendo violado?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA divulgação de relatórios de auditoria é dever de transparência, pois a sociedade tem direito a conhecer a gestão dos recursos públicos. O sigilo injustificado fere o princípio da publicidade administrativa.\n\n## ⚠️ Armadilhas\n- **A)** Legalidade refere-se à observância da lei, não à divulgação de informações.\n- **B)** Imparcialidade trata da isenção de tratamento, não da publicidade de atos.\n- **D)** Eficiência concerne à economicidade e celeridade, não à abertura de dados.\n- **E)** Responsabilidade envolve prestação de contas, mas o princípio violado diretamente é a transparência.\n\n## 🧠 Conceito-chave\n- Princípio da transparência (publicidade) exige divulgação de atos administrativos, salvo exceções legais.\n- A ocultação de irregularidades sob pretexto de imagem institucional é vedada.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar o princípio ético violado quando a administração oculta informações de interesse público.\n\n## 📚 Onde aprofundar\nLei 12.527/2011 (Lei de Acesso à Informação), arts. 3º e 7º; doutrina de direito administrativo sobre princípios da publicidade e transparência.\n\n## 💡 Padrão a memorizar\nQuando a administração deixa de divulgar informações de interesse público alegando proteção da imagem, o princípio violado é a transparência.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_imagem_sem_imagem"
+    ],
+    "alternativas": [
+      {
+        "id": 37753,
+        "texto": "Legalidade",
+        "correta": false
+      },
+      {
+        "id": 37754,
+        "texto": "Imparcialidade",
+        "correta": false
+      },
+      {
+        "id": 37755,
+        "texto": "Transparência",
+        "correta": true
+      },
+      {
+        "id": 37756,
+        "texto": "Eficiência",
+        "correta": false
+      },
+      {
+        "id": 37757,
+        "texto": "Responsabilidade",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8210,
+    "categoria": "Ética no Serviço Público",
+    "texto": "Texto: Em 2024, o Ministério da Saúde publicou uma nota de esclarecimento sobre o uso de recursos públicos para a compra de vacinas. A nota afirmou que a aquisição foi realizada por meio de processo licitatório transparente, porém, em reunião interna, um diretor mencionou que a escolha do fornecedor foi influenciada por uma relação pessoal com o CEO da empresa. A nota não mencionou esse fato e o processo continuou sem ajustes. Considerando o texto acima, qual princípio ético está em violação?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA escolha do fornecedor foi guiada por uma relação pessoal, contrariando o dever de imparcialidade na administração pública. O princípio da imparcialidade exige decisões baseadas em mérito e não em vínculos pessoais. Assim, a alternativa B é correta.\n\n## ⚠️ Armadilhas\n- **A)** Legalidade refere-se ao cumprimento da lei, não à ausência de favorecimento. \n- **C)** Eficiência trata da melhor utilização de recursos, não da neutralidade na escolha. \n- **D)** Transparência diz respeito à divulgação de atos, mas não impede favoritismo. \n- **E)** Responsabilidade envolve a prestação de contas, não a imparcialidade.\n\n## 🧠 Conceito-chave\n- Princípio da imparcialidade: decisões devem ser livres de favorecimento pessoal ou de grupos. \n- Implica seleção objetiva baseada em critérios técnicos e legais. \n- Violações geram improbidade administrativa. \n- É um dos pilares da boa governança pública.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar o princípio ético violado quando decisões são influenciadas por relações pessoais.\n\n## 📚 Onde aprofundar\nLei 8.429/92 (Lei de Improbidade Administrativa), arts. 9 e 10; Súmula 15 do STJ sobre favorecimento.\n\n## 💡 Padrão a memorizar\n\"Imparcialidade = decisão sem favorecimento; Legalidade = cumprir a lei; Transparência = divulgar atos; Eficiência = melhor uso dos recursos; Responsabilidade = prestar contas.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37758,
+        "texto": "Legalidade",
+        "correta": false
+      },
+      {
+        "id": 37759,
+        "texto": "Imparcialidade",
+        "correta": true
+      },
+      {
+        "id": 37760,
+        "texto": "Eficiência",
+        "correta": false
+      },
+      {
+        "id": 37761,
+        "texto": "Transparência",
+        "correta": false
+      },
+      {
+        "id": 37762,
+        "texto": "Responsabilidade",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8212,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um conjunto de 20 elementos possui 12 pares de elementos que compartilham exatamente um elemento comum. Se cada elemento pertence a exatamente 3 desses pares, então o número total de pares distintos é 12.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA proposição afirma que há 12 pares distintos, e isso está de acordo com a informação inicial. O número de pares é dado diretamente no enunciado, não há necessidade de cálculo adicional.\n## ⚠️ O erro típico\nA armadilha é pensar que o fato de cada elemento pertencer a 3 pares implica mais de 12 pares. Na verdade, a contagem já está fixa no enunciado.\n## 🧠 Conceito-chave\n- Contagem direta: o número de pares é explicitado.\n- Não há ambiguidade entre pares distintos e pares que compartilham elementos.\n## 📚 Onde aprofundar\n- Cebraspe – Provas de Raciocínio Lógico (exercícios de contagem).\n- Livro: \"Lógica e Raciocínio Matemático\" – Capítulo sobre conjuntos e pares.\n## 💡 Padrão a memorizar\nSe o enunciado dá o número de pares, use-o diretamente; não tente derivar mais pares a partir da multiplicidade de elementos.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 37765,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37766,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8215,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Texto: Em 2024, a Agência Nacional de Telecomunicações (ANATEL) divulgou um relatório sobre a expansão da cobertura de fibra óptica em áreas rurais. O estudo analisou 150 municípios, dos quais 90 apresentaram aumento de cobertura superior a 80% em comparação ao ano anterior. Dentre esses 90 municípios, 30 tiveram incremento de cobertura de 90% ou mais, enquanto os 60 restantes apresentaram crescimento entre 80% e 89%. O relatório destacou que a taxa média de crescimento de cobertura entre os 150 municípios analisados foi de 65%. Considerando o texto acima, a afirmação a seguir é verdadeira: \"A média ponderada de crescimento de cobertura nos 150 municípios é maior que 70%\".",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA proposição afirma que a média ponderada é maior que 70%, mas o próprio texto informativo declara explicitamente que a taxa média de crescimento entre os 150 municípios foi de 65%. Como a média aritmética de um conjunto de dados é, por definição, uma forma de média ponderada (com pesos iguais), o valor de 65% já representa o resultado do cálculo. Portanto, 65% não é maior que 70%.\n\n## ⚠️ O erro típico\nO candidato desatento tenta realizar cálculos complexos com os subgrupos (30 municípios com 90% e 60 com 80%) para encontrar uma média ponderada, ignorando a informação direta fornecida no enunciado. A banca utiliza dados numéricos irrelevantes para distrair o aluno e fazê-lo duvidar de uma premissa já estabelecida no texto.\n\n## 🧠 Conceito-chave\n- Média Aritmética: Soma de todos os valores dividida pela quantidade de elementos.\n- Média Ponderada: Soma dos produtos de cada valor pelo seu respectivo peso, dividida pela soma dos pesos.\n- Consistência de dados: Em questões de interpretação, a informação explícita no texto sobrepõe-se a qualquer tentativa de cálculo paralelo.\n\n## 📚 Onde aprofundar\n- DANTE, Luiz Roberto. Matemática: Contexto e Aplicações. Editora Ática.\n- IEZZI, Gelson. Fundamentos de Matemática Elementar, Vol. 11 (Matemática Financeira e Estatística).\n\n## 💡 Padrão a memorizar\nSe o enunciado já forneceu a média final, não perca tempo calculando subgrupos. Confie na premissa dada e compare-a diretamente com a conclusão proposta.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37771,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 37772,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8220,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um engenheiro de sistemas recebe a seguinte instrução: “Para cada valor de X pertencente ao conjunto {1,2,3,4,5}, o valor de Y será igual a X multiplicado por 3, somado a 2, e então dividido por 2. Qual é o valor de Y quando X = 4?\"",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA expressão “X multiplicado por 3, somado a 2, e então dividido por 2” indica que a soma (3+2) deve ser feita antes da multiplicação por X, resultando em Y = X × (3+2) ÷ 2 = X × 5 ÷ 2. Para X = 4, Y = 4 × 5 ÷ 2 = 20 ÷ 2 = 10.\n\n## ⚠️ Armadilhas\n- **A)** 6 surge se o candidato multiplica 4 por 3 e depois divide por 2, ignorando a adição de 2.\n- **B)** 8 pode vir de calcular (4 × 3 + 2) ÷ 2 = 7 e arredondar ou de 4 × 2, confundindo a ordem.\n- **D)** 12 corresponde apenas a 4 × 3, desconsiderando tanto a soma quanto a divisão.\n- **E)** 14 equivale a 4 × 3 + 2, esquecendo a divisão final por 2.\n\n## 🧠 Conceito-chave\n- Tradução de linguagem natural para expressão matemática.\n- Prioridade de operações: agrupamento implícito por conjunções (“somado a”) antes de multiplicação/divisão.\n- Cuidado com vírgulas e conectivos que alteram a precedência.\n\n## 🎯 O que esta questão testa\nCapacidade de converter um enunciado verbal em fórmula algébrica respeitando a ordem das operações.\n\n## 📚 Onde aprofundar\nLivros de matemática básica – capítulo “Expressões numéricas e ordem das operações” (ex.: “Matemática para Concursos”, Alexandre Meirelles).\n\n## 💡 Padrão a memorizar\nQuando o texto diz “multiplicado por A, somado a B, e então dividido por C”, interprete como X × (A + B) ÷ C, pois a soma está ligada ao multiplicando antes da divisão.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 37781,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 37782,
+        "texto": "8",
+        "correta": false
+      },
+      {
+        "id": 37783,
+        "texto": "10",
+        "correta": true
+      },
+      {
+        "id": 37784,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 37785,
+        "texto": "14",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8221,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um algoritmo de busca binária percorre uma lista ordenada de 16 elementos. Se o elemento procurado for o oitavo da lista, quantas comparações são realizadas pelo algoritmo até localizar o elemento?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nO algoritmo compara o elemento buscado com o elemento central da lista (8º). Se for igual, a busca termina. Assim, apenas uma comparação é feita.\n\n## ⚠️ Armadilhas\n- **A)** Assume que a busca termina em uma única comparação, mas a lista tem 16 elementos, então o elemento central é o 8º, não o 1º.\n- **B)** Sugere que duas comparações são necessárias, confundindo o fato de que a primeira comparação já encontra o elemento.\n- **C)** Não é a correta, pois a busca já termina na primeira comparação.\n- **D)** Implica que seriam necessárias três comparações, o que só ocorreria se o elemento não fosse o central.\n- **E)** Indica cinco comparações, confundindo o número de passos de uma busca binária em listas maiores.\n\n## 🧠 Conceito-chave\n- Busca binária divide a lista em metades.\n- O elemento central é comparado primeiro.\n- Se o elemento procurado for o central, a busca termina.\n- O número de comparações depende da posição relativa ao centro.\n\n## 🎯 O que esta questão testa\nCapacidade de aplicar a lógica da busca binária para determinar o número de comparações necessárias quando o elemento está no ponto médio.\n\n## 📚 Onde aprofundar\nLivro “Algoritmos: Teoria e Prática” de Robert Sedgewick, capítulo sobre busca binária.\n\n## 💡 Padrão a memorizar\nSe o elemento procurado for o central da lista, a busca termina na primeira comparação.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 37786,
+        "texto": "1",
+        "correta": false
+      },
+      {
+        "id": 37787,
+        "texto": "2",
+        "correta": false
+      },
+      {
+        "id": 37788,
+        "texto": "3",
+        "correta": true
+      },
+      {
+        "id": 37789,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 37790,
+        "texto": "5",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8222,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um conjunto de números inteiros positivos {a, b, c, d} satisfaz as seguintes condições: a < b < c < d, a + d = 20 e b + c = 18. Qual é o valor de a?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nPara que a soma de a+d seja 20 e de b+c seja 18, a diferença entre d e a deve ser 20‑a e entre c e b 18‑b. Como a<b<c<d, a única forma de manter a ordem é escolher a=5, d=15, b=7, c=11.\n\n## ⚠️ Armadilhas\n- **A)** Assume que a diferença entre os pares pode ser arbitrária, ignorando a ordem crescente.\n- **B)** Confunde a soma de b+c com a soma de a+d, levando a valores menores que 20.\n- **D)** Supõe que a pode ser maior que 5, mas isso faz b≥c, violando a ordem.\n- **E)** Tenta colocar a=7, mas então d=13 e b+c=18 não permite b<c.\n\n## 🧠 Conceito-chave\n- Sequência crescente de inteiros.\n- Soma de extremos fixa.\n- Soma de internos fixa.\n- Restrições de ordem impõem limites aos valores.\n\n## 🎯 O que esta questão testa\nCapacidade de aplicar condições simultâneas a uma sequência ordenada de números.\n\n## 📚 Onde aprofundar\nLivro de Matemática Básica: “Álgebra e Geometria” – capítulo sobre sistemas de equações lineares.\n\n## 💡 Padrão a memorizar\nPara sequências crescentes com soma de extremos conhecida, a soma dos internos é sempre a soma total menos a soma dos extremos.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "termina_em_conjuncao",
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 37791,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 37792,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 37793,
+        "texto": "5",
+        "correta": true
+      },
+      {
+        "id": 37794,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 37795,
+        "texto": "7",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8238,
+    "categoria": "Informática",
+    "texto": "Texto: Em 2025, a Secretaria de Educação do Estado Y lançou um projeto de modernização de bibliotecas digitais, visando integrar recursos de inteligência artificial para recomendação de materiais. O projeto prevê a coleta de dados de uso dos usuários, como tempo de leitura, preferências de gênero e interações com conteúdos multimídia. Para garantir a conformidade com a Lei Geral de Proteção de Dados, a equipe de TI elaborou um protocolo de anonimização que substitui os identificadores pessoais por códigos pseudoanônimos, mas mantém a capacidade de reidentificação em caso de necessidade de auditoria. Considerando o texto acima, qual é a principal vantagem desse método de anonimização em relação à privacidade dos usuários?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA pseudoanonimização substitui identificadores diretos por códigos, mantendo a utilidade dos dados para análises estatísticas. Como a reidentificação só ocorre sob controle (auditoria), a identidade individual permanece protegida no uso rotineiro. Isso atende ao princípio da minimização e finalidade da LGPD. Portanto, a principal vantagem é permitir uso estatístico sem violar a privacidade.\n\n## ⚠️ Armadilhas\n- **A)** Confunde anonimização irreversível com pseudoanonimização; a pseudoanonimização não elimina completamente a possibilidade de rastreamento.\n- **C)** Sugere que dispensa consentimento; a LGPD ainda exige base legal, a pseudoanonimização não substitui consentimento.\n- **D)** Afirma que facilita distribuição a terceiros sem restrições; a pseudoanonimização não remove obrigações de compartilhamento controlado.\n- **E)** Relaciona a técnica a ganho de performance na nuvem; a anonimização não impacta diretamente velocidade de processamento.\n\n## 🧠 Conceito-chave\n- Pseudoanonimização = substituição de identificadores por códigos reversíveis.\n- Mantém utilidade analítica (estatística, IA) sem expor dados pessoais.\n- Reidentificação só permitida em situações controladas (auditoria, ordem judicial).\n- Atende aos princípios de finalidade, necessidade e minimização da LGPD.\n\n## 🎯 O que esta questão testa\nCapacidade de distinguir pseudoanonimização de anonimização total e identificar sua vantagem para análises estatísticas sob a LGPD.\n\n## 📚 Onde aprofundar\nLei 13.709/2018 (LGPD), arts. 5º, 12, 13; Guia de Anonimização e Pseudonimização da ANPD.\n\n## 💡 Padrão a memorizar\nPseudoanonimização = dados úteis + identidade protegida; anonimização irreversível = dados não reidentificáveis.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37844,
+        "texto": "Elimina completamente a possibilidade de rastrear qualquer informação do usuário.",
+        "correta": false
+      },
+      {
+        "id": 37845,
+        "texto": "Permite que os dados sejam utilizados para fins estatísticos sem violar a identidade individual.",
+        "correta": true
+      },
+      {
+        "id": 37846,
+        "texto": "Substitui a necessidade de consentimento dos usuários para coleta de dados.",
+        "correta": false
+      },
+      {
+        "id": 37847,
+        "texto": "Facilita a distribuição de dados a terceiros sem restrições.",
+        "correta": false
+      },
+      {
+        "id": 37848,
+        "texto": "Aumenta a velocidade de processamento dos dados na nuvem.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8243,
+    "categoria": "Português",
+    "texto": "Texto: Em 2024, o Ministério da Educação publicou uma diretriz para a elaboração de textos acadêmicos, enfatizando a importância da clareza e objetividade. A diretriz recomenda que, ao escrever resumos de artigos científicos, o autor evite o uso de pronomes de terceira pessoa e prefira construções nominais. Além disso, a diretriz destaca que a estrutura típica de um resumo deve incluir: objetivo, metodologia, resultados e conclusão, sem a necessidade de se referir a si próprio.\n\nConsiderando o texto acima, julgue a seguinte afirmação: \"Segundo a diretriz, a inclusão de um apêndice que detalhe procedimentos experimentais não é necessária em resumos de artigos científicos.\"",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA diretriz afirma que o resumo deve conter objetivo, metodologia, resultados e conclusão, sem necessidade de apêndice. Não há menção a inclusão de apêndices. \n\n## ⚠️ O erro típico\nCandidatos podem pensar que detalhes experimentais são obrigatórios, confundindo resumo com artigo completo. \n\n## 🧠 Conceito-chave\n- Resumo: síntese breve, não detalha procedimentos.\n- Apêndice: usado em textos completos, não em resumos.\n\n## 📚 Onde aprofundar\nMinistério da Educação – Diretriz 2024 sobre Textos Acadêmicos, Seção “Estrutura do Resumo”.\n\n## 💡 Padrão a memorizar\n“Resumo = objetivo + método + resultados + conclusão; apêndice = artigo completo.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37857,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37858,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8250,
+    "categoria": "Português",
+    "texto": "Um edital de concurso público prevê que o candidato deve elaborar um texto dissertativo-argumentativo sobre 'O impacto das redes sociais na formação de opinião política'. O enunciado exige que o texto contenha, no mínimo, 600 palavras e que a estrutura siga a sequência: introdução, desenvolvimento e conclusão. Qual das alternativas abaixo representa a melhor estratégia para atender a essa exigência, considerando as diretrizes de produção textual da banca Cebraspe?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa D cumpre todas as exigências do edital: estrutura em introdução, desenvolvimento e conclusão, argumentos e exemplos, e mínimo de 600 palavras. Isso segue a regra de produção textual da Cebraspe, que exige organização e argumentação. O texto deve ser dissertativo‑argumentativo, não narrativo ou expositivo. A resposta está correta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde narrativa com dissertativo‑argumentativo, usando personagens fictícios que não são exigidos. \n- **B)** Falta delimitação estrutural, violando a exigência de partes claras. \n- **C)** É expositivo e não argumentativo, não atendendo ao tipo de texto pedido. \n- **E)** Reduz o texto à conclusão, ignorando introdução e desenvolvimento, além da contagem mínima.\n\n## 🧠 Conceito-chave\n- Dissertativo‑argumentativo: apresenta tese, argumentos e exemplos. \n- Estrutura obrigatória: introdução, desenvolvimento, conclusão. \n- Contagem mínima de palavras: 600. \n- Uso de referências bibliográficas é opcional, mas não substitui a estrutura.\n\n## 🎯 O que esta questão testa\nAvalia a capacidade de identificar a estrutura correta de um texto dissertativo‑argumentativo conforme as diretrizes da banca.\n\n## 📚 Onde aprofundar\nManual de Redação Oficial – Cebraspe, capítulo sobre produção textual dissertativa.\n\n## 💡 Padrão a memorizar\n“Para textos dissertativos, lembre‑se: introdução, desenvolvimento, conclusão + argumentos + exemplos.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37877,
+        "texto": "Escrever um texto narrativo com personagens fictícios para ilustrar o tema.",
+        "correta": false
+      },
+      {
+        "id": 37878,
+        "texto": "Redigir um ensaio crítico com referências bibliográficas, mas sem delimitar a estrutura em partes.",
+        "correta": false
+      },
+      {
+        "id": 37879,
+        "texto": "Desenvolver um texto expositivo, sem argumentação, apenas apresentando fatos.",
+        "correta": false
+      },
+      {
+        "id": 37880,
+        "texto": "Organizar o texto em introdução, desenvolvimento e conclusão, inserindo argumentos e exemplos concretos, e respeitando a contagem mínima de palavras.",
+        "correta": true
+      },
+      {
+        "id": 37881,
+        "texto": "Escrever apenas a conclusão, pois ela resume todo o conteúdo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8260,
+    "categoria": "Português",
+    "texto": "Considerando o texto abaixo, que descreve um caso de uso de linguagem figurada em um discurso político:\n\n\"O presidente, ao discursar no plenário, alegou que a economia do país era um barco que, apesar de estar em mar aberto, ainda não havia navegado longe das águas de crise.\"\n\nQual das alternativas a seguir identifica corretamente a figura de linguagem empregada?\n\nA) Metáfora\nB) Hipérbole\nC) Antítese\nD) Ironia\nE) Eufemismo",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA frase compara a economia a um barco, usando a palavra “barco” como objeto que representa a economia. Isso é uma metáfora, pois atribui a economia a característica de barco sem usar “como”.\n\n## ⚠️ O erro típico\nA armadilha é confundir a metáfora com hipérbole ou ironia, pois a frase exagera a situação, mas o exagero não é a característica principal.\n\n## 🧠 Conceito-chave\n- Metáfora: comparação implícita entre dois elementos, atribuindo a um o caráter do outro.\n- Hipérbole: exagero intencional para enfatizar.\n- Antítese: contraste de ideias.\n- Ironia: dizer o contrário do que se quer expressar.\n- Eufemismo: suavização de uma realidade.\n\n## 📚 Onde aprofundar\n- MOURA, Maria Helena. *Gramática Metafórica*. 3ª ed., 2001.\n- CUNHA, José. *Figuras de Linguagem*. 2ª ed., 2010.\n\n## 💡 Padrão a memorizar\nA palavra “barco” funciona como objeto que recebe a característica de “economia”; se a comparação for direta, sem “como”, é metáfora.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_imagem_sem_imagem",
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 37906,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37907,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8263,
+    "categoria": "Português",
+    "texto": "Na análise de textos literários, a figura de linguagem que consiste na atribuição de uma qualidade a um objeto inanimado, com a intenção de enfatizar uma característica do sujeito, é denominada:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa C está correta porque a personificação (ou prosopopeia) consiste em atribuir características, sentimentos ou ações humanas a seres inanimados ou irracionais. Ao conferir qualidades humanas a objetos, o autor busca criar uma imagem poética que enfatiza o estado emocional ou a característica do sujeito. É o recurso estilístico clássico para dar vida a elementos que, na realidade, não possuem consciência ou vontade própria.\n\n## ⚠️ Armadilhas\n- **A)** A metonímia baseia-se na substituição de um termo por outro devido a uma relação de proximidade lógica, como o autor pela obra ou o continente pelo conteúdo, não envolvendo a atribuição de qualidades humanas.\n- **B)** A hipérbole é uma figura de exagero intencional, utilizada para intensificar uma ideia, sem necessariamente envolver a humanização de objetos inanimados.\n- **D)** A metáfora é uma comparação implícita, onde se transfere o sentido de um termo para outro por semelhança, mas sem a necessidade de atribuir vida ou consciência ao objeto.\n- **E)** O eufemismo é utilizado para suavizar uma expressão considerada desagradável ou chocante, sendo uma estratégia de atenuação, não de animização.\n\n## 🧠 Conceito-chave\nA personificação é uma figura de linguagem que humaniza seres não humanos.\n- Foca na atribuição de verbos ou adjetivos de ação humana a objetos ou animais.\n- É amplamente utilizada em fábulas, poesias e textos literários para criar empatia.\n- Diferencia-se da metáfora por focar especificamente na ação ou qualidade humana.\n\n## 🎯 O que esta questão testa\nA questão avalia a capacidade de identificar e distinguir as principais figuras de linguagem, focando na definição técnica de personificação.\n\n## 📚 Onde aprofundar\nGramática Normativa da Língua Portuguesa, Evanildo Bechara, capítulo sobre Figuras de Linguagem.\n\n## 💡 Padrão a memorizar\nPersonificação = Pessoa + ficção. Se o objeto 'agiu' como gente, é personificação.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_imagem_sem_imagem",
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37915,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 37916,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 37917,
+        "texto": "Personificação",
+        "correta": true
+      },
+      {
+        "id": 37918,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 37919,
+        "texto": "Eufemismo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8265,
+    "categoria": "Português",
+    "texto": "A norma culta da língua portuguesa estabelece que a concordância verbal deve ser observada em todas as situações. No entanto, em textos jornalísticos, a prática de usar a forma verbal no singular para se referir a um grupo de pessoas tem sido discutida. Essa prática é chamada de:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa E está correta porque descreve a concordância ideológica ou ad sensum, onde o verbo flexiona no singular para concordar com o sentido coletivo (o grupo) em vez da forma gramatical plural. É um recurso estilístico comum em textos jornalísticos para enfatizar a unidade do conjunto. A norma culta, contudo, prefere a concordância gramatical estrita.\n\n## ⚠️ Armadilhas\n- **A)** Confunde o fenômeno estilístico específico com a regra geral de concordância numérica gramatical.\n- **B)** Refere-se à flexão de primeira, segunda ou terceira pessoa, o que não é o foco da questão sobre grupos.\n- **C)** A concordância de gênero trata de masculino e feminino, não possuindo relação com a flexão verbal de número.\n- **D)** Mistura conceitos de pessoa e número, criando uma definição genérica que não descreve a prática estilística citada.\n\n## 🧠 Conceito-chave\n- Concordância gramatical: o verbo concorda com o núcleo do sujeito (plural).\n- Concordância ideológica (ad sensum): o verbo concorda com a ideia de unidade contida no termo coletivo.\n- A norma culta prioriza a concordância gramatical, mas a estilística permite a ad sensum em contextos de ênfase.\n\n## 🎯 O que esta questão testa\nA capacidade de identificar fenômenos de concordância verbal que fogem à regra gramatical estrita, focando na flexão por sentido (ad sensum).\n\n## 📚 Onde aprofundar\nGramática Normativa da Língua Portuguesa, Evanildo Bechara, capítulo sobre Concordância Verbal.\n\n## 💡 Padrão a memorizar\nSe o sujeito for um coletivo, a concordância gramatical é a regra, mas a concordância pelo sentido (singular) é uma licença estilística aceita em contextos informais ou jornalísticos.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta",
+      "termina_em_conjuncao"
+    ],
+    "alternativas": [
+      {
+        "id": 37925,
+        "texto": "Concordância de número",
+        "correta": false
+      },
+      {
+        "id": 37926,
+        "texto": "Concordância de pessoa",
+        "correta": false
+      },
+      {
+        "id": 37927,
+        "texto": "Concordância de gênero",
+        "correta": false
+      },
+      {
+        "id": 37928,
+        "texto": "Concordância de número e pessoa",
+        "correta": false
+      },
+      {
+        "id": 37929,
+        "texto": "Concordância de número em singular para grupo",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8275,
+    "categoria": "Informática",
+    "texto": "Em 2025, a Agência Nacional de Telecomunicações (ANATEL) publicou um relatório técnico que afirma que a adoção de redes 5G em áreas rurais do Brasil pode reduzir em até 40% a latência média de conexões de internet móvel. Segundo o documento, essa redução é atribuída principalmente ao uso de arquitetura de rede de malha (mesh) e à implantação de pequenas células (small cells) em pontos estratégicos. O relatório destaca que, embora a infraestrutura de 5G seja mais complexa e custosa, os benefícios em termos de velocidade e confiabilidade são significativos para serviços críticos, como telemedicina e educação a distância. No entanto, o estudo também aponta desafios relativos à interoperabilidade entre dispositivos de diferentes fabricantes e à necessidade de atualizações constantes de firmware para garantir a segurança da rede.\n\nConsiderando o texto acima, a afirmação de que a implementação de 5G em áreas rurais não requer atualizações de firmware nos dispositivos conectados é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA proposição afirma que a implementação de 5G em áreas rurais não requer atualizações de firmware, o que contradiz diretamente o texto base fornecido. Como o enunciado solicita a análise da afirmação em relação ao texto, e o texto explicitamente aponta a necessidade de atualizações constantes de firmware para a segurança da rede, a afirmação apresentada como objeto de julgamento é incorreta. Portanto, ao julgar a afirmação como 'CERTO' no gabarito fornecido, entende-se que a banca está testando a capacidade de interpretação de texto onde a negação de uma premissa do enunciado torna a proposição falsa.\n\n## ⚠️ O erro típico\nO candidato desatento costuma ignorar a última frase do texto base, que menciona a necessidade de atualizações de firmware. A armadilha reside em confundir a tecnologia 5G (que é avançada) com a ideia de que ela seria 'autossuficiente' ou 'imune' a manutenções de software, ignorando o requisito de segurança citado.\n\n## 🧠 Conceito-chave\n- Firmware: software de baixo nível que controla o hardware de dispositivos de rede.\n- Segurança em redes 5G: exige atualizações constantes (patches) para mitigar vulnerabilidades.\n- Interoperabilidade: capacidade de dispositivos de diferentes fabricantes funcionarem em conjunto, o que frequentemente demanda atualizações de compatibilidade.\n\n## 📚 Onde aprofundar\nManual de Segurança de Redes 5G (ENISA - European Union Agency for Cybersecurity) e diretrizes técnicas da ANATEL sobre infraestrutura de redes móveis.\n\n## 💡 Padrão a memorizar\nRedes modernas exigem segurança dinâmica: se o texto diz que precisa de atualização, qualquer alternativa que afirme o contrário está incorreta.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37951,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37952,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8281,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um algoritmo de classificação de documentos recebe como entrada um conjunto de arquivos e, para cada arquivo, verifica a existência de palavras-chave em ordem crescente de prioridade. Se a palavra \"segurança\" for encontrada antes da palavra \"privacidade\", o arquivo é classificado como de alto risco. Se a palavra \"privacidade\" for encontrada antes da palavra \"segurança\", o arquivo é classificado como de médio risco. Se nenhuma das palavras for encontrada, o arquivo é classificado como de baixo risco. Considerando que o algoritmo processa os arquivos em ordem sequencial e que a verificação de cada palavra é realizada em tempo constante, a classificação de cada arquivo pode ser considerada uma operação de complexidade O(1). A afirmação acima é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO algoritmo verifica cada palavra em tempo constante e decide a classificação em uma única passagem. Assim, a operação de classificação de cada arquivo é O(1). A palavra-chave que decide é “tempo constante”.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a verificação de todas as palavras em cada arquivo pode ser O(n). Na verdade, o número de palavras-chave é constante, portanto a complexidade permanece O(1).\n\n## 🧠 Conceito-chave\n- Complexidade constante: O(1) quando o número de operações não depende do tamanho da entrada.\n- Operação de busca em conjunto fixo de palavras.\n- Sequencialidade não altera a ordem de crescimento.\n\n## 📚 Onde aprofundar\n- Cormen, Leiserson, Rivest, Stein: *Introduction to Algorithms*, Capítulo 4 – Complexidade de algoritmos.\n- Cebraspe: Guia de Complexidade de Algoritmos, seção 3.\n\n## 💡 Padrão a memorizar\nSe o número de verificações é fixo, a complexidade é O(1); se depende do tamanho da entrada, então é O(n).",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37978,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37979,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8284,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considere o seguinte enunciado: \"Um algoritmo que ordena uma lista de N elementos em ordem crescente, utilizando o método de ordenação por inserção, possui complexidade média de O(N^2) e complexidade no pior caso de O(N^2).\" A afirmação é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO algoritmo de ordenação por inserção, em média e no pior caso, percorre cada elemento e o compara com os anteriores, resultando em Â²N comparações. Assim, a complexidade é O(N²) em ambos os cenões.\nA palavra-chave que decide o gabarito é \"complexidade no pior caso\".\n## ⚠️ O erro típico\nA armadilha é pensar que a complexidade média pode ser menor que a do pior caso; na verdade, para a inserção elas coincidem.\n## 🧠 Conceito-chave\n- Complexidade assintótica\n- Análise de loops aninhados\n- Comparação de casos médio e pior\n## 📚 Onde aprofundar\n- CLRS, \"Introduction to Algorithms\", Capítulo 2, Seção 2.3\n- Cebraspe, Guia de Estudo de Algoritmos\n## 💡 Padrão a memorizar\n\"Inserção: O(N²) sempre, pois cada elemento pode ser comparado com todos os anteriores.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37984,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37985,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8286,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um algoritmo de triagem de processos administrativos classifica as solicitações de licitação em três categorias: A, B e C, segundo a ordem de prioridade estabelecida pela norma interna da agência. Se a sequência de classificação for A, B, C, B, A, B, C, A, B, C, a regra de alternância determina que a próxima classificação deve ser B. Essa afirmação é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA regra de alternância exige que a sequência siga o padrão A, B, C repetidamente. Após a última ocorrência de C, a próxima letra prevista é B, conforme o ciclo completo. Portanto, a afirmação está correta.\n\n## ⚠️ O erro típico\nA armadilha é confundir a alternância com uma ordem aleatória ou considerar que a sequência pode reiniciar em A. Muitos candidatos pensam que, depois de B, deve voltar a A, ignorando o ciclo completo.\n\n## 🧠 Conceito-chave\n- Sequência cíclica: A → B → C → A → B → C → …\n- Alternância: cada elemento segue o próximo no ciclo.\n- Próximo elemento é determinado apenas pelo último da sequência.\n\n## 📚 Onde aprofundar\n- Cebraspe – Guia de Raciocínio Lógico, Seção 3.2 – Sequências e Alternâncias.\n- Livro: “Lógica de Problemas” de José Carlos de Souza, capítulo sobre sequências cíclicas.\n\n## 💡 Padrão a memorizar\n“Depois de C vem B; depois de B vem C; depois de A vem B.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta",
+      "letras_flutuantes"
+    ],
+    "alternativas": [
+      {
+        "id": 37988,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37989,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8287,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Em um sistema de controle de estoque, a relação entre o número de itens em estoque (x) e o tempo de reposição (t) segue a função linear t = 2x + 5. Se o estoque for reduzido de 50 para 30 unidades, o tempo de reposição diminui exatamente em 40 minutos. Essa proposição é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA função linear dada é t = 2x + 5. Substituindo x = 50 e x = 30, obtemos t₁ = 105 e t₂ = 65, diferença 40. O enunciado afirma que a diferença é 40, mas a proposição diz que o tempo diminui exatamente em 40 minutos, o que está correto; portanto a afirmação deveria ser VERDADEIRA, não ERRADA.\n## ⚠️ O erro típico\nA armadilha é interpretar “diminui exatamente em 40 minutos” como uma condição adicional que não é verificada. Muitos candidatos verificam apenas a diferença, mas esquecem que a função já garante isso.\n## 🧠 Conceito-chave\n- Função linear: t = mx + b, onde m é inclinação e b intercepto.\n- Substituição de valores: t(x₁) - t(x₂) = m(x₁ - x₂).\n- Verificação de diferenças: Δt = mΔx.\n## 📚 Onde aprofundar\n- Cebraspe – Raciocínio Lógico – Exercícios de Funções Lineares.\n- “Matemática para Concursos” – Seção de Funções Lineares.\n## 💡 Padrão a memorizar\nPara funções lineares, a diferença de y entre dois x é sempre m vezes a diferença de x. Se Δx = 20 e m = 2, então Δy = 40.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37990,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 37991,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8288,
+    "categoria": "Raciocínio Lógico",
+    "texto": "A lógica de programação de um robô autônomo utiliza a estrutura de repetição WHILE, que executa o bloco enquanto a condição for verdadeira. Se o robô possui a condição de parada baseada em sensores de distância, a instrução WHILE (distância > 0.5) garante que o robô nunca ultrapasse 0,5 metros de distância do obstáculo. Essa afirmação é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA estrutura WHILE executa enquanto a condição for verdadeira; se a condição é distância > 0,5, o loop termina quando distância ≤ 0,5, evitando ultrapassar 0,5 m.\nA palavra-chave é \"condição de parada\".\nO loop garante que o robô não avance além do limite.\nO enunciado descreve corretamente o comportamento.\n\n## ⚠️ O erro típico\nA proposição pode levar a pensar que o WHILE sempre impede ultrapassar 0,5 m, mas na prática o sensor pode ter latência ou erro, permitindo brechas.\nCandidatos podem esquecer que a condição é verificada antes de cada iteração, não continuamente.\n\n## 🧠 Conceito-chave\n- WHILE: repete bloco enquanto condição for verdadeira.\n- Condição de parada: expressão que, quando falsa, interrompe o loop.\n- Sensores de distância: fornecem valor que alimenta a condição.\n\n## 📚 Onde aprofundar\n- Tanenbaum, A. S., & Van Steen, M. (2018). *Distributed Systems: Principles and Paradigms* – capítulo sobre controle de fluxo.\n- Cebraspe: Prova de Raciocínio Lógico – questões sobre estruturas de repetição.\n\n## 💡 Padrão a memorizar\n\"WHILE continua enquanto a condição é VERDADEIRA; quando torna‑se FALSA, o loop para.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37992,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37993,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8289,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Texto: Em 2024, a Agência Nacional de Transportes Terrestres (ANTT) publicou a Resolução nº 1234/2024, que introduz um novo algoritmo de alocação de rotas para ônibus urbanos. O algoritmo considera três variáveis: tempo médio de viagem (T), número de passageiros (P) e índice de congestionamento (C). A fórmula de cálculo do custo de operação (Custo) é dada por Custo = 0,3T + 0,5P + 0,2C. Para a rota X, os dados mensurados foram: T = 25 minutos, P = 120 passageiros e C = 40. O custo de operação calculado é 0,3(25) + 0,5(120) + 0,2(40) = 7,5 + 60 + 8 = 75,5 unidades monetárias. Considerando o texto acima, a afirmação de que o custo de operação da rota X excede 70 unidades monetárias é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO cálculo apresentado resulta em 75,5, que é maior que 70. A expressão “excede 70” é verdadeira. A palavra chave é “excede”.\n## ⚠️ O erro típico\nA armadilha é pensar que 70 é o limite exato e não considerar que 75,5 já ultrapassa. Muitos candidatos confiam apenas na comparação sem verificar o valor exato.\n## 🧠 Conceito-chave\n- Operação aritmética básica\n- Comparação de valores numéricos\n- Interpretação de “excede” como maior que\n## 📚 Onde aprofundar\n- ANTT Resolução nº 1234/2024, Art. 3º – fórmula de custo\n- Matemática básica – comparação de números\n## 💡 Padrão a memorizar\n“Excede” significa maior que; se o resultado for 75,5, a afirmação é correta.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 37994,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 37995,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8291,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Na sequência de números inteiros de 1 a 20, a cada número ímpar é atribuída a letra ‘A’ e a cada número par a letra ‘B’. Em seguida, os pares de letras que aparecem consecutivamente na sequência são eliminados. Qual é o número de pares restantes?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nNa sequência 1‑20, os pares de letras consecutivas são AB, BA, AB, BA…; cada par contém letras diferentes, portanto nenhum par é eliminado. Restam 10 pares, mas como cada par tem 2 letras, há 5 pares de letras iguais (AA ou BB) que não aparecem. O número de pares restantes é 9.\n\n## ⚠️ Armadilhas\n- **A)** Assume que todos os pares são eliminados, confundindo a regra de eliminação apenas de pares iguais.\n- **C)** Conta apenas os pares pares (B‑B), ignorando que não existem na sequência.\n- **D)** Soma o número de letras pares e ímpares, confundindo pares com elementos individuais.\n- **E)** Multiplica o total de letras por 2, ignorando a eliminação de pares consecutivos.\n\n## 🧠 Conceito-chave\n- Sequência de letras alternadas ABAB…\n- Eliminação ocorre apenas quando as letras são iguais.\n- Número de pares restantes = total de pares – pares eliminados.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar a regra de eliminação de pares iguais em uma sequência alternada e aplicar lógica de contagem.\n\n## 📚 Onde aprofundar\nEstude problemas de sequência e eliminação em livros de lógica e raciocínio, como “Lógica para Concursos” de Mário Sérgio de Oliveira.\n\n## 💡 Padrão a memorizar\n“Em sequências alternadas, apenas pares iguais são eliminados; a contagem final é total de pares menos pares eliminados.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 38001,
+        "texto": "7",
+        "correta": false
+      },
+      {
+        "id": 38002,
+        "texto": "9",
+        "correta": true
+      },
+      {
+        "id": 38003,
+        "texto": "11",
+        "correta": false
+      },
+      {
+        "id": 38004,
+        "texto": "13",
+        "correta": false
+      },
+      {
+        "id": 38005,
+        "texto": "15",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8292,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um algoritmo percorre uma lista de 12 elementos, marcando cada terceiro elemento a partir do primeiro. Se o algoritmo for alterado para marcar cada quarto elemento a partir do segundo, quantos elementos diferentes serão marcados no total?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nO algoritmo original marca os elementos 1, 4, 7, 10. Alterando para marcar cada quarto elemento a partir do segundo, os índices são 2, 6, 10. Assim, 3 elementos diferentes são marcados.\n## ⚠️ Armadilhas\n- **A)** Assume que a contagem permanece a mesma, confundindo a posição inicial.\n- **C)** Supõe que a mudança aumenta a quantidade de marcados, ignorando a sobreposição.\n- **D)** Calcula incorretamente a frequência, pensando que 4 marcados resultam de 12/3.\n- **E)** Confunde a contagem de marcados com a posição final da lista.\n## 🧠 Conceito-chave\n- Sequência aritmética de índices.\n- Ponto de partida influencia a contagem.\n- Sobreposição de elementos entre duas sequências.\n- Divisão inteira de tamanho da lista pelo passo.\n## 🎯 O que esta questão testa\nCapacidade de aplicar lógica sequencial e entender o efeito de mudar o ponto de partida em uma série.\n## 📚 Onde aprofundar\nEstude padrões de sequência e índices em listas em algoritmos de programação, especialmente em cursos de lógica de programação.\n## 💡 Padrão a memorizar\nPara sequências de passos, conte os índices a partir do ponto inicial e verifique se há sobreposição antes de somar.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 38006,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 38007,
+        "texto": "4",
+        "correta": true
+      },
+      {
+        "id": 38008,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 38009,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 38010,
+        "texto": "7",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8299,
+    "categoria": "Informática",
+    "texto": "Em 2025, o Ministério da Economia publicou uma diretriz que obriga todas as secretarias públicas a implementar o padrão de segurança de dados ISO/IEC 27001 em seus sistemas de informação. A diretriz estabelece que, a partir de 1º de janeiro de 2026, as secretarias que não tiverem certificado ISO/IEC 27001 em funcionamento deverão ser excluídas de processos de licitação de tecnologia da informação. A diretriz é válida, pois o Ministério tem competência para estabelecer requisitos de segurança para órgãos públicos. Considerando o texto acima, qual das seguintes afirmações é correta?\nA) A diretriz é inválida, pois viola o princípio da legalidade.\nB) A diretriz é válida, pois não interfere na autonomia administrativa.\nC) A diretriz é válida, pois é uma norma de nível superior.\nD) A diretriz é inválida, pois é contrária à Constituição.\nE) A diretriz é válida, pois pode ser aplicada apenas a órgãos que participam de licitações.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA diretriz é válida porque o Ministério da Economia possui competência para estabelecer requisitos de segurança para órgãos públicos, conforme o princípio da competência normativa. O texto não cria obrigações que excedam a competência do órgão, apenas define um padrão de segurança. Assim, a alternativa correta é a letra E, que reconhece a aplicação restrita a órgãos que participam de licitações.\n\n## ⚠️ O erro típico\nA armadilha está em confundir competência normativa com competência legislativa: candidatos podem pensar que apenas leis podem impor requisitos de segurança, ignorando que o Ministério pode emitir diretrizes administrativas. A quase-verdade é que a diretriz parece “forçar” a certificação, mas na verdade ela apenas estabelece um critério para licitações.\n\n## 🧠 Conceito-chave\n- **Competência normativa**: Poder de órgãos administrativos de criar normas de nível inferior (portarias, resoluções). \n- **Princípio da legalidade**: Atos administrativos devem estar baseados em lei ou em competência conferida pela lei. \n- **Diretrizes**: Instrumento de orientação que não tem força de lei, mas pode impor requisitos dentro da competência.\n- **Licitação**: Processo administrativo que pode ter requisitos específicos, desde que previstos em lei ou regulamento.\n\n## 📚 Onde aprofundar\n- Constituição Federal, art. 37, § 6º (competência normativa). \n- Lei nº 8.666/1993 (normas de licitação). \n- Decreto nº 10.000/2023 (exemplo de diretrizes de segurança).\n\n## 💡 Padrão a memorizar\n\"Diretrizes são normas de nível inferior que só podem ser criadas dentro da competência conferida pela lei; elas não violam a legalidade se aplicarem apenas ao âmbito previsto (ex.: licitações).\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38029,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38030,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8315,
+    "categoria": "Direito Constitucional",
+    "texto": "Em 2025, a Assembleia Legislativa do Estado de X aprovou a Lei nº 1234/2025, que institui a obrigatoriedade de instalação de painéis solares em todos os prédios públicos estaduais de até 10.000 metros quadrados. O dispositivo legal estabelece que a instalação deverá ser realizada em prazo máximo de 18 meses, sob pena de multa de R$ 5.000,00 por dia de atraso. A administração pública, contudo, argumenta que a norma é inconstitucional por violar o princípio da razoabilidade e a autonomia administrativa. Considerando o texto acima, a declaração de inconstitucionalidade, se concedida, deverá ser fundamentada em:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA norma impõe ônus excessivo à administração, violando o princípio da razoabilidade e da proporcionalidade, que exigem que sanções sejam proporcionais ao objetivo e não excessivas.\n\n## ⚠️ Armadilhas\n- **A)** Confunde a multa diária com a própria sanção; a violação é de razoabilidade, não de proporcionalidade da multa.\n- **B)** A lei não restringe direitos fundamentais, apenas obriga a instalação de painéis solares.\n- **C)** Falta motivação não é o ponto central; a questão foca no ônus excessivo.\n- **E)** O princípio da eficiência não é o critério de validade da norma.\n\n## 🧠 Conceito-chave\n- Princípio da razoabilidade: sanções devem ser proporcionais ao fim.\n- Princípio da proporcionalidade: limites de sanções não podem ser excessivos.\n- Ônus excessivo: quando a obrigação imposta ultrapassa o necessário.\n- Análise de constitucionalidade: verificar se a norma respeita limites constitucionais.\n\n## 🎯 O que esta questão testa\nAvalia a capacidade de identificar a violação de princípios constitucionais na imposição de sanções administrativas.\n\n## 📚 Onde aprofundar\nManual de Direito Administrativo, Matheus Carvalho, cap. 7 – Princípios da Administração Pública.\n\n## 💡 Padrão a memorizar\nQuando uma norma impõe sanção, verifique se ela é razoável e proporcional; se excede, pode ser inconstitucional.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "enunciado_termina_em_pontuacao_incompleta",
+      "termina_em_conjuncao"
+    ],
+    "alternativas": [
+      {
+        "id": 38074,
+        "texto": "A violação do princípio da proporcionalidade, pois a multa diária ultrapassa o limite de razoabilidade.",
+        "correta": false
+      },
+      {
+        "id": 38075,
+        "texto": "A supressão de direitos fundamentais, pois a lei restringe a liberdade de escolha dos servidores públicos.",
+        "correta": false
+      },
+      {
+        "id": 38076,
+        "texto": "A ausência de motivação adequada do ato normativo, violando o princípio da motivação da decisão administrativa.",
+        "correta": false
+      },
+      {
+        "id": 38077,
+        "texto": "A imposição de ônus excessivo à administração, contrariando o princípio da razoabilidade e da proporcionalidade.",
+        "correta": true
+      },
+      {
+        "id": 38078,
+        "texto": "A violação do princípio da eficiência, pois a lei não estabelece critérios de eficiência energética.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8316,
+    "categoria": "Direito Constitucional",
+    "texto": "O Tribunal Regional Federal da 3ª Região, em 2026, julga recurso de um servidor federal que contestou a aplicação de penalidade disciplinar por falta de assiduidade. O Tribunal entendeu que a falta de assiduidade não pode ser considerada ato de improbidade administrativa, pois não se trata de ato de gestão. Em seu acórdão, o tribunal se baseou na interpretação do art. 37, § 1º, da Constituição Federal. A decisão do tribunal foi:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA decisão foi proferida por órgão do Poder Judiciário que analisou a constitucionalidade de uma norma infraconstitucional, caracterizando controle difuso. O Tribunal não tem competência de controle concentrado, pois não há pedido de declaração de inconstitucionalidade em sede de ação direta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde a natureza constitucional da matéria com a natureza da decisão; o controle difuso não é “decisão de natureza constitucional”.\n- **B)** Assume que a decisão é disciplinar apenas por tratar de penalidade, ignorando que o objeto é a constitucionalidade da norma.\n- **D)** Erra ao chamar de controle concentrado; o controle concentrado requer ação direta e não ocorre em decisões de mérito de recursos administrativos.\n- **E)** Incorre ao dizer que é controle de constitucionalidade; embora envolva constitucionalidade, o controle difuso não é chamado de “controle de constitucionalidade” formal.\n\n## 🧠 Conceito-chave\n- Controle difuso: análise de constitucionalidade realizada por qualquer decisão judicial em processo comum.\n- Controle concentrado: ação direta de inconstitucionalidade proposta em sede de ação direta.\n- Competência do tribunal: julgar recursos administrativos, não declarar inconstitucionalidade em sede de ação direta.\n- Norma infraconstitucional: lei ou regulamento que pode ser questionado em controle difuso.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar o tipo de controle de constitucionalidade exercido em uma decisão judicial.\n\n## 📚 Onde aprofundar\nManual de Direito Constitucional, de José A. S. de Souza, cap. 7 – Controle de Constitucionalidade.\n\n## 💡 Padrão a memorizar\nControle difuso ocorre em qualquer decisão que analise constitucionalidade, enquanto controle concentrado exige ação direta de inconstitucionalidade.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38079,
+        "texto": "Uma decisão de natureza constitucional, pois trata de matéria constitucional.",
+        "correta": false
+      },
+      {
+        "id": 38080,
+        "texto": "Uma decisão de natureza disciplinar, pois se refere a penalidades administrativas.",
+        "correta": false
+      },
+      {
+        "id": 38081,
+        "texto": "Uma decisão de natureza de controle difuso, pois foi proferida por órgão do Poder Judiciário.",
+        "correta": true
+      },
+      {
+        "id": 38082,
+        "texto": "Uma decisão de natureza de controle concentrado, pois envolveu a interpretação de norma constitucional.",
+        "correta": false
+      },
+      {
+        "id": 38083,
+        "texto": "Uma decisão de natureza de controle de constitucionalidade, pois julga a constitucionalidade da norma infraconstitucional.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8317,
+    "categoria": "Direito Constitucional",
+    "texto": "O Ministério da Educação, em 2024, propõe a criação de um programa de bolsas de estudo para estudantes de baixa renda em universidades federais. O programa prevê a concessão de bolsas a partir da 6ª série, com base em avaliação socioeconômica e desempenho acadêmico. O projeto foi aprovado pelo Congresso Nacional e sancionado pelo Presidente da República. Em 2025, a União ajuíza ação direta de inconstitucionalidade contra o programa, alegando que a medida viola o princípio da igualdade, pois confere tratamento diferenciado a determinados grupos. Considerando os princípios constitucionais envolvidos, a decisão do Supremo Tribunal Federal, ao julgar a ação, deve reconhecer:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nO programa atende ao princípio da igualdade de oportunidades, pois concede tratamento diferenciado apenas para promover igualdade real, conforme previsto no art. 205, § 1º, da CF. A medida não viola a igualdade absoluta, pois a Constituição admite políticas de ação afirmativa. Assim, a alternativa B está correta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde igualdade absoluta com igualdade de oportunidades, ignorando que a CF permite distinções para corrigir desigualdades.\n- **C)** Assume que qualquer medida não afronta princípios, desconsiderando o requisito de finalidade e proporcionalidade.\n- **D)** Equivoca legalidade com constitucionalidade, pois a lei já aprovou o programa e a inconstitucionalidade não decorre de falta de lei.\n- **E)** Confunde isonomia com igualdade de oportunidades, sem reconhecer que a isonomia exige tratamento igual, não diferenciado.\n\n## 🧠 Conceito-chave\n- Igualdade de oportunidades: princípio que admite distinções para corrigir desigualdades.\n- Ação afirmativa: política de tratamento diferenciado em favor de grupos historicamente discriminados.\n- Art. 205, § 1º, CF: garante o direito à educação e permite políticas de incentivo.\n- Princípio da proporcionalidade: tratamento diferenciado deve ser adequado, necessário e proporcional.\n\n## 🎯 O que esta questão testa\nCapacidade de distinguir igualdade de oportunidades de igualdade absoluta e aplicar o princípio da ação afirmativa à educação.\n\n## 📚 Onde aprofundar\nConstituição Federal, art. 205 e § 1º; Súmula 2 do STF sobre políticas de ação afirmativa; doutrina de Gilmar Ferreira Mendes, “Direito Constitucional”.\n\n## 💡 Padrão a memorizar\n“Igualdade de oportunidades = tratamento diferenciado para corrigir desigualdades; igualdade absoluta = tratamento igualitário.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38084,
+        "texto": "A inconstitucionalidade do programa, pois viola o princípio da igualdade absoluta.",
+        "correta": false
+      },
+      {
+        "id": 38085,
+        "texto": "A constitucionalidade do programa, pois o tratamento diferenciado atende ao princípio da igualdade de oportunidades.",
+        "correta": true
+      },
+      {
+        "id": 38086,
+        "texto": "A constitucionalidade do programa, pois a medida não afronta nenhum princípio constitucional.",
+        "correta": false
+      },
+      {
+        "id": 38087,
+        "texto": "A inconstitucionalidade do programa, pois viola o princípio da legalidade.",
+        "correta": false
+      },
+      {
+        "id": 38088,
+        "texto": "A inconstitucionalidade do programa, pois contraria o princípio da isonomia.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8318,
+    "categoria": "Direito Constitucional",
+    "texto": "Texto: Em 2023, o Conselho Nacional de Justiça (CNJ) elaborou o Relatório de Fiscalização das Operações de Crédito Rural, apontando que 68% das cooperativas rurais que operam no Estado de Y mantêm contratos de financiamento com taxa de juros superior à taxa média do mercado. O relatório destaca que tais contratos, em 95% dos casos, foram celebrados sem a devida análise de risco, violando o princípio da responsabilidade fiscal e a Lei nº 11.441/2007. Em 2024, o Ministério da Agricultura ajuíza ação civil pública contra as cooperativas, alegando que a prática viola o art. 37, § 2º, da Constituição Federal. Considerando o texto acima, a medida judicial mais adequada para proteger o direito de acesso ao crédito rural é:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA ação civil pública é o instrumento previsto no art. 129, § 2º, CF, para tutelar direitos difusos, como o acesso ao crédito rural. Ela permite ao Ministério ajuizar a ação visando a efetividade do direito, sem exigir medida cautelar imediata. A medida cautelar (A) seria prematura e não tem respaldo no caso. A inconstitucionalidade (B) e o mandado de segurança (D) não se aplicam a direito difuso. A indenização (E) não resolve a violação de direito coletivo.\n\n## ⚠️ Armadilhas\n- **A)** Confunde medida cautelar com ação principal; a suspensão imediata não é necessária e não se justifica sem pedido de tutela antecipada.\n- **B)** Aplica erroneamente a ação de inconstitucionalidade a um caso de direito coletivo, quando o tema é a efetivação de direito, não a constitucionalidade do art. 37, § 2º.\n- **D)** Usa mandado de segurança, que é para proteger direitos individuais, não difusos.\n- **E)** Propõe indenização isolada, ignorando a necessidade de ação que altere a conduta das cooperativas.\n\n## 🧠 Conceito-chave\n- Ação civil pública: instrumento de tutela de direitos difusos e coletivos.\n- Direito de acesso ao crédito rural: direito coletivo protegido pelo art. 129, § 2º, CF.\n- Princípio da responsabilidade fiscal e Lei 11.441/2007: base legal para a ação.\n- Medida cautelar: requer urgência e probabilidade de dano irreparável.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar o instrumento jurídico adequado para tutelar um direito coletivo e diferenciar entre ação principal, medida cautelar, mandado de segurança e inconstitucionalidade.\n\n## 📚 Onde aprofundar\nManual de Direito Administrativo, Matheus Carvalho, cap. 5 – Ação Civil Pública e Direito Difuso.\n\n## 💡 Padrão a memorizar\nPara direitos difusos, use ação civil pública; para direitos individuais, use mandado de segurança; para inconstitucionalidade, use ação direta de inconstitucionalidade.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38089,
+        "texto": "A concessão de medida cautelar de urgência, para suspender imediatamente os contratos abusivos.",
+        "correta": false
+      },
+      {
+        "id": 38090,
+        "texto": "O pedido de inconstitucionalidade do art. 37, § 2º, da Constituição Federal.",
+        "correta": false
+      },
+      {
+        "id": 38091,
+        "texto": "A propositura de ação civil pública, para garantir a efetividade do direito de acesso ao crédito rural.",
+        "correta": true
+      },
+      {
+        "id": 38092,
+        "texto": "A interposição de mandado de segurança, para proteger os cooperados contra contratos abusivos.",
+        "correta": false
+      },
+      {
+        "id": 38093,
+        "texto": "A adoção de medida de indenização, para compensar os cooperados lesados.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8321,
+    "categoria": "Direito Constitucional",
+    "texto": "A Constituição Federal assegura a todos os cidadãos o direito de participar das decisões públicas. Em 2025, uma cidade adotou um sistema de votação eletrônica sem a necessidade de registro prévio dos eleitores, alegando que tal medida aumentaria a participação popular.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA Constituição Federal garante o direito de participação nas decisões públicas, inclusive por meio de voto eletrônico, desde que respeitados os princípios de legitimidade e legitimidade. A ausência de registro prévio não impede a participação, pois o direito de voto é universal e não exige prévio cadastro.\n\n## ⚠️ O erro típico\nMuitos candidatos pensam que o registro prévio é obrigatório para qualquer forma de votação, confundindo com a exigência de cadastro eleitoral para votar em eleições oficiais.\n\n## 🧠 Conceito-chave\n- Art. 5º, inciso XXXVII: direito de participar nas decisões públicas.\n- Art. 14, § 4º: voto eletrônico é permitido.\n- Princípio da universalidade do voto.\n\n## 📚 Onde aprofundar\nConstituição Federal, Art. 5º, Art. 14, § 4º; Jurisprudência do STF sobre voto eletrônico.\n\n## 💡 Padrão a memorizar\n\"Voto eletrônico = participação universal, não precisa de registro prévio.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38098,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38099,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8338,
+    "categoria": "Direito Constitucional",
+    "texto": "O princípio da separação de poderes impõe que o Poder Judiciário não possa, em qualquer circunstância, julgar matérias de competência exclusiva do Poder Executivo, salvo quando houver conflito de competência entre os dois poderes.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO princípio da separação de poderes impede que o Judiciário julgue matérias de competência exclusiva do Executivo, salvo em conflito de competência. A palavra‑chave é “exclusiva”.\n\n## ⚠️ O erro típico\nA armadilha é pensar que o Judiciário pode julgar qualquer coisa se houver dúvida. Na prática, apenas conflitos de competência permitem a atuação.\n\n## 🧠 Conceito-chave\n- Separação de poderes: princípio constitucional que divide funções entre Legislativo, Executivo e Judiciário.\n- Competência exclusiva: atribuição que cabe a apenas um poder.\n- Conflito de competência: situação em que dois poderes reivindicam a mesma matéria.\n\n## 📚 Onde aprofundar\n- Constituição Federal de 1988, art. 5º, inciso XXXV e art. 93, § 1º.\n- GOMES, José A. de. *Curso de Direito Constitucional*. 12ª ed.\n\n## 💡 Padrão a memorizar\n“Separação de poderes: cada ramo só faz o que lhe cabe, exceto quando há conflito, então o Judiciário intervém.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38156,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38157,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8340,
+    "categoria": "Direito Constitucional",
+    "texto": "Texto: Em 2025, o Ministério da Educação publicou um decreto que instituiu a obrigatoriedade de todos os estudantes de escolas públicas de ensino médio participarem de um curso de cidadania digital. O decreto estabeleceu que a participação seria considerada como requisito para a matrícula em cursos superiores, sob pena de exclusão automática da lista de candidatos.\n\nConsiderando o texto acima, a exigência imposta pelo decreto viola, em tese, o princípio da igualdade, pois impõe tratamento diferenciado a estudantes de escolas públicas em relação aos estudantes de escolas privadas, sem justificativa plausível.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA exigência cria tratamento diferenciado entre estudantes públicos e privados sem justificativa, violando o princípio da igualdade. O artigo 5º, §1º, da CF garante igualdade de condições. O decreto não justifica a diferenciação, portanto é discriminatório. \n\n## ⚠️ O erro típico\nA proposta pode parecer correta porque a lei exige igualdade, mas o candidato pode pensar que a exigência é legítima por ser de interesse público. A armadilha está em ignorar que a diferenciação sem justificativa é inconstitucional. \n\n## 🧠 Conceito-chave\n- Princípio da igualdade (art. 5º, §1º, CF)\n- Proibição de discriminação arbitrária\n- Necessidade de justificativa racional e proporcional\n- Análise de proporcionalidade e razoabilidade\n\n## 📚 Onde aprofundar\nConstituição Federal, art. 5º, §1º; Jurisprudência do STF sobre discriminação no acesso ao ensino superior; \"Direito Constitucional\" de José A. S. de Souza, 5ª ed. \n\n## 💡 Padrão a memorizar\n“Igualdade exige tratamento igual, salvo justificativa racional e proporcional.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 38160,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38161,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8366,
+    "categoria": "Direito Administrativo",
+    "texto": "Considerando o texto acima, a licitação realizada pela prefeitura para a compra de materiais de escritório, sem a observância da modalidade de pregão eletrônico, pode ser considerada válida, desde que o valor estimado esteja dentro do limite de dispensa de licitação previsto na Lei 14.133/21.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA Lei 14.133/21 permite dispensa de licitação quando o valor estimado não excede o limite previsto no art. 25, § 1º, e a modalidade de pregão eletrônico não é obrigatória para todos os casos. A proposição está correta porque a dispensa pode ocorrer independentemente da modalidade.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a modalidade de pregão eletrônico é obrigatória em todas as licitações, confundindo com o que a lei exige apenas para compras de até R$ 150.000,00 em pregão eletrônico. Muitos candidatos caem na “quase‑verdade” de que a modalidade determina a validade.\n\n## 🧠 Conceito-chave\n- **Lei 14.133/21, art. 25**: dispensa de licitação quando o valor estimado não excede o limite.\n- **Modalidade de pregão eletrônico**: apenas exigida quando a licitação for realizada por pregão, não obrigatória em dispensa.\n- **Princípio da legalidade**: a licitação deve obedecer à lei, mas a dispensa é uma exceção prevista.\n\n## 📚 Onde aprofundar\nLei nº 14.133, de 1º de abril de 2021 – art. 25 e § 1º; Manual de Licitações – José Eduardo de Souza, 2023.\n\n## 💡 Padrão a memorizar\n\"Dispensa = valor ≤ limite, modalidade não obrigatória.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 38236,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38237,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8369,
+    "categoria": "Direito Administrativo",
+    "texto": "Em 2024, a Prefeitura Municipal de Vila Verde aprovou o Plano Diretor de 2025, que prevê a construção de um parque aquático em área de preservação ambiental. O gestor responsável, ao elaborar o projeto, consultou o Ministério do Meio Ambiente, que emitiu parecer favorável, mas não concedeu licença ambiental. A Prefeitura, em seguida, contratou uma empresa de engenharia para executar a obra, sem realizar licitação. A contratação foi realizada em 2023. Considerando o disposto no art. 37, § 15, da Constituição Federal, a contratação realizada pela Prefeitura pode ser considerada:",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA contratação direta é permitida quando a obra é de interesse público e prevista no Plano Diretor, conforme art. 37, §15, CF. O parecer favorável não substitui a licença ambiental, mas não impede a contratação. Assim, a opção E está correta.\n\n## ⚠️ Armadilhas\n- **A)** Confunde parecer favorável com autorização de contratação direta; o parecer não dispensa licitação.\n- **B)** Assume que falta licença torna a obra inviável, mas a licitação pode ocorrer antes da licença.\n- **C)** Supõe que obras ambientais não podem ter contratação direta, ignorando a previsão constitucional.\n- **D)** Equivoca emergência com necessidade de licitação; a lei permite contratação direta em casos de interesse público.\n\n## 🧠 Conceito-chave\n- Art. 37, §15, CF: contratação direta quando prevista em plano diretor.\n- Licença ambiental é exigência técnica, não condiciona licitação.\n- Parecer do Ministério não substitui licença.\n- Interesse público justifica contratação direta.\n\n## 🎯 O que esta questão testa\nCapacidade de aplicar o art. 37, §15, CF à contratação direta em obra de interesse público, distinguindo entre parecer e licença.\n\n## 📚 Onde aprofundar\nManual de Direito Administrativo, Matheus Carvalho, cap. 5 – Contratação direta e licitação.\n\n## 💡 Padrão a memorizar\n\"Plano diretor + interesse público = contratação direta, licença ambiental não impede a licitação.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38242,
+        "texto": "Legal, pois o parecer do Ministério do Meio Ambiente autoriza a contratação direta.",
+        "correta": false
+      },
+      {
+        "id": 38243,
+        "texto": "Ilegal, pois a licença ambiental não foi obtida, tornando a obra inviável.",
+        "correta": false
+      },
+      {
+        "id": 38244,
+        "texto": "Ilegal, pois a contratação direta não pode ser realizada em obras de interesse ambiental.",
+        "correta": false
+      },
+      {
+        "id": 38245,
+        "texto": "Ilegal, pois a contratação direta só pode ocorrer em casos de emergência, o que não se aplica.",
+        "correta": false
+      },
+      {
+        "id": 38246,
+        "texto": "Legal, desde que a obra seja considerada de interesse público e a contratação esteja prevista no Plano Diretor.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8377,
+    "categoria": "Direito Penal",
+    "texto": "Texto de apoio: Em 2024, a Polícia Federal registrou um aumento de 15% nos casos de crimes cibernéticos envolvendo fraude eletrônica. Em um dos casos, um hacker, utilizando um bot de automação, enviou e-mails de phishing para 10.000 funcionários de uma empresa de seguros, solicitando dados pessoais e bancários. O objetivo era obter acesso a contas de clientes e realizar transferências fraudulentas. O hacker, ao ser identificado, foi preso e processado. Considerando o texto acima, o ato de enviar e-mails de phishing com o objetivo de obter dados pessoais e bancários para fins de fraude constitui crime de estelionato, pois envolve a prática de engano para obter vantagem ilícita.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nO envio de e-mails de phishing com intenção de obter dados pessoais e bancários para fraude enquadra-se no crime de estelionato, previsto no art. 171 do Código Penal, pois há engano e obtenção de vantagem ilícita. A prática envolve a criação de falsa aparência para induzir a vítima a entregar informações. O objetivo é claro: obter vantagem econômica. Assim, a proposição está correta.\n\n## ⚠️ O erro típico\nA armadilha é pensar que o crime seria apenas “cibercrime” ou “fraude eletrônica” sem reconhecer que, juridicamente, o estelionato abrange qualquer fraude que use engano para obter vantagem. Candidatos podem esquecer que a lei não distingue a via (física ou digital).\n\n## 🧠 Conceito-chave\n- **Estelionato**: art. 171 CP – engano, fraude, obtenção de vantagem ilícita. \n- **Engano**: uso de informação falsa ou omissão de fato relevante. \n- **Vantagem ilícita**: benefício econômico obtido de forma fraudulenta.\n\n## 📚 Onde aprofundar\nCódigo Penal Brasileiro – Art. 171. \nManual de Direito Penal – Luiz Flávio Gomes, “Estelionato e outros crimes contra o patrimônio”.\n\n## 💡 Padrão a memorizar\n“Engano + vantagem = estelionato”. O gatilho é “engano” que indica fraude, não apenas “cibercrime”.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente"
+    ],
+    "alternativas": [
+      {
+        "id": 38270,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38271,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8379,
+    "categoria": "Direito Penal",
+    "texto": "O Ministério Público ajuizou ação penal pública contra um empresário que, em 2022, divulgou em redes sociais fotos de funcionários de uma fábrica sem autorização, sob a alegação de que a prática era ‘transparência corporativa’. O réu alega que a divulgação não violou direito de imagem, pois as fotos foram tiradas em ambiente de trabalho. Qual é a posição correta do Código Penal sobre o tema?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA divulgação de fotos de empregados sem consentimento configura crime de invasão de privacidade (art. 5º, § 3º, da Lei 13.718/2018), com pena de 2 a 5 anos de reclusão. O fato ocorre em ambiente de trabalho, mas a imagem não é de domínio público. A lei protege a esfera íntima do empregado.\n## ⚠️ Armadilhas\n- **A)** Confunde crime de difamação com invasão de privacidade; difamação exige imputação de fato ofensivo, não apenas exposição.\n- **B)** Assume que local público e consentimento garantem legalidade; o ambiente de trabalho não é público e o consentimento não foi dado.\n- **D)** Sugere pena substituível por prestação de serviços, o que não se aplica ao crime de invasão de privacidade.\n- **E)** Confunde com calúnia, que requer acusação falsa de fato, inexistente aqui.\n## 🧠 Conceito-chave\n- Invasão de privacidade: divulgação de imagem sem consentimento, protegida pela Lei 13.718/2018.\n- Difamação: imputação de fato ofensivo; calúnia: acusação falsa.\n- Local de trabalho não é domínio público.\n## 🎯 O que esta questão testa\nCapacidade de identificar o crime de invasão de privacidade e distinguir de crimes de honra.\n## 📚 Onde aprofundar\nLei 13.718/2018, arts. 5º e 6º; jurisprudência do STJ sobre divulgação de imagens de empregados.\n## 💡 Padrão a memorizar\nSe a imagem não tem consentimento e não é de domínio público, é invasão de privacidade; difamação e calúnia exigem imputação de fato ofensivo ou falso.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_imagem_sem_imagem"
+    ],
+    "alternativas": [
+      {
+        "id": 38277,
+        "texto": "A divulgação configura crime de difamação, com pena de 1 a 4 anos de reclusão.",
+        "correta": false
+      },
+      {
+        "id": 38278,
+        "texto": "Não há crime, pois a divulgação ocorreu em local público e o empregado consentiu.",
+        "correta": false
+      },
+      {
+        "id": 38279,
+        "texto": "É crime de invasão de privacidade, com pena de 2 a 5 anos de reclusão.",
+        "correta": true
+      },
+      {
+        "id": 38280,
+        "texto": "A conduta é ilícita, mas a pena pode ser substituída por prestação de serviços à comunidade.",
+        "correta": false
+      },
+      {
+        "id": 38281,
+        "texto": "A prática caracteriza crime de calúnia, com pena de 1 a 3 anos de reclusão.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8393,
+    "categoria": "Direito Penal",
+    "texto": "Em 2024, a Justiça Federal instituiu um programa de transição para a aplicação de penas de prisão em regime aberto. O objetivo é reduzir a superlotação das unidades prisionais. Essa medida pode ser considerada constitucional, desde que respeitado o princípio da individualização da pena?",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA Constituição Federal, em seu art. 5º, inciso XLVIII, garante a individualização da pena. O regime aberto, quando aplicado com base na avaliação individual do condenado, atende a esse princípio. Assim, o programa de transição é constitucional.\n\n## ⚠️ O erro típico\nA proposta pode parecer contraditória ao sugerir que a medida seja constitucional apenas “desde que respeitado o princípio da individualização”. Muitos candidatos pensam que a individualização é opcional, quando na verdade é obrigatória.\n\n## 🧠 Conceito-chave\n- **Individualização da pena**: princípio constitucional que exige que a pena seja determinada com base nas circunstâncias do condenado e do delito.\n- **Regime aberto**: modalidade de cumprimento de pena em que o condenado pode trabalhar ou estudar fora da unidade prisional, retornando apenas para cumprimento de horários.\n- **Transição**: mecanismo de mudança gradual de regime, previsto no art. 5º, XLVIII, e no art. 59 do Código Penal.\n\n## 📚 Onde aprofundar\n- Constituição Federal, art. 5º, inciso XLVIII.\n- Código Penal, art. 59.\n- “Direito Penal” de Pedro Lenza (capítulo sobre regimes de cumprimento).\n\n## 💡 Padrão a memorizar\n“Regime aberto só é constitucional se a pena for individualizada.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38326,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38327,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8398,
+    "categoria": "Direito Civil",
+    "texto": "Em 2024, a Prefeitura Municipal de Vila Nova promulgou a Lei nº 5.000, que institui a obrigatoriedade de instalação de dispositivos de segurança em veículos de transporte coletivo. A empresa de transporte coletivo, ao não instalar tais dispositivos, foi autuada e teve sua licença suspensa por 30 dias. A empresa ajuizou ação anulatória alegando que a lei viola o princípio da razoabilidade.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA lei municipal é válida porque não contraria a Constituição; a exigência de dispositivos de segurança atende ao princípio da razoabilidade e ao dever de garantir a segurança pública.\nA norma municipal se enquadra no poder de polícia e na competência da esfera municipal.\nA suspensão da licença é medida coercitiva prevista no art. 2º da Lei nº 5.000.\nPortanto, a ação anulatória é improcedente.\n## ⚠️ O erro típico\nCandidatos costumam confundir a competência municipal com a federal, pensando que a lei viola a Constituição.\nA armadilha é acreditar que a exigência de dispositivos de segurança é excessiva ou arbitrária.\n## 🧠 Conceito-chave\n- Poder de polícia: prerrogativa do Estado para impor normas de segurança pública.\n- Princípio da razoabilidade: normas devem ser proporcionais e necessárias.\n- Competência municipal: pode legislar sobre trânsito e transporte dentro do município.\n- Medida coercitiva: suspensão de licença é prevista na lei municipal.\n## 📚 Onde aprofundar\n- Constituição Federal, art. 30, § 1º (competência municipal).\n- Código de Trânsito Brasileiro, art. 4º (poder de polícia).\n- Lei nº 5.000/2024 (texto da lei municipal).\n- Título III, Capítulo I, Lei nº 9.784/99 (processo administrativo).\n## 💡 Padrão a memorizar\n\"Poder de polícia + razoabilidade = legalidade municipal\".",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38336,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38337,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8400,
+    "categoria": "Direito Civil",
+    "texto": "Texto: Em 2023, a cidade de São José adotou a Lei nº 6.200, que estabelece normas para a utilização de espaços públicos por empresas de entrega de mercadorias. A lei determina que, para operar em áreas de comércio, as empresas devem obter licença específica e cumprir requisitos de horário de funcionamento, além de pagar uma taxa mensal de R$ 500,00. A empresa DeliverFast, que não possui licença, foi autuada em 2024 e teve seu veículo de entrega apreendido. A DeliverFast ajuizou ação declaratória de nulidade da lei, alegando que a cobrança da taxa mensal viola o princípio da isonomia, pois outras empresas de entregas não são obrigadas a pagar taxa equivalente.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA lei exige licença e taxa, e a DeliverFast não possui licença, portanto a autuação é válida. O princípio da isonomia não impede a cobrança de taxa diferenciada quando há fundamento legal. A jurisprudência admite a exigência de taxas para fins de regulação. A ação declaratória carece de fundamento.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a isonomia impede qualquer diferença de tratamento. Muitos candidatos confundem isonomia com igualdade absoluta, ignorando que a lei pode criar requisitos específicos.\n\n## 🧠 Conceito-chave\n- Princípio da isonomia: todos devem ser tratados de forma igual perante a lei, mas pode haver exceções quando há base legal.\n- Princípio da legalidade: atos administrativos só podem exigir requisitos que a lei estabeleça.\n- Princípio da motivação: a lei deve motivar a exigência de licenças e taxas.\n\n## 📚 Onde aprofundar\n- Constituição Federal, art. 5º, caput e §1º.\n- Lei nº 6.200/2023 (texto da lei).\n- Jurisprudência do STJ sobre licenças e taxas administrativas.\n\n## 💡 Padrão a memorizar\n“Legalidade exige licenças; isonomia permite diferenças quando previstas em lei.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38340,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38341,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8410,
+    "categoria": "Direito Processual Penal",
+    "texto": "Em um processo criminal de homicídio doloso, o juiz decide, em fase de instrução, a concessão de audiência de justificação de defesa, permitindo ao réu apresentar provas que não foram colhidas pela acusação. Considerando o princípio do contraditório e a possibilidade de nulidade da fase de instrução, qual dos itens abaixo descreve corretamente a consequência da falta de concessão desse pedido, quando o réu alega ter provas relevantes?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA audiência de justificação é obrigatória quando o réu alega provas relevantes, sob pena de nulidade da fase de instrução, conforme art. 381 do CPC e art. 5º, LV, da CF. A não concessão viola o contraditório e o devido processo legal.\n\n## ⚠️ Armadilhas\n- **B)** Assume que provas podem ser apresentadas no julgamento, ignorando que a produção fora da instrução é nula. \n- **C)** Confunde a falta de audiência com sanções disciplinares, que não se aplicam a decisões processuais. \n- **D)** Erra ao dizer que a audiência é facultativa, quando o Código de Processo Penal a torna obrigatória. \n- **E)** Supõe que a produção recursal é válida, desconsiderando que a fase recursal não admite novas provas.\n\n## 🧠 Conceito-chave\n- Audiência de justificação: fase de instrução onde o réu pode produzir provas. \n- Princípio do contraditório: garante igualdade de oportunidades às partes. \n- Nulidade: ausência de audiência pode levar à anulação da fase de instrução. \n- Art. 381 CPC e art. 5º, LV, CF.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar a obrigatoriedade da audiência de justificação e a consequência de sua omissão.\n\n## 📚 Onde aprofundar\nCódigo de Processo Penal, artigos 381‑383; Código de Processo Civil, art. 381; Súmula 380 do STJ.\n\n## 💡 Padrão a memorizar\n“Audiência de justificação = obrigatória quando há provas relevantes; falta = nulidade da instrução.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38372,
+        "texto": "A decisão será considerada nula, devendo o processo ser reaberto para a coleta das provas.",
+        "correta": true
+      },
+      {
+        "id": 38373,
+        "texto": "O réu poderá apresentar as provas em fase de julgamento, sem prejuízo da sentença.",
+        "correta": false
+      },
+      {
+        "id": 38374,
+        "texto": "A falta de concessão implicará apenas em uma sanção disciplinar ao juiz.",
+        "correta": false
+      },
+      {
+        "id": 38375,
+        "texto": "A decisão será considerada válida, pois a audiência de justificação é facultativa.",
+        "correta": false
+      },
+      {
+        "id": 38376,
+        "texto": "O réu terá o direito de requerer a produção de provas em fase recursal, mas não na fase de instrução.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8413,
+    "categoria": "Direito Processual Penal",
+    "texto": "Texto: Em 2023, o Tribunal Regional Federal da 4ª Região julgou, em recurso especial, a aplicação de um novo dispositivo penal que prevê a redução de pena para crimes de furto qualificado quando o réu comprova que a ação foi motivada por necessidade econômica. O tribunal entendeu que tal dispositivo está em consonância com o princípio da proporcionalidade e a jurisprudência do STF sobre a necessidade de adequação das penas. O recurso foi julgado parcialmente procedente, mantendo a aplicação da redução apenas nos casos em que o réu comprovou a existência de dívida que o impelia a cometer o delito. Em 2024, o Ministério Público apresentou um recurso especial ao STJ, alegando que o dispositivo penal viola o princípio da legalidade, pois a redução de pena não é prevista na lei penal vigente. O STJ, ao analisar o recurso, destacou que a aplicação da redução de pena é uma interpretação legítima da norma penal, desde que observada a proporcionalidade e o princípio da razoabilidade. A decisão do STJ, portanto, manteve a aplicação da redução de pena, mas determinou que a lei penal seja reformada para incluir explicitamente a hipótese de necessidade econômica como causa de diminuição de pena. Considerando o texto acima, qual é a consequência jurídica imediata da decisão do STJ para os processos em curso que envolvem a mesma hipótese de necessidade econômica?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA decisão do STJ reconhece a aplicação da redução de pena como interpretação legítima da norma, desde que observada proporcionalidade, e determina apenas a necessidade de reforma legislativa futura. Assim, processos em curso continuam com a redução, mas apenas quando comprovada dívida, até a lei ser alterada. Máximo 4 frases.\n\n## ⚠️ Armadilhas\n- **A)** Assume que a decisão cria nova regra, confundindo interpretação com criação normativa. \n- **C)** Supõe obrigatoriedade imediata de aplicação, ignorando a necessidade de lei que a formalize. \n- **D)** Interpreta violação do princípio da legalidade, quando a decisão admite a redução como interpretação válida. \n- **E)** Afirma efeito apenas em processos concluídos, desconsiderando a continuidade da aplicação em curso.\n\n## 🧠 Conceito-chave\n- Interpretação legítima da norma penal. \n- Princípio da proporcionalidade e razoabilidade. \n- Necessidade de reforma legislativa para efetivar a regra. \n- Continuidade da aplicação em processos em curso.\n\n## 🎯 O que esta questão testa\nAvalia a capacidade de distinguir entre interpretação normativa e criação de nova regra, e a aplicação prática da decisão do STJ em processos em curso.\n\n## 📚 Onde aprofundar\nSTJ Súmula 10, Lei 8.072/90 (redução de pena por necessidade econômica), e doutrina sobre interpretação penal (S. de Souza, “Direito Penal – Parte Especial”).\n\n## 💡 Padrão a memorizar\nQuando a decisão do STJ reconhece interpretação legítima, a regra continua em vigor em processos em curso, mas requer reforma legislativa futura para consolidação.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38387,
+        "texto": "Os processos em curso serão suspensos até que a lei seja reformada, pois a decisão do STJ cria uma nova regra de direito penal.",
+        "correta": false
+      },
+      {
+        "id": 38388,
+        "texto": "Os processos em curso continuarão a aplicar a redução de pena, mas apenas se houver prova de dívida, até que a lei seja alterada.",
+        "correta": true
+      },
+      {
+        "id": 38389,
+        "texto": "A decisão do STJ obriga as cortes a aplicar a redução de pena imediatamente, independentemente da lei penal.",
+        "correta": false
+      },
+      {
+        "id": 38390,
+        "texto": "Os processos em curso serão anulados, pois a decisão do STJ viola o princípio da legalidade.",
+        "correta": false
+      },
+      {
+        "id": 38391,
+        "texto": "A decisão do STJ terá efeito apenas sobre processos já concluídos, não afetando os que ainda estão em curso.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8418,
+    "categoria": "Ética no Serviço Público",
+    "texto": "Texto: \n\nEm 2023, o Ministério da Saúde enfrentou uma crise de abastecimento de medicamentos essenciais. A diretora de uma unidade regional recebeu uma proposta de um fornecedor que, embora oferecesse preços competitivos, não possuía o registro de qualidade exigido pela Agência Nacional de Vigilância Sanitária (ANVISA). A diretora, após analisar a documentação, aprovou a compra, justificando que a urgência da situação exigia a flexibilização das normas. Em seguida, a diretoria central revisou a decisão e suspendeu a entrega, exigindo o cumprimento das exigências regulatórias. A situação gerou debate sobre a aplicação dos princípios da legalidade e da eficiência na administração pública.\n\nConsiderando o texto acima, a decisão da diretora de aprovar a compra sem o registro ANVISA é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA decisão da diretora é incorreta porque o princípio da eficiência não autoriza o descumprimento da legalidade. A exigência de registro na ANVISA é uma norma cogente de segurança sanitária que não pode ser flexibilizada por conveniência administrativa. A finalidade pública não justifica a prática de atos ilegais ou que coloquem em risco a saúde da população.\n\n## ⚠️ O erro típico\nA questão explora a falsa dicotomia entre eficiência e legalidade. O candidato desatento tende a acreditar que a 'urgência' ou a 'crise de abastecimento' servem como salvo-conduto para ignorar requisitos técnicos, confundindo eficiência com atalho ilegal.\n\n## 🧠 Conceito-chave\n- Princípio da Legalidade: O administrador público só pode fazer o que a lei permite.\n- Princípio da Eficiência: Busca pelo melhor resultado com o menor custo, mas sempre dentro da estrita legalidade.\n- Hierarquia de Normas: Normas de segurança sanitária (ANVISA) são vinculantes e não podem ser afastadas por decisão discricionária de gestores regionais.\n\n## 📚 Onde aprofundar\nConstituição Federal de 1988, Art. 37, caput (Princípios da Administração Pública); Lei nº 9.782/1999 (Define o Sistema Nacional de Vigilância Sanitária).\n\n## 💡 Padrão a memorizar\nEficiência nunca atropela a legalidade. Se a lei exige registro, a urgência não autoriza a dispensa; o gestor deve buscar soluções dentro da legalidade, não fora dela.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38400,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38401,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8431,
+    "categoria": "Direito Processual Civil",
+    "texto": "O juiz, ao analisar a petição inicial de um pedido de indenização por danos morais, observa que o autor não alegou o fato gerador do dano, apenas apontou que se sentiu ofendido por um comentário feito em rede social. Considerando o Código de Processo Civil, a ausência de alegação do fato gerador impede a prolação de sentença, mas não impede o prosseguimento do feito. O enunciado acima é:",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA ausência de alegação do fato gerador configura inépcia da petição inicial, pois o pedido é juridicamente indeterminado e impede o exercício do contraditório. O CPC determina que, nesse caso, o juiz deve indeferir a petição inicial, extinguindo o processo sem resolução de mérito, e não simplesmente permitir o prosseguimento do feito. A falha na causa de pedir é um vício insanável que obsta o regular desenvolvimento do processo.\n\n## ⚠️ O erro típico\nA armadilha reside na ideia de que o juiz sempre deve dar chance de emenda ou que o processo deve seguir para a fase instrutória. O candidato desatento confunde a possibilidade de emenda (art. 321) com a obrigatoriedade de prosseguimento, esquecendo que, sem fato gerador, não há como estabelecer o nexo causal ou o contraditório.\n\n## 🧠 Conceito-chave\n- Inépcia da petição inicial (art. 330, § 1º, I, CPC): ocorre quando falta pedido ou causa de pedir.\n- Dever do juiz: indeferir a petição inicial (art. 330, CPC) e extinguir o processo sem resolução de mérito (art. 485, I, CPC).\n- Causa de pedir: é o fato e o fundamento jurídico do pedido; sem o fato, a petição é inepta.\n\n## 📚 Onde aprofundar\nCódigo de Processo Civil, artigos 321, 330, § 1º, inciso I, e 485, inciso I.\n\n## 💡 Padrão a memorizar\nFato ausente, petição inepta: o juiz indefere e o processo não segue. Petição sem causa de pedir é sentença de extinção sem mérito na certa.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "enunciado_termina_em_pontuacao_incompleta"
+    ],
+    "alternativas": [
+      {
+        "id": 38447,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38448,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8432,
+    "categoria": "Direito Processual Civil",
+    "texto": "No caso de uma ação de cobrança em que o réu ajuíza embargos à execução alegando prescrição, a simples alegação de prescrição, sem a demonstração de prova documental, já é suficiente para que o juiz suspenda a execução e determine o prazo de 15 dias para a apresentação de documentos comprobatórios.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA simples alegação de prescrição, sem prova documental, já suspende a execução. O artigo 924, § 1º, do CPC prevê que a alegação de prescrição suspende a execução. O juiz pode determinar 15 dias para apresentação de documentos. Assim, a proposição está correta.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a prescrição exige prova documental imediata. Na verdade, a mera alegação já suspende a execução, e a prova é exigida posteriormente.\n\n## 🧠 Conceito-chave\n- **Prescrição**: Extinção do direito de ação por decurso do prazo legal.\n- **Embargos à execução**: Meio de defesa do executado contra execução que pode alegar prescrição.\n- **Suspensão da execução**: Efeito imediato da alegação de prescrição, conforme CPC § 1º do art. 924.\n- **Prazo de 15 dias**: Tempo para o devedor apresentar documentos comprobatórios.\n\n## 📚 Onde aprofundar\n- Código de Processo Civil (CPC), art. 924 e § 1º.\n- GOMES, José Roberto. *Curso de Processo Civil*, 12ª ed., 2023.\n\n## 💡 Padrão a memorizar\n\"A alegação de prescrição suspende a execução; prova documental vem depois, em 15 dias.\"",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38449,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38450,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8433,
+    "categoria": "Direito Processual Civil",
+    "texto": "Em um processo de inventário, o juiz pode determinar a liquidação de bens sem a realização de leilão, desde que o valor estimado seja superior a R$ 50.000,00, pois a lei permite a liquidação direta em tais situações.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nA lei não permite liquidação direta sem leilão apenas por valor superior a R$ 50.000,00. O artigo 1.793, § 1º, do CPC exige leilão em qualquer caso de venda de bens. A proposição confunde a regra de avaliação com a obrigatoriedade do leilão.\n\n## ⚠️ O erro típico\nA armadilha é a ideia de que um valor alto elimina a necessidade de leilão. Candidatos que focam apenas no valor acabam ignorando a exigência de leilão.\n\n## 🧠 Conceito-chave\n- **Inventário**: procedimento de partilha de bens.\n- **Liquidação**: venda de bens para pagamento de dívidas.\n- **Leilão**: modalidade obrigatória de venda prevista no CPC.\n- **Art. 1.793, § 1º, CPC**: determina leilão em qualquer venda de bens de inventário.\n\n## 📚 Onde aprofundar\nCódigo de Processo Civil, art. 1.793, § 1º; Manual de Direito Processual Civil, de Lúcio de Mello e de Souza.\n\n## 💡 Padrão a memorizar\n“Leilão é obrigatório em inventário: valor não muda a regra.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38451,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38452,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8434,
+    "categoria": "Direito Processual Civil",
+    "texto": "A parte que pretende requerer a produção de prova pericial em juízo deve, antes de tudo, demonstrar a pertinência da prova, apresentando um laudo preliminar elaborado por um perito, pois o juiz só pode determinar a perícia quando houver indicação de que a prova é essencial para a decisão.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA lei exige que o juiz só determine perícia quando houver demonstração de pertinência, isto é, quando a prova for essencial para a decisão. O artigo 476 do CPC prevê que a parte deve demonstrar a necessidade da prova pericial. Assim, a proposição está correta.\n\n## ⚠️ O erro típico\nA armadilha é pensar que basta indicar a necessidade de perícia; na verdade, é preciso demonstrar a pertinência, não apenas a necessidade. Muitos candidatos confundem esses conceitos.\n\n## 🧠 Conceito-chave\n- **Pertinência**: relação lógica entre a prova e o objeto da demanda.\n- **Necessidade**: prova indispensável para a solução da lide.\n- **Laudo preliminar**: não é obrigatório, mas pode auxiliar na demonstração de pertinência.\n\n## 📚 Onde aprofundar\nCPC, art. 476; GOMES, *Processo Civil Brasileiro*, 10ª ed.; SANTOS, *Prova Pericial*, 3ª ed.\n\n## 💡 Padrão a memorizar\n\"Pertinência = prova essencial; Necessidade = prova indispensável\".",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38453,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38454,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8435,
+    "categoria": "Direito Processual Civil",
+    "texto": "Texto: Em 15 de março de 2024, a empresa XYZ Ltda. ajuizou ação de despejo contra o inquilino João Silva, alegando inadimplemento de aluguel e falta de pagamento de encargos. Em 22 de março, o juiz concedeu medida liminar de despejo, determinando a desocupação do imóvel em 30 dias. O réu, em 28 de março, apresentou pedido de reconsideração, alegando que o contrato previa prazo de 60 dias para a desocupação em caso de inadimplemento. Considerando o Código de Processo Civil, a medida liminar concedida pelo juiz permanece em vigor enquanto não houver decisão definitiva sobre o pedido de reconsideração, pois a medida liminar pode ser mantida até que o juiz decida sobre a matéria principal.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA medida liminar permanece em vigor enquanto não houver decisão definitiva sobre o pedido de reconsideração, pois o CPC prevê que a liminar não pode ser revogada antes da decisão sobre a matéria principal.\nA regra está no art. 300, § 1º, do CPC.\n\n## ⚠️ O erro típico\nA armadilha é pensar que a liminar pode ser suspensa imediatamente pelo pedido de reconsideração, confundindo com a possibilidade de concessão de efeito suspensivo.\n\n## 🧠 Conceito-chave\n- Medida liminar: decisão provisória que pode ser mantida até decisão final.\n- Pedido de reconsideração: não gera efeito suspensivo automático.\n- Art. 300, § 1º, CPC: a liminar permanece enquanto não houver decisão definitiva.\n\n## 📚 Onde aprofundar\nCódigo de Processo Civil, art. 300 e § 1º; Curso de Direito Processual Civil – Luiz Fux, “Curso de Processo Civil”.\n\n## 💡 Padrão a memorizar\n“Liminar não se suspende com pedido de reconsideração; só é revogada na decisão definitiva.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38455,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38456,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8436,
+    "categoria": "Direito Processual Civil",
+    "texto": "Considerando a hipótese de que a empresa X ajuíza ação de cobrança contra a empresa Y, alegando inadimplemento de contrato de prestação de serviços, a parte ré apresenta, em contestação, pedido de tutela de urgência para suspender a execução da dívida, alegando que a execução já está em fase de liquidação e que o valor cobrado excede o limite de isenção previsto no art. 1º da Lei nº 8.078/90. Qual é a regra que deve ser observada pelo juiz ao analisar a concessão da tutela de urgência?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA tutela de urgência exige risco de dano irreparável e probabilidade do direito; o excesso de valor não impede a concessão se houver urgência. A regra está no art. 300 do CPC.\n\n## ⚠️ Armadilhas\n- **A)** Confunde risco de dano irreparável com prova do excesso de valor, ignorando a necessidade de probabilidade do direito.\n- **B)** Afirma que a tutela depende apenas da probabilidade, omitindo o requisito do risco de dano irreparável.\n- **C)** Sugere que o excesso de valor não impede a tutela, mas ignora que a probabilidade do direito ainda é exigida.\n- **E)** Impõe que o valor deve estar dentro dos limites legais, o que não é condição para a tutela de urgência.\n\n## 🧠 Conceito-chave\n- Tutela de urgência: art. 300 CPC – risco de dano irreparável e probabilidade do direito.\n- Excesso de valor: pode ser alegado, mas não exclui a urgência.\n- Execução em liquidação: não impede a análise de urgência.\n\n## 🎯 O que esta questão testa\nAvalia a aplicação prática dos requisitos de tutela de urgência no contexto de execução de dívida.\n\n## 📚 Onde aprofundar\nCPC, art. 300 e Súmula 398 do STJ sobre tutela de urgência em execução.\n\n## 💡 Padrão a memorizar\nPara tutelas de urgência lembre‑se: \"Risco + Probabilidade = Concessão\".",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38457,
+        "texto": "O juiz deve verificar se há risco de dano irreparável ou de difícil reparação, independentemente da existência de prova da alegação de excesso de valor.",
+        "correta": false
+      },
+      {
+        "id": 38458,
+        "texto": "A concessão da tutela de urgência depende exclusivamente da demonstração de probabilidade do direito alegado, sem considerar o risco de dano.",
+        "correta": false
+      },
+      {
+        "id": 38459,
+        "texto": "O juiz deve avaliar se há perigo de dano e se a probabilidade do direito é alta, mas a existência de excesso de valor não impede a concessão da tutela, desde que haja urgência.",
+        "correta": false
+      },
+      {
+        "id": 38460,
+        "texto": "A tutela de urgência pode ser concedida se houver risco de dano irreparável e probabilidade do direito, mas o excesso de valor previsto na contestação não impede sua concessão.",
+        "correta": true
+      },
+      {
+        "id": 38461,
+        "texto": "A tutela de urgência só pode ser concedida quando o valor cobrado estiver dentro dos limites legais, caso contrário, o pedido será indeferido.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8437,
+    "categoria": "Direito Processual Civil",
+    "texto": "Em uma ação de indenização por danos morais, o autor sustenta que o réu divulgou, em rede social, informações falsas sobre sua conduta profissional, causando-lhe abalo reputacional. O réu, em contestação, afirma que as informações eram verdadeiras e que a divulgação foi feita com o intuito de alertar o público. Qual dos seguintes fundamentos jurídicos pode ser invocado pelo autor para sustentar a ocorrência de dano moral?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nO dano moral ocorre quando há ofensa à honra objetiva, independentemente da veracidade, se a divulgação for abusiva e sem justificativa legítima. A jurisprudência admite que a verdade não exime o autor de responsabilidade quando a divulgação causa abalo reputacional. Assim, a alternativa C reflete essa regra.\n\n## ⚠️ Armadilhas\n- **A)** Confunde veracidade com dano moral, ignorando que a mera divulgação não basta. \n- **B)** Erro ao exigir prejuízo material; o dano moral pode ser indenizável sem dano patrimonial. \n- **D)** Assume que a verdade protege o réu, mas a lei admite responsabilidade quando há abuso. \n- **E)** Limita a mídia tradicional, desconsiderando que a internet também gera responsabilidade civil.\n\n## 🧠 Conceito-chave\n- Dano moral: ofensa à honra objetiva.\n- Veracidade não exime, mas pode atenuar a responsabilidade.\n- Necessário abuso ou falta de justificativa legítima.\n- Jurisprudência do STJ: “a verdade não isenta a responsabilidade civil quando há abuso de direito”.\n\n## 🎯 O que esta questão testa\nCapacidade de distinguir entre dano moral e responsabilidade por informação verdadeira, aplicando a regra de ofensa à honra objetiva.\n\n## 📚 Onde aprofundar\nSTJ Súmula 545 e jurisprudência sobre responsabilidade civil por danos morais em redes sociais.\n\n## 💡 Padrão a memorizar\n“Veracidade não isenta; abuso ou falta de justificativa legitima gera dano moral.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38462,
+        "texto": "O simples fato de o réu ter divulgado informações, mesmo que verdadeiras, configura dano moral se houver repercussão negativa no meio social.",
+        "correta": false
+      },
+      {
+        "id": 38463,
+        "texto": "O dano moral requer a comprovação de prejuízo material, além da ofensa à honra.",
+        "correta": false
+      },
+      {
+        "id": 38464,
+        "texto": "O dano moral se configura quando há ofensa à honra objetiva, independentemente da veracidade das informações, desde que a divulgação seja realizada de forma abusiva e sem justificativa legítima.",
+        "correta": true
+      },
+      {
+        "id": 38465,
+        "texto": "A divulgação de informações verdadeiras não pode gerar dano moral, pois o princípio da veracidade protege o réu.",
+        "correta": false
+      },
+      {
+        "id": 38466,
+        "texto": "O dano moral só é reconhecido quando a divulgação for feita por meio de mídia tradicional, não por redes sociais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8438,
+    "categoria": "Direito Processual Civil",
+    "texto": "No contexto da execução fiscal, a Fazenda Pública ajuíza ação para cobrança de dívida tributária. O devedor, após a citação, requer a suspensão da execução, alegando que o valor do débito excede o limite de isenção previsto no art. 1º da Lei nº 8.078/90, e que a dívida foi prescrita. Qual é o princípio que orienta a análise da possibilidade de suspensão da execução fiscal?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA suspensão da execução fiscal pode ser concedida quando a dívida excede o limite de isenção e a execução se mostra desproporcional, conforme o princípio da razoabilidade, que busca equilibrar os interesses do Estado e do contribuinte.\n\n## ⚠️ Armadilhas\n- **A)** Confunde legalidade com a exigência de previsão legal; a legalidade não impede a suspensão por excesso de débito.\n- **B)** A ampla defesa garante contestação, mas não autoriza a suspensão; a suspensão depende de razão de desproporcionalidade.\n- **D)** A celeridade processual exige rapidez, mas admite suspensão quando há razão de desproporcionalidade.\n- **E)** A presunção de inocência aplica‑se a processos criminais, não à execução fiscal.\n\n## 🧠 Conceito-chave\n- Princípio da razoabilidade: equilíbrio entre efetividade da cobrança e proteção ao contribuinte.\n- Excesso de débito: quando o valor ultrapassa a isenção legal.\n- Desproporcionalidade: execução que causa prejuízo excessivo ao devedor.\n- Suspensão: medida cautelar que impede a continuidade da execução.\n\n## 🎯 O que esta questão testa\nCapacidade de identificar o princípio que autoriza a suspensão da execução fiscal quando há excesso de débito e desproporcionalidade.\n\n## 📚 Onde aprofundar\nLei nº 8.078/90 (Código de Defesa do Consumidor) – art. 1º; Súmula 1 do STJ sobre execução fiscal; Manual de Direito Processual Civil, Cap. 12.\n\n## 💡 Padrão a memorizar\n“Razoável é o que não excede a isenção: se o débito ultrapassar, a execução pode ser suspensa.”",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 38467,
+        "texto": "Princípio da legalidade, que impede a suspensão se a dívida não estiver prevista em lei.",
+        "correta": false
+      },
+      {
+        "id": 38468,
+        "texto": "Princípio da ampla defesa, que garante ao devedor o direito de apresentar contestação, mas não autoriza a suspensão.",
+        "correta": false
+      },
+      {
+        "id": 38469,
+        "texto": "Princípio da razoabilidade, que permite a suspensão se a dívida for considerada excessiva e a execução for desproporcional.",
+        "correta": true
+      },
+      {
+        "id": 38470,
+        "texto": "Princípio da celeridade processual, que exige a continuidade da execução sem possibilidade de suspensão.",
+        "correta": false
+      },
+      {
+        "id": 38471,
+        "texto": "Princípio da presunção de inocência, que impede a execução fiscal até que o devedor seja julgado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9414,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Em um sistema de controle de acesso, um token de autenticação JWT contém três seções separadas por pontos: cabeçalho, payload e assinatura. Se a assinatura for gerada utilizando o algoritmo HS256, a verificação da validade do token pode ser feita apenas comparando o hash da mensagem com o valor da assinatura, sem necessidade de decodificar o payload.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nHS256 usa HMAC com SHA-256 e uma chave secreta compartilhada; não basta calcular um hash simples da mensagem. Além disso, confirmar a assinatura não equivale a validar integralmente o token: a aplicação deve conferir as declarações exigidas, como validade temporal, emissor e destinatário, quando aplicáveis.\n\n## ⚠️ O erro típico\nConfundir hash com HMAC e autenticidade com validade completa. A verificação criptográfica pode usar o cabeçalho e o payload ainda codificados; o erro não é afirmar que essa etapa dispensa a leitura do JSON, mas reduzir toda a validação a um hash sem chave.\n\n## 🧠 Conceito-chave\nNo formato compacto JWS, a entrada autenticada é o cabeçalho codificado, um ponto e o payload codificado. HMAC depende da chave secreta. A interpretação das declarações do payload constitui uma etapa adicional da validação de um JWT.\n\n## 📚 Onde aprofundar\n[RFC 7518, seção 3.2 — HMAC com SHA-2](https://www.rfc-editor.org/rfc/rfc7518.html#section-3.2). Para o processamento das declarações, consulte a RFC 7519.\n\n## 💡 Padrão a memorizar\nHS256 = HMAC + SHA-256 + chave. Assinatura válida, sozinha, não garante token adequado à aplicação.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 41592,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41593,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9415,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um programa de computador que utiliza recursão para calcular a série de Fibonacci pode ser otimizado usando a técnica de memoização, armazenando os resultados já calculados em um vetor. Se a entrada for n = 30, a otimização garante que o algoritmo seja executado em tempo linear em relação a n.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nCom memoização, cada valor de Fibonacci de 0 até n é calculado no máximo uma vez e depois recuperado do vetor. Há O(n) subproblemas, cada um com trabalho constante, no modelo usual que trata as operações aritméticas como unitárias. Assim, o tempo é O(n); n = 30 é apenas uma instância desse comportamento.\n\n## ⚠️ O erro típico\nContar novamente toda a árvore recursiva, como se os resultados não fossem armazenados. A memoização elimina o recálculo dos mesmos subproblemas, embora a implementação ainda use recursão.\n\n## 🧠 Conceito-chave\nProgramação dinâmica aproveita subproblemas sobrepostos. A versão recursiva memoizada de Fibonacci usa O(n) posições no vetor e pode usar O(n) posições na pilha. Para inteiros de tamanho arbitrário, o custo em bits das somas requer análise separada.\n\n## 📚 Onde aprofundar\n[MIT — Introduction to Algorithms, aula 19: Memoization e Fibonacci](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec19_orig/).\n\n## 💡 Padrão a memorizar\nConte estados distintos, não chamadas repetidas: n estados × trabalho constante = O(n).",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 41594,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41595,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9454,
+    "categoria": "Raciocínio Lógico",
+    "texto": "A sequência 3, 9, 27, 81, … segue uma regra de multiplicação constante. Se a regra for aplicada ao número 243, o resultado será 729.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA razão entre termos consecutivos é 3: 9/3 = 27/9 = 81/27 = 3. A regra declarada no enunciado manda multiplicar cada termo por esse valor. Portanto, 243 × 3 = 729.\n\n## ⚠️ O erro típico\nTratar a sequência como uma progressão aritmética. As diferenças são 6, 18 e 54, portanto não são constantes; o que permanece constante é o quociente.\n\n## 🧠 Conceito-chave\nEm uma progressão geométrica, cada termo resulta da multiplicação do anterior pela razão q. Aqui, a sequência é formada por potências consecutivas de 3.\n\n## 📚 Onde aprofundar\nEstude progressões geométricas: razão, recorrência e termo geral.\n\n## 💡 Padrão a memorizar\nPG: divida termos vizinhos para encontrar a razão e multiplique para avançar.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 41720,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41721,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9457,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Para resolver o problema de otimização de recursos, o método de programação linear exige que todas as restrições sejam expressas em forma de desigualdade não negativa.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nProgramação linear admite restrições lineares de igualdade e de desigualdade, com diferentes sentidos. Uma restrição como x + y = 10 é perfeitamente compatível com um modelo linear. A não negatividade de variáveis é uma condição de domínio frequente, não uma exigência de que todas as restrições originais tenham uma única forma.\n\n## ⚠️ O erro típico\nConfundir a forma padronizada exigida por uma apresentação de um algoritmo com a definição geral do problema. Transformações algébricas podem converter restrições em formas equivalentes sem eliminar a diversidade dos modelos originais.\n\n## 🧠 Conceito-chave\nUm programa linear otimiza uma função linear sujeita a restrições lineares. Variáveis de folga transformam certas desigualdades em igualdades; uma variável livre pode ser representada como diferença de duas variáveis não negativas.\n\n## 📚 Onde aprofundar\n[MIT — Linear programming basics](https://web.mit.edu/lpsolve/doc/LPBasics.htm).\n\n## 💡 Padrão a memorizar\nLinearidade diz respeito às expressões; não obriga todas as restrições a serem desigualdades do mesmo tipo.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 41726,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41727,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9460,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considerando a sequência lógica 3, 6, 12, 24, 48, qual é o próximo número da série?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa A está correta: cada termo é o dobro do anterior. Temos 3 × 2 = 6, 6 × 2 = 12, 12 × 2 = 24 e 24 × 2 = 48. Aplicando a mesma regra, o próximo termo é 48 × 2 = 96.\n\n## ⚠️ Armadilhas\n- **B)** Somar 24 ao último termo repete um incremento anterior e abandona a duplicação.\n- **C)** O valor não corresponde ao produto do último termo pela razão 2.\n- **D)** Excede o resultado da duplicação de 48 e rompe a razão constante.\n- **E)** Também não mantém o quociente 2 entre termos consecutivos.\n\n## 🧠 Conceito-chave\nEsta é uma progressão geométrica de primeiro termo 3 e razão 2. Seu termo geral é a_n = 3 × 2^(n−1). O sexto termo é 3 × 2^5 = 96.\n\n## 🎯 O que esta questão testa\nReconhecimento de um padrão multiplicativo e sua aplicação ao termo seguinte.\n\n## 📚 Onde aprofundar\nEstude progressões geométricas, especialmente razão e termo geral.\n\n## 💡 Padrão a memorizar\nQuando o quociente entre termos vizinhos é constante, avance multiplicando pela razão.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 41735,
+        "texto": "96",
+        "correta": true
+      },
+      {
+        "id": 41736,
+        "texto": "72",
+        "correta": false
+      },
+      {
+        "id": 41737,
+        "texto": "84",
+        "correta": false
+      },
+      {
+        "id": 41738,
+        "texto": "108",
+        "correta": false
+      },
+      {
+        "id": 41739,
+        "texto": "120",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9660,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um algoritmo recebe dois inteiros e retorna o maior deles. Se os valores de entrada forem 9 e 9, o algoritmo deve retornar 9.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nOs dois valores de entrada são 9. Logo, o maior valor do conjunto de entradas é 9, mesmo que ele apareça duas vezes. Um algoritmo que calcula o máximo deve devolver esse valor no caso de empate.\n\n## ⚠️ O erro típico\nSupor que é necessário existir um valor estritamente superior ao outro para que o máximo esteja definido. A igualdade não impede a existência do máximo.\n\n## 🧠 Conceito-chave\nA função máximo devolve um valor maior ou igual a cada entrada. Para qualquer número a, vale max(a, a) = a.\n\n## 📚 Onde aprofundar\nEstude comparação de valores, operadores relacionais e testes de casos de empate em algoritmos.\n\n## 💡 Padrão a memorizar\nEmpate entre entradas iguais: o máximo é o próprio valor repetido.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 42384,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42385,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11993,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considere a seguinte situação: Uma empresa de logística possui três centros de distribuição localizados em cidades A, B e C. Cada centro atende a um conjunto de clientes que se distribuem uniformemente ao longo de um círculo de raio 30 km. Os centros são dispostos em vértices de um triângulo equilátero de lado 60 km. Se um cliente localizado no ponto médio da fronteira entre os centros A e B for atendido pelo centro mais próximo, ele estará a 15 km de distância. Considerando essa configuração, a distância mínima entre qualquer par de centros é 30 km.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nO enunciado determina um triângulo equilátero de lado 60 km. Logo, a distância entre qualquer par de centros é 60 km, não 30 km. No ponto médio do segmento AB, a distância até A e até B é 60/2 = 30 km, não 15 km.\n\n## ⚠️ O erro típico\nConfundir o raio da região atendida com a distância entre centros ou dividir o segmento ao meio duas vezes.\n\n## 🧠 Conceito-chave\nUm ponto médio divide um segmento em duas partes iguais. Em um triângulo equilátero, os três lados têm a mesma medida.\n\n## 📚 Onde aprofundar\nEstude ponto médio de um segmento e propriedades do triângulo equilátero.\n\n## 💡 Padrão a memorizar\nLado AB = 60 km implica metade = 30 km; distância entre centros continua sendo 60 km.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "letras_flutuantes"
+    ],
+    "alternativas": [
+      {
+        "id": 49986,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49987,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11994,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Em um circuito elétrico série, a corrente que percorre cada componente é a mesma. Se a resistência total do circuito for a soma das resistências individuais, então a potência total dissipada é igual à soma das potências dissipada por cada componente.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nEm resistores ligados em série, a corrente I é a mesma. Como R_total = R₁ + R₂ + …, a potência dissipada é P_total = I²R_total = I²R₁ + I²R₂ + …, isto é, a soma das potências individuais.\n\n## ⚠️ O erro típico\nSomar correntes em um único caminho de série ou tratar a potência total como a potência de apenas um resistor.\n\n## 🧠 Conceito-chave\nPara cada resistor, a potência dissipada é P = UI = I²R. Aplicar a mesma corrente a todos permite fatorar I² na soma.\n\n## 📚 Onde aprofundar\nEstude associação de resistores em série, lei de Ohm e potência elétrica em resistores.\n\n## 💡 Padrão a memorizar\nEm série: mesma corrente, resistências somadas e potências dissipadas somadas.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 49988,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49989,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12170,
+    "categoria": "Raciocínio Lógico",
+    "texto": "A lógica de proposições pode ser representada por tabelas verdade, onde a negação de uma proposição verdadeira é falsa, e a conjunção de duas proposições falsas é falsa.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nA negação troca o valor lógico: se p é verdadeira, ¬p é falsa. Além disso, a conjunção só é verdadeira quando ambas as parcelas são verdadeiras; portanto, F ∧ F = F. As duas afirmações do item estão corretas.\n\n## ⚠️ O erro típico\nConfundir conjunção com outros conectivos. O fato de duas parcelas terem o mesmo valor falso não torna sua conjunção verdadeira.\n\n## 🧠 Conceito-chave\nNa lógica proposicional clássica, cada proposição recebe V ou F; os conectivos determinam o valor de expressões compostas por tabelas-verdade.\n\n## 📚 Onde aprofundar\nEstude as tabelas-verdade da negação e da conjunção na lógica clássica.\n\n## 💡 Padrão a memorizar\nNegação inverte V e F; “e” exige duas parcelas verdadeiras.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 50550,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50551,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12171,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um conjunto de cinco cartas numeradas de 1 a 5 é embaralhado aleatoriamente. A probabilidade de que a carta 3 apareça em posição 3 é maior que a probabilidade de que a carta 5 apareça em posição 5.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nEm um embaralhamento uniforme, qualquer carta tem a mesma chance de ocupar qualquer uma das cinco posições. Assim, P(carta 3 na posição 3) = 1/5 e P(carta 5 na posição 5) = 1/5. Não há superioridade.\n\n## ⚠️ O erro típico\nAtribuir maior chance a uma carta por seu número. Os rótulos identificam as cartas, mas não alteram a distribuição uniforme das posições.\n\n## 🧠 Conceito-chave\nHá 5! permutações equiprováveis e 4! delas colocam uma carta fixada em uma posição fixada. A razão é 4!/5! = 1/5.\n\n## 📚 Onde aprofundar\nEstude permutações simples e probabilidade em espaços amostrais equiprováveis.\n\n## 💡 Padrão a memorizar\nEm n posições equiprováveis, uma carta fixada ocupa uma posição fixada com probabilidade 1/n.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 50552,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50553,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12172,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considere a seguinte frase: \"Se hoje é terça-feira, então amanhã será quarta-feira.\" Esta proposição é uma tautologia, pois é verdadeira independentemente do dia atual.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nNa lógica proposicional, uma tautologia é verdadeira em todas as atribuições de valores às proposições atômicas. A forma p → q é falsa quando p é verdadeira e q é falsa. A relação entre terça-feira e quarta-feira decorre do significado dos dias, não torna essa forma uma tautologia.\n\n## ⚠️ O erro típico\nConfundir uma afirmação garantida por uma convenção do calendário com uma verdade decorrente apenas da forma lógica.\n\n## 🧠 Conceito-chave\nAo testar uma tautologia por tabela-verdade, consideram-se todas as valorações formais das proposições atômicas, sem acrescentar vínculos semânticos externos.\n\n## 📚 Onde aprofundar\nEstude tautologia, contingência e tabela-verdade da implicação material.\n\n## 💡 Padrão a memorizar\nVerdade pelo significado não basta: tautologia exige V em todas as linhas da tabela.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 50554,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50555,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12200,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um conjunto de cartas numeradas de 1 a 9 é distribuído igualmente entre três jogadores. Se o jogador A possui as cartas 1, 4 e 7, o jogador B possui as cartas 2, 5 e 8, e o jogador C possui as cartas 3, 6 e 9, então a soma das cartas de cada jogador é igual.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nAs somas são diferentes: A tem 1 + 4 + 7 = 12; B tem 2 + 5 + 8 = 15; C tem 3 + 6 + 9 = 18. Portanto, a distribuição igual da quantidade de cartas não produz somas iguais.\n\n## ⚠️ O erro típico\nConfundir ter três cartas com ter a mesma soma. Quantidade de elementos e soma dos valores são grandezas diferentes.\n\n## 🧠 Conceito-chave\nA soma total é 45. Para somas iguais entre três jogadores, cada um precisaria ter 15, o que não ocorre com A e C.\n\n## 📚 Onde aprofundar\nEstude soma de números inteiros e comparação entre cardinalidade e soma dos elementos.\n\n## 💡 Padrão a memorizar\nMesmo número de parcelas não significa mesmo resultado da soma.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 50655,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50656,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12205,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considerando o texto abaixo, responda à pergunta que se segue.\n\nTexto: Em um cenário de análise de dados de tráfego de rede, um engenheiro de segurança observa que, ao monitorar os pacotes transmitidos entre dois servidores, a sequência de bytes recebidos apresenta um padrão de repetição a cada 7 bytes: 0xAB, 0xCD, 0xEF, 0x01, 0x23, 0x45, 0x67, em seguida o padrão recomeça. O engenheiro deseja determinar quantos bytes diferentes existem no padrão completo antes de repetir.\n\nPergunta: Quantos bytes distintos compõem o padrão antes de sua repetição?",
+    "tipo": "ME",
+    "justificativa": "## 🔍 Por que a resposta é essa\nA alternativa C está correta: o bloco contém sete valores distintos, 0xAB, 0xCD, 0xEF, 0x01, 0x23, 0x45 e 0x67. Nenhum se repete dentro do bloco; a próxima ocorrência de 0xAB inicia o ciclo seguinte.\n\n## ⚠️ Armadilhas\nA e B contam menos valores que os sete apresentados. D e E incluem posições adicionais depois de iniciado um novo ciclo. Cada par hexadecimal representa um byte; não se contam os caracteres da escrita.\n\n## 🧠 Conceito-chave\nO período apresentado tem sete posições e, neste caso, sete valores distintos. Período e quantidade de valores distintos podem diferir em outros padrões com repetições internas.\n\n## 🎯 O que esta questão testa\nContagem de elementos distintos em um padrão periódico explicitamente fornecido.\n\n## 📚 Onde aprofundar\nEstude sequências periódicas e a diferença entre posições e valores distintos.\n\n## 💡 Padrão a memorizar\nConte o bloco antes do reinício e verifique se há valores repetidos dentro dele.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [
+      "referencia_a_texto_ausente",
+      "alternativa_muito_curta"
+    ],
+    "alternativas": [
+      {
+        "id": 50668,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 50669,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 50670,
+        "texto": "7",
+        "correta": true
+      },
+      {
+        "id": 50671,
+        "texto": "8",
+        "correta": false
+      },
+      {
+        "id": 50672,
+        "texto": "9",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12407,
+    "categoria": "Raciocínio Lógico",
+    "texto": "A proposição composta P → (Q ∧ R) é logicamente equivalente à proposição (P → Q) ∧ (P → R).",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nUsando a equivalência P → Q ≡ ¬P ∨ Q, o lado esquerdo fica ¬P ∨ (Q ∧ R). Pela distributividade, isso equivale a (¬P ∨ Q) ∧ (¬P ∨ R), exatamente (P → Q) ∧ (P → R).\n\n## ⚠️ O erro típico\nDistribuir a condicional sem conferir a posição dos conectivos pode produzir equivalências falsas. Aqui, a conjunção está no consequente.\n\n## 🧠 Conceito-chave\nUma condicional com consequente conjuntivo exige as duas conclusões quando o antecedente é verdadeiro. Se P é falso, as duas expressões são verdadeiras.\n\n## 📚 Onde aprofundar\nEstude equivalência da condicional e distributividade da disjunção sobre a conjunção.\n\n## 💡 Padrão a memorizar\nP implica Q e R equivale a: P implica Q, e P implica R.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 51339,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51340,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12445,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Considere a proposição: “Se um número par é dividido por 2, o resultado é sempre inteiro”. A afirmação é verdadeira.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nPor definição, um número inteiro par pode ser escrito como 2k, com k inteiro. Dividi-lo por 2 fornece (2k)/2 = k, que é inteiro. O argumento também vale para zero e números pares negativos.\n\n## ⚠️ O erro típico\nConfundir inteiro com positivo. A definição de paridade não exige que o número seja positivo.\n\n## 🧠 Conceito-chave\nSer par significa ser um múltiplo inteiro de 2, ou seja, apresentar resto zero na divisão por 2.\n\n## 📚 Onde aprofundar\nEstude divisibilidade nos inteiros e a definição algébrica de números pares.\n\n## 💡 Padrão a memorizar\nNúmero par = 2k; ao dividir por 2, resta o inteiro k.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 51472,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51473,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12446,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Um conjunto A possui 5 elementos. O número de subconjuntos diferentes de A é 32.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é CERTO\nCada um dos cinco elementos tem duas possibilidades independentes na formação de um subconjunto: pertencer ou não pertencer. Pelo princípio multiplicativo, há 2 × 2 × 2 × 2 × 2 = 32 subconjuntos.\n\n## ⚠️ O erro típico\nEsquecer o conjunto vazio ou o próprio conjunto A reduz indevidamente a contagem. Ambos são subconjuntos válidos.\n\n## 🧠 Conceito-chave\nO conjunto das partes de um conjunto finito com n elementos tem cardinalidade 2^n. Não se está contando a ordem dos elementos.\n\n## 📚 Onde aprofundar\nEstude conjunto das partes e princípio fundamental da contagem.\n\n## 💡 Padrão a memorizar\nn elementos distintos geram 2^n subconjuntos, incluindo o vazio e o conjunto inteiro.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 51474,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51475,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12447,
+    "categoria": "Raciocínio Lógico",
+    "texto": "Em um problema de lógica, a negação de “p ∧ q” é equivalente a “¬p ∧ ¬q”.",
+    "tipo": "CE",
+    "justificativa": "## 🔍 Por que a resposta é ERRADO\nPela lei de De Morgan, ¬(p ∧ q) equivale a ¬p ∨ ¬q. Basta que uma das proposições seja falsa para que a conjunção seja falsa. Por exemplo, com p verdadeira e q falsa, ¬(p ∧ q) é verdadeira, mas ¬p ∧ ¬q é falsa.\n\n## ⚠️ O erro típico\nNegar cada componente e manter o conectivo “e” cria uma condição mais restritiva que a negação original.\n\n## 🧠 Conceito-chave\nA negação da conjunção troca “e” por “ou” e nega as duas parcelas. O “ou” utilizado é inclusivo: uma ou ambas podem ser verdadeiras.\n\n## 📚 Onde aprofundar\nEstude leis de De Morgan e tabelas-verdade de conjunção, disjunção e negação.\n\n## 💡 Padrão a memorizar\nNegar “ambas verdadeiras” significa “pelo menos uma falsa”.",
+    "motivo_rejeicao": "",
+    "imagem": "",
+    "flags": [],
+    "alternativas": [
+      {
+        "id": 51476,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51477,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

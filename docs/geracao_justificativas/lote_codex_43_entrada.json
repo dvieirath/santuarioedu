@@ -1,0 +1,527 @@
+[
+  {
+    "id": 9443,
+    "texto": "Em 2025, o Tribunal de Justiça do Estado de São Paulo decidiu que a redação de um contrato de prestação de serviços de consultoria deve obedecer ao princípio da boa-fé objetiva. Considerando essa decisão, qual das alternativas abaixo descreve corretamente a consequência jurídica da aplicação desse princípio na redação contratual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41680,
+        "texto": "Os contratos podem ser alterados unilateralmente pelo contratado a qualquer momento, sem necessidade de justificativa.",
+        "correta": false
+      },
+      {
+        "id": 41681,
+        "texto": "A boa-fé objetiva impõe que as cláusulas sejam interpretadas de forma literal, sem considerar o contexto.",
+        "correta": false
+      },
+      {
+        "id": 41682,
+        "texto": "O princípio da boa-fé objetiva exige que as partes ajam com honestidade e transparência, evitando cláusulas abusivas e interpretando-as de maneira que favoreça a equidade.",
+        "correta": true
+      },
+      {
+        "id": 41683,
+        "texto": "A boa-fé objetiva permite a inclusão de cláusulas que excluem a responsabilidade do contratado por qualquer eventualidade.",
+        "correta": false
+      },
+      {
+        "id": 41684,
+        "texto": "O princípio da boa-fé objetiva não tem aplicação prática nos contratos de consultoria.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9442,
+    "texto": "A partir de uma análise de textos jornalísticos contemporâneos, qual das opções abaixo melhor exemplifica a ocorrência de ambiguidade lexical em um contexto de comunicação corporativa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41675,
+        "texto": "O relatório foi publicado em 2023, demonstrando os resultados do programa.",
+        "correta": false
+      },
+      {
+        "id": 41676,
+        "texto": "O relatório foi publicado em 2023, demonstrando os resultados do programa, e foi bem recebido pela comunidade acadêmica.",
+        "correta": false
+      },
+      {
+        "id": 41677,
+        "texto": "O relatório foi publicado em 2023, demonstrando os resultados do programa, e a comunidade acadêmica foi bem recebida.",
+        "correta": true
+      },
+      {
+        "id": 41678,
+        "texto": "O relatório foi publicado em 2023, demonstrando os resultados do programa, e o programa foi bem recebido pela comunidade acadêmica.",
+        "correta": false
+      },
+      {
+        "id": 41679,
+        "texto": "O relatório foi publicado em 2023, demonstrando os resultados do programa, e o relatório foi bem recebido pela comunidade acadêmica.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9441,
+    "texto": "Considerando a proposta de reforma linguística que visa reduzir a carga normativa do ensino de português nas escolas públicas, a qual dos seguintes enunciados melhor descreve a posição do Ministério da Educação em relação à manutenção do uso de regras gramaticais tradicionais?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41670,
+        "texto": "O Ministério defende a completa eliminação de regras gramaticais consideradas antiquadas.",
+        "correta": false
+      },
+      {
+        "id": 41671,
+        "texto": "O Ministério propõe a revisão de regras, mantendo-as apenas quando forem essenciais para a compreensão textual.",
+        "correta": true
+      },
+      {
+        "id": 41672,
+        "texto": "O Ministério sustenta que todas as regras gramaticais devem ser obrigatórias no currículo escolar.",
+        "correta": false
+      },
+      {
+        "id": 41673,
+        "texto": "O Ministério recomenda que as regras gramaticais sejam ensinadas apenas em disciplinas optativas.",
+        "correta": false
+      },
+      {
+        "id": 41674,
+        "texto": "O Ministério sugere que as regras gramaticais sejam substituídas por um modelo de aprendizagem baseada em tecnologia.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9440,
+    "texto": "No âmbito da norma culta, o uso de pronomes oblíquos átonos em posição de objeto direto é considerado incorreto. Julgue a seguinte proposição: a frase ‘Ele viu o livro’ pode ser corretamente transformada em ‘Ele o viu’ sem violar a norma culta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41668,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41669,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9439,
+    "texto": "Texto: Em 2024, a Secretaria de Educação do Estado X lançou um programa de alfabetização digital para crianças de 6 a 8 anos, com foco em leitura e escrita em ambientes virtuais. O programa, denominado ‘Leitura 4.0’, prevê o uso de tablets com softwares de leitura interativa, além de oficinas de escrita criativa para os professores. O objetivo é reduzir a lacuna de alfabetização digital entre regiões urbanas e rurais, promovendo a inclusão e a equidade no acesso à tecnologia. Em uma avaliação preliminar, os alunos que participaram de sessões semanais apresentaram aumento médio de 15% na velocidade de leitura e 12% na precisão ortográfica. O projeto também incentiva o uso de recursos multimídia, como vídeos curtos e podcasts, para contextualizar o vocabulário e estimular a compreensão textual em diferentes gêneros.\n\nConsiderando o texto acima, julgue a seguinte afirmação: o uso de podcasts como recurso multimídia pode contribuir para o desenvolvimento da competência leitora em crianças de 6 a 8 anos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41666,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41667,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9438,
+    "texto": "A norma culta do português prevê a utilização de crase quando houver a fusão da preposição \"a\" com o artigo definido feminino. Julgue a seguinte afirmação: a frase \"Ele voltou à escola\" está correta quanto ao uso da crase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41664,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41665,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9437,
+    "texto": "Na análise de textos jornalísticos, a pontuação desempenha papel decisivo na interpretação do sentido. Julgue a seguinte proposição: a inserção de dois pontos antes de uma citação direta, seguida de ponto final, é suficiente para indicar a conclusão da fala.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41662,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41663,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9436,
+    "texto": "Considerando que a norma culta do português brasileiro estabelece a concordância nominal como regra fundamental, julgue a seguinte afirmação: a expressão \"os dados de pesquisa foram analisados\" apresenta concordância correta entre o sujeito composto e o verbo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41660,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41661,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9435,
+    "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório sobre a evolução do ensino de língua portuguesa nas escolas públicas brasileiras. O documento destaca que, apesar de avanços na inclusão de metodologias ativas, ainda há lacunas significativas na formação de professores quanto à aplicação prática de estratégias de ensino de leitura crítica. O relatório indica que 68% dos docentes afirmaram ter recebido treinamento insuficiente em técnicas de análise de textos literários contemporâneos, enquanto apenas 32% relataram domínio de práticas de avaliação formativa. Considerando os dados apresentados, qual das alternativas abaixo representa a principal recomendação para melhorar a qualidade do ensino de português nas escolas públicas?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41655,
+        "texto": "Implementar programas de formação continuada focados em técnicas de análise de textos literários contemporâneos e avaliação formativa.",
+        "correta": true
+      },
+      {
+        "id": 41656,
+        "texto": "Reduzir o número de aulas de português para concentrar recursos em outras disciplinas.",
+        "correta": false
+      },
+      {
+        "id": 41657,
+        "texto": "Aumentar a carga horária de aulas de gramática normativa, sem alterações nos métodos de ensino.",
+        "correta": false
+      },
+      {
+        "id": 41658,
+        "texto": "Substituir os professores de português por profissionais de outras áreas, como matemática, para diversificar o ensino.",
+        "correta": false
+      },
+      {
+        "id": 41659,
+        "texto": "Eliminação de avaliações formativas, substituindo-as por avaliações somativas unicamente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9434,
+    "texto": "A norma geral de direito civil, no seu artigo 186, estabelece que quem, por ação ou omissão voluntária, negligência ou imprudência, causar dano a outrem, fica obrigado a repará‑lo. Em uma situação hipotética, um motorista, ao dirigir em uma rodovia, ultrapassa o limite de velocidade e, por negligência, colide com um veículo que estava em parada de emergência. Qual é a consequência jurídica mais adequada para o condutor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41650,
+        "texto": "Ele pode alegar culpa exclusiva do outro condutor, pois o veículo estava em parada de emergência.",
+        "correta": false
+      },
+      {
+        "id": 41651,
+        "texto": "Ele deve arcar com a reparação integral do dano, independentemente de culpa alheia.",
+        "correta": true
+      },
+      {
+        "id": 41652,
+        "texto": "Ele pode requerer o pagamento de indenização apenas pelos danos materiais, excluindo os morais.",
+        "correta": false
+      },
+      {
+        "id": 41653,
+        "texto": "Ele pode se eximir de responsabilidade, pois a colisão ocorreu em situação de emergência.",
+        "correta": false
+      },
+      {
+        "id": 41654,
+        "texto": "Ele pode solicitar a redução da indenização pela culpa concorrente do outro condutor.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9433,
+    "texto": "No contexto da norma ISO 9001:2015, a cláusula 7.1.5 exige que as organizações documentem as competências necessárias para a execução das atividades. Em um cenário em que uma empresa de tecnologia desenvolve um novo produto, qual das alternativas abaixo melhor descreve a aplicação prática dessa exigência?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41645,
+        "texto": "A empresa deve registrar apenas as competências dos desenvolvedores de software, pois são os responsáveis diretos pelo produto.",
+        "correta": false
+      },
+      {
+        "id": 41646,
+        "texto": "A empresa deve manter um banco de dados contendo a formação acadêmica de todos os funcionários, independentemente de sua função.",
+        "correta": false
+      },
+      {
+        "id": 41647,
+        "texto": "A empresa deve documentar as competências técnicas e comportamentais dos profissionais envolvidos em cada etapa do ciclo de vida do produto, incluindo testes, marketing e suporte.",
+        "correta": true
+      },
+      {
+        "id": 41648,
+        "texto": "A empresa pode delegar a documentação das competências ao departamento de recursos humanos, sem necessidade de revisão periódica.",
+        "correta": false
+      },
+      {
+        "id": 41649,
+        "texto": "A empresa deve apenas documentar as competências dos gestores de projeto, pois são responsáveis pela coordenação das equipes.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9432,
+    "texto": "Em um edital de concurso para o cargo de Analista de Processos Administrativos, a banca Cebraspe apresenta o seguinte excerto: \"O candidato deverá interpretar corretamente o trecho do artigo 5º, inciso XXXV, da Constituição Federal, que estabelece que a lei não pode ser aplicada de forma retroativa, salvo em benefício do réu. Considerando que a norma foi publicada em 01/01/2025 e que o processo administrativo foi iniciado em 15/12/2024, qual é a interpretação correta do dispositivo constitucional?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41640,
+        "texto": "A norma pode ser aplicada retroativamente ao processo iniciado em 15/12/2024, pois o edital não impede a aplicação retroativa.",
+        "correta": false
+      },
+      {
+        "id": 41641,
+        "texto": "A norma não pode ser aplicada retroativamente ao processo iniciado em 15/12/2024, pois o princípio da irretroatividade da lei se aplica a todos os processos administrativos.",
+        "correta": false
+      },
+      {
+        "id": 41642,
+        "texto": "A norma pode ser aplicada retroativamente ao processo iniciado em 15/12/2024, desde que beneficie o réu.",
+        "correta": true
+      },
+      {
+        "id": 41643,
+        "texto": "A norma pode ser aplicada retroativamente ao processo iniciado em 15/12/2024, desde que não haja prejuízo ao réu.",
+        "correta": false
+      },
+      {
+        "id": 41644,
+        "texto": "A norma não pode ser aplicada retroativamente ao processo iniciado em 15/12/2024, pois o edital já estabeleceu a aplicação futura.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9430,
+    "texto": "No período composto por subordinação, a oração subordinada adjetiva restritiva pode ser introduzida por ‘que’ ou ‘cujo’ sem alteração da relação de dependência entre as orações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41636,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41637,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9429,
+    "texto": "A aplicação do ponto de exclamação em frases que expressam surpresa ou emoção deve ser evitada em textos acadêmicos, pois pode comprometer a formalidade do discurso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41634,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41635,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9428,
+    "texto": "A concordância verbal no presente do indicativo exige que o verbo esteja em forma singular quando o sujeito for composto por mais de um elemento, salvo quando o sujeito estiver intransitivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41632,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41633,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9427,
+    "texto": "No contexto de uma redação dissertativa, a utilização de pronomes de tratamento no singular, como \"senhor(a)\" ou \"você\", é considerada correta quando se dirige ao leitor de forma geral, pois evita a generalização do discurso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41630,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41631,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9394,
+    "texto": "Texto: A partir de 2024, a legislação brasileira sobre proteção de dados pessoais passou a incluir dispositivos que exigem que os responsáveis por sistemas de inteligência artificial adotem práticas de transparência no tratamento de informações sensíveis. Em uma empresa de tecnologia, o diretor de compliance está elaborando um relatório para demonstrar a conformidade com a nova norma. Ele decide inserir no relatório uma tabela comparativa entre os requisitos da Lei Geral de Proteção de Dados (LGPD) e as diretrizes da norma recém‑adotada, destacando que a nova norma exige explicação detalhada sobre o uso de algoritmos de aprendizado de máquina. Considerando a necessidade de clareza e precisão na comunicação de requisitos legais, qual dos seguintes títulos seria o mais adequado para a tabela?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41525,
+        "texto": "Tabela 1 – Conformidade entre LGPD e a Norma de Transparência em IA",
+        "correta": true
+      },
+      {
+        "id": 41526,
+        "texto": "Tabela 1 – Comparativo de exigências legais sobre dados pessoais",
+        "correta": false
+      },
+      {
+        "id": 41527,
+        "texto": "Tabela 1 – Resumo das diretrizes de proteção de dados",
+        "correta": false
+      },
+      {
+        "id": 41528,
+        "texto": "Tabela 1 – Análise de requisitos da LGPD e da nova norma de IA",
+        "correta": false
+      },
+      {
+        "id": 41529,
+        "texto": "Tabela 1 – Avaliação de conformidade entre LGPD e regulamentação de IA",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9393,
+    "texto": "Em um estudo linguístico, observou‑se que a frase ‘Ele correu rápido’ apresenta um adjetivo que funciona como predicativo do sujeito. Qual é a classificação correta desse adjetivo no contexto da norma padrão?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41520,
+        "texto": "Adjetivo predicativo",
+        "correta": true
+      },
+      {
+        "id": 41521,
+        "texto": "Adjetivo substantivo",
+        "correta": false
+      },
+      {
+        "id": 41522,
+        "texto": "Adjetivo adverbial",
+        "correta": false
+      },
+      {
+        "id": 41523,
+        "texto": "Adjetivo possessivo",
+        "correta": false
+      },
+      {
+        "id": 41524,
+        "texto": "Adjetivo interrogativo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9392,
+    "texto": "Na elaboração de um relatório de auditoria, o analista percebeu que a frase ‘Os resultados indicam que o processo foi conduzido de forma eficiente’ poderia ser aprimorada para reduzir ambiguidade. Qual alternativa apresenta a reformulação mais adequada, mantendo o sentido original e respeitando a norma culta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41515,
+        "texto": "Os resultados apontam que o processo foi conduzido com eficiência.",
+        "correta": true
+      },
+      {
+        "id": 41516,
+        "texto": "Os resultados indicam que o processo foi conduzido de maneira eficiente.",
+        "correta": false
+      },
+      {
+        "id": 41517,
+        "texto": "Os resultados mostram que o processo foi conduzido de forma eficiente.",
+        "correta": false
+      },
+      {
+        "id": 41518,
+        "texto": "Os resultados evidenciam que o processo foi conduzido de forma eficiente.",
+        "correta": false
+      },
+      {
+        "id": 41519,
+        "texto": "Os resultados apontam que o processo foi conduzido de maneira eficiente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9391,
+    "texto": "Considerando que a norma de redação de documentos oficiais exige a clareza na exposição de ideias, um servidor público foi incumbido de redigir um memorando que comunicasse a mudança de horário de atendimento ao público. No documento, o servidor optou por utilizar a expressão ‘a fim de otimizar os recursos humanos’. Qual é a classificação gramatical correta da locução ‘a fim de’ no contexto apresentado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41510,
+        "texto": "Advérbio de finalidade",
+        "correta": true
+      },
+      {
+        "id": 41511,
+        "texto": "Conjunção subordinativa causal",
+        "correta": false
+      },
+      {
+        "id": 41512,
+        "texto": "Preposição de modo",
+        "correta": false
+      },
+      {
+        "id": 41513,
+        "texto": "Pronome relativo",
+        "correta": false
+      },
+      {
+        "id": 41514,
+        "texto": "Interjeição",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 3000,
+    "motivo": "Gabarito Errado conflita com a interpretação termodinâmica usual: equilíbrio térmico implica ausência de transferência líquida de calor. Trocas microscópicas bidirecionais não justificam automaticamente negar a formulação macroscópica. Revisar original e gabarito. Fonte: https://openstax.org/books/university-physics-volume-2/pages/1-1-temperature-and-thermal-equilibrium .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2999,
+    "motivo": "Comando remete a informações anteriores não fornecidas. O cálculo isolado daria f = c/λ ≈ 5,45 × 10^14 Hz, não 200 Hz, mas é necessário recuperar o contexto omitido conforme a regra de não preencher enunciados incompletos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2996,
+    "motivo": "Figura do circuito substituída por marcador. A soma de correntes depende da topologia; valores de resistências não permitem recuperar as ligações.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2995,
+    "motivo": "Situação do navio foi truncada com reticências e remissão a contexto hipotético. Recuperar o enunciado integral, inclusive condições das boias e do fluido, antes de justificar a generalização.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2985,
+    "motivo": "Contradição na definição de corpo rígido: distâncias relativas entre pontos materiais devem permanecer constantes; o trecho ainda que varie a distância contradiz isso. Gabarito Certo requer revisão; não adaptar o raciocínio à chave.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

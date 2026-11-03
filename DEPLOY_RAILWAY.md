@@ -1,143 +1,69 @@
-# Deploy no Railway — SantuarioEdu
+# Publicação Railway — SantuarioEdu
 
-Passo-a-passo pra colocar no ar em ~30 min. Custo estimado: **US$5-10/mês** com
-Postgres + Redis inclusos.
+Revisado em 19/10/2026. O projeto remoto está com trial expirado e os três serviços offline.
+Não confundir configuração preparada com aplicação publicada e validada.
 
-## 1. Preparo local (5 min)
+## Preparação concluída
 
-**Gerar SECRET_KEY nova** (a atual `django-insecure-*` vai barrar boot):
-```bash
-python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-```
-Copie a saída — vai usar em Env Vars do Railway.
+- railway.json usa RAILPACK, substituindo Nixpacks.
+- Python 3.14.6, alinhado ao ambiente local validado e à série 3.14 usada no CI.
+- Build: pip install -r requirements.txt && python manage.py collectstatic --noinput --clear.
+- Inicialização: migrações seguidas de Gunicorn na porta fornecida pelo Railway.
+- Healthcheck /health/ com tolerância de 120 segundos.
+- Procfile não redefine bloqueios de login nem tenta criar administrador automaticamente.
+- No painel, DATABASE_URL foi preparada como ${{Postgres.DATABASE_URL}} em lugar de
+  ${{Postgres.DATABASE_PUBLIC_URL}}. Está em staged changes, ainda não efetivada em um deploy.
 
-**Commit dos arquivos de deploy:**
-```bash
-git add railway.json Procfile .python-version prf_master/views.py
-git commit -m "deploy: Railway config + health check universal"
-git push
-```
+## Verificação local sem serviços externos
 
-## 2. Criar projeto no Railway (5 min)
+Execute:
 
-1. Entre em [railway.app](https://railway.app) → login com GitHub
-2. **New Project** → **Deploy from GitHub repo** → escolha `projeto_prf`
-3. Railway detecta Django/Python automaticamente e faz o primeiro build (vai falhar por falta de env vars — normal)
-
-## 3. Adicionar plugins (2 min)
-
-Dentro do projeto:
-1. **+ New** → **Database** → **Add PostgreSQL** — cria com `DATABASE_URL` já injetada
-2. **+ New** → **Database** → **Add Redis** — cria com `REDIS_URL` injetada
-
-## 4. Configurar Env Vars (10 min)
-
-Clique no service `web` → aba **Variables** → cole todas de uma vez em **Raw Editor**:
-
-```env
-SECRET_KEY=<cole a chave gerada no passo 1>
-DEBUG=False
-ALLOWED_HOSTS=santuarioedu.com.br,www.santuarioedu.com.br,.up.railway.app
-SITE_URL=https://santuarioedu.com.br
-
-# Cache aponta pra Redis que o Railway já provisionou
-CACHE_URL=${{Redis.REDIS_URL}}
-
-# IA
-AI_PROVIDER_ORDER=groq,gemini
-GROQ_API_KEY=<sua chave>
-GEMINI_API_KEY=<sua chave>
-AI_TIMEOUT_SECONDS=30
-
-# Mercado Pago (ROTACIONE antes de colar — as antigas vazaram no chat)
-MP_ACCESS_TOKEN=<APP_USR-novo>
-MP_PUBLIC_KEY=<APP_USR-novo>
-MP_WEBHOOK_SECRET=<gere no dashboard MP>
-
-# Notificações admin
-NOTIFY_DISCORD_WEBHOOK=<crie webhook novo, o antigo foi deletado>
-ADMIN_EMAIL=davivieiradesouza4@gmail.com
-
-# SMTP (ex.: Gmail com senha de app)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_HOST_USER=<seu@gmail.com>
-EMAIL_HOST_PASSWORD=<senha-de-app-de-16-chars>
-DEFAULT_FROM_EMAIL=SantuarioEdu <noreply@santuarioedu.com.br>
-
-# Sentry (opcional mas recomendado — grátis 5k/mês)
-SENTRY_DSN=
-SENTRY_ENV=production
+```powershell
+.\venv\Scripts\python.exe scripts/testes/validar_deploy.py
 ```
 
-**Deploy dispara automaticamente** após salvar. Acompanhe em **Deployments**.
+O verificador ignora .env e credenciais do ambiente, usa banco/cache/arquivos temporários
+em output/deploy_validation e não modifica o banco principal. Valida segurança de produção,
+collectstatic, migrações, divergência entre modelos e migrações e quatro rotas via HTTPS simulado.
+Logs e results.json permanecem nessa pasta. Não testa PostgreSQL, Redis, R2 ou serviços de e-mail.
 
-## 5. Domínio próprio (5 min)
+## Ao reativar o plano
 
-1. No service `web` → **Settings** → **Networking** → **Custom Domain**
-2. Cole `santuarioedu.com.br` e `www.santuarioedu.com.br`
-3. Railway mostra o CNAME/A. Vá no painel do seu registrador de DNS e adicione:
-   - `@` → A record apontando pro IP do Railway
-   - `www` → CNAME apontando pro `xxx.up.railway.app`
-4. SSL é automático (Let's Encrypt) — leva 1-2 min
+1. Revisar e versionar o conjunto atual de alterações. Há alterações anteriores nesta cópia,
+   inclusive a migração 0058, que não devem ser omitidas ao publicar os modelos correspondentes.
+   As mudanças desta preparação ainda são locais; não houve commit, push ou publicação.
+2. Publicar o código validado de forma coordenada com a alteração pendente DATABASE_URL.
+   Não aplicar o botão Deploy Changes ao código antigo apenas para testar a referência.
+3. Confirmar Postgres e Redis online e a referência interna do banco resolvida.
+4. Conferir os logs da nova construção. A tentativa de 10/08/2026 falhou sem logs disponíveis;
+   não foi possível atribuir nem comprovar a correção da causa histórica.
+5. Conferir domínio público e certificados: /health/ precisa retornar 200 e db/cache true.
+   Na inspeção, domínio próprio respondeu 403 e endereço railway.app respondeu 404.
+6. Fazer backup do PostgreSQL antes de sincronizar dados locais. As justificativas locais
+   não são enviadas ao PostgreSQL por um push do código. Não substituir o banco remoto.
+7. Testar imagens no R2, cadastro/login, confirmação de e-mail e fluxos usados pelo produto.
+   Não presumir que credenciais cadastradas continuam válidas.
+8. Verificar política de backups no painel; existência de volume não comprova backup automático.
 
-## 6. Criar superuser (2 min)
+## Configuração que foi conferida
 
-Aba **web** → **Settings** → **Deploy** → **Run Command** (ou via CLI):
-```bash
-railway run python manage.py createsuperuser
-```
+Repositório dvieirath/santuarioedu, branch main; DEBUG=False; SITE_URL=https://www.santuarioedu.com.br;
+ALLOWED_HOSTS e DJANGO_ALLOWED_HOSTS incluem domínio raiz, www, domínio Railway e host do healthcheck.
+CSRF_TRUSTED_ORIGINS inclui os três endereços públicos HTTPS. CACHE_URL usa Redis interno.
+Há variáveis para R2, e-mail e integrações; seus serviços não foram exercitados nesta preparação.
 
-## 7. Configurar webhook Mercado Pago (2 min)
+O painel informa que Config as Code será encerrado em 01/12/2026. As páginas públicas consultadas
+continuam documentando railway.json; portanto a atualização para Railpack não resolve, por si só,
+a futura migração da configuração. Planejar transferência dos comandos/healthcheck para o painel
+ou IaC antes do prazo, preservando os serviços e volumes existentes.
 
-1. [mercadopago.com.br/developers](https://www.mercadopago.com.br/developers)
-2. Sua aplicação → **Webhooks** → **Configurar notificações**
-3. URL: `https://santuarioedu.com.br/pagamento/webhook/`
-4. Eventos: `payment`
-5. Copie o **Secret** → cole em `MP_WEBHOOK_SECRET` no Railway → redeploy
+## Limites da validação
 
-## 8. Validação pós-deploy
+Não há Docker disponível neste computador para construir a imagem Linux. A checagem local não
+substitui o build Railpack, Gunicorn/Linux, migrações PostgreSQL e testes de integrações em produção.
+A geração automática de justificativas permanece encerrada por solicitação do usuário.
 
-```bash
-# Health check
-curl https://santuarioedu.com.br/health/
-# Deve retornar: {"status":"ok","db":true,"cache":true,"version":"..."}
-
-# SEO
-curl https://santuarioedu.com.br/robots.txt
-curl https://santuarioedu.com.br/sitemap.xml
-```
-
-Se algum retornar erro, veja **Logs** no Railway.
-
-## Comandos úteis (Railway CLI)
-
-```bash
-npm i -g @railway/cli
-railway login
-railway link  # dentro do repo local
-
-railway logs           # tail dos logs em tempo real
-railway run <cmd>      # roda comando com envs de prod (útil pra shell)
-railway variables      # lista envs
-railway open           # abre dashboard
-```
-
-## Troubleshooting
-
-- **Build falha "no module named X"** → falta no `requirements.txt`
-- **"DisallowedHost"** → adicione o domínio em `ALLOWED_HOSTS`
-- **500 no primeiro acesso** → checar logs; provável falta de env var
-- **Estáticos 404** → confirme `whitenoise` no MIDDLEWARE (já está) + rodou `collectstatic` no build
-- **Webhook MP 401** → `MP_WEBHOOK_SECRET` não bate. Copie do dashboard MP novamente.
-
-## Custo estimado mensal
-
-| Recurso | Uso MVP | Custo |
-|---|---|---|
-| Web service | ~256MB RAM, 0.2 vCPU | US$3-5 |
-| PostgreSQL | 500MB | US$1-2 |
-| Redis | 50MB | US$1 |
-| **Total** | | **US$5-8/mês** |
-
-Escala automática — se o app crescer, cobra proporcionalmente. Alerta de gastos
-em **Project Settings → Usage Limits**.
+Fontes oficiais:
+- https://docs.railway.com/config-as-code/reference
+- https://railpack.com/languages/python
+- https://docs.railway.com/guides/private-networking#using-reference-variables

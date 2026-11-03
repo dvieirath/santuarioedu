@@ -1,0 +1,74 @@
+[
+  {
+    "id": 11762,
+    "motivo": "Não apenas... mas também é correlação aditiva, não inversão sintática. A frase não demonstra hierarquia entre os personagens; a inferência marcada é injustificada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11761,
+    "motivo": "O trecho do conto e a oração contendo cresce não foram fornecidos. Não é possível avaliar função sintática e semântica contextual por descrição genérica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11759,
+    "motivo": "Somente texto de apoio: falta proposição a julgar. Não deduzir o item errado a partir do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11757,
+    "motivo": "Pergunta que tipo de inversão, mas oferece apenas Certo/Errado. A expressão exemplifica repetição, não uma inversão identificável. Falta proposição julgável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11756,
+    "motivo": "Solicita uma opção que identifique figura de linguagem, mas as únicas alternativas são Certo/Errado. Não há classificação proposta a validar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11755,
+    "motivo": "Não delimita regime jurídico da seleção, norma de avaliação nem possibilidade de retificação. Falta de critérios pode exigir correção, mas não sustenta consequência categórica única de invalidação em qualquer caso. A referência genérica ao Código Florestal não resolve essas lacunas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11754,
+    "motivo": "O gabarito cita Decreto-Lei 10.048/2001 sobre consulta pública. A Lei federal 10.048 é de 2000 e trata de prioridade de atendimento. A narrativa também pressupõe decreto alterando Código Civil e acórdão não identificado. Fonte: https://planalto.gov.br/ccivil_03/leis/l10048.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11719,
+    "motivo": "Relação causal não constitui, por si, figura de linguagem. Causa e efeito e causa e consequência são opções equivalentes, e o trecho efetivo está ausente. Sem resposta única.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11718,
+    "motivo": "Falta a frase solicitada. A função tradicional da oração adjetiva é adjunto adnominal, alternativa não marcada; adjunto adjetivo não fornece distinção segura que sustente o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11717,
+    "motivo": "Máximos corretos: 20 x 1,25 = 25 pontos e 60 x 1,25 = 75 pontos, total 100. Nenhuma alternativa apresenta essa distribuição; a marcada confunde número de questões com pontos. Sem acertos e erros informados, também não se calcula nota efetiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11716,
+    "motivo": "Caber pode ocorrer figuradamente com capacidade mental: todas as ideias cabem em sua mente. Ele cabe todas as ideias é inadequado pela construção/regência, não por proibição do contexto mental. O sentido conter também inverte a relação de caber em; gabarito certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11713,
+    "motivo": "Céu é e atmosfera reflete concordam corretamente no singular. O possível problema factual da explicação física não constitui erro de concordância verbal. Gabarito certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

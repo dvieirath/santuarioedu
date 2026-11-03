@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1122,
+    "texto": "Considere-se que seja uma sequência tal que, e. Nesse caso, é possível estabelecer um valor para, de modo que os termos estejam em progressão geométrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 20013,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 20014,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 1000,
+    "texto": "Con respecto a las reglas de acentuación gráfica en español juzgue los siguientes ítems: La palabra «claramente» apesar de ser sobreesdrújula no lleva tilde por ser derivada de adjetivo que no es acentuado en su forma simple.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19769,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19770,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 914,
+    "texto": "Considerando a figura precedente [FIGURA: martelo e prego], que ilustra uma atividade humana diária à qual se aplicam as leis de Newton, julgue os próximos itens: Na situação da figura anterior, [equação vetorial ilegível].",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19597,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19598,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 881,
+    "texto": "Na mecânica newtoniana, queda livre é um movimento uniformemente acelerado e unidimensional, cuja equação de movimento é uma função quadrática no tempo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19531,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19532,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 858,
+    "texto": "Com base no Currículo de Pernambuco: A fim de garantir equidade na educação, o Currículo de Pernambuco adota, entre outros princípios norteadores, a educação em direitos humanos e a formação integral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19485,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19486,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 822,
+    "texto": "Com base no texto: Os determinantes sociais da saúde são elementos preponderantes para compreender a produção de saúde das coletividades.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19413,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19414,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 809,
+    "texto": "A fim de garantir equidade na educação, o Currículo de Pernambuco adota, entre outros princípios norteadores, a educação em direitos humanos e a formação integral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19387,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19388,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 784,
+    "texto": "Os determinantes sociais da saúde são elementos preponderantes para compreender a produção de saúde das coletividades",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19337,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19338,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 706,
+    "texto": "Com base no Currículo de Pernambuco, julgue os itens que se seguem.\n\nA fim de garantir equidade na educação, o Currículo de Pernambuco adota, entre outros princípios norteadores, a educação em direitos humanos e a formação integral.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19181,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19182,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 678,
+    "texto": "Durante a etapa inicial em que a célula está com aporte normal de oxigênio, o potencial oxidante gerado na forma de NADH pela glicólise e pelo ciclo do ácido cítrico será utilizado para transferir elétrons da matriz mitocondrial para o espaço intermembranas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19125,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19126,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 672,
+    "texto": "Para garantir a conservação da biodiversidade da Mata Atlântica, são necessárias ações que limitem o desmatamento desse bioma constantemente ameaçado pela pressão demográfica exercida pela elevada parcela da população do país que habita essa região.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19113,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19114,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

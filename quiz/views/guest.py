@@ -1,16 +1,34 @@
 """Guest Quiz — demo publico sem cadastro (max 3 questoes) — extraidas de views/_todos.py."""
 from django.shortcuts import render, redirect
+import hashlib
+import json
+from pathlib import Path
 
-from ..models import Questao, Alternativa, Categoria
+from ..models import Questao, Alternativa
 
 
 GUEST_QUIZ_LIMITE = 3
 
 
 
-# Catch-all: importa todos os simbolos de _todos que ainda nao foram extraidos.
-# Assim helpers, constantes e funcoes internas continuam acessiveis apos o split.
-from ._todos import *  # noqa: F401,F403
+DEMO_CURADORIA = json.loads(
+    (Path(__file__).resolve().parent.parent / 'demo_curadoria.json').read_text(encoding='utf-8')
+)
+
+
+def _assinatura(q):
+    dados = {'texto': q.texto, 'tipo': q.tipo, 'justificativa': q.justificativa,
+             'categoria': q.categoria.nome,
+             'alternativas': sorted((a.texto, a.correta) for a in q.alternativa_set.all())}
+    return hashlib.sha256(json.dumps(dados, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
+def _questoes_demo():
+    assinaturas = {item['texto']: item['sha256'] for item in DEMO_CURADORIA}
+    candidatas = Questao.objects.filter(
+        revisada=True, rejeitada_definitiva=False, texto__in=assinaturas,
+    ).select_related('categoria').prefetch_related('alternativa_set').order_by('id')
+    return [q for q in candidatas if not q.imagem and _assinatura(q) == assinaturas[q.texto]]
 
 def guest_quiz(request):
     """Demo de 3 questoes sem cadastro. Session tracker."""
@@ -29,11 +47,17 @@ def guest_quiz(request):
             'pct':     round(acertos / GUEST_QUIZ_LIMITE * 100),
         })
 
-    q = _guest_pegar_questao(respondidas)
+    disponiveis = _questoes_demo()
+    if len(disponiveis) < GUEST_QUIZ_LIMITE:
+        return render(request, 'quiz/guest_indisponivel.html')
+    q = next((q for q in disponiveis if q.id == request.session.get('guest_atual')
+              and q.id not in respondidas), None)
+    q = q or next((q for q in disponiveis if q.id not in respondidas), None)
     if not q:
         # BD vazio (nao deveria acontecer em prod)
         return redirect('cadastro')
 
+    request.session['guest_atual'] = q.id
     return render(request, 'quiz/guest_quiz.html', {
         'questao':    q,
         'alternativas': list(q.alternativa_set.all()),
@@ -52,11 +76,18 @@ def guest_quiz_responder(request):
     q_id_raw = request.POST.get('questao_id', '').strip()
     alt_id_raw = request.POST.get('alternativa_id', '').strip()
 
-    if not (q_id_raw.isdigit() and alt_id_raw.isdigit()):
+    if not all(value.isascii() and value.isdecimal() and len(value) <= 18
+               for value in (q_id_raw, alt_id_raw)):
         return redirect('guest_quiz')
 
+    respondidas = request.session.get('guest_respondidas', [])
+    if (len(respondidas) >= GUEST_QUIZ_LIMITE
+            or int(q_id_raw) != request.session.get('guest_atual')):
+        return redirect('guest_quiz')
+    q = next((q for q in _questoes_demo() if q.id == int(q_id_raw)), None)
+    if q is None:
+        return redirect('guest_quiz')
     try:
-        q = Questao.objects.get(id=int(q_id_raw), revisada=True)
         alt = Alternativa.objects.get(id=int(alt_id_raw), questao=q)
     except (Questao.DoesNotExist, Alternativa.DoesNotExist):
         return redirect('guest_quiz')
@@ -74,6 +105,7 @@ def guest_quiz_responder(request):
     if acertou:
         acertos += 1
     request.session['guest_acertos'] = acertos
+    request.session.pop('guest_atual', None)
     request.session.modified = True
 
     correta = q.alternativa_set.filter(correta=True).first()
@@ -90,30 +122,6 @@ def guest_quiz_responder(request):
 
 def guest_quiz_reset(request):
     """Reseta a sessao guest — util pra testar de novo ou apos falhar."""
-    for k in ('guest_respondidas', 'guest_acertos'):
+    for k in ('guest_respondidas', 'guest_acertos', 'guest_atual'):
         request.session.pop(k, None)
     return redirect('guest_quiz')
-
-def _guest_pegar_questao(ja_respondidas_ids):
-    """Escolhe questao demo — priorizacao curada:
-    1. Direito Constitucional (nosso forte apos batch 636)
-    2. Fallback: qualquer questao revisada
-    """
-    from ..models import Categoria
-    q = None
-    # Prioriza Direito Const (maior massa e mais interessante)
-    dc = Categoria.objects.filter(
-        nome__iexact='Direito Constitucional',
-    ).first()
-    if dc:
-        q = (Questao.objects
-             .filter(revisada=True, categoria_id__in=dc.subarvore_ids())
-             .exclude(id__in=ja_respondidas_ids)
-             .order_by('?').first())
-    if not q:
-        # Fallback: qualquer revisada
-        q = (Questao.objects
-             .filter(revisada=True)
-             .exclude(id__in=ja_respondidas_ids)
-             .order_by('?').first())
-    return q

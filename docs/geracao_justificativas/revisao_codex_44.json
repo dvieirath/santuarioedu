@@ -1,0 +1,74 @@
+[
+  {
+    "id": 9389,
+    "motivo": "“Prazo estipulado no contrato” pode significar prazo da restrição ou vigência do contrato principal. Não se identifica a base da restrição no contrato administrativo. Não é possível importar automaticamente o regime comercial: o STJ admite em parceria comercial efeitos pós-contratuais razoavelmente limitados (REsp 1.203.109/MG, Informativo 561). Fonte: https://processo.stj.jus.br/jurisprudencia/externo/informativo/?livre=%40CNOT%3D015367 . Necessário delimitar o alcance temporal e o regime aplicável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9388,
+    "motivo": "Linguagem inclusiva não está definida nem exemplificada. “Pode comprometer” expressa possibilidade dependente das escolhas e do contexto; não se pode negar categoricamente essa possibilidade para toda forma de inclusão. O gabarito Errado não decorre das informações fornecidas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9387,
+    "motivo": "O gabarito Certo é incompatível: oração objetiva direta exerce função de objeto direto de um verbo da principal; não exige sequência de verbo de ligação, transitivo direto e outro de ligação. Exemplo suficiente: “Espero que ele venha”.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9385,
+    "motivo": "Comando pede escolher entre direito real e direito pessoal, mas só oferece Certo/Errado, sem proposição a julgar. Não se pode associar Errado a uma das classificações ausentes.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9382,
+    "motivo": "A opção A não exige especificamente a preposição a nem a presença do artigo feminino a. Nome feminino de cidade não basta: “Vou a Brasília” não recebe crase. Nenhuma alternativa enuncia as condições necessárias de modo completo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9381,
+    "motivo": "O texto atribui indevidamente ao verbo a função de agente da passiva. Em “pode indicar”, indicar é verbo principal da locução e seu núcleo lexical; classificar como complemento do modal depende do modelo sintático. A disputa entre A e E e a premissa errada exigem revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9380,
+    "motivo": "Na interpretação metonímica de plateia por espectadores, a relação é lugar pelas pessoas, não causa e efeito. A definição genérica admite outras relações de contiguidade, mas o exemplo não comprova a relação especificada. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9379,
+    "motivo": "Comando solicita alternativa sobre natureza jurídica da exigência, mas as únicas opções são Certo/Errado. Falta uma proposição jurídica para julgamento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9378,
+    "motivo": "Orações coordenadas não se subordinam a uma “principal” como pressuposto. Cada verbo concorda com seu sujeito: “João estuda e os colegas trabalham”. A regra de singular obrigatório está errada, em desacordo com Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9376,
+    "motivo": "Prova escrita de aceitação não é condição geral necessária nem suficiente para validade de uma cláusula de prazo. Código Civil, arts. 104 e 107, exige os requisitos do negócio e admite liberdade de forma quando a lei não exige forma especial. Sem delimitar regime ou outros vícios, o Certo é excessivo. Fonte: https://planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8953,
+    "motivo": "O comando invoca “jurisprudência consolidada do STF” sem identificar tese ou precedente e não fornece o edital real. A opção C é plausível como diretriz geral, mas não basta para atribuir esse enunciado específico ao STF nem resolver a controvérsia sobre conteúdos do edital. Registrar para conferir a fonte jurisprudencial antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 8952,
+    "motivo": "A adversatividade e a vírgula anterior são adequadas, mas o trecho também apresenta vírgula posterior a contudo. O comando não esclarece se julga apenas a vírgula anterior ou toda a pontuação exibida; o tratamento de contudo inicial como elemento isolado varia conforme análise. Revisar o recorte para julgamento inequívoco.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

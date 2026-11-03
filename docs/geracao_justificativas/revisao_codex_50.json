@@ -1,0 +1,80 @@
+[
+  {
+    "id": 2006,
+    "motivo": "Texto 8A3 e penúltima estrofe ausentes. Não se pode identificar o referente de Essa nem classificar seu emprego contextual como anáfora ou catáfora.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2005,
+    "motivo": "Penúltima estrofe ausente. As formas isoladas não bastam para confirmar relação de simultaneidade entre as ações no poema.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2003,
+    "motivo": "Falta a penúltima estrofe; não há passagens a examinar quanto à personificação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2002,
+    "motivo": "Falta a terceira estrofe. Não foram fornecidas as palavras cuja semelhança fônica sustentaria paronomásia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2000,
+    "motivo": "A expressão isolada sugere personificação de mãos, mas a identificação de combinação sensorial exige esclarecer o contexto: mãos não nomeia necessariamente uma sensação tátil. Recuperar a estrofe antes de confirmar sinestesia como pede o gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1992,
+    "motivo": "Falta o período do texto 8A2-I. Conversa pode ser substantivo ou verbo e sua função sintática depende da oração.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1980,
+    "motivo": "Não foi fornecido neste item o período com muita. Para avaliar sua classe em contexto, recuperar o texto 8A1-I e confirmar a ocorrência; não substituir esse passo pela simples associação de intensidade a advérbio.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1888,
+    "motivo": "O enunciado apresenta marcador de contexto em lugar do texto. Embora os segmentos sugiram adjuntos conformativos, falta a construção completa para conferir a função exata das vírgulas e a comparação solicitada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1887,
+    "motivo": "Há apenas marcador “[contexto do segundo parágrafo]”. Sem as orações ligadas por na medida em que, não se pode avaliar substituição por pois.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1886,
+    "motivo": "O terceiro parágrafo foi omitido; não há como verificar se a ideia retoma a noção descrita anteriormente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1576,
+    "motivo": "“[Contexto completo fornecido]” é um marcador, não o texto. Mesma lacuna de 1887; registrar este ID separadamente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1575,
+    "motivo": "“[Contexto completo fornecido]” não contém o terceiro parágrafo. Mesma lacuna de 1886; não confirmar a retomada coesiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1508,
+    "motivo": "A posição final “começaram a trabalhar por conta própria mais recentemente” admite leitura em que o adjunto continua qualificando o início da atividade. O fragmento com omissões não demonstra prejuízo obrigatório à coerência. Conferir parágrafo completo e gabarito antes de justificar Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "id": 8479,
+    "texto": "Considere a sequência lógica: 2, 5, 11, 20, 32, ?. O próximo número da série é obtido somando-se o dobro do termo anterior ao próprio termo anterior.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38591,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 38592,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8478,
+    "texto": "Na sequência de um algoritmo de ordenação por seleção, o elemento mínimo de um subconjunto de 10 posições é trocado com a primeira posição do mesmo subconjunto. O procedimento continua iterativamente até que todo o vetor esteja ordenado. Se o algoritmo for executado em um vetor de 10 elementos, o número de trocas realizadas será igual a 9.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 38589,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 38590,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6832,
+    "texto": "Um investimento de R$ 5.000,00 aplicado a uma taxa de juros anual de 30% ao longo de 3 anos pagará anualmente para o investidor um valor inferior a R$ 2.700,00.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33466,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 33467,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6830,
+    "texto": "Em relação a assuntos relacionados ao cálculo financeiro e avaliação econômica de projetos, julgue os próximos itens. Considere que, ao final de cada ano e durante 3 anos, uma pessoa deposita R$ 5.000,00 em um banco de investimento que paga juros de 20% ao ano. Nesse caso, ao final do terceiro ano, imediatamente após o terceiro depósito, a pessoa terá R$ 19.550,00 na conta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33462,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 33463,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6828,
+    "texto": "A respeito de conceitos de matemática financeira, julgue os itens a seguir. Se, em uma fazenda, 6 macacos consomem 45 kg de frutas em 5 dias, cada um deles consumindo a mesma quantidade, então 14 macacos consumirão 189 kg de frutas em 9 dias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33458,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 33459,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6827,
+    "texto": "A respeito de conceitos de matemática financeira, julgue os itens a seguir. Considere que, em uma população de pássaros, após o nascimento de dois machos e seis fêmeas, a porcentagem de machos na população passou a corresponder a 30% da população total. Considere, ainda, que, no momento anterior ao nascimento, o número de machos era o dobro do número de fêmeas. Nesse caso, após os nascimentos, há exatamente 9 machos e 21 fêmeas na população.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33456,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 33457,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6826,
+    "texto": "A respeito de conceitos de matemática financeira, julgue os itens a seguir. Se para o valor de R$ 4.200,00, investido hoje, obtém-se, após três anos, o valor de R$ 5.590,20, então a taxa de juros desse investimento é de 10% ao ano.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33454,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 33455,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6825,
+    "texto": "A respeito de conceitos de matemática financeira, julgue os itens a seguir. Se a taxa efetiva de um contrato é de 44% ao ano capitalizado semestralmente, então a taxa nominal é de 40% ao ano.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33452,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 33453,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6824,
+    "texto": "Assumindo 2 como valor aproximado de 1,1 7, julgue os itens a seguir, relacionados aos sistemas de amortização. No sistema de amortização constante, os juros de cada parcela decrescem com o tempo e a diferença dos juros entre duas parcelas consecutivos é sempre constante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33450,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 33451,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6822,
+    "texto": "Assumindo 2 como valor aproximado de 1,1 7, julgue os itens a seguir, relacionados aos sistemas de amortização. Para um empréstimo de R$ 270.000,00 realizado no sistema de amortização misto, com taxa de juros de 10% ao ano e que será pago em 9 parcelas anuais, a quinta prestação é superior a R$ 45.000,00.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 33446,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 33447,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6562,
+    "texto": "Considere que uma refinaria será construída na região plana rômbica compreendida entre as partes retas de um rio e de uma rodovia que se cruzam, determinadas pelos vetores a = (7,1,0) e b = (1,7,0), com unidades em quilômetros. A equação da reta determinada pelo vetor a − b corresponde à bissetriz dos quadrantes pares do respectivo plano coordenado que a contém.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32926,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32927,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6561,
+    "texto": "Considere que uma refinaria será construída na região plana rômbica compreendida entre as partes retas de um rio e de uma rodovia que se cruzam, determinadas pelos vetores a = (7,1,0) e b = (1,7,0), com unidades em quilômetros. A área dessa região é inferior a 50 km2.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32924,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32925,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6560,
+    "texto": "Cada alvéolo de uma colmeia é formado por um prisma hexagonal regular de lado fixo e encimado por três trapézios idênticos que se encontram em um vértice comum. A área do total da superfície do alvéolo é mínima somente quando θ = arccos(1/√3).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32922,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32923,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6559,
+    "texto": "Cada alvéolo de uma colmeia é formado por um prisma hexagonal regular de lado fixo e encimado por três trapézios idênticos que se encontram em um vértice comum. Quando o ângulo θ cresce se aproximando de 90º, a área total da superfície do alvéolo tende a infinito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32920,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32921,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6558,
+    "texto": "Cada alvéolo de uma colmeia é formado por um prisma hexagonal regular de lado fixo e encimado por três trapézios idênticos que se encontram em um vértice comum. A base do prisma é aberta e o volume total deve ser uma constante especificada. Utilizando-se uma aproximação quadrática para cos θ, obtém-se, para a equação cos θ = √3/3, a seguinte solução positiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32918,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32919,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6201,
+    "texto": "Considere verdadeiras as seguintes informações a respeito dos funcionários de uma empresa que possui vários postos de combustíveis: “Todos os funcionários da empresa que trabalharam ou trabalham nos postos A ou B nasceram entre 1970 e 1980”. Se um funcionário da empresa nasceu entre 1970 e 1980 então ele trabalhou no posto A ou no posto B.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32204,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32205,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6199,
+    "texto": "Considere verdadeiras as seguintes informações a respeito dos funcionários de uma empresa que possui vários postos de combustíveis: “Todos os funcionários da empresa que trabalharam ou trabalham nos postos A ou B nasceram entre 1970 e 1980”. Com base nessas informações, julgue o item: O conjunto de todos os funcionários da empresa que já trabalharam no posto A está contido no conjunto dos funcionários da empresa que em 2022 têm mais de 40 anos de idade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32200,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32201,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6194,
+    "texto": "Paulo dispõe de R$ 20.000,00 para investir. Se ele aplicar esse valor sob um regime de juros compostos de 5% ao bimestre, então, ao final de 2 anos, o valor que existirá na conta será superior a R$ 21.000,00.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32190,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 32191,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 6191,
+    "texto": "Uma pessoa realizou uma pesquisa em todos os postos de combustíveis de uma cidade com a finalidade de verificar a variação dos preços de gasolina. Tabela: Preços 6,40 (10), 6,80 (5), 6,50 (2), 6,10 (1), 6,30 (1),? (1). Considere que um visitante passando por essa cidade escolha aleatoriamente um posto para abastecer o seu veículo. A probabilidade de ele escolher um posto em que o preço da gasolina esteja acima da média de preços é menor que 0,25.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32184,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32185,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 6148,
+    "texto": "Entre o início do 5.º dia e o início do 7.º dia, a demanda foi superior à oferta e a diferença entre demanda e oferta atingiu seu valor máximo entre todos os valores atingidos no período total de 10 dias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 32098,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 32099,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

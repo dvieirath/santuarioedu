@@ -1,0 +1,497 @@
+[
+  {
+    "id": 11968,
+    "texto": "A frase \"O juiz, ao analisar o recurso, decidiu pela improcedência da ação, pois a prova documental apresentada não foi suficiente para sustentar o pedido\" apresenta erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49912,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49913,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11940,
+    "texto": "Um edital de concurso exige que os candidatos demonstrem conhecimento sobre a norma culta. Um candidato escreve: \"Os dados foram analisados e os resultados foram apresentados em um relatório que foi elaborado pela equipe de pesquisa.\" Identifique a ocorrência de redundância no texto.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49817,
+        "texto": "O uso de \"os\" antes de \"dados\" e \"resultados\" é redundante.",
+        "correta": false
+      },
+      {
+        "id": 49818,
+        "texto": "A repetição de \"foi\" em duas locuções verbais cria redundância.",
+        "correta": true
+      },
+      {
+        "id": 49819,
+        "texto": "A expressão \"em um relatório\" é redundante com \"apresentados\".",
+        "correta": false
+      },
+      {
+        "id": 49820,
+        "texto": "O advérbio \"analisados\" está redundante com \"elaborado\".",
+        "correta": false
+      },
+      {
+        "id": 49821,
+        "texto": "A frase não contém redundância.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11939,
+    "texto": "Em uma prova de língua portuguesa, o candidato deve analisar o seguinte trecho: \"Apesar de o relatório ser extenso, a diretoria concluiu que a apresentação seria curta, pois o objetivo era sintetizar os pontos-chave.\" Qual é a função sintática da locução conjuntiva \"apesar de\" neste contexto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49812,
+        "texto": "Adjunto adverbial de causa.",
+        "correta": false
+      },
+      {
+        "id": 49813,
+        "texto": "Adjunto adverbial de modo.",
+        "correta": false
+      },
+      {
+        "id": 49814,
+        "texto": "Adjunto adverbial de concessão.",
+        "correta": true
+      },
+      {
+        "id": 49815,
+        "texto": "Adjunto adverbial de tempo.",
+        "correta": false
+      },
+      {
+        "id": 49816,
+        "texto": "Adjunto adverbial de lugar.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11938,
+    "texto": "Considerando o contexto de um edital de concurso público que exige domínio da norma culta, um candidato apresenta a seguinte frase em sua redação: \"O fato de o servidor ter sido dispensado, não significa que ele não tenha contribuído para o bom funcionamento da instituição.\" Identifique a ocorrência de erro de concordância verbal nesta frase.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49807,
+        "texto": "A forma verbal \"dispensado\" está inadequada, pois deveria ser \"dispensado\".",
+        "correta": false
+      },
+      {
+        "id": 49808,
+        "texto": "O verbo \"significa\" deveria concordar com o sujeito composto \"servidor e contribuição\", alterando para \"significam\".",
+        "correta": false
+      },
+      {
+        "id": 49809,
+        "texto": "O verbo \"ter\" está no tempo verbal errado; deveria ser \"tiver\".",
+        "correta": false
+      },
+      {
+        "id": 49810,
+        "texto": "O verbo \"dispensado\" está no particípio passado, mas o sujeito é singular, portanto deveria ser \"dispensado\".",
+        "correta": false
+      },
+      {
+        "id": 49811,
+        "texto": "O verbo \"significa\" está em singular, mas o sujeito composto é \"o servidor e a contribuição\", exigindo plural: \"significam\".",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11937,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação do Estado de São Paulo lançou uma iniciativa intitulada 'Educação Digital 2025', que visa integrar tecnologias de aprendizagem adaptativa em todas as escolas públicas de ensino fundamental. A proposta prevê a instalação de laboratórios de realidade virtual em 80% das unidades escolares, além de cursos de capacitação para professores em metodologias ativas e análise de dados educacionais. Os responsáveis pela execução do projeto, segundo o plano, devem garantir que os recursos sejam utilizados de forma transparente, com prestação de contas trimestral e auditoria externa independente. O objetivo central é reduzir a lacuna de desempenho entre estudantes de áreas urbanas e rurais, promovendo igualdade de oportunidades e fomentando a inovação pedagógica no contexto brasileiro.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49805,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49806,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11936,
+    "texto": "Um candidato a cargo de técnico de laboratório recebe, em sua prova de português, a seguinte frase: \"Ele, que era conhecido por sua diligência, não hesitou em adotar medidas preventivas.\" A pergunta pede que o candidato indique se a frase apresenta erro de concordância ou não.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49803,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49804,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11935,
+    "texto": "No âmbito de um concurso para o Ministério da Educação, a banca Cebraspe propõe que os candidatos identifiquem, em um texto, a figura de linguagem que melhor descreve a frase: \"O silêncio do corredor era tão denso que parecia um manto de nuvem escura sobre os passos dos estudantes.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49801,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49802,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11934,
+    "texto": "Em uma prova objetiva de português, um candidato responde que a palavra \"inexorável\" significa \"impossível de ser evitado\". O enunciado pede que o candidato indique se a resposta está correta ou errada.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49799,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49800,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11933,
+    "texto": "No contexto de um edital de concurso para a Polícia Federal, o edital prevê que os candidatos deverão apresentar, no ato da inscrição, comprovante de conclusão de curso superior em qualquer área, acompanhado de certificado de proficiência em língua inglesa, com nível mínimo de fluência equivalente ao nível B2 do Quadro Europeu Comum. Considerando que a Lei nº 8.112/1990, que regula o regime jurídico dos servidores públicos civis da União, estabelece que a educação superior é requisito para o ingresso em cargos de nível médio, a exigência de certificado de proficiência em inglês é considerada constitucional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49797,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49798,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11932,
+    "texto": "Em 2022, o Tribunal de Justiça do Estado de São Paulo aprovou um acórdão que reconheceu a necessidade de revisão de textos de leis estaduais que contenham construções ambíguas, a fim de evitar interpretações divergentes. O acórdão enfatiza que a clareza textual é essencial para a segurança jurídica. Diante dessa decisão, qual dos itens abaixo representa corretamente a aplicação do princípio da clareza textual no contexto legislativo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49792,
+        "texto": "A clareza textual permite que apenas juízes especializados interpretem a lei, excluindo o público geral.",
+        "correta": false
+      },
+      {
+        "id": 49793,
+        "texto": "A clareza textual assegura que a lei seja compreendida de maneira uniforme por todos os operadores do direito, reduzindo a possibilidade de controvérsias.",
+        "correta": true
+      },
+      {
+        "id": 49794,
+        "texto": "A clareza textual implica que a lei seja escrita em linguagem jurídica complexa para garantir precisão.",
+        "correta": false
+      },
+      {
+        "id": 49795,
+        "texto": "A clareza textual é irrelevante quando a lei trata de assuntos de domínio técnico, como engenharia civil.",
+        "correta": false
+      },
+      {
+        "id": 49796,
+        "texto": "A clareza textual exige que a lei seja escrita em linguagem coloquial, sem uso de termos técnicos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11931,
+    "texto": "Texto: Em 2023, a Associação Brasileira de Linguística Aplicada publicou um artigo que argumenta que a análise do discurso corporativo deve considerar não apenas a estrutura sintática, mas também as práticas discursivas de poder presentes nos textos institucionais. O artigo destaca que a interpretação dos discursos de liderança requer a identificação de recursos retóricos que reforçam hierarquias sociais. Considerando o exposto, qual das seguintes afirmações melhor descreve o conceito de ‘poder discursivo’ no contexto da análise de textos corporativos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49787,
+        "texto": "O poder discursivo é a capacidade de um texto influenciar a opinião pública em geral, independentemente de seu contexto.",
+        "correta": false
+      },
+      {
+        "id": 49788,
+        "texto": "O poder discursivo se manifesta apenas em discursos políticos, não sendo relevante para textos corporativos.",
+        "correta": false
+      },
+      {
+        "id": 49789,
+        "texto": "O poder discursivo envolve a utilização de estratégias retóricas que consolidam relações de dominação e legitimação dentro de uma organização.",
+        "correta": true
+      },
+      {
+        "id": 49790,
+        "texto": "O poder discursivo é a habilidade de um texto convencer o leitor a adotar comportamentos individuais, sem considerar estruturas sociais.",
+        "correta": false
+      },
+      {
+        "id": 49791,
+        "texto": "O poder discursivo refere-se à força persuasiva de textos literários de ficção contemporânea.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11930,
+    "texto": "O Ministério da Cultura lançou em 2025 um projeto de revitalização de espaços culturais urbanos, que prevê a criação de oficinas de escrita criativa para jovens de 15 a 18 anos. A proposta inclui a avaliação de textos produzidos pelos participantes. Qual das alternativas a seguir descreve corretamente o conceito de “escrita de propósito” aplicado a esse contexto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49782,
+        "texto": "Escrita de propósito é a produção de textos apenas para fins acadêmicos, sem considerar o público leitor.",
+        "correta": false
+      },
+      {
+        "id": 49783,
+        "texto": "Escrita de propósito envolve a criação de textos com objetivo claro, atendendo a uma necessidade específica do leitor.",
+        "correta": true
+      },
+      {
+        "id": 49784,
+        "texto": "Escrita de propósito refere-se somente à escrita de textos literários de ficção.",
+        "correta": false
+      },
+      {
+        "id": 49785,
+        "texto": "Escrita de propósito é a capacidade de escrever textos técnicos sem usar linguagem figurada.",
+        "correta": false
+      },
+      {
+        "id": 49786,
+        "texto": "Escrita de propósito implica escrever apenas textos persuasivos em contextos eleitorais.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11929,
+    "texto": "Em 2024, a Secretaria de Educação publicou um edital para a contratação de professores de língua portuguesa, exigindo que os candidatos apresentassem prova de proficiência em análise de textos literários contemporâneos. Considerando que a prova contemplou a análise de um poema de 2022, qual dos seguintes enunciados descreve corretamente o princípio de adequação da prova ao cargo, segundo a teoria da validade de Messick?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49777,
+        "texto": "A prova deve avaliar apenas habilidades cognitivas, excluindo aspectos afetivos.",
+        "correta": false
+      },
+      {
+        "id": 49778,
+        "texto": "A prova deve medir competências que os futuros docentes exercerão no cotidiano escolar.",
+        "correta": true
+      },
+      {
+        "id": 49779,
+        "texto": "A prova pode incluir questões de áreas não relacionadas à língua portuguesa, desde que sejam de nível médio.",
+        "correta": false
+      },
+      {
+        "id": 49780,
+        "texto": "A validade da prova é garantida apenas pela consistência interna dos itens.",
+        "correta": false
+      },
+      {
+        "id": 49781,
+        "texto": "A prova pode ser considerada válida se tiver alta confiabilidade, independentemente de seu conteúdo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11928,
+    "texto": "Abertura de um texto jurídico com a frase \"Em atenção à sua solicitação, vimos por meio desta informar que…\" é considerada adequada, pois mantém a formalidade e a clareza exigidas pelo padrão Cebraspe.\n\nConsiderando o texto acima, qual das alternativas a seguir descreve corretamente a função sintática do termo \"por meio desta\"?\n\nA) Núcleo do sujeito\nB) Complemento direto\nC) Complemento indireto\nD) Adjuntivo\nE) Predicativo do objeto",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49775,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49776,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11927,
+    "texto": "Segundo a norma culta, o uso de palavras de origem estrangeira sem adaptação fonética, como \"software\" e \"hardware\", é permitido em textos formais, desde que o contexto seja técnico.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49773,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49774,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11926,
+    "texto": "O emprego de neologismos em textos acadêmicos formais, desde que tenham sido aceitos pela comunidade científica, não viola a norma culta da língua.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49771,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49772,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11925,
+    "texto": "Em uma sentença judicial, a expressão \"por ora\" pode ser empregada como equivalente a \"por enquanto\", indicando uma suspensão temporária de efeitos de uma decisão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49769,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49770,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11924,
+    "texto": "No contexto da norma de estilo de redação oficial, o uso de pronomes de tratamento no plural, como \"Senhores\" e \"Senhoras\", é considerado adequado quando se dirige a um público heterogêneo composto por diferentes cargos públicos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49767,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49768,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11764,
+    "texto": "Texto: A crescente digitalização das atividades administrativas públicas tem impulsionado a adoção de sistemas de gestão eletrônica, que visam otimizar processos e reduzir custos operacionais. Em 2023, o Ministério da Transparência lançou um portal de consulta pública que permite aos cidadãos acompanhar em tempo real o andamento de processos licitatórios. O portal, que integra dados de diversas secretarias, oferece filtros avançados de busca por modalidade, valor e prazo, além de possibilitar a geração de relatórios em PDF. Contudo, a implementação enfrentou desafios técnicos, como a necessidade de garantir a segurança dos dados, a interoperabilidade entre sistemas legados e a conformidade com a Lei Geral de Proteção de Dados (LGPD). Em meio a esse cenário, um analista de TI destacou que a principal dificuldade reside na harmonização de padrões de codificação, que variam entre as plataformas.\n\nConsiderando o texto acima, qual das alternativas a seguir descreve corretamente a função do termo ‘interoperabilidade’ no contexto apresentado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49255,
+        "texto": "É um requisito de segurança que impede o acesso não autorizado aos dados.",
+        "correta": false
+      },
+      {
+        "id": 49256,
+        "texto": "É um parâmetro de desempenho que mede a velocidade de processamento dos sistemas.",
+        "correta": false
+      },
+      {
+        "id": 49257,
+        "texto": "É a capacidade de diferentes sistemas de se comunicarem e trocarem informações de forma consistente.",
+        "correta": true
+      },
+      {
+        "id": 49258,
+        "texto": "É a norma que determina a estrutura dos relatórios gerados em PDF.",
+        "correta": false
+      },
+      {
+        "id": 49259,
+        "texto": "É um critério de avaliação de qualidade de serviço oferecido ao cidadão.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11763,
+    "texto": "No contexto da norma culta, o uso de pronomes de tratamento tem regras específicas. Considere a seguinte frase: ‘A senhora de nome João, que foi nomeada para o cargo, deve comparecer à reunião’. A expressão ‘senhora de nome João’ apresenta, em termos de norma culta, o que?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49250,
+        "texto": "É uma forma correta e usual de tratamento em documentos oficiais.",
+        "correta": false
+      },
+      {
+        "id": 49251,
+        "texto": "É uma construção arcaica, não mais empregada no português contemporâneo.",
+        "correta": false
+      },
+      {
+        "id": 49252,
+        "texto": "É um erro de concordância, pois o pronome deve concordar com o gênero do nome.",
+        "correta": false
+      },
+      {
+        "id": 49253,
+        "texto": "É um exemplo de pronominalização excessiva, considerada inadequada na norma culta.",
+        "correta": true
+      },
+      {
+        "id": 49254,
+        "texto": "É uma forma de evitar a repetição do nome próprio, mantendo a fluidez do texto.",
+        "correta": false
+      }
+    ]
+  }
+]

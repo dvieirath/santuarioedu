@@ -1,0 +1,432 @@
+[
+  {
+    "id": 9413,
+    "texto": "Um algoritmo de ordenação divide uma lista de 12 elementos em quatro sublistas de três elementos cada, ordena cada sublista e, em seguida, combina as sublistas em uma única lista ordenada. Se o algoritmo for implementado em paralelo, cada sublista pode ser processada simultaneamente. Considerando que a etapa de combinação requer a comparação de todos os pares de elementos entre sublistas adjacentes, a afirmação a seguir é verdadeira: a complexidade total do algoritmo permanece O(n log n).",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41590,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41591,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9414,
+    "texto": "Em um sistema de controle de acesso, um token de autenticação JWT contém três seções separadas por pontos: cabeçalho, payload e assinatura. Se a assinatura for gerada utilizando o algoritmo HS256, a verificação da validade do token pode ser feita apenas comparando o hash da mensagem com o valor da assinatura, sem necessidade de decodificar o payload.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41592,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41593,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9415,
+    "texto": "Um programa de computador que utiliza recursão para calcular a série de Fibonacci pode ser otimizado usando a técnica de memoização, armazenando os resultados já calculados em um vetor. Se a entrada for n = 30, a otimização garante que o algoritmo seja executado em tempo linear em relação a n.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41594,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41595,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9416,
+    "texto": "Um banco de dados relacional implementa a normalização até a terceira forma normal (3FN) para evitar redundâncias. Se uma tabela contém as colunas (A, B, C) e a dependência funcional A → B, B → C, a tabela já está em 3FN.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41596,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41597,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9417,
+    "texto": "Texto: Em 2025, a Agência Nacional de Telecomunicações (Anatel) publicou um relatório sobre a expansão da rede 5G no país. O documento destaca que, para atender à demanda crescente, 70% das cidades de médio porte já possuem cobertura total, enquanto apenas 45% das áreas rurais apresentam conectividade mínima. A Anatel recomenda a implementação de torres de micro‑ondas e a parceria com operadoras locais para reduzir o custo de implantação. Além disso, o relatório aponta que a adoção de tecnologias de rede definida por software (SDN) pode diminuir a latência em até 30% em cenários de tráfego intenso. Por fim, o estudo ressalta que a segurança cibernética deve ser reforçada com criptografia de ponta a ponta em todas as transmissões de dados.\n\nConsiderando o texto acima, a afirmação a seguir é verdadeira: a expansão da rede 5G em áreas rurais, segundo o relatório, já alcançou cobertura total em 45% das localidades analisadas.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41598,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41599,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9454,
+    "texto": "A sequência 3, 9, 27, 81, … segue uma regra de multiplicação constante. Se a regra for aplicada ao número 243, o resultado será 729.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41720,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41721,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9455,
+    "texto": "Em um conjunto de 12 elementos, a probabilidade de selecionar dois elementos consecutivos em ordem crescente é maior do que a probabilidade de selecionar dois elementos na ordem inversa.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41722,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41723,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9456,
+    "texto": "Considerando o texto abaixo, a afirmação de que a lógica formal pode ser aplicada para validar argumentos que envolvem premissas condicionalmente equivalentes é correta.\n\nTexto: O juiz, ao analisar o caso de um acidente de trânsito, observou que a velocidade do veículo A excedia 80 km/h e que o veículo B estava a uma distância de 50 metros. O relatório técnico indicou que, se a velocidade do veículo A fosse inferior a 80 km/h, o acidente não teria ocorrido. Assim, concluiu-se que a velocidade superior a 80 km/h foi causa direta do acidente.\n\nConsiderando o texto acima, a afirmação de que a lógica formal pode ser aplicada para validar argumentos que envolvem premissas condicionalmente equivalentes é correta.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41724,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41725,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9457,
+    "texto": "Para resolver o problema de otimização de recursos, o método de programação linear exige que todas as restrições sejam expressas em forma de desigualdade não negativa.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41726,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41727,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9458,
+    "texto": "Um algoritmo de busca em profundidade, ao percorrer uma árvore binária de busca, garante a visita de todos os nós em ordem crescente de chave se a árvore for balanceada.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 41728,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41729,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9459,
+    "texto": "Um conjunto de 12 cartões, numerados de 1 a 12, é embaralhado e distribuído igualmente entre quatro equipes. Cada equipe recebe três cartões. Se a soma dos números dos cartões de cada equipe for igual, qual é a soma total dos cartões de todas as equipes?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 41730,
+        "texto": "36",
+        "correta": false
+      },
+      {
+        "id": 41731,
+        "texto": "48",
+        "correta": true
+      },
+      {
+        "id": 41732,
+        "texto": "60",
+        "correta": false
+      },
+      {
+        "id": 41733,
+        "texto": "72",
+        "correta": false
+      },
+      {
+        "id": 41734,
+        "texto": "84",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9460,
+    "texto": "Considerando a sequência lógica 3, 6, 12, 24, 48, qual é o próximo número da série?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 41735,
+        "texto": "96",
+        "correta": true
+      },
+      {
+        "id": 41736,
+        "texto": "72",
+        "correta": false
+      },
+      {
+        "id": 41737,
+        "texto": "84",
+        "correta": false
+      },
+      {
+        "id": 41738,
+        "texto": "108",
+        "correta": false
+      },
+      {
+        "id": 41739,
+        "texto": "120",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9461,
+    "texto": "Um algoritmo recebe como entrada dois inteiros positivos A e B. Se A for menor que B, o algoritmo troca seus valores; caso contrário, mantém a ordem. Depois disso, o algoritmo soma os dois números. Qual é a saída do algoritmo quando A = 7 e B = 3?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 41740,
+        "texto": "10",
+        "correta": false
+      },
+      {
+        "id": 41741,
+        "texto": "14",
+        "correta": true
+      },
+      {
+        "id": 41742,
+        "texto": "21",
+        "correta": false
+      },
+      {
+        "id": 41743,
+        "texto": "28",
+        "correta": false
+      },
+      {
+        "id": 41744,
+        "texto": "35",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9462,
+    "texto": "Texto: Em 2025, o Ministério da Educação publicou um relatório sobre a adoção de metodologias ativas em escolas públicas. O documento apontou que 68% das escolas implementaram projetos de resolução de problemas em matemática, enquanto 32% ainda utilizam métodos tradicionais. Das escolas que adotaram metodologias ativas, 75% relataram aumento de desempenho em provas de raciocínio lógico. Considerando esses dados, qual é a porcentagem aproximada de escolas que adotaram metodologias ativas e relataram melhoria no desempenho?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 41745,
+        "texto": "20,4%",
+        "correta": false
+      },
+      {
+        "id": 41746,
+        "texto": "25,6%",
+        "correta": true
+      },
+      {
+        "id": 41747,
+        "texto": "32,0%",
+        "correta": false
+      },
+      {
+        "id": 41748,
+        "texto": "43,2%",
+        "correta": false
+      },
+      {
+        "id": 41749,
+        "texto": "54,4%",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9658,
+    "texto": "Na sequência de uma série de números pares consecutivos, a soma dos três primeiros é 12. Se a soma dos três últimos for 30, qual é a soma total dos seis números?",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 42380,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42381,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9659,
+    "texto": "Em um jogo de lógica, cada carta tem um número e uma cor. Se a carta vermelha tem o número 7 e a carta azul tem o número 3, então a carta verde tem o número 5.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 42382,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42383,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9660,
+    "texto": "Um algoritmo recebe dois inteiros e retorna o maior deles. Se os valores de entrada forem 9 e 9, o algoritmo deve retornar 9.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 42384,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42385,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9661,
+    "texto": "A lógica de exclusão mútua garante que dois processos nunca acessem simultaneamente a mesma variável compartilhada. Se o processo A entra na seção crítica, o processo B deve permanecer na região de espera até que A saia.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 42386,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42387,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9663,
+    "texto": "Um órgão público estatal organiza um concurso para selecionar servidores administrativos. Para a prova de Raciocínio Lógico, propõe o seguinte exercício: em uma sequência de números inteiros, cada termo é obtido somando-se o dobro do termo anterior ao triplo do termo ante‑passado. Se o primeiro termo for 3 e o segundo 7, qual será o quinto termo da sequência?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 42390,
+        "texto": "115",
+        "correta": false
+      },
+      {
+        "id": 42391,
+        "texto": "145",
+        "correta": false
+      },
+      {
+        "id": 42392,
+        "texto": "169",
+        "correta": true
+      },
+      {
+        "id": 42393,
+        "texto": "191",
+        "correta": false
+      },
+      {
+        "id": 42394,
+        "texto": "219",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9664,
+    "texto": "Em um sistema de classificação de risco de projetos de infraestrutura pública, cada projeto recebe um código composto por três letras e dois dígitos. A primeira letra indica a categoria de impacto ambiental (A, B ou C), a segunda letra representa a fase de execução (X, Y ou Z) e o último dígito indica o grau de complexidade (1 a 9). Qual das alternativas abaixo corresponde a um projeto que possui impacto ambiental moderado, está na fase de execução Y e apresenta grau de complexidade 7?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 42395,
+        "texto": "BXY7",
+        "correta": false
+      },
+      {
+        "id": 42396,
+        "texto": "AY7",
+        "correta": false
+      },
+      {
+        "id": 42397,
+        "texto": "BY7",
+        "correta": true
+      },
+      {
+        "id": 42398,
+        "texto": "CY7",
+        "correta": false
+      },
+      {
+        "id": 42399,
+        "texto": "BX7",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -24,6 +24,43 @@ Adicione novos Forms aqui conforme migrar views.
 from django import forms
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 
+from .models import Perfil
+
+
+class PerfilForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=150, required=False)
+    last_name = forms.CharField(max_length=150, required=False)
+    bio = forms.CharField(max_length=200, required=False)
+
+    class Meta:
+        model = Perfil
+        fields = ['telefone', 'bio', 'foto']
+
+    def clean_foto(self):
+        foto = self.cleaned_data.get('foto')
+        if not foto or 'foto' not in self.files:
+            return foto
+        # Reencode the decoded image: do not publish user-supplied file bytes.
+        from io import BytesIO
+        from uuid import uuid4
+        from PIL import Image, ImageOps
+        from django.core.files.base import ContentFile
+
+        if foto.size > 5 * 1024 * 1024:
+            raise forms.ValidationError('A foto deve ter no máximo 5 MB.')
+        try:
+            foto.seek(0)
+            with Image.open(foto) as image:
+                if image.width * image.height > 20_000_000:
+                    raise forms.ValidationError('A resolução da foto é muito grande.')
+                image = ImageOps.exif_transpose(image).convert('RGB')
+                image.thumbnail((1024, 1024))
+                output = BytesIO()
+                image.save(output, format='JPEG', quality=85)
+        except (OSError, ValueError, Image.DecompressionBombError) as exc:
+            raise forms.ValidationError('Envie uma imagem válida.') from exc
+        return ContentFile(output.getvalue(), name=f'{uuid4().hex}.jpg')
+
 
 class EditalPersonalizadoForm(forms.Form):
     """Cadastro/analise do edital colado pelo user."""

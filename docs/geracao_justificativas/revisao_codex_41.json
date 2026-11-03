@@ -1,0 +1,86 @@
+[
+  {
+    "id": 9679,
+    "motivo": "“Sem prejuízo de” normalmente preserva a possibilidade mencionada, em vez de excluí-la. A equivalência proposta inverte o sentido. Gabarito Certo incompatível; uso normativo de preservação de outras sanções exemplificado em https://www.pge.rs.gov.br/upload/arquivos/202112/06084110-doe-2021-12-06.pdf .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9680,
+    "motivo": "O texto apresenta transcrições fonéticas como adaptações ao sistema brasileiro sem fundamentação ou identificação do corpus/relatório. A conclusão textual é reconhecível, mas as premissas linguísticas precisam de conferência especializada antes de usar o item como material didático confiável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9683,
+    "motivo": "Nenhuma opção classifica corretamente o verbo: “sopre” está no presente do subjuntivo. A oração é condicional, mas a opção marcada afirma presente do indicativo e a outra condicional afirma futuro do subjuntivo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9684,
+    "motivo": "Não identifica legislação nem cláusula sancionatória. A regra de escolha de blocos também é confusa. Não se pode inferir perda da vaga em todas as etapas apenas com a condição apresentada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9685,
+    "motivo": "Parte de regra inexistente de inversão obrigatória em exclamativas jornalísticas. A alternativa marcada fala em recomendação, sem corrigir a premissa do comando; nenhuma frase concreta ou manual delimita o uso.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9686,
+    "motivo": "A expressão solicitada inclui “fosse”, que é forma verbal, e não integra a classe das conjunções. O elemento comparativo é “como se”; classificar toda a sequência “como se fosse” como conjunção é impreciso. Corrigir o recorte.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9687,
+    "motivo": "Falta comando além de “leia o trecho” e há mais de um recurso plausível: oposição noite/dia e repetição de sons sibilantes, além de personificação. Não há critério para resposta única.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9688,
+    "motivo": "Premissa problemática: “desinteressante” é vocábulo já registrado, inclusive com exemplo de edição de 1913 no Aulete. O documento atribuído à ABL em 2024 não foi identificado. A alternativa de leitura é reconhecível, mas o material didático pressupõe novidade lexical falsa. Fonte: https://www.aulete.com.br/desinteressante .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9860,
+    "motivo": "Mistura início de oração e início de período e apresenta preferência pós-verbal como norma geral, sem considerar contextos de próclise obrigatória e variação do português brasileiro culto. Necessita delimitação da prescrição e do contexto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9862,
+    "motivo": "Gabarito Certo incorreto: escreve-se “a fim de”, sem crase. A fusão de “a” com artigo masculino “o” produz “ao”, não o acento grave de crase descrito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9863,
+    "motivo": "O comando pergunta pela norma que orienta a estrutura da instrução, mas as opções tratam do conteúdo solicitado no relatório. A menção ao modelo padrão é explícita, porém não resolve a distinção entre clareza da instrução e padronização do relatório.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9864,
+    "motivo": "Permitir justificativa e comprovação pode se relacionar a razoabilidade, defesa e motivação, sem exclusividade inequívoca. A referência a “princípio da linguagem jurídica” é imprecisa e o edital não está identificado. Delimitar o critério antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9865,
+    "motivo": "O conectivo oferece alternativa textual, mas não comprova equivalência jurídica entre registro profissional e matrícula em especialização. Como o comando pede natureza jurídica, faltam edital identificado e fundamento da substituição para endossar a alternativa marcada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9866,
+    "motivo": "Não especifica o formato criptográfico nem o conteúdo efetivamente assinado. Referenciar a assinatura anterior não basta para concluir que qualquer alteração invalide matematicamente todas as assinaturas subsequentes; integridade da cadeia e validade individual precisam ser distinguidas. A orientação da ANPE também não é identificada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

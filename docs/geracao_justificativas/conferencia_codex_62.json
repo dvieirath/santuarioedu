@@ -1,0 +1,52 @@
+{
+  "lote": 62,
+  "salvas": [
+    3009,
+    3058,
+    3064,
+    3066,
+    3078,
+    3084,
+    3105,
+    3106,
+    3108,
+    3109,
+    3110,
+    3113,
+    3115,
+    3121
+  ],
+  "revisao": [
+    3011,
+    3054,
+    3055,
+    3065,
+    3070,
+    3103
+  ],
+  "cobertura_completa": true,
+  "demais_campos_preservados": true,
+  "alternativas_preservadas": true,
+  "novas_questoes": 0,
+  "novas_alternativas": 0,
+  "justificativas_alteradas": [
+    3009,
+    3058,
+    3064,
+    3066,
+    3078,
+    3084,
+    3105,
+    3106,
+    3108,
+    3109,
+    3110,
+    3113,
+    3115,
+    3121
+  ],
+  "quick_check": "ok",
+  "pendentes": 11061,
+  "backup": "backups/antes_lote_codex_20261018_185624_134543.sqlite3",
+  "conferido_em": "2026-10-18T18:56:49.333541"
+}

@@ -1,0 +1,362 @@
+[
+  {
+    "id": 782,
+    "texto": "A melhoria de saúde dos alunos está condicionada à ênfase na execução de exercícios físicos, sobretudo na relação entre volume e intensidade durante as aulas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19333,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19334,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 781,
+    "texto": "A identificação de padrões de aptidão física permite ao professor um planejamento de ações pedagógicas eficientes em torno da melhoria da saúde dos alunos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19331,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19332,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 780,
+    "texto": "Na busca pelo desenvolvimento da autonomia dos alunos, é desejável que estes se envolvam no processo de avaliação da educação física na escola.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19329,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19330,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 779,
+    "texto": "Testes físicos e medidas antropométricas são exemplos de instrumentos pedagógicos a serem utilizados pelo professor para efetivar a avaliação da aprendizagem dos alunos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19327,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19328,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 778,
+    "texto": "Abdominal, “canguru” e flexão de braço são exemplos de exercícios a serem considerados como parte de provas avaliativas da educação física na escola.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19325,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19326,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 776,
+    "texto": "Para o aluno, a avaliação é um instrumento de tomada de consciência de suas conquistas, dificuldades e possibilidades em termos de aprendizagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19321,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19322,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 775,
+    "texto": "As capacidades físicas e o desempenho motor dos alunos são as variáveis que o professor de educação física utiliza na escola para a realização da avaliação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19319,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19320,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 774,
+    "texto": "A busca pela identificação de talentos esportivos nas aulas confere à educação física valor educativo singular na escola.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19317,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19318,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 773,
+    "texto": "A educação física é o componente curricular que tematiza as práticas corporais em suas diversas formas de codificação e significação social.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19315,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19316,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 771,
+    "texto": "O estudo do conhecimento da educação física na escola visa apreender a expressão corporal como linguagem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19311,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19312,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 769,
+    "texto": "A educação física é um componente curricular da escola que trata pedagogicamente os conteúdos da cultura corporal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19307,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19308,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 768,
+    "texto": "No âmbito do planejamento das ações pedagógicas das aulas, a divisão de grupos por gênero visa garantir a integridade física das alunas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19305,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 19306,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 767,
+    "texto": "Os alunos devem compreender os conteúdos da educação física como conhecimentos sócio-históricos das práticas corporais e que possuem sentido e significado a partir da cultura.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19303,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19304,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 765,
+    "texto": "Ao abordar as diversas práticas corporais, a inclusão é um princípio norteador do trabalho pedagógico da educação física.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19299,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19300,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 764,
+    "texto": "A gênese da educação física brasileira está relacionada com as instituições médicas e militares.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19297,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19298,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 763,
+    "texto": "A concepção de higienismo na educação física compreende a valorização de hábitos de higiene, eugenismo, saúde e desenvolvimento físico e moral por meio do exercício físico.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19295,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19296,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 762,
+    "texto": "O movimento renovador da educação física brasileira corresponde à passagem dos métodos ginásticos para o contexto esportivo na prática pedagógica da escola.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19293,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19294,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 761,
+    "texto": "Nas primeiras tentativas de se fazer presente na escola brasileira, a educação física se valeu dos esportes e das competições recreativas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19291,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19292,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 760,
+    "texto": "A década de 1980 é reconhecida como paradigmática de uma educação física que se volta aos conhecimentos biológicos, em especial, da fisiologia do exercício.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19289,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19290,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 743,
+    "texto": "Com relação à didática na formação do professor, julgue os itens a seguir. A dinâmica da relação professor-estudante é fundamental para a ação didática.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 19255,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 19256,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

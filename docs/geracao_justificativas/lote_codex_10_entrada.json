@@ -1,0 +1,437 @@
+[
+  {
+    "id": 9703,
+    "texto": "Na análise de circuitos digitais, o operador XOR (exclusive OR) produz saída 1 quando exatamente um dos operandos é 1, mas não quando ambos são 1.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42530,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42531,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9702,
+    "texto": "Em lógica proposicional, a negação de uma disjunção (p ∨ q) é equivalente à conjunção das negações (¬p ∧ ¬q).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42528,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42529,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9701,
+    "texto": "Considerando o seguinte texto: \"Durante o último trienio, o Ministério da Educação implementou uma política de avaliação que utilizou apenas testes de múltipla escolha, descartando provas discursivas. A iniciativa visou reduzir custos e acelerar o processo de certificação, porém gerou debate sobre a efetividade da avaliação.\" Considerando o texto acima, a afirmação de que a política de avaliação adotada pode ter impactado negativamente a capacidade de análise crítica dos estudantes é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42526,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42527,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9700,
+    "texto": "Um algoritmo de ordenação por inserção tem complexidade média de O(n²). Se a entrada contiver 100 elementos, o número médio de comparações será inferior a 10.000.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42524,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42525,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9699,
+    "texto": "Em uma sequência binária de 8 bits, a regra de formação exige que os dois primeiros dígitos sejam iguais e os dois últimos dígitos sejam diferentes. Se o primeiro dígito for 1, o último dígito deve ser 0.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42522,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42523,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9666,
+    "texto": "Texto: Em 2024, o Ministério da Infraestrutura divulgou um relatório sobre a otimização de rotas de transporte público em capitais brasileiras. O estudo utilizou um modelo de fluxo de veículos que considerava a demanda diária, a capacidade dos corredores e a prioridade de transporte coletivo. A análise identificou que, ao reduzir o tempo médio de percurso em 15% em regiões de alta densidade, seria possível economizar cerca de 12 milhões de litros de combustível por ano. Além disso, o relatório recomendou a implementação de sistemas de sinalização inteligente para ajustar dinamicamente as faixas de velocidade, resultando em um aumento de 8% na eficiência operacional.\n\nConsiderando o texto acima, qual das alternativas abaixo representa corretamente uma consequência lógica da redução do tempo médio de percurso em 15%?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42405,
+        "texto": "A diminuição do tempo médio de percurso não influencia na demanda de veículos.",
+        "correta": false
+      },
+      {
+        "id": 42406,
+        "texto": "O aumento de 8% na eficiência operacional é independente da redução do tempo de percurso.",
+        "correta": false
+      },
+      {
+        "id": 42407,
+        "texto": "A redução de 15% no tempo médio de percurso pode levar a uma diminuição na emissão de gases poluentes.",
+        "correta": true
+      },
+      {
+        "id": 42408,
+        "texto": "O consumo de combustível aumenta quando o tempo médio de percurso diminui.",
+        "correta": false
+      },
+      {
+        "id": 42409,
+        "texto": "A otimização de rotas não tem relação com a capacidade dos corredores.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9665,
+    "texto": "Um órgão de controle interno utiliza um algoritmo de verificação de consistência de dados. O algoritmo recebe como entrada um vetor de 8 elementos e, para cada elemento, calcula a diferença absoluta entre ele e o elemento que está três posições à frente, considerando o vetor como circular. A soma dessas diferenças é comparada a um valor limite. Se o vetor for [4, 9, 2, 7, 5, 3, 8, 1] e o limite for 30, qual é o resultado da soma das diferenças?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42400,
+        "texto": "28",
+        "correta": false
+      },
+      {
+        "id": 42401,
+        "texto": "30",
+        "correta": false
+      },
+      {
+        "id": 42402,
+        "texto": "32",
+        "correta": true
+      },
+      {
+        "id": 42403,
+        "texto": "34",
+        "correta": false
+      },
+      {
+        "id": 42404,
+        "texto": "36",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9661,
+    "texto": "A lógica de exclusão mútua garante que dois processos nunca acessem simultaneamente a mesma variável compartilhada. Se o processo A entra na seção crítica, o processo B deve permanecer na região de espera até que A saia.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42386,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42387,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9659,
+    "texto": "Em um jogo de lógica, cada carta tem um número e uma cor. Se a carta vermelha tem o número 7 e a carta azul tem o número 3, então a carta verde tem o número 5.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42382,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42383,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9456,
+    "texto": "Considerando o texto abaixo, a afirmação de que a lógica formal pode ser aplicada para validar argumentos que envolvem premissas condicionalmente equivalentes é correta.\n\nTexto: O juiz, ao analisar o caso de um acidente de trânsito, observou que a velocidade do veículo A excedia 80 km/h e que o veículo B estava a uma distância de 50 metros. O relatório técnico indicou que, se a velocidade do veículo A fosse inferior a 80 km/h, o acidente não teria ocorrido. Assim, concluiu-se que a velocidade superior a 80 km/h foi causa direta do acidente.\n\nConsiderando o texto acima, a afirmação de que a lógica formal pode ser aplicada para validar argumentos que envolvem premissas condicionalmente equivalentes é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41724,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 41725,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9455,
+    "texto": "Em um conjunto de 12 elementos, a probabilidade de selecionar dois elementos consecutivos em ordem crescente é maior do que a probabilidade de selecionar dois elementos na ordem inversa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41722,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41723,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9416,
+    "texto": "Um banco de dados relacional implementa a normalização até a terceira forma normal (3FN) para evitar redundâncias. Se uma tabela contém as colunas (A, B, C) e a dependência funcional A → B, B → C, a tabela já está em 3FN.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41596,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 41597,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8970,
+    "texto": "Texto: Em 2024, a Agência Nacional de Energia Elétrica (ANEEL) publicou um regulamento que estabelece, para as concessionárias de energia, que o prazo máximo de resposta a solicitações de reparo técnico não pode exceder 48 horas, salvo em situações de emergência. Em 2025, a mesma agência revisou o regulamento, reduzindo o prazo máximo para 24 horas, justificando que a melhoria de tecnologias de monitoramento permitiu respostas mais rápidas.\n\nConsiderando o texto acima, a afirmação de que a redução do prazo de 48 para 24 horas implica automaticamente em aumento de eficiência operacional das concessionárias é:",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40131,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40132,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8969,
+    "texto": "Em um enunciado de lógica proposicional, a negação de uma conjunção pode ser expressa como a disjunção das negações das proposições constituintes.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40129,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40130,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8968,
+    "texto": "Considere a seguinte tabela de verdade: \n\na | b | a → b | b → a\n1 | 0 | 0 | 1\n0 | 1 | 1 | 0\n0 | 0 | 1 | 1\n1 | 1 | 1 | 1\n\nA coluna “a → b” apresenta a mesma distribuição de valores que a coluna “b → a”.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40127,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40128,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8967,
+    "texto": "A proposição “Se um número é múltiplo de 4, então é múltiplo de 2” é falsa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40125,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 40126,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 8966,
+    "texto": "Na sequência de uma série de números inteiros, a cada termo é subtraído o dobro do seu antecessor e somado ao triplo do seu predecessor. Se o primeiro termo for 5, o quinto termo da série é 35.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40123,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 40124,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8934,
+    "texto": "Em uma repartição pública, a equipe de TI avalia a eficiência de três novos softwares de gestão: Alfa, Beta e Gama. Para garantir a segurança dos dados, a equipe estabeleceu critérios rígidos de implementação. O software Alfa só é instalado se o Beta for instalado. O software Gama é instalado se, e somente se, o Beta não for instalado. Recentemente, a equipe de TI divulgou um relatório técnico informando que o software Gama foi instalado com sucesso. Diante desse cenário, a equipe de TI deve concluir, seguindo estritamente as regras de lógica proposicional estabelecidas, qual foi o destino da instalação dos demais softwares. Considerando o texto acima, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40020,
+        "texto": "O software Beta não foi instalado e o software Alfa não foi instalado.",
+        "correta": true
+      },
+      {
+        "id": 40021,
+        "texto": "O software Beta foi instalado e o software Alfa foi instalado.",
+        "correta": false
+      },
+      {
+        "id": 40022,
+        "texto": "O software Beta não foi instalado e o software Alfa foi instalado.",
+        "correta": false
+      },
+      {
+        "id": 40023,
+        "texto": "O software Beta foi instalado e o software Alfa não foi instalado.",
+        "correta": false
+      },
+      {
+        "id": 40024,
+        "texto": "A instalação do software Alfa é independente da instalação do software Gama.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8933,
+    "texto": "A gestão de um órgão público decidiu realizar uma auditoria em três departamentos: Almoxarifado, Contabilidade e Jurídico. O auditor responsável afirmou que, se o Almoxarifado for auditado, o Contabilidade será auditado. Além disso, afirmou que ou o Jurídico será auditado ou o Contabilidade será auditado, mas não ambos. Sabendo que o Jurídico foi auditado, assinale a opção correta acerca da auditoria nos outros departamentos.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40015,
+        "texto": "O Contabilidade não foi auditado e o Almoxarifado não foi auditado.",
+        "correta": true
+      },
+      {
+        "id": 40016,
+        "texto": "O Contabilidade foi auditado e o Almoxarifado não foi auditado.",
+        "correta": false
+      },
+      {
+        "id": 40017,
+        "texto": "O Contabilidade não foi auditado e o Almoxarifado foi auditado.",
+        "correta": false
+      },
+      {
+        "id": 40018,
+        "texto": "O Contabilidade foi auditado e o Almoxarifado foi auditado.",
+        "correta": false
+      },
+      {
+        "id": 40019,
+        "texto": "Não é possível determinar se o Almoxarifado foi auditado.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 8932,
+    "texto": "Considere que a seguinte sentença seja verdadeira: 'Se o sistema de segurança está ativo, então o alarme dispara ou o supervisor é notificado'. Com base na lógica proposicional, assinale a opção que apresenta uma proposição logicamente equivalente à sentença apresentada.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 40010,
+        "texto": "Se o alarme não dispara e o supervisor não é notificado, então o sistema de segurança não está ativo.",
+        "correta": true
+      },
+      {
+        "id": 40011,
+        "texto": "Se o alarme dispara ou o supervisor é notificado, então o sistema de segurança está ativo.",
+        "correta": false
+      },
+      {
+        "id": 40012,
+        "texto": "Se o sistema de segurança não está ativo, então o alarme não dispara e o supervisor não é notificado.",
+        "correta": false
+      },
+      {
+        "id": 40013,
+        "texto": "O sistema de segurança não está ativo ou o alarme dispara ou o supervisor é notificado.",
+        "correta": false
+      },
+      {
+        "id": 40014,
+        "texto": "Se o sistema de segurança está ativo, então o alarme não dispara e o supervisor não é notificado.",
+        "correta": false
+      }
+    ]
+  }
+]

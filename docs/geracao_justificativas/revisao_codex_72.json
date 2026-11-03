@@ -1,0 +1,104 @@
+[
+  {
+    "id": 717,
+    "motivo": "O item exige um caso abordado em texto ausente. Sem o texto-base, não é possível avaliar a relação afirmada.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14210,
+    "motivo": "O gabarito exige previsão expressa constitucional para qualquer restrição remuneratória. Contraria o art. 37, X, que prevê disciplina por lei específica; nenhuma alternativa oferece fundamento adequado.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14208,
+    "motivo": "Gabarito Certo atribui liberdade de expressão ao art. 5º, LXXIII, que trata de ação popular.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14204,
+    "motivo": "Gabarito Certo admite taxa pela emissão de boletos sem serviço público ou poder de polícia descrito. Emissão bancária privada não é, por si, fato gerador de taxa (CF, art. 145, II).",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14203,
+    "motivo": "Todas as alternativas confundem natureza de multa com destinação de receita. O gabarito afirma que arrecadação estatal pode torná-la tributo, contrariando o CTN, art. 3º. A referência à lei também exige correção.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14200,
+    "motivo": "Contradição interna: diz que a norma proíbe a cobrança, mas justifica sua invalidade pelo ônus da cobrança. Não há cenário coerente para avaliar a decisão.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14197,
+    "motivo": "Gabarito Certo atribui liberdade de expressão ao art. 5º, XXXVII, que veda juízo ou tribunal de exceção.",
+    "status": "removida_de_circulacao",
+    "alterou_banco": true
+  },
+  {
+    "id": 14212,
+    "motivo": "Legalidade e moralidade são respostas concorrentes; relatório atribuído ao TCU sem identificação verificável. Conferir fonte e unicidade.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14209,
+    "motivo": "Mistura aprovação legislativa e decreto instituidor, sem esclarecer lei autorizadora, iniciativa e natureza das receitas. Não validar constitucionalidade categórica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14206,
+    "motivo": "Expressão controle social é imprecisa e consentimento não é base universal de tratamento. Conferir redação e bases legais antes de avaliar o item.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14202,
+    "motivo": "O texto repete a alegação de separação de poderes, mas não descreve interferência indevida. Fiscalização parlamentar de autarquia pode ser regular; precisa revisão pedagógica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14201,
+    "motivo": "Não especifica quais documentos nem finalidade da cobrança. Alternativas não individualizam claramente o fundamento constitucional pertinente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14199,
+    "motivo": "Decisão atribuída a tribunal em 2023 sem número de processo ou fonte; tese plausível não confirma a ocorrência do julgamento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14198,
+    "motivo": "Não identifica ente, espécie/modelo do imposto e regras da proposta. Não é possível concluir inconstitucionalidade só pela finalidade social.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14196,
+    "motivo": "Gabarito Errado é suspeito diante da possibilidade de controle judicial de constitucionalidade; a expressão caráter excepcional exige revisão do alcance e fonte original.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14195,
+    "motivo": "Continuidade admite interrupções justificadas em determinadas hipóteses (Lei 8.987/1995, art. 6º, § 3º). Faltam condições da suspensão para concluir ilegalidade.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 14194,
+    "motivo": "Julgamento do STF em 2023 não identificado; não validar precedente sem fonte e detalhes sobre legalidade da posse.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

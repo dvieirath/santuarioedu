@@ -1,0 +1,50 @@
+[
+  {
+    "id": 2731,
+    "motivo": "Rotações finitas em 3D não são comutativas em geral; a sequência dos ângulos de Euler importa. Gabarito CERTO incompatível. Fonte primária: https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/rotation.html .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2175,
+    "motivo": "R afirma palavras difíceis e ausência de duplo sentido. Da primeira parte de R e de P segue, por modus ponens, risco de não ser compreendido. O argumento é válido; gabarito ERRADO incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2084,
+    "motivo": "Faltam as horas estudadas por cada aluno. N2=50×(H2/H1): horas iguais dão 50, razão 1,4 dá 70. A nota é indeterminada; registrar a informação ausente em vez de presumir estudo igual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1889,
+    "motivo": "Contexto substituído por marcador e item truncado após 'por isso,'. Falta texto e conclusão completa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1682,
+    "motivo": "Matriz curricular específica não identificada. A afirmação sobre eixos repetidos e linearidade exige localizar a referência curricular e seu sentido de progressão; BNCC usa unidades temáticas e ampliação das aprendizagens. Não impor uma interpretação ao gabarito sem contexto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1578,
+    "motivo": "Marcador '[Contexto completo fornecido]' não contém o texto real e o item termina em 'por isso,'. Questão incompleta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1476,
+    "motivo": "Negação de P∧Q é ¬P∨¬Q. 'Não se lembrou ... nem quer' expressa ¬P∧¬Q, que é mais forte e não equivalente. Gabarito CERTO incorreto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1475,
+    "motivo": "Proposição P não definida: falta fórmula ou texto associado para contar as proposições simples independentes e calcular 2^n linhas.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

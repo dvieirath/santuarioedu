@@ -1,0 +1,30 @@
+{
+  "alteracoes_no_banco": false,
+  "casos": [
+    {
+      "id": 292,
+      "problema": "Enunciado atribuído a questão FGV de múltipla escolha, mas somente duas alternativas cadastradas. Conferir prova original antes de completar ou liberar.",
+      "gabarito_avaliado": false
+    },
+    {
+      "id": 303,
+      "problema": "Questão de múltipla escolha com cinco afirmações e apenas duas combinações cadastradas. Necessária conferência de todas as alternativas e do gabarito na fonte original.",
+      "gabarito_avaliado": false
+    },
+    {
+      "id": 315,
+      "problema": "Questão de múltipla escolha atribuída à OAB com somente duas alternativas cadastradas. Conferir integridade na prova original.",
+      "gabarito_avaliado": false
+    },
+    {
+      "id": 1352,
+      "problema": "O enunciado é uma rubrica de correção (Conceitos 0, 1 e 2), não apresenta as perguntas referidas e foi importado como questão objetiva. Não é possível responder ao item cadastrado.",
+      "gabarito_avaliado": false
+    },
+    {
+      "id": 6311,
+      "problema": "Enunciado trata explicitamente de princípios de gestão da qualidade, mas a categoria cadastrada é Direito Constitucional. Conferir enquadramento na taxonomia e origem.",
+      "gabarito_avaliado": false
+    }
+  ]
+}

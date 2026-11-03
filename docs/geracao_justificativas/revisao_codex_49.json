@@ -1,0 +1,56 @@
+[
+  {
+    "id": 2920,
+    "motivo": "Falta o período completo do texto CB1A1-II; não é possível identificar o termo regente e conferir a obrigatoriedade de a antes de regras.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2918,
+    "motivo": "Texto CB1A1-II não fornecido: não se conhece o emprego contextual de fruto. A grafia idéia também está desatualizada, mas não se deve justificar equivalência semântica ou contextual sem o trecho.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2341,
+    "motivo": "Falta o parágrafo sobre streaming. Além disso costuma ter valor aditivo, mas a afirmação também avalia sua ligação entre períodos específicos não fornecidos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2329,
+    "motivo": "Falta o período completo de Ana Regina Rêgo. O fragmento não permite confirmar função de sujeito nem o propósito contextual das aspas; não presumir a intenção do autor.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2269,
+    "motivo": "Mais é monossílabo com ditongo ai; a divisão ma-is separa indevidamente o ditongo na translineação. Gabarito Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2264,
+    "motivo": "Falta o quinto parágrafo do texto 8A1-I. Não se identifica a posição de médio nem os constituintes que a vírgula separaria.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2255,
+    "motivo": "Falta o segundo período do primeiro parágrafo do texto 8A1-I. Sem verbo regente e oração introduzida por que, não se confirma a função de objeto direto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2174,
+    "motivo": "Mesmo problema de 2341: o parágrafo sobre streaming não foi fornecido. Registrar separadamente este ID sem presumir a ligação contextual entre os períodos.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2162,
+    "motivo": "Mesmo problema de 2329: faltam período e contexto de uso das aspas no texto de Ana Regina Rêgo. Não inferir oposição semântica ou função de sujeito a partir do fragmento.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

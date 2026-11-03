@@ -1,0 +1,92 @@
+[
+  {
+    "id": 11513,
+    "motivo": "Comando de múltipla escolha com cinco opções embutidas em item CE. Nenhuma proposição única é indicada para associar ao gabarito Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11511,
+    "motivo": "Repetição lexical ou sinonímica pode produzir coesão, retomada ou ênfase, sem ser erro nem prejudicar coerência. A afirmação generaliza e o gabarito certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11510,
+    "motivo": "Danos indiretos não é definido, nem se fornece cláusula ou regime contratual. Não é seguro afirmar validade por mera previsão nem invalidade absoluta. O art. 403 do Código Civil disciplina efeito direto e imediato, mas não resolve todas as acepções contratuais do termo. Fonte: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11509,
+    "motivo": "Evidência era está corretamente no singular. A afirmação chama de nominal uma relação entre sujeito e verbo e alega erro inexistente. Gabarito certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11470,
+    "motivo": "A opção marcada manda alterar apenas usos concessivos, mas também há suposto uso de negação que pode exigir substituição. Sem as três frases, não se pode delimitar mudanças necessárias, regência e modo verbal.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11468,
+    "motivo": "A alternativa marcada confunde revogação por mérito com invalidação por vício e atribui genericamente revogação ao Tribunal de Contas. A ausência de texto no documento também não esclarece motivação por remissão. Conferidos arts. 50, §1º, e 53 da Lei 9.784/1999: https://www.planalto.gov.br/ccivil_03/leis/l9784.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11467,
+    "motivo": "A alternativa marcada conserva a ordem sujeito-verbo-objeto e interpõe um segmento descritivo. Não demonstra a inversão sintática solicitada de modo inequívoco; faltam referência de comparação e definição do recurso pretendido.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11466,
+    "motivo": "Sua é possessivo nesse sistema pronominal, não pronome oblíquo átono. O gabarito certo atribui classe inadequada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11465,
+    "motivo": "À vista de é locução com acento grave, inclusive em uso visual, como à vista de todos. Sem frase concreta que altere a análise, não há fundamento para o gabarito Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11464,
+    "motivo": "Refere-se a texto acima ausente e classifica ele e ela como pronomes de tratamento, embora sejam pessoais. Não preencher a partir da correção isolada da concordância.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11461,
+    "motivo": "A alternativa marcada acrescenta equilíbrio entre textos técnicos e literários. O excerto menciona escrita formal e interpretação técnica, sem sustentar exigência de textos literários ou proporção entre gêneros. Nenhuma opção reproduz adequadamente a implicação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11460,
+    "motivo": "A alegação de candidatos sobre lei federal de 2019 não identificada não prova ausência de base legal específica. Art. 37, I, da Constituição exige requisitos legais, mas o item não informa lei do cargo; a conclusão categórica exige dados ausentes. Fonte: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11459,
+    "motivo": "Confunde redação de candidato com redação oficial e não fornece o trecho criticado nem critérios do edital. Ausência de difamação não é critério suficiente único para julgar qualquer manifestação. Há opções concorrentes de admissibilidade, sem base para o gabarito exclusivo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11458,
+    "motivo": "Não identifica precedente recente, cargo ou legislação de acesso por estrangeiros. Confunde domicílio e nacionalidade; residentes no Brasil podem satisfazer domicílio nacional. Art. 37, I, remete o acesso de estrangeiros à lei. Não inventar posição específica do STF. Fonte: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 11457,
+    "motivo": "Orações restritivas podem delimitar o referente do sujeito, mas pronome com valor de antecedente indefinido é formulação obscura. Sem exemplo, não é possível sustentar o gabarito errado sem negar o efeito restritivo real.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

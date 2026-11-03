@@ -1,0 +1,62 @@
+[
+  {
+    "id": 12932,
+    "motivo": "Não há oração adverbial temporal: em sua última reunião e no próximo semestre são expressões adverbiais; que a reforma... é oração substantiva objetiva direta de decidiu. Seria é futuro do pretérito, não presente do indicativo. Nenhuma alternativa fornece análise integralmente correta.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12931,
+    "motivo": "O gabarito inventa regra de concordância obrigatória com o primeiro elemento de natureza diferente. A concordância com sujeito composto depende, entre outros fatores, de posição, núcleos e coordenação; faltam frases concretas. Fonte de confronto: https://www12.senado.leg.br/manualdecomunicacao/estilos/concordancia-verbal .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12930,
+    "motivo": "Texto diz cada escola, mas não delimita etapas ou modalidades. Isso permite leitura abrangente e não sustenta inequivocamente o gabarito errado para todas as modalidades; faltam norma identificada e recorte de aplicação. Não inferir restrição ausente nem confirmar decreto não identificado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12928,
+    "motivo": "O problema é a referência de cujo, que se liga a diretor quando o prazo provavelmente seria do relatório. Não se trata propriamente de colocação pronominal (próclise, mesóclise ou ênclise). O gabarito certo exige revisão terminológica.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12434,
+    "motivo": "A alternativa marcada impõe ortografia e gramática básicas como obrigação geral da linguagem informal, sem definir critério; usos informais escritos podem apresentar grafias não convencionais, e variedades possuem regras próprias. Falta alternativa que distinga registro e adequação sem generalização prescritiva.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12432,
+    "motivo": "A reformulação marcada mantém literalmente domínio da norma culta, expressão que o enunciado declara ambígua, e repete a exemplificação já existente. Outra alternativa com textos formais e técnicos também é plausível; não se especifica qual ambiguidade deve ser eliminada nem critério objetivo de exclusividade.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12429,
+    "motivo": "A alternativa sobre contudo é correta, mas sob pena de também expressa uma consequência negativa condicionada à falta da mudança cultural. A opção que a descreve como consequência é defensável, prejudicando a unicidade do gabarito. Há ainda referência a inovação tecnológica que não reproduz exatamente o texto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12427,
+    "motivo": "Há mais de uma reescrita correta e compatível: Conquanto... dado que e A despeito de a Secretaria ter... uma vez que preservam concessão e causa. A presença do artigo em do letramento não produz erro obrigatório. Não obstante... porquanto também merece consideração. Não validar como alternativa única.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12425,
+    "motivo": "O futuro pertence é formulação figurada, com leitura metafórica de sucesso e oportunidades. O enunciado não oferece critério suficiente para impor hipérbole como classificação única a partir da alegação de exclusividade; gabarito certo necessita revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12424,
+    "motivo": "Há apenas texto de apoio, sem comando ou afirmação independente a julgar. Não é possível elaborar justificativa para certo sem inventar o objeto da avaliação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

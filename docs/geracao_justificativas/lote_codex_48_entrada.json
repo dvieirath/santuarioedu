@@ -1,0 +1,497 @@
+[
+  {
+    "id": 8665,
+    "texto": "No que se refere à estrutura sintática e à regência verbal, a frase 'O gestor visava os objetivos estratégicos da autarquia, embora muitos servidores ignorassem a quem o plano se destinava' está gramaticalmente correta, uma vez que o verbo visar, no sentido de almejar, exige a preposição 'a'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 39161,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 39162,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5956,
+    "texto": "A figura I acima representa a seção reta na parte central de uma viga de concreto armada em balanço, na qual a linha tracejada define a linha neutra; os círculos, as barras de aço longitudinais; e o retângulo interno, a armadura de estribo. A viga está engastada em um único apoio, com carga distribuída uniformemente de cima para baixo, conforme ilustra a figura II. [FIGURA: Seção reta de viga de concreto armado e viga em balanço com carga distribuída]. O estribo está sujeito a um esforço de torção.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31714,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31715,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5953,
+    "texto": "As métricas de avaliação de desempenho de um modelo de aprendizado de máquina, que é um componente integrante de qualquer projeto de ciência de dados, destinam-se a estimar a precisão da generalização de um modelo sobre os dados futuros (não vistos ou fora da amostra). Dentre as métricas mais conhecidas, estão a matriz de confusão, precisão, recall, pontuação, especificidade e a curva de características operacionais do receptor (ROC). Acerca das características específicas dessas métricas, julgue o item: A matriz de confusão a seguir apresenta três rótulos de classe; os elementos diagonais representam o número de pontos para os quais o rótulo previsto é igual ao rotulo verdadeiro, enquanto qualquer coisa fora da diagonal teve um rótulo atribuído erroneamente pelo classificador. Quanto menores forem os valores diagonais da matriz de confusão, melhor o modelo adotado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31708,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31709,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5901,
+    "texto": "Indivíduos expostos a radiações ionizantes, sejam raios X ou raios gama, estão sujeitos ao desenvolvimento de efeitos biológicos relativos a essas radiações. A respeito desse assunto, julgue os itens subsequentes: Efeitos determinísticos ocorrem frequentemente em trabalhadores de instalações médicas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31604,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 31605,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 5890,
+    "texto": "Quanto à Política Nacional de Humanização, julgue os itens subsequentes.\n\nClínica ampliada e projetos terapêuticos singulares são tidos como ferramentas na humanização do cuidado. Tais ferramentas são usadas pelas equipes interdisciplinares ao propor condutas terapêuticas articuladas para um sujeito individual ou coletivo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31582,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31583,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5792,
+    "texto": "No trecho “havia quem brincava” (primeiro parágrafo), a substituição de “brincava” por brincasse manteria a correção gramatical e a coerência do texto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31386,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31387,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 5775,
+    "texto": "Considerando que as avaliações em terapia ocupacional buscam coletar dados, verificar os resultados das intervenções realizadas no processo terapêutico, medir a evolução dos pacientes, aperfeiçoar o planejamento do trabalho, entre outros objetivos, e que o conhecimento assim gerado delineia diagnósticos e favorece a elaboração de estratégias que determinarão a funcionalidade dos pacientes, julgue os itens seguintes, relativos às avaliações no campo da terapia ocupacional. As abordagens qualitativas nas avaliações permitem a aproximação do terapeuta ocupacional ao sujeito tratado, de modo a favorecer o agrupamento de fatos avaliados isoladamente.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 31352,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 31353,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4984,
+    "texto": "Paciente do sexo feminino, com 65 anos de idade, procurou ambulatório de geriatria devido a esquecimentos nos últimos quatro meses. Durante a consulta, a filha da paciente relatou que esses esquecimentos não levavam à perda de independência ou autonomia, o que ficou confirmado pelos testes geriátricos de atividade de vida diária. No miniexame do estado mental (MEEM), a pontuação da paciente foi de 29 pontos, sendo sua escolaridade ensino médio completo. A paciente queixou-se que, desde o início da pandemia de covid-19, passou a ficar irritada, inquieta e com insônia. A partir do caso clínico hipotético apresentado, julgue os itens a seguir. Para a avaliação da queixa de esquecimentos, faz-se mister a realização de exames complementares, como a avaliação laboratorial de líquido cefalorraquiano, pois, para confirmação de demência de Alzheimer, deve-se detectar proteína tau e beta-amiloide 42 no liquor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 29770,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 29771,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4574,
+    "texto": "Julgue os próximos itens, a respeito das diversas finalidades da determinação dos limiares auditivos por via aérea e via óssea. A determinação dos limiares auditivos é utilizada como exame pré-admissional em indústrias e como meio de controlar a atividade auditiva de sujeitos que trabalham em ambientes ruidosos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28950,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28951,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4344,
+    "texto": "A construção do conhecimento realizada por Amanda permite que ela se reconheça como sujeito neutro e partícipe da totalidade em que se encontra inserida.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28490,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28491,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4147,
+    "texto": "Com relação aos peritos, julgue os próximos itens. I A nomeação do perito será feita mediante intervenção das partes. II O perito nomeado pela autoridade competente que não fornecer o laudo, no prazo estabelecido, fica sujeito a multa. III O perito nomeado que, sem justificativa comprovada, não comparecer para realizar a perícia poderá ser conduzido coercitivamente por determinação da autoridade competente. Assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27684,
+        "texto": "Apenas o item I está certo.",
+        "correta": false
+      },
+      {
+        "id": 27685,
+        "texto": "Apenas o item II está certo.",
+        "correta": false
+      },
+      {
+        "id": 27686,
+        "texto": "Apenas os itens I e III estão certos.",
+        "correta": false
+      },
+      {
+        "id": 27687,
+        "texto": "Apenas os itens II e III estão certos.",
+        "correta": true
+      },
+      {
+        "id": 27688,
+        "texto": "Todos os itens estão certos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4072,
+    "texto": "O policial civil do estado da Paraíba que abandonar seu cargo estará sujeito a sanção disciplinar cuja aplicação competirá",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27309,
+        "texto": "ao secretário de Estado da Segurança e da Defesa Social ou ao delegado-geral da Polícia Civil.",
+        "correta": false
+      },
+      {
+        "id": 27310,
+        "texto": "secretário de Estado da Segurança e da Defesa Social, privativamente.",
+        "correta": false
+      },
+      {
+        "id": 27311,
+        "texto": "ao governador do estado ou ao delegado-geral da Polícia Civil.",
+        "correta": false
+      },
+      {
+        "id": 27312,
+        "texto": "governador do estado, privativamente.",
+        "correta": true
+      },
+      {
+        "id": 27313,
+        "texto": "delegado-geral da Polícia Civil, privativamente.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4060,
+    "texto": "Sem prejuízo da coerência, da coesão e da correção gramatical do texto CG1A1-I, poderia ser eliminada a vírgula empregada no trecho",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27249,
+        "texto": "“Assim, o Estado é o principal garantidor da segurança pública”",
+        "correta": true
+      },
+      {
+        "id": 27250,
+        "texto": "“ao incorporar a segurança pública na Carta Magna, o legislador instituiu um status de direito fundamental a essa matéria”",
+        "correta": false
+      },
+      {
+        "id": 27251,
+        "texto": "“consequentemente, em observância aos conceitos e aos princípios da filosofia de polícia comunitária”",
+        "correta": false
+      },
+      {
+        "id": 27252,
+        "texto": "“com relação à segurança pública, em uma perspectiva cidadã”",
+        "correta": false
+      },
+      {
+        "id": 27253,
+        "texto": "“o cidadão passa a ser parceiro da organização policial, envolvendo-se na identificação de problemas”",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4003,
+    "texto": "Acerca do sujeito ativo e concurso de agentes, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26964,
+        "texto": "Para conceituar autor, o atual Código Penal adotou a teoria unitária, definindo-o como aquele que concorre, de qualquer modo, para a realização de um resultado penalmente relevante.",
+        "correta": false
+      },
+      {
+        "id": 26965,
+        "texto": "Para a devida punição, como regra geral, a conduta do partícipe será penalmente relevante e punível, ainda que o autor não execute o delito planejado.",
+        "correta": false
+      },
+      {
+        "id": 26966,
+        "texto": "O concurso absolutamente negativo não faz do omisso um partícipe do delito, por não estar ligado ao crime nem ter o dever legal de agir.",
+        "correta": false
+      },
+      {
+        "id": 26967,
+        "texto": "Para a punição do partícipe, o direito penal brasileiro adota a teoria da acessoriedade mínima, com base na ideia de que, se o autor der início ao fato típico, o partícipe deverá ser penalmente responsabilizado.",
+        "correta": true
+      },
+      {
+        "id": 26968,
+        "texto": "Havendo desvio subjetivo de coagente, todos os que cooperaram para a prática criminosa responderão pelo mesmo crime, mas a pena do não aderente será diminuída, caso o resultado não seja previsível.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3654,
+    "texto": "Com relação ao emprego dos sinais de pontuação, a correção gramatical e a coerência do texto 1A2-II seriam mantidas caso, no primeiro parágrafo do texto,",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25222,
+        "texto": "fosse empregada uma vírgula após “Brasil”.",
+        "correta": false
+      },
+      {
+        "id": 25223,
+        "texto": "a conjunção “e” fosse substituída por vírgula (no trecho “e exigiu a adoção”).",
+        "correta": false
+      },
+      {
+        "id": 25224,
+        "texto": "a expressão “em março de 2020” fosse isolada por vírgulas.",
+        "correta": true
+      },
+      {
+        "id": 25225,
+        "texto": "fosse empregada uma vírgula após “saúde mental”.",
+        "correta": false
+      },
+      {
+        "id": 25226,
+        "texto": "fosse empregado um ponto no lugar da vírgula após “depressão”, com a devida alteração da inicial de “ansiedade” para maiúscula.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3650,
+    "texto": "A coerência e a correção do texto 1A2-I seriam mantidas caso o verbo “gerando” (segundo parágrafo) fosse substituído por",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25202,
+        "texto": "e gerará.",
+        "correta": false
+      },
+      {
+        "id": 25203,
+        "texto": "e geraram.",
+        "correta": false
+      },
+      {
+        "id": 25204,
+        "texto": "o que gerou.",
+        "correta": false
+      },
+      {
+        "id": 25205,
+        "texto": "o que deve gerar.",
+        "correta": true
+      },
+      {
+        "id": 25206,
+        "texto": "que vão gerar.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3649,
+    "texto": "Mantendo-se a correção gramatical e a coerência do texto 1A2-I, a expressão “em que”, no primeiro período do texto, poderia ser substituída por",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25197,
+        "texto": "que.",
+        "correta": false
+      },
+      {
+        "id": 25198,
+        "texto": "onde.",
+        "correta": false
+      },
+      {
+        "id": 25199,
+        "texto": "na qual.",
+        "correta": true
+      },
+      {
+        "id": 25200,
+        "texto": "de que.",
+        "correta": false
+      },
+      {
+        "id": 25201,
+        "texto": "cujo o qual.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3645,
+    "texto": "Com relação à pontuação, a correção gramatical do texto 1A1-I seria mantida se",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25177,
+        "texto": "o travessão fosse substituído por vírgula, em “E isso não surpreende — éramos filhos da Vitória” (segundo parágrafo).",
+        "correta": false
+      },
+      {
+        "id": 25178,
+        "texto": "fosse inserida uma vírgula após “vida”, em “Desse desconhecimento da vida surgiu uma coragem” (sétimo parágrafo).",
+        "correta": false
+      },
+      {
+        "id": 25179,
+        "texto": "fosse inserida uma vírgula após “Pois”, em “Pois a intuição do caminho existe” (sétimo parágrafo).",
+        "correta": false
+      },
+      {
+        "id": 25180,
+        "texto": "fosse inserida uma vírgula após “infância”, em “A vila de minha infância depois da guerra era feminina” (quinto parágrafo).",
+        "correta": false
+      },
+      {
+        "id": 25181,
+        "texto": "a vírgula logo após “mãe” fosse substituída por travessão, em “Em nossa família, meu avô, pai da minha mãe, morreu no front” (terceiro parágrafo).",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3644,
+    "texto": "Assinale a opção que contém um trecho do texto 1A1-I em que as formas verbais foram empregadas no mesmo tempo verbal.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25172,
+        "texto": "“Nunca tínhamos vivido de outra forma, talvez nem saibamos como fazer isso”",
+        "correta": false
+      },
+      {
+        "id": 25173,
+        "texto": "“Não imaginamos outro modo de viver, teremos que passar um tempo aprendendo”",
+        "correta": false
+      },
+      {
+        "id": 25174,
+        "texto": "“Por muito tempo fui uma pessoa dos livros: a realidade me assustava e atraía”",
+        "correta": true
+      },
+      {
+        "id": 25175,
+        "texto": "“de seus três filhos, dois serviram no Exército e desapareceram nos primeiros meses da guerra”",
+        "correta": false
+      },
+      {
+        "id": 25176,
+        "texto": "“Tanto que isso ficou comigo: quem conta a guerra são as mulheres”",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3582,
+    "texto": "Texto 1A18-I: A coerência e os sentidos do texto seriam mantidos caso fosse suprimido o artigo “os”, no trecho “desenvolveram-se os vários campos de saber”, no último período do primeiro parágrafo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25021,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 25022,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

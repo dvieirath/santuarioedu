@@ -1,0 +1,68 @@
+[
+  {
+    "id": 12421,
+    "motivo": "Não identifica norma, esfera administrativa, data ou significado de termos neutros. Vocabulário inclusivo já existente não equivale a novas flexões. A Lei 15.263/2025, art. 5º, XI, trata de novas flexões contrárias às regras consolidadas, não de toda expressão neutra. Sem delimitação não há julgamento seguro. Fonte primária: https://bibliotecadigital.mj.gov.br/bitstream/1/16253/1/LEI_PR_2025_15263.html .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12384,
+    "motivo": "A nota altera exigências cumulativas para presumida equivalência entre extensão e bacharelado. O art. 44 da LDB distingue essas modalidades; faltam lei do cargo e fundamento para substituição. A expressão natureza jurídica de equivalência não valida essa conversão. Fonte: https://www.planalto.gov.br/ccivil_03/leis/l9394.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12383,
+    "motivo": "Há narrativa e alternativas, mas falta comando que defina o que deve ser identificado. A alternativa sobre eficiência é plausível, porém não cabe inventar a pergunta a partir do gabarito.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12382,
+    "motivo": "Confunde exceção expressa e condicionada com discricionariedade. Uma hipótese objetiva de substituição, se válida, pode vincular a Administração. Não são fornecidas lei do cargo nem a suposta norma Cebraspe; o gabarito não demonstra margem de escolha administrativa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12381,
+    "motivo": "Sem o trecho do edital, exclusividade pode dizer respeito ao cargo, ao regime de trabalho ou a outro objeto. A palavra isolada não implica proibição de participar de outros concursos. Gabarito certo depende de condição inexistente no enunciado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12380,
+    "motivo": "A equivalência causal é comum, mas todos os contextos formais é generalização excessiva. Em uso distributivo, como dividir em razão de dois para um, por causa de não preserva o sentido. O gabarito certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12378,
+    "motivo": "Há duplicação textual tratamento de tratamento e regra de substituição sem fundamento. Tu é pronome pessoal, e você leva concordância de terceira pessoa. Igualdade ou inferioridade social não impõe a substituição afirmada. Gabarito certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12374,
+    "motivo": "O trecho reúne comparação explícita em como um mar, metáfora em inundou, possível metonímia em mãos e exagero em quatro cantos. O comando pergunta genericamente qual figura está presente, sem destacar segmento ou pedir o recurso principal. Há alternativas concorrentes; não validar unicidade.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12371,
+    "motivo": "A possibilidade de inversão não está proibida por determinado nível de registro: construções como chegou o professor podem ocorrer em diferentes registros. Falta exemplo que demonstre inadequação; o gabarito errado parece tratar possibilidade em qualquer registro como licença para qualquer inversão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12370,
+    "motivo": "A norma culta não impõe a proibição geral de toda palavra de origem inglesa fora de termos técnicos internacionais. O enunciado confunde origem vocabular, empréstimos incorporados, estrangeirismo e regras editoriais. Gabarito certo exige revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 12368,
+    "motivo": "Confunde regra gramatical e protocolo institucional, sem identificar âmbito ou manual. Nem toda variação regional contraria a norma-padrão. O Decreto 9.758/2019 especifica formas de tratamento dentro de âmbito delimitado; não fundamenta exclusão absoluta de variação em todo documento oficial. Fonte: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9758.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

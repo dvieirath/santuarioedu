@@ -1,0 +1,26 @@
+[
+  {
+    "id": 13887,
+    "motivo": "Lei federal 14.000 é de 2020 e trata de mobilidade urbana, não linguagem inclusiva: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14000.htm . Além disso, desdobramento candidatas/candidatos não constitui uso de pronomes neutros. Referência e conclusão precisam de revisão.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13886,
+    "motivo": "Inexorável é adjetivo, mas a afirmação usa pode ser usada como advérbio, o que exige delimitar eventual emprego adverbial de adjetivo. Sem exemplo, não reduzir a resposta à existência de inexoravelmente; registrar ambiguidade de classe lexical versus função contextual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 13885,
+    "motivo": "Vírgulas isolam segmento explicativo composta por cientistas; não há erro obrigatório. Retirar apenas a primeira comprometeria o par de sinais. Gabarito Certo incompatível com construção fornecida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1018,
+    "motivo": "O trecho compara dificuldades de participação de alunos introvertidos em aulas presenciais e online; não destaca diretamente a importância da tecnologia no ensino de espanhol. Gabarito Certo extrapola a frase.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "id": 12144,
+    "texto": "Texto: \"Em 2024, o Ministério da Educação publicou a Diretriz de Ensino de Português para o Ensino Médio, que prevê a inclusão de estudos de linguística computacional como disciplina opcional. A diretriz destaca que o objetivo é promover a alfabetização digital e a análise de textos em larga escala, permitindo que os estudantes desenvolvam competências de interpretação de linguagem natural. A diretriz estabelece que a disciplina deve ser oferecida em escolas que possuam infraestrutura de laboratório de informática com acesso à internet, e que o professor responsável deve possuir formação específica em ciência da computação ou em linguística aplicada. A proposta visa, entre outros, reduzir a lacuna digital no ensino médio e preparar os alunos para o mercado de trabalho que valoriza habilidades de processamento de linguagem natural.\" Considerando o texto acima, qual das alternativas abaixo representa corretamente a interpretação jurídica da diretriz em relação à obrigatoriedade da disciplina de linguística computacional?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50471,
+        "texto": "A diretriz torna a disciplina obrigatória em todas as escolas públicas de ensino médio.",
+        "correta": false
+      },
+      {
+        "id": 50472,
+        "texto": "A diretriz impõe a obrigatoriedade apenas às escolas que não possuem infraestrutura de laboratório de informática.",
+        "correta": false
+      },
+      {
+        "id": 50473,
+        "texto": "A diretriz estabelece a disciplina como opcional, condicionada à disponibilidade de recursos e formação docente, não sendo de caráter obrigatório.",
+        "correta": true
+      },
+      {
+        "id": 50474,
+        "texto": "A diretriz obriga as escolas privadas a incluir a disciplina em seus currículos, sob pena de perda de financiamento federal.",
+        "correta": false
+      },
+      {
+        "id": 50475,
+        "texto": "A diretriz determina que a disciplina seja oferecida apenas em escolas que já ofereçam cursos de graduação em ciência da computação.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12143,
+    "texto": "No contexto da interpretação normativa, considere a seguinte situação: Um órgão público emitiu um decreto que estabelece, em seu artigo 3º, §1º, que \"os servidores públicos, ao exercerem funções de fiscalização, deverão observar os princípios da razoabilidade e da proporcionalidade, de forma a evitar excessos de poder.\" Um servidor, ao aplicar uma multa administrativa a um cidadão, utiliza um critério de cálculo que excede em 30% o valor previsto em lei. O cidadão questiona a legalidade da multa. Qual é a interpretação mais adequada do princípio da proporcionalidade no caso?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50466,
+        "texto": "O princípio da proporcionalidade exige apenas que a sanção seja compatível com o ato ilícito, independentemente de sua extensão.",
+        "correta": false
+      },
+      {
+        "id": 50467,
+        "texto": "O princípio da proporcionalidade impõe que a sanção seja proporcional ao grau de culpabilidade do agente, mas não ao valor da multa.",
+        "correta": false
+      },
+      {
+        "id": 50468,
+        "texto": "O princípio da proporcionalidade requer que a sanção seja adequada, necessária e proporcional ao fim que se pretende alcançar, o que inviabiliza a aplicação de valores excessivos.",
+        "correta": true
+      },
+      {
+        "id": 50469,
+        "texto": "O princípio da proporcionalidade permite a aplicação de valores superiores à lei, desde que justificados pelo contexto fático.",
+        "correta": false
+      },
+      {
+        "id": 50470,
+        "texto": "O princípio da proporcionalidade não se aplica a sanções administrativas, pois se restringe apenas ao direito penal.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12142,
+    "texto": "Um edital de licitação para a construção de uma ponte em área urbana exige que os proponentes apresentem, dentre outras exigências, um \"relatório de impacto socioambiental\" que contenha, no mínimo, as seguintes informações: (i) identificação dos grupos sociais potencialmente afetados; (ii) avaliação de efeitos sobre a qualidade do ar; (iii) proposta de mitigação de ruído; (iv) análise de custos de manutenção; e (v) cronograma de execução. Qual alternativa abaixo descreve corretamente a natureza jurídica do relatório exigido?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50461,
+        "texto": "Documento técnico obrigatório, cuja não apresentação implica inabilitação do proponente.",
+        "correta": true
+      },
+      {
+        "id": 50462,
+        "texto": "Documento opcional, mas recomendável para fins de transparência.",
+        "correta": false
+      },
+      {
+        "id": 50463,
+        "texto": "Documento de avaliação de risco, que pode ser substituído por parecer técnico.",
+        "correta": false
+      },
+      {
+        "id": 50464,
+        "texto": "Relatório de auditoria interna, a ser apresentado apenas após a conclusão da obra.",
+        "correta": false
+      },
+      {
+        "id": 50465,
+        "texto": "Documento de compliance ambiental, que substitui a necessidade de licenciamento ambiental.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12141,
+    "texto": "Um relatório técnico de avaliação de risco ambiental, elaborado por engenheiros ambientais, contém a frase: \"A probabilidade de ocorrência de eventos extremos aumentou em 12% nos últimos cinco anos, conforme análise estatística de séries temporais.\" Qual é a classificação correta dessa frase no âmbito da análise de risco, segundo os princípios de redação técnica da ABNT?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50456,
+        "texto": "Afirmativa, pois apresenta dados estatísticos sem juízo de valor.",
+        "correta": false
+      },
+      {
+        "id": 50457,
+        "texto": "Conjetura, pois não há comprovação de causa e efeito.",
+        "correta": false
+      },
+      {
+        "id": 50458,
+        "texto": "Hipótese, pois sugere uma relação causal sem comprovação definitiva.",
+        "correta": false
+      },
+      {
+        "id": 50459,
+        "texto": "Conclusão, pois deriva diretamente de dados analisados.",
+        "correta": true
+      },
+      {
+        "id": 50460,
+        "texto": "Presunção, pois baseia-se em suposições sobre a frequência de eventos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12140,
+    "texto": "Texto de apoio: Em 2024, o Ministério da Educação publicou a Diretriz de Inclusão Linguística, que prevê a adoção de pronomes neutros em documentos oficiais como forma de promover a igualdade de gênero. A diretriz estabelece que, em textos formais, o uso de \"ele/ela\" deve ser evitado em favor de \"eles/elas\" quando se referir a pessoas de identidade de gênero não-binária. Em seguida, a diretriz recomenda que, em situações de dúvida, o autor utilize a forma \"eles/elas\" como alternativa neutra, ressaltando que essa prática ainda não é obrigatória, mas sim uma recomendação de boas práticas. Considerando o texto acima, julgue a seguinte proposição: O uso de pronomes de tratamento neutros em documentos oficiais é obrigatório segundo a Diretriz de Inclusão Linguística de 2024.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50454,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50455,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12139,
+    "texto": "No português contemporâneo, a grafia da palavra \"parque\" pode ser alterada para \"parc\" em textos jornalísticos, desde que a abreviação seja explicada no primeiro parágrafo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50452,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50453,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12138,
+    "texto": "A concordância verbal em frases que apresentam sujeito composto por antônimos, como \"tanto o diretor quanto a diretora\", exige que o verbo esteja no plural, independentemente da ordem dos termos.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50450,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50451,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12137,
+    "texto": "Na análise sintática de uma oração composta por subordinação adverbial causal, o elemento que introduz a causa pode ser substituído por \"porquanto\", mantendo a mesma função sintática.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50448,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50449,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12136,
+    "texto": "Em uma redação dissertativa, o uso de pronomes de tratamento no gênero neutro, como \"ele/ela\", é considerado correto quando a norma culta ainda não estabeleceu uma forma padrão para referir-se a pessoas de identidade de gênero não-binária.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 50446,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50447,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11980,
+    "texto": "Na oração subordinada adverbial causal, o advérbio de causa deve preceder o verbo principal. Assim, a frase \"porque ele estava cansado, saiu cedo\" está correta, pois a causalidade é introduzida pelo advérbio \"porque\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49948,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49949,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11979,
+    "texto": "A frase \"Os documentos foram entregues aos funcionários\" apresenta erro de concordância verbal, pois o verbo deve concordar com o sujeito composto \"documentos\" e não com o objeto indireto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49946,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49947,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11978,
+    "texto": "O uso da crase antes de \"àqueles\" é obrigatório quando a preposição a se combina com o artigo definido que acompanha o pronome demonstrativo, formando a expressão \"àqueles\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49944,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49945,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11977,
+    "texto": "Em uma redação dissertativa, o autor utiliza o recurso de antítese para contrastar a tradição e a inovação, empregando a estrutura \"de um lado, de outro\". A construção sintática é considerada correta, pois a antítese exige a repetição de elementos estruturais para enfatizar o contraste.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49942,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49943,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11976,
+    "texto": "Texto: A reportagem publicada no jornal \"Diário Nacional\" em 12 de março de 2024 abordou a crescente demanda por serviços de tradução simultânea em eventos internacionais. O artigo destacou que, de acordo com o Instituto Nacional de Linguística, 68% dos profissionais de tradução afirmam que a tecnologia de reconhecimento de voz tem potencial para reduzir o tempo de preparação em até 30%. Além disso, a matéria mencionou que a maioria dos entrevistados considera que a qualidade da tradução ainda depende fortemente da intervenção humana. Considerando o texto acima, qual é a principal característica do uso do verbo \"afirma\" no contexto apresentado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49937,
+        "texto": "Verbo transitivo direto que indica afirmação de fato",
+        "correta": false
+      },
+      {
+        "id": 49938,
+        "texto": "Verbo intransitivo que expressa opinião",
+        "correta": false
+      },
+      {
+        "id": 49939,
+        "texto": "Verbo de ligação que estabelece relação de identidade",
+        "correta": false
+      },
+      {
+        "id": 49940,
+        "texto": "Verbo de percepção que indica percepção sensorial",
+        "correta": false
+      },
+      {
+        "id": 49941,
+        "texto": "Verbo de veracidade que introduz informação confirmada",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11974,
+    "texto": "No contexto da norma culta, identifique a figura de linguagem presente na expressão: \"O silêncio foi um espelho que refletia a inquietação da multidão.\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49927,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 49928,
+        "texto": "Metafora",
+        "correta": true
+      },
+      {
+        "id": 49929,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 49930,
+        "texto": "Litote",
+        "correta": false
+      },
+      {
+        "id": 49931,
+        "texto": "Eufemismo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11973,
+    "texto": "Considerando a norma que rege o uso de pronomes relativos no português contemporâneo, analise a frase: \"A obra, que o crítico destacou como inovadora, foi publicada em 2021.\" Qual é a função sintática do pronome relativo \"que\" nesta oração?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49922,
+        "texto": "Adjunto adverbial",
+        "correta": false
+      },
+      {
+        "id": 49923,
+        "texto": "Complemento direto",
+        "correta": false
+      },
+      {
+        "id": 49924,
+        "texto": "Complemento indireto",
+        "correta": false
+      },
+      {
+        "id": 49925,
+        "texto": "Núcleo do sujeito",
+        "correta": false
+      },
+      {
+        "id": 49926,
+        "texto": "Pronome relativo que introduz oração subordinada adjetiva",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11972,
+    "texto": "A frase \"O autor, que havia escrito o romance, foi premiado pelo prêmio Nobel de Literatura\" contém erro de pontuação.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49920,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49921,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11971,
+    "texto": "Considerando o seguinte texto: \"Na manhã de 12 de março de 2024, o Ministério da Educação publicou o edital de seleção para a vaga de professor de Matemática na Escola Estadual de São Paulo. O edital exigiu que os candidatos apresentassem, no mínimo, um diploma de graduação em Matemática, além de comprovação de experiência docente de no mínimo dois anos em escolas públicas. O prazo de inscrição foi estabelecido em 30 dias, encerrando-se em 11 de abril de 2024. A seleção consistirá em prova objetiva de 60 questões de múltipla escolha, com duração de 90 minutos, seguida de prova prática de resolução de problemas em sala de aula. Os candidatos aprovados serão convocados para entrevistas individuais, nas quais serão avaliados aspectos pedagógicos e de relacionamento com os estudantes. A remuneração inicial prevista para o cargo é de R$ 4.500,00 mensais, com reajuste anual conforme a Lei de Diretrizes e Bases da Educação.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49918,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49919,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11970,
+    "texto": "O uso de crase é obrigatório quando a preposição ‘a’ se funde com o artigo definido ‘a’ antes de substantivo feminino, como em \"Ele voltou a casa\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49916,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49917,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11969,
+    "texto": "Na oração subordinada adverbial causal, o advérbio de tempo pode ser substituído por \"porquanto\" sem alterar o sentido da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49914,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49915,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

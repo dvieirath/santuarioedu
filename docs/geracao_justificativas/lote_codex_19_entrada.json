@@ -1,0 +1,467 @@
+[
+  {
+    "id": 3834,
+    "texto": "Nos sistemas criptográficos simétricos, o mecanismo que impede a criptoanálise por análise estatística caracterizado por dissipar a estrutura estatística do texto plano em estatísticas de longo alcance do texto cifrado é",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26119,
+        "texto": "a confusão.",
+        "correta": false
+      },
+      {
+        "id": 26120,
+        "texto": "a substituição.",
+        "correta": false
+      },
+      {
+        "id": 26121,
+        "texto": "a permutação.",
+        "correta": false
+      },
+      {
+        "id": 26122,
+        "texto": "o mapeamento.",
+        "correta": false
+      },
+      {
+        "id": 26123,
+        "texto": "a difusão.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3786,
+    "texto": "Ainda com relação a figura 5A2, levando-se em consideração os perfis da geração I descritos e f(14) como a frequência do alelo 14 na população, a probabilidade de um de seus netos (geração III) apresentar o alelo 14 neste mesmo marcador é de",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25882,
+        "texto": "0,5 + f(14).",
+        "correta": false
+      },
+      {
+        "id": 25883,
+        "texto": "0,25.",
+        "correta": false
+      },
+      {
+        "id": 25884,
+        "texto": "f(14).",
+        "correta": false
+      },
+      {
+        "id": 25885,
+        "texto": "0,25 + f(14).",
+        "correta": false
+      },
+      {
+        "id": 25886,
+        "texto": "0,5.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3697,
+    "texto": "Texto CG1A1-I: Um problema no estudo da violência é sua relação com a racionalidade. Os atos violentos mais graves, praticados com requintes de crueldade, são vistos pela mídia e pela opinião pública como atos irracionais. Ora, se a violência é irracional, não é por ser obra de um ser desprovido de razão, mas por ser, paradoxalmente, o produto de uma razão perigosamente racional. É o que ocorre quando certos mecanismos racionais, como a simplificação, que reduz tudo a um único princípio explicativo, e a polarização, que vê a realidade como feita unicamente de elementos antagônicos e irreconciliáveis, deixam o indivíduo sem alternativas. Esses mecanismos traduzem a racionalidade de uma razão incapaz de lidar com os antagonismos, as diferenças e a diversidade. Portanto, o problema que levanta a violência é muito menos o da irracionalidade do que o de uma racionalidade repleta de “razões” para não se deter diante de limites estabelecidos pela própria razão humana. É a razão que, amplificando os conflitos, reduzindo as alternativas ao impasse e superdimensionando os defeitos dos outros, cria os cenários em que florescem as ideologias legitimadoras da violência. Em outras palavras, o problema da violência está intimamente ligado ao problema das relações sociais, em que a existência do outro aparece como ameaça real ou imaginária. O que mais espanta na violência, quando ela é razão de espanto, é a sua dramaturgia, a exposição da crueldade ao estado puro. É, pois, o caráter aparentemente absurdo dessa dramaturgia que confere à violência o status de irracionalidade. No entanto, as razões dessa irracionalidade raramente são explicitadas e, frequentemente, deixam de existir quando o recipiente de atos violentos é o “inimigo”. O foco do autor do texto CG1A1-I é defender a ideia de que",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25437,
+        "texto": "a irracionalidade é elemento característico da violência extrema.",
+        "correta": false
+      },
+      {
+        "id": 25438,
+        "texto": "a razão é paradoxalmente capaz de lidar com o antagonismo e a diversidade.",
+        "correta": false
+      },
+      {
+        "id": 25439,
+        "texto": "a violência está associada a ameaças reais identificadas pela razão.",
+        "correta": false
+      },
+      {
+        "id": 25440,
+        "texto": "a irracionalidade é uma explicação falaciosa para a violência extrema.",
+        "correta": true
+      },
+      {
+        "id": 25441,
+        "texto": "a aplicação de mecanismos racionais transforma perigos irreais em fatos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3683,
+    "texto": "Durante a maior parte do ano, apresenta redução dos totais pluviométricos mensais e elevadas temperaturas. A variação sazonal da temperatura média não é tão expressiva, o que leva à formação de áreas em que se observa quedas térmicas pouco expressivas na situação de inverno. O texto precedente apresenta as características do clima",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25367,
+        "texto": "semiárido.",
+        "correta": false
+      },
+      {
+        "id": 25368,
+        "texto": "tropical úmido.",
+        "correta": false
+      },
+      {
+        "id": 25369,
+        "texto": "equatorial.",
+        "correta": false
+      },
+      {
+        "id": 25370,
+        "texto": "subtropical.",
+        "correta": false
+      },
+      {
+        "id": 25371,
+        "texto": "tropical.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3675,
+    "texto": "Conforme expresso no Código de Ética do IBGE, as fontes de dados das pesquisas estatísticas e geocientíficas oficiais do instituto devem contemplar",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25327,
+        "texto": "a dignidade, o decoro e o zelo.",
+        "correta": false
+      },
+      {
+        "id": 25328,
+        "texto": "a eficácia, a eficiência e a consciência dos princípios morais.",
+        "correta": false
+      },
+      {
+        "id": 25329,
+        "texto": "a qualidade, a oportunidade, os custos e o ônus para os cidadãos.",
+        "correta": true
+      },
+      {
+        "id": 25330,
+        "texto": "a legalidade, a justiça, a conveniência, a oportunidade e a honestidade.",
+        "correta": false
+      },
+      {
+        "id": 25331,
+        "texto": "a cortesia, a boa vontade, o cuidado e o tempo dedicados ao serviço público e o esforço pela disciplina.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3673,
+    "texto": "Arnaldo, supervisor de coleta e qualidade, ordenou a Fabrícia, agente de pesquisas e mapeamento, que ela adulterasse os dados da coleta de pesquisa de natureza estatística, a fim de beneficiar Pedro, primo de Arnaldo e prefeito da cidade, com dados estatísticos mais favoráveis à sua gestão. Acerca dessa situação hipotética, assinale a opção correta à luz do disposto no Código de Ética do IBGE e na Lei n.º 8.112/1990.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25317,
+        "texto": "Fabrícia deverá recusar-se a cumprir tal ordem, já que o dever do servidor público de cumprir as ordens superiores não se aplica quando tais ordens são manifestamente ilegais.",
+        "correta": true
+      },
+      {
+        "id": 25318,
+        "texto": "Fabrícia deverá cumprir a ordem de Arnaldo, pois o servidor deve prestar toda a sua atenção às ordens legais de seus superiores, velando atentamente por seu cumprimento, e, assim, evitando a conduta negligente.",
+        "correta": false
+      },
+      {
+        "id": 25319,
+        "texto": "Sendo Arnaldo chefe de Fabrícia, resta inoportuna a sua denunciação, pois o encaminhamento da denúncia só pode ser feito ao superior hierárquico, ou seja, ao próprio acusado.",
+        "correta": false
+      },
+      {
+        "id": 25320,
+        "texto": "Fabrícia deverá cumprir a ordem de Arnaldo, pois é dever fundamental do servidor do IBGE ter respeito à hierarquia.",
+        "correta": false
+      },
+      {
+        "id": 25321,
+        "texto": "Fabrícia deverá recusar-se a cumprir tal ordem, sob o fundamento de que fere a dignidade humana.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3663,
+    "texto": "I No âmbito dessa coleta de dados, a quantidade de domicílios distintos visitados pelos agentes no dia em que foram iniciadas as observações foi igual à quantidade de domicílios distintos visitados no décimo dia subsequente ao início das observações. \nII A quantidade máxima de domicílios distintos visitados em um único dia foi atingida no quinto dia subsequente ao início das observações. \nIII No âmbito dessa coleta de dados, para 1 ≤ n ≤ 10, denotando-se por dn a quantidade de domicílios visitados pelos agentes no n-ésimo dia subsequente ao início das observações, tem-se que { d1, d2, ..., d10} é uma progressão aritmética. \n\nAssinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 25267,
+        "texto": "Apenas o item I está certo.",
+        "correta": false
+      },
+      {
+        "id": 25268,
+        "texto": "Apenas os itens I e II estão certos.",
+        "correta": false
+      },
+      {
+        "id": 25269,
+        "texto": "Apenas os itens I e III estão certos.",
+        "correta": false
+      },
+      {
+        "id": 25270,
+        "texto": "Apenas os itens II e III estão certos.",
+        "correta": false
+      },
+      {
+        "id": 25271,
+        "texto": "Todos os itens estão certos.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3474,
+    "texto": "Ainda no que diz respeito à fiscalização de peso e dimensões: O limite legal de peso se refere à capacidade do veículo, isto é, o limite máximo de peso para o veículo, que deve informado por seu fabricante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24805,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24806,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3325,
+    "texto": "Suponha que, durante um sinistro de colisão frontal, um policial rodoviário federal tenha chegado ao local da ocorrência e a vítima já estivesse sendo socorrida. Ao analisar a situação, o policial presume que a vítima não estivesse usando cinto de segurança, em razão da gravidade das lesões. Nessas circunstâncias, os danos à vítima devem ser registrados no sistema LPAT e no campo narrativa como fator determinante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24507,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24508,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3316,
+    "texto": "Considera-se excesso de peso quando este ultrapassa o limite legal estabelecido pelo fabricante para o veículo, que não necessariamente é vinculado à capacidade do pavimento.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24489,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24490,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3165,
+    "texto": "No que se refere à sintonia do controlador proporcional-integral-derivativo (PID), julgue os itens a seguir. Na etapa proporcional do controle PID, o sinal de controle aplicado a cada instante à planta é proporcional à amplitude do valor do sinal de erro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24112,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24113,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3135,
+    "texto": "A norma pertinente da ABNT que dispõe sobre as diretrizes para instalações elétricas de média tensão abrange tanto ambientes internos quanto externos, não se limitando exclusivamente a locais fechados, e inclui requisitos para a construção, a operação e a manutenção dessas instalações, visando-se a segurança e a eficiência energética.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24052,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24053,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3129,
+    "texto": "Para retificadores monofásicos com diodos, a tensão média na saída de um retificador de onda completa é maior que a tensão média na saída de um retificador de meia onda.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24040,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24041,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3059,
+    "texto": "A respeito de tecnologia mecânica, julgue os itens a seguir. O ferro fundido, uma das mais importantes ligas de ferro, é caracterizado por possuir carbono em quantidades elevadas (entre 2,5% e 4,0%, em média), além de silício em porcentagem acima da encontrada no aço comum.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23900,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23901,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 2962,
+    "texto": "Acerca dos equipamentos de proteção coletiva e individual, julgue os próximos itens. No caso de exposição ocupacional superior ao limite permitido, medidas de caráter corretivo somente serão obrigatórias se os trabalhadores não utilizarem equipamentos de proteção individual (EPI).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23706,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23707,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2931,
+    "texto": "A altura (h) que uma bola alcança em relação ao solo, em metros, é descrita pela função h(d) = -d²/k + d, em que d é a distância, em metros, desde o chute até a bola tocar novamente o solo. Para que a função quadrática apresentada represente a altura do movimento efetivo da bola, é necessário que d ∈ [0, 12].",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23644,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23645,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2923,
+    "texto": "Contexto: plataforma P-71, produção diária, reservatório. Caso a produção diária da plataforma P-71 aumentasse, a partir do valor de topo extraído em novembro de 2021, de acordo com uma progressão geométrica de razão q = √2, seriam necessários 4 dias para preencher todo o reservatório da plataforma.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23628,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23629,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2907,
+    "texto": "Texto CB1A1-I: Desde que ele se tornou a matriz energética básica da sociedade industrial e o elemento fundamental para o funcionamento da economia moderna, ter ou controlar as fontes de petróleo e as rotas por onde ele é transportado representa questão de vida ou morte para as sociedades contemporâneas. O emprego da vírgula logo após “moderna” (último período do primeiro parágrafo) é facultativo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23596,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23597,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2889,
+    "texto": "Em relação aos fundamentos do processamento de sinais: Algoritmos como Huffman e JPEG são exemplos de técnicas de compressão de sinais sem perdas, baseadas na eliminação da redundância estatística.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23560,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 23561,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 2888,
+    "texto": "Em relação aos fundamentos do processamento de sinais: A identificação de sinais envolve técnicas de análise temporal, espectral e estatística, permitindo inferir propriedades como o tipo de modulação, a largura de banda e a presença de ruído, mesmo quando não há conhecimento prévio do transmissor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 23558,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 23559,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

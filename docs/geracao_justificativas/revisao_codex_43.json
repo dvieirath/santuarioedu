@@ -1,0 +1,86 @@
+[
+  {
+    "id": 9442,
+    "motivo": "A opção C não demonstra inequivocamente ambiguidade lexical: muda o sujeito de “foi bem recebida” para comunidade acadêmica. Não se delimitam dois sentidos de uma palavra que tornem essa alternativa única; possível ambiguidade de referência não equivale a ambiguidade lexical.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9441,
+    "motivo": "A pergunta atribui uma posição específica ao MEC sobre reforma linguística sem identificar proposta, documento ou texto de apoio. Não há base para confirmar a alternativa B.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9440,
+    "motivo": "A premissa afirma incorretamente que pronomes oblíquos átonos não podem funcionar como objeto direto; a transformação com “o” contradiz essa premissa. O comando final isolado é correto, mas o enunciado precisa de revisão por contradição interna.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9437,
+    "motivo": "Não há exemplo da citação nem definição de “conclusão da fala”. A suficiência depende de aspas, travessões, disposição gráfica e de distinguir fim de frase de fim da fala citada; não há base unívoca para o julgamento proposto.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9436,
+    "motivo": "O sujeito “os dados de pesquisa” é simples, com núcleo dados, e não composto. A concordância com foram é verbal. O gabarito Certo ignora a classificação incorreta presente na afirmação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9434,
+    "motivo": "A opção B impõe reparação integral independentemente de culpa alheia, mas o art. 945 do Código Civil manda considerar a culpa concorrente da vítima. A parada de emergência não prova essa culpa, tampouco autoriza a regra absoluta da opção B. A obrigação de reparar está no art. 927, em articulação com o art. 186. Fonte: https://planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9433,
+    "motivo": "Referência normativa incorreta: na ISO 9001:2015, 7.1.5 trata de recursos de monitoramento e medição; competência é tratada em 7.2. Não justificar uma aplicação da cláusula errada. Conferência do sumário da edição BSI: https://store.accuristech.com/products/preview/1902617 .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9432,
+    "motivo": "O art. 5º, XXXV, trata de acesso ao Judiciário. A retroatividade penal benéfica está no inciso XL e não fundamenta, por si só, a extensão genérica a processo administrativo de natureza não especificada. Fonte: https://www4.planalto.gov.br/legislacao/legis-federal/constituicao .",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9430,
+    "motivo": "Que e cujo podem introduzir orações adjetivas restritivas, mantendo a subordinação. Isso não os torna substituíveis livremente: cujo exprime relação possessiva. O enunciado fala de dependência, não de substituição irrestrita; o gabarito Errado depende de acrescentar uma afirmação ausente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9427,
+    "motivo": "Dirigir-se genericamente ao leitor por você ou senhor no singular não evita generalização; o singular pode ser genérico. A adequação depende do gênero e do destinatário. A justificativa causal da afirmação não sustenta Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9394,
+    "motivo": "A tabela compara requisitos, o que não equivale a demonstrar conformidade entre normas. B e D também oferecem títulos pertinentes; falta critério que torne A única. A norma de 2024 tampouco está identificada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9393,
+    "motivo": "Na leitura natural de “Ele correu rápido”, rápido modifica correu, indicando modo, e funciona adverbialmente. A premissa e o gabarito A impõem análise predicativa sem contexto que a sustente; a opção C é a compatível com a leitura adverbial.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9392,
+    "motivo": "Não se identifica a ambiguidade a eliminar. Várias alternativas são gramaticais e preservam a ideia central; a concisão de A não demonstra que somente ela reduz ambiguidade. Necessário revisar o critério do comando.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9391,
+    "motivo": "“A fim de” é locução prepositiva com valor de finalidade, introduzindo a construção infinitiva. O valor adverbial da oração não transforma a locução em “advérbio de finalidade”. Nenhuma opção fornece a classificação adequada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

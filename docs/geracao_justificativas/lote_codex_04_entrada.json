@@ -1,0 +1,747 @@
+[
+  {
+    "id": 12452,
+    "texto": "Texto: Em 2025, o Ministério da Educação lançou um programa de capacitação para servidores públicos, com foco em aprimorar habilidades de raciocínio lógico. O programa contempla três módulos: (1) Introdução ao raciocínio lógico, (2) Resolução de problemas com lógica de conjuntos e (3) Aplicação de lógica em processos decisórios. Cada módulo possui um conjunto de exercícios que, quando resolvidos, permitem ao participante avançar para o próximo módulo. Se um servidor completa com sucesso 80% dos exercícios do módulo 1, 90% do módulo 2 e 70% do módulo 3, qual é a porcentagem mínima de exercícios que ele deve ter completado no total para avançar ao próximo nível de avaliação?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51495,
+        "texto": "80%",
+        "correta": false
+      },
+      {
+        "id": 51496,
+        "texto": "90%",
+        "correta": false
+      },
+      {
+        "id": 51497,
+        "texto": "70%",
+        "correta": false
+      },
+      {
+        "id": 51498,
+        "texto": "85%",
+        "correta": true
+      },
+      {
+        "id": 51499,
+        "texto": "75%",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12450,
+    "texto": "Em um concurso de nível médio, a banca Cebraspe apresenta a seguinte proposição: “Se o número X for múltiplo de 3 e o número Y for múltiplo de 5, então a soma X + Y é múltiplo de 15”. Qual é a lógica que justifica essa afirmação?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51485,
+        "texto": "X e Y são divisíveis por 3 e 5, respectivamente, logo X + Y é divisível por 15",
+        "correta": false
+      },
+      {
+        "id": 51486,
+        "texto": "X é múltiplo de 3, Y é múltiplo de 5, então ambos são múltiplos de 15",
+        "correta": false
+      },
+      {
+        "id": 51487,
+        "texto": "X + Y é múltiplo de 3 e de 5, logo é múltiplo de 15",
+        "correta": true
+      },
+      {
+        "id": 51488,
+        "texto": "A soma de dois múltiplos de 3 e 5 sempre resulta em múltiplo de 15",
+        "correta": false
+      },
+      {
+        "id": 51489,
+        "texto": "A afirmação é falsa, pois X + Y pode não ser múltiplo de 15",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12449,
+    "texto": "Um órgão público está desenvolvendo um sistema de controle de processos administrativos. O sistema deve validar a sequência de etapas de um processo, que segue o padrão: A → B → C → D → E. Se a etapa atual for B, quais das alternativas abaixo representam corretamente a sequência completa de etapas que o sistema deve exibir ao usuário, considerando que a etapa atual é a segunda da sequência?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51480,
+        "texto": "B, C, D, E",
+        "correta": false
+      },
+      {
+        "id": 51481,
+        "texto": "A, B, C, D, E",
+        "correta": false
+      },
+      {
+        "id": 51482,
+        "texto": "B, A, C, D, E",
+        "correta": false
+      },
+      {
+        "id": 51483,
+        "texto": "A, B, C, D, E, B",
+        "correta": false
+      },
+      {
+        "id": 51484,
+        "texto": "B, C, D, E, A",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12448,
+    "texto": "Texto de Apoio: Em 2024, a Polícia Federal divulgou um relatório sobre o uso de inteligência artificial na investigação de crimes cibernéticos. O documento destaca que, apesar das vantagens na análise de grandes volumes de dados, a aplicação de algoritmos de aprendizado de máquina ainda enfrenta desafios significativos relacionados à transparência dos critérios de decisão e à mitigação de vieses. Segundo o relatório, a maioria das investigações que utilizam IA para triagem de evidências digitais apresenta taxa de erro de 4,2%, principalmente em cenários com dados heterogêneos e escassez de exemplos rotulados. O documento recomenda a implementação de auditorias independentes e o desenvolvimento de modelos explicáveis como medidas para aumentar a confiabilidade dos resultados. Em vista desse cenário, a equipe de investigação recebeu treinamento específico para interpretar as saídas dos algoritmos e correlacioná‑las com evidências físicas, de modo a garantir a robustez das conclusões.\nConsiderando o texto acima, qual das seguintes afirmações sobre a aplicação de IA na investigação de crimes cibernéticos é correta?\nA) A taxa de erro de 4,2% indica que a IA é totalmente confiável para decisões judiciais.\nB) O relatório não menciona a necessidade de treinamento específico para a equipe.\nC) O uso de modelos explicáveis pode reduzir os vieses identificados no relatório.\nD) A recomendação de auditorias independentes visa apenas reduzir custos operacionais.\nE) A heterogeneidade dos dados não afeta a performance dos algoritmos de aprendizado de máquina.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51478,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51479,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12447,
+    "texto": "Em um problema de lógica, a negação de “p ∧ q” é equivalente a “¬p ∧ ¬q”.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51476,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51477,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12446,
+    "texto": "Um conjunto A possui 5 elementos. O número de subconjuntos diferentes de A é 32.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51474,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51475,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12445,
+    "texto": "Considere a proposição: “Se um número par é dividido por 2, o resultado é sempre inteiro”. A afirmação é verdadeira.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51472,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51473,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12444,
+    "texto": "Em uma sequência de números inteiros, a cada termo subsequente soma-se 3 ao anterior. Se o primeiro termo é 2, então o décimo termo é 32.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51470,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51471,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12411,
+    "texto": "Um conjunto de 12 números inteiros é dividido em 3 grupos de 4 números cada. Se a soma dos números do primeiro grupo for 28, a soma do segundo grupo for 36 e a soma do terceiro grupo for 44, qual é a soma total dos 12 números?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51353,
+        "texto": "108",
+        "correta": false
+      },
+      {
+        "id": 51354,
+        "texto": "104",
+        "correta": false
+      },
+      {
+        "id": 51355,
+        "texto": "100",
+        "correta": true
+      },
+      {
+        "id": 51356,
+        "texto": "96",
+        "correta": false
+      },
+      {
+        "id": 51357,
+        "texto": "92",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12410,
+    "texto": "Em um sistema de controle de acesso, as senhas são geradas a partir de uma sequência de 8 caracteres alfanuméricos, sendo que cada caractere pode ser uma letra maiúscula ou minúscula, um dígito ou um símbolo especial. Se a política de segurança exige que pelo menos 3 caracteres sejam dígitos, quantas combinações distintas de senhas são possíveis?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51348,
+        "texto": "2,814,749,767,106,560",
+        "correta": false
+      },
+      {
+        "id": 51349,
+        "texto": "2,814,749,767,106,559",
+        "correta": false
+      },
+      {
+        "id": 51350,
+        "texto": "2,814,749,767,106,558",
+        "correta": false
+      },
+      {
+        "id": 51351,
+        "texto": "2,814,749,767,106,557",
+        "correta": false
+      },
+      {
+        "id": 51352,
+        "texto": "2,814,749,767,106,556",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12409,
+    "texto": "Um algoritmo de ordenação recebe um vetor de 10 inteiros em ordem crescente e, em cada iteração, troca os elementos adjacentes se estiverem fora de ordem. Qual é o número mínimo de trocas necessárias para que o vetor esteja em ordem decrescente?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 51343,
+        "texto": "9",
+        "correta": false
+      },
+      {
+        "id": 51344,
+        "texto": "8",
+        "correta": false
+      },
+      {
+        "id": 51345,
+        "texto": "7",
+        "correta": false
+      },
+      {
+        "id": 51346,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 51347,
+        "texto": "5",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12408,
+    "texto": "Texto: Em 2024, a empresa XYZ lançou um sistema de gestão de projetos que integra três módulos: Planejamento, Execução e Controle. Cada módulo depende do módulo anterior: o módulo de Execução só pode ser iniciado após a conclusão do Planejamento, e o módulo de Controle só pode ser ativado após a conclusão do Execução. O gerente de projeto, ao analisar o cronograma, observa que a equipe de Controle está atrasada em 3 dias em relação ao previsto. Para compensar esse atraso, a equipe de Execução decide acelerar suas atividades, reduzindo o tempo de execução em 2 dias. Considerando que o tempo total do projeto era de 30 dias e que a equipe de Planejamento já cumpriu seu prazo, qual é o novo prazo final do projeto após a aceleração da equipe de Execução?",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51341,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51342,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12407,
+    "texto": "A proposição composta P → (Q ∧ R) é logicamente equivalente à proposição (P → Q) ∧ (P → R).",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51339,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51340,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12406,
+    "texto": "Um algoritmo de ordenação divide a lista em duas metades, ordena recursivamente cada metade e depois as combina. Se o algoritmo for executado em uma lista de tamanho 8, quantas comparações mínimas são necessárias para ordenar a lista?",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51337,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51338,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12405,
+    "texto": "Considere a proposição: Se um número inteiro positivo for divisível por 3, então seu quadrado é divisível por 9. A negação desta proposição é: Se um número inteiro positivo for divisível por 3, então seu quadrado não é divisível por 9.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51335,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 51336,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12404,
+    "texto": "Em um sistema de controle de estoque, a sequência de operações é: (1) Receber mercadoria; (2) Registrar entrada; (3) Atualizar saldo; (4) Emitir nota fiscal. Se a etapa (3) for omitida, a informação de saldo permanece correta enquanto a nota fiscal é emitida com o valor incorreto. Essa situação demonstra que a operação (3) é redundante para a consistência dos dados de estoque.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 51333,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 51334,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12207,
+    "texto": "Um algoritmo de classificação de documentos utiliza um método de ordenação baseado em comparação de chaves. O algoritmo segue o princípio de que, ao comparar dois documentos, a chave de cada documento é avaliada em ordem lexicográfica. Se a chave do documento A for menor que a de B, A é posicionado antes de B. Considerando que as chaves são strings de 4 caracteres alfanuméricos, quantas comparações mínimas são necessárias para ordenar 8 documentos usando o algoritmo de ordenação por seleção?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 50678,
+        "texto": "28",
+        "correta": false
+      },
+      {
+        "id": 50679,
+        "texto": "24",
+        "correta": true
+      },
+      {
+        "id": 50680,
+        "texto": "20",
+        "correta": false
+      },
+      {
+        "id": 50681,
+        "texto": "16",
+        "correta": false
+      },
+      {
+        "id": 50682,
+        "texto": "12",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12206,
+    "texto": "Em um concurso de logística, um candidato recebe a seguinte informação: a empresa possui 4 armazéns, cada um com capacidade para armazenar 3 tipos de produtos (A, B e C). A empresa decide distribuir os produtos de forma que cada armazém contenha exatamente 2 tipos de produtos diferentes, e nenhum par de armazéns compartilhe os mesmos 2 tipos de produtos. Quantas distribuições distintas são possíveis?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 50673,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 50674,
+        "texto": "24",
+        "correta": true
+      },
+      {
+        "id": 50675,
+        "texto": "36",
+        "correta": false
+      },
+      {
+        "id": 50676,
+        "texto": "48",
+        "correta": false
+      },
+      {
+        "id": 50677,
+        "texto": "60",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12205,
+    "texto": "Considerando o texto abaixo, responda à pergunta que se segue.\n\nTexto: Em um cenário de análise de dados de tráfego de rede, um engenheiro de segurança observa que, ao monitorar os pacotes transmitidos entre dois servidores, a sequência de bytes recebidos apresenta um padrão de repetição a cada 7 bytes: 0xAB, 0xCD, 0xEF, 0x01, 0x23, 0x45, 0x67, em seguida o padrão recomeça. O engenheiro deseja determinar quantos bytes diferentes existem no padrão completo antes de repetir.\n\nPergunta: Quantos bytes distintos compõem o padrão antes de sua repetição?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 50668,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 50669,
+        "texto": "6",
+        "correta": false
+      },
+      {
+        "id": 50670,
+        "texto": "7",
+        "correta": true
+      },
+      {
+        "id": 50671,
+        "texto": "8",
+        "correta": false
+      },
+      {
+        "id": 50672,
+        "texto": "9",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12204,
+    "texto": "Um sistema de controle de acesso em um prédio de escritórios utiliza um algoritmo de verificação sequencial de códigos. O algoritmo funciona da seguinte forma: ao inserir um código, o sistema compara cada dígito com o dígito correspondente de uma sequência pré‑definida. Se todos os dígitos coincidirem, o acesso é concedido; caso contrário, o sistema bloqueia a tentativa e registra a posição do primeiro erro. Suponha que a sequência correta seja 3‑1‑4‑1‑5. Se um usuário insere o código 3‑1‑4‑2‑5, quantas tentativas o sistema fará antes de bloquear o acesso?",
+    "tipo": "ME",
+    "alternativas": [
+      {
+        "id": 50663,
+        "texto": "1",
+        "correta": false
+      },
+      {
+        "id": 50664,
+        "texto": "2",
+        "correta": true
+      },
+      {
+        "id": 50665,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 50666,
+        "texto": "4",
+        "correta": false
+      },
+      {
+        "id": 50667,
+        "texto": "5",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12203,
+    "texto": "Texto: O Ministério da Saúde divulgou em 2024 uma nova política de vacinação que prevê a administração de doses de reforço em intervalos de 6 meses. A pesquisa demonstrou que, em um estudo controlado, a taxa de eficácia de cada dose de reforço era de 95%, enquanto a eficácia da primeira dose era de 80%. Considerando que a eficácia de cada dose subsequente não diminui e que o efeito cumulativo de duas doses é multiplicativo, qual é a eficácia acumulada após a primeira dose e duas doses de reforço? \n\nA eficácia acumulada após a primeira dose e duas doses de reforço é 95,6%.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50661,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50662,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12202,
+    "texto": "Em um labirinto representado por uma matriz 5x5, cada célula pode ser atravessada apenas se o número de vizinhos adjacentes (horizontal e vertical) for par. Se a célula central (linha 3, coluna 3) tem 4 vizinhos, então é possível atravessar essa célula.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50659,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50660,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12201,
+    "texto": "Um algoritmo de ordenação por inserção possui complexidade O(n^2) no pior caso. Se o vetor de entrada está já ordenado, a complexidade do algoritmo permanece O(n^2).",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50657,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50658,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12200,
+    "texto": "Um conjunto de cartas numeradas de 1 a 9 é distribuído igualmente entre três jogadores. Se o jogador A possui as cartas 1, 4 e 7, o jogador B possui as cartas 2, 5 e 8, e o jogador C possui as cartas 3, 6 e 9, então a soma das cartas de cada jogador é igual.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50655,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50656,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12199,
+    "texto": "Em uma sequência de números inteiros positivos, a diferença entre o terceiro e o primeiro elemento é igual ao dobro da soma dos dois últimos elementos. Se o segundo elemento é 7, o valor do quarto elemento é 5.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50653,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50654,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12173,
+    "texto": "Texto: O Ministério da Educação divulgou em 12 de março de 2024 um relatório sobre a eficácia de metodologias ativas no ensino médio. O estudo, conduzido por 30 professores de escolas públicas de São Paulo, analisou 1.200 alunos em 12 turmas distintas. Os dados foram coletados ao longo de um semestre letivo, com avaliações mensais de desempenho em matemática, português e ciências. O relatório concluiu que, em comparação com turmas que utilizavam métodos tradicionais, as turmas com metodologias ativas apresentaram aumento médio de 15% nas notas de matemática e 12% em português, mas não houve diferença significativa em ciências. O documento destaca ainda que a implementação dessas metodologias exigiu treinamento adicional para os professores, com custo médio de R$ 1.500,00 por docente, e que o engajamento dos alunos foi maior nas aulas práticas. Considerando o texto acima, qual das alternativas a seguir descreve corretamente a relação entre o aumento de desempenho e o custo de treinamento?",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50556,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50557,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12172,
+    "texto": "Considere a seguinte frase: \"Se hoje é terça-feira, então amanhã será quarta-feira.\" Esta proposição é uma tautologia, pois é verdadeira independentemente do dia atual.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50554,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50555,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12171,
+    "texto": "Um conjunto de cinco cartas numeradas de 1 a 5 é embaralhado aleatoriamente. A probabilidade de que a carta 3 apareça em posição 3 é maior que a probabilidade de que a carta 5 apareça em posição 5.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50552,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 50553,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 12170,
+    "texto": "A lógica de proposições pode ser representada por tabelas verdade, onde a negação de uma proposição verdadeira é falsa, e a conjunção de duas proposições falsas é falsa.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50550,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50551,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 12169,
+    "texto": "Em uma sequência de números inteiros consecutivos, a soma dos três primeiros é 12. Se a sequência continua com mais cinco números, a soma total dos nove números será maior que 90. A afirmação é verdadeira.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 50548,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 50549,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11994,
+    "texto": "Em um circuito elétrico série, a corrente que percorre cada componente é a mesma. Se a resistência total do circuito for a soma das resistências individuais, então a potência total dissipada é igual à soma das potências dissipada por cada componente.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 49988,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49989,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11993,
+    "texto": "Considere a seguinte situação: Uma empresa de logística possui três centros de distribuição localizados em cidades A, B e C. Cada centro atende a um conjunto de clientes que se distribuem uniformemente ao longo de um círculo de raio 30 km. Os centros são dispostos em vértices de um triângulo equilátero de lado 60 km. Se um cliente localizado no ponto médio da fronteira entre os centros A e B for atendido pelo centro mais próximo, ele estará a 15 km de distância. Considerando essa configuração, a distância mínima entre qualquer par de centros é 30 km.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 49986,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49987,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11992,
+    "texto": "Um algoritmo de ordenação que utiliza a técnica de divisão e conquista tem complexidade de tempo O(n log n) quando aplicado a um vetor de tamanho n.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 49984,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49985,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11991,
+    "texto": "Um conjunto de 12 elementos é dividido em três subconjuntos de 4 elementos cada. Se a soma dos elementos de cada subconjunto for igual, então a soma total dos 12 elementos é necessariamente múltiplo de 3.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 49982,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49983,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11990,
+    "texto": "Em uma sequência de números inteiros, a diferença entre o quinto termo e o primeiro termo é igual à soma dos termos segundo, terceiro e quarto. Considerando que a sequência é aritmética, a razão é positiva.",
+    "tipo": "CE",
+    "alternativas": [
+      {
+        "id": 49980,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49981,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

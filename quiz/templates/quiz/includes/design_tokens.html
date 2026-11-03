@@ -144,37 +144,6 @@ tailwind.config = {
 </style>
 
 <script>
-  /* ═══ Auto-recovery de Service Worker antigo ═══
-     IMPORTANTE: mantem em sync com CACHE_VERSION no sw.js. Quando essa
-     constante nao bate com a do SW, o codigo detecta cache antigo,
-     desregistra o SW velho, limpa todos caches e recarrega. */
-  (function() {
-    const CACHE_ATUAL = 'santuario-v7';  // bate com sw.js CACHE_VERSION
-    const KEY = 'santuario:sw-check';
-    if (!('serviceWorker' in navigator)) return;
-    // Só roda 1x por sessão de browser (evita loop de reload)
-    try {
-      if (sessionStorage.getItem(KEY) === CACHE_ATUAL) return;
-      sessionStorage.setItem(KEY, CACHE_ATUAL);
-    } catch(e) {}
-
-    navigator.serviceWorker.getRegistrations().then(regs => {
-      if (!regs.length) return;
-      if (!window.caches) return;
-      caches.keys().then(keys => {
-        const temAntigo = keys.some(k => k !== CACHE_ATUAL && !k.startsWith('workbox-'));
-        if (!temAntigo) return;
-        console.info('[SW] Cache antigo detectado — limpando e recarregando');
-        Promise.all([
-          ...keys.filter(k => k !== CACHE_ATUAL).map(k => caches.delete(k)),
-          ...regs.map(r => r.unregister()),
-        ]).then(() => {
-          setTimeout(() => window.location.reload(), 300);
-        });
-      });
-    });
-  })();
-
   /* Utilitário global — usa dentro de qualquer template.
      aiLoader.show(container, 'Consultando IA')  → injeta loader dentro do container
      aiLoader.hide(container)                    → remove

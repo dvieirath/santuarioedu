@@ -1,0 +1,512 @@
+[
+  {
+    "id": 11736,
+    "texto": "Em um sistema de controle de acesso baseado em token, cada token possui um campo de validade que indica o número de segundos que o token permanece ativo após a emissão. Se um token expira após 3600 segundos e a aplicação verifica a validade a cada 120 segundos, quantas verificações serão realizadas antes que o token seja considerado inválido?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49160,
+        "texto": "29",
+        "correta": false
+      },
+      {
+        "id": 49161,
+        "texto": "30",
+        "correta": true
+      },
+      {
+        "id": 49162,
+        "texto": "31",
+        "correta": false
+      },
+      {
+        "id": 49163,
+        "texto": "32",
+        "correta": false
+      },
+      {
+        "id": 49164,
+        "texto": "33",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11735,
+    "texto": "Um engenheiro de sistemas está desenvolvendo um algoritmo de classificação de imagens que utiliza um modelo de árvore de decisão. O algoritmo recebe três variáveis de entrada: A (valor binário), B (valor decimal entre 0 e 10) e C (valor inteiro positivo). A árvore de decisão possui 4 níveis de profundidade e cada nó interno testa apenas uma das variáveis. Se o valor de B for maior que 7, o nó imediatamente superior a B testa C; caso contrário, testa A. Considerando essa estrutura, qual é a quantidade máxima de rotinas de teste que podem ser executadas em paralelo, supondo que cada nó interno pode ser processado simultaneamente com seus irmãos no mesmo nível?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49155,
+        "texto": "2",
+        "correta": false
+      },
+      {
+        "id": 49156,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 49157,
+        "texto": "4",
+        "correta": true
+      },
+      {
+        "id": 49158,
+        "texto": "5",
+        "correta": false
+      },
+      {
+        "id": 49159,
+        "texto": "6",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11543,
+    "texto": "Um analista de dados está avaliando a relação entre três variáveis: X, Y e Z. Ele observa que quando X aumenta, Y diminui; quando Y aumenta, Z aumenta; e quando Z aumenta, X aumenta. Se a variável X aumenta em 10 unidades, qual é a consequência mais provável sobre a variável Y?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48531,
+        "texto": "Y aumentará em 10 unidades.",
+        "correta": false
+      },
+      {
+        "id": 48532,
+        "texto": "Y permanecerá inalterado.",
+        "correta": false
+      },
+      {
+        "id": 48533,
+        "texto": "Y diminuirá em 10 unidades.",
+        "correta": true
+      },
+      {
+        "id": 48534,
+        "texto": "Y diminuirá em 5 unidades.",
+        "correta": false
+      },
+      {
+        "id": 48535,
+        "texto": "Não é possível determinar.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11542,
+    "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório sobre a adoção de tecnologias de inteligência artificial em escolas públicas. O documento destaca que 68% das escolas que implementaram sistemas de tutoria virtual apresentaram aumento médio de 12% nas notas de matemática dos alunos de 9º ano, enquanto 32% não perceberam diferença significativa. A análise estatística aponta que o uso de IA pode reduzir o tempo de estudo em 25% para alunos que obtiveram melhorias. Considerando o texto acima, qual afirmação a seguir é correta?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48526,
+        "texto": "O aumento nas notas de matemática foi observado em todas as escolas que adotaram IA.",
+        "correta": false
+      },
+      {
+        "id": 48527,
+        "texto": "O uso de IA reduziu o tempo de estudo em todas as escolas analisadas.",
+        "correta": false
+      },
+      {
+        "id": 48528,
+        "texto": "A média de aumento nas notas de matemática em escolas que adotaram IA foi de 12%.",
+        "correta": true
+      },
+      {
+        "id": 48529,
+        "texto": "A redução do tempo de estudo foi maior do que o aumento das notas.",
+        "correta": false
+      },
+      {
+        "id": 48530,
+        "texto": "O relatório não fornece dados sobre o tempo de estudo.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11541,
+    "texto": "Considere o seguinte conjunto de proposições: A: \"A temperatura do forno é superior a 200°C\"; B: \"O material está em estado sólido\"; C: \"O processo de fusão foi iniciado\". Se a proposição C implica a proposição A e a proposição B implica a negação de A, qual é a conclusão correta sobre o estado do material?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48521,
+        "texto": "O material está em estado líquido.",
+        "correta": true
+      },
+      {
+        "id": 48522,
+        "texto": "O material está em estado sólido.",
+        "correta": false
+      },
+      {
+        "id": 48523,
+        "texto": "O forno está abaixo de 200°C.",
+        "correta": false
+      },
+      {
+        "id": 48524,
+        "texto": "A fusão não pode ter sido iniciada.",
+        "correta": false
+      },
+      {
+        "id": 48525,
+        "texto": "Não é possível determinar o estado do material.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11540,
+    "texto": "Um engenheiro civil está analisando a sequência de etapas de um projeto de construção de um prédio de 12 andares. As etapas são: (1) Aprovação do projeto arquitetônico, (2) Contratação de empreiteira, (3) Aquisição de materiais, (4) Início das obras, (5) Fiscalização periódica, (6) Entrega da obra. Se a etapa (2) ocorrer antes da etapa (1), a etapa (5) deve ocorrer antes da etapa (3). Qual das alternativas apresenta uma sequência possível de todas as etapas respeitando as restrições acima?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48516,
+        "texto": "(1) – (2) – (3) – (4) – (5) – (6)",
+        "correta": false
+      },
+      {
+        "id": 48517,
+        "texto": "(2) – (1) – (4) – (3) – (5) – (6)",
+        "correta": false
+      },
+      {
+        "id": 48518,
+        "texto": "(2) – (1) – (3) – (4) – (5) – (6)",
+        "correta": true
+      },
+      {
+        "id": 48519,
+        "texto": "(1) – (3) – (2) – (4) – (5) – (6)",
+        "correta": false
+      },
+      {
+        "id": 48520,
+        "texto": "(1) – (2) – (4) – (3) – (5) – (6)",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11539,
+    "texto": "Texto: A empresa de tecnologia ‘InovaSoft’ lançou em 2024 um algoritmo de otimização de rotas que, segundo a própria diretoria, reduz em 35 % o tempo médio de entrega de pacotes em grandes centros urbanos. O algoritmo funciona analisando o histórico de entregas, identificando padrões de tráfego e calculando rotas alternativas em tempo real. Em um experimento realizado em São Paulo, o tempo médio de entrega caiu de 1,8 h para 1,2 h, enquanto o número de entregas diárias aumentou de 2.500 para 3.200. Contudo, a diretoria observou que, em horários de pico, o algoritmo ainda apresentava variações de 10 % no tempo de entrega, o que pode afetar a satisfação dos clientes. Considerando o texto acima, a afirmação a seguir é verdadeira: O algoritmo da InovaSoft garante entrega em tempo constante, independentemente do tráfego urbano.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48514,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48515,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11538,
+    "texto": "Para que um conjunto de proposições seja satisfatível, é suficiente que cada proposição individual seja verdadeira.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48512,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48513,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11537,
+    "texto": "Um algoritmo que verifica se um número inteiro é primo executa, no pior caso, um número de iterações proporcional ao quadrado do número de dígitos do inteiro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48510,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48511,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11536,
+    "texto": "O conjunto de todas as palavras que podem ser formadas com as letras da palavra ‘RACAO’ sem repetição possui 120 combinações distintas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48508,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48509,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11535,
+    "texto": "Em uma sequência numérica, cada termo é obtido somando-se o dobro do termo anterior ao triplo do termo ante‑passado. Se o termo 1 é 5 e o termo 2 é 8, o termo 4 é 46.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48506,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48507,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11499,
+    "texto": "Um conjunto de quatro números inteiros positivos, A, B, C e D, satisfaz as seguintes condições: 1) A + B = C + D; 2) A × B = C × D; 3) A < B < C < D. Qual é a soma dos quatro números?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48386,
+        "texto": "10",
+        "correta": false
+      },
+      {
+        "id": 48387,
+        "texto": "12",
+        "correta": false
+      },
+      {
+        "id": 48388,
+        "texto": "14",
+        "correta": true
+      },
+      {
+        "id": 48389,
+        "texto": "16",
+        "correta": false
+      },
+      {
+        "id": 48390,
+        "texto": "18",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11498,
+    "texto": "Considerando o texto abaixo: \"Em 2024, o Ministério da Saúde lançou uma iniciativa de monitoramento de dados de saúde pública que envolve a coleta de informações de 12 municípios. Cada município reporta diariamente o número de casos de doenças infecciosas. Os dados são analisados em tempo real por um algoritmo que classifica as regiões em categorias de risco: baixa, moderada, alta e crítica. O algoritmo utiliza uma lógica de classificação baseada em intervalos de contagem de casos, onde a categoria de risco aumenta sempre que a contagem ultrapassa 10% do valor máximo observado em qualquer município. Se, no dia 15 de março, o município de Laranjeiras registrou 120 casos, que representou o maior número de casos entre os municípios, qual a categoria de risco atribuída ao município de Laranjeiras no dia 15 de março?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48381,
+        "texto": "Baixa",
+        "correta": false
+      },
+      {
+        "id": 48382,
+        "texto": "Moderada",
+        "correta": false
+      },
+      {
+        "id": 48383,
+        "texto": "Alta",
+        "correta": true
+      },
+      {
+        "id": 48384,
+        "texto": "Crítica",
+        "correta": false
+      },
+      {
+        "id": 48385,
+        "texto": "Nenhuma das anteriores",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11497,
+    "texto": "Em uma sequência de números inteiros positivos, a diferença entre dois números consecutivos é sempre um número primo. Se o primeiro termo dessa sequência for 7 e o sexto termo for 31, qual é o quarto termo?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48376,
+        "texto": "13",
+        "correta": false
+      },
+      {
+        "id": 48377,
+        "texto": "15",
+        "correta": true
+      },
+      {
+        "id": 48378,
+        "texto": "17",
+        "correta": false
+      },
+      {
+        "id": 48379,
+        "texto": "19",
+        "correta": false
+      },
+      {
+        "id": 48380,
+        "texto": "23",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11496,
+    "texto": "Um órgão público possui cinco servidores, cada um com um nível de senioridade distinto, representado por números inteiros de 1 a 5, onde 1 indica o menor e 5 o maior. A política de promoção determina que, ao fim de cada ano, apenas os servidores de nível 2, 3 e 4 podem ser promovidos, e a promoção aumenta o nível do servidor em exatamente 1 unidade, sem ultrapassar o nível 5. Se o servidor de nível 2 for promovido no ano corrente, quantos servidores terão nível 3 no início do ano seguinte?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48371,
+        "texto": "0",
+        "correta": false
+      },
+      {
+        "id": 48372,
+        "texto": "1",
+        "correta": true
+      },
+      {
+        "id": 48373,
+        "texto": "2",
+        "correta": false
+      },
+      {
+        "id": 48374,
+        "texto": "3",
+        "correta": false
+      },
+      {
+        "id": 48375,
+        "texto": "4",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11495,
+    "texto": "Texto: Em 2024, a empresa fictícia TechNova lançou um novo algoritmo de busca que, segundo a equipe de desenvolvimento, reduz o tempo médio de resposta de consultas em bases de dados de 30% quando comparado ao algoritmo tradicional de busca binária. O algoritmo funciona em duas fases: na primeira fase, os dados são particionados em blocos de tamanho fixo e indexados por um hash; na segunda fase, a busca dentro de cada bloco é realizada por busca linear. A equipe argumenta que, apesar da busca linear ser de complexidade O(k) (k = tamanho do bloco), o uso do hash na primeira fase diminui significativamente a quantidade de blocos que precisam ser examinados, resultando em ganho de desempenho. No entanto, especialistas em ciência da computação apontam que a complexidade total do algoritmo permanece O(n) em pior caso, já que o hash pode gerar colisões que fazem com que vários blocos precisem ser examinados.\n\nConsiderando o texto acima, a afirmação de que o algoritmo da TechNova possui complexidade de pior caso inferior a O(n) é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48369,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48370,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11494,
+    "texto": "Um conjunto de regras lógicas que determina que, se P é verdadeiro, então Q é falso, e que Q é verdadeiro implica R é falso, não permite concluir que P é falso.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48367,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48368,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11493,
+    "texto": "Em um grafo dirigido acíclico (DAG), a existência de exatamente dois caminhos distintos entre dois vértices A e B implica que o grafo contém pelo menos um ciclo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48365,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48366,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11492,
+    "texto": "Se uma sequência de números inteiros é dita ser 'crescente estrita' quando cada termo é maior que o anterior, então a sequência 3, 3, 5, 7, 9 não pode ser considerada crescente estrita.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48363,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48364,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11491,
+    "texto": "Considerando que o algoritmo de ordenação por inserção tem complexidade média de O(n²) e que a complexidade de um algoritmo de ordenação por fusão é O(n log n), a afirmação de que a ordenação por fusão é sempre mais rápida que a ordenação por inserção, independentemente do tamanho do conjunto de dados, é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48361,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48362,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

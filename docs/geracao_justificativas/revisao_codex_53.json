@@ -1,0 +1,80 @@
+[
+  {
+    "id": 6145,
+    "motivo": "Faltam dados ou gráfico para comparar oferta e demanda no terceiro dia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 541,
+    "motivo": "Falta período com exíguo; equivalência solicitada é contextual, apesar de curto ser acepção possível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 539,
+    "motivo": "Falta período com aparecera e alguém para verificar II e a combinação final.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 538,
+    "motivo": "Ausentes quarto e quinto parágrafos para determinar tipologia predominante.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 536,
+    "motivo": "Ausente período com pontos e vírgulas para verificar coordenação e subdivisões.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 535,
+    "motivo": "Ausente parágrafo para identificar antecedente do pronome la.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 533,
+    "motivo": "Sobre admite sentido espacial ou temático; contexto ausente impede escolher entre acima de e acerca de.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 532,
+    "motivo": "Fragmento sugere comparação, mas falta oração principal para confirmar relação contextual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2344,
+    "motivo": "Texto Sovereign AI ausente; impossível verificar hierarquia das preocupações.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 2178,
+    "motivo": "Texto-base ausente; impossível verificar a maior preocupação das nações.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1077,
+    "motivo": "Não há exclusivamente no item: abordar costumes anglófonos é compatível com interculturalidade. Gabarito depende de leitura restritiva não explícita e possivelmente do contexto temporal da oficialidade do inglês nos EUA.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1064,
+    "motivo": "Enunciado interrompido, sem afirmação completa.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 1063,
+    "motivo": "Texto-base ausente; comando exige interpretação textual, não juízo histórico geral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

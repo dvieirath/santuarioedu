@@ -1,0 +1,86 @@
+[
+  {
+    "id": 10378,
+    "motivo": "Inteiros estritamente positivos são fechados sob soma e não contêm zero. Proposição falsa cadastrada Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10377,
+    "motivo": "Pergunta pede quantidade de comparações, mas cadastro oferece apenas Certo/Errado, sem proposição numérica para julgar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9938,
+    "motivo": "Texto narrativo sem item final claro para julgamento. Métricas também exigem conferir definições: recall e taxa de falsos negativos declarados não são complementares na interpretação binária usual.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9936,
+    "motivo": "Com P=V,Q=F,R=V, expressão vale (V∨F)∧(F∨V)=V. Afirmação de resultado falso deveria ser Errado, mas cadastro Certo.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9900,
+    "motivo": "Interpretando números como rótulos móveis e “entre” sem exigir adjacência, enumeração das 120 permutações resulta em 14 disposições, ausente das opções. Texto também diz numeradas da esquerda para direita, exigindo esclarecer rótulos versus posições.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9899,
+    "motivo": "Sequência sugere n(n+1), próximo 42, mas gabarito 48. Regra verbal de soma de antecessores não corresponde aos termos dados.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9898,
+    "motivo": "Iniciais J,S,E e soma 10+19+5=34 produzem JSE034, ausente das alternativas; gabarito JSE345.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9896,
+    "motivo": "Para percurso de 120 km, velocidade média vezes tempo é 120 km, não 240 km. Proporcionalidade inversa é válida, mas premissa numérica contraditória impede justificar integralmente.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9894,
+    "motivo": "Negação correta é p∧(¬q∨¬r), não ¬p∨(¬q∨¬r). Cadastro Certo incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9893,
+    "motivo": "Terceiro termo=2×(1+2)=6, como afirmado. Cadastro Errado contradiz a regra.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9707,
+    "motivo": "Valor anterior 20,4% está explícito, mas queda exata de 12% resultaria 17,952%, não 18%. Se arredondados, números são compatíveis; explicitar aproximação e verificar fonte antes de justificar o contexto integral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9706,
+    "motivo": "Percentual restante é 25%; aplicado a 1200 daria 300, ausente das alternativas. Falta também declarar que distribuição de dez minutos representa o dia inteiro.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9705,
+    "motivo": "Se segundo maior é 7, os três termos centrais são no máximo 7 cada; soma no máximo 21, não 24. Condições impossíveis.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 9704,
+    "motivo": "Pares de 12 a 24 somam 126, não 156. Ímpares somam 108 (A), não 120 (B).",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

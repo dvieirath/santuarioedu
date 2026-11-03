@@ -1,0 +1,110 @@
+[
+  {
+    "id": 10682,
+    "motivo": "Alternativa B repete a afirmação; A é sua recíproca e também é verdadeira pela definição de crescimento estrito. Não há resposta única na leitura matemática usual; esclarecer sentido da diferença e equivalência desejada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10681,
+    "motivo": "Faltam geometria das peças, posições e definição de quadrado completo. Trocar peças pode conservar contornos ou destruir composição pretendida; não se deduz três sem dados adicionais.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10679,
+    "motivo": "Pergunta sobre qual algoritmo cadastrada como Certo/Errado, sem proposição final julgável.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10678,
+    "motivo": "Apenas uma aeronave é descrita. Alterar peso pode preservar ou inverter ordem conforme as demais; pergunta sobre possibilidade não equivale a ausência de garantia.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10677,
+    "motivo": "Pergunta pede expressão de complexidade, mas alternativas são Certo/Errado; falta proposição para julgar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10676,
+    "motivo": "Pergunta pede sétimo termo (7+6×3=25), mas cadastro só oferece Certo/Errado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10638,
+    "motivo": "z=14/2=7 e w=9×3=27; soma=34, ausente das alternativas. Cadastro 63 incompatível.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10637,
+    "motivo": "Somente D+E=60 é determinado. Há múltiplas alternativas com essa soma; mesmo exigindo valores distintos, 10/50 e 50/10 permanecem possíveis.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10636,
+    "motivo": "Fórmula é tautológica, mas pergunta pede qual tabela-verdade e nenhuma alternativa contém tabela. Reformular pergunta para classificação antes de justificar.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10635,
+    "motivo": "Quinta barra =350×1,02^4=378,851256 MPa, aproximadamente 378,85; nenhuma alternativa corresponde.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10634,
+    "motivo": "Sinal da correlação dada é positivo e não demonstra efeito da distância no alvo. Contexto mistura regressão contínua e acurácia percentual não definida; precisa esclarecer métrica antes de redigir explicação integral.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10633,
+    "motivo": "Texto mistura ação B e condição B; também condiciona aplicabilidade da cadeia a A. “Depende apenas” não decorre de condicionais suficientes sem regra de necessidade e execução definida.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10630,
+    "motivo": "Setas A→B→C→D podem ser implicações ou simples sequência temporal. Se implicações, B→D→¬A decorre, contrariando gabarito. Se apenas duas regras textuais forem premissas, não decorre. Clarificar notação.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10385,
+    "motivo": "Falta proporção de escolas por método e desempenho dos grupos restantes. Mesma distribuição entre regiões não especifica distribuição entre métodos; não se deduz 0,12.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10384,
+    "motivo": "Com dez variações diárias: a+b+c=10 e 200a−150b=1000 têm única solução não negativa a=5,b=0,c=5. Resposta seria D, não B. Se dia inicial contar entre dez, também muda contagem; esclarecer.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10383,
+    "motivo": "Exige exatamente metade de 12 aprovada: seis, não quatro. Regra adicional sobre número par de consecutivos é ambígua; não sustenta gabarito B.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10382,
+    "motivo": "Mudanças simultâneas pelo mesmo ciclo preservam diferenças de fase: nunca coincidem, opção D. Três fases de 15 s também perfazem 45 s, não ciclo de 60 s declarado.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  },
+  {
+    "id": 10381,
+    "motivo": "12h com intervalo de 45s geram cerca de 960 registros, não 8000. Texto mistura exigência de frequência e limite total; pergunta CE incompleta e norma alegada não verificada.",
+    "status": "revisao_manual",
+    "alterou_banco": false
+  }
+]

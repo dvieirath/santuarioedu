@@ -1,0 +1,362 @@
+[
+  {
+    "id": 3205,
+    "texto": "Torquímetro é a ferramenta utilizada para aplicar uma força específica a um parafuso, porca ou outro elemento de fixação durante a montagem ou a manutenção de um equipamento; ele é projetado para garantir que a força aplicada seja precisa e consistente, evitando a aplicação excessiva ou insuficiente de forças.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24192,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24193,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3203,
+    "texto": "Se, no caso de duas engrenagens cilíndricas de dentes retos acopladas perfeitamente para a transmissão de movimento em diferentes eixos, uma engrenagem com raio primitivo igual a 10 cm tiver velocidade angular de 20 rpm (rotações por minuto), então a outra engrenagem, com raio primitivo de 20 cm, terá velocidade angular de 10 rpm.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24188,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24189,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3201,
+    "texto": "No caso de duas engrenagens cilíndricas de dentes retos e com raios diferentes estarem fixas em um mesmo eixo, as velocidades angulares e lineares serão iguais nos círculos primitivos das engrenagens.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24184,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24185,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3185,
+    "texto": "A respeito de automação pneumática, julgue os itens a seguir. Os atuadores pneumáticos são aplicáveis a processos que exigem alta velocidade e precisão, tendo a vantagem de não possuírem limitação quanto a essas variáveis.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24152,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24153,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3181,
+    "texto": "A potência elétrica dissipada em um resistor R é dada pelo produto entre a queda de tensão, V, em R e a corrente I que passa por R.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24144,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24145,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3180,
+    "texto": "Em um circuito em paralelo, a corrente elétrica é a mesma em todos os elementos do circuito.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24142,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24143,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3178,
+    "texto": "Em um circuito lógico, um flip-flop JK é um tipo de flip-flop que possui três estados possíveis: definido, zerado e oscilante.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24138,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24139,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3174,
+    "texto": "Um capacitor carregado em um circuito de corrente contínua se comporta como um circuito aberto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24130,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24131,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3173,
+    "texto": "A respeito de eletrônica analógica, julgue os itens que se seguem. Em um circuito série RLC, a ressonância ocorre quando a impedância total é mínima.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24128,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24129,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3158,
+    "texto": "Julgue os itens a seguir, relativos a controladores lógicos programáveis (CLP). Devido a suas características, um CLP não é capaz de lidar com variáveis analógicas, tampouco com tensão elétrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24098,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24099,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3152,
+    "texto": "Julgue os itens seguintes, relativos às medições de força, de densidade e de velocidade. Os tacômetros são instrumentos utilizados na medição da velocidade de rotação do eixo de máquinas rotativas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24086,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24087,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3141,
+    "texto": "Acerca de manutenção elétrica, julgue os itens subsequentes. A substituição de um disjuntor danificado por curto-circuito é procedimento de manutenção corretiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24064,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24065,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3138,
+    "texto": "Julgue os seguintes itens à luz da ABNT NBR 5410. A norma em questão aplica-se às instalações de baixa tensão, à exceção das instalações temporárias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24058,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24059,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3136,
+    "texto": "No contexto de transmissão de energia elétrica em larga escala, é uma prática padrão projetar sistemas de redes aéreas com tensões superiores a 1,0 kV para operarem exclusivamente em corrente alternada, visando a maximização da eficiência e a redução de perdas em longas distâncias.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24054,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24055,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3131,
+    "texto": "Um circuito de iluminação com tensão nominal de 220 V pode necessitar de um disjuntor monopolar ou de um disjuntor bipolar.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24044,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24045,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3127,
+    "texto": "Tensão e corrente elétrica devem excitar o wattímetro.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24036,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24037,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3125,
+    "texto": "Um amperímetro no modo CA (corrente alternada) é comumente usado para indicar, em hertz, a frequência da rede elétrica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24032,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24033,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3124,
+    "texto": "Para se medir a corrente elétrica que atravessa um dispositivo, é necessário colocar o instrumento de medição em uma configuração paralela, de modo que dispositivo e o instrumento estejam submetidos à mesma tensão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24030,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 24031,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3123,
+    "texto": "Para que a medição de resistência possa ser realizada, é necessário que o ohmímetro excite eletricamente o resistor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24028,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24029,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3122,
+    "texto": "O valor eficaz de uma tensão alternada é fornecido pelo voltímetro, se adequadamente configurado, e corresponderá a um valor constante caso a amplitude e a forma de onda permaneçam inalteradas ao longo do tempo.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 24026,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 24027,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  }
+]

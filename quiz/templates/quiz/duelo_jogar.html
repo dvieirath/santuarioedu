@@ -59,7 +59,7 @@
 
   <div id="alternativas" class="space-y-3">
     {% for alt in alternativas %}
-    <button id="alt-{{ alt.pk }}" data-alt-id="{{ alt.pk }}" data-correta="{{ alt.correta|yesno:'true,false' }}"
+    <button id="alt-{{ alt.pk }}" data-alt-id="{{ alt.pk }}"
       {% if ja_respondi %}disabled{% endif %}
       onclick="responder({{ alt.pk }}, this)"
       class="alt-btn w-full flex items-center gap-3 bg-white border border-outline-variant/40 rounded-lg px-4 py-3 text-left text-sm font-medium text-on-surface {% if ja_respondi %}opacity-60 cursor-not-allowed{% endif %}">
@@ -108,7 +108,7 @@ function iniciarTimer() {
   timerStart = Date.now();
   timerInterval = setInterval(() => {
     restante = Math.max(0, TEMPO_POR_Q - Math.floor((Date.now() - timerStart) / 1000));
-    const pct = (restante / TEMPO_POR_Q) * 100;
+    const pct = (restante / Math.max(1, TEMPO_POR_Q)) * 100;
     bar.style.width = pct + '%';
     txt.textContent = restante + 's';
     if (pct < 30) { bar.classList.remove('bg-primary'); bar.classList.add('bg-error'); }
@@ -121,21 +121,27 @@ async function responder(altId, btn, timeout=false) {
   if (respondido) return;
   respondido = true;
   clearInterval(timerInterval);
-  const tempoMs = Date.now() - (timerStart || Date.now());
-  if (btn) {
-    document.querySelectorAll('.alt-btn').forEach(b => b.disabled = true);
-    if (btn.dataset.correta === 'true') btn.classList.add('correct');
-    else { btn.classList.add('wrong','shake'); document.querySelectorAll('.alt-btn').forEach(b => { if(b.dataset.correta==='true') b.classList.add('correct'); }); }
-  } else {
-    document.querySelectorAll('.alt-btn').forEach(b => { b.disabled = true; if(b.dataset.correta==='true') b.classList.add('correct'); });
-  }
+  document.querySelectorAll('.alt-btn').forEach(b => b.disabled = true);
   try {
-    await fetch('/api/duelo/' + DUELO_ID + '/responder/', {
+    const response = await fetch('/api/duelo/' + DUELO_ID + '/responder/', {
       method:'POST',
       headers:{'Content-Type':'application/json','X-CSRFToken':getCookie('csrftoken')},
-      body: JSON.stringify({alternativa_id: altId, tempo_ms: tempoMs, questao_index: Q_INDEX})
+      body: JSON.stringify({alternativa_id: altId, questao_index: Q_INDEX})
     });
-  } catch(e) {}
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.erro || 'Falha ao salvar resposta');
+    document.querySelectorAll('.alt-btn').forEach(b => {
+      if (Number(b.dataset.altId) === data.correta_id) b.classList.add('correct');
+    });
+    if (btn && !data.acertou) btn.classList.add('wrong', 'shake');
+  } catch(e) {
+    const retry = document.createElement('button');
+    retry.className = 'block mx-auto my-4 underline';
+    retry.textContent = 'Não foi possível confirmar. Tentar novamente';
+    retry.onclick = () => { retry.remove(); respondido = false; responder(altId, btn, timeout); };
+    document.getElementById('timer-txt').parentElement.appendChild(retry);
+    return;
+  }
   setTimeout(pollingJogo, 800);
 }
 

@@ -1,0 +1,497 @@
+[
+  {
+    "id": 4579,
+    "texto": "Com referência aos anestésicos inalatórios, julgue o item: A concentração inspirada e a solubilidade sangue/gás de um anestésico inalatório são os maiores determinantes da velocidade de indução.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28960,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28961,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4566,
+    "texto": "Com base na Portaria n.º 587/2004, que dispõe acerca de política pública em saúde auditiva no Brasil: Os serviços de atenção à saúde auditiva na média e na alta complexidade deverão submeter-se a regulação, fiscalização, controle e avaliação do gestor estadual e municipal, conforme as atribuições estabelecidas nas respectivas condições de gestão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28934,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28935,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4527,
+    "texto": "A estimulação nervosa elétrica transcutânea consiste na aplicação de estimulação elétrica de média frequência polarizada, podendo sua prescrição ser ajustada de acordo a parametrização da frequência de pulso (alta, baixa e burst), largura de pulso e intensidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28856,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28857,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4524,
+    "texto": "Com base nas recomendações atuais para prescrição de exercício: São determinantes da prescrição do exercício a frequência, a intensidade, a duração do exercício, o tipo de exercício, o volume total de exercício e a progressão.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28850,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28851,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4492,
+    "texto": "Doseamento de comprimidos (200 mg ativo A). 20 comprimidos pulverizados, 10 mg equivalentes diluídos em 100 mL. Método: y = 4.050 x + 200, linearidade 1 a 200 ug/mL. Julgue: O limite de detecção do método analítico é 1 ug/mL.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28786,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28787,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4481,
+    "texto": "O gráfico abaixo representa a concentração plasmática média, em função do tempo, após administrações de comprimidos distintos: um ao dia, do comprimido A, e dois ao dia, do comprimido B, contendo 500 mg de claritromicina. A estrutura molecular da claritromicina também é mostrada abaixo. Tendo como referência as informações precedentes, julgue os itens a seguir. A claritromicina é um antibiótico semissintético do grupo dos macrolídeos que exerce ação antibacteriana através de sua ligação às subunidades ribossômicas 50S dos agentes patogênicos sensíveis, suprimindo-lhes a síntese proteica.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28764,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28765,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4461,
+    "texto": "Julgue os próximos itens, de acordo com a Política Nacional de Atenção Integral à Saúde da Criança e com as evidências científicas disponíveis na área de saúde infantil. A triagem neonatal é realizada em quatro modalidades: biológica (teste do pezinho, do 3.º ao 5.º dia de vida), auditiva (teste da orelhinha, entre 24 e 48 horas de vida), ocular (teste do olhinho) e de cardiopatias congênitas críticas (teste do coraçãozinho, entre 24 e 48 horas de vida), além da avaliação do frênulo lingual (teste da linguinha).",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28724,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28725,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4435,
+    "texto": "Uma das diretrizes da Política Nacional de Atenção Integral à Saúde do Homem (PNAISH) consiste em compreender a saúde masculina como um conjunto de ações que envolvem a promoção, a prevenção, a assistência e a recuperação da saúde, respeitando-se os diferentes níveis de atenção e priorizando-se a atenção básica com foco na Estratégia de Saúde da Família.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28672,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28673,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4370,
+    "texto": "A respeito das políticas e dos programas sociais dirigidos a segmentos: No âmbito do Serviço de Proteção e Atendimento Integral à Família, deve-se considerar que a proteção do território pela população indígena pode interferir na vulnerabilidade, sobretudo se consideradas questões como a realização de práticas laborais sem remuneração para a sua subsistência e de autonomia cultural e produtiva.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28542,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28543,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4366,
+    "texto": "A respeito das políticas e dos programas sociais dirigidos a segmentos: A campanha Novembro Azul para a prevenção e diagnóstico precoce do câncer de próstata é teleologicamente uma das diretrizes de atenção e cuidado integral à saúde do homem.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28534,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 28535,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4365,
+    "texto": "A respeito das políticas de saúde: O Programa Mais Médico para o Brasil tem a finalidade de garantir a prestação de assistência de média e alta complexidade em regiões mais longínquas e com alta vulnerabilidade social, o que o fez referência no Sistema Único de Saúde, no contexto da pandemia do novo coronavírus.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 28532,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 28533,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4206,
+    "texto": "Para uma amostra de 100 pacientes, foi verificado que o tempo médio de permanência em um Hospital foi de 20 dias, com desvio-padrão de 10 dias. O intervalo de confiança para a média do tempo de permanência de todos os pacientes do hospital, com 95% de confiança (Z = 1,96) é de",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27979,
+        "texto": "20 +/- 1 dia",
+        "correta": false
+      },
+      {
+        "id": 27980,
+        "texto": "20 +/- 3,92 dias",
+        "correta": false
+      },
+      {
+        "id": 27981,
+        "texto": "20 +/- 10 dias",
+        "correta": false
+      },
+      {
+        "id": 27982,
+        "texto": "20 +/- 1,96 dias",
+        "correta": true
+      },
+      {
+        "id": 27983,
+        "texto": "20 +/- 19,6 dias",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4203,
+    "texto": "Considerando os dados obtidos na situação hipotética 17A4-I, os valores para a média e desvio-padrão dos aparelhos A e B são",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27964,
+        "texto": "médiaA= 21 mg/mL; desvio-padrão A= 0,71 mg/mL; média B= 25 mg/mL; desvio-padrãoB= 4 mg/mL;",
+        "correta": false
+      },
+      {
+        "id": 27965,
+        "texto": "médiaA= 21 mg/mL; desvio-padrão A= 2 mg/mL; média B= 25 mg/mL; desvio-padrãoB= 10 mg/mL;",
+        "correta": false
+      },
+      {
+        "id": 27966,
+        "texto": "médiaA= 21 mg/mL; desvio-padrão A= 0,63 mg/mL; média B= 24 mg/mL; desvio-padrãoB= 3,58 mg/mL;",
+        "correta": false
+      },
+      {
+        "id": 27967,
+        "texto": "médiaA= 21 mg/mL; desvio-padrão A= 2 mg/mL; média B= 24 mg/mL; desvio-padrãoB= 4 mg/mL;",
+        "correta": false
+      },
+      {
+        "id": 27968,
+        "texto": "médiaA= 21 mg/mL; desvio-padrão A= 0,71 mg/mL; média B= 24 mg/mL; desvio-padrãoB= 4 mg/mL;",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 4183,
+    "texto": "Texto 16A5: Um levantamento identificou que, em um hospital infantil, os pacientes seguiam a seguinte distribuição por idade. Considerando a distribuição de frequência da idade dos pacientes do texto 16A5, assinale a opção que apresenta, respectivamente, os valores da média, mediana e moda.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27864,
+        "texto": "2,2; 3; 1",
+        "correta": false
+      },
+      {
+        "id": 27865,
+        "texto": "2,5; 2; 1,5",
+        "correta": false
+      },
+      {
+        "id": 27866,
+        "texto": "2,2; 2; 1",
+        "correta": true
+      },
+      {
+        "id": 27867,
+        "texto": "2,2; 2; 1,5",
+        "correta": false
+      },
+      {
+        "id": 27868,
+        "texto": "2,5; 3; 1",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 4064,
+    "texto": "Tabela: residência (João Pessoa, outras cidades da Paraíba, outros estados) x homem/mulher. João Pessoa: 75 homens, 83 mulheres. Outras cidades da Paraíba: 20 homens, 30 mulheres. Outros estados: 15 homens, 17 mulheres. A tabela acima mostra os resultados de uma pesquisa feita em um Shopping Center em João Pessoa sobre o local de residência de seus frequentadores, na qual foram entrevistadas 240 pessoas. Todas as fichas das 240 pessoas entrevistadas foram colocadas em um fichário. Nessa situação, se uma das fichas for retirada aleatoriamente do fichário, a probabilidade da ficha corresponder a uma mulher residente na Paraíba é",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 27269,
+        "texto": "inferior a 0,35.",
+        "correta": false
+      },
+      {
+        "id": 27270,
+        "texto": "superior a 0,36 e inferior a 0,42.",
+        "correta": false
+      },
+      {
+        "id": 27271,
+        "texto": "superior a 0,56.",
+        "correta": false
+      },
+      {
+        "id": 27272,
+        "texto": "superior a 0,43 e inferior a 0,49.",
+        "correta": true
+      },
+      {
+        "id": 27273,
+        "texto": "superior a 0,50 e inferior a 0,55.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3981,
+    "texto": "Texto CG1A1-II: O conceito de herói está profundamente ligado à cultura que o criou e ao momento em que ele foi criado, o que significa que ele varia muito de lugar para lugar e de época para época. Mesmo assim, a figura do herói aparece nas mais diversas sociedades e eras, sempre atendendo a critérios morais e desejos em comum de determinado povo. Na mitologia grega, o herói era uma semidivindade que estava entre os deuses e os humanos e cujos feitos evidenciavam a sua enorme disposição de se sacrificar em nome do bem-estar dos seres humanos. Na Europa da Idade Média, quando Deus e a religião passaram a ser a bússola moral de muitas pessoas, os feitos humanos considerados heroicos tinham relação com o temor e a fidelidade a esse Deus. Assim, heróis eram os mártires e missionários, que também entregavam suas vidas a essa causa, que julgavam a mais nobre. Hoje, no século 21, o status de herói é bastante diferente. Talvez por uma necessidade psicológica de adotarmos heróis, frequentemente escolhemos heróis falhos, demasiadamente humanos, muito mais similares a nós mesmos do que os heróis de outros períodos históricos. Diferentemente do herói infalível, bom, que se sacrifica em nome de causas nobres, o herói moderno é um personagem que erra, toma atitudes que julgamos imorais e não possui virtudes geralmente atribuídas aos heróis. Predomina no texto CG1A1-II a tipologia",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26854,
+        "texto": "instrucional.",
+        "correta": false
+      },
+      {
+        "id": 26855,
+        "texto": "narrativa.",
+        "correta": false
+      },
+      {
+        "id": 26856,
+        "texto": "descritiva.",
+        "correta": false
+      },
+      {
+        "id": 26857,
+        "texto": "dissertativo-argumentativa.",
+        "correta": false
+      },
+      {
+        "id": 26858,
+        "texto": "dissertativo-expositiva.",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 3969,
+    "texto": "Texto 13A6-I: A cocaína é um estimulante altamente ativo e uma das drogas perigosas controladas mais utilizadas. Estima-se que mais de 25 milhões de pessoas consumam cocaína regularmente no mundo. As figuras a seguir ilustram um cromatograma (1) de uma análise de cocaína por cromatografia gasosa com detecção por espectrometria de massa e (2) os espectros de massa dos eluentes A e B. A tabela que se segue apresenta alguns dados dessa análise, em que y representa a área sob o pico cromatográfico, em abundância-minuto, e x, a concentração de cocaína, em ng/mL. [FIGURA 1 e 2]. Supondo que a matriz de análise na situação descrita no texto 13A6-I seja urina humana, a precisão e a exatidão desse método de análise podem ser obtidas por meio da",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26794,
+        "texto": "adição de quantidades conhecidas e sucessivas de cocaína à urina humana livre de cocaína.",
+        "correta": true
+      },
+      {
+        "id": 26795,
+        "texto": "extrapolação da equação da regressão para valores mais positivos de x.",
+        "correta": false
+      },
+      {
+        "id": 26796,
+        "texto": "adição de quantidades conhecidas e sucessivas de cocaína à água destilada.",
+        "correta": false
+      },
+      {
+        "id": 26797,
+        "texto": "análise de várias amostras de urina com concentrações desconhecidas de cocaína.",
+        "correta": false
+      },
+      {
+        "id": 26798,
+        "texto": "adição de quantidades conhecidas e sucessivas de um padrão interno à água destilada.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3954,
+    "texto": "Amidas são compostos que têm a estrutura genérica: [FIGURA: estrutura genérica de amida], em que R1 e R2 representam cadeias carbônicas. Esses compostos podem ser preparados pela reação entre um ácido carboxílico e uma amina, tal como ilustrado na equação a seguir, a qual representa uma reação entre os aminoácidos glicina e cisteína que produz o composto A. Acerca desse assunto e considerando que MH = 1 g/mol; MC = 12 g/mol; MN = 14 g/mol; MO = 16 g/mol; MS = 32 g/mol, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26719,
+        "texto": "No composto A, R 1 e R 2 são cadeias que contêm somente carbonos e hidrogênios.",
+        "correta": false
+      },
+      {
+        "id": 26720,
+        "texto": "A massa molar do composto A é 179 g/mol.",
+        "correta": true
+      },
+      {
+        "id": 26721,
+        "texto": "A estrutura química do produto A é a seguinte. [FIGURA: estrutura química]",
+        "correta": false
+      },
+      {
+        "id": 26722,
+        "texto": "A glicina possui um carbono assimétrico.",
+        "correta": false
+      },
+      {
+        "id": 26723,
+        "texto": "A glicina é mais polar que a cisteína.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3952,
+    "texto": "O BCAA (do inglês branch chain amino acids ) é um importante suplemento alimentar que participa da síntese de proteínas musculares. A valina é um dos aminoácidos presentes na sua composição. A equação a seguir mostra a ionização da valina em meio aquoso. Considerando as informações precedentes, assinale a opção correta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26709,
+        "texto": "A valina é um ácido fraco e não se dissocia 100% em água.",
+        "correta": true
+      },
+      {
+        "id": 26710,
+        "texto": "A valina é um eletrólito forte.",
+        "correta": false
+      },
+      {
+        "id": 26711,
+        "texto": "Soluções de valina não conduzem corrente elétrica.",
+        "correta": false
+      },
+      {
+        "id": 26712,
+        "texto": "A valina é uma molécula apolar.",
+        "correta": false
+      },
+      {
+        "id": 26713,
+        "texto": "As ligações entre os átomos de carbono da valina são de característica eletrostática.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 3913,
+    "texto": "Nos desastres em massa envolvendo a destruição de corpos por carbonização, a identificação de próteses dentárias nas vítimas torna-se essencial ao odontolegista para a comparação com documentação ante mortem. Considerando essas informações e sabendo que cada material possui um grau de resistência térmica específica, assinale a opção que corresponde à reação identificada em próteses confeccionadas com metal feldspático submetidas à temperatura limite de 800 oC.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 26514,
+        "texto": "A cobertura de porcelana com sinais de amolecimento",
+        "correta": true
+      },
+      {
+        "id": 26515,
+        "texto": "fragmentação",
+        "correta": false
+      },
+      {
+        "id": 26516,
+        "texto": "perda de substância da cobertura cerâmica",
+        "correta": false
+      },
+      {
+        "id": 26517,
+        "texto": "superfície cerâmica áspera e rugosa",
+        "correta": false
+      },
+      {
+        "id": 26518,
+        "texto": "bolhas na superfície",
+        "correta": false
+      }
+    ]
+  }
+]

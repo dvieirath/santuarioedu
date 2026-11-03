@@ -1,0 +1,497 @@
+[
+  {
+    "id": 10599,
+    "texto": "Em um contrato de prestação de serviços de consultoria, o contratado estipula que o pagamento será efetuado em parcelas mensais, sendo que a primeira parcela corresponderá a 40% do valor total. Se o valor total do contrato for de R$ 50.000,00, qual será o valor da primeira parcela?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45406,
+        "texto": "R$ 12.000,00",
+        "correta": false
+      },
+      {
+        "id": 45407,
+        "texto": "R$ 10.000,00",
+        "correta": true
+      },
+      {
+        "id": 45408,
+        "texto": "R$ 8.000,00",
+        "correta": false
+      },
+      {
+        "id": 45409,
+        "texto": "R$ 15.000,00",
+        "correta": false
+      },
+      {
+        "id": 45410,
+        "texto": "R$ 20.000,00",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10598,
+    "texto": "Texto: \n\nEm 2024, a Secretaria de Educação publicou um edital que prevê a contratação de docentes para a rede municipal. O edital estabelece que os candidatos devem possuir, no mínimo, o título de mestre em qualquer área do conhecimento e que a avaliação será composta por prova escrita, prova prática e entrevista. A prova escrita conterá questões de múltipla escolha sobre gramática normativa, interpretação de textos e redação. A prova prática exigirá a elaboração de um plano de aula para alunos de 6º ano, com foco em atividades que promovam o uso de recursos digitais. A entrevista será conduzida por uma comissão formada por professores e diretores de escolas, visando avaliar a motivação e o comprometimento do candidato. \n\nConsiderando o texto acima, a exigência de que os candidatos tenham título de mestre é um requisito que pode ser interpretado como discriminatório, pois restringe a participação de profissionais com formação superior de nível inferior.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45404,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45405,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10597,
+    "texto": "No trecho \"O engenheiro, que havia sido contratado em 2018, entregou o relatório em 2020\", o pronome relativo está bem empregado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45402,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45403,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10596,
+    "texto": "A expressão \"o que é que eu faço\" é considerada correta no português culto.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45400,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45401,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10595,
+    "texto": "Na oração \"Ele correu rapidamente para o médico\" o advérbio de modo está corretamente posicionado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45398,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 45399,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10594,
+    "texto": "A frase \"O juiz, ao analisar a prova, concluiu que a testemunha havia mentido\" contém erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 45396,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 45397,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10413,
+    "texto": "A seguir, apresentamos um trecho de um artigo acadêmico que discute a aplicação dos princípios de clareza e concisão na redação de textos técnicos. O autor sustenta que a clareza implica na eliminação de ambiguidades, enquanto a concisão demanda a redução do conteúdo a apenas o essencial, sem sacrificar a precisão. Ele conclui que ambos os princípios são complementares e, quando bem aplicados, favorecem a compreensão do leitor e a eficácia comunicativa do texto.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44818,
+        "texto": "O trecho demonstra que clareza e concisão são conceitos opostos, pois um valoriza a simplicidade e o outro a complexidade.",
+        "correta": false
+      },
+      {
+        "id": 44819,
+        "texto": "O trecho indica que clareza e concisão são independentes, pois cada um pode ser aplicado isoladamente sem afetar o outro.",
+        "correta": false
+      },
+      {
+        "id": 44820,
+        "texto": "O trecho mostra que clareza e concisão são complementares, pois a eliminação de ambiguidades e a redução ao essencial se reforçam mutuamente.",
+        "correta": true
+      },
+      {
+        "id": 44821,
+        "texto": "O trecho sugere que clareza e concisão são redundantes, pois ambos buscam a mesma finalidade de simplificar o texto.",
+        "correta": false
+      },
+      {
+        "id": 44822,
+        "texto": "O trecho argumenta que clareza e concisão são contraditórios, pois a redução de conteúdo pode gerar ambiguidades.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10412,
+    "texto": "Durante uma aula de literatura contemporânea, o professor apresenta ao grupo uma análise comparativa entre dois textos de autores brasileiros que abordam o tema da identidade cultural. Em sua exposição, ele destaca que ambos os autores utilizam a ironia como recurso estilístico para criticar a sociedade atual. Qual das alternativas descreve corretamente a função da ironia no contexto textual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44813,
+        "texto": "A ironia serve como um mecanismo de persuasão, influenciando o leitor a aceitar a crítica sem questionar.",
+        "correta": false
+      },
+      {
+        "id": 44814,
+        "texto": "A ironia funciona como um recurso de humor, tornando o texto mais leve e descontraído.",
+        "correta": false
+      },
+      {
+        "id": 44815,
+        "texto": "A ironia atua como um instrumento de distanciamento, permitindo ao autor criticar a sociedade sem expor diretamente suas opiniões.",
+        "correta": true
+      },
+      {
+        "id": 44816,
+        "texto": "A ironia tem o papel de reforçar a mensagem, enfatizando a seriedade do tema abordado.",
+        "correta": false
+      },
+      {
+        "id": 44817,
+        "texto": "A ironia serve para criar ambiguidade, deixando o leitor indeciso sobre a interpretação correta do texto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10411,
+    "texto": "Em um contrato de prestação de serviços de consultoria em marketing digital, a cláusula 4.2 estabelece que o contratado deverá entregar, no prazo de 30 dias, um relatório detalhado sobre o desempenho das campanhas. Caso o prazo não seja cumprido, a cláusula prevê a aplicação de multa de 5% sobre o valor total do contrato. Considerando a norma geral do Código Civil brasileira, qual das alternativas está correta quanto à interpretação da multa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44808,
+        "texto": "A multa é considerada uma penalidade acessória, pois não impede o cumprimento da obrigação principal.",
+        "correta": false
+      },
+      {
+        "id": 44809,
+        "texto": "A multa é considerada uma cláusula penal, pois visa assegurar o cumprimento da obrigação principal.",
+        "correta": true
+      },
+      {
+        "id": 44810,
+        "texto": "A multa é considerada um aditivo contratual, pois altera o valor original do contrato.",
+        "correta": false
+      },
+      {
+        "id": 44811,
+        "texto": "A multa é considerada uma cláusula de indenização, pois compensa o contratante por eventuais perdas.",
+        "correta": false
+      },
+      {
+        "id": 44812,
+        "texto": "A multa é considerada um termo de rescisão, pois encerra o contrato em caso de descumprimento.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10410,
+    "texto": "Em um texto jornalístico, o autor descreve que a cidade de São Paulo adotou, em 2025, uma política de incentivo à leitura que inclui a distribuição gratuita de livros digitais para estudantes de escolas públicas. A proposta visa reduzir a lacuna de acesso à literatura e promover a alfabetização digital. Considerando o texto acima, qual das alternativas apresenta a análise correta do uso de recursos linguísticos no título do artigo, que diz: \"Leitura digital conquista a alma paulistana\"?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44803,
+        "texto": "O título utiliza recurso de hipérbole ao afirmar que a leitura digital conquista a alma, exagerando o efeito da prática.",
+        "correta": true
+      },
+      {
+        "id": 44804,
+        "texto": "O título emprega metáfora ao comparar a leitura digital com a conquista de uma alma, implicando que o conteúdo transforma o leitor.",
+        "correta": false
+      },
+      {
+        "id": 44805,
+        "texto": "O título faz uso de ironia ao afirmar que a leitura digital conquista a alma, sugerindo que a prática não tem valor.",
+        "correta": false
+      },
+      {
+        "id": 44806,
+        "texto": "O título apresenta recurso de antítese ao contrastar a leitura digital com a alma paulistana, destacando a dualidade da cidade.",
+        "correta": false
+      },
+      {
+        "id": 44807,
+        "texto": "O título emprega a figura de linguagem de litote ao afirmar que a leitura digital conquista a alma, subestimando a importância da prática.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10409,
+    "texto": "No contexto de uma redação argumentativa, a frase \"A adoção de políticas públicas eficazes depende da participação ativa da sociedade, que deve ser incentivada a contribuir com sugestões\" apresenta uma estrutura de oração coordenada assindética.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44801,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44802,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10408,
+    "texto": "Considerando o texto abaixo: \n\n\"Em 2023, a Secretaria de Educação publicou um relatório que apontava um aumento de 15% no número de escolas de ensino fundamental em áreas rurais. Para atender à demanda, foram alocados recursos adicionais para a construção de 120 novas salas de aula, distribuídas de forma equitativa entre os municípios do estado. Cada sala, projetada para acomodar 30 alunos, foi equipada com materiais didáticos digitais, visando a integração tecnológica nas aulas. A iniciativa, que recebeu o apoio de organizações não governamentais, tem como objetivo principal reduzir a desigualdade de acesso à educação de qualidade nas regiões mais afastadas\".\n\nConsiderando o texto acima, a frase \"Cada sala, projetada para acomodar 30 alunos, foi equipada com materiais didáticos digitais\" apresenta um erro de concordância verbal.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44799,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44800,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10407,
+    "texto": "Na análise de um poema contemporâneo, observa‑se que a palavra 'silêncio' funciona como advérbio, modificando o verbo 'ouvir', indicando a forma como o ato de ouvir ocorre.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44797,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44798,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10406,
+    "texto": "O verbo 'fazer' no infinitivo pessoal pode ser conjugado em forma de 'fizerem' quando se refere a mais de uma pessoa, como em 'Os estudantes decidiram fazerem a apresentação'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44795,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44796,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 10405,
+    "texto": "Em um texto jornalístico, o autor emprega a estrutura de frase complexa, com orações subordinadas adverbiais de causa e condição, a fim de enfatizar a importância da transparência na gestão pública. O uso de tais construções é considerado correto segundo a norma culta da língua portuguesa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44793,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 44794,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10404,
+    "texto": "Texto: Em 2024, a Agência Nacional de Segurança Pública (ANSP) publicou um relatório detalhado sobre o impacto das redes sociais na percepção de risco entre jovens. O documento destaca que, de acordo com dados coletados, 68% dos entrevistados afirmaram que as mídias digitais influenciam suas escolhas de comportamento em situações de perigo. Além disso, o relatório aponta que 45% dos jovens que se sentem mais seguros na internet relatam uma menor frequência de visitas a espaços públicos. A ANSP conclui que a exposição constante a conteúdos sensacionalistas pode gerar um efeito de desensibilização, levando a uma percepção distorcida do risco real.\n\nConsiderando o texto acima, qual das seguintes afirmações reflete corretamente a conclusão da ANSP?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44788,
+        "texto": "A exposição a conteúdos sensacionalistas aumenta a percepção de risco entre os jovens.",
+        "correta": false
+      },
+      {
+        "id": 44789,
+        "texto": "Os jovens que se sentem mais seguros na internet tendem a visitar mais espaços públicos.",
+        "correta": false
+      },
+      {
+        "id": 44790,
+        "texto": "A exposição constante a conteúdos sensacionalistas pode levar a uma desensibilização, alterando a percepção do risco real.",
+        "correta": true
+      },
+      {
+        "id": 44791,
+        "texto": "A ANSP recomenda a eliminação de todas as redes sociais para reduzir o risco percebido.",
+        "correta": false
+      },
+      {
+        "id": 44792,
+        "texto": "A percepção de risco entre os jovens permanece inalterada independentemente da exposição digital.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10403,
+    "texto": "Considerando a evolução do uso da língua portuguesa no Brasil, o Ministério da Cultura publicou em 2023 uma diretriz que reconhece a influência das variantes regionais na produção textual oficial. De acordo com essa diretriz, qual das afirmações abaixo melhor descreve o tratamento das variantes linguísticas na redação institucional?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44783,
+        "texto": "A norma oficial deve excluir todas as variantes regionais para garantir uniformidade.",
+        "correta": false
+      },
+      {
+        "id": 44784,
+        "texto": "As variantes regionais são permitidas apenas em textos informais.",
+        "correta": false
+      },
+      {
+        "id": 44785,
+        "texto": "A redação institucional pode incorporar elementos de variantes regionais, desde que não comprometam a clareza e a compreensão geral.",
+        "correta": true
+      },
+      {
+        "id": 44786,
+        "texto": "A norma oficial exige a adoção da variante do português europeu em todos os textos oficiais.",
+        "correta": false
+      },
+      {
+        "id": 44787,
+        "texto": "As variantes regionais devem ser substituídas por neologismos criados pelo Ministério.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10402,
+    "texto": "Um edital de concurso para o cargo de Analista de Processos na Secretaria de Estado de Saúde exige que os candidatos apresentem um texto dissertativo sobre a importância da comunicação institucional na prevenção de doenças. O candidato, ao redigir seu texto, decide adotar uma estrutura em que cada parágrafo inicia com uma frase declarativa seguida de exemplos concretos. Qual princípio da organização textual ele está aplicando?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44778,
+        "texto": "Princípio da repetição temática.",
+        "correta": false
+      },
+      {
+        "id": 44779,
+        "texto": "Princípio da progressão temática.",
+        "correta": true
+      },
+      {
+        "id": 44780,
+        "texto": "Princípio da inversão sintática.",
+        "correta": false
+      },
+      {
+        "id": 44781,
+        "texto": "Princípio da fragmentação discursiva.",
+        "correta": false
+      },
+      {
+        "id": 44782,
+        "texto": "Princípio da redundância informativa.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10401,
+    "texto": "Em 2025, o Ministério da Educação publica uma norma que estabelece critérios de avaliação de textos dissertativos em concursos públicos. Um candidato, ao analisar a norma, observa que a pontuação máxima é atribuída a textos que apresentam coesão textual e coerência argumentativa, mas não há menção explícita à correção morfológica. Considerando a norma, qual dos itens abaixo é o principal requisito para a avaliação de textos dissertativos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44773,
+        "texto": "A presença de vocabulário técnico específico da área de atuação.",
+        "correta": false
+      },
+      {
+        "id": 44774,
+        "texto": "A estruturação lógica das ideias, demonstrando sequência e desenvolvimento coerente.",
+        "correta": true
+      },
+      {
+        "id": 44775,
+        "texto": "O uso de conectivos pronominais em todas as sentenças.",
+        "correta": false
+      },
+      {
+        "id": 44776,
+        "texto": "A correção ortográfica e morfológica em todas as palavras.",
+        "correta": false
+      },
+      {
+        "id": 44777,
+        "texto": "A inclusão de citações de autores relevantes ao tema.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 10400,
+    "texto": "No contexto de um concurso de nível estadual, o candidato é apresentado a um trecho de um artigo acadêmico que discute a aplicação dos princípios de clareza e concisão na redação jurídica. O trecho afirma que: 'A linguagem jurídica, ao buscar a precisão, tende a privilegiar construções complexas e termos técnicos, o que pode comprometer a compreensão por parte de leitores não especializados.' Considerando essa afirmação, julgue se a seguinte proposição está correta: \"A adoção de jargões técnicos em textos jurídicos é sempre prejudicial à compreensão do público em geral.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 44771,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 44772,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  }
+]

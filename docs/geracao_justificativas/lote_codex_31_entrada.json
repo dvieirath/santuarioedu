@@ -1,0 +1,497 @@
+[
+  {
+    "id": 11712,
+    "texto": "No contexto de um contrato de prestação de serviços, o contratado afirma que a cláusula de responsabilidade limitada prevista no artigo 421 do Código Civil é absoluta, independentemente de eventuais danos causados ao cliente. Essa afirmação é correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49085,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49086,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11711,
+    "texto": "Um candidato ao cargo de Técnico de Comunicação Social foi submetido a prova objetiva de múltipla escolha que abordou, entre outros temas, a análise semântica de textos jornalísticos. O enunciado da prova apresentava a seguinte frase: \"A cobertura de eventos esportivos costuma privilegiar a emoção do público, muitas vezes em detrimento da informação factual.\" Qual das alternativas apresenta a interpretação correta do uso de 'em detrimento' no contexto da frase?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49080,
+        "texto": "A emoção do público é favorecida em relação à informação factual.",
+        "correta": true
+      },
+      {
+        "id": 49081,
+        "texto": "A informação factual é favorecida em relação à emoção do público.",
+        "correta": false
+      },
+      {
+        "id": 49082,
+        "texto": "A frase indica que a emoção do público não tem relação com a informação factual.",
+        "correta": false
+      },
+      {
+        "id": 49083,
+        "texto": "O uso de 'em detrimento' sugere que a emoção do público é irrelevante.",
+        "correta": false
+      },
+      {
+        "id": 49084,
+        "texto": "A emoção do público e a informação factual são consideradas equivalentes.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11710,
+    "texto": "Texto: \"Em 2024, a Secretaria de Educação do Estado X publicou a Portaria nº 123/2024, que institui a obrigatoriedade de avaliação de desempenho docente baseada em indicadores de produção científica, participação em projetos de extensão e avaliação de alunos. A portaria prevê que, para cada docente, o índice de desempenho será calculado como a média ponderada de três subíndices: 40% para produção científica, 30% para projetos de extensão e 30% para avaliação de alunos. Os docentes com índice abaixo de 60% serão submetidos a plano de desenvolvimento individual. A portaria também estabelece que os índices serão divulgados anualmente no portal institucional. O objetivo é alinhar a avaliação ao modelo de gestão de desempenho adotado pela Lei nº 13.429/2017. Considerando os princípios constitucionais do direito ao trabalho e da isonomia, qual das alternativas abaixo apresenta a consequência mais provável da adoção da Portaria nº 123/2024?\"",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49075,
+        "texto": "A adoção da portaria pode ser considerada constitucional, pois respeita o princípio da eficiência e da motivação do servidor.",
+        "correta": true
+      },
+      {
+        "id": 49076,
+        "texto": "A portaria viola o princípio da legalidade, pois não está prevista em lei federal.",
+        "correta": false
+      },
+      {
+        "id": 49077,
+        "texto": "A portaria pode ser anulada por violar o princípio da isonomia, pois diferencia docentes de acordo com a área de atuação.",
+        "correta": false
+      },
+      {
+        "id": 49078,
+        "texto": "A portaria é inválida, pois não prevê a possibilidade de recurso administrativo para docentes com índice baixo.",
+        "correta": false
+      },
+      {
+        "id": 49079,
+        "texto": "A portaria pode ser considerada inconstitucional, pois impede a contratação de professores estrangeiros.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11709,
+    "texto": "Um órgão público, ao elaborar seu plano de cargos e salários, optou por adotar a técnica de análise de conteúdo para definir competências essenciais dos cargos de Analista de Sistemas. De acordo com a teoria de análise de conteúdo, qual das seguintes afirmações descreve corretamente o procedimento adotado?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49070,
+        "texto": "A técnica envolve a codificação sistemática de textos, identificando categorias e subcategorias que refletem as competências requeridas.",
+        "correta": true
+      },
+      {
+        "id": 49071,
+        "texto": "A técnica se baseia em entrevistas estruturadas com os servidores, sem análise textual.",
+        "correta": false
+      },
+      {
+        "id": 49072,
+        "texto": "A técnica utiliza apenas a análise de documentos legais, excluindo materiais de treinamento.",
+        "correta": false
+      },
+      {
+        "id": 49073,
+        "texto": "A técnica requer a aplicação de testes de inteligência para validar as categorias de competência.",
+        "correta": false
+      },
+      {
+        "id": 49074,
+        "texto": "A técnica é irrelevante para cargos de nível médio, sendo aplicável apenas a cargos de alta administração.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11708,
+    "texto": "Um edital de concurso para o cargo de Analista de Processos Administrativos foi publicado com a seguinte cláusula: \"O candidato deverá apresentar, no prazo máximo de 30 dias, prova escrita de 200 palavras sobre a importância da norma ISO 9001 na gestão de qualidade pública.\" Considerando a norma ISO 9001 e a legislação brasileira de concursos, qual das alternativas apresenta a interpretação correta da exigência textual?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49065,
+        "texto": "A exigência caracteriza prova de conteúdo, pois solicita um texto sobre um tema específico.",
+        "correta": true
+      },
+      {
+        "id": 49066,
+        "texto": "É prova de conhecimento, pois o candidato deve demonstrar domínio da norma ISO 9001.",
+        "correta": false
+      },
+      {
+        "id": 49067,
+        "texto": "Não há exigência de prova, pois a norma ISO 9001 não se aplica ao serviço público.",
+        "correta": false
+      },
+      {
+        "id": 49068,
+        "texto": "A exigência é inválida, pois ultrapassa o limite de 200 palavras estabelecido pela Lei nº 8.112/1990.",
+        "correta": false
+      },
+      {
+        "id": 49069,
+        "texto": "A exigência é válida, mas deve ser substituída por prova objetiva.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11707,
+    "texto": "Texto de Apoio: Em 2024, a Agência Nacional de Telecomunicações (ANATEL) publicou um edital de licitação para a expansão de infraestrutura de fibra óptica em áreas rurais do interior do estado de São Paulo. O edital, em sua seção de requisitos técnicos, exige que os licitantes apresentem um relatório de viabilidade econômica que inclua, entre outros itens, a projeção de retorno sobre investimento (ROI) em um horizonte de cinco anos. O documento também estabelece critérios de avaliação de propostas, destacando a importância de demonstrar a capacidade de execução dentro dos prazos estipulados e a aderência às normas de segurança da informação. A ANATEL enfatiza que a seleção será baseada em critérios de qualidade, preço e capacidade técnica, e que a proposta que apresentar a melhor relação custo-benefício, respeitando as exigências técnicas, será a vencedora. Considerando o texto acima, qual das seguintes afirmações sobre a redação de propostas técnicas é correta?\nA) O relatório de viabilidade econômica deve conter apenas dados financeiros, sem referências a aspectos operacionais.\nB) A demonstração de capacidade técnica pode ser omitida se o licitante possuir histórico de projetos semelhantes.\nC) A análise de risco deve ser incluída no relatório, mas não afeta a pontuação final da proposta.\nD) O prazo de execução não pode ser alterado em nenhuma circunstância, independentemente de fatores externos.\nE) A proposta deve apresentar um plano de contingência detalhado para eventuais atrasos, pois isso influencia diretamente na avaliação de qualidade.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49063,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49064,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11706,
+    "texto": "Em um contrato de prestação de serviços, a cláusula que estipula o prazo de execução em termos de calendário civil, sem considerar feriados ou fins de semana, pode ser considerada válida desde que haja previsão expressa de ajuste em caso de eventualidades que alterem o cronograma.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49061,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49062,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11705,
+    "texto": "O uso de pontuação em textos narrativos pode incluir a inserção de travessões para indicar mudanças bruscas de cenário ou de personagem, desde que a estrutura da frase permita a interrupção sem comprometer a clareza do enunciado.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49059,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49060,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11704,
+    "texto": "A concordância verbal no caso de orações coordenadas sindéticas, quando a conjunção 'e' une verbos de sentido distinto, exige que cada verbo concorde individualmente com seu sujeito, independentemente da proximidade entre eles.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49057,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 49058,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11703,
+    "texto": "No contexto da norma de redação de textos dissertativos, a utilização de pronomes de tratamento em segunda pessoa do singular, como \"você\" ou \"tu\", é considerada adequada quando se busca estabelecer um tom formal e impessoal, pois evita a aproximação do leitor.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 49055,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 49056,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11525,
+    "texto": "Texto: No contexto de um concurso de redação de nível médio, a banca avaliadora recebe um ensaio que descreve a trajetória de uma comunidade rural que, diante da crise hídrica, adotou práticas de manejo sustentável da água. O autor destaca a importância da participação coletiva, a implementação de sistemas de captação de chuva e a educação ambiental nas escolas locais. O texto, em 1.200 palavras, utiliza recursos de argumentação, exemplos concretos e dados estatísticos de fontes confiáveis. Ao final, o autor conclui que a conscientização ambiental é a chave para a preservação dos recursos hídricos.\n\nConsiderando o texto acima, qual das alternativas abaixo melhor descreve a estratégia retórica empregada pelo autor para persuadir o leitor a reconhecer a importância da educação ambiental na gestão de recursos hídricos?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48471,
+        "texto": "Apelo à autoridade, citando especialistas em hidrologia para validar a solução proposta",
+        "correta": false
+      },
+      {
+        "id": 48472,
+        "texto": "Uso de dados estatísticos e exemplos concretos para ilustrar a eficácia das práticas adotadas",
+        "correta": true
+      },
+      {
+        "id": 48473,
+        "texto": "Apelo emocional, descrevendo a dor da comunidade para gerar empatia",
+        "correta": false
+      },
+      {
+        "id": 48474,
+        "texto": "Argumentação baseada em princípios filosóficos da sustentabilidade",
+        "correta": false
+      },
+      {
+        "id": 48475,
+        "texto": "Apresentação de uma tese sem apoio empírico, apenas opinião pessoal",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11523,
+    "texto": "Na análise de um texto jornalístico, nota-se que o autor emprega a estrutura de frase em que o verbo principal é precedido por um advérbio de modo, seguido de um substantivo que funciona como complemento, e que o sujeito é composto por dois termos coordenados. O objetivo é enfatizar a ação realizada de maneira simultânea pelos dois sujeitos. Qual é a classificação sintática correta da oração?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48461,
+        "texto": "Oração simples, monossilábica, com sujeito composto e verbo transitivo direto",
+        "correta": false
+      },
+      {
+        "id": 48462,
+        "texto": "Oração composta, coordenada sindética, com sujeito simples e verbo intransitivo",
+        "correta": false
+      },
+      {
+        "id": 48463,
+        "texto": "Oração simples, polissilábica, com sujeito composto e verbo transitivo indireto",
+        "correta": true
+      },
+      {
+        "id": 48464,
+        "texto": "Oração simples, polissilábica, com sujeito simples e verbo transitivo direto",
+        "correta": false
+      },
+      {
+        "id": 48465,
+        "texto": "Oração composta, coordenada assintética, com sujeito composto e verbo intransitivo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11522,
+    "texto": "Em uma coletânea de ensaios literários, o editor observa que a maioria das obras apresenta um discurso narrativo predominantemente em terceira pessoa, porém, em um dos textos, há uma alternância entre a terceira pessoa e a primeira pessoa do singular, sem indicar claramente a mudança de perspectiva. A ausência de pontuação adequada e a falta de sinalização de mudança de narrador geram dúvida sobre a identidade do narrador. Qual das alternativas a seguir melhor descreve a técnica literária empregada nesse caso?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48456,
+        "texto": "Narrador onisciente com múltiplos pontos de vista internos",
+        "correta": false
+      },
+      {
+        "id": 48457,
+        "texto": "Narrador limitado com alternância de voz interna e externa",
+        "correta": true
+      },
+      {
+        "id": 48458,
+        "texto": "Narrador objetivo com uso de terceira pessoa em todos os momentos",
+        "correta": false
+      },
+      {
+        "id": 48459,
+        "texto": "Narrador em primeira pessoa com uso de diálogos internos",
+        "correta": false
+      },
+      {
+        "id": 48460,
+        "texto": "Narrador em terceira pessoa com foco em personagens secundários",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11521,
+    "texto": "Texto: Em 2024, a Secretaria de Educação publicou um edital que previa a aplicação de uma nova regra de pontuação em concursos de língua portuguesa. A regra estabelecia que, em provas de múltipla escolha, a pontuação seria creditada apenas quando a alternativa escolhida fosse a mais curta, independentemente de sua correção. Tal medida gerou debate entre especialistas em linguística e pedagogia, que argumentaram que a métrica de comprimento de alternativa poderia favorecer respostas superficiais e comprometer a avaliação da competência linguística dos candidatos. No entanto, a defesa da norma sustentou que a concisão era um valor intrínseco da língua, e que a prática incentivaria a produção de respostas mais objetivas e eficientes.\n\nConsiderando o texto acima, julgue a afirmação: \"A regra de pontuação que favorece alternativas mais curtas está em conformidade com os princípios de avaliação de competências linguísticas, pois estimula a concisão e a clareza comunicativa.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48454,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48455,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11520,
+    "texto": "O sujeito oculto em uma oração pode ser identificado apenas pela conjugação verbal, sem necessidade de contexto adicional.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48452,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48453,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11519,
+    "texto": "O uso de crase é obrigatório quando a preposição 'a' se encontra antes de um substantivo feminino que admite artigo definido.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48450,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48451,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11518,
+    "texto": "Na análise sintática de orações coordenadas, o elemento que introduz a oração adversativa é sempre a palavra 'mas'.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48448,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 48449,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 11517,
+    "texto": "Considerando a norma que estabelece que a concordância verbal deve ser observada em todas as frases, julgue a seguinte frase: \"Os dados coletados pela equipe de pesquisa indicaram que os resultados foram satisfatórios.\" A concordância verbal está correta.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48446,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 48447,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11516,
+    "texto": "Assinale a opção em que a pontuação está empregada corretamente, respeitando as regras de sintaxe da língua portuguesa.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48441,
+        "texto": "Apesar das dificuldades enfrentadas pela equipe, o projeto, foi concluído dentro do prazo estipulado pela diretoria.",
+        "correta": false
+      },
+      {
+        "id": 48442,
+        "texto": "Os documentos, que foram enviados pelo setor de protocolo, devem ser analisados, criteriosamente, pela comissão técnica.",
+        "correta": true
+      },
+      {
+        "id": 48443,
+        "texto": "Embora o prazo tenha encerrado, ainda é possível solicitar a revisão, pois o sistema, apresenta instabilidades técnicas.",
+        "correta": false
+      },
+      {
+        "id": 48444,
+        "texto": "O servidor, que não compareceu à reunião, deverá justificar sua ausência por escrito, à chefia imediata.",
+        "correta": false
+      },
+      {
+        "id": 48445,
+        "texto": "Caso o edital não seja publicado hoje, a prova será adiada, e os candidatos serão notificados, via correio eletrônico.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 11515,
+    "texto": "No que se refere à regência verbal e nominal, assinale a opção que apresenta a frase redigida de acordo com a norma culta.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 48436,
+        "texto": "O diretor informou aos funcionários que a empresa visava o crescimento sustentável no próximo biênio.",
+        "correta": false
+      },
+      {
+        "id": 48437,
+        "texto": "Os candidatos aspiram ao cargo de auditor, pois possuem as qualificações exigidas no edital do certame.",
+        "correta": true
+      },
+      {
+        "id": 48438,
+        "texto": "O servidor preferiu o trabalho presencial do que o teletrabalho, devido à maior interação com a equipe.",
+        "correta": false
+      },
+      {
+        "id": 48439,
+        "texto": "A legislação atual implica em mudanças significativas nos procedimentos adotados pelo setor de licitações.",
+        "correta": false
+      },
+      {
+        "id": 48440,
+        "texto": "O gestor assistiu o processo de seleção com atenção, garantindo que nenhum candidato fosse prejudicado.",
+        "correta": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,497 @@
+[
+  {
+    "id": 9676,
+    "texto": "O uso de pronomes de tratamento no português contemporâneo, quando empregado em documentos oficiais, deve obedecer estritamente ao modelo de tratamento de segunda pessoa do singular, independentemente do gênero do destinatário.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42440,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42441,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9643,
+    "texto": "Na elaboração de um texto argumentativo, o autor deseja reforçar a ideia de que a educação ambiental deve ser integrada ao currículo escolar desde a educação básica. Para isso, ele decide empregar uma figura de linguagem que enfatiza a urgência e a necessidade de ação imediata, sem recorrer a comparações diretas. Qual figura de linguagem é mais adequada ao objetivo do autor?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42335,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 42336,
+        "texto": "Litote",
+        "correta": false
+      },
+      {
+        "id": 42337,
+        "texto": "Anáfora",
+        "correta": true
+      },
+      {
+        "id": 42338,
+        "texto": "Oxítona",
+        "correta": false
+      },
+      {
+        "id": 42339,
+        "texto": "Eufemismo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9642,
+    "texto": "Considerando o texto abaixo, responda a pergunta que segue.\n\nTexto: \"No cenário atual, a adoção de práticas de escrita digital tem impulsionado a necessidade de revisões ortográficas em tempo real. Empresas de tecnologia desenvolvem ferramentas que, por meio de algoritmos de aprendizado profundo, detectam não apenas erros de acentuação, mas também de concordância verbal e nominal, oferecendo sugestões que se adaptam ao contexto do usuário. Esse avanço tem sido fundamental para a manutenção da clareza e coerência em comunicações corporativas, sobretudo em ambientes multilíngues, onde a precisão linguística é indispensável para a credibilidade institucional.\"\n\nQual das alternativas abaixo melhor descreve a técnica de IA empregada pelas ferramentas citadas no texto?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42330,
+        "texto": "Análise semântica baseada em regras gramaticais rígidas",
+        "correta": false
+      },
+      {
+        "id": 42331,
+        "texto": "Aprendizado supervisionado com redes neurais convolucionais",
+        "correta": false
+      },
+      {
+        "id": 42332,
+        "texto": "Modelagem probabilística de linguagem com redes recorrentes",
+        "correta": true
+      },
+      {
+        "id": 42333,
+        "texto": "Sistemas especialistas baseados em lógica de programação",
+        "correta": false
+      },
+      {
+        "id": 42334,
+        "texto": "Processamento estatístico de big data sem contextualização",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9641,
+    "texto": "Um edital de concurso público estabelece que a prova de língua portuguesa terá 30 questões de múltipla escolha, distribuídas em quatro blocos temáticos. Se a distribuição for proporcional ao peso de cada bloco, sendo que o bloco de interpretação de textos representa 40% das questões, o bloco de gramática normativa 25%, o bloco de literatura brasileira 20% e o bloco de análise sintática 15%, quantas questões serão alocadas ao bloco de gramática normativa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42325,
+        "texto": "6 questões",
+        "correta": false
+      },
+      {
+        "id": 42326,
+        "texto": "7 questões",
+        "correta": true
+      },
+      {
+        "id": 42327,
+        "texto": "8 questões",
+        "correta": false
+      },
+      {
+        "id": 42328,
+        "texto": "9 questões",
+        "correta": false
+      },
+      {
+        "id": 42329,
+        "texto": "10 questões",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9640,
+    "texto": "Em uma redação dissertativa sobre a importância da preservação da memória histórica, o candidato deve indicar a figura de linguagem que melhor descreve a comparação entre o legado cultural de uma comunidade e a própria identidade de seus habitantes, sem utilizar a palavra \"como\" ou \"assim\".",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42320,
+        "texto": "Metonímia",
+        "correta": false
+      },
+      {
+        "id": 42321,
+        "texto": "Metáfora",
+        "correta": true
+      },
+      {
+        "id": 42322,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 42323,
+        "texto": "Eufemismo",
+        "correta": false
+      },
+      {
+        "id": 42324,
+        "texto": "Paradoxo",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9639,
+    "texto": "Texto: Em 2024, a Secretaria de Educação publicou uma diretriz que estabelece que todas as escolas públicas devem adotar o uso de textos em linguagem inclusiva, evitando expressões que reforcem estereótipos de gênero. A diretriz prevê que, a partir de 1º de janeiro de 2025, os materiais didáticos oficiais conterão, obrigatoriamente, exemplos de linguagem neutra, como ‘os estudantes’ em vez de ‘as estudantes’. Além disso, a diretriz recomenda a revisão de conteúdos já publicados, para que não haja perpetuação de termos discriminatórios.\n\nConsiderando o texto acima, a afirmação a seguir está correta: \"O uso de linguagem neutra nas escolas públicas é opcional, dependendo da escolha dos professores\".",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42318,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42319,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9638,
+    "texto": "O uso de ‘qual’ e ‘que’ em interrogativas é intercambiável quando a palavra seguinte é um pronome relativo. Assim, em ‘Qual é a razão?’ e ‘Que é a razão?’, ambas as formas são corretas.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42316,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42317,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9637,
+    "texto": "A frase ‘Ele foi ao médico, mas não foi ao dentista’ contém erro de pontuação, pois o ponto final deve ser substituído por vírgula para indicar a relação de contraste entre as duas ações.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42314,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42315,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9636,
+    "texto": "A concordância verbal no sujeito composto exige que o verbo seja conjugado no plural, independentemente da ordem dos termos. Na expressão “O diretor e o coordenador discutiram”, o verbo deve ser ‘discutiram’.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42312,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42313,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9635,
+    "texto": "Em uma frase, o uso da crase é obrigatório apenas quando a preposição ‘a’ se encontra antes de um substantivo feminino que admite artigo definido. A frase “Vou à escola” exemplifica essa regra.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42310,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42311,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9634,
+    "texto": "Na elaboração de um texto argumentativo sobre a importância da leitura crítica, o autor decide organizar seu texto em três partes: introdução, desenvolvimento e conclusão. Na introdução, ele apresenta a tese de que a leitura crítica é fundamental para a formação cidadã. No desenvolvimento, o autor expõe três argumentos: (i) a leitura crítica estimula a reflexão sobre questões sociais; (ii) ela contribui para a compreensão de textos complexos; (iii) a leitura crítica fortalece o pensamento independente. Na conclusão, ele reforça a tese e faz um convite ao leitor para praticar a leitura crítica em seu cotidiano. Qual elemento estrutural do texto argumentativo é responsável por garantir a coerência e a coesão entre os argumentos apresentados no desenvolvimento?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42305,
+        "texto": "Uso de conectivos lógicos que estabelecem relações de causa e consequência.",
+        "correta": true
+      },
+      {
+        "id": 42306,
+        "texto": "Repetição do título do texto ao final de cada parágrafo.",
+        "correta": false
+      },
+      {
+        "id": 42307,
+        "texto": "Inserção de citações de autores renomados no início de cada argumento.",
+        "correta": false
+      },
+      {
+        "id": 42308,
+        "texto": "Utilização de linguagem informal para aproximar o leitor.",
+        "correta": false
+      },
+      {
+        "id": 42309,
+        "texto": "Apresentação de dados estatísticos no final do texto.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9633,
+    "texto": "Um texto jornalístico publicado em 2024 descreve a implementação de um programa de inclusão digital em escolas públicas de uma cidade do interior. O artigo destaca que o programa prevê a distribuição de tablets a alunos de baixa renda, a contratação de professores de tecnologia e a realização de oficinas de alfabetização digital. O texto ressalta ainda que, segundo dados do Ministério da Educação, a taxa de acesso à internet em escolas públicas do país aumentou 15% no último ano. A redação do artigo faz uso de diversos recursos estilísticos, como a anáfora \"para que\" e a metáfora \"caminho digital\". Considerando o texto acima, qual recurso estilístico é mais adequado para enfatizar a continuidade do esforço coletivo no contexto da implementação do programa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42300,
+        "texto": "Metáfora",
+        "correta": false
+      },
+      {
+        "id": 42301,
+        "texto": "Anáfora",
+        "correta": true
+      },
+      {
+        "id": 42302,
+        "texto": "Eufemismo",
+        "correta": false
+      },
+      {
+        "id": 42303,
+        "texto": "Hipérbole",
+        "correta": false
+      },
+      {
+        "id": 42304,
+        "texto": "Litote",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9632,
+    "texto": "Um edital de concurso público para o cargo de analista de comunicação pública exige que os candidatos demonstrem proficiência em interpretação de textos. Um dos itens avaliativos apresenta o seguinte excerto: \"A linguagem escrita, ao ser empregada em documentos oficiais, deve preservar a clareza e a objetividade, evitando construções ambíguas que possam levar a interpretações equivocadas.\" O candidato deve indicar qual das alternativas abaixo representa a melhor aplicação do princípio da clareza no contexto de documentos oficiais.",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42295,
+        "texto": "Utilizar jargões técnicos específicos do setor, pois eles garantem precisão.",
+        "correta": false
+      },
+      {
+        "id": 42296,
+        "texto": "Incluir explicações detalhadas para cada termo, mesmo que a leitura se torne mais longa.",
+        "correta": false
+      },
+      {
+        "id": 42297,
+        "texto": "Empregar frases curtas e evitar o uso de pronomes indefinidos que possam gerar ambiguidade.",
+        "correta": true
+      },
+      {
+        "id": 42298,
+        "texto": "Preferir linguagem coloquial para facilitar a compreensão do público em geral.",
+        "correta": false
+      },
+      {
+        "id": 42299,
+        "texto": "Inserir citações de legislações pertinentes para reforçar a autoridade do documento.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9631,
+    "texto": "Um professor de língua portuguesa, ao elaborar um roteiro de aula para o 5.º ano do Ensino Fundamental, decide utilizar uma abordagem baseada na análise de textos de ficção contemporânea. Ele seleciona um conto que descreve a trajetória de um adolescente que, ao perder a memória de um evento traumático, passa a reinterpretar a realidade de maneira distorcida. O professor pretende que os alunos identifiquem e corrijam as anáforas e metonímias presentes no texto, a fim de compreender como a linguagem pode influenciar a percepção do leitor. Após a atividade, o professor observa que alguns alunos apresentaram dificuldade em distinguir entre anáfora e metonímia, enquanto outros conseguiram identificar corretamente ambos os recursos. Diante desse cenário, o professor decide aprofundar a discussão sobre a diferença entre esses recursos de coesão textual, apresentando exemplos de ambos em contextos de diferentes gêneros textuais. Considerando o texto acima, qual das seguintes afirmações descreve corretamente a distinção entre anáfora e metonímia?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42290,
+        "texto": "A anáfora consiste em repetir um termo para reforçar a ideia, enquanto a metonímia substitui um termo por outro relacionado a ele.",
+        "correta": true
+      },
+      {
+        "id": 42291,
+        "texto": "A anáfora é a substituição de um termo por outro relacionado, e a metonímia é a repetição de um termo para reforçar a ideia.",
+        "correta": false
+      },
+      {
+        "id": 42292,
+        "texto": "A anáfora envolve a substituição de um termo por seu antônimo, e a metonímia envolve a repetição de um termo.",
+        "correta": false
+      },
+      {
+        "id": 42293,
+        "texto": "A anáfora e a metonímia são equivalentes, pois ambas são recursos de pontuação.",
+        "correta": false
+      },
+      {
+        "id": 42294,
+        "texto": "A anáfora ocorre apenas em textos narrativos, enquanto a metonímia ocorre apenas em textos expositivos.",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9630,
+    "texto": "A seguir, apresenta-se um trecho fictício de um artigo acadêmico sobre a evolução do português brasileiro:\n\n\"O português brasileiro tem se caracterizado por um processo de fusão lexical e morfológica que, ao longo das últimas décadas, resultou em uma variedade de registros linguísticos. Entre os fenômenos mais relevantes, destaca-se a adoção de pronomes de tratamento que variam de acordo com o contexto social, a consolidação de neologismos provenientes de tecnologias digitais e a persistência de estruturas sintáticas que refletem influências de outras línguas indígenas. Esse panorama linguístico evidencia a dinâmica de adaptação e inovação que permeia o idioma, consolidando sua identidade única no contexto global.\n\nConsiderando o texto acima, julgue a seguinte afirmação: \"A consolidação de neologismos provenientes de tecnologias digitais é um fenômeno que contribui para a manutenção da identidade linguística do português brasileiro, sendo observado principalmente em contextos formais.\"",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42288,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42289,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9629,
+    "texto": "Em textos jornalísticos, a regra de pontuação exige que o ponto final seja omitido em frases que terminam com interjeição.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42286,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42287,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9628,
+    "texto": "A norma culta da língua portuguesa admite a inversão da ordem sujeito-verbo apenas quando a oração é interrogativa.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42284,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42285,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9627,
+    "texto": "No caso de locuções prepositivas compostas por preposição e substantivo, a preposição pode ser suprimida sem alterar o sentido da frase.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42282,
+        "texto": "Certo",
+        "correta": false
+      },
+      {
+        "id": 42283,
+        "texto": "Errado",
+        "correta": true
+      }
+    ]
+  },
+  {
+    "id": 9626,
+    "texto": "A norma de concordância verbal no português brasileiro exige que o verbo concorde em número com o sujeito, independentemente de sua posição na oração.",
+    "tipo": "CE",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 42280,
+        "texto": "Certo",
+        "correta": true
+      },
+      {
+        "id": 42281,
+        "texto": "Errado",
+        "correta": false
+      }
+    ]
+  },
+  {
+    "id": 9444,
+    "texto": "Texto: A partir de 2024, o Ministério da Educação implementou um programa de alfabetização digital, que propõe a integração de recursos multimídia em aulas de português para estudantes de escolas públicas de regiões periféricas. O programa prevê a utilização de podcasts, vídeos interativos e jogos educacionais para reforçar o aprendizado de gramática, ortografia e compreensão textual. Em uma das etapas de avaliação, os professores são incentivados a criar atividades que estimulem o pensamento crítico dos alunos, incentivando a discussão de temas atuais como sustentabilidade, inclusão social e tecnologia. O objetivo é promover uma abordagem mais contextualizada e prática, reduzindo a distância entre teoria e prática e, ao mesmo tempo, fortalecendo a capacidade de argumentação e escrita dos estudantes. A proposta também inclui a formação continuada de docentes, com foco em metodologias ativas e uso de tecnologias digitais.\n\nConsiderando o texto acima, qual das alternativas abaixo melhor descreve a principal vantagem da integração de recursos multimídia nas aulas de português segundo o programa?",
+    "tipo": "ME",
+    "imagem": "",
+    "alternativas": [
+      {
+        "id": 41685,
+        "texto": "Aumenta a carga horária das aulas de português.",
+        "correta": false
+      },
+      {
+        "id": 41686,
+        "texto": "Substitui completamente o ensino tradicional de gramática.",
+        "correta": false
+      },
+      {
+        "id": 41687,
+        "texto": "Permite que os alunos pratiquem a leitura e a escrita em contextos reais, favorecendo a aplicação prática das regras gramaticais.",
+        "correta": true
+      },
+      {
+        "id": 41688,
+        "texto": "Elimina a necessidade de avaliação escrita dos estudantes.",
+        "correta": false
+      },
+      {
+        "id": 41689,
+        "texto": "Reduz o uso de recursos pedagógicos físicos nas salas de aula.",
+        "correta": false
+      }
+    ]
+  }
+]
