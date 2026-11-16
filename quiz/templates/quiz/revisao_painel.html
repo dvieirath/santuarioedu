@@ -361,6 +361,11 @@ function renderQuestao(q, restantes) {
         <span class="ml-auto text-[10px] text-on-surface-variant font-mono">#${q.id}</span>
       </div>
       <div class="mb-5">
+        ${q.texto_apoio ? `
+          <details open class="mb-4 rounded-lg border border-[#e5e1d8] bg-surface-container-low">
+            <summary class="cursor-pointer select-none px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-primary">Texto de apoio${q.texto_apoio.titulo ? ': ' + escapeHtml(q.texto_apoio.titulo) : ''}</summary>
+            <div class="px-4 pb-4 text-sm leading-relaxed text-on-surface whitespace-pre-line max-h-[28rem] overflow-y-auto">${escapeHtml(q.texto_apoio.texto)}</div>
+          </details>` : ''}
         <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">${escapeHtml(q.texto)}</p>
         ${q.imagem ? `
           <div class="mt-4 flex justify-center bg-surface-container-low rounded-xl p-4 border border-outline-variant/30">

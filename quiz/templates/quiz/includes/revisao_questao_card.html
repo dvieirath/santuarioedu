@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 {% comment %}
 Card SSR da questão em revisão. Idêntico ao markup que renderQuestao() gera
 via JS — usa Django templating para o primeiro paint sem esperar JS.
@@ -15,7 +16,8 @@ Espera: questao (obj), com atributos habituais.
   </div>
 
   <div class="mb-5">
-    <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">{{ questao.texto }}</p>
+    {% include "quiz/includes/texto_apoio.html" with questao=questao %}
+    <p class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-wrap">{{ questao.texto|enunciado }}</p>
   </div>
 
   <div class="space-y-2 mb-5">
@@ -25,7 +27,7 @@ Espera: questao (obj), com atributos habituais.
         {% if alt.correta %}bg-secondary text-white{% else %}bg-surface-container text-on-surface-variant{% endif %}">
         {% if alt.correta %}✓{% endif %}
       </div>
-      <p class="text-sm text-on-surface leading-relaxed flex-1">{{ alt.texto }}</p>
+      <p class="text-sm text-on-surface leading-relaxed flex-1">{{ alt.texto|enunciado }}</p>
       {% if alt.correta %}<span class="text-[10px] font-bold text-secondary uppercase tracking-wider">Correta</span>{% endif %}
     </div>
     {% endfor %}

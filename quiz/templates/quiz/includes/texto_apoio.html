@@ -1,0 +1,14 @@
+{% comment %}
+Texto de apoio compartilhado por várias questões (interpretação de texto, inglês).
+Inclua antes do enunciado: {% include "quiz/includes/texto_apoio.html" with questao=questao %}
+Não mostra nada quando a questão não tem texto de apoio.
+{% endcomment %}
+{% load quiz_extras %}
+{% if questao.texto_apoio %}
+<details open class="texto-apoio mb-4 rounded-lg border border-[#e5e1d8] bg-surface-container-low">
+  <summary class="cursor-pointer select-none px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-primary">
+    Texto de apoio{% if questao.texto_apoio.titulo %}: <span class="normal-case tracking-normal">{{ questao.texto_apoio.titulo }}</span>{% endif %}
+  </summary>
+  <div class="px-4 pb-4 text-sm leading-relaxed text-on-surface whitespace-pre-line max-h-[28rem] overflow-y-auto">{{ questao.texto_apoio.texto|enunciado }}</div>
+</details>
+{% endif %}

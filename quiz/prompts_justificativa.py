@@ -175,11 +175,19 @@ def montar_prompt(questao) -> str:
     if not correta:
         raise ValueError('Questão sem alternativa correta marcada')
 
+    # Questão com texto de apoio: sem o texto a explicação seria um chute.
+    enunciado = questao.texto
+    if getattr(questao, 'texto_apoio_id', None):
+        enunciado = (
+            'TEXTO DE APOIO:' + chr(10) + questao.texto_apoio.texto[:6000]
+            + chr(10) + chr(10) + 'QUESTÃO:' + chr(10) + questao.texto
+        )
+
     if questao.tipo == 'CE':
         return montar_prompt_ce(
             categoria=questao.categoria.nome,
             banca=questao.banca or '',
-            enunciado=questao.texto,
+            enunciado=enunciado,
             alternativa_correta=correta,
         )
 
@@ -193,7 +201,7 @@ def montar_prompt(questao) -> str:
     return montar_prompt_me(
         categoria=questao.categoria.nome,
         banca=questao.banca or '',
-        enunciado=questao.texto,
+        enunciado=enunciado,
         alternativas=alts,
         letra_correta=letra_correta,
     )

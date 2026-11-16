@@ -143,6 +143,41 @@ def _hash_texto_questao(txt: str) -> str:
     return hashlib.sha256(normalizado.encode('utf-8')).hexdigest()
 
 
+class TextoApoio(models.Model):
+    """Texto que serve de base a várias questões (interpretação de texto,
+    inglês, estudo de caso).
+
+    Fica fora do enunciado por três motivos: não repete o mesmo texto em dez
+    questões; a tela mostra o texto uma vez, acima da pergunta; e a detecção
+    de duplicata olha só o começo do enunciado, então dez perguntas sobre o
+    mesmo texto pareceriam a mesma se o texto viesse na frente.
+    """
+    titulo = models.CharField(max_length=255, blank=True, default='')
+    texto = models.TextField()
+    fonte = models.CharField(
+        max_length=255, blank=True, default='',
+        help_text='De onde veio. Ex.: Banco do Brasil 2023, Prova A, Língua Portuguesa.',
+    )
+    texto_hash = models.CharField(max_length=64, unique=True, editable=False)
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Texto de apoio'
+        verbose_name_plural = 'Textos de apoio'
+
+    @staticmethod
+    def hash_de(texto):
+        import hashlib
+        return hashlib.sha256(_normalizar_texto(texto or '').encode('utf-8')).hexdigest()
+
+    def save(self, *args, **kwargs):
+        self.texto_hash = self.hash_de(self.texto)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.titulo or self.texto[:60]
+
+
 class Questao(models.Model):
     TIPO_CHOICES = [
         ('ME', 'Múltipla Escolha'),
@@ -163,10 +198,27 @@ class Questao(models.Model):
     banca = models.CharField(max_length=60, blank=True, null=True)
     ano = models.PositiveSmallIntegerField(blank=True, null=True)
     gerada_por_ia = models.BooleanField(default=False)  # Sprint 23
+    texto_apoio = models.ForeignKey(
+        TextoApoio, null=True, blank=True, on_delete=models.SET_NULL,
+        related_name='questoes',
+        help_text='Texto-base compartilhado com outras questões, exibido acima do enunciado.',
+    )
+
+    @staticmethod
+    def calcular_hash(texto, texto_apoio=None):
+        """Hash usado para detectar duplicata.
+
+        Com texto de apoio, o hash inclui o texto: perguntas iguais sobre textos
+        diferentes ("O objetivo principal do texto é") não são a mesma questão.
+        """
+        if texto_apoio is not None:
+            return _hash_texto_questao(f'apoio {texto_apoio.texto_hash[:20]} {texto}')
+        return _hash_texto_questao(texto)
 
     def save(self, *args, **kwargs):
         """Auto-calcula texto_hash antes de salvar (nao precisa signal)."""
-        self.texto_hash = _hash_texto_questao(self.texto)
+        self.texto_hash = self.calcular_hash(
+            self.texto, self.texto_apoio if self.texto_apoio_id else None)
         super().save(*args, **kwargs)
 
     # ── Ciclo de revisão humana ──

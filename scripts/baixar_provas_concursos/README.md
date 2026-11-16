@@ -37,7 +37,29 @@ Por padrao os arquivos vao para `~/Downloads/provas_concursos/<slug>/`, um
 PDF mesclado por prova (`_baixados/` dentro da mesma pasta guarda os PDFs
 originais, sem mesclar, para nao baixar de novo se voce rodar outra vez).
 
-### 2. Outras bancas (FGV, FCC, Vunesp, IBFC, AOCP, ...) — melhor esforço
+### 2. Cesgranrio — caderno, segunda versão para conferência e gabaritos
+
+O slug é o trecho final da URL `cesgranrio.org.br/concurso/<slug>/`:
+
+```bash
+python baixar_provas.py cesgranrio banco-do-brasil-bb-01-2022 --pasta BB_23 --conferencia 2
+```
+
+Os arquivos vão para `provas_pdf/materia_prima/<pasta>/`, sem mesclar, com um
+`manifesto_cesgranrio.json`. Na página da banca, "GABARITO 1" a "GABARITO 5" são
+as versões do caderno de questões; o adaptador baixa a versão 1 e, com
+`--conferencia 2`, também a 2. Baixa o gabarito preliminar e o alterado depois
+dos recursos, quando existe.
+
+A importação é feita pelo comando Django, que lê os PDFs sem IA e só aceita a
+questão cuja resposta bate nas duas versões do caderno:
+
+```bash
+python manage.py importar_cesgranrio provas_pdf/materia_prima/BB_23 --ano 2023
+python manage.py importar_cesgranrio provas_pdf/materia_prima/BB_23 --ano 2023 --aplicar
+```
+
+### 3. Outras bancas (FGV, FCC, Vunesp, IBFC, AOCP, ...) — melhor esforço
 
 Não existe um adaptador dedicado para cada banca — cada site organiza a
 lista de provas/gabaritos de um jeito diferente. O modo genérico abre a URL

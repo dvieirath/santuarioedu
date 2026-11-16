@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR" class="light">
@@ -63,7 +64,8 @@
       </span>
     </div>
 
-    <p class="text-base text-on-surface leading-relaxed mb-5 whitespace-pre-line">{{ questao.texto }}</p>
+    {% include "quiz/includes/texto_apoio.html" with questao=questao %}
+    <p class="text-base text-on-surface leading-relaxed mb-5 whitespace-pre-line">{{ questao.texto|enunciado }}</p>
 
     <form method="post">
       {% csrf_token %}
@@ -76,7 +78,7 @@
             {% if questao.tipo == 'ME' %}
               <span class="font-bold mr-1.5">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %})</span>
             {% endif %}
-            {{ alt.texto }}
+            {{ alt.texto|enunciado }}
           </span>
         </label>
         {% endfor %}

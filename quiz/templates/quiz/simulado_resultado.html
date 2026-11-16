@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 <!DOCTYPE html>
 <html lang="pt-BR" class="light">
 <head>
@@ -290,7 +291,8 @@
         </button>
 
         <div class="gabarito-detalhe hidden border-t border-[#e5e1d8] px-4 pb-5 pt-4 space-y-4">
-          <div class="font-serif text-sm text-on-surface leading-relaxed">{{ r.questao.texto }}</div>
+          {% include "quiz/includes/texto_apoio.html" with questao=r.questao %}
+          <div class="font-serif text-sm text-on-surface leading-relaxed whitespace-pre-line">{{ r.questao.texto|enunciado }}</div>
 
           <div class="space-y-1.5">
             {% for alt in r.questao.alternativa_set.all %}
@@ -308,7 +310,7 @@
                 {% endif %}
               </span>
               <span class="{% if alt.correta %}text-on-secondary-container font-semibold{% elif r.alternativa_escolhida and r.alternativa_escolhida.id == alt.id and not alt.correta %}text-on-error-container{% else %}text-on-surface-variant{% endif %}">
-                {{ alt.texto }}
+                {{ alt.texto|enunciado }}
               </span>
               {% if r.alternativa_escolhida and r.alternativa_escolhida.id == alt.id and not alt.correta %}
               <span class="ml-auto shrink-0 text-[10px] font-bold text-error bg-error-container/60 px-1.5 py-0.5 rounded-full whitespace-nowrap">sua resposta</span>

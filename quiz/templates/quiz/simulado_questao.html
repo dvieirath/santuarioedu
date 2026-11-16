@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 <!DOCTYPE html>
 <html lang="pt-BR" class="light">
 <head>
@@ -169,7 +170,8 @@
         </figure>
         {% endif %}
 
-        <div class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line">{{ questao.texto|safe }}</div>
+        {% include "quiz/includes/texto_apoio.html" with questao=questao %}
+        <div class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line">{{ questao.texto|enunciado }}</div>
       </article>
     </section>
 
@@ -218,7 +220,7 @@
           <label class="alt-card">
             <input type="radio" name="alternativa_id" value="{{ alt.id }}" {% if resposta_atual.alternativa_escolhida.id == alt.id %}checked{% endif %} class="sr-only" required>
             <span class="alt-num">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% else %}E{% endif %}</span>
-            <span class="flex-1 text-[15px] leading-relaxed text-on-surface pr-6">{{ alt.texto }}</span>
+            <span class="flex-1 text-[15px] leading-relaxed text-on-surface pr-6">{{ alt.texto|enunciado }}</span>
             <span class="material-symbols-outlined alt-check active-icon" style="font-size:22px;">check_circle</span>
           </label>
           {% endfor %}

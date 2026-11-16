@@ -14,6 +14,10 @@ Exemplos:
   # FGV: passe o slug da URL (conhecimento.fgv.br/concursos/<slug>) ou a URL inteira
   python baixar_provas.py fgv rfb22
 
+  # Cesgranrio: slug da URL (cesgranrio.org.br/concurso/<slug>) e nome da pasta.
+  # Baixa um caderno e os gabaritos de cada prova, sem mesclar, e grava um manifesto.
+  python baixar_provas.py cesgranrio banco-do-brasil-bb-01-2022 --pasta BB_23 --conferencia 2
+
   # Outras bancas sem adaptador dedicado: passe a URL da pagina de provas/gabaritos
   python baixar_provas.py generico "https://www.exemplo.com.br/concurso/xyz" --nome "TRT SP 2024"
 
@@ -25,10 +29,19 @@ import argparse
 import sys
 from pathlib import Path
 
-from bancas import cebraspe, fgv, generico
+from bancas import cebraspe, cesgranrio
+
+# FGV e modo generico leem HTML com beautifulsoup4. Sem ele instalado, os
+# adaptadores do Cebraspe e da Cesgranrio continuam funcionando.
+try:
+    from bancas import fgv, generico
+except ModuleNotFoundError:
+    fgv = generico = None
 from bancas.base import Documento, baixar_pdf, mesclar_pdfs, nome_arquivo_seguro, parear
 
 PASTA_SAIDA_PADRAO = Path.home() / "Downloads" / "provas_concursos"
+# Materia-prima do importador, dentro do projeto (fora do git).
+PASTA_MATERIA_PRIMA = Path(__file__).resolve().parent.parent.parent / "provas_pdf" / "materia_prima"
 
 
 def processar_documentos(
@@ -102,7 +115,14 @@ def cmd_cebraspe(args: argparse.Namespace) -> None:
     print(f"\nArquivos salvos em: {pasta_saida}")
 
 
+def _exigir_bs4(modulo) -> None:
+    if modulo is None:
+        print("Este modo precisa do beautifulsoup4: pip install -r requirements.txt")
+        sys.exit(1)
+
+
 def cmd_fgv(args: argparse.Namespace) -> None:
+    _exigir_bs4(fgv)
     pasta_saida = Path(args.saida) if args.saida else PASTA_SAIDA_PADRAO
     for slug in args.slugs:
         print(f"\n=== FGV: {slug} ===")
@@ -115,7 +135,25 @@ def cmd_fgv(args: argparse.Namespace) -> None:
     print(f"\nArquivos salvos em: {pasta_saida}")
 
 
+def cmd_cesgranrio(args: argparse.Namespace) -> None:
+    raiz = Path(args.saida) if args.saida else PASTA_MATERIA_PRIMA
+    pasta = raiz / nome_arquivo_seguro(args.pasta or args.slug)
+    print(f"\n=== Cesgranrio: {args.slug} ===")
+    try:
+        manifesto = cesgranrio.baixar_concurso(
+            args.slug, pasta, versao=args.versao, conferencia=args.conferencia)
+    except Exception as exc:
+        print(f"  [ERRO] nao consegui baixar '{args.slug}': {exc}")
+        sys.exit(1)
+    for item in manifesto:
+        gabarito = "definitivo" if item["gabarito_definitivo"] else (
+            "preliminar" if item["gabarito_preliminar"] else "SEM GABARITO")
+        print(f"  {item['chave']:<12} caderno {item['versao_caderno']} + gabarito {gabarito}")
+    print(f"\n{len(manifesto)} prova(s). Arquivos e manifesto em: {pasta}")
+
+
 def cmd_generico(args: argparse.Namespace) -> None:
+    _exigir_bs4(generico)
     pasta_saida = Path(args.saida) if args.saida else PASTA_SAIDA_PADRAO
     print(f"\n=== Pagina: {args.url} ===")
     try:
@@ -146,6 +184,14 @@ def main() -> None:
     p_fgv.add_argument("slugs", nargs="+", help="slug(s) do concurso, ex.: rfb22 (de conhecimento.fgv.br/concursos/rfb22)")
     p_fgv.add_argument("--saida", help=f"pasta de destino (padrao: {PASTA_SAIDA_PADRAO})")
     p_fgv.set_defaults(func=cmd_fgv)
+
+    p_cesgranrio = sub.add_parser("cesgranrio", help="baixa cadernos e gabaritos de um concurso da Cesgranrio")
+    p_cesgranrio.add_argument("slug", help="slug da pagina, ex.: banco-do-brasil-bb-01-2022")
+    p_cesgranrio.add_argument("--pasta", help="nome da pasta de destino, ex.: BB_23 (padrao: o slug)")
+    p_cesgranrio.add_argument("--versao", type=int, default=1, help="versao do caderno a baixar (padrao: 1)")
+    p_cesgranrio.add_argument("--conferencia", type=int, help="segunda versao do caderno, para conferencia (ex.: 2)")
+    p_cesgranrio.add_argument("--saida", help=f"pasta raiz (padrao: {PASTA_MATERIA_PRIMA})")
+    p_cesgranrio.set_defaults(func=cmd_cesgranrio)
 
     p_generico = sub.add_parser("generico", help="baixa provas/gabaritos de outra banca a partir de uma URL")
     p_generico.add_argument("url", help="URL da pagina do concurso que lista os PDFs de prova/gabarito")

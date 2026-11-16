@@ -40,7 +40,8 @@ def api_tutor_ia(request):
             alts_txt = '\n'.join(
                 f"{'✓' if a.correta else '  '} {a.texto}" for a in alts
             )
-            contexto_questao = f"Disciplina: {q.categoria}\nQuestão: {q.texto}\nAlternativas:\n{alts_txt}"
+            apoio = f"Texto de apoio:\n{q.texto_apoio.texto[:6000]}\n\n" if q.texto_apoio_id else ""
+            contexto_questao = f"Disciplina: {q.categoria}\n{apoio}Questão: {q.texto}\nAlternativas:\n{alts_txt}"
         except Questao.DoesNotExist:
             pass
 

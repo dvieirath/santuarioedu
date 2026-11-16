@@ -175,10 +175,15 @@ def detectar_flags(q, alts=None):
         # Se tem trecho grande entre aspas, provavelmente o texto está embutido
         marcar_ref = True
 
-    if marcar_ref:
+    if marcar_ref and not getattr(q, 'texto_apoio_id', None):
         flags.append('referencia_a_texto_ausente')
 
-    if texto and texto[-1] in TERMINACOES_INCOMPLETAS:
+    # Em múltipla escolha o enunciado costuma ser uma frase que a alternativa
+    # completa ("...o valor é de, aproximadamente,"), então terminar em vírgula,
+    # dois-pontos ou conjunção é normal. Só é sinal de corte em certo/errado.
+    frase_deve_ser_completa = getattr(q, 'tipo', 'CE') != 'ME'
+
+    if frase_deve_ser_completa and texto and texto[-1] in TERMINACOES_INCOMPLETAS:
         flags.append('enunciado_termina_em_pontuacao_incompleta')
     if texto.endswith('..') and not texto.endswith('...'):
         flags.append('ponto_duplo_no_fim')
@@ -186,7 +191,7 @@ def detectar_flags(q, alts=None):
     palavras = re.findall(r'\S+', texto)
     if palavras:
         ultima = palavras[-1].lower().strip('.,;:!?')
-        if ultima in CONJUNCOES_FIM:
+        if frase_deve_ser_completa and ultima in CONJUNCOES_FIM:
             flags.append('termina_em_conjuncao')
 
     if re.search(r'  +', texto):

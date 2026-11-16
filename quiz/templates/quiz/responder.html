@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 <!DOCTYPE html>
 <html class="light" lang="pt-BR">
 <head>
@@ -231,7 +232,8 @@ tailwind.config = {
           </figure>
           {% endif %}
 
-          <div id="texto-questao" class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line">{{ questao.texto|safe }}</div>
+          {% include "quiz/includes/texto_apoio.html" with questao=questao %}
+          <div id="texto-questao" class="font-serif text-lg leading-relaxed text-on-surface whitespace-pre-line">{{ questao.texto|enunciado }}</div>
 
           <!-- Alternativas -->
           {% if questao.tipo == 'CE' %}
@@ -260,7 +262,7 @@ tailwind.config = {
             <label class="alt-card">
               <input type="radio" name="alternativa_id" value="{{ alt.id }}" required class="sr-only">
               <span class="alt-num">{{ forloop.counter }}</span>
-              <span class="flex-1 text-[15px] leading-relaxed text-on-surface pr-6">{{ alt.texto }}</span>
+              <span class="flex-1 text-[15px] leading-relaxed text-on-surface pr-6">{{ alt.texto|enunciado }}</span>
               <span class="material-symbols-outlined alt-check active-icon" style="font-size:22px;">check_circle</span>
             </label>
             {% endfor %}

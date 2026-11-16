@@ -1,6 +1,7 @@
 # Preparatório Banco do Brasil — Escopo
 
-Versão 1, 10/11/2026. Inclui as decisões do Davi e o que a fase 0 entregou.
+Versão 2, 11/11/2026. Inclui as decisões do Davi, o que a fase 0 entregou e o
+resultado da primeira importação de provas (fase 1).
 
 ## 1. Decisões tomadas (10/11/2026)
 
@@ -94,6 +95,55 @@ O que isso significa:
 
 O código da plataforma se aproveita quase inteiro. O conteúdo BB começa do zero.
 
+### Depois da primeira importação (11/11/2026)
+
+Provas BB 2021 e 2023, os dois cargos: 8 provas, 560 questões no total.
+Entraram 492, todas **pendentes de revisão**; 68 ficaram retidas.
+
+| Disciplina | Pendentes importadas | Meta de lançamento |
+|---|---:|---:|
+| Vendas e Negociação | 86 | 300 |
+| Conhecimentos de Informática | 85 | 300 |
+| Língua Portuguesa | 79 | 250 |
+| Conhecimentos Bancários | 69 | 250 |
+| Tecnologia da Informação | 43 | 400 |
+| Língua Inglesa | 40 | 80 |
+| Atualidades do Mercado Financeiro | 40 | 80 |
+| Matemática | 24 | 120 |
+| Matemática Financeira | 20 | 120 |
+| Probabilidade e Estatística | 6 | 120 |
+
+O que garante cada questão importada:
+
+- lida do PDF oficial da banca, sem IA;
+- gabarito oficial, o definitivo quando a banca publicou alteração;
+- conferida na segunda versão do caderno: mesmo enunciado, mesmas alternativas
+  e a mesma resposta, lida de outro PDF e de outra coluna do gabarito;
+- cinco alternativas e exatamente uma correta.
+
+O que a conferência automática **não** garante, e por isso tudo entrou pendente:
+tabela que o PDF desenha de forma irregular, símbolo matemático fora do padrão e
+erro que apareça igual nas duas versões do caderno. A revisão humana continua
+sendo a porta de liberação.
+
+Motivos das 68 retidas (uma questão pode ter mais de um):
+
+| Motivo | Questões |
+|---|---:|
+| Fórmula com expoente ou índice | 15 |
+| Cita figura, gráfico ou tabela | 14 |
+| Texto solto ao redor (tabela, quadro de dados, código) | 12 pares |
+| Figura na área da questão | 10 |
+| Fala em destaque, mas o PDF não marca o trecho | 6 |
+| Anulada no gabarito | 5 |
+| Alternativa sem texto ou fora do padrão A a E | 7 |
+| Não conferida na segunda versão | 5 |
+
+O texto lido de cada retida está nos relatórios, para conferência manual:
+`output/importacao_cesgranrio_BB_23_20261111_105214/relatorio.json` e
+`output/importacao_cesgranrio_BB_21_20261111_105225/relatorio.json`.
+Backup de antes da importação: `backups/antes_importacao_bb_20261111_104759.sqlite3`.
+
 ## 5. Escopo
 
 ### Dentro (primeira versão)
@@ -159,14 +209,17 @@ para medir depois de baixar.
 |---|---|---|
 | Especificação do edital (prova, pesos, tópicos, regras) | `quiz/trilha_bb.py` | Feito |
 | Disciplinas das trilhas `bb` e `bb-ti` | `quiz/preparacao.py` | Feito |
-| Comando que cria disciplinas e tópicos na árvore | `manage.py seed_trilha_bb` | Feito, ainda não aplicado ao banco |
+| Comando que cria disciplinas e tópicos na árvore | `manage.py seed_trilha_bb` | Feito e aplicado ao banco local |
 | Importador sem destino padrão em Direito Constitucional | `importar_pdf_questoes.py` | Feito |
 | Categoria de espera "A classificar", bloqueada em toda aprovação | `quiz/categorias_pendentes.py` | Feito |
 | Geração em massa só de múltipla escolha para BB | `gerar_bateria_multi_concurso.py` | Feito |
-| Listas de categoria só com conteúdo (seletor de simulado, flashcards etc.) | várias telas | Pendente; pré-requisito para aplicar o seed |
-| Classificador do importador com os tópicos do edital | `importar_pdf_questoes.py` | Pendente, fase 1 |
-| Adaptador Cesgranrio no baixador | `scripts/baixar_provas_concursos/bancas/` | Pendente, fase 1 |
-| Extração de múltipla escolha com gabarito por letra | importador | Pendente, fase 1 |
+| Listas de categoria só com conteúdo (seletor de simulado, flashcards etc.) | `quiz/categorias.py` | Feito |
+| Adaptador Cesgranrio no baixador | `scripts/baixar_provas_concursos/bancas/cesgranrio.py` | Feito |
+| Leitor de caderno e gabarito da Cesgranrio, sem IA | `quiz/cesgranrio.py` | Feito |
+| Importação com conferência entre versões do caderno | `manage.py importar_cesgranrio` | Feito |
+| Texto de apoio compartilhado entre questões | modelo `TextoApoio`, migração 0059 | Feito |
+| Destaque em negrito e enunciado sem HTML nas telas | filtro `enunciado` | Feito, exceto `resultado.html` |
+| Classificação das questões por tópico do edital | hoje entram só na disciplina | Pendente |
 | Opção BB no cadastro, com migração | `quiz/models.py` | Pendente, fase 2 |
 | Páginas públicas | `quiz/concurso_landing.py` | Pendente, fase 2 |
 | Simulado com pesos, pontos e regra de eliminação | `EDITAIS_OFICIAIS` só tem contagem hoje | Pendente, fase 2 |
@@ -177,14 +230,22 @@ para medir depois de baixar.
 Por que a opção BB no cadastro e as páginas públicas ficaram para a fase 2:
 sem questões, o aluno escolheria BB e cairia em telas vazias.
 
-Por que o seed ainda não foi aplicado: ele cria 110 tópicos vazios, e várias
-telas do aluno listam todas as categorias em seletores. Aplicar antes de filtrar
-essas listas encheria os seletores de opções sem conteúdo. A simulação mostra o
-que seria criado:
+Como repetir a importação para outra prova da Cesgranrio:
 
 ```
-python manage.py seed_trilha_bb
+cd scripts/baixar_provas_concursos
+python baixar_provas.py cesgranrio <slug-da-pagina> --pasta <PASTA> --conferencia 2
+cd ../..
+python manage.py importar_cesgranrio provas_pdf/materia_prima/<PASTA> --ano <ANO>
+python manage.py importar_cesgranrio provas_pdf/materia_prima/<PASTA> --ano <ANO> --aplicar
 ```
+
+Sem `--aplicar` o comando só simula e gera o relatório. A ligação entre disciplina
+do gabarito e categoria vem de `quiz/trilha_bb.py`; prova de outro concurso com
+disciplinas diferentes precisa ter as suas incluídas lá.
+
+`resultado.html` ficou de fora do filtro de destaque porque tem alterações suas
+ainda não commitadas. A troca é de uma linha e pode ir junto quando você commitar.
 
 ## 8. Meta de conteúdo
 
@@ -213,7 +274,8 @@ quantas questões oficiais existem.
 | Fase | Entrega | Situação |
 |---|---|---|
 | 0 | Decisões; especificação do edital; trilhas `bb` e `bb-ti`; comando de seed; importador sem destino padrão | Concluída em 10/11/2026 |
-| 1 | Listas de categoria só com conteúdo; seed aplicado; adaptador Cesgranrio; provas BB 2021 e 2023 importadas e conferidas; contagem real por disciplina | Depende de autorização para baixar as provas |
+| 1 | Listas de categoria só com conteúdo; seed aplicado; adaptador Cesgranrio; provas BB 2021 e 2023 importadas e conferidas; contagem real por disciplina | Concluída em 11/11/2026: 492 questões pendentes |
+| 1b | Revisar e liberar as 492; tratar as 68 retidas; explicações | Depende de você |
 | 2 | Demais provas bancárias; simulado no formato da prova; painel, páginas públicas e opção no cadastro | |
 | 3 | IA com verificação para fechar os tópicos com pouca questão oficial; explicações | |
 | 4 | Redação; beta fechado com poucos candidatos | |

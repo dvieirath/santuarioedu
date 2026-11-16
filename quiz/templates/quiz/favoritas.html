@@ -1,3 +1,4 @@
+{% load quiz_extras %}
 <!DOCTYPE html>
 <html lang="pt-BR" class="light">
 <head>
@@ -60,7 +61,7 @@
               {% if q.assunto %}<span class="text-[10px] text-on-surface-variant bg-surface-container-low border border-[#e5e1d8] px-2 py-0.5 rounded-full">{{ q.assunto }}</span>{% endif %}
               {% if q.banca %}<span class="text-[10px] text-on-surface-variant bg-surface-container-low border border-[#e5e1d8] px-2 py-0.5 rounded-full">{{ q.banca }}{% if q.ano %} · {{ q.ano }}{% endif %}</span>{% endif %}
             </div>
-            <p class="font-serif text-base text-on-surface leading-snug mb-3">{{ q.texto }}</p>
+            <p class="font-serif text-base text-on-surface leading-snug mb-3">{% include "quiz/includes/texto_apoio.html" with questao=q %}{{ q.texto|enunciado }}</p>
 
             <div class="space-y-1.5">
               {% for alt in q.alternativa_set.all %}
@@ -70,7 +71,7 @@
                 {% else %}
                 <span class="w-3.5 h-3.5 rounded-full border border-outline-variant/40 inline-block shrink-0 mt-0.5"></span>
                 {% endif %}
-                <span>{{ alt.texto }}</span>
+                <span>{{ alt.texto|enunciado }}</span>
               </div>
               {% endfor %}
             </div>

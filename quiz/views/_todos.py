@@ -1953,7 +1953,9 @@ def modo_desafio(request):
         dificuldade = 'normal'
     cfg = DIFICULDADES[dificuldade]
 
-    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
+    # Poucos segundos por questão: as que dependem de texto de apoio ficam fora.
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False,
+                                texto_apoio__isnull=True)
     if cat_id:
         qs = qs.filter(categoria_id=cat_id)
 
@@ -4853,7 +4855,8 @@ def duelo_criar(request):
             pass
 
     # Usa questoes ja revisadas (aprovadas). Campo 'ativo' nao existe em Questao.
-    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False,
+                                texto_apoio__isnull=True)  # sem texto de apoio: partida rápida
     if categoria:
         qs = qs.filter(categoria=categoria)
 
@@ -5229,7 +5232,8 @@ def coletivo_criar(request):
             pass
 
     # Usa questoes ja revisadas (aprovadas). Campo 'ativo' nao existe em Questao.
-    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False)
+    qs = Questao.objects.filter(revisada=True, rejeitada_definitiva=False,
+                                texto_apoio__isnull=True)  # sem texto de apoio: partida rápida
     if categoria:
         qs = qs.filter(categoria=categoria)
 
@@ -6500,6 +6504,8 @@ def api_revisao_proxima(request):
         'questao': {
             'id':                  q.id,
             'texto':               q.texto,
+            'texto_apoio':         ({'titulo': q.texto_apoio.titulo, 'texto': q.texto_apoio.texto}
+                                    if q.texto_apoio_id else None),
             'imagem':              q.imagem.url if q.imagem else '',
             'assunto':             q.assunto or '',
             'banca':               q.banca or '',
@@ -6604,6 +6610,8 @@ def api_revisao_por_id(request, questao_id):
         'questao': {
             'id':                  q.id,
             'texto':               q.texto,
+            'texto_apoio':         ({'titulo': q.texto_apoio.titulo, 'texto': q.texto_apoio.texto}
+                                    if q.texto_apoio_id else None),
             'assunto':             q.assunto or '',
             'banca':               q.banca or '',
             'ano':                 q.ano,
