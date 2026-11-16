@@ -175,7 +175,7 @@ def painel_xp(request):
     total_u  = NivelUsuario.objects.count()
 
     # Histórico de XP diário estimado (acertos × 10 XP via RespostaUsuario)
-    hoje = timezone.now().date()
+    hoje = timezone.localdate()
     historico_xp = []
     for i in range(6, -1, -1):
         d = hoje - timedelta(days=i)

@@ -327,11 +327,7 @@
               <div>{{ r.questao.justificativa }}</div>
             </div>
             {% else %}
-            <button type="button" onclick="pedirIA({{ r.questao.id }}, this)"
-              class="ai-btn flex items-center gap-2 px-4 py-2.5 text-white rounded-lg text-sm font-semibold transition-all relative z-10">
-              <span class="material-symbols-outlined active-icon relative z-10" style="font-size:16px;">auto_awesome</span>
-              <span class="relative z-10">Solicitar comentário de IA</span>
-            </button>
+            <p class="text-sm text-on-surface-variant">Esta questão ainda não tem uma explicação revisada disponível.</p>
             {% endif %}
           </div>
 
@@ -380,39 +376,6 @@ function filtrar(tipo) {
     if (tipo === 'todos' || el.dataset.tipo === tipo) el.style.display = '';
     else el.style.display = 'none';
   });
-}
-
-function escapeExplanation(value) {
-  const text = document.createElement('span');
-  text.textContent = String(value);
-  return text.innerHTML;
-}
-
-async function pedirIA(questaoId, btn) {
-  btn.disabled = true;
-  btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:16px;">sync</span> Gerando…';
-  try {
-    const resp = await fetch(`/api/justificativa/${questaoId}/`, {
-      method:'POST',
-      headers:{'X-CSRFToken':CSRF,'Content-Type':'application/json'},
-    });
-    const data = await resp.json();
-    const container = document.getElementById('justif-' + questaoId);
-    if (data.justificativa) {
-      container.innerHTML = `
-        <div class="p-4 bg-primary-fixed/40 rounded-lg border-l-4 border-primary-fixed-dim text-sm text-on-surface leading-relaxed">
-          <p class="font-bold text-primary text-xs uppercase tracking-widest mb-2 flex items-center gap-1.5">
-            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">lightbulb</span>
-            Análise da questão${data.gerado_agora ? ' <span class="text-secondary normal-case font-normal">(gerado agora)</span>' : ''}
-          </p>
-          <div>${escapeExplanation(data.justificativa).replace(/\n/g, '<br>')}</div>
-        </div>`;
-    } else {
-      container.innerHTML = `<p class="text-sm text-error">❌ ${escapeExplanation(data.erro || 'Erro ao gerar comentário.')}</p>`;
-    }
-  } catch (e) {
-    document.getElementById('justif-' + questaoId).innerHTML = `<p class="text-sm text-error">❌ Falha na conexão.</p>`;
-  }
 }
 
 function abrirCompartilhar() {

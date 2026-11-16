@@ -493,9 +493,10 @@ def _cap_diario_atingido(usuario) -> bool:
             plano = 'gratuito'
         cap = cap_pro if plano in ('pro', 'premium') else cap_free
 
-        # Contador diário em cache
-        from datetime import datetime
-        hoje = datetime.now().strftime('%Y%m%d')
+        # Contador diário em cache. Dia no fuso do projeto (America/Sao_Paulo):
+        # com datetime.now() o limite virava às 21h em servidor UTC.
+        from django.utils import timezone
+        hoje = timezone.localdate().strftime('%Y%m%d')
         key = f'ia_diario:{usuario.id}:{hoje}'
         atual = cache.get(key, 0)
         if atual >= cap:
@@ -544,8 +545,7 @@ def gerar_conteudo(prompt: str, json_mode: bool = False,
     # ── Cap financeiro: se usuário estourou o limite diário, bloqueia ──
     if usuario and _cap_diario_atingido(usuario):
         raise AIQuotaExceeded(
-            f'Você atingiu o limite diário de uso de IA. '
-            f'Tente novamente amanhã ou faça upgrade para PRO.'
+            'Você atingiu o limite diário de uso de IA. Tente novamente amanhã.'
         )
 
     ordem = [provider] if provider else _ordem_providers()
@@ -557,8 +557,8 @@ def gerar_conteudo(prompt: str, json_mode: bool = False,
             erros.append(f'{nome}: indisponível')
             continue
         try:
-            return cls.gerar(prompt, json_mode=json_mode,
-                             max_tokens=max_tokens, temperature=temperature)
+            texto = cls.gerar(prompt, json_mode=json_mode,
+                              max_tokens=max_tokens, temperature=temperature)
         except AIQuotaExceeded as e:
             erros.append(f'{nome}: quota esgotada')
             logger.warning(f'Provider {nome} sem quota, tentando próximo: {e}')
@@ -567,6 +567,16 @@ def gerar_conteudo(prompt: str, json_mode: bool = False,
             erros.append(f'{nome}: {e}')
             logger.warning(f'Provider {nome} falhou: {e}')
             continue
+
+        # APIs compatíveis com OpenAI devolvem content=null quando o modelo
+        # gasta todo o max_tokens raciocinando ou a resposta é bloqueada.
+        # Sem este teste o None chegava em gerar_json() e derrubava o lote
+        # inteiro com AttributeError; agora conta como falha deste provider.
+        if not isinstance(texto, str) or not texto.strip():
+            erros.append(f'{nome}: resposta vazia')
+            logger.warning(f'Provider {nome} devolveu resposta vazia, tentando próximo')
+            continue
+        return texto
 
     raise AIError(f'Todos os providers falharam: {" | ".join(erros)}')
 

@@ -39,29 +39,23 @@ def api_editar_questao(request, questao_id):
 @require_POST
 @ratelimit(key='user', rate='30/m', method='POST', block=True)
 def api_justificativa_questao(request, questao_id):
-    """Gera (ou retorna) justificativa IA para uma questão. Usado no gabarito do simulado."""
-    questao = get_object_or_404(Questao, id=questao_id)
-    if questao.justificativa:
-        return JsonResponse({'justificativa': questao.justificativa, 'gerado_agora': False})
-    try:
-        resultado = gerar_justificativa_ia(questao)
-        if resultado:
-            if isinstance(resultado, dict):
-                justificativa = (resultado.get('justificativa') or '').strip()
-                questao.assunto = resultado.get('assunto', questao.assunto or '')
-            else:
-                justificativa = str(resultado).strip()
-            if not justificativa:
-                return JsonResponse(
-                    {'erro': 'A IA não retornou uma explicação. Tente novamente em alguns instantes.'},
-                    status=503,
-                )
-            questao.justificativa = justificativa
-            questao.save()
-            return JsonResponse({'justificativa': questao.justificativa, 'gerado_agora': True})
-    except Exception as e:
-        return JsonResponse({'erro': str(e)}, status=500)
-    return JsonResponse({'erro': 'Não foi possível gerar o comentário.'}, status=500)
+    """Retorna a justificativa já revisada de uma questão liberada. Somente leitura.
+
+    Não gera nem grava nada: justificativa nova entra só pelo fluxo com revisão
+    (`manage.py fila_justificativas` e `gerar_justificativas_ia`). Antes, qualquer
+    usuário logado disparava a IA e o texto ia direto para o banco, inclusive em
+    questões pendentes ou rejeitadas.
+    """
+    questao = get_object_or_404(
+        Questao, id=questao_id, revisada=True, rejeitada_definitiva=False,
+    )
+    justificativa = (questao.justificativa or '').strip()
+    if not justificativa:
+        return JsonResponse(
+            {'erro': 'Esta questão ainda não tem uma explicação revisada disponível.'},
+            status=404,
+        )
+    return JsonResponse({'justificativa': justificativa, 'gerado_agora': False})
 
 @login_required(login_url='account_login')
 @user_passes_test(_is_staff, login_url='home')

@@ -676,16 +676,8 @@ def _check_pode_criar_simulado(request, fallback_url='escolher_tema'):
         return redirect('simulado_questao', simulado_id=simulado_ativo.id, numero=1)
 
     # 2. Limite semanal (gratuito 1/sem, PRO ilimitado)
-    from ..limits import pode_iniciar_simulado as _pode, get_plano
+    from ..limits import pode_iniciar_simulado as _pode
     if not _pode(request.user):
-        plano = get_plano(request.user)
-        if plano == 'gratuito':
-            messages.warning(
-                request,
-                'Voce atingiu o limite de simulados da semana no plano Gratuito. '
-                'Faca upgrade para PRO e tenha simulados ilimitados.'
-            )
-            return redirect('planos')
         messages.warning(request, 'Limite de simulados atingido nesta semana.')
         return redirect(fallback_url)
 
@@ -975,7 +967,7 @@ def relatorio_semanal(request):
     from datetime import date
 
     # Período: esta semana (últimos 7 dias) ou semana especificada
-    hoje = timezone.now().date()
+    hoje = timezone.localdate()
     semana_str = request.GET.get('semana')
     if semana_str:
         try:
@@ -1084,7 +1076,7 @@ def enviar_relatorio_email(request):
         messages.error(request, 'Configure um e-mail no seu perfil primeiro.')
         return redirect('relatorio_semanal')
 
-    hoje = timezone.now().date()
+    hoje = timezone.localdate()
     inicio_semana = hoje - timedelta(days=hoje.weekday())
     fim_semana    = inicio_semana + timedelta(days=6)
 
@@ -1364,15 +1356,8 @@ def quiz_revisao(request, categoria_id=None):
     conquistas — pra evitar farm de estatisticas via /revisao/."""
     if request.method == 'POST':
         # Limite de plano (revisao tambem conta pro limite diario)
-        from ..limits import pode_responder_questao, get_plano
+        from ..limits import pode_responder_questao
         if not pode_responder_questao(request.user):
-            if get_plano(request.user) == 'gratuito':
-                messages.warning(
-                    request,
-                    'Você atingiu o limite diário de questões do plano Gratuito. '
-                    'Faça upgrade para PRO e tenha questões ilimitadas.'
-                )
-                return redirect('planos')
             messages.warning(request, 'Limite diário de questões atingido.')
             return redirect('dashboard')
 
@@ -3446,7 +3431,8 @@ def simulado_revisao(request, simulado_id):
         return redirect('simulado_resultado', simulado_id=simulado_id)
 
     modo = request.GET.get('modo', 'erros')  # 'erros' | 'todas'
-    idx  = int(request.GET.get('q', 0))      # índice da questão atual
+    q_raw = request.GET.get('q', '0').strip()  # índice da questão atual
+    idx = int(q_raw) if (q_raw.isascii() and q_raw.isdecimal() and len(q_raw) <= 6) else 0
 
     respostas = simulado.respostas.select_related(
         'questao', 'questao__categoria',
@@ -3469,18 +3455,9 @@ def simulado_revisao(request, simulado_id):
     idx = max(0, min(idx, total - 1))
     atual = respostas[idx]
 
-    # Justificativa: usa a existente ou gera via IA se necessário
+    # Justificativa: só a já revisada. Abrir esta página não dispara geração
+    # por IA nem grava nada na questão (mesma regra do resultado do quiz).
     questao = atual.questao
-    if not questao.justificativa:
-        try:
-            result = gerar_justificativa_ia(questao)
-            if result:
-                questao.justificativa = result.get('justificativa', '')
-                if result.get('assunto'):
-                    questao.assunto = result['assunto']
-                questao.save(update_fields=['justificativa', 'assunto'])
-        except Exception:
-            _silencioso("view_bloco_9")
     avaliacao = AvaliacaoQuestao.objects.filter(
         usuario=request.user, questao=questao
     ).first()
@@ -3674,7 +3651,7 @@ def relatorio_pdf(request):
 
 @login_required
 def metas_semanais(request):
-    hoje          = timezone.now().date()
+    hoje          = timezone.localdate()
     inicio_semana = hoje - timedelta(days=hoje.weekday())
     meta_obj, _   = MetaEstudo.objects.get_or_create(usuario=request.user)
     questoes_meta = max(1, meta_obj.questoes_por_dia)
@@ -5650,12 +5627,11 @@ PLANOS_CONFIG = {
 
 def requer_plano(plano_minimo='pro'):
     """
-    Decorator que exige plano >= plano_minimo.
-    Redireciona para /planos/ com mensagem se o plano for insuficiente.
-    Uso: @requer_plano('pro') ou @requer_plano('premium')
+    Mantido por compatibilidade: a app é 100% gratuita, então só exige login.
+    A versão antiga comparava planos e redirecionava para /planos/, rota que
+    não existe mais. `plano_minimo` é ignorado.
     """
     from functools import wraps
-    ordem = ['gratuito', 'pro', 'premium']
 
     def decorator(view_func):
         @wraps(view_func)
@@ -5663,16 +5639,6 @@ def requer_plano(plano_minimo='pro'):
             if not request.user.is_authenticated:
                 from django.contrib.auth.views import redirect_to_login
                 return redirect_to_login(request.get_full_path())
-            # plano removido (app 100% gratuita)
-            plano_obj = type("Stub", (), {"plano": "gratuito", "ativo": True})()
-            plano_atual = plano_obj.plano if not plano_obj.expirado else 'gratuito'
-            if ordem.index(plano_atual) < ordem.index(plano_minimo):
-                messages.warning(
-                    request,
-                    f'Esta funcionalidade requer o plano {plano_minimo.upper()}. '
-                    f'Faça upgrade para continuar!'
-                )
-                return redirect('planos')
             return view_func(request, *args, **kwargs)
         return wrapper
     return decorator
