@@ -1,0 +1,123 @@
+ANTES: questoes=16720 liberadas=8673 (oficiais=6560 ia=2113) pendentes=7692 (ia=7691) rejeitadas=355 cesgranrio=0 categorias=127 seletor_aluno=72 integridade=ok fk_violadas=0
+
+TRILHA BANCO DO BRASIL — edital bb_2022_001 (Cesgranrio, prova 2023)
+  bb     Escriturário — Agente Comercial: 8 disciplinas, 70 questões, 100 pontos
+  bb-ti  Escriturário — Agente de Tecnologia: 7 disciplinas, 70 questões, 100 pontos
+
+  Categorias já existentes ... 19
+  Criadas .................. 110
+    + Linguagens e Códigos > Português > Compreensão de Textos
+    + Linguagens e Códigos > Português > Ortografia Oficial
+    + Linguagens e Códigos > Português > Classe e Emprego de Palavras
+    + Linguagens e Códigos > Português > Crase
+    + Linguagens e Códigos > Português > Sintaxe da Oração e do Período
+    + Linguagens e Códigos > Português > Pontuação
+    + Linguagens e Códigos > Português > Concordância Verbal e Nominal
+    + Linguagens e Códigos > Português > Regência Verbal e Nominal
+    + Linguagens e Códigos > Português > Colocação Pronominal
+    + Matemática e Raciocínio > Matemática > Números e Problemas de Contagem
+    + Matemática e Raciocínio > Matemática > Sistema Legal de Medidas
+    + Matemática e Raciocínio > Matemática > Razões, Proporções e Porcentagens
+    + Matemática e Raciocínio > Matemática > Lógica Proposicional
+    + Matemática e Raciocínio > Matemática > Noções de Conjuntos
+    + Matemática e Raciocínio > Matemática > Relações e Funções
+    + Matemática e Raciocínio > Matemática > Matrizes
+    + Matemática e Raciocínio > Matemática > Determinantes
+    + Matemática e Raciocínio > Matemática > Sistemas Lineares
+    + Matemática e Raciocínio > Matemática > Sequências
+    + Matemática e Raciocínio > Matemática > Progressões Aritméticas e Geométricas
+    + Áreas Específicas > Atualidades do Mercado Financeiro
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Bancos na Era Digital
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Internet Banking
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Mobile Banking
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Open Banking
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Novos Modelos de Negócios
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Fintechs, Startups e Big Techs
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Shadow Banking
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Funções da Moeda
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Blockchain e Criptomoedas
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Marketplace
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Correspondentes Bancários
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Arranjos de Pagamentos
+    + Áreas Específicas > Atualidades do Mercado Financeiro > PIX
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Segmentação e Interações Digitais
+    + Áreas Específicas > Atualidades do Mercado Financeiro > Transformação Digital no Sistema Financeiro
+    + Matemática e Raciocínio > Matemática Financeira > Conceitos Gerais e Valor do Dinheiro no Tempo
+    + Matemática e Raciocínio > Matemática Financeira > Juros Simples
+    + Matemática e Raciocínio > Matemática Financeira > Juros Compostos
+    + Matemática e Raciocínio > Matemática Financeira > Sistemas de Amortização (Price e SAC)
+    + Áreas Específicas > Conhecimentos Bancários
+    + Áreas Específicas > Conhecimentos Bancários > Sistema Financeiro Nacional
+    + Áreas Específicas > Conhecimentos Bancários > Mercado Financeiro e seus Desdobramentos
+    + Áreas Específicas > Conhecimentos Bancários > Moeda e Política Monetária
+    + Áreas Específicas > Conhecimentos Bancários > Orçamento Público, Títulos do Tesouro e Dívida Pública
+    + Áreas Específicas > Conhecimentos Bancários > Produtos Bancários
+    + Áreas Específicas > Conhecimentos Bancários > Mercado de Capitais
+    + Áreas Específicas > Conhecimentos Bancários > Mercado de Câmbio
+    + Áreas Específicas > Conhecimentos Bancários > Regimes de Taxas de Câmbio
+    + Áreas Específicas > Conhecimentos Bancários > Taxas de Câmbio Nominais e Reais
+    + Áreas Específicas > Conhecimentos Bancários > Câmbio, Exportações e Importações
+    + Áreas Específicas > Conhecimentos Bancários > Diferencial de Juros, Prêmio de Risco e Fluxo de Capitais
+    + Áreas Específicas > Conhecimentos Bancários > Mercado Interbancário
+    + Áreas Específicas > Conhecimentos Bancários > Mercado Bancário: Tesouraria, Varejo e Recuperação de Crédito
+    + Áreas Específicas > Conhecimentos Bancários > Taxas de Juros e Curva de Juros
+    + Áreas Específicas > Conhecimentos Bancários > Garantias do Sistema Financeiro Nacional
+    + Áreas Específicas > Conhecimentos Bancários > Prevenção à Lavagem de Dinheiro
+    + Áreas Específicas > Conhecimentos Bancários > Autorregulação Bancária
+    + Áreas Específicas > Conhecimentos Bancários > Sigilo Bancário
+    + Áreas Específicas > Conhecimentos Bancários > Lei Geral de Proteção de Dados (LGPD)
+    + Áreas Específicas > Conhecimentos Bancários > Legislação Anticorrupção
+    + Áreas Específicas > Conhecimentos Bancários > Segurança Cibernética
+    + Áreas Específicas > Conhecimentos Bancários > Ética Aplicada e Código de Ética do BB
+    + Áreas Específicas > Conhecimentos Bancários > Responsabilidade Socioambiental do BB
+    + Informática > Linux
+    + Informática > Proteção de Estações de Trabalho
+    + Informática > Organização de Arquivos, Pastas e Programas
+    + Informática > Navegadores e Busca na Web
+    + Informática > Correio Eletrônico, Grupos, Fóruns e Wikis
+    + Informática > Redes Sociais
+    + Informática > Suporte à Decisão e Inteligência de Negócio
+    + Informática > Fundamentos de Análise de Dados
+    + Informática > Educação a Distância
+    + Informática > Ferramentas Multimídia
+    + Informática > Ferramentas de Produtividade e Trabalho a Distância
+    + Áreas Específicas > Vendas e Negociação
+    + Áreas Específicas > Vendas e Negociação > Estratégia Empresarial
+    + Áreas Específicas > Vendas e Negociação > Segmentação de Mercado
+    + Áreas Específicas > Vendas e Negociação > Valor Percebido pelo Cliente
+    + Áreas Específicas > Vendas e Negociação > Gestão da Experiência do Cliente
+    + Áreas Específicas > Vendas e Negociação > Aprendizagem e Sustentabilidade Organizacional
+    + Áreas Específicas > Vendas e Negociação > Características dos Serviços
+    + Áreas Específicas > Vendas e Negociação > Gestão da Qualidade em Serviços
+    + Áreas Específicas > Vendas e Negociação > Técnicas de Vendas
+    + Áreas Específicas > Vendas e Negociação > Marketing Digital
+    + Áreas Específicas > Vendas e Negociação > Ética e Conduta Profissional em Vendas
+    + Áreas Específicas > Vendas e Negociação > Padrões de Qualidade no Atendimento
+    + Áreas Específicas > Vendas e Negociação > Canais Remotos para Vendas
+    + Áreas Específicas > Vendas e Negociação > Comportamento do Consumidor
+    + Áreas Específicas > Vendas e Negociação > Política de Relacionamento com o Cliente
+    + Áreas Específicas > Vendas e Negociação > Ouvidoria
+    + Áreas Específicas > Vendas e Negociação > Estatuto da Pessoa com Deficiência
+    + Áreas Específicas > Vendas e Negociação > Código de Defesa do Consumidor
+    + Matemática e Raciocínio > Estatística e Probabilidade > Representação Tabular e Gráfica
+    + Matemática e Raciocínio > Estatística e Probabilidade > Medidas de Tendência Central e de Dispersão
+    + Matemática e Raciocínio > Estatística e Probabilidade > Variáveis Aleatórias e Distribuição de Probabilidade
+    + Matemática e Raciocínio > Estatística e Probabilidade > Teorema de Bayes
+    + Matemática e Raciocínio > Estatística e Probabilidade > Probabilidade Condicional
+    + Matemática e Raciocínio > Estatística e Probabilidade > População e Amostra
+    + Matemática e Raciocínio > Estatística e Probabilidade > Variância e Covariância
+    + Matemática e Raciocínio > Estatística e Probabilidade > Correlação Linear Simples
+    + Matemática e Raciocínio > Estatística e Probabilidade > Distribuição Binomial e Distribuição Normal
+    + Matemática e Raciocínio > Estatística e Probabilidade > Amostragem e Inferência Estatística
+    + Áreas Específicas > Tecnologia da Informação
+    + Áreas Específicas > Tecnologia da Informação > Aprendizagem de Máquina
+    + Áreas Específicas > Tecnologia da Informação > Banco de Dados
+    + Áreas Específicas > Tecnologia da Informação > Big Data
+    + Áreas Específicas > Tecnologia da Informação > Desenvolvimento Mobile
+    + Áreas Específicas > Tecnologia da Informação > Estrutura de Dados e Algoritmos
+    + Áreas Específicas > Tecnologia da Informação > Linguagens de Programação e Ferramentas
+
+Árvore da trilha aplicada.
+DEPOIS: questoes=16720 liberadas=8673 (oficiais=6560 ia=2113) pendentes=7692 (ia=7691) rejeitadas=355 cesgranrio=0 categorias=237 seletor_aluno=72 integridade=ok fk_violadas=0
+backup: backups/antes_seed_trilha_bb_20261116_151545.sqlite3
+refeito em 16/11/2026 sobre o banco recuperado (estado de 10/11/2026 08:00); a evidência original de 10/11 se perdeu com a pasta

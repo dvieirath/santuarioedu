@@ -1,0 +1,53 @@
+{
+ "liberadas_agora": 488,
+ "criterio": "banca='Cesgranrio', pendente, cinco alternativas, uma correta, sem símbolo de fonte especial",
+ "autorizacao": "Davi, em conversa de 12/11/2026: \"pode liberar em lote\"; refeito em 16/11/2026 (\"pode refazer\") sobre o banco recuperado, porque a pasta local foi perdida",
+ "sem_justificativa": 488,
+ "por_disciplina": {
+  "Vendas e Negociação": 86,
+  "Informática": 85,
+  "Português": 79,
+  "Conhecimentos Bancários": 69,
+  "Tecnologia da Informação": 43,
+  "Língua Inglesa": 40,
+  "Atualidades do Mercado Financeiro": 40,
+  "Matemática": 21,
+  "Matemática Financeira": 20,
+  "Estatística e Probabilidade": 5
+ },
+ "por_ano": {
+  "2021": 250,
+  "2023": 238
+ },
+ "seguradas_pendentes": [
+  {
+   "id": 17456,
+   "disciplina": "Matemática",
+   "ano": 2021,
+   "motivo": "símbolo matemático em fonte especial, ilegível no texto extraído"
+  },
+  {
+   "id": 17524,
+   "disciplina": "Matemática",
+   "ano": 2021,
+   "motivo": "símbolo matemático em fonte especial, ilegível no texto extraído"
+  },
+  {
+   "id": 17525,
+   "disciplina": "Matemática",
+   "ano": 2021,
+   "motivo": "símbolo matemático em fonte especial, ilegível no texto extraído"
+  },
+  {
+   "id": 17603,
+   "disciplina": "Estatística e Probabilidade",
+   "ano": 2021,
+   "motivo": "símbolo matemático em fonte especial, ilegível no texto extraído"
+  }
+ ],
+ "total_questoes": 17212,
+ "liberadas_no_banco": 9161,
+ "seletor_aluno_categorias": 78,
+ "backup": "backups/antes_liberacao_bb_20261116_151825.sqlite3",
+ "integridade": "ok"
+}

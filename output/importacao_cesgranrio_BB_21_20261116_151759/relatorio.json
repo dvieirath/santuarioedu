@@ -1,0 +1,3663 @@
+{
+ "pasta": "provas_pdf\\materia_prima\\BB_21",
+ "ano": 2021,
+ "banca": "Cesgranrio",
+ "aplicado": true,
+ "gerado_em": "2026-11-16T15:17:49",
+ "provas": [
+  {
+   "chave": "PROVA A",
+   "titulo": "PROVA A – ESCRITURÁRIO – AGENTE COMERCIAL",
+   "gabarito": "preliminar",
+   "versao_caderno": 1,
+   "versao_conferencia": 2,
+   "contagem": {
+    "importada": 63,
+    "retida": 7
+   },
+   "questoes": [
+    {
+     "numero": 1,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17379,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 2,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17380,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 3,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17381,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 4,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17382,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 5,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17383,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 6,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17384,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 7,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17385,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 8,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17386,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 9,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17387,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 10,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17388,
+     "texto_apoio_id": 9
+    },
+    {
+     "numero": 11,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17389,
+     "texto_apoio_id": 10
+    },
+    {
+     "numero": 12,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17390,
+     "texto_apoio_id": 10
+    },
+    {
+     "numero": 13,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17391,
+     "texto_apoio_id": 10
+    },
+    {
+     "numero": 14,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17392,
+     "texto_apoio_id": 10
+    },
+    {
+     "numero": 15,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17393,
+     "texto_apoio_id": 10
+    },
+    {
+     "numero": 16,
+     "disciplina": "MATEMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17394,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 17,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "A sequência de Fibonacci é bastante utilizada para exemplificar sequências definidas por recorrência, ou seja, sequências em que se pode determinar um termo a partir do conhecimento de termos anteriores. No caso da sequência de Fibonacci, escreve-se que T n+2 = Tn+1 + Tn e, desse modo, pode-se obter um termo qualquer conhecendo-se os dois termos anteriores.\n\nConsiderando o exposto acima, determine o termo T\n\n                                                                    2021\nda sequência de Fibonacci, sabendo que T 2018 = m e\nT2020 = p.\n\npm ",
+      "alternativas": [
+       [
+        "A",
+        "\n   2\npm "
+       ],
+       [
+        "B",
+        "\n2"
+       ],
+       [
+        "C",
+        "p2 m"
+       ],
+       [
+        "D",
+        "2p m "
+       ],
+       [
+        "E",
+        "2m 2p "
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 18,
+     "disciplina": "MATEMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "J modelou um problema de matemática por uma função exponencial do tipo a(x)=1000 ekx, e L, trabalhando no mesmo problema, chegou à modelagem b(x)=102x+3.\n\nConsiderando-se que ambos modelaram o problema corretamente, e que ln x = logex, qual o valor de k?",
+      "alternativas": [
+       [
+        "A",
+        "ln 2"
+       ],
+       [
+        "B",
+        "ln 3"
+       ],
+       [
+        "C",
+        "ln 10"
+       ],
+       [
+        "D",
+        "ln 30"
+       ],
+       [
+        "E",
+        "ln 100"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 19,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "O método da bisseção é um algoritmo usado para encontrar aproximações das raízes de uma equação. Começa-se com um intervalo [a,b], que contém uma raiz, e, em cada passo do algoritmo, reduz-se o intervalo pela metade, usando-se um teorema para determinar se a raiz está à esquerda ou à direita do ponto médio do intervalo anterior. Ou seja, após o passo 1, obtém-se um intervalo de comprimento; após o passo 2, obtém-se um in-\n\n                        2\ntervalo de comprimento ; e após o passo n, obtém-\n\n                                  4\n-se um intervalo de comprimento . Esse processo\n\n                                              2\ncontinua até que o intervalo obtido tenha comprimento\nmenor que o erro máximo desejado para a aproximação.\n\nPara aplicar esse método no intervalo [1,5], quantos passos serão necessários para obter-se um intervalo de comprimento menor que 10",
+      "alternativas": [
+       [
+        "A",
+        "9"
+       ],
+       [
+        "B",
+        "10"
+       ],
+       [
+        "C",
+        "11"
+       ],
+       [
+        "D",
+        "12"
+       ],
+       [
+        "E",
+        "13"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 20,
+     "disciplina": "MATEMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17395,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 21,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17396,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 22,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17397,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 23,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17398,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 24,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17399,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 25,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17400,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 26,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um negociador de investimentos de uma instituição financeira pergunta ao gerente de tal instituição qual a taxa de juros anual máxima que pode oferecer a um cliente investidor, e o gerente afirma que ficará satisfeito com uma taxa anual máxima de 8,36%. O negociador entra em contato com o cliente que pretende investir um capital C 1 e diz que, ao final de um ano, ele receberá C2, que corresponde a C1 acrescido de 5,00% de juros, mas não tem sucesso nessa negociação inicial. O negociador resolve aplicar uma nova taxa sobre C 2, mas sem ultrapassar a taxa anual máxima que está autorizado a oferecer. Qual o valor máximo da taxa a ser aplicada sobre C2?",
+      "alternativas": [
+       [
+        "A",
+        "2,16%"
+       ],
+       [
+        "B",
+        "2,24%"
+       ],
+       [
+        "C",
+        "3,20%"
+       ],
+       [
+        "D",
+        "7,96%"
+       ],
+       [
+        "E",
+        "16,72%"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 27,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)",
+      "cita figura, gráfico ou tabela (conferir no caderno)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um cliente montou uma estratégia financeira, aplicando parte de seu décimo terceiro salário, sempre no início de janeiro, de 2018 a 2021, conforme mostrado na Tabela a seguir.\n\njan/2018 jan/2019 jan/2020 jan/2021\n\nR$ 10.000,00 R$ 10.000,00 R$ 10.000,00 R$ 10.000,00\n\nA partir da orientação financeira de um especialista, ele conseguiu obter nesse período, com essas aplicações, uma taxa de retorno de 10% ao ano, sempre na comparação com o ano anterior. Ele pretende atingir o valor total acumulado de 65 mil reais no início de jan/2023.\n\nConsiderando-se que essa taxa de retorno se mantenha, o valor mínimo, em reais, que esse cliente precisará depositar em Jan/2022, para atingir a meta em Jan/2023, a partir das aproximações dadas, pertence ao intervalo:",
+      "alternativas": [
+       [
+        "A",
+        "R$ 8.000,00 a R$ 8.199,00\nDados:"
+       ],
+       [
+        "B",
+        "R$ 8.200,00 a R$ 8.399,00\n1,15 = 1,611;"
+       ],
+       [
+        "C",
+        "R$ 8.400,00 a R$ 8.599,00\n1,14 = 1,464;"
+       ],
+       [
+        "D",
+        "R$ 8.600,00 a R$ 8.799,00\n1,13 = 1,331."
+       ],
+       [
+        "E",
+        "R$ 8.800,00 a R$ 8.999,00"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 28,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17401,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 29,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17402,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 30,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Devido à pandemia, um microempreendedor precisou tomar um empréstimo no valor de R$ 20.000,00, em dez/2020, a ser pago em 24 prestações mensais iguais e postecipadas no sistema PRICE, de modo que a primeira fosse paga em jan/21, e a última, em dez/22. Considere que o Banco cobre R$ 660,00 de taxas, que serão financiadas juntamente com o valor do empréstimo, por escolha do cliente, e que a taxa de juros cobrada, devido ao risco da operação, seja de 3% ao mês.\n\nDesconsiderando-se o IOF na operação e supondo-se que a primeira prestação foi paga na data de vencimento, o valor da segunda prestação, em sua respectiva data de vencimento será de, aproximadamente,",
+      "alternativas": [
+       [
+        "A",
+        "R$ 1.120,00\nDados: 1,0324 = 2,033."
+       ],
+       [
+        "B",
+        "R$ 1.220,00"
+       ],
+       [
+        "C",
+        "R$ 1.320,00"
+       ],
+       [
+        "D",
+        "R$ 1.420,00"
+       ],
+       [
+        "E",
+        "R$ 1.520,00"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 31,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17403,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 32,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [
+      "texto de apoio para uma faixa de questões",
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17404,
+     "texto_apoio_id": 11
+    },
+    {
+     "numero": 33,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17405,
+     "texto_apoio_id": 11
+    },
+    {
+     "numero": 34,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17406,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 35,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17407,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 36,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17408,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 37,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17409,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 38,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17410,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 39,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17411,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 40,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17412,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 41,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17413,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 42,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17414,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 43,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17415,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 44,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17416,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 45,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17417,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 46,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17418,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 47,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17419,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 48,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17420,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 49,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17421,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 50,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "menciona destaque, mas nenhum trecho destacado foi identificado"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "O agente comercial de uma empresa elaborou uma planilha no software Microsoft Excel para lançar os débitos de seus clientes. Ele a configurou para controlar automaticamente as seguintes regras:\n\na) admitir, apenas, débitos entre R$ 40.000,00 e\n\nR$ 110.000,00; e\n\nb) destacar, em cor diferente, os débitos entre\n\nR$ 90.000,00 e R$ 110.000,00.\n\nQuais são os recursos do Microsoft Excel que o agente comercial deverá utilizar, respectivamente, para obter esse controle?",
+      "alternativas": [
+       [
+        "A",
+        "Validação de dados; Formatação condicional"
+       ],
+       [
+        "B",
+        "Formatação condicional; Gerenciador de cenários"
+       ],
+       [
+        "C",
+        "Verificação de erros; Teste de hipóteses"
+       ],
+       [
+        "D",
+        "Função de consolidação; Formatação condicional"
+       ],
+       [
+        "E",
+        "Classificar e Filtrar; Validação de dados"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 51,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17422,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 52,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17423,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 53,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17424,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 54,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17425,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 55,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17426,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 56,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17427,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 57,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17428,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 58,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17429,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 59,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17430,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 60,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17431,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 61,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17432,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 62,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17433,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 63,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17434,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 64,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17435,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 65,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17436,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 66,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17437,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 67,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17438,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 68,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17439,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 69,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17440,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 70,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17441,
+     "texto_apoio_id": null
+    }
+   ]
+  },
+  {
+   "chave": "PROVA B",
+   "titulo": "PROVA B – ESCRITURÁRIO – AGENTE COMERCIAL",
+   "gabarito": "preliminar",
+   "versao_caderno": 1,
+   "versao_conferencia": 2,
+   "contagem": {
+    "importada": 67,
+    "retida": 3
+   },
+   "questoes": [
+    {
+     "numero": 1,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17442,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 2,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "menciona destaque, mas nenhum trecho destacado foi identificado"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Ao abordar perspectivas de evolução na carreira, o texto destaca que a(s)",
+      "alternativas": [
+       [
+        "A",
+        "mudança no mercado se dará pela valorização do QE."
+       ],
+       [
+        "B",
+        "capacidade para a detecção de padrões será valorizada."
+       ],
+       [
+        "C",
+        "habilidades relacionadas ao QA poderão ser aprimoradas."
+       ],
+       [
+        "D",
+        "atividades relativas às artes serão excluídas das mudanças."
+       ],
+       [
+        "E",
+        "competências teóricas relacionadas ao QI serão evidenciadas."
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 3,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17443,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 4,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17444,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 5,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17445,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 6,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17446,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 7,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17447,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 8,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17448,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 9,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17449,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 10,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17450,
+     "texto_apoio_id": 12
+    },
+    {
+     "numero": 11,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17451,
+     "texto_apoio_id": 13
+    },
+    {
+     "numero": 12,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17452,
+     "texto_apoio_id": 13
+    },
+    {
+     "numero": 13,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17453,
+     "texto_apoio_id": 13
+    },
+    {
+     "numero": 14,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17454,
+     "texto_apoio_id": 13
+    },
+    {
+     "numero": 15,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17455,
+     "texto_apoio_id": 13
+    },
+    {
+     "numero": 16,
+     "disciplina": "MATEMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17456,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 17,
+     "disciplina": "MATEMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17457,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 18,
+     "disciplina": "MATEMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17458,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 19,
+     "disciplina": "MATEMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um banco está planejando abrir uma nova agência em uma cidade do interior. O departamento de Marketing estima que o número de clientes da agência (NC) em função do número de meses decorridos (t) desde a inauguração seguirá a seguinte função exponencial:\n\nNC(t)=100×(2\n\nQuantos meses completos, após a inauguração, o número estimado de clientes da agência será superior a 2.000?",
+      "alternativas": [
+       [
+        "A",
+        "1"
+       ],
+       [
+        "B",
+        "2"
+       ],
+       [
+        "C",
+        "3"
+       ],
+       [
+        "D",
+        "4"
+       ],
+       [
+        "E",
+        "5"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 20,
+     "disciplina": "MATEMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17459,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 21,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17460,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 22,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17461,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 23,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17462,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 24,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17463,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 25,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17464,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 26,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17465,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 27,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17466,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 28,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "cita figura, gráfico ou tabela (conferir no caderno)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um banco ofereceu a um cliente um financiamento de R$ 120.000,00, pelo sistema **SAC**, a uma taxa de juros de 10% a.m., para ser pago em 4 prestações mensais ao final de cada mês, sendo a primeira prestação no valor de R$ 42.000,00. A Tabela abaixo poderá ser usada para seus cálculos.\n\nPeríodo Saldo Inicial Juros Amortização Prestação Saldo Final\n   0 120.000,00\n   1 120.000,00 42.000,00\n   2\n   3\n   4\n\nQuais os valores aproximados que serão pagos, pelo cliente, a título de juros e prestação, respectivamente, ao final do terceiro mês?",
+      "alternativas": [
+       [
+        "A",
+        "R$ 12.000,00; R$ 42.000,00"
+       ],
+       [
+        "B",
+        "R$ 3.000,00; R$ 39.000,00"
+       ],
+       [
+        "C",
+        "R$ 12.000,00; R$ 30.000,00"
+       ],
+       [
+        "D",
+        "R$ 6.000,00; R$ 36.000,00"
+       ],
+       [
+        "E",
+        "R$ 9.000,00; R$ 33.000,00"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 29,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17467,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 30,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17468,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 31,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17469,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 32,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17470,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 33,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17471,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 34,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17472,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 35,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17473,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 36,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17474,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 37,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17475,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 38,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17476,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 39,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17477,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 40,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17478,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 41,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17479,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 42,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17480,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 43,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17481,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 44,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17482,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 45,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17483,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 46,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17484,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 47,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17485,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 48,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17486,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 49,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17487,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 50,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17488,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 51,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17489,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 52,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17490,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 53,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17491,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 54,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17492,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 55,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17493,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 56,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17494,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 57,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17495,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 58,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17496,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 59,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17497,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 60,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17498,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 61,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17499,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 62,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17500,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 63,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17501,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 64,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17502,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 65,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17503,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 66,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17504,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 67,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17505,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 68,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17506,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 69,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17507,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 70,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17508,
+     "texto_apoio_id": null
+    }
+   ]
+  },
+  {
+   "chave": "PROVA C",
+   "titulo": "PROVA C – ESCRITURÁRIO – AGENTE COMERCIAL",
+   "gabarito": "preliminar",
+   "versao_caderno": 1,
+   "versao_conferencia": 2,
+   "contagem": {
+    "importada": 70
+   },
+   "questoes": [
+    {
+     "numero": 1,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17509,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 2,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17510,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 3,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17511,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 4,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17512,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 5,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17513,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 6,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17514,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 7,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17515,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 8,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17516,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 9,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17517,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 10,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17518,
+     "texto_apoio_id": 14
+    },
+    {
+     "numero": 11,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17519,
+     "texto_apoio_id": 15
+    },
+    {
+     "numero": 12,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17520,
+     "texto_apoio_id": 15
+    },
+    {
+     "numero": 13,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17521,
+     "texto_apoio_id": 15
+    },
+    {
+     "numero": 14,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17522,
+     "texto_apoio_id": 15
+    },
+    {
+     "numero": 15,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17523,
+     "texto_apoio_id": 15
+    },
+    {
+     "numero": 16,
+     "disciplina": "MATEMATICA",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17524,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 17,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17525,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 18,
+     "disciplina": "MATEMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17526,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 19,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17527,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 20,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17528,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 21,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17529,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 22,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17530,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 23,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17531,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 24,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17532,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 25,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17533,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 26,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17534,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 27,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17535,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 28,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17536,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 29,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17537,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 30,
+     "disciplina": "MATEMATICA FINANCEIRA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17538,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 31,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17539,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 32,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17540,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 33,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17541,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 34,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17542,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 35,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17543,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 36,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17544,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 37,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17545,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 38,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17546,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 39,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17547,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 40,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17548,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 41,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17549,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 42,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17550,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 43,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17551,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 44,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17552,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 45,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17553,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 46,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17554,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 47,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17555,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 48,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17556,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 49,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17557,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 50,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17558,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 51,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17559,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 52,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17560,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 53,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17561,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 54,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17562,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 55,
+     "disciplina": "CONHECIMENTOS DE INFORMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17563,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 56,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17564,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 57,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17565,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 58,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17566,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 59,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17567,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 60,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17568,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 61,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17569,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 62,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17570,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 63,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17571,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 64,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17572,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 65,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17573,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 66,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17574,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 67,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17575,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 68,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17576,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 69,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17577,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 70,
+     "disciplina": "VENDAS E NEGOCIACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17578,
+     "texto_apoio_id": null
+    }
+   ]
+  },
+  {
+   "chave": "TECNOLOGIA",
+   "titulo": "AGENTE DE TECNOLOGIA – MICRORREGIÃO 16 DF-TI",
+   "gabarito": "definitivo",
+   "versao_caderno": 1,
+   "versao_conferencia": 2,
+   "contagem": {
+    "importada": 54,
+    "retida": 16
+   },
+   "questoes": [
+    {
+     "numero": 1,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17579,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 2,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17580,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 3,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17581,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 4,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17582,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 5,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17583,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 6,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17584,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 7,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17585,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 8,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17586,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 9,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17587,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 10,
+     "disciplina": "LINGUA PORTUGUESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17588,
+     "texto_apoio_id": 16
+    },
+    {
+     "numero": 11,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17589,
+     "texto_apoio_id": 17
+    },
+    {
+     "numero": 12,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17590,
+     "texto_apoio_id": 17
+    },
+    {
+     "numero": 13,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17591,
+     "texto_apoio_id": 17
+    },
+    {
+     "numero": 14,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17592,
+     "texto_apoio_id": 17
+    },
+    {
+     "numero": 15,
+     "disciplina": "LINGUA INGLESA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17593,
+     "texto_apoio_id": 17
+    },
+    {
+     "numero": 16,
+     "disciplina": "MATEMATICA",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17594,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 17,
+     "disciplina": "MATEMATICA",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17595,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 18,
+     "disciplina": "MATEMATICA",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "alternativa sem texto (provável figura ou fórmula)",
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um fungo está se alastrando na parede, e a área contaminada pelo fungo varia no tempo de acordo com a função A: [0, ∞) → , dada por A(t) = A. bt, em que b  é uma\n\n0 constante maior que 1; A0 é a área da parede contaminada no instante inicial; e A(t) é a área contaminada após t dias. De acordo com esse modelo, depois de quantos dias a área contaminada estará triplicada?\n\nb 3",
+      "alternativas": [
+       [
+        "A",
+        "\n3 b"
+       ],
+       [
+        "B",
+        ""
+       ],
+       [
+        "C",
+        "blog 3"
+       ],
+       [
+        "D",
+        "3log b\n 1"
+       ],
+       [
+        "E",
+        "3log"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 19,
+     "disciplina": "MATEMATICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17596,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 20,
+     "disciplina": "MATEMATICA",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "André, Bianca e Carol precisam pintar um painel de 50m2. Para pintar 1m 2, André gasta 12 minutos, Bianca gasta 20 minutos, e Carol, 15 minutos.\n\nSupondo-se que os três pintaram, juntos, o mesmo painel, sem fazer pausas e a velocidades constantes, quanto tempo eles levaram para a conclusão da tarefa?",
+      "alternativas": [
+       [
+        "A",
+        "3h 40min"
+       ],
+       [
+        "B",
+        "4h 10min"
+       ],
+       [
+        "C",
+        "5h 50min"
+       ],
+       [
+        "D",
+        "6h"
+       ],
+       [
+        "E",
+        "6h 20min"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 21,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17597,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 22,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17598,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 23,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17599,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 24,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17600,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 25,
+     "disciplina": "ATUALIDADES DO MERCADO FINANCEIRO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17601,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 26,
+     "disciplina": "PROBABILIDADE E ESTATISTICA",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "cita figura, gráfico ou tabela (conferir no caderno)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Uma central de assistência técnica de celulares trabalha com três modelos de um mesmo fabricante. Para melhor organizar seu sistema, foi medido o tempo de serviço para o conserto de cada aparelho, desde a chegada do pedido de manutenção até a entrega do aparelho consertado, e cada um desses prazos foi classificado como Curto, Médio ou Longo.\n\nA Tabela abaixo mostra a distribuição dos tempos de serviço para cada um dos três modelos aos quais a empresa prestou assistência em 2020.\n\n**Modelo Tempo de Serviço**\n                    Curto Médio Longo\n\nModelo A 10% 20% 70%\n\nModelo B 20% 50% 30%\n\nModelo C 40% 20% 40%\n\nConsiderando-se que, ao longo do ano de 2020, essa empresa reparou 1.000 unidades do modelo A, 600 unidades do modelo B e 400 unidades do modelo C, qual foi a porcentagem destes atendimentos, nesse período, que tiveram tempo de serviço Curto ou Médio?",
+      "alternativas": [
+       [
+        "A",
+        "29%"
+       ],
+       [
+        "B",
+        "48%"
+       ],
+       [
+        "C",
+        "52%"
+       ],
+       [
+        "D",
+        "58%"
+       ],
+       [
+        "E",
+        "96%"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 27,
+     "disciplina": "PROBABILIDADE E ESTATISTICA",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17602,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 28,
+     "disciplina": "PROBABILIDADE E ESTATISTICA",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17603,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 29,
+     "disciplina": "PROBABILIDADE E ESTATISTICA",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "conferência com a segunda versão do caderno: sem par"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um pesquisador recebeu os dados de uma amostra de tamanho 100 de uma população e calculou a média amostral , o desvio padrão amostral  e o coeficiente de va-\n\n                             \nriação amostral CV . Antes de iniciar a análise, ele foi\ninformado de que os dados dessa amostra estavam todos\nerrados, mas que podiam ser corrigidos somando-se 3 a\ncada um dos dados que recebeu.\n\nApós fazer tal correção, o valor do coeficiente de variação amostral passou a ser\n\n3 ",
+      "alternativas": [
+       [
+        "A",
+        "\n 3\n      "
+       ],
+       [
+        "B",
+        "\n 300\n  "
+       ],
+       [
+        "C",
+        "\n 3\n    "
+       ],
+       [
+        "D",
+        "\n 300\n    "
+       ],
+       [
+        "E",
+        "\n 0,03"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 30,
+     "disciplina": "PROBABILIDADE E ESTATISTICA",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17604,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 31,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17605,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 32,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17606,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 33,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17607,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 34,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "E",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17608,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 35,
+     "disciplina": "CONHECIMENTOS BANCARIOS",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17609,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 36,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17610,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 37,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": null,
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "anulada no gabarito",
+      "menciona destaque, mas nenhum trecho destacado foi identificado"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Ao construir um protótipo que calculava o risco sanitário de um terreno, um desenvolvedor principiante começou a desenhar um modelo relacional, o que o levou a propor as seguintes tabelas (onde o sublinhado representa a chave primária):\n\nTerreno(rua,numero,tipoTerreno,CNPJ,nomeEmpresa,codigoRisco,nomeRisco,probabilidadeRisco)\nEmpresa(CNPJ,nomeEmpresa,CPFs,nomePessoas)\n\nAo revisar o trabalho, um segundo desenvolvedor, mais experiente, detectou as seguintes propriedades:\n\n1. codigoRisco → nomeRisco\n2. CNPJ → nomeEmpresa\n3. CPF → nomePessoa\n4. {rua,numero} → CNPJ\n5. Uma empresa possui vários donos, cada um com um CPF único, e um dono pode possuir várias empresas\n6. Um terreno pode possuir vários riscos\n\nEsse segundo desenvolvedor decidiu, então, colocar as tabelas na terceira forma normal, usando o número mínimo de tabelas.\n\nO esquema que possui as seis propriedades detectadas pelo segundo desenvolvedor e que representa todas as informações desejadas pelo primeiro desenvolvedor é",
+      "alternativas": [
+       [
+        "A",
+        "Terreno(rua,numero,tipoTerreno,CNPJ)\nEmpresa(CNPJ,nomeEmpresa)\nDono(CNPJ,CPF)\nRisco(rua,nome,codigoRisco,probabilidadeRisco)\nTipoRisco(codigoRisco,nomeRisco)\nPessoaFisica(CPF,nome)"
+       ],
+       [
+        "B",
+        "Terreno(rua,numero,tipoTerreno,CNPJ,codigoRisco,probabilidadeRisco)\nEmpresa(CNPJ,nomeEmpresa)\nDono(CNPJ,CPF)\nTipoRisco(codigoRisco,nomeRisco)\nPessoaFisica(CPF,nome)"
+       ],
+       [
+        "C",
+        "Terreno(rua,numero,tipoTerreno,CNPJ)\nEmpresa(CNPJ,nomeEmpresa)\nRisco(rua,nome,codigoRisco,probabilidadeRisco)\nTipoRisco(codigoRisco,nomeRisco)\nPessoaFisica(CPF,nome,CNPJ)"
+       ],
+       [
+        "D",
+        "Terreno(rua,numero,tipoTerreno,CNPJ,nomeEmpresa,codigoRisco,nomeRisco,probabilidadeRisco)\nEmpresa(CNPJ,CPF,nomeEmpresa,nomePessoa)"
+       ],
+       [
+        "E",
+        "Terreno(rua,numero,tipoTerreno,CNPJ,nomeEmpresa,codigoRisco,probabilidadeRisco)\nRisco(codigoRisco,nomeRisco)\nEmpresa(CNPJ,CPF,nomeEmpresa,nomePessoa)"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 38,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17611,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 39,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17612,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 40,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17613,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 41,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "texto solto depois das alternativas"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Considere o fragmento de código TypeScript a seguir.\n\n  **const** a = <T **extends** {b: string}>(obj: T) => {\n  **<código removido >**\n  };\nCom relação ao código apresentado acima, a(o)",
+      "alternativas": [
+       [
+        "A",
+        "função a() retorna um objeto do tipo string."
+       ],
+       [
+        "B",
+        "variável a é uma lista de objetos do tipo string."
+       ],
+       [
+        "C",
+        "variável a é um dicionário cujas chaves são objetos do tipo string."
+       ],
+       [
+        "D",
+        "objeto que for passado para a função a() deve ter um campo b do tipo string."
+       ],
+       [
+        "E",
+        "valor retornado pela função a() é um objeto que estende um objeto do tipo string."
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 42,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "texto solto antes da questão"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Considere o código Python a seguir.\n\n**import** numpy as np\na = np.array([[1,2,3],[4,5,6],[7,8,9]])\nprint (a[a>5])\n\nO que será exibido após esse código ser executado?",
+      "alternativas": [
+       [
+        "A",
+        "[[False False False]\n[False False True]\n[True True True]]"
+       ],
+       [
+        "B",
+        "[[False False False]\n[False False 6]\n[7 8 9]]"
+       ],
+       [
+        "C",
+        "[[]\n[6]\n[7 8 9]]"
+       ],
+       [
+        "D",
+        "[False False False False False 6 7 8 9]"
+       ],
+       [
+        "E",
+        "[6 7 8 9]"
+       ]
+      ],
+      "texto_solto": "dp para\n\n“.\n\ndp?\n\n“] “]] “) “]) “]]"
+     }
+    },
+    {
+     "numero": 43,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17614,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 44,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "alternativas fora do padrão A–E (A)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um pesquisador conseguiu uma base de dados que mostrava terrenos classificados de acordo com:\n\n• características físicas;\n\n• tipo de negócio a ser nele implantado;\n\n• risco esperado, que compreendia os rótulos alto, médio, baixo ou nenhum.\n\nDecidiu, então, usar um algoritmo de aprendizado de máquina que, a partir das características físicas do terreno e do tipo de negócio a ser nele implantado, aprenderia a determinar o risco esperado, enquadrando o terreno em questão em um daqueles rótulos.\n\nNesse cenário, que algoritmo de aprendizado de máquina é indicado para resolver esse problema?",
+      "alternativas": [
+       [
+        "A",
+        "PCA (B) K-NN (C) DBSCAN (D) K-Medoids (E) Redes de Kohonen"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 45,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17615,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 46,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17616,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 47,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17617,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 48,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "texto solto depois das alternativas"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Em TypeScript 4, é possível usar o seguinte fragmento de código:\n// definir x\nconst y = (...args: number[]) => args.reduce(x, 0);\nQue fragmento de código apresenta uma versão compilável e executável da definição de x que poderia aparecer no lugar\ndo comentário “// definir x ” ?",
+      "alternativas": [
+       [
+        "A",
+        "const x = 1;"
+       ],
+       [
+        "B",
+        "const x = [1,2,3];"
+       ],
+       [
+        "C",
+        "const x = (a:number) => [a*2];"
+       ],
+       [
+        "D",
+        "const x = (a:number[]) => a[0];"
+       ],
+       [
+        "E",
+        "const x = (a:number,b:number) => a+b;"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 49,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "texto solto antes da questão"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Ao desenvolver um Data Warehouse para o Banco W, um programador decidiu criar um modelo conceitual com base no modelo estrela para cada fato analisado. Ao criar a primeira tabela fato, relativa ao valor e ao prazo de empréstimos, foram identificadas as seguintes dimensões, com os seus atributos descritos em parênteses: tempo (dia, mês e ano), agência (estado, cidade, bairro e número da agência), produto (nome do produto e juros do produto) e cliente (conta e nome do cliente).\n\nSegundo as regras e as práticas da modelagem dimensional, e usando a granularidade mais baixa, que atributos devem constar da tabela fato?",
+      "alternativas": [
+       [
+        "A",
+        "fato_id, dia, mes, ano, estado, cidade, bairro, numero_agencia, nome_produto,\njuros_mensais_produto, conta_cliente, nome_cliente, valor_emprestimo, prazo_emprestimo"
+       ],
+       [
+        "B",
+        "fato_id, emprestimo_id, valor_emprestimo, prazo_emprestimo"
+       ],
+       [
+        "C",
+        "fato_id, tempo_id, agencia_id, produto_id, cliente_id, emprestimo_id"
+       ],
+       [
+        "D",
+        "fato_id, tempo_id, agencia_id, produto_id, cliente_id, dia, mes, ano, estado,\ncidade, bairro, numero_agencia, nome_produto, juros_mensais_produto, conta_cliente,\nnome_cliente, valor_emprestimo, prazo_emprestimo"
+       ],
+       [
+        "E",
+        "fato_id, tempo_id, agencia_id, produto_id, cliente_id, valor_emprestimo,\nprazo_emprestimo"
+       ]
+      ],
+      "texto_solto": "’ class= ’classe-input ’\n\nscript.js no mesmo diretório\n\n’) as HTMLInputElement;"
+     }
+    },
+    {
+     "numero": 50,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17618,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 51,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "alternativa sem texto (provável figura ou fórmula)",
+      "figura na área da questão"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Um programador escreveu uma função para percorrer, em pós-ordem, uma árvore binária e exibir, no console, os valores\nreferentes aos nós dessa árvore.\nApós essa função ter sido executada, foi exibido o seguinte resultado:\n\n                                                        **41 44 33 47 55 52 36 30**\nQue árvore essa função percorreu para exibir o resultado acima?",
+      "alternativas": [
+       [
+        "A",
+        ""
+       ],
+       [
+        "B",
+        ""
+       ],
+       [
+        "C",
+        ""
+       ],
+       [
+        "D",
+        ""
+       ],
+       [
+        "E",
+        ""
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 52,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "figura na área da questão",
+      "cita figura, gráfico ou tabela (conferir no caderno)",
+      "menciona destaque, mas nenhum trecho destacado foi identificado"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Esquemas de bancos de dados relacionais podem ser descritos por meio de notações alternativas à linguagem SQL.\nEm uma dessas notações, uma tabela (relação) é descrita por meio de um nome e de um conjunto de nomes de colunas\n(atributos), separadas por vírgulas.\nOs demais elementos de uma tabela são os seguintes:\n\n• Colunas sublinhadas compõem a chave primária.\n• Colunas que admitem o valor nulo são exibidas entre colchetes.\n• Chaves estrangeiras são representadas por meio da cláusula REF:<lista_de_colunas> REF <nome_de_tabela>\n\nNesse contexto, considere a Figura a seguir, que exibe um diagrama E-R.\n\nQual esquema relacional preserva a semântica desse diagrama E-R, sem a necessidade de criação de regras de integridade adicionais?",
+      "alternativas": [
+       [
+        "A",
+        "XB(x1, x2, t1, s1)\nt1 REF TA\nTA(t1, t2, tipo, t3, t4, t5)"
+       ],
+       [
+        "B",
+        "XB(x1, x2)\nTA(t1, t2, tipo)\nTB(t1, t3, t4)\nt1 REF TA\nTC(t1, t5)\nt1 REF TA\nS(x1, t1, s1)\nx1 REF XB\nt1 REF TA"
+       ],
+       [
+        "C",
+        "XB(x1, x2)\nTA(t1, t2, tipo, [t3], [t4], [t5])\nS(x1, t1, s1)\nx1 REF XB\nt1 REF TA"
+       ],
+       [
+        "D",
+        "XB(x1, x2)\nTA(t1, t2, tipo, [t3], [t4], [t5])\nS(x1, t1, s1)\nx1 REF XB\nt1 REF TA"
+       ],
+       [
+        "E",
+        "XB(x1, x2, t1, s1)\nt1 REF TA\nTA(t1, t2, tipo)\nTB(t1, t3, t4)\nt1 REF TA\nTC(t1, t5)\nt1 REF TA"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 53,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17619,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 54,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17620,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 55,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17621,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 56,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "alternativa sem texto (provável figura ou fórmula)",
+      "figura na área da questão"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Na descrição de esquemas de banco de dados relacionais, a notação A → B indica que B depende funcionalmente de A (ou que A determina B).\n\nAdmitindo-se que todas as relações apresentadas a seguir atendem à 1FN, o único esquema que se encontra na 3FN é",
+      "alternativas": [
+       [
+        "A",
+        ""
+       ],
+       [
+        "B",
+        ""
+       ],
+       [
+        "C",
+        ""
+       ],
+       [
+        "D",
+        ""
+       ],
+       [
+        "E",
+        ""
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 57,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17622,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 58,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17623,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 59,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17624,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 60,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17625,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 61,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17626,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 62,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)",
+      "texto solto depois das alternativas"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "O gerente de uma agência bancária recebe, diariamente, solicitações de seus clientes com dúvidas sobre a melhor decisão para aplicações financeiras e as armazena, com um código numérico crescente, num vetor de solicitações, para respondê-las ao final do expediente. Para manter o conceito de bom atendimento, o gerente gostaria, sempre que possível, que a ordem das respostas seguisse, estritamente, a ordem de chegada das solicitações. Entretanto, há casos em que é necessário, por motivos de emergência ou por prioridade legal, localizar determinado código numérico para atender à solicitação correspondente antes das demais, “furando” a fila de espera. O gerente solicitou, então, à equipe de TI do banco, uma proposta que conciliasse essas duas necessidades. Ao estudar o problema, a equipe de TI concluiu que uma solução que mapearia diretamente essa necessidade da gerência seria permitir a realização de uma busca binária sobre o vetor de solicitações ordenado pelos seus códigos numéricos.\n\nVerificando a viabilidade dessa sugestão, o grupo de TI calculou que, se considerar a existência de N solicitações, a quantidade de iterações necessárias para localizar determinado código numérico no vetor de solitações, utilizando a busca binária, no pior caso, é",
+      "alternativas": [
+       [
+        "A",
+        "2log N, em que a notação x significa maior inteiro menor ou igual a x"
+       ],
+       [
+        "B",
+        "1 + 2log N, em que a notação x significa maior inteiro menor ou igual a x"
+       ],
+       [
+        "C",
+        "1 + 2log N, em que a notação x significa menor inteiro maior ou igual a x"
+       ],
+       [
+        "D",
+        "2N"
+       ],
+       [
+        "E",
+        "2N"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 63,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "A",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "retida",
+     "motivos": [
+      "texto solto antes da questão"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Em uma agência bancária, as filas de atendimento são ordenadas da esquerda para a direita, e o gerente dessa agência percebeu a presença equivocada de um idoso, com a senha 52, na fila de atendimento não preferencial. Visando a sanar o equívoco, o gerente resolveu que, na primeira oportunidade, faria uma busca no sistema para saber se a senha 52 ainda estava ativa, indicando a presença do idoso na fila de atendimento não preferencial. Em caso de resposta positiva, procuraria o cliente para trocar sua senha por outra de atendimento preferencial; se não, apenas registraria o fato para posterior discussão no grupo de qualidade de atendimento.\n\nConsiderando o uso de um algoritmo de busca sequencial otimizado, partindo da esquerda para a direita, e as sequências hipotéticas das senhas da fila de atendimento não preferencial e suas regras de ordenação, segundo as quais quem está à esquerda é atendido antes de quem está à direita, o menor número de comparações para o gerente conhecer o resultado de sua busca ocorre em\n\nRegras de ordenação Sequência das senhas na fila de\n                                                    atendimento não preferencial",
+      "alternativas": [
+       [
+        "A",
+        "Sequência ordenada crescentemente 23; 45; 81; 97; 112; 138; 154"
+       ],
+       [
+        "B",
+        "Sequência ordenada crescentemente 13; 25; 37; 44; 52; 78; 83; 91"
+       ],
+       [
+        "C",
+        "Sequência ordenada crescentemente 17; 28; 32; 49; 67; 85; 94; 103"
+       ],
+       [
+        "D",
+        "Sequência desordenada 27; 95; 148; 117; 33; 59; 52"
+       ],
+       [
+        "E",
+        "Sequência desordenada 32; 48; 12; 55; 93; 27; 66"
+       ]
+      ],
+      "texto_solto": "” }"
+     }
+    },
+    {
+     "numero": 64,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "D",
+     "avisos": [],
+     "situacao": "retida",
+     "motivos": [
+      "sobrescrito ou subscrito não resolvido (fórmula)"
+     ],
+     "id": null,
+     "lido": {
+      "enunciado": "Dentre os problemas identificados pela gerência de um banco comercial, está a localização das contas dos seus titulares nas listagens e nos relatórios impressos em diferentes situações. Um especialista de TI sugeriu ordenar as contas por meio dos CPF dos seus n titulares antes das impressões.\n\nDentre alguns algoritmos pré-selecionados para essa ordenação, o especialista escolheu o algoritmo de ordenação por inserção, no qual o consumo de tempo é, no melhor caso, proporcional a",
+      "alternativas": [
+       [
+        "A",
+        "n log n"
+       ],
+       [
+        "B",
+        "log n"
+       ],
+       [
+        "C",
+        "n"
+       ],
+       [
+        "D",
+        "n"
+       ],
+       [
+        "E",
+        "1"
+       ]
+      ],
+      "texto_solto": ""
+     }
+    },
+    {
+     "numero": 65,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "D",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17627,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 66,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17628,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 67,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "A",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17629,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 68,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "E",
+     "avisos": [
+      "contém código, lista ou tabela com quebras de linha preservadas"
+     ],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17630,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 69,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "C",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17631,
+     "texto_apoio_id": null
+    },
+    {
+     "numero": 70,
+     "disciplina": "TECNOLOGIA DA INFORMACAO",
+     "gabarito": "B",
+     "avisos": [],
+     "situacao": "importada",
+     "motivos": [],
+     "id": 17632,
+     "texto_apoio_id": null
+    }
+   ]
+  }
+ ],
+ "totais": {
+  "importada": 254,
+  "retida": 26
+ },
+ "motivos": {
+  "sobrescrito ou subscrito não resolvido (fórmula)": 11,
+  "cita figura, gráfico ou tabela (conferir no caderno)": 4,
+  "menciona destaque, mas nenhum trecho destacado foi identificado": 4,
+  "alternativa sem texto (provável figura ou fórmula)": 3,
+  "conferência com a segunda versão do caderno: sem par": 1,
+  "anulada no gabarito": 1,
+  "texto solto depois das alternativas": 3,
+  "texto solto antes da questão": 3,
+  "alternativas fora do padrão A–E (A)": 1,
+  "figura na área da questão": 3
+ },
+ "importadas_por_disciplina": {
+  "LINGUA PORTUGUESA": 39,
+  "LINGUA INGLESA": 20,
+  "MATEMATICA": 14,
+  "ATUALIDADES DO MERCADO FINANCEIRO": 20,
+  "MATEMATICA FINANCEIRA": 11,
+  "CONHECIMENTOS BANCARIOS": 35,
+  "CONHECIMENTOS DE INFORMATICA": 44,
+  "VENDAS E NEGOCIACAO": 45,
+  "PROBABILIDADE E ESTATISTICA": 3,
+  "TECNOLOGIA DA INFORMACAO": 23
+ }
+}

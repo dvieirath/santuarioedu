@@ -140,9 +140,11 @@ Motivos das 68 retidas (uma questão pode ter mais de um):
 | Não conferida na segunda versão | 5 |
 
 O texto lido de cada retida está nos relatórios, para conferência manual:
-`output/importacao_cesgranrio_BB_23_20261111_105214/relatorio.json` e
-`output/importacao_cesgranrio_BB_21_20261111_105225/relatorio.json`.
-Backup de antes da importação: `backups/antes_importacao_bb_20261111_104759.sqlite3`.
+`output/importacao_cesgranrio_BB_23_20261116_151746/relatorio.json` e
+`output/importacao_cesgranrio_BB_21_20261116_151759/relatorio.json`.
+Backup de antes da importação: `backups/antes_importacao_bb_20261116_151729.sqlite3`.
+A importação de 11/11/2026 foi refeita em 16/11/2026 sobre uma cópia recuperada do
+banco, porque a pasta local se perdeu; os números se repetiram.
 
 ## 5. Escopo
 

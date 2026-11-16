@@ -1,0 +1,2870 @@
+{
+ "quando": "20261116_151843",
+ "aplicado": true,
+ "pendentes_de_ia_antes": 7691,
+ "descartadas": 407,
+ "seguem_para_conferencia": 7284,
+ "por_motivo": {
+  "cita \"texto acima\" e não há texto antes da citação": 94,
+  "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe": 141,
+  "certo/errado com alternativas de múltipla escolha coladas no enunciado": 30,
+  "termina anunciando um conteúdo \"a seguir\" que não vem": 36,
+  "pergunta com duas opções em item de certo/errado (certo não diz qual delas)": 4,
+  "pergunta aberta em item de certo/errado (não se responde com certo ou errado)": 46,
+  "alternativas com texto idêntico": 27,
+  "sem alternativa correta marcada": 29
+ },
+ "questoes": [
+  {
+   "id": 8123,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a prisão preventiva pode ser decretada quando o réu demonstra, por meio de provas circunstanciais, que possui vínculos com organizações criminosas, mesmo que não haja prova concreta de sua participação em atos ilícitos."
+  },
+  {
+   "id": 8160,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o condutor que, ao perceber a temperatura do motor em 120°C, decide acelerar para reduzir o tempo de viagem, está sujeito a penalidade de multa, pois a legislação de trânsito prevê a obrigação de manter o veículo em condições de segurança, incluindo a temperatura adequada"
+  },
+  {
+   "id": 8183,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, qual é a consequência jurídica para a Secretaria Municipal de Educação caso não observe o prazo de publicação do edital, previsto em lei?"
+  },
+  {
+   "id": 8366,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a licitação realizada pela prefeitura para a compra de materiais de escritório, sem a observância da modalidade de pregão eletrônico, pode ser considerada válida, desde que o valor estimado esteja dentro do limite de dispensa de licitação previsto na Lei 14.133/21."
+  },
+  {
+   "id": 8531,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a adoção de políticas de acesso baseado em função (RBAC) em ambientes de cloud computing impede que usuários não autorizados obtenham credenciais de administrador, pois o RBAC restringe a criação de novas contas de usuário."
+  },
+  {
+   "id": 8587,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão administrativa que revoga um ato de concessão de licença ambiental, baseada exclusivamente em parecer técnico de um órgão ambiental, pode ser considerada nula se não houver oportunidade de contraditório e ampla defesa para o concessionário."
+  },
+  {
+   "id": 8766,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão do Tribunal Superior Eleitoral que impede a divulgação de pesquisas de intenção de voto em redes sociais por partidos políticos viola o princípio da liberdade de expressão, pois impede a circulação de informações de interesse público."
+  },
+  {
+   "id": 8770,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve a situação de um juiz que decretou prisão preventiva sem fundamentação específica, analise a seguinte afirmação: O princípio da motivação das decisões judiciais, previsto no artigo 93, inciso IX, da Constituição Federal, impõe que todas as decisões judiciais,"
+  },
+  {
+   "id": 8901,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a frase \"A equipe de pesquisa, juntamente com os especialistas convidados, apresentará os resultados na próxima reunião\" apresenta erro de concordância, pois o sujeito composto exige plural em ambos os verbos."
+  },
+  {
+   "id": 8950,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve a situação de um trabalhador que, após anos de dedicação, recebe um título de mérito por sua atuação em projetos sociais, o enunciado afirma que o uso do substantivo ‘mérito’ no sentido de ‘reconhecimento de esforço’ é aceitável no registro formal da língua p"
+  },
+  {
+   "id": 9027,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o ato de um servidor público que, sem autorização prévia, concede um prazo adicional de 30 dias para a entrega de um contrato de obra, sem justificar a necessidade de prorrogação, caracteriza violação ao princípio da publicidade e pode ensejar a aplicação de sanções disci"
+  },
+  {
+   "id": 9139,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida que exige que todos os servidores públicos de nível médio possuam certificado de curso de gestão ambiental para manter o cargo é constitucional, pois não restringe o acesso ao emprego público e atende ao interesse público de preservação ambiental."
+  },
+  {
+   "id": 9152,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a ação direta de inconstitucionalidade pode ser ajuizada pelo Ministério Público quando a norma infringe direitos fundamentais de forma direta e indiscriminada, sem necessidade de demonstração de lesão individual. Nesse cenário, a tese de que a Lei de Inclusão Digital vio"
+  },
+  {
+   "id": 9473,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a cobrança de taxa sobre o uso de equipamentos públicos de informática, condicionada à isenção para estudantes de escolas públicas, viola o princípio da isonomia previsto na Constituição Federal."
+  },
+  {
+   "id": 9480,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a criação de uma lei que institua o uso obrigatório de criptografia em todas as comunicações eletrônicas do Poder Judiciário, sem previsão de exceções, viola o princípio da publicidade e da transparência no processo judicial."
+  },
+  {
+   "id": 9647,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o fato de um policial, durante o exercício de suas funções, usar força excessiva contra um suspeito que se recusa a se submeter a registro, pode ser enquadrado no crime de \"excesso de força\" previsto no art. 129 do Código Penal, desde que haja prova de que a força emprega"
+  },
+  {
+   "id": 9805,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "O texto acima descreve a situação de um assaltante que abandona o local após perceber a gravidez da vítima. Em seguida, a vítima entra em contato com a polícia e relata que o assaltante a ameaçou com arma de fogo, mas não a feriu. Considerando o texto acima, a ação do assaltante pode ser enquadrada "
+  },
+  {
+   "id": 9968,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida de bloqueio de acesso a um portal de notícias, alegando que o conteúdo pode incitar a violência, viola o princípio da liberdade de expressão, pois não há demonstração de que o bloqueio seja a única alternativa possível."
+  },
+  {
+   "id": 9974,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, em 2024, a Câmara dos Deputados aprovou um projeto de lei que cria uma comissão permanente para fiscalizar a aplicação de recursos destinados à educação rural. A comissão tem como competência exclusiva a análise de contratos e a emissão de pareceres vinculantes. Tal criaç"
+  },
+  {
+   "id": 9977,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, assinale a alternativa que melhor descreve a natureza jurídica do ato do prefeito."
+  },
+  {
+   "id": 10182,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão de um juiz estadual que, ao julgar um recurso de habeas corpus, admite a prova ilícita obtida sem o devido processo legal, viola o princípio da legalidade e do devido processo legal, sendo, portanto, inconstitucional."
+  },
+  {
+   "id": 10241,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a lei de responsabilidade fiscal estabelece que a Receita Federal pode exigir do município a prestação de contas detalhada sobre despesas com pessoal, mesmo que o município não tenha superado o limite de 20% do orçamento anual."
+  },
+  {
+   "id": 10259,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão de um juiz que, em sede de controle de constitucionalidade, reconheceu a inconstitucionalidade de uma lei que concedia benefícios fiscais a empresas de tecnologia, pode ser anulada pelo próprio Poder Judiciário com base no princípio da separação de poderes, sem "
+  },
+  {
+   "id": 10302,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o juiz pode, sem a participação do Ministério Público, determinar a realização de diligência de busca e apreensão em domicílio, desde que haja autorização prévia de autoridade policial."
+  },
+  {
+   "id": 10509,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o agente público que, sem a devida habilitação, adjudicou a obra de pavimentação a uma empresa sem a observância do procedimento licitatório, pode ser responsabilizado civilmente apenas se houver demonstração de prejuízo ao erário."
+  },
+  {
+   "id": 10561,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, um servidor que, após receber o prêmio, decide usar o mesmo nome de usuário em suas redes sociais para promover produtos de uma empresa concorrente ao órgão, pode ser responsabilizado por violar a ética profissional, pois a divulgação de interesses privados em detrimento "
+  },
+  {
+   "id": 10659,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a afirmação de que a aplicação de prova objetiva, com questões de múltipla escolha, não exige a presença de avaliador humano para a correção, é correta."
+  },
+  {
+   "id": 10732,
+   "tipo": "ME",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, qual é a consequência jurídica para o pregoeiro que manteve a licitação em aberto, apesar da proposta mais vantajosa estar disponível?"
+  },
+  {
+   "id": 10882,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a criação de tribunais regionais de justiça com competência exclusiva sobre crimes de responsabilidade de prefeitos violaria o princípio da separação dos poderes, pois concentraria, em um único órgão, a função de julgar atos de administração pública."
+  },
+  {
+   "id": 11048,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a infração de ultrapassar em faixa de pedestres, mesmo que o pedestre esteja parado, é considerada grave."
+  },
+  {
+   "id": 11175,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve a situação de um tribunal que julgou a constitucionalidade de um decreto restritivo à manifestação, qual é o efeito imediato da decisão do tribunal sobre a norma impugnada?"
+  },
+  {
+   "id": 11299,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a multa aplicada a um condutor que, ao entrar em uma faixa de pedestres, não reduziu a velocidade para o limite de 30 km/h, mas manteve 40 km/h, é de R$ 200,00, pois a legislação prevê valor mínimo de R$ 200,00 para infrações de velocidade em faixas de pedestres."
+  },
+  {
+   "id": 11325,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o qual descreve a adoção de um programa de transferência de renda com base em critérios de renda per capita, a política é constitucional apenas se for financiada integralmente por contribuições de empresas privadas sem fins lucrativos."
+  },
+  {
+   "id": 11341,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a cláusula que obriga o contratado a usar apenas equipamentos de marca própria do município é considerada válida, pois atende ao princípio da legalidade e da eficiência administrativa."
+  },
+  {
+   "id": 11464,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve uma empresa de tecnologia que adotou práticas de escrita inclusiva, a afirmação de que a frase \"Ele e ela trabalharam juntos\" está correta em relação ao uso do pronome de tratamento."
+  },
+  {
+   "id": 11599,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão da autoridade competente de revogar o contrato administrativo celebrado em 2024, sob a alegação de que o objeto contratado não atende mais às necessidades da Administração, pode ser impugnada pelo contratado por meio de recurso administrativo, sem necessidade de"
+  },
+  {
+   "id": 11611,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a contratação de um profissional autônomo para a realização de auditoria interna pode ser realizada por meio de contrato de prestação de serviços, desde que haja justificativa de inviabilidade de licitação."
+  },
+  {
+   "id": 11782,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a implementação de um sistema de monitoramento de tráfego de rede em tempo real, que utiliza inteligência artificial para detectar padrões anômalos, pode ser classificada como uma ferramenta de prevenção de fraudes em processos licitatórios, desde que o algoritmo seja tre"
+  },
+  {
+   "id": 11811,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, assinale a alternativa que corresponde ao entendimento consolidado pela jurisprudência do Supremo Tribunal Federal acerca da constitucionalidade de programas de incentivo à pesquisa que envolvem recursos públicos e a participação de entidades privadas."
+  },
+  {
+   "id": 11818,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a Constituição Federal de 1988, em seu artigo 5º, inciso XXIII, garante a todos os cidadãos o direito à liberdade de expressão, sendo vedado ao Estado, de forma absoluta, qualquer restrição que não seja expressamente prevista em lei."
+  },
+  {
+   "id": 11841,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a autoridade competente que alterou os termos do contrato administrativo, sem observância das normas contratuais, pode ser responsabilizada apenas civilmente, pois a alteração não configura ilícito penal."
+  },
+  {
+   "id": 12121,
+   "tipo": "CE",
+   "categoria": "Direito Processual Civil",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a sentença de mérito, em caso de pedido de tutela antecipada, deve ser proferida apenas após o julgamento do pedido de tutela antecipada, se o juiz reconhecer que a tutela antecipada não é necessária para evitar dano irreparável."
+  },
+  {
+   "id": 12397,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a prática de um servidor que, em seu cargo de auditor, divulga em rede social informações confidenciais sobre processos internos, configura violação do dever de sigilo e pode ensejar sanções disciplinares."
+  },
+  {
+   "id": 12532,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão do Tribunal Regional Federal que reconheceu a constitucionalidade da cobrança de taxa de uso de serviços públicos de saúde, mesmo que não haja previsão expressa em lei, é correta."
+  },
+  {
+   "id": 12670,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o Ministério Público, ao propor uma ação civil pública para defesa de direito coletivo, pode requerer a suspensão de um ato administrativo que, embora não tenha sido aprovado pelo Poder Legislativo, já produz efeitos imediatos e irreversíveis."
+  },
+  {
+   "id": 12720,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão de um tribunal estadual de reconhecer a constitucionalidade de uma lei que proíbe a prática de protestos em locais de culto religioso, alegando que a norma protege a liberdade de culto, é compatível com o princípio da liberdade de manifestação de pensamento."
+  },
+  {
+   "id": 13175,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o qual descreve a aplicação de um algoritmo de ordenação e a técnica de suavização exponencial, avalie a seguinte proposição: A afirmação de que o algoritmo de ordenação descrito realiza um passo de comparação entre os elementos de índice 0 e 1, resultando na sequência {3"
+  },
+  {
+   "id": 13286,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a contratação do software de gestão de patrimônio, realizada por meio de licitação concorrencial com apenas três propostas, das quais duas pertencem ao mesmo grupo econômico, pode ser considerada nula por violação do princípio da competitividade, desde que o Tribunal de C"
+  },
+  {
+   "id": 13394,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a prática de atos de improbidade administrativa requer a existência de dano ao erário, mas não é necessária a comprovação de dolo ou culpa do agente."
+  },
+  {
+   "id": 13568,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a conduta do agente, ao desistir da tentativa de assalto, não pode ser enquadrada no crime de tentativa, pois a desistência antes do fim da ação impede a configuração do delito."
+  },
+  {
+   "id": 13633,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a frase ‘A tempestade, embora intensa, não destruiu a estrutura da ponte’ apresenta uma oração subordinada adverbial causal, pois explica a razão pela qual a ponte permaneceu intacta."
+  },
+  {
+   "id": 13696,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a declaração de constitucionalidade de uma lei que estabelecesse, sem prévia consulta popular, a obrigatoriedade de participação de todos os cidadãos em um referendo sobre a criação de uma nova unidade federativa, é compatível com o princípio da democracia representativa "
+  },
+  {
+   "id": 13729,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida adotada pelo gestor municipal ao conceder um prazo de 60 dias para a entrega de documentos comprobatórios de habilitação em processo de licitação, sem justificativa de urgência, pode ser considerada prática de paralisação de licitação, pois a lei impõe prazo máxi"
+  },
+  {
+   "id": 13849,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o agente que, em situação de legítima defesa, utiliza de arma de fogo contra um agressor que, por volta de 20 anos, estava em estado de embriaguez, pode ser absolvido, pois a defesa se justifica apenas quando há risco de morte ou lesão corporal grave."
+  },
+  {
+   "id": 13876,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o uso de um sistema de backup em nuvem para garantir a disponibilidade de dados críticos de um órgão público não pode ser considerado como cumprimento das normas de segurança da informação, pois a nuvem não oferece controle total sobre a localização física dos servidores."
+  },
+  {
+   "id": 13942,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o que se verifica acerca da validade do contrato administrativo firmado entre a Prefeitura Municipal de São Miguel e a empresa XYZ Construções, cujo objeto é a construção de uma ponte de 200 metros de comprimento, em que a empresa alegou que a licitação foi realizada de f"
+  },
+  {
+   "id": 13988,
+   "tipo": "ME",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve um caso de um agente penitenciário tentando impedir a fuga de um preso com uso inadequado de força, avalie a aplicação do princípio da necessidade no contexto do Direito Penal. Qual dos enunciados abaixo melhor reflete a interpretação do princípio da necessid"
+  },
+  {
+   "id": 14008,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a prática de um agente público que, ao notar irregularidades em contratos administrativos, decide relatar o fato a um órgão de controle externo, mesmo sem ter acesso a documentos oficiais, constitui violação ao dever de imparcialidade."
+  },
+  {
+   "id": 14076,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a implantação de um servidor de e‑mail corporativo que utiliza protocolo IMAPS garante automaticamente a integridade das mensagens enviadas entre servidores externos e internos."
+  },
+  {
+   "id": 14116,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a impugnação apresentada pelo cidadão é correta, pois a exigência de idioma estrangeiro viola o princípio da publicidade e o princípio da eficiência."
+  },
+  {
+   "id": 14225,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a prática de atos administrativos que violam o princípio da moralidade pode ser objeto de controle jurisdicional imediato, sem necessidade de prévia investigação administrativa."
+  },
+  {
+   "id": 14246,
+   "tipo": "ME",
+   "categoria": "Direito Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve o caso de um agente público oferecendo brinde a um cidadão em troca de não denúncia, qual das seguintes hipóteses caracteriza a conduta de concussão?"
+  },
+  {
+   "id": 14355,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve a trajetória de um profissional que, ao ingressar em uma empresa, percebeu que a comunicação interna era repleta de jargões técnicos e expressões idiomáticas que dificultavam a compreensão dos colaboradores, o uso de linguagem excessivamente técnica pode leva"
+  },
+  {
+   "id": 14496,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, julgue a proposição: a decisão do Tribunal de Justiça foi fundamentada na aplicação do princípio da razoabilidade, pois avaliou a proporcionalidade da medida adotada."
+  },
+  {
+   "id": 14517,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a Constituição Federal, ao estabelecer a separação dos poderes, prevê que o Poder Judiciário deve exercer sua função de controle de constitucionalidade de forma independente, sem depender de qualquer outro Poder para a sua atuação."
+  },
+  {
+   "id": 14685,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão do tribunal estadual que mantém a prisão preventiva do réu, apesar da condenação anterior, viola o princípio constitucional de que a liberdade individual só pode ser restringida mediante decisão judicial fundamentada e em consonância com os princípios do contrad"
+  },
+  {
+   "id": 14738,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a aplicação do princípio da razoabilidade no processo de desapropriação de terras rurais pode restringir a atuação do Estado, desde que a desapropriação seja motivada por interesse público legítimo.\n\nA aplicação do princípio da razoabilidade no processo de desapropriação "
+  },
+  {
+   "id": 14839,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a Lei nº 13.964/2019 (Reforma da Execução Penal) introduziu a possibilidade de o juiz determinar a aplicação de penas alternativas, como prestação de serviços à comunidade, apenas em casos de crimes de menor potencial ofensivo, quando o réu tiver idade inferior a 18 anos."
+  },
+  {
+   "id": 14846,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o ato de um agente público que, ao notar a presença de um colega em uma festa de confraternização, decide reportar a situação à autoridade competente, mesmo sem evidências concretas de irregularidade, demonstra o princípio da imparcialidade."
+  },
+  {
+   "id": 14910,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o servidor que aceitou o presente do fornecedor de serviços de limpeza, ao ser questionado pela auditoria, pode alegar que o valor simbólico não configura improbidade administrativa, pois não ultrapassa o limite de isenção previsto na legislação vigente."
+  },
+  {
+   "id": 15211,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a frase \"O dispositivo, embora já presente no mercado, continua sendo descrito como inovador pela mídia especializada\" apresenta, em relação ao uso de adjetivo, uma falha de coerência textual."
+  },
+  {
+   "id": 15314,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, qual é a consequência jurídica imediata que pode ser atribuída ao decreto municipal?"
+  },
+  {
+   "id": 15383,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a restrição de circulação de veículos de grande porte, quando aplicada sem prévia autorização legislativa, viola o princípio da legalidade."
+  },
+  {
+   "id": 15611,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o Tribunal Regional Federal da 2ª Região, ao analisar uma ação de habeas corpus contra um detento que estava em regime aberto, concluiu que o juiz que concedeu a liberdade preventiva não considerou o princípio da proporcionalidade no momento de avaliar a gravidade do deli"
+  },
+  {
+   "id": 15625,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, julgue a seguinte proposição: A cobrança de taxa de registro de imóveis em cartório, discriminatória por classe social, é inconstitucional por violar o princípio da isonomia, mas a lei estadual que a institui permanece válida, pois a competência legislativa concorrente pe"
+  },
+  {
+   "id": 15635,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a empresa contratada para manutenção de pontes públicas pode ser responsabilizada por danos ambientais causados durante a execução de suas atividades, mesmo que não haja culpa direta no dano."
+  },
+  {
+   "id": 15711,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a exigência de que o condutor de veículo de carga leve o documento de habilitação de categoria C em seu veículo, independentemente de ter ou não a necessidade de conduzir o veículo no momento, é uma obrigação prevista no CTB, pois o documento deve estar sempre acessível a"
+  },
+  {
+   "id": 15823,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a norma que institui o órgão de controle interno pode ser considerada constitucional, pois respeita o princípio da autonomia funcional da Justiça e não interfere na competência do Poder Executivo para gerir recursos públicos."
+  },
+  {
+   "id": 16037,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a oração subordinada adjetiva restritiva é aquela que não pode ser retirada sem alterar o sentido da frase."
+  },
+  {
+   "id": 16091,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a decisão do tribunal de cassar a lei estadual que proíbe a prática de cultos religiosos em espaços públicos, alegando violação ao princípio da separação de poderes, é correta, pois a separação de poderes impede a interferência do Poder Legislativo em decisões de ordem re"
+  },
+  {
+   "id": 16111,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a atuação do agente público que, em 2024, promoveu a desapropriação de um terreno rural para a construção de uma nova estação de metrô, sem observar a fase de justificação econômica prevista no art. 5º, § 4º, da Lei nº 8.666/93, pode ser considerada ilegal, pois a justifi"
+  },
+  {
+   "id": 16169,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida de urgência prevista no art. 5º, inciso XXXV, da Constituição Federal, pode ser aplicada pelo Poder Executivo sem a necessidade de autorização judicial, desde que haja risco de lesão irreparável ao direito de propriedade."
+  },
+  {
+   "id": 16263,
+   "tipo": "ME",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, em que fase do processo penal o Ministério Público pode requerer a aplicação da Lei de Execução Penal ao réu condenado por crime de associação criminosa?"
+  },
+  {
+   "id": 16398,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida de suspensão de eleições municipais, adotada pelo Presidente da República mediante lei delegada, pode ser considerada constitucional, pois o Poder Executivo detém competência para suspender eleições em situações de calamidade pública, desde que haja previsão lega"
+  },
+  {
+   "id": 16405,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida adotada pelo Estado de criar um tribunal de contas independente, com a prerrogativa de fiscalizar a execução orçamentária de todas as entidades públicas, está em conformidade com o princípio da eficiência administrativa, pois assegura maior controle sobre a aplic"
+  },
+  {
+   "id": 16414,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a exigência de que o Estado estabeleça um teto máximo de despesa em programas de saúde mental, independentemente de orçamento disponível, viola o princípio da eficiência administrativa."
+  },
+  {
+   "id": 16415,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "O texto acima descreve a criação de um programa de incentivo fiscal para microempreendedores individuais em áreas de alta vulnerabilidade social, mediante a redução de 50% na alíquota de ICMS. A exigência de que o Estado estabeleça um teto máximo de despesa em programas de saúde mental, independente"
+  },
+  {
+   "id": 16502,
+   "tipo": "ME",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, que descreve a suspensão da execução da pena, qual das alternativas abaixo indica corretamente a natureza da medida que impede a execução da pena sem que haja decisão final?"
+  },
+  {
+   "id": 16516,
+   "tipo": "ME",
+   "categoria": "Direito Processual Penal",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, qual é a consequência jurídica mais adequada para a prova apreendida, caso a incompetência da autoridade seja reconhecida?"
+  },
+  {
+   "id": 16656,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a medida de contratação direta de consultoria especializada para elaboração de plano de recuperação ambiental de uma obra pública, cujo valor estimado é de R$ 12.000,00, está em conformidade com a Lei nº 8.666/93."
+  },
+  {
+   "id": 16846,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o condutor que não deu preferência à pessoa vulnerável pode ser processado por danos morais e materiais, pois a legislação prevê a possibilidade de indenização mesmo na ausência de culpa objetiva."
+  },
+  {
+   "id": 16866,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, a aplicação do princípio da legalidade no processo de licitação garante que qualquer empresa pode participar independentemente de sua capacidade técnica, desde que cumpra os requisitos de documentação."
+  },
+  {
+   "id": 16907,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, o Tribunal Constitucional pode declarar inconstitucional a norma que estabelece a obrigatoriedade de voto em assembleias de condomínio, pois viola o princípio da livre associação."
+  },
+  {
+   "id": 17098,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "cita \"texto acima\" e não há texto antes da citação",
+   "texto": "Considerando o texto acima, em que a autora relata que a linguagem digital tem influenciado a produção textual dos estudantes, observa-se que a predominância de abreviaturas pode comprometer a clareza e a formalidade exigidas em textos acadêmicos. A autora argumenta que, embora a informalidade seja "
+  },
+  {
+   "id": 8135,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Ministério Público ajuizou ação penal pública contra um ex-diretor de empresa de transporte, alegando que o acusado teria, em 2022, praticado crime de lavagem de dinheiro ao ocultar recursos provenientes de venda de mercadorias ilícitas. Durante a fase de instrução, o juiz admitiu a produ"
+  },
+  {
+   "id": 8136,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Lei de Execução Penal, em seu artigo 77, prevê que a prisão preventiva pode ser decretada quando houver risco de fuga, obstrução da investigação ou perigo à ordem pública. Em 2025, um investigado foi preso preventivamente por suspeita de participação em quadrilha. Após a prisão, o juiz fixou prazo"
+  },
+  {
+   "id": 8137,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A partir de 2023, o Tribunal de Justiça de São Paulo instituiu um sistema eletrônico de acompanhamento de processos penais, permitindo que advogados de defesa pudessem solicitar a juntada de documentos por meio de upload digital. Em 2024, um advogado solicitou a juntada de uma prova pericial que hav"
+  },
+  {
+   "id": 8177,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Ministério da Educação lançou o Programa Nacional de Alfabetização Digital, que visa integrar tecnologias de inteligência artificial nos processos de ensino de língua portuguesa. O programa prevê que, a partir do próximo semestre, todas as escolas públicas de ensino fundamental dev"
+  },
+  {
+   "id": 8418,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: \n\nEm 2023, o Ministério da Saúde enfrentou uma crise de abastecimento de medicamentos essenciais. A diretora de uma unidade regional recebeu uma proposta de um fornecedor que, embora oferecesse preços competitivos, não possuía o registro de qualidade exigido pela Agência Nacional de Vigilânci"
+  },
+  {
+   "id": 8518,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, a Secretaria de Educação do Estado de Minas Gerais publicou um edital de concurso para cargos de Técnico em Informática. O edital previa que os candidatos deveriam demonstrar proficiência em SQL e em elaboração de scripts em Bash. O candidato que, durante a prova, apresentou apenas um scrip"
+  },
+  {
+   "id": 8560,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No município de Vila Verde, a Secretaria de Obras Públicas aprovou a contratação de empresa especializada em manutenção de calçadas para a região central, mediante licitação do tipo convite, justificando a urgência em razão de um aumento repentino de pedestres durante a temporada de festividades rel"
+  },
+  {
+   "id": 8561,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Prefeito de São José da Lapa, ao nomear o diretor de planejamento urbano, optou por nomear um cidadão que, embora não possua formação técnica na área, possui experiência comprovada em projetos de revitalização de bairros históricos. A nomeação foi publicada no Diário Oficial e não houve contestaçã"
+  },
+  {
+   "id": 8562,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Receita Federal do Brasil, em 2023, instituiu um regime de tributação diferenciada para microempreendedores individuais que operam exclusivamente no comércio eletrônico, com base no faturamento anual de até R$ 81.000,00. O regime prevê a possibilidade de pagamento mensal de tributos em parcela úni"
+  },
+  {
+   "id": 8563,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2025, o Tribunal Regional Federal da 4ª Região editou uma decisão que reconheceu a competência do Poder Judiciário para julgar, em caráter de urgência, a validade de atos administrativos que contenham cláusula de confidencialidade que impede o acesso de terceiros a informações públicas. O entendi"
+  },
+  {
+   "id": 8564,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: A Secretaria de Educação do Estado X, em 2024, publicou um decreto que institui a obrigatoriedade de que todas as escolas públicas adotem o uso de plataformas digitais para o ensino a distância, com a exigência de que os professores possuam certificação específica em tecnologias educacionais."
+  },
+  {
+   "id": 8884,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um condutor, ao entrar em uma avenida de duas faixas, deve, antes de ultrapassar um veículo parado, verificar se a faixa lateral está livre e se não há veículos se aproximando na faixa contrária. Se o condutor não observar essas condições e ultrapassar, poderá ser autuado. Considerando o Código de T"
+  },
+  {
+   "id": 8888,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: Em 2024, o Conselho Nacional de Trânsito (CONTRAN) aprovou a norma nº 1234/2024, que introduziu a obrigatoriedade de dispositivos de controle de velocidade em veículos de transporte coletivo urbano. De acordo com a norma, esses dispositivos devem ser calibrados anualmente e registrar"
+  },
+  {
+   "id": 8957,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em um órgão público, o servidor João recebeu um e‑mail contendo um link suspeito que prometia acesso a um relatório confidencial. Ao clicar, o sistema exibiu um pop‑up exigindo a digitação de senha e credenciais de acesso. João, sem verificar a autenticidade do e‑mail, inseriu seus dados e o sistema"
+  },
+  {
+   "id": 8961,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, a Receita Federal implementou um sistema de autenticação multifator baseado em biometria facial e token OTP. O objetivo principal dessa medida é reduzir a incidência de fraudes em processos de declaração de imposto de renda. Considerando a necessidade de proteção de dados pessoais, o uso de"
+  },
+  {
+   "id": 9000,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o texto abaixo:\n\n\"Em 2024, o Tribunal de Justiça do Estado X decidiu que a exigência de certidão de antecedentes criminais para a matrícula de estudantes em cursos de ensino médio técnico era constitucional, pois a medida visava assegurar a integridade dos ambientes educacionais. A deci"
+  },
+  {
+   "id": 9114,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Ministério da Infraestrutura divulgou um relatório que indica que 68% dos acidentes fatais em rodovias brasileiras envolvem veículos de carga que excedem o limite de peso estabelecido pelo Código de Trânsito. O estudo destaca que a maioria desses veículos não possui certificado de "
+  },
+  {
+   "id": 9225,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal de 1988 estabelece que a administração pública direta, autárquica e fundacional deve obedecer ao princípio da eficiência. Em 2024, o Ministério da Saúde publicou um decreto que cria um programa de saúde pública destinado a regiões de difícil acesso, sem especificar critérios o"
+  },
+  {
+   "id": 9226,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2025, o Poder Executivo federal promulgou uma lei que institui um regime especial de tributação para empresas de tecnologia que desenvolvem softwares de inteligência artificial, concedendo-lhes isenção de impostos federais enquanto a tecnologia não atingir a fase de comercialização. A lei prevê q"
+  },
+  {
+   "id": 9227,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2023, o Tribunal Regional Federal da 3ª Região analisou um recurso de habeas corpus interposto por um cidadão que havia sido preso em flagrante por posse de arma de fogo. O juiz de primeiro grau havia negado a liberdade provisória, alegando que o acusado apresentava risco de fuga e de rein"
+  },
+  {
+   "id": 9228,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Estado de São Paulo promulgou em 2022 uma lei que institui o regime de proteção a dados pessoais de crianças e adolescentes, exigindo que qualquer plataforma digital que ofereça serviços a menores de 12 anos deva obter consentimento expresso dos pais ou responsáveis antes de coletar dados. A lei t"
+  },
+  {
+   "id": 9286,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O agente público que, ao atender a solicitação de um cidadão para a concessão de licença de construção, aceita uma quantia em dinheiro, supostamente em troca de acelerar o processo, está praticando ato ilícito. Considerando o princípio da impessoalidade e o dever de moralidade administrativa, a cond"
+  },
+  {
+   "id": 9287,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Uma empresa privada contrata um servidor público para participar de um projeto de pesquisa, oferecendo-lhe participação nos lucros como forma de incentivo. O contrato estabelece que o servidor receberá 5% do faturamento obtido pela empresa. A relação entre o servidor e a empresa configura:"
+  },
+  {
+   "id": 9288,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Tribunal de Contas de um estado reconheceu que o órgão público responsável pela licitação de serviços de limpeza urbana utilizou critérios de seleção que favoreciam uma empresa concorrente, sem justificar adequadamente a escolha. Em relação ao princípio da legalidade, essa prática é:"
+  },
+  {
+   "id": 9289,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Durante a execução de obra pública, o responsável técnico por parte do órgão contratante detém o poder de suspender a obra caso detecte irregularidades, mesmo sem notificar a empresa contratada. Essa autoridade se baseia no:"
+  },
+  {
+   "id": 9290,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Prefeitura Municipal de Vila Verde, em 2024, publicou um edital de contratação de serviços de manutenção predial. O edital previa que, além das exigências legais, seria necessário que os licitantes apresentassem comprovação de que já haviam realizado projetos sustentáveis em outras cidades. O edit"
+  },
+  {
+   "id": 9295,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O agente, ao dirigir veículo automotor, ultrapassou o limite de velocidade permitido na via e colidiu com um ciclista, causando-lhe lesão corporal grave. Considerando o disposto no Código Penal, o fato configura crime de imprudência, dolo ou culpa? A resposta é:"
+  },
+  {
+   "id": 9385,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em um contrato de prestação de serviços, a cláusula que estabelece a obrigação de pagamento em parcelas mensais, com juros de mora de 1,5% ao mês, é considerada uma cláusula de direito real ou de direito pessoal? A resposta correta é:"
+  },
+  {
+   "id": 9408,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2023, o Ministério da Saúde divulgou um relatório que apontou que 15% das unidades de saúde pública apresentaram atrasos superiores a 30 dias no pagamento de fornecedores. Em meio a essa situação, o diretor de uma dessas unidades, percebendo a inadimplência, solicitou a um fornecedor que, "
+  },
+  {
+   "id": 9531,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No âmbito da licitação de obras públicas, o gestor municipal observou que a empresa vencedora não apresentou o Certificado de Regularidade do INSS, mas alegou que a exigência não era obrigatória para contratos de até R$ 200.000,00. O princípio que ampara a exigência desse documento é a legalidade, m"
+  },
+  {
+   "id": 9553,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: Em 2023, o Tribunal de Contas da União (TCU) publicou relatório sobre a prática de contratos de parceria público-privada (PPP) em municípios de pequeno porte. O relatório apontou que, em 70% dos casos analisados, as licitações para PPPs foram conduzidas sem a observância de fase de e"
+  },
+  {
+   "id": 9581,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O contrato de locação residencial firmado entre a proprietária Ana e o locatário Carlos, com prazo de 12 meses, previa a obrigação de Carlos em manter o imóvel em perfeito estado de conservação. Após 6 meses, Carlos realizou reformas no apartamento, sem autorização de Ana, e instalou um sistema de a"
+  },
+  {
+   "id": 9585,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal Regional Federal da 3ª Região proferiu decisão que reconheceu a responsabilidade civil de uma empresa de energia elétrica por danos causados por falha na manutenção de linhas de transmissão, resultando em queda de energia em um condomínio residencial. A decisão fundamentou"
+  },
+  {
+   "id": 9617,
+   "tipo": "CE",
+   "categoria": "Direito Processual Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Câmara dos Deputados aprovou a Lei nº 14.500/2024, que institui o regime de responsabilidade objetiva do Estado em contratos administrativos de obras públicas. A lei estabelece que, para que haja responsabilidade objetiva, é necessário que o contratado comprove a existência de culp"
+  },
+  {
+   "id": 9727,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal estabelece que a administração pública direta e indireta obedecerá aos princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência. Se um gestor municipal decide, sem seguir a lei, contratar uma empresa de construção para obras públicas, alegando que a urgên"
+  },
+  {
+   "id": 9729,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal garante o direito à saúde como um direito social. Se um município, em razão de crise orçamentária, suspende a distribuição de medicamentos essenciais a pacientes com doenças crônicas, a medida pode ser considerada:"
+  },
+  {
+   "id": 9730,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal estabelece que o Poder Legislativo pode alterar a Constituição apenas por meio de emenda constitucional, exigindo aprovação em dois turnos de votação em cada Casa, com a maioria absoluta dos membros. Se o Congresso Nacional aprovou uma emenda constitucional em apenas um turno,"
+  },
+  {
+   "id": 9962,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal de Justiça do Estado X, diante de um aumento de 35% no número de processos de execução fiscal, instituiu um regime de prioridade para as execuções que envolvem créditos tributários superiores a R$ 500.000,00. A medida foi adotada para otimizar a liquidação de créditos e re"
+  },
+  {
+   "id": 9993,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No exercício de suas funções, o prefeito de uma cidade de médio porte decretou, em caráter de urgência, a suspensão temporária das atividades de um centro cultural que, segundo a própria gestão municipal, teria promovido discursos contrários à moral e ao bom costume local, sem que houvesse qualquer "
+  },
+  {
+   "id": 9994,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Tribunal Regional Federal de uma região do interior do país decidiu, em 2022, que a cobrança de taxa de fiscalização de obras em áreas de preservação permanente era constitucional, pois a lei que a instituiu previa a destinação de 10% do valor arrecadado para programas de educação ambiental. Em 20"
+  },
+  {
+   "id": 9995,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Poder Executivo federal promulgou um decreto que, dentre outras medidas, estabeleceu a obrigatoriedade de que todas as empresas de médio porte apresentem, mensalmente, um relatório de diversidade de gênero em seus quadros de funcionários, sob pena de multa administrativa. O decreto não pr"
+  },
+  {
+   "id": 9996,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Câmara dos Deputados aprovou, em 2025, uma lei que institui, em todo o território nacional, a obrigatoriedade de que todas as escolas públicas incluam em seu currículo obrigatório, a disciplina de ‘História da Democracia Brasileira’, com carga horária mínima de 20 horas/aula. O Senado, em 2026, ap"
+  },
+  {
+   "id": 9997,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2023, o Tribunal Regional Federal de uma região metropolitana decidiu que a cobrança de uma taxa de licenciamento de veículos de alto desempenho, criada por lei municipal, era constitucional, pois a lei previa a destinação de 15% do valor arrecadado para a manutenção de pistas de corrida. "
+  },
+  {
+   "id": 10057,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um agente público, ao perceber a ocorrência de um crime de furto em uma residência, decide entrar na casa sem autorização, buscando o objeto furtado. Ao retirar o bem, o agente é preso em flagrante. A conduta do agente, em relação ao princípio da legalidade, é:"
+  },
+  {
+   "id": 10058,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando que a legítima defesa pode ser exercida quando há ameaça atual e inevitável, um indivíduo, ao ser atacado por um agressor armado, retira a arma do agressor e, em seguida, o atira com sua própria arma para impedir a continuidade do ataque. O ato de atirar o agressor após a retirada da ar"
+  },
+  {
+   "id": 10151,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal Regional Federal da 2ª Região decidiu que a aplicação de multas administrativas a servidores públicos, sem prévia sindicância, viola o princípio do devido processo legal. A decisão ressaltou que a sanção administrativa deve ser precedida de processo administrativo interno,"
+  },
+  {
+   "id": 10212,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No contexto de uma crise hídrica, o Estado federal promulgou um decreto que determina a suspensão temporária da cobrança de tarifas de água em todas as regiões afetadas. A norma, embora não contenha expressamente a palavra \"exceção\", tem como objetivo principal assegurar o acesso à água potável. A i"
+  },
+  {
+   "id": 10360,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o seguinte texto: \"Em 2024, a Secretaria de Segurança Pública divulgou que a aplicação de penas de prisão preventiva em casos de crimes hediondos passou a exigir prova inequívoca de risco à ordem pública, ao invés de mera suspeita, em consonância com a jurisprudência do STJ. No entanto,"
+  },
+  {
+   "id": 10372,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Secretaria de Educação do Estado X divulgou um relatório sobre a distribuição de recursos para escolas públicas. No documento, constava que 15% dos recursos destinados à aquisição de materiais didáticos seriam destinados a uma empresa de tecnologia local, cuja sócia era filiada ao "
+  },
+  {
+   "id": 10381,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Agência Nacional de Transportes Terrestres (ANTT) publicou um regulamento que estabelece que todos os veículos de transporte de cargas de mais de 10 toneladas devem possuir um sistema de rastreamento GPS com atualização a cada 30 segundos. A empresa TransLogística, que opera uma fr"
+  },
+  {
+   "id": 10720,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em uma cidade de médio porte, o prefeito decretou a suspensão temporária do uso de ônibus públicos durante a noite, alegando necessidade de manutenção preventiva dos veículos. O decreto não especificou prazo nem justificou a necessidade de manutenção. Considerando o texto acima, a suspensão é:"
+  },
+  {
+   "id": 10730,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 15 de março de 2024, a Prefeitura de Vila Verde promulgou a Lei Municipal nº 12.345, que institui o Programa de Incentivo à Inovação em Serviços Públicos (PIISP). O programa prevê a concessão de benefícios fiscais a empresas que desenvolvam soluções digitais para a gestão de resíduos sólid"
+  },
+  {
+   "id": 10779,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um policial militar, ao realizar patrulhamento em um bairro de alta criminalidade, avisa a um suspeito de que a polícia está a caminho. O suspeito, temendo ser preso, dispara um tiro que atinge um transeunte, causando sua morte. O policial, ao perceber a situação, tenta impedir o disparo, mas não co"
+  },
+  {
+   "id": 10801,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um servidor público, ao receber um pedido de informação de um cidadão, decide atender a solicitação apenas após receber uma promessa de retorno financeiro em forma de presente, o que configura:"
+  },
+  {
+   "id": 10802,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um agente de trânsito que, ao fiscalizar uma via, aceita a oferta de um comerciante para não multar veículos que transportam mercadorias de seu estabelecimento, está praticando um ato de:"
+  },
+  {
+   "id": 10904,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Ministério da Justiça publicou um comunicado anunciando que, em decorrência de um aumento de 15% no número de pessoas em situação de vulnerabilidade social, a Polícia Federal teria autorização para realizar buscas e apreensões sem mandado judicial em locais públicos, desde que a aç"
+  },
+  {
+   "id": 11022,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Ministério da Saúde divulgou um relatório sobre a distribuição de vacinas contra a COVID-19 no país. O documento apontou que, em regiões rurais, a taxa de vacinação estava 15% abaixo da média nacional, atribuindo a esse déficit a dificuldades logísticas e a uma baixa adesão da popu"
+  },
+  {
+   "id": 11381,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Polícia Federal recebeu um relatório de que um grupo de indivíduos, com a intenção de obter vantagem ilícita, teria planejado e executado um roubo em um banco de alto padrão. Durante a investigação, foi constatado que o líder do grupo, João, havia sido preso em 2022 por um crime de"
+  },
+  {
+   "id": 11399,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 12 de março de 2024, a Polícia Federal realizou a operação \"Operação Verde\", visando combater o tráfico de substâncias controladas em municípios do interior de Minas Gerais. Na madrugada, agentes interceptaram um veículo que transportava 3,5 kg de cocaína, distribuída em 12 embalagens. O s"
+  },
+  {
+   "id": 11603,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2025, a Secretaria de Educação do Estado de Maracá publicou o edital de concurso para o cargo de Professor Substituto de Ensino Médio, com vagas distribuídas em todas as unidades escolares do estado. O edital previa que os candidatos deveriam possuir título de bacharel em qualquer área, mas não e"
+  },
+  {
+   "id": 11629,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em um caso recente, o Ministério Público denunciou um engenheiro civil que, durante a execução de obra em um condomínio, desviou materiais de construção para uso próprio, alegando que o contrato de fornecimento havia sido rescindido. O engenheiro contestou a acusação, sustentando que a rescis"
+  },
+  {
+   "id": 11756,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No contexto de uma prova de concurso para o cargo de analista de comunicação institucional, o candidato deve identificar a figura de linguagem que melhor descreve a expressão \"o silêncio ecoou na sala vazia\". A opção que apresenta a figura correta é:"
+  },
+  {
+   "id": 11880,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A empresa XYZ Ltda. celebrou contrato de locação comercial com a loja ABC, estipulando prazo de cinco anos e cláusula de reajuste anual com base no índice de preços ao consumidor. Ao final do contrato, a locatária alegou que o índice utilizado estava desatualizado e pleiteou a aplicação de um índice"
+  },
+  {
+   "id": 11881,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2023, o juiz de primeira instância decidiu, em ação de despejo, que o locatário de um imóvel residencial deveria pagar a multa de rescisão contratual prevista no contrato, mesmo que o locador não tivesse oferecido o imóvel para locação durante o período de vacância. O recurso foi interposto pelo "
+  },
+  {
+   "id": 11919,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Secretaria Nacional de Trânsito publicou um edital que institui a obrigatoriedade de uso de dispositivos de rastreamento em veículos de transporte escolar, com o objetivo de reduzir acidentes em faixas de pedestres. O edital prevê que a ausência do dispositivo acarretará multa de R"
+  },
+  {
+   "id": 11945,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 12 de março de 2025, o Tribunal Regional Federal da 4ª Região, em julgamento de apelação penal, decidiu que a aplicação da pena de prisão preventiva em caso de crime de tráfico de drogas pode ser suspensa quando o réu demonstrar boa-fé, não possuir antecedentes criminais e apresentar laudo"
+  },
+  {
+   "id": 12019,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal de 1988 estabelece que a ação direta de improbidade administrativa pode ser ajuizada quando houver dano ao erário, mas não exige a demonstração de culpa do agente. Em 2025, o Ministério Público ajuizou ação contra o Prefeito de uma cidade do interior de Minas Gerais, alegando "
+  },
+  {
+   "id": 12023,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal Superior Eleitoral (TSE) publicou a Portaria 2.000/2024, que estabelece normas para a divulgação de informações sobre campanhas eleitorais em redes sociais. A portaria determina que os candidatos podem publicar anúncios pagos apenas em plataformas que possuam certificação "
+  },
+  {
+   "id": 12132,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: Em 2024, o Conselho Nacional de Trânsito (CONTRAN) publicou a Resolução nº 1.000, que altera a legislação de trânsito ao estabelecer que o uso de dispositivos móveis por condutores será considerado infração grave quando a velocidade do veículo exceder 70 km/h. A resolução também prev"
+  },
+  {
+   "id": 12243,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O artigo 5º, inciso X, da Constituição Federal estabelece que a expressão de opiniões é livre, desde que não contenha insultos a autoridades. Em 2024, um vereador publicou em rede social um comentário que, segundo a sua própria interpretação, apenas criticava a atuação de um ministro. O Ministério P"
+  },
+  {
+   "id": 12247,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal Superior Eleitoral (TSE) publicou uma decisão que reconheceu a constitucionalidade de um edital de concurso público para cargos de nível médio, no qual as vagas foram distribuídas em função da região de residência dos candidatos, com o objetivo de atender a demanda de prof"
+  },
+  {
+   "id": 12315,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um casal, após cinco anos de união estável, decide formalizar a relação por contrato de convivência. O contrato estabelece que, em caso de separação, os bens adquiridos durante a convivência serão partilhados em 70% para o companheiro que contribuiu financeiramente e 30% para o outro, independenteme"
+  },
+  {
+   "id": 12316,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Uma empresa de transporte rodoviário, ao celebrar contrato de locação de veículos, estipula que o locatário deve devolver os veículos em condições de uso, sob pena de multa equivalente a 10% do valor do contrato. A cláusula de multa é considerada:"
+  },
+  {
+   "id": 12317,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um produtor rural vende uma área de terra para fins agrícolas. O contrato prevê que, se a terra apresentar problemas de drenagem, o comprador terá direito a uma redução proporcional do preço. A cláusula de ajuste de preço por condições do solo é:"
+  },
+  {
+   "id": 12318,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um condomínio residencial decide, em assembleia, alterar a convenção para permitir a instalação de antenas de telefonia móvel nos prédios, desde que o proprietário pague um valor mensal de 1% do valor do imóvel. A alteração é:"
+  },
+  {
+   "id": 12319,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Prefeitura de São Paulo aprovou a Lei Municipal nº 15.000, que institui a obrigatoriedade de contratos de prestação de serviços de limpeza urbana entre a administração pública e empresas privadas. O artigo 5º estabelece que, em caso de descumprimento das cláusulas contratuais, a Pr"
+  },
+  {
+   "id": 12476,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2023, o Ministério da Saúde publicou um decreto que estabelece um regime de prioridade na distribuição de vacinas contra a COVID-19, beneficiando exclusivamente trabalhadores da área de saúde e residentes de regiões de alta densidade populacional. O decreto, ao estabelecer critérios de pri"
+  },
+  {
+   "id": 12495,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Tribunal de Justiça de um estado brasileiro concedeu autorização para a realização de um protesto nas vias públicas, mesmo após a ordem de dispersão emitida pelo Ministério Público. A decisão foi motivada pela alegação de que a manifestação não violava a ordem pública, mas sim exercia dir"
+  },
+  {
+   "id": 12496,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal de 1988 prevê que o Poder Executivo pode delegar a administração pública a entidade privada para a execução de serviço público. Se a delegação não for formalizada por meio de contrato administrativo, a relação jurídica entre as partes é considerada:"
+  },
+  {
+   "id": 12497,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2025, o Ministério da Educação instituiu uma norma interna que restringia a participação de estudantes de cursos de graduação em atividades de pesquisa científica em laboratórios de alta segurança, alegando risco à segurança nacional. A norma foi questionada por uma associação de estudantes, que "
+  },
+  {
+   "id": 12498,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um município aprovou em 2023 uma lei que proíbe a instalação de qualquer tipo de publicidade externa em áreas de preservação ambiental. A lei foi contestada por uma empresa de mídia, que alega violação do direito à liberdade de expressão e à publicidade. A lei é:"
+  },
+  {
+   "id": 12499,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de Apoio: Em 2024, o Supremo Tribunal Federal (STF) julgou o caso da \"Lei do Fogo de Artifício\", que proibia a venda de fogos de artifício em todo o território nacional, alegando que a medida era necessária para proteger a saúde pública e o meio ambiente. A decisão do STF, que manteve a consti"
+  },
+  {
+   "id": 12646,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Secretaria de Educação do Estado X recebeu uma denúncia de que a empresa contratada para a manutenção de equipamentos de laboratório em escolas públicas não cumpriu com os requisitos de qualidade especificados no contrato. O contrato, assinado em 2020, previa a entrega de equipamentos de alta tecn"
+  },
+  {
+   "id": 12704,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: A Prefeitura Municipal de São Joaquim, em 2023, decidiu terceirizar a manutenção de 12 equipamentos de iluminação pública, adotando um contrato de prestação de serviços com a empresa Luminex S/A. O contrato previa, entre outras cláusulas, que a Luminex teria a obrigação de manter os "
+  },
+  {
+   "id": 12798,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A seguir, apresenta-se um trecho de notícia fictícia: \"No município de Vila Nova, a Secretaria de Obras Públicas, em 15 de março de 2024, anunciou a contratação de empresa especializada para a construção de uma ponte sobre o rio Verde. A licitação foi realizada por meio de pregão eletrônico, com pra"
+  },
+  {
+   "id": 12827,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Constituição Federal de 1988 estabelece, em seu artigo 5º, que a proteção de direitos fundamentais deve ser aplicada de forma igualitária a todos os cidadãos, independentemente de sua condição social. No contexto de um município que institui um programa de inclusão digital para idosos, a prefeitur"
+  },
+  {
+   "id": 12828,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Tribunal Superior Eleitoral, em 2025, emitiu um decreto que proíbe a divulgação de pesquisas de intenção de voto em redes sociais durante o período de 48 horas que antecede a votação. O decreto, fundamentado no artigo 14, inciso III, alínea 'b', da Constituição Federal, visa preservar a lisura do "
+  },
+  {
+   "id": 12945,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o seguinte texto: \"Em 2024, o Ministério Público Federal divulgou um relatório que apontou um aumento de 15% no número de crimes contra a honra, destacando que a maioria envolvia a divulgação de informações falsas em redes sociais. O relatório também ressaltou que, em 70% dos casos, a v"
+  },
+  {
+   "id": 13075,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um servidor público federal, no exercício de suas funções, recebe um presente de um fornecedor de material de escritório, cujo valor totaliza R$ 2.500,00, em troca de garantir preferência na entrega de produtos para a repartição. O servidor, ao ser questionado, afirma que o presente foi dado por um "
+  },
+  {
+   "id": 13076,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Tribunal de Contas da União (TCU) aprovou a medida de controle de despesas de um órgão federal, destacando que a aplicação de recursos para a realização de eventos internos deve observar o princípio da eficiência. O órgão, entretanto, manteve a realização do evento, justificando que a mes"
+  },
+  {
+   "id": 13077,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Procuradoria-Geral da União (PGU) ajuizou ação de improbidade administrativa contra um ex-ministro, alegando que o titular teria recebido vantagens indevidas em contratos celebrados durante seu mandato. O Ministério Público Federal (MPF) ajuizou, em seguida, ação civil pública para ressarcimento d"
+  },
+  {
+   "id": 13078,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A administração pública estadual, em 2025, firmou contrato de concessão para a construção de uma ponte sobre o Rio X. O contrato previa que a concessionária deveria manter a ponte em condições de segurança, mediante inspeções periódicas. Após cinco anos, a ponte apresentou falha estrutural que resul"
+  },
+  {
+   "id": 13166,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o texto acima, o ato de aceitar a doação de um veículo de luxo e conceder prazo especial para o contrato de prestação de serviços, caracteriza-se como: (I) abuso de poder; (II) improbidade administrativa; (III) simples favorecimento. Apenas a alternativa correta é:"
+  },
+  {
+   "id": 13316,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Ministério da Educação instituiu um programa de bolsas para estudantes de escolas públicas em regiões de alta vulnerabilidade. A medida, ao ser contestada por um grupo de senadores, alegou violar o princípio da igualdade ao oferecer benefícios apenas a determinados grupos. O Supremo Tribu"
+  },
+  {
+   "id": 13408,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o seguinte texto: \"Em 2024, a Secretaria Municipal de Obras Públicas (SMOP) publicou o edital de licitação do tipo concorrência para a construção de um novo parque infantil em área urbana de alto risco. O edital estabeleceu como critério de julgamento a melhor técnica, a melhor proposta"
+  },
+  {
+   "id": 13423,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O agente, ao perceber que a vítima estava inconsciente, decidiu retirar o objeto de valor que havia sido roubado e devolvê‑lo à propriedade pública, sem comunicar a autoridade competente. Essa conduta caracteriza, em tese, a prática de crime de furto, mas com a aplicação de qual modalidade penal? Co"
+  },
+  {
+   "id": 13424,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Ministério Público, em processo de investigação sobre um homicídio, solicita a realização de exame de DNA na cena do crime, mas o perito responsável recusa a coleta, alegando que a amostra já havia sido contaminada. O perito, ao recusar a coleta, cometeu, em tese, o crime de:"
+  },
+  {
+   "id": 13432,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um servidor público federal, após 30 anos de carreira, tem direito a aposentadoria por tempo de contribuição, mas seu contrato de trabalho prevê que, ao atingir a idade mínima, o benefício será concedido apenas se houver comprovação de atividade física contínua. Considerando o princípio da indisponi"
+  },
+  {
+   "id": 13433,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Lei nº 10.741/2003, que institui a reforma da Previdência, determina que a pensão por morte será concedida apenas aos dependentes que comprovarem renda inferior a 0,5 salário mínimo. A exigência de renda mínima para a concessão de pensão por morte é:"
+  },
+  {
+   "id": 13502,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o texto abaixo: \n\n\"No âmbito de um programa de inclusão digital, o Estado federal instituiu um fundo de recursos próprios para financiar a aquisição de equipamentos de informática em escolas públicas. O fundo foi criado por meio de lei complementar e sua aplicação está condicionada à ap"
+  },
+  {
+   "id": 13597,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o texto abaixo: \n\n\"Em 2024, o Ministério Público Federal divulgou um relatório sobre a participação de servidores públicos em atividades políticas durante o horário de expediente. O documento aponta que, em 12% dos casos analisados, os servidores mantiveram contato com partidos político"
+  },
+  {
+   "id": 13685,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, a Secretaria de Educação do Estado X divulgou um plano de reestruturação de escolas públicas, no qual a nova diretriz prevê a criação de um conselho escolar composto exclusivamente por representantes dos sindicatos dos professores. O plano, publicado no Diário Oficial, foi imediatamente que"
+  },
+  {
+   "id": 13715,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o seguinte texto: \n\n> Em 2023, a Secretaria da Educação anunciou a implementação de um programa de aprendizagem híbrida em escolas públicas de todo o país. O programa prevê a distribuição de dispositivos móveis para alunos de 3º ao 5º ano, além de um plano de capacitação docente. O obje"
+  },
+  {
+   "id": 13838,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No contexto de um edital de concurso para o cargo de Analista de Processos Administrativos, o edital estabelece que o candidato deverá comprovar, por meio de documento oficial, a conclusão de curso superior em Administração. O candidato, no entanto, apresenta apenas a certidão de matrícula e não a n"
+  },
+  {
+   "id": 13839,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Ao redigir um relatório técnico sobre a implementação de um sistema de gestão de documentos eletrônicos, o autor utiliza o verbo 'analisar' no sentido de 'examinar detalhadamente'. No português padrão, o uso do verbo 'analisar' nesse contexto é considerado:"
+  },
+  {
+   "id": 13841,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o seguinte texto: \"A nova legislação sobre proteção de dados pessoais impõe às empresas a obrigação de realizar avaliações de impacto de privacidade (PIA) antes de implementar qualquer sistema que envolva o tratamento de dados sensíveis. O objetivo principal dessa exigência é garantir q"
+  },
+  {
+   "id": 13842,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em um exercício de interpretação textual, o candidato deve analisar a frase: \"O engenheiro, embora experiente, foi surpreendido pela complexidade do projeto.\" O ponto de vista que o verbo 'surpreendido' sugere é:"
+  },
+  {
+   "id": 13953,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Prefeitura Municipal de São Vicente, ao celebrar contrato de concessão de serviço público de coleta de lixo, estipulou cláusula de reajuste anual baseada no Índice Nacional de Preços ao Consumidor Amplo (IPCA). Em 2023, o IPCA acumulado foi de 5,2 %. O contrato prevê que o reajuste não poderá supe"
+  },
+  {
+   "id": 13954,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: Em 15 de março de 2024, o Tribunal Regional Federal da 4ª Região (TRF‑4) proferiu decisão no processo nº 0001234‑56.2024.4.04.0000, envolvendo a União e a empresa Construtora XYZ, que havia sido contratada para obra de construção de estação de metrô em Brasília. O contrato, firmado e"
+  },
+  {
+   "id": 14061,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2025, o Ministério da Educação publicou um edital de contratação de profissionais de ensino para escolas públicas em todo o país. O edital exigia que os candidatos apresentassem comprovação de que não possuíam vínculos familiares com membros da comissão de seleção. Um candidato, porém, não"
+  },
+  {
+   "id": 14127,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O Estado de Mato Grosso do Sul, em 2025, decretou a suspensão temporária de todo o sistema de transporte público urbano nas cidades de Campo Grande e Dourados, alegando necessidade de intervenção para regularização de contratos de prestação de serviços. A medida, de caráter de urgência, foi publicad"
+  },
+  {
+   "id": 14156,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O agente público, no exercício de sua função, recebe um pedido de licença de uso de espaço público para a realização de um evento cultural. O requerente apresenta documentação comprobatória de que o evento não causará perturbações à ordem pública e que a licença será concedida por prazo determinado."
+  },
+  {
+   "id": 14157,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Tribunal de Contas da União (TCU) publicou um relatório sobre a gestão de recursos públicos destinados à modernização de sistemas de informação em órgãos federais. O relatório destaca que, apesar de haver recursos de R$ 120 milhões alocados, apenas 45% foram efetivamente utilizados no pri"
+  },
+  {
+   "id": 14267,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O contrato de locação comercial celebrado em 2018 entre a empresa X e o proprietário Y, que previa reajuste anual baseado no Índice Nacional de Preços ao Consumidor (INPC), foi rescindido em 2023 por motivo de inadimplência do locatário. Considerando que o INPC não sofreu variação em 2023, a multa m"
+  },
+  {
+   "id": 14326,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em uma sequência lógica, se a palavra \"PENSAR\" é transformada em \"SENTIR\" pela aplicação de um algoritmo de troca de letras, e a palavra \"CRESCER\" passa a \"CRESCIR\" pelo mesmo algoritmo, a palavra \"PROCURAR\" será transformada em:"
+  },
+  {
+   "id": 14450,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Lei nº 13.846/2019, que trata do crime de tráfico ilícito de drogas, prevê que a simples posse de quantidade inferior ao limite de 5 kg não configura crime, mas apenas infração administrativa. Assim, o agente que detém 3 kg de cocaína não pode ser processado criminalmente. A declaração é:"
+  },
+  {
+   "id": 14466,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O contrato de locação de imóvel residencial firmado entre a Sra. Almeida e o Sr. Costa, em 15 de janeiro de 2023, previa a entrega de uma pintura decorativa em troca de pagamento mensal. Em 10 de março de 2023, a Sra. Almeida devolveu a pintura ao Sr. Costa, alegando que o item não correspondia ao q"
+  },
+  {
+   "id": 14467,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No processo de inventário da família Souza, o juiz determinou que a partilha de bens deveria ser realizada em 30 dias após a publicação da decisão. O Ministério Público, entretanto, solicitou a extensão do prazo em virtude de alegação de que a herança incluía documentos que ainda não haviam sido loc"
+  },
+  {
+   "id": 14468,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 12 de junho de 2024, o Tribunal Regional Federal de 1ª Região, em sede de recurso de revista, decidiu que a aplicação do princípio da razoabilidade no cálculo de indenização por danos morais em contratos de prestação de serviços bancários deve observar a proporcionalidade entre o valor da causa e"
+  },
+  {
+   "id": 14470,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O condomínio residencial Parque Verde, situado em São Paulo, tem em seu regulamento interno a cláusula que determina a proibição de uso de animais de estimação nas áreas comuns. Em 2 de agosto de 2024, o síndico notificou o condômino João, proprietário de um cão de raça terrier, alegando que o anima"
+  },
+  {
+   "id": 14748,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Ministério da Saúde publicou um regulamento que estabelece que apenas profissionais com certificação internacional podem atuar em clínicas de telemedicina. O regulamento prevê, em seu art. 4º, que a certificação deve ser reconhecida por órgão internacional de padrão, sem exigir com"
+  },
+  {
+   "id": 15259,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Considerando o texto abaixo:\n\n\"Durante a última sessão de audiências públicas sobre o novo Plano de Educação, o diretor da Secretaria de Educação, ao responder a um questionamento de um vereador, utilizou a expressão: 'É imprescindível que todos os estudantes tenham acesso a materiais didáticos atua"
+  },
+  {
+   "id": 15368,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a cidade de São Vicente promulgou uma lei municipal que institui um regime de tributação diferenciada para empresas de tecnologia, com alíquotas menores que as aplicadas a demais setores. A lei foi motivada pela necessidade de atrair investimentos e fomentar a inovação local. Em 2025"
+  },
+  {
+   "id": 15533,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, o Tribunal de Justiça do Estado de São Paulo decidiu, em sede de ação direta de inconstitucionalidade, que a lei estadual que proibia a prática de atos de solidariedade entre empresas e organizações sem fins lucrativos violava o princípio da dignidade da pessoa humana e o direito à l"
+  },
+  {
+   "id": 15884,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A lei municipal de 2024 institui um regime de licitação simplificada para contratos de prestação de serviços de limpeza urbana de até R$ 50.000,00, exigindo apenas a publicação de edital e a abertura de propostas em local público. O edital prevê que a proposta mais vantajosa será aquela que apresent"
+  },
+  {
+   "id": 15886,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Administração Pública, ao delegar a uma empresa privada a execução de obras de infraestrutura de transporte, pode exigir do contratado a assinatura de cláusula de confidencialidade sobre dados de tráfego e segurança viária, desde que a cláusula não restrinja a divulgação de informações de interess"
+  },
+  {
+   "id": 15887,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No âmbito de uma reforma tributária, o Poder Executivo federal propõe a criação de um imposto sobre serviços de tecnologia (ITEC) que será cobrado sobre a prestação de serviços de TI, independentemente do local de prestação. O princípio da legalidade exige que a instituição desse imposto seja preced"
+  },
+  {
+   "id": 15888,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 15 de março de 2025, o Tribunal de Contas da União (TCU) emitiu uma decisão que suspendeu a execução de um contrato de consultoria tecnológica firmado pela Secretaria de Educação do Estado X com a empresa Y. A decisão fundamentou-se em três pontos: (i) a ausência de licitação regular, (ii)"
+  },
+  {
+   "id": 15905,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2023, o Ministério da Economia divulgou que a nova regra de cálculo da aposentadoria por idade para trabalhadores rurais adotará a média aritmética simples de todas as contribuições feitas ao longo da vida, excluindo períodos de licença maternidade e paternidade. Segundo o documento, o val"
+  },
+  {
+   "id": 16004,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Secretaria de Educação de um município lançou uma campanha de incentivo ao uso de dispositivos digitais nas escolas públicas. O edital, elaborado pela própria secretaria, estabeleceu critérios de seleção que favoreciam empresas de tecnologia com sede na região, sem considerar a qua"
+  },
+  {
+   "id": 16119,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A licitação na modalidade de pregão eletrônico, realizada pela Prefeitura de São José, foi suspensa por motivo de interesse público, quando o edital previa a exigência de habilitação técnica mínima de 3 anos de experiência. Essa suspensão é:"
+  },
+  {
+   "id": 16121,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O texto abaixo descreve a situação de um servidor público que, após a conclusão de seu contrato de trabalho, foi surpreendido com a aplicação de multa disciplinar por ausência de justificativa para faltas. A multa foi fixada em 5% do salário mensal do servidor. Considerando os princípios da razoabil"
+  },
+  {
+   "id": 16122,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto de apoio: Em 2024, a Secretaria de Educação do Estado de Minas Gerais iniciou um processo de licitação para a aquisição de equipamentos de informática destinados a escolas públicas. O edital, divulgado no Diário Oficial, estabeleceu como critério de julgamento a menor preço, mas exigiu que os "
+  },
+  {
+   "id": 16196,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Prefeitura de Vila Nova adotou o Sistema Eletrônico de Licitações (Seli) para todas as contratações de bens e serviços. Em 2025, um fornecedor alegou que o edital de licitação para a obra de pavimentação apresentava cláusula que exigia a entrega de material em prazo inferior ao pre"
+  },
+  {
+   "id": 16420,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Texto: Em 2024, a Agência Nacional de Energia (ANE) divulgou um relatório que indica que a produção de energia a partir de fontes renováveis aumentou 12% no último ano, reduzindo a dependência de combustíveis fósseis. O relatório destaca que, apesar dos avanços, ainda existem desafios técnicos e eco"
+  },
+  {
+   "id": 16444,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "A Lei nº 14.133/2021 introduziu o procedimento de pregão eletrônico como modalidade padrão para aquisição de bens e serviços comuns. Em 2025, um município adotou o pregão eletrônico para a compra de equipamentos médicos, mas o edital exigiu que as empresas apresentassem comprovação de certificação I"
+  },
+  {
+   "id": 16445,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "O artigo 37, § 6º, da Constituição Federal estabelece que a administração pública direta, autárquica e fundacional obedecerá aos princípios da eficiência, da economicidade e da razoabilidade. Em 2023, o Ministério da Saúde promulgou um regulamento que permite a contratação de serviços de saúde por m"
+  },
+  {
+   "id": 16671,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No exercício de suas atribuições, o agente público da Secretaria de Planejamento Municipal, ao deliberar sobre a contratação de serviços de limpeza urbana, observa que a empresa concorrente, embora não tenha apresentado proposta em edital, possui certificação de qualidade reconhecida internacionalme"
+  },
+  {
+   "id": 16673,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Um órgão público, ao celebrar contrato de prestação de serviços de consultoria, estipula cláusula que prevê a exclusão de qualquer responsabilidade civil do contratado em caso de danos ao patrimônio público, desde que o contratado não tenha culpa. Tal cláusula é:"
+  },
+  {
+   "id": 16927,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "Em 2024, o Tribunal de Justiça do Estado X julgou recurso de um cidadão que alegava que a aplicação de um decreto estadual, que suspendeu temporariamente a cobrança de multas de trânsito em áreas de risco ambiental, violava o princípio da legalidade. O decreto, porém, foi editado com base em norma f"
+  },
+  {
+   "id": 16950,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "item de certo/errado que termina em dois-pontos, pedindo um complemento que não existe",
+   "texto": "No âmbito da administração pública, o princípio da eficiência impõe ao gestor a adoção de medidas que maximizem a produtividade dos recursos públicos, ainda que isso implique na revisão de contratos já firmados. Diante disso, a afirmação de que a aplicação do princípio da eficiência pode justificar "
+  },
+  {
+   "id": 8260,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o texto abaixo, que descreve um caso de uso de linguagem figurada em um discurso político:\n\n\"O presidente, ao discursar no plenário, alegou que a economia do país era um barco que, apesar de estar em mar aberto, ainda não havia navegado longe das águas de crise.\"\n\nQual das alternativas "
+  },
+  {
+   "id": 9599,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em um cenário recente de crise hídrica, o Departamento de Recursos Hídricos (DRH) recebeu uma denúncia de que um de seus servidores está desviando água de um poço de abastecimento municipal para uso pessoal em seu quintal. O servidor, que ocupa o cargo de técnico de monitoramento, tem acesso "
+  },
+  {
+   "id": 9767,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto de apoio: Em 2023, o Tribunal de Contas da União (TCU) emitiu um relatório sobre a gestão de contratos de concessão de serviços públicos de transporte. O relatório apontou que, em 15% dos contratos analisados, houve falha na verificação da capacidade financeira dos concessionários, resultando "
+  },
+  {
+   "id": 10052,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Em 2025, a Secretaria de Previdência divulgou um relatório que apontou um déficit de 12% na sustentabilidade do Regime Geral de Previdência Social, atribuindo a ele, em 80% das vezes, a insuficiência de contribuições de trabalhadores autônomos.\nConsiderando o texto acima, qual das seguintes afirmaçõ"
+  },
+  {
+   "id": 10553,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto de Apoio: Em 2024, o Tribunal de Justiça do Estado X decidiu, em um recurso de apelação, que a prisão preventiva pode ser mantida enquanto o réu estiver aguardando a audiência de instrução, mesmo que o crime investigado seja de menor potencial ofensivo. A decisão fundamentou-se no princípio da"
+  },
+  {
+   "id": 10613,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o seguinte texto: \"Em 2024, a Polícia Federal registrou um esquema de fraude fiscal envolvendo a falsificação de notas fiscais eletrônicas, onde os envolvidos utilizavam sistemas de inteligência artificial para gerar documentos que imitavam assinaturas digitais. A investigação revelou q"
+  },
+  {
+   "id": 10774,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Em 2024, o Instituto Nacional do Seguro Social (INSS) publicou um edital que altera a tabela de cálculo da aposentadoria por tempo de contribuição, reduzindo o coeficiente multiplicador em 0,05 para todos os segurados que iniciaram suas contribuições a partir de 2015. Considerando esse novo regulame"
+  },
+  {
+   "id": 11155,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Em 2024, o Tribunal de Contas da União (TCU) publicou um relatório que apontou a existência de irregularidades em contratos de fornecimento de material de escritório para a Secretaria de Educação do Estado de São Paulo. O relatório apontou que, em 12 dos 15 contratos analisados, o valor contratado e"
+  },
+  {
+   "id": 11707,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto de Apoio: Em 2024, a Agência Nacional de Telecomunicações (ANATEL) publicou um edital de licitação para a expansão de infraestrutura de fibra óptica em áreas rurais do interior do estado de São Paulo. O edital, em sua seção de requisitos técnicos, exige que os licitantes apresentem um relatóri"
+  },
+  {
+   "id": 11769,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2023, a Agência Nacional de Aviação Civil (ANAC) publicou uma diretriz para a implementação de sistemas de controle de tráfego aéreo baseados em inteligência artificial. O documento destaca que os algoritmos de decisão automática devem ser auditáveis e que os operadores humanos devem ter a"
+  },
+  {
+   "id": 11892,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, o Ministério da Educação publicou um comunicado informando que, diante da crise de financiamento, será permitido ao gestor de uma escola pública utilizar recursos de fundo de reserva para custear a compra de material didático, mesmo que o orçamento não preveja essa despesa. O gestor,"
+  },
+  {
+   "id": 11928,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Abertura de um texto jurídico com a frase \"Em atenção à sua solicitação, vimos por meio desta informar que…\" é considerada adequada, pois mantém a formalidade e a clareza exigidas pelo padrão Cebraspe.\n\nConsiderando o texto acima, qual das alternativas a seguir descreve corretamente a função sintáti"
+  },
+  {
+   "id": 12256,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, o Tribunal de Contas do Estado de São Paulo (TCE-SP) publicou um relatório que apontou irregularidades em contratos de fornecimento de material de escritório de empresas privadas, destacando a ausência de licitação e a contratação direta com fornecedores que mantinham relações famili"
+  },
+  {
+   "id": 12389,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Maria, engenheira civil, foi contratada para supervisionar a construção de uma ponte. Durante a obra, ela identificou que a estrutura apresentava falhas de projeto que poderiam levar a um colapso. Em vez de comunicar a empresa, Maria decidiu retirar as peças defeituosas e substituí-las por materiais"
+  },
+  {
+   "id": 12415,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o texto abaixo:\n\n\"Em 2025, a Secretaria de Infraestrutura Digital divulgou um relatório que apontou um aumento de 35% no uso de serviços de nuvem pública por órgãos federais. O relatório destacou que, apesar do crescimento, a maioria das entidades ainda não adotou práticas de DevOps, re"
+  },
+  {
+   "id": 12448,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto de Apoio: Em 2024, a Polícia Federal divulgou um relatório sobre o uso de inteligência artificial na investigação de crimes cibernéticos. O documento destaca que, apesar das vantagens na análise de grandes volumes de dados, a aplicação de algoritmos de aprendizado de máquina ainda enfrenta des"
+  },
+  {
+   "id": 13058,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o texto abaixo:\n\n\"Em 2024, o Tribunal de Contas do Estado de São Paulo (TCE-SP) aprovou a revisão de contratos de concessão de serviços de transporte coletivo urbano, apontando que a cláusula de exclusividade, prevista no edital original, violava o princípio da isonomia ao favorecer uni"
+  },
+  {
+   "id": 13269,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2025, a Secretaria de Educação do Estado de Minas Gerais aprovou um decreto que instituiu a modalidade de contratação direta para a aquisição de materiais didáticos, alegando que o prazo de licitação excederia o período de vigência do contrato. O decreto, no entanto, não especificou o valo"
+  },
+  {
+   "id": 13436,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, o Ministério da Economia publicou uma nota explicando que a nova reforma da Previdência, em vigor desde 2022, introduziu o conceito de \"contribuição proporcional\", no qual o valor da contribuição é calculado com base na média dos últimos 12 salários de contribuição, independentemente"
+  },
+  {
+   "id": 13521,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, a Secretaria de Educação de um estado brasileiro publicou um edital de licitação para a construção de uma nova escola. O edital estabeleceu, em seu item de requisitos técnicos, que a empresa contratada deve possuir certificação ISO 9001, além de comprovar experiência mínima de cinco "
+  },
+  {
+   "id": 13706,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, o Senado aprovou a proposta de reforma tributária que, entre outras medidas, institui um imposto sobre transações digitais. A proposta prevê que o valor arrecadado será integralmente destinado à redução de impostos sobre combustíveis. No entanto, o Tribunal de Contas da União questio"
+  },
+  {
+   "id": 14098,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Em 2024, a Associação Brasileira de Línguas Aplicadas publicou um relatório que afirma que o uso de palavras de origem africana em textos acadêmicos está em ascensão. Considerando o texto acima, qual das seguintes afirmações é correta?\n\nA) A inclusão de neologismos africanos no vocabulário acadêmico"
+  },
+  {
+   "id": 14166,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2023, o Tribunal de Contas da União (TCU) publicou o relatório de auditoria nº 45/2023, que apontou irregularidades em contratos administrativos firmados pelo Ministério da Educação. Entre as falhas identificadas, destacam-se: (i) ausência de licitação em contratos de até R$ 50.000,00; (ii"
+  },
+  {
+   "id": 14893,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2025, a Secretaria de Educação publicou um comunicado informando que, a partir de janeiro de 2026, todos os concursos públicos estaduais adotariam a avaliação de competências linguísticas em língua portuguesa. A proposta visa aprimorar a qualidade da comunicação escrita dos futuros servido"
+  },
+  {
+   "id": 15696,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, o Ministério da Saúde divulgou um relatório de auditoria interna que apontou irregularidades na contratação de materiais de vacinação. A auditoria revelou que o responsável pela licitação havia recebido, em 2023, um presente de alto valor de um fornecedor de equipamentos médicos, sem"
+  },
+  {
+   "id": 15782,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto\nEm 2025, a Assembleia Legislativa do Estado de Minas Gerais aprovou uma lei que estabelece que o uso de veículos elétricos em vias públicas será obrigatório para todas as empresas de transporte coletivo a partir de 2027. A lei prevê que os veículos deverão ser equipados com sistemas de monitor"
+  },
+  {
+   "id": 15986,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: \n\nEm 2025, a Secretaria de Educação do Estado X publicou uma série de diretrizes para a inclusão de estudantes com deficiência nas escolas públicas. Entre as recomendações, destaca-se a necessidade de adaptar os materiais didáticos ao formato digital, garantindo acessibilidade em braile, áudi"
+  },
+  {
+   "id": 16347,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o texto abaixo:\n\n\"Em 2024, a Secretaria de Tecnologia da Informação publicou um memorando que estabelece diretrizes para a migração de sistemas legados para a nuvem pública. O memorando determina que, antes da migração, todas as aplicações devem ser avaliadas quanto à compatibilidade co"
+  },
+  {
+   "id": 16577,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Considerando o texto abaixo:\n\n\"Em 2024, o Ministério da Educação lançou o Programa Nacional de Capacitação em Tecnologias Digitais (PNCTD), que prevê a formação de 5.000 profissionais de TI para atender às demandas de modernização dos processos administrativos públicos. O programa contempla cursos p"
+  },
+  {
+   "id": 16812,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "certo/errado com alternativas de múltipla escolha coladas no enunciado",
+   "texto": "Texto: Em 2024, a Prefeitura de São Paulo implementou um programa de regularização fundiária em áreas de moradia popular. O programa prevê a concessão de títulos de propriedade a famílias que ocupam terrenos de maneira informal, desde que comprovem a posse mansa e pacífica por pelo menos 5 anos. Em "
+  },
+  {
+   "id": 8284,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Considere o seguinte enunciado: \"Um algoritmo que ordena uma lista de N elementos em ordem crescente, utilizando o método de ordenação por inserção, possui complexidade média de O(N^2) e complexidade no pior caso de O(N^2).\" A afirmação é:"
+  },
+  {
+   "id": 8804,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 15 de março de 2024, a Prefeitura de Vila Verde publicou o edital de licitação para a contratação de serviços de manutenção preventiva de equipamentos de informática. O edital previa a exigência de comprovação de experiência mínima de três anos em serviços similares e a apresentação de ate"
+  },
+  {
+   "id": 9219,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto de apoio: Em 2025, o Tribunal de Justiça do Estado Y decidiu que o exercício de atividades de vigilância privada, realizada por empresa de segurança, poderia ser considerado atividade econômica, desde que houvesse autorização prévia do Poder Executivo. A decisão se baseou na interpretação de q"
+  },
+  {
+   "id": 9326,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Tribunal Regional Federal da 4ª Região decidiu que a responsabilidade civil do Estado por danos causados por atos de seus servidores ocorre quando há culpa objetiva, independentemente de dolo ou culpa direta. A decisão enfatizou que o Estado, ao delegar serviços terceirizados, mant"
+  },
+  {
+   "id": 9422,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2025, a Secretaria de Tecnologia da Informação divulgou que a implementação de um sistema de gerenciamento de identidade baseado em blockchain reduzirá em 40% os incidentes de phishing em órgãos públicos federais. O sistema utiliza contratos inteligentes para validar credenciais de acesso "
+  },
+  {
+   "id": 10270,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Ministério Público divulgou um relatório sobre a crescente incidência de crimes cibernéticos envolvendo a falsificação de documentos digitais. O documento destaca que, em 2023, 12.345 casos de falsificação de documentos eletrônicos foram registrados, sendo que 78% desses casos envo"
+  },
+  {
+   "id": 10418,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Ministério da Educação divulgou um relatório interno sobre a adoção de Inteligência Artificial (IA) para análise de desempenho estudantil. O documento indica que, em escolas públicas de médio porte, a implementação de chatbots de IA para responder dúvidas dos alunos aumentou em 35%"
+  },
+  {
+   "id": 10671,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "A Secretaria de Educação de um município desenvolveu um aplicativo móvel para acompanhamento de desempenho escolar. O aplicativo, em sua versão beta, permite que os pais consultem as notas dos alunos, enviem mensagens aos professores e solicitem reuniões virtuais. No entanto, o aplicativo não implem"
+  },
+  {
+   "id": 11448,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Conselho Nacional de Trânsito (CONTRAN) publicou uma resolução que altera o procedimento de emissão de carteira de habilitação para motoristas de veículos de transporte coletivo urbano. A nova norma estabelece que, além do exame teórico tradicional, será obrigatório um teste prátic"
+  },
+  {
+   "id": 12078,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2023, a Previdência Social publicou uma portaria que altera a regra de cálculo do valor da aposentadoria por tempo de contribuição, estabelecendo que a média aritmética simples das contribuições será ponderada pela idade do segurado no momento da aposentadoria, de forma a reduzir o benefíc"
+  },
+  {
+   "id": 12173,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: O Ministério da Educação divulgou em 12 de março de 2024 um relatório sobre a eficácia de metodologias ativas no ensino médio. O estudo, conduzido por 30 professores de escolas públicas de São Paulo, analisou 1.200 alunos em 12 turmas distintas. Os dados foram coletados ao longo de um semestr"
+  },
+  {
+   "id": 12560,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "A empresa estatal que opera um serviço público de transporte coletivo em uma grande metrópole, em razão de sua natureza jurídica, está sujeita à aplicação do regime de licitação previsto no art. 37, § 6º, da Constituição Federal, mesmo que o valor do contrato seja inferior a R$ 50.000,00. Consideran"
+  },
+  {
+   "id": 12695,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Tribunal de Contas do Estado de São Paulo (TCE/SP) publicou um relatório que apontou irregularidades em 15 processos de licitações de obras públicas. Entre as falhas identificadas, destaca-se a ausência de prévia avaliação de impacto ambiental em 6 processos, a falta de registro de"
+  },
+  {
+   "id": 12997,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Considerando que, em um sistema de classificação de documentos, a sequência de códigos segue a regra: se o código for múltiplo de 3, ele é precedido por \"TRI\"; se for múltiplo de 5, precedido por \"QUIN\"; se for múltiplo de ambos, precedido por \"TRIQUIN\". Qual das seguintes afirmações sobre a sequênc"
+  },
+  {
+   "id": 13093,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, o Ministério Público divulgou relatório sobre o aumento de casos de crimes cibernéticos envolvendo fraude em transações eletrônicas. O documento destaca que a legislação atual não prevê expressamente a tipificação de ‘phishing’ como crime, mas reconhece a fraude como ilícito civil e "
+  },
+  {
+   "id": 13449,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, a Prefeitura Municipal de São João adotou um regulamento que estabelece a obrigatoriedade de licenciamento ambiental para qualquer obra de construção civil, independentemente de seu porte, com a finalidade de reduzir impactos ambientais. O regulamento prevê que, caso o responsável pe"
+  },
+  {
+   "id": 14025,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, a Secretaria Nacional de Trânsito divulgou relatório que indica aumento de 12% no número de acidentes envolvendo veículos autônomos nas rodovias federais. O estudo destaca que 68% dos incidentes ocorreram em faixas de pedestres onde os sensores de detecção de pedestres apresentaram f"
+  },
+  {
+   "id": 14669,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Em 2023, o Supremo Tribunal Federal (STF) julgou, em sessão plenária, a constitucionalidade de uma lei estadual que proibia a prática de cultos religiosos em escolas públicas. O relator, ao analisar a matéria, destacou que a lei violava o princípio da liberdade religiosa, mas também apontou que a de"
+  },
+  {
+   "id": 14946,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Em 2025, a Secretaria de Educação do Estado X implementou um sistema de gestão acadêmica baseado em microserviços. A equipe responsável pelo projeto realizou testes de carga que demonstraram que, ao atingir 10.000 usuários simultâneos, a latência média do serviço de matrícula ultrapassou 5 segundos,"
+  },
+  {
+   "id": 15395,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Em 2024, o Tribunal de Contas da União registrou que a lei de responsabilidade fiscal, em sua redação atual, não prevê a possibilidade de revisão unilateral do valor de créditos tributários que já foram reconhecidos como débitos em processos de execução fiscal, sob a alegação de erro de cálculo. Con"
+  },
+  {
+   "id": 15396,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "A Lei Orgânica da União, em seu artigo 5º, dispõe que a administração pública direta, autárquica e fundacional deve obedecer aos princípios da eficiência, da moralidade e da publicidade. Em 2025, a Procuradoria-Geral da República ajuizou ação direta de inconstitucionalidade contra a norma que estabe"
+  },
+  {
+   "id": 15740,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 12 de março de 2025, a Polícia Federal recebeu denúncia de que um engenheiro civil, atuante em obras de infraestrutura, teria utilizado materiais de baixa qualidade em projetos de estradas, resultando em acidentes fatais. O engenheiro, ao ser interrogado, alegou que não tinha conhecimento "
+  },
+  {
+   "id": 15757,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Considere o seguinte cenário: Uma empresa de logística possui um centro de distribuição localizado em São Paulo. A cada hora, o centro recebe uma carga de mercadorias que deve ser despachada para diferentes cidades do país. Para otimizar o custo de transporte, a empresa decide usar um algoritmo de r"
+  },
+  {
+   "id": 15768,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2024, a Secretaria de Infraestrutura Digital divulgou um relatório sobre o aumento de ataques de ransomware em setores críticos. O documento destaca que, entre 2019 e 2023, houve um crescimento de 45% no número de incidentes que resultaram em perda de dados. O relatório também aponta que a"
+  },
+  {
+   "id": 15775,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Considerando o texto a seguir: \"Na última edição do concurso de redação da Fundação Carlos Chagas, a banca avaliou que a presença de metáforas literais, mesmo quando bem construídas, pode comprometer a clareza do argumento, pois o objetivo do exercício é demonstrar domínio da norma padrão e não a cr"
+  },
+  {
+   "id": 16176,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Em 2025, o Tribunal de Justiça do Estado X julgou que a instalação de um sistema de reconhecimento facial em delegacias de polícia, sem a devida autorização do Poder Legislativo, violava o princípio da legalidade e o direito à privacidade. O sistema, instalado em 12 unidades policiais, coletava dado"
+  },
+  {
+   "id": 16247,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2025, a Polícia Federal recebeu denúncia de que um cidadão teria participado de esquema de lavagem de dinheiro envolvendo empresas de fachada. Durante a investigação, a equipe policial interceptou mensagens de texto entre os suspeitos, nas quais se discutiam os procedimentos para transferi"
+  },
+  {
+   "id": 16337,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Considerando o texto abaixo: \n\n\"Em 2025, a Secretaria de Educação do Estado X implementou um sistema de avaliação que utiliza três critérios: desempenho acadêmico, participação em atividades extracurriculares e engajamento em projetos sociais. Cada critério recebe uma nota de 0 a 10, e a nota final "
+  },
+  {
+   "id": 16366,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: \"No último relatório anual da empresa, o diretor de marketing afirmou que a estratégia de redes sociais, lançada em 2023, gerou um aumento de 35% no engajamento dos consumidores. A equipe de conteúdo, que trabalha em colaboração com a área de vendas, destacou que o uso de vídeos curtos se tor"
+  },
+  {
+   "id": 16473,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Texto: Em 2025, a Previdência Social introduziu a modalidade de benefício de “aposentadoria por atividade rural”, que permite a concessão de aposentadoria aos trabalhadores rurais com idade mínima de 60 anos e tempo de contribuição de 20 anos, independentemente da categoria profissional. A lei estab"
+  },
+  {
+   "id": 16663,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "O agente público, ao delegar a execução de um contrato administrativo a uma empresa privada, deve observar que a delegação não implica a transferência de responsabilidade objetiva do Estado, mas apenas a transferência de risco operacional. Considerando essa premissa, a afirmação a seguir é:"
+  },
+  {
+   "id": 16664,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Em 2024, o Poder Executivo federal instituiu um programa de licitações eletrônicas para aquisição de equipamentos de informática, adotando a modalidade de pregão eletrônico. O edital do pregão prevê que a fase de lances seja conduzida em sessão pública, com registro prévio dos interessados em sistem"
+  },
+  {
+   "id": 16665,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "Um servidor público, ao receber uma denúncia de irregularidade em licitação, tem o dever de denunciar a irregularidade ao órgão competente. Se a denúncia não for apreciada dentro de 30 dias, o servidor pode ajuizar ação direta de inconstitucionalidade contra o ato de omissão. A afirmação a seguir é:"
+  },
+  {
+   "id": 16666,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "O princípio da motivação, previsto no artigo 37, § 2º, da Constituição Federal, exige que todas as decisões administrativas sejam fundamentadas. No entanto, o princípio da motivação não se aplica a decisões de natureza meramente administrativa, como a aplicação de advertência disciplinar. A afirmaçã"
+  },
+  {
+   "id": 16771,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "No âmbito da licitação pública, o princípio da vinculação ao instrumento convocatório pode ser interpretado de forma a impedir a alteração unilateral de cláusulas contratuais por parte da administração, salvo nos casos previstos em lei. A afirmação a seguir é verdadeira?"
+  },
+  {
+   "id": 16775,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "termina anunciando um conteúdo \"a seguir\" que não vem",
+   "texto": "A administração pública pode, em regra, delegar a um servidor de carreira a função de fiscalizar a execução de obra pública, desde que o servidor possua formação técnica específica para o cargo de fiscalização. A afirmação a seguir é verdadeira?"
+  },
+  {
+   "id": 9183,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta com duas opções em item de certo/errado (certo não diz qual delas)",
+   "texto": "No município de Vila Verde, o prefeito decretou a contratação de um serviço de limpeza urbana por meio de um contrato administrativo, sem a realização de licitação, alegando urgência para a limpeza de ruas afetadas por enchentes. O contratado foi o único interessado no serviço, mas o edital de licit"
+  },
+  {
+   "id": 9185,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta com duas opções em item de certo/errado (certo não diz qual delas)",
+   "texto": "O Tribunal de Contas do Estado de Rio Azul, em 5 de maio de 2024, determinou a anulação de um contrato de prestação de serviços de consultoria jurídica firmado em 12 de janeiro de 2024, alegando que a empresa contratada não possuía habilitação técnica exigida pelo edital. O contrato foi firmado com "
+  },
+  {
+   "id": 9187,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta com duas opções em item de certo/errado (certo não diz qual delas)",
+   "texto": "Texto: Em 10 de janeiro de 2024, o município de São Pedro promulgou a Lei nº 1.234, que instituiu a obrigatoriedade de que todos os contratos administrativos de serviços de limpeza urbana sejam celebrados por meio de licitação de menor preço. A lei previa que, em caso de emergência, a licitação pode"
+  },
+  {
+   "id": 16902,
+   "tipo": "CE",
+   "categoria": "Informática",
+   "motivo": "pergunta com duas opções em item de certo/errado (certo não diz qual delas)",
+   "texto": "Um servidor responsável pelo controle de acesso de um sistema de gestão de recursos humanos utiliza um algoritmo de hash SHA-256 para armazenar senhas. O algoritmo SHA-256 produz um hash de 256 bits, que é convertido em uma representação hexadecimal de 64 caracteres. Se o servidor decide armazenar a"
+  },
+  {
+   "id": 9526,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, o Tribunal de Contas da União (TCU) publicou um relatório que aponta a adoção crescente de contratos de parceria público‑privada (PPPs) em projetos de infraestrutura de transporte. O documento destaca que, apesar dos benefícios de eficiência e redução de custos, a complexidade jurídi"
+  },
+  {
+   "id": 9658,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Na sequência de uma série de números pares consecutivos, a soma dos três primeiros é 12. Se a soma dos três últimos for 30, qual é a soma total dos seis números?"
+  },
+  {
+   "id": 10354,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, o Ministério da Educação publicou a Portaria nº 1.234, que alterou o regulamento do concurso para a carreira de professor do ensino médio. A nova norma prevê que o candidato deve apresentar, além da prova escrita, um portfólio de atividades pedagógicas, contendo ao menos três projeto"
+  },
+  {
+   "id": 10377,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um algoritmo de ordenação divide recursivamente um vetor de inteiros em duas metades, ordena cada metade e, em seguida, mescla as duas sequências já ordenadas. Se o vetor original contém 1.024 elementos, qual é o número máximo de comparações necessárias para ordenar todo o vetor usando esse algoritm"
+  },
+  {
+   "id": 10676,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Na sequência de uma série de números inteiros, observa‑se que a diferença entre cada par de termos consecutivos é sempre igual a 3. Se o primeiro termo for 7, qual será o sétimo termo da sequência?"
+  },
+  {
+   "id": 10679,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em um processo de classificação de imagens, cada imagem é representada por um vetor de 256 características binárias. Dois algoritmos de classificação são avaliados: Algoritmo A, que compara cada vetor com 10 vetores de referência, e Algoritmo B, que compara cada vetor com 20 vetores de referência. S"
+  },
+  {
+   "id": 10754,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "A Prefeitura Municipal de Vila Verde, em 2024, instituiu uma política de contratação direta de serviços de limpeza urbana, alegando que a demanda era de caráter emergencial e que não havia concorrência viável. O gestor responsável, porém, não publicou edital nem justificou a ausência de licitação, a"
+  },
+  {
+   "id": 10811,
+   "tipo": "CE",
+   "categoria": "Direito Processual Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Considerando a seguinte situação: João, 32 anos, foi preso em flagrante por tráfico de drogas após a apreensão de 150 gramas de cocaína. Durante a prisão, a autoridade policial registrou a confissão de João, que admitiu ter vendido a substância para terceiros. No entanto, a polícia não realizou a co"
+  },
+  {
+   "id": 10901,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em 2025, o Tribunal Regional Federal da 4ª Região julgou uma ação de habeas corpus em que o réu, preso em flagrante por tráfico de drogas, alegava que a prisão violava seu direito à liberdade pessoal, previsto no artigo 5º, inciso LXI, da Constituição. O juiz, ao analisar a situação, considerou que "
+  },
+  {
+   "id": 10903,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "A Constituição Federal de 1988 prevê, em seu artigo 5º, inciso XXXV, que a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito. Em 2022, um cidadão ingressou com ação direta de inconstitucionalidade contra a Lei nº 14.000/2021, que instituiu um regime de tributação diferenci"
+  },
+  {
+   "id": 10956,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "No exercício de suas atribuições, o agente público da Secretaria Municipal de Obras aprovou, sem a devida licitação, a contratação de um fornecedor para a entrega de materiais de construção, alegando urgência na execução de obra de infraestrutura. O contrato foi firmado com cláusula de exclusão de c"
+  },
+  {
+   "id": 10960,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Durante a realização de uma auditoria interna, o auditor descobriu que o gestor de uma repartição havia mantido em arquivo pessoal um documento que comprova a existência de um contrato administrativo firmado com empresa concorrente. O documento não havia sido incluído no arquivo oficial nem no siste"
+  },
+  {
+   "id": 11874,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um engenheiro civil, ao projetar um edifício de uso misto, descobre que a estrutura do piso superior excede os limites de carga permitidos pela norma vigente. Ele decide, em seguida, alterar o projeto, reduzindo a área do piso, mas não comunica a construtora nem os órgãos competentes. Em 2026, o edi"
+  },
+  {
+   "id": 12164,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, a Prefeitura de São José do Rio Preto aprovou o Plano de Ética e Integridade (PEI), que prevê a criação de um Comitê de Ética, a obrigatoriedade de treinamento anual em conduta ética para todos os servidores e a implementação de um canal anônimo de denúncias. O PEI também estabelece "
+  },
+  {
+   "id": 12363,
+   "tipo": "CE",
+   "categoria": "Legislação de Trânsito",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em 2024, a Secretaria Nacional de Trânsito divulgou dados que indicam um aumento de 12% no número de acidentes envolvendo motociclistas em vias urbanas, principalmente nas regiões metropolitanas. A reportagem destaca que, apesar da adoção de campanhas de conscientização, o número de ocorrências de i"
+  },
+  {
+   "id": 12406,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um algoritmo de ordenação divide a lista em duas metades, ordena recursivamente cada metade e depois as combina. Se o algoritmo for executado em uma lista de tamanho 8, quantas comparações mínimas são necessárias para ordenar a lista?"
+  },
+  {
+   "id": 12408,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, a empresa XYZ lançou um sistema de gestão de projetos que integra três módulos: Planejamento, Execução e Controle. Cada módulo depende do módulo anterior: o módulo de Execução só pode ser iniciado após a conclusão do Planejamento, e o módulo de Controle só pode ser ativado após a con"
+  },
+  {
+   "id": 12542,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, o Poder Executivo federal promulgou a Medida Provisória nº 123, que institui a obrigatoriedade de que todas as empresas de energia elétrica adotem sistemas de monitoramento de consumo em tempo real, sob pena de multa de até 5% do faturamento anual. A MP foi suspensa pelo STF em 2025,"
+  },
+  {
+   "id": 12808,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2025, o Tribunal Regional Federal de Minas Gerais analisou um caso de corrupção ativa envolvendo um servidor público. O acusado, que havia sido condenado em segunda instância por receber propina, alegou que a denúncia era motivada por vingança política. O tribunal, ao apreciar a apelação, "
+  },
+  {
+   "id": 12998,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em um algoritmo de ordenação, a complexidade de tempo é dada por T(n) = 3n log n + 5n + 200. Se n = 1000, qual é o valor aproximado de T(n) em ordem de grandeza?"
+  },
+  {
+   "id": 13068,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2025, o município de Vila Verde aprovou a Lei Municipal nº 1.234, que institui o Programa de Incentivo ao Empreendedorismo Local (PIEL). O programa prevê a concessão de benefícios fiscais a microempreendedores que, durante o ano de 2026, realizarem contratos com a administração municipal, "
+  },
+  {
+   "id": 13169,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um prefeito, em sessão pública, anuncia a criação de um programa de assistência social para famílias de baixa renda, mas, na prática, direciona os recursos para projetos que beneficiam exclusivamente a sua família política. Essa conduta caracteriza, segundo a ética no serviço público, o que?"
+  },
+  {
+   "id": 13251,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Considerando que o Poder Executivo federal decretou a suspensão temporária de determinados direitos de privacidade digital em razão de uma suposta ameaça à segurança nacional, o que se pode afirmar acerca da constitucionalidade dessa medida?"
+  },
+  {
+   "id": 13713,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em 2024, o Tribunal Superior Eleitoral (TSE) deliberou que a divulgação de dados pessoais de candidatos em campanha, sem consentimento, viola o princípio da proteção da privacidade. Diante disso, o Ministério Público ajuizou ação constitucional para impedir a publicação. O juiz de primeira instância"
+  },
+  {
+   "id": 13716,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em 2025, o Conselho Nacional de Justiça (CNJ) aprovou a criação de um regime de controle de processos judiciais em que as decisões de primeira instância podem ser revistas apenas por meio de recurso especial, excluindo a possibilidade de recurso ordinário. O objetivo é reduzir o número de processos "
+  },
+  {
+   "id": 13717,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "O Poder Executivo promulgou em 2024 uma lei que estabelece a obrigatoriedade de que todas as empresas de tecnologia de grande porte divulguem anualmente relatórios de transparência sobre o uso de algoritmos de recomendação, incluindo dados de usuários e critérios de filtragem. A lei prevê sanções ad"
+  },
+  {
+   "id": 14236,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Durante a auditoria interna de 2023, o auditor constatou que o gestor de um órgão municipal havia autorizado a dispensa de licitação para a aquisição de equipamentos de informática, alegando urgência, porém o prazo de urgência excedeu 48 horas, período máximo previsto no art. 3º, § 1º, da Lei nº 14."
+  },
+  {
+   "id": 14659,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em uma sequência de números inteiros, a cada termo é acrescentado o dobro do termo anterior, iniciando com 3. Se o termo 7 dessa sequência for 3.000, qual é o valor do termo 5?"
+  },
+  {
+   "id": 15109,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2024, o Tribunal de Contas da União (TCU) publicou um relatório sobre a execução orçamentária de projetos de infraestrutura em municípios de médio porte. O relatório apontou que, em 70% dos casos analisados, houve atraso na entrega de obras por falta de licitação prévia, resultando em pena"
+  },
+  {
+   "id": 15159,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "O contrato de locação residencial firmado entre a Sra. Almeida e o Sr. Santos, em 15 de março de 2022, previa a entrega de um imóvel com piscina. Em 10 de abril de 2022, o locatário alegou que a piscina estava inutilizada e solicitou a redução proporcional do aluguel. O locador, porém, manteve o val"
+  },
+  {
+   "id": 15160,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Considerando que o Código Civil estabelece a responsabilidade civil objetiva do construtor em relação a defeitos estruturais, a empresa construtora XYZ foi citada por um morador da torre residencial que sofreu queda de um piso. O morador alegou que o piso estava mal instalado e que a queda lhe causo"
+  },
+  {
+   "id": 15759,
+   "tipo": "CE",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em um laboratório de química, um experimento de titulação envolve a adição de solução B à solução A até que a reação alcance o ponto de equivalência. Se a solução B tem concentração 0,2 M e é adicionada a 5 mL de solução A, e o ponto de equivalência ocorre quando 3 mL de solução B foram consumidos, "
+  },
+  {
+   "id": 15849,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "No contexto da reforma administrativa, o Poder Executivo propôs a criação de um órgão de controle interno com competência para fiscalizar atos de servidores públicos. A proposta prevê que o órgão terá autonomia funcional e orçamentária. A Constituição Federal, no artigo 37, prevê a necessidade de co"
+  },
+  {
+   "id": 15910,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "No contexto de um concurso de nível médio, o agente público, ao perceber que um colega está praticando atos de corrupção, decide denunciar a situação à autoridade competente, mas antes disso, grava a conversa em que o colega admite a prática ilícita. Essa ação configura, em tese, o que no Direito Pe"
+  },
+  {
+   "id": 15911,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um funcionário de uma empresa estatal, ao receber um pagamento em espécie de um fornecedor, afirma que o ato não configura crime, pois o valor é pequeno e não há intenção de lesar o patrimônio público. O que a legislação penal prevê sobre a conduta desse funcionário?"
+  },
+  {
+   "id": 15913,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Um policial, ao impedir uma invasão de residência, utiliza força excessiva, resultando em lesão grave ao invasor. O policial foi acusado de lesão corporal. Qual é a hipótese de aplicação da excludente de ilicitude no caso apresentado?"
+  },
+  {
+   "id": 16253,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Considerando o seguinte cenário: João, proprietário de um terreno rural, vendeu a Maria um lote para construção de uma casa, com a cláusula de que o pagamento seria parcelado em 12 prestações mensais. Após o décimo segundo pagamento, Maria entregou a chave da casa, mas o contrato não previa a entreg"
+  },
+  {
+   "id": 16446,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "O art. 37, § 6º, da Constituição Federal prevê a possibilidade de dispensa de licitação quando houver inexigibilidade de competição. Em 2024, um órgão público contratou diretamente um fornecedor especializado em tecnologia de realidade aumentada para desenvolver um aplicativo de educação digital, al"
+  },
+  {
+   "id": 16447,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "O Poder Judiciário, em 2022, reconheceu que a responsabilidade civil do Estado por atos de seus servidores ocorre quando há culpa ou dolo na ação ou omissão. Em 2025, um servidor público foi acusado de negligência ao não prestar assistência adequada a um paciente em situação de emergência, resultand"
+  },
+  {
+   "id": 16489,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "A empresa B2B Ltda. celebra contrato de prestação de serviços de consultoria com a empresa C3C, estipulando que a remuneração será paga em 12 parcelas mensais de R$ 10.000,00 cada. Após o décimo primeiro pagamento, a B2B Ltda. se recusa a pagar a parcela final, alegando que a C3C não cumpriu a cláus"
+  },
+  {
+   "id": 16712,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "O contrato de compra e venda de um imóvel residencial firmado entre João e Maria, em 2022, incluía cláusula que previa a entrega de documentação fiscal apenas após o pagamento integral do preço; caso contrário, a entrega seria suspensa. Em 2024, João não efetuou o pagamento e solicitou a entrega da "
+  },
+  {
+   "id": 16714,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Em 2023, Ana adquiriu um terreno rural de 5 hectares, pagando R$200.000,00. No ato da compra, o vendedor garantiu que o terreno estava livre de ônus e que a matrícula estava em dia. Em 2025, Ana descobre que há uma hipoteca registrada em nome de terceiro. Qual é a posição jurídica de Ana?"
+  },
+  {
+   "id": 16716,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 2022, a construtora Alfa firmou com o comprador Beta um contrato de construção de um apartamento, com prazo de entrega de 24 meses. O contrato previa multa de 2% ao mês sobre o valor do contrato em caso de atraso na entrega. Em 2023, a construtora alegou que atrasos foram causados por forç"
+  },
+  {
+   "id": 16794,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Texto: Em 15 de março de 2024, a Polícia Federal registrou um caso de extorsão em que o acusado, via aplicativo de mensagens, ameaçou divulgar fotos íntimas de uma celebridade caso a vítima não pagasse uma quantia de R$ 50.000,00. O acusado, então, enviou o vídeo da ameaça e, posteriormente, entrego"
+  },
+  {
+   "id": 16928,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "No âmbito de um processo de licitação pública, o administrador de um órgão federal decidiu, sem justificativa, suspender a fase de habilitação de todos os concorrentes após a divulgação do edital, alegando que a legislação vigente não contemplava a possibilidade de tal suspensão. O ato foi impugnado"
+  },
+  {
+   "id": 17106,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "pergunta aberta em item de certo/errado (não se responde com certo ou errado)",
+   "texto": "Considerando o texto abaixo, que descreve um cenário de comunicação corporativa em que a empresa adotou uma política de inclusão de linguagem neutra, analise as afirmações a seguir: \n\n\"A corporação, ao lançar sua nova campanha de responsabilidade social, optou por substituir termos genéricos que pod"
+  },
+  {
+   "id": 12611,
+   "tipo": "ME",
+   "categoria": "Direito Constitucional",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "O Tribunal Regional Federal da 2ª Região, em 2023, julgou que a aplicação de um subsídio público a empresas de energia renovável, condicionada à adoção de tecnologias de captura de carbono, não violaria o princípio da isonomia, pois se trata de política de incentivo à inovação. O recurso interposto "
+  },
+  {
+   "id": 12984,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um edital de concurso público para a função de analista de dados da Receita Federal apresenta o seguinte trecho: \"O candidato deverá demonstrar proficiência em interpretação textual, incluindo a identificação de ambiguidade e a aplicação de regras de concordância verbal em contextos complexos.\" Qual"
+  },
+  {
+   "id": 12985,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Considerando o seguinte texto: \"A frase 'O juiz, que estava presente, decidiu pela absolvição' contém uma oração subordinada adjetiva explicativa. A oração que exerce a função de explicar o substantivo 'juiz' é a oração que apresenta um verbo no passado e que está introduzida por uma conjunção subor"
+  },
+  {
+   "id": 14090,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Considerando que um edital de concurso público para o cargo de Analista de Dados exige a aplicação de técnicas de análise textual para a seleção de candidatos, a banca Cebraspe propõe ao candidato a seguinte frase: \"O estudante, ao analisar os resultados, percebeu que a correlação entre as variáveis"
+  },
+  {
+   "id": 14887,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A Cebraspe costuma cobrar questões sobre a norma culta da língua portuguesa. Em relação ao uso de pronomes de tratamento no português brasileiro, qual das seguintes opções está em conformidade com a norma culta?"
+  },
+  {
+   "id": 14939,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "No âmbito de uma prova de concurso para professor de Língua Portuguesa, o candidato deve analisar o seguinte trecho: \"O silêncio do lago refletia a lua, que parecia um espelho quebrado, espalhando fragmentos de luz sobre a água.\" Qual é a figura de linguagem predominante no trecho apresentado?"
+  },
+  {
+   "id": 15212,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Em um concurso para o cargo de analista de comunicação institucional, o candidato deve interpretar o seguinte trecho de uma mensagem institucional: ‘O órgão, em consonância com a política de sustentabilidade, adotará medidas que visam reduzir o consumo de papel em 30 % nos próximos dois anos’. Consi"
+  },
+  {
+   "id": 15214,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A seguir, leia o trecho abaixo: ‘No contexto da globalização, a linguagem corporativa tem se tornado um elemento estratégico para a construção de identidade e reputação institucional. A adoção de termos técnicos e jargões específicos pode, em alguns casos, reforçar a autoridade do emissor, mas també"
+  },
+  {
+   "id": 15215,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Texto: Em 2024, a Secretaria de Educação publicou um edital para a contratação de docentes para a rede municipal. No documento, destaca-se a exigência de que o candidato possua, além da formação inicial, “um certificado de proficiência em língua inglesa, reconhecido por órgão competente, com nível m"
+  },
+  {
+   "id": 15254,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A partir da análise de textos jornalísticos, percebe-se que o uso de pronomes de tratamento pode variar de acordo com o contexto e a formalidade do discurso. Em um artigo de opinião publicado em 2024, o autor utiliza a expressão \"vossa senhoria\" em referência a um prefeito municipal. Considerando os"
+  },
+  {
+   "id": 15255,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Considerando a norma culta da língua portuguesa e as regras de concordância verbal, analise a frase: \"Os dados coletados pelos pesquisadores indicam que a maioria dos participantes apresentou respostas consistentes com o objetivo do estudo.\" Qual alternativa apresenta a correção gramatical mais adeq"
+  },
+  {
+   "id": 15581,
+   "tipo": "ME",
+   "categoria": "Direito Administrativo",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "O prefeito de uma cidade de médio porte decide, por meio de ato administrativo, a contratação de uma empresa especializada em limpeza urbana para um prazo de 12 meses, mediante pagamento mensal de R$ 30.000,00. A empresa, após a assinatura do contrato, alegou que o valor contratado era inferior ao q"
+  },
+  {
+   "id": 15734,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Em 2025, o Tribunal de Justiça do Estado de São Paulo publicou uma súmula que esclarece a aplicação da regra de concordância verbal em orações subordinadas adverbiais de tempo, quando a oração principal está no futuro do presente. Segundo a súmula, a concordância deve ser feita com o verbo da oração"
+  },
+  {
+   "id": 16305,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A frase: \"O Ministério Público, após a deliberação, decidiu que a denúncia deveria ser arquivada, pois não havia provas suficientes\" apresenta um erro de concordância verbal. Qual é a correção adequada?"
+  },
+  {
+   "id": 16368,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um professor de língua portuguesa, ao elaborar uma prova objetiva, decide incluir uma questão sobre o uso de pronomes de tratamento em textos formais. Ele apresenta a frase: \"O senhor devedor deverá apresentar os documentos em até cinco dias.\" Qual é a alternativa que indica a forma mais adequada de"
+  },
+  {
+   "id": 16369,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Considerando a norma culta do português brasileiro, analise a seguinte frase: \"Ele, que estava cansado, decidiu não ir à reunião e pediu ao colega para assumir a apresentação.\" Qual alternativa apresenta a correção gramatical mais adequada?"
+  },
+  {
+   "id": 16466,
+   "tipo": "ME",
+   "categoria": "Direito Penal",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "O Ministério Público, ao investigar um caso de tráfico de drogas em área rural, percebeu que o réu, João, era um agricultor que cultivava maconha para uso próprio, mas que, em 2019, havia vendido uma quantidade considerável para um cliente desconhecido. Em 2022, João foi denunciado por tráfico de dr"
+  },
+  {
+   "id": 16467,
+   "tipo": "ME",
+   "categoria": "Direito Penal",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A Lei nº 13.964/2019, conhecida como PEC da Desoneração da Justiça Criminal, introduziu alterações no regime de cumprimento de pena. Um réu condenado à pena privativa de liberdade de 4 anos por homicídio culposo, sem antecedentes criminais, tem a pena cumprida em regime aberto, com possibilidade de "
+  },
+  {
+   "id": 16468,
+   "tipo": "ME",
+   "categoria": "Direito Penal",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A Lei nº 13.964/2019 alterou o Código Penal, introduzindo a figura de “crime de improbidade administrativa” com pena de 6 a 12 anos de reclusão e multa de 1.000 a 5.000 salários mínimos. Um agente público, ao receber propina para aprovar licitação, foi condenado à pena de 8 anos de reclusão. Conside"
+  },
+  {
+   "id": 16591,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Ao analisar a concordância verbal em frases compostas, observa‑se que a oração principal está no singular e a oração subordinada no plural. Em qual das opções a construção sintática está correta?"
+  },
+  {
+   "id": 16614,
+   "tipo": "ME",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um conjunto de 12 cartões numerados de 1 a 12 é distribuído aleatoriamente entre quatro equipes, de forma que cada equipe recebe três cartões. Se a probabilidade de que a equipe A receba exatamente os números 3, 7 e 11 é igual a x, então x pode ser expresso como a fração a/b, onde a e b são números "
+  },
+  {
+   "id": 16862,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "A norma culta da língua portuguesa prevê que, em textos formais, a utilização de pronomes de tratamento no singular pode ser considerada inadequada. Diante disso, qual das alternativas apresenta a forma correta de tratamento para um público composto por mais de uma pessoa, no contexto de um comunica"
+  },
+  {
+   "id": 16896,
+   "tipo": "ME",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um algoritmo de ordenação recebe como entrada o vetor V = [8, 3, 5, 1, 9, 2]. O algoritmo executa a técnica de seleção de mínimo, trocando sempre o elemento mínimo encontrado com a primeira posição não ordenada. Após a primeira iteração, qual é a nova ordem dos elementos em V?"
+  },
+  {
+   "id": 17055,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "No âmbito da gramática normativa, o uso do verbo ‘haver’ como auxiliar na formação do futuro do subjuntivo pode gerar ambiguidade. Se a frase ‘Haverá que o candidato se apresentar’ for reescrita para evitar essa ambiguidade, qual seria a forma mais adequada?"
+  },
+  {
+   "id": 17083,
+   "tipo": "ME",
+   "categoria": "Raciocínio Lógico",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Na sequência 2, 4, 8, 16, 32, 64, qual é a relação lógica que determina o próximo termo?"
+  },
+  {
+   "id": 17100,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um texto jornalístico publicado em 2024 descreve que, em decorrência da pandemia, a redação de um jornal regional adotou o uso de linguagem inclusiva, substituindo termos genéricos por formas neutras. O artigo destaca que a prática visa evitar a reprodução de estereótipos de gênero e promover a equi"
+  },
+  {
+   "id": 17109,
+   "tipo": "ME",
+   "categoria": "Português",
+   "motivo": "alternativas com texto idêntico",
+   "texto": "Um professor de língua portuguesa, ao elaborar um exercício de interpretação textual para seus alunos, apresenta o seguinte trecho: ‘A cidade, embora em crise econômica, manteve a produção literária em níveis recordes.’ A frase possui um elemento que pode ser classificado como ambíguo, pois pode ser"
+  },
+  {
+   "id": 16160,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A Lei nº 13.415/2017, que institui o Estatuto da Igualdade Racial, prevê a reserva de cargos públicos para negros em concursos. A reserva, contudo, não pode ser aplicada em cargos de alta responsabilidade, onde a competência técnica é preponderante, sob pena de violar o princípio da meritocracia."
+  },
+  {
+   "id": 16161,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A Constituição Federal estabelece, em seu art. 5º, inciso XXXVII, que a lei não pode excluir do juízo de qualquer pessoa a possibilidade de recorrer, ainda que o recurso seja considerado improcedente. Esse dispositivo visa assegurar o controle jurisdicional sobre atos administrativos."
+  },
+  {
+   "id": 16170,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Em um município que enfrenta déficit orçamentário, a criação de uma empresa pública para a prestação de serviços públicos pode ser considerada constitucional, desde que observados os princípios da separação de funções e da responsabilidade patrimonial."
+  },
+  {
+   "id": 16255,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "O artigo 1.245 do Código Civil dispõe sobre a responsabilidade do proprietário por atos de seus dependentes. Se um empregado de um condomínio, ao realizar manutenção, derruba uma janela de vidro temperado, causando danos a um passageiro que atravessa a rua, quem pode ser responsabilizado civilmente?"
+  },
+  {
+   "id": 16397,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A Corte Suprema decidiu que, em razão da crise sanitária, a suspensão de eleições municipais pode ser decretada pelo Presidente da República, desde que haja autorização expressa em lei delegada pelo Congresso Nacional. A decisão está em consonância com a Constituição Federal, que atribui ao Poder Ex"
+  },
+  {
+   "id": 16399,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A criação de uma política pública que concede isenção de imposto de renda a todos os trabalhadores que exercem atividades de voluntariado em organizações não governamentais, independentemente de renda, configura violação do princípio da igualdade tributária, pois concede tratamento diferenciado a um"
+  },
+  {
+   "id": 16439,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2024, a Prefeitura Municipal de São Vicente promulgou a Lei nº 5.432/2024, que institui o Programa de Parcerias Público-Privadas (PPP) para a construção de uma nova ciclovia ao longo da Avenida Central. O programa prevê a contratação de empresa privada para a execução e manutenção da obra,"
+  },
+  {
+   "id": 16507,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Um gestor municipal, ao analisar o orçamento anual, decide aprovar a contratação de um fornecedor que não apresentou licitação, justificando que a urgência da obra não permite o procedimento formal."
+  },
+  {
+   "id": 16560,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 12 de março de 2025, um policial militar, ao atender um chamado de violência doméstica, percebeu que a vítima estava gravemente ferida. O policial, sem consultar a delegacia, procedeu à prisão do agressor no local e o levou à delegacia. Durante o transporte, o agressor tentou fugir e, ao s"
+  },
+  {
+   "id": 16568,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: O Ministério da Educação, em 2024, publicou a Diretriz nº 15/2024, que estabelece a obrigatoriedade de que todos os servidores docentes do ensino superior federal participem de um programa de formação ética e de cidadania, com carga horária mínima de 40 horas anuais. A diretriz visa reduzir c"
+  },
+  {
+   "id": 16594,
+   "tipo": "CE",
+   "categoria": "Português",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Considerando o texto acima, a oração subordinada adverbial causal que introduz a palavra 'porque' deve sempre ser precedida por vírgula, independentemente da sua posição na frase."
+  },
+  {
+   "id": 16646,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A Constituição Federal, ao prever a possibilidade de intervenção federal em estados com grave crise econômica, confere ao Congresso Nacional a prerrogativa de declarar a necessidade de intervenção mediante parecer do Poder Judiciário."
+  },
+  {
+   "id": 16647,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "O artigo 5º, inciso XXXV, da Constituição Federal, ao reconhecer a inafastabilidade da apreciação jurisdicional dos atos da administração pública, implica que qualquer cidadão pode ajuizar ação direta de inconstitucionalidade contra lei que trate de matéria privativa de competência federal."
+  },
+  {
+   "id": 16648,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Em 2023, o Tribunal Superior Eleitoral (TSE) publicou a decisão que, em razão da pandemia, autorizou a realização de votação por correspondência em todos os municípios do país, independentemente da existência de infraestrutura adequada para a entrega e recebimento de votos. Essa decisão, ao ampliar "
+  },
+  {
+   "id": 16698,
+   "tipo": "CE",
+   "categoria": "Direito Previdenciário",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2023, a Secretaria de Previdência divulgou um comunicado sobre a implementação de um novo sistema de cálculo de benefícios, que adota a média aritmética simples dos salários de contribuição, excluindo os salários mais baixos que compõem os 20% inferiores ao total de contribuições. A partir"
+  },
+  {
+   "id": 16719,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A Constituição Federal, ao estabelecer que a União, os Estados, o Distrito Federal e os Municípios devem observar o princípio da separação de poderes, admite que a criação de um órgão de controle interno de nível estadual possa, em situações excepcionais, exercer funções de fiscalização sobre a admi"
+  },
+  {
+   "id": 16774,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2023, o Poder Executivo estadual promulgou a Lei nº 5.678, que institui a modalidade de contratação direta para projetos de inovação tecnológica, desde que o valor estimado do contrato não ultrapasse R$ 500.000,00. A lei prevê que a contratação direta deve ser precedida de estudo técnico p"
+  },
+  {
+   "id": 16810,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "O Código Civil estabelece que a responsabilidade civil por dano causado por terceiros é objetiva quando a atividade é de risco. Um engenheiro civil, ao projetar uma ponte, omitiu dados essenciais, resultando em colapso parcial. O engenheiro não pode alegar culpa exclusiva do cliente, pois a responsa"
+  },
+  {
+   "id": 16811,
+   "tipo": "CE",
+   "categoria": "Direito Civil",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Um casal se divorcia e decide que a pensão alimentícia será paga apenas em 3 parcelas mensais, com valor de R$ 1.200,00 cada, sem possibilidade de revisão. O Código Civil prevê que a pensão deve ser revista em caso de mudança na situação econômica das partes. A falta de cláusula de revisão torna a p"
+  },
+  {
+   "id": 16840,
+   "tipo": "CE",
+   "categoria": "Direito Processual Civil",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2024, a Justiça Federal promulgou a Medida Provisória nº 1234/2024, que instituiu a possibilidade de execução de títulos extrajudiciais sem a necessidade de prévia citação, bastando a publicação do edital de execução. A medida prevê que o devedor terá apenas 30 dias para apresentar defesa,"
+  },
+  {
+   "id": 16874,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "A prática de um ato de violência doméstica, quando o agressor tem a intenção de causar dano físico à vítima, configura crime de lesão corporal, independentemente de o dano efetivamente ocorrer, pois a intenção já caracteriza o ilícito."
+  },
+  {
+   "id": 16876,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Um funcionário público, ao aceitar um presente de um fornecedor, pode ser responsabilizado por improbidade administrativa, pois a aceitação de vantagens pessoais em troca de serviços públicos configura ato ilícito, independentemente de haver ou não benefício direto ao agente."
+  },
+  {
+   "id": 16926,
+   "tipo": "CE",
+   "categoria": "Direito Constitucional",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2024, a Assembleia Legislativa do Estado de São Paulo aprovou a Lei de Incentivo à Cultura, que concede benefícios fiscais a empresas que investirem em projetos culturais de grande porte. A lei prevê, em seu artigo 12, que tais benefícios são condicionados à apresentação de relatório anual"
+  },
+  {
+   "id": 16958,
+   "tipo": "CE",
+   "categoria": "Direito Administrativo",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Considerando o texto abaixo: \n\n\"Em 2024, a Secretaria de Planejamento Urbano de São Paulo aprovou o Programa de Revitalização de Áreas Rurais (PRAR), que prevê a transferência de terrenos públicos para cooperativas agrícolas mediante contrato de concessão. O contrato estabelece que a cooperativa ter"
+  },
+  {
+   "id": 17023,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Durante a elaboração de um plano de licitação, o responsável pela comissão de licitação recorre a um fornecedor de sua preferência, justificando que o mesmo tem histórico de qualidade superior, sem consultar a concorrência."
+  },
+  {
+   "id": 17024,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "O prefeito de uma cidade decide, sem justificativa documental, aumentar em 15% o valor de um contrato de fornecimento de materiais de escritório, alegando que a inflação do setor justifica o reajuste."
+  },
+  {
+   "id": 17059,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Durante a investigação de um crime de tráfico de drogas, a polícia apreende uma estufa clandestina onde são cultivadas maconha e cannabis. A polícia, ao identificar o local, decide não registrar a ocorrência, pois acredita que a atividade não configura crime, apenas produção de planta para uso própr"
+  },
+  {
+   "id": 17060,
+   "tipo": "CE",
+   "categoria": "Direito Penal",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Um advogado, ao representar um cliente acusado de homicídio, sugere ao réu que ele não compareça ao julgamento para evitar condenação, alegando que a Justiça não seria justa. Tal conselho constitui crime de incitação ao crime, pois encoraja a prática de ato ilícito."
+  },
+  {
+   "id": 17072,
+   "tipo": "CE",
+   "categoria": "Ética no Serviço Público",
+   "motivo": "sem alternativa correta marcada",
+   "texto": "Texto: Em 2024, o Tribunal de Contas da União (TCU) registrou um aumento de 35% nos processos de improbidade administrativa envolvendo servidores que aceitaram benefícios de empresas contratadas pelo Poder Executivo. A maioria dos casos envolvia a concessão de contratos sem licitação, sob a alegação"
+  }
+ ],
+ "backup": "backups\\antes_triagem_pendentes_ia_20261116_151843.sqlite3",
+ "pendentes_de_ia_depois": 7284
+}
