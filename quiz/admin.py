@@ -109,8 +109,14 @@ class QuestaoAdmin(admin.ModelAdmin):
     # ── Actions ────────────────────────────────────────────────────────────
     @admin.action(description='✓ Aprovar (marcar como revisada)')
     def aprovar_revisao(self, request, queryset):
-        n = queryset.update(revisada=True, motivo_rejeicao='', rejeitada_definitiva=False)
-        self.message_user(request, f'{n} questão(ões) aprovada(s) e liberada(s) aos usuários.', messages.SUCCESS)
+        from .categorias_pendentes import filtro_a_classificar
+        na_espera = queryset.filter(**filtro_a_classificar()).count()
+        n = queryset.exclude(**filtro_a_classificar()).update(
+            revisada=True, motivo_rejeicao='', rejeitada_definitiva=False)
+        msg = f'{n} questão(ões) aprovada(s) e liberada(s) aos usuários.'
+        if na_espera:
+            msg += f' {na_espera} ficaram de fora por estarem em "A classificar".'
+        self.message_user(request, msg, messages.SUCCESS)
 
     @admin.action(description='🔍 Aprovar apenas se integridade OK (ME=1 correta / CE=2 alt)')
     def aprovar_se_valida(self, request, queryset):
@@ -123,7 +129,9 @@ class QuestaoAdmin(admin.ModelAdmin):
             .annotate(n_alt=Count('alternativa'))
             .filter(n_alt=2).values_list('id', flat=True))
         ids_ok = ids_me + ids_ce
-        n = queryset.filter(id__in=ids_ok).update(revisada=True)
+        from .categorias_pendentes import filtro_a_classificar
+        n = (queryset.filter(id__in=ids_ok)
+             .exclude(**filtro_a_classificar()).update(revisada=True))
         n_skip = queryset.count() - n
         self.message_user(
             request,

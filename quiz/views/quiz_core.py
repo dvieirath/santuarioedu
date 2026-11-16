@@ -6,6 +6,7 @@ from django.views.decorators.http import require_POST
 from django_ratelimit.decorators import ratelimit
 from django.utils import timezone
 from django.db.models import Count, Q
+from ..categorias_pendentes import NOME_A_CLASSIFICAR
 from datetime import timedelta
 
 from ..models import (
@@ -129,6 +130,12 @@ def escolher_tema(request):
         por_ia = sum(counts_map.get(cid, {}).get('por_ia', 0) for cid in ids_sub)
         respondidas = sum(resp_map.get(cid, 0) for cid in ids_sub)
         n_filhos = len(filhos_map.get(cat.id, []))
+
+        # A espera "A classificar" só guarda questão pendente: não é
+        # disciplina e não aparece para o aluno. Staff vê.
+        if (cat.parent_id is None and cat.nome == NOME_A_CLASSIFICAR
+                and not request.user.is_staff):
+            continue
 
         dados_categorias.append({
             'id': cat.id,

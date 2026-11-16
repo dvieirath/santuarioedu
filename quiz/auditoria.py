@@ -40,6 +40,7 @@ FLAGS_GRAVES = {
     'sem_justificativa',
     'letras_flutuantes',
     'watermark_residual',
+    'categoria_a_classificar',
 }
 
 # Detecta 3+ letras isoladas em sequência: "d o m" ou "P R F" — típico erro de
@@ -82,6 +83,7 @@ LABEL_FLAG = {
     'sem_justificativa':                            'Sem justificativa (ou < 50 chars)',
     'letras_flutuantes':                            'Letras isoladas em sequência (PDF quebrado)',
     'watermark_residual':                           'Watermark de PCI/Q-concursos no texto',
+    'categoria_a_classificar':                      'Sem disciplina definida (categoria "A classificar")',
 }
 
 
@@ -239,6 +241,10 @@ def detectar_flags(q, alts=None):
     justif = (q.justificativa or '').strip()
     if len(justif) < 50:
         flags.append('sem_justificativa')
+
+    from .categorias_pendentes import eh_a_classificar
+    if eh_a_classificar(q):
+        flags.append('categoria_a_classificar')
 
     return flags
 

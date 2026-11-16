@@ -71,8 +71,11 @@ class Command(BaseCommand):
         if LIMITE:
             qs = qs[:LIMITE]
 
+        from quiz.categorias_pendentes import eh_a_classificar
+
         aprovadas_ids = []
         rejeitadas_por_regra = {
+            'a_classificar':        [],
             'sem_alt_correta':      [],
             'multiplas_corretas':   [],
             'texto_curto':          [],
@@ -95,6 +98,11 @@ class Command(BaseCommand):
         for q in qs:
             alts = list(q.alternativa_set.all())
             n_corretas = sum(1 for a in alts if a.correta)
+
+            # Regra 0: questão ainda sem disciplina definida não é liberada
+            if eh_a_classificar(q):
+                rejeitadas_por_regra['a_classificar'].append(q.id)
+                continue
 
             # Regra 1: alternativa correta única
             if n_corretas == 0:
@@ -187,6 +195,7 @@ class Command(BaseCommand):
                     if len(ids) > 5:
                         exemplos += f' +{len(ids) - 5}'
                     label = {
+                        'a_classificar':      'Sem disciplina definida (categoria "A classificar")',
                         'sem_alt_correta':    'Nenhuma alternativa marcada correta',
                         'multiplas_corretas': 'Mais de 1 alternativa correta',
                         'texto_curto':        f'Enunciado < {MIN_TEXTO} chars',

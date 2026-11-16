@@ -43,6 +43,7 @@ from django.db import transaction
 from pypdf import PdfReader
 
 from quiz.models import Questao, Alternativa, Categoria
+from quiz.categorias_pendentes import categoria_a_classificar
 from quiz.ai_provider import gerar_json, gerar_conteudo, AIError
 
 
@@ -372,7 +373,10 @@ PATH:"""
             # Sanitiza: remove aspas, quebras de linha, "PATH:" residual
             path = path.replace('PATH:', '').replace('"', '').replace("'", '').strip()
             path = path.split('\n')[0].strip()
-            if '>' not in path or len(path) < 5:
+            # Resposta de um nível só ("Areas Especificas") é válida. A regra
+            # antiga exigia ">" e descartava justamente as disciplinas fora
+            # da lista, que então caíam na categoria padrão.
+            if len(path) < 3 or len(path) > 200:
                 return None
             return path
         except (AIError, Exception) as e:
@@ -382,25 +386,36 @@ PATH:"""
             return None
 
     def _resolver_categoria_path(self, path, cache):
-        """Resolve path 'A > B > C' criando categorias intermediarias."""
+        """Resolve 'A > B > C' para uma categoria que JÁ EXISTE. Não cria nada.
+
+        Desce na árvore enquanto os níveis existirem e devolve o mais profundo
+        encontrado. Se nem o primeiro nível existir, devolve None e a questão
+        vai para "A classificar". Compara sem acento e sem diferença de
+        maiúsculas.
+
+        Antes, qualquer texto devolvido pela IA virava categoria nova; foi
+        assim que surgiram nomes como "Direito Ambiental não está disponível,
+        então a resposta mais próxima seria:".
+        """
         if path in cache:
             return cache[path]
 
-        partes = [p.strip() for p in path.split('>')]
-        parent = None
-        for nome in partes:
+        from quiz.preparacao import _norm_ascii
+        atual = None
+        for nome in (p.strip() for p in path.split('>')):
             if not nome:
                 continue
-            cat = Categoria.objects.filter(
-                nome__iexact=nome, parent=parent,
-            ).first()
-            if not cat:
-                cat, _ = Categoria.objects.get_or_create(
-                    nome=nome, parent=parent,
-                )
-            parent = cat
-        cache[path] = parent
-        return parent
+            alvo = _norm_ascii(nome)
+            achada = next(
+                (c for c in Categoria.objects.filter(parent=atual)
+                 if _norm_ascii(c.nome) == alvo),
+                None,
+            )
+            if achada is None:
+                break
+            atual = achada
+        cache[path] = atual
+        return atual
 
     # ── Salva no banco ───────────────────────────────────────────────────
     def _salvar_questoes(self, lista, categoria, banca, ano, opts):
@@ -413,6 +428,7 @@ PATH:"""
         dup_prefixo = 0
         curtas = 0
         classificadas = 0
+        sem_classificacao = 0
         cache_cats = {}
 
         auto_cat = opts.get('auto_categoria')
@@ -471,15 +487,19 @@ PATH:"""
                 cat_final = categoria
                 if auto_cat:
                     path = self._classificar_questao_ia(texto_q)
-                    if path:
-                        cat_final = self._resolver_categoria_path(path, cache_cats)
+                    cat_final = (
+                        self._resolver_categoria_path(path, cache_cats) if path else None
+                    )
+                    if cat_final is not None:
                         classificadas += 1
-                        self.stdout.write(f'    ↳ {path}')
+                        self.stdout.write(f'    ↳ {cat_final.caminho}')
                     else:
-                        # Fallback: cria/usa "Direito > Direito Constitucional"
-                        cat_final = self._resolver_categoria_path(
-                            'Direito > Direito Constitucional', cache_cats,
-                        )
+                        # Sem classificação confiável: fica na espera, pendente,
+                        # até alguém definir a disciplina. Não há mais destino
+                        # padrão em Direito Constitucional.
+                        cat_final = categoria_a_classificar()
+                        sem_classificacao += 1
+                        self.stdout.write(self.style.WARNING('    ↳ A classificar'))
                     # Rate limit: delay pra nao estourar Gemini free (15 req/min)
                     _time.sleep(0.5)
 
@@ -521,7 +541,11 @@ PATH:"""
             detalhes.append(f'{curtas} texto muito curto')
         detalhe_str = ' — ' + '; '.join(detalhes) if detalhes else ''
 
-        cls_str = f' · {classificadas} classificadas por IA' if auto_cat else ''
+        cls_str = ''
+        if auto_cat:
+            cls_str = f' · {classificadas} classificadas por IA'
+            if sem_classificacao:
+                cls_str += f' · {sem_classificacao} em "A classificar"'
         self.stdout.write(self.style.SUCCESS(
             f'  ✓ {criadas} salvas · {ignoradas} ignoradas{detalhe_str}{cls_str}'
         ))

@@ -46,7 +46,13 @@ BANCAS_POR_CONCURSO = {
     'trf':    ['Cebraspe', 'FGV', 'CESGRANRIO'],
     'camara': ['FGV', 'Cebraspe'],
     'enem':   ['INEP'],
+    'bb':     ['Cesgranrio'],
+    'bb-ti':  ['Cesgranrio'],
 }
+
+# Concursos cuja prova é só de múltipla escolha: não geram certo/errado,
+# qualquer que seja o --pct_ce.
+CONCURSOS_SO_ME = {'bb', 'bb-ti'}
 
 
 class Command(BaseCommand):
@@ -105,7 +111,8 @@ class Command(BaseCommand):
                     gerar = opts['qtd']
                 if gerar <= 0:
                     continue
-                n_ce = int(gerar * opts['pct_ce'])
+                pct_ce = 0 if concurso in CONCURSOS_SO_ME else opts['pct_ce']
+                n_ce = int(gerar * pct_ce)
                 n_me = gerar - n_ce
                 plano.append({
                     'concurso': concurso,

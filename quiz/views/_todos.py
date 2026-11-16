@@ -6297,6 +6297,15 @@ def api_revisar_acao(request, questao_id):
                 'msg': 'Esta questão não tem justificativa. Gere uma com IA ou edite manualmente antes de aprovar.'
             }, status=400)
 
+        # ── Bloqueia aprovação de questão ainda sem disciplina ──
+        from ..categorias_pendentes import eh_a_classificar
+        if eh_a_classificar(q):
+            return JsonResponse({
+                'ok': False,
+                'erro': 'sem_categoria',
+                'msg': 'Esta questão ainda está em "A classificar". Defina a disciplina antes de aprovar.'
+            }, status=400)
+
         q.revisada = True
         q.motivo_rejeicao = ''
         q.rejeitada_definitiva = False
@@ -6533,7 +6542,9 @@ def api_revisao_bulk_approve(request):
     except (TypeError, ValueError):
         limite = 50
 
+    from ..categorias_pendentes import filtro_a_classificar
     qs = Questao.objects.filter(revisada=False, rejeitada_definitiva=False)
+    qs = qs.exclude(**filtro_a_classificar())  # sem disciplina definida não libera
     if apenas_ia:
         qs = qs.filter(gerada_por_ia=True)
     if apenas_com_justif:

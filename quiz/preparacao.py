@@ -145,6 +145,13 @@ CONCURSO_DISCIPLINAS = {
     ],
 }
 
+# Trilha Banco do Brasil: as disciplinas vêm do edital, em trilha_bb.py.
+# 'bb' = Agente Comercial, 'bb-ti' = Agente de Tecnologia.
+from .trilha_bb import disciplinas_do_cargo as _disciplinas_bb  # noqa: E402
+
+CONCURSO_DISCIPLINAS['bb'] = _disciplinas_bb('bb')
+CONCURSO_DISCIPLINAS['bb-ti'] = _disciplinas_bb('bb-ti')
+
 
 def _norm_ascii(s):
     """Normaliza pra ASCII lowercase (remove acentos). SQLite icontains nao faz."""
