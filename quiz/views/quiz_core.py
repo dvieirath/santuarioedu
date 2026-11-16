@@ -7,6 +7,7 @@ from django_ratelimit.decorators import ratelimit
 from django.utils import timezone
 from django.db.models import Count, Q
 from ..categorias_pendentes import NOME_A_CLASSIFICAR
+from ..categorias import categorias_com_conteudo
 from datetime import timedelta
 
 from ..models import (
@@ -537,7 +538,7 @@ def estudar_por_assunto(request):
         if stats_global['total_resp'] else 0
     )
 
-    categorias = Categoria.objects.order_by('nome')
+    categorias = categorias_com_conteudo()
 
     # Dropdowns de banca e ano — a partir do universo total revisado (nao
     # filtrado) pra manter opcoes visiveis mesmo quando filtro atual as
@@ -645,7 +646,7 @@ def caderno_erros(request):
     paginator = Paginator(questoes_com_erros, 20)
     page_obj  = paginator.get_page(request.GET.get('page', 1))
 
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = categorias_com_conteudo()
     return render(request, 'quiz/caderno_erros.html', {
         'page_obj': page_obj,
         'categorias': categorias,
@@ -669,7 +670,7 @@ def favoritas(request):
     from django.core.paginator import Paginator
     paginator = Paginator(qs, 20)
     page_obj  = paginator.get_page(request.GET.get('page', 1))
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = categorias_com_conteudo()
     return render(request, 'quiz/favoritas.html', {
         'page_obj': page_obj,
         'categorias': categorias,

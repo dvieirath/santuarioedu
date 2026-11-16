@@ -58,6 +58,7 @@ from ..models import (Questao, Alternativa, RespostaUsuario, MaterialEstudo,
                      Duelo, RespostaDuelo,
                      SimuladoColetivo, ParticipanteColetivo, RespostaColetivo,
                      LogSistema)  # PlanoUsuario, CupomDesconto removidos
+from ..categorias import categorias_com_conteudo
 from ..ai_service import gerar_justificativa_ia, ai_tutor_responder, ai_resumo_disciplina, ai_plano_estudos, ai_explicar_erro, ai_insight_banca, ai_analisar_simulado, ai_gerar_questoes, ai_prever_topicos
 try:
     from allauth.socialaccount.models import SocialAccount
@@ -1999,7 +2000,7 @@ def modo_desafio(request):
         ),
     }
 
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = categorias_com_conteudo()
 
     import json as _json
     return render(request, 'quiz/modo_desafio.html', {
@@ -2130,8 +2131,8 @@ def push_test(request):
 @login_required(login_url='account_login')
 def resumos_lista(request):
     """Lista de disciplinas com opção de gerar resumo por IA."""
-    categorias = Categoria.objects.all().order_by('nome')
     resumos_existentes = {r.categoria_id: r for r in ResumoIA.objects.all()}
+    categorias = categorias_com_conteudo(tambem=resumos_existentes)
     dados = []
     for cat in categorias:
         dados.append({
@@ -2187,8 +2188,8 @@ def resumo_disciplina(request, categoria_id):
 def mapas_lista(request):
     """Lista disciplinas com opção de gerar mapa mental."""
     from ..models import MapaMental
-    categorias = Categoria.objects.all().order_by('nome')
     mapas_existentes = {m.categoria_id: m for m in MapaMental.objects.all()}
+    categorias = categorias_com_conteudo(tambem=mapas_existentes)
     dados = []
     for cat in categorias:
         dados.append({
@@ -2362,7 +2363,7 @@ def estatisticas_incidencia(request):
     por_tipo = list(qs.values('tipo').annotate(total=Count('id')))
 
     return render(request, 'quiz/estatisticas_incidencia.html', {
-        'categorias':    Categoria.objects.all().order_by('nome'),
+        'categorias':    categorias_com_conteudo(),
         'bancas_disp':   [b['banca'] for b in Questao.objects.exclude(banca='').exclude(banca__isnull=True)
                           .values('banca').annotate(n=Count('id')).order_by('-n')[:15]],
         'cat_atual':     int(cat_id) if cat_id.isdigit() else None,
@@ -2427,8 +2428,8 @@ def timeline_lei_detalhe(request, slug):
 def comparativo_lista(request):
     """Lista disciplinas que tem comparativo ou permite gerar."""
     from ..models import ComparativoBanca
-    categorias = Categoria.objects.all().order_by('nome')
     tem_comp = set(ComparativoBanca.objects.values_list('categoria_id', flat=True).distinct())
+    categorias = categorias_com_conteudo(tambem=tem_comp)
     dados = [{
         'id': c.id, 'nome': c.nome,
         'tem_comparativo': c.id in tem_comp,
@@ -2500,7 +2501,9 @@ def glossario_lista(request):
 
     return render(request, 'quiz/glossario_lista.html', {
         'termos':     qs[:200],
-        'categorias': Categoria.objects.all().order_by('nome'),
+        'categorias': categorias_com_conteudo(
+            tambem=TermoGlossario.categorias.through.objects
+            .values_list('categoria_id', flat=True).distinct()),
         'q':          q_str,
         'cat_atual':  int(cat_id) if cat_id.isdigit() else None,
         'total':      qs.count(),
@@ -4821,7 +4824,7 @@ def duelo_home(request):
             'resultado':   resultado,
         })
 
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = categorias_com_conteudo()
 
     return render(request, 'quiz/duelo_home.html', {
         'duelos_ativos': duelos_ativos,
@@ -5195,7 +5198,7 @@ def coletivo_home(request):
         models.Q(criador=user) | models.Q(participantes__usuario=user)
     ).distinct().select_related('criador', 'categoria').order_by('-criado_em')[:15]
 
-    categorias = Categoria.objects.all().order_by('nome')
+    categorias = categorias_com_conteudo()
 
     return render(request, 'quiz/coletivo_home.html', {
         'salas_abertas': salas_abertas,

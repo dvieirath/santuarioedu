@@ -16,7 +16,10 @@ from ._todos import *  # noqa: F401,F403
 @login_required(login_url='account_login')
 def flashcards(request):
     """Lista e cria flashcards do usuário. GET=listar, POST=criar."""
-    categorias = Categoria.objects.all().order_by('nome')
+    from ..categorias import categorias_com_conteudo
+    # Categorias com conteúdo, mais as que o aluno já usa nos próprios cartões.
+    categorias = categorias_com_conteudo(tambem=Flashcard.objects.filter(
+        usuario=request.user).values_list('categoria_id', flat=True).distinct())
     cat_id = request.GET.get('categoria', '')
 
     if request.method == 'POST':
