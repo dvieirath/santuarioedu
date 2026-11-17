@@ -18,7 +18,12 @@ Uso:
     python manage.py gerar_justificativas_ia --dry_run
 
 Comportamento:
-- Pula questões sem alternativa correta marcada (não dá pra gerar sem gabarito)
+- Processa por padrão só questões LIBERADAS (revisada=True, não rejeitadas),
+  ou seja, as que o aluno vê. Use --incluir_pendentes para o pipeline de import.
+- Pula questões com defeito estrutural (sem gabarito único, texto cortado,
+  referência a imagem/texto ausente). Use --incluir_inelegiveis para forçar.
+- Ordem priorizada: demo pública → questões já respondidas → restantes.
+  Use --por_id para processar em ordem de id.
 - Salva `assunto` também se estiver vazio
 - Delay entre chamadas evita rate-limit
 """
@@ -29,6 +34,7 @@ from django.db.models import Q
 from quiz.models import Questao, Categoria
 from quiz.ai_provider import gerar_json, AIError
 from quiz.prompts_justificativa import montar_prompt
+from quiz.justificativas_fila import selecionar, sem_justificativa
 
 
 class Command(BaseCommand):
@@ -43,8 +49,14 @@ class Command(BaseCommand):
                             help='Só questões com gerada_por_ia=True')
         parser.add_argument('--somente_pendentes', action='store_true',
                             help='Só questões ainda não revisadas')
+        parser.add_argument('--incluir_pendentes', action='store_true',
+                            help='Incluir também as ainda não revisadas')
         parser.add_argument('--somente_aprovadas', action='store_true',
-                            help='Só questões já aprovadas (revisada=True)')
+                            help='Só questões já aprovadas (padrão, mantido por compatibilidade)')
+        parser.add_argument('--incluir_inelegiveis', action='store_true',
+                            help='Gerar mesmo em questões com defeito estrutural')
+        parser.add_argument('--por_id', action='store_true',
+                            help='Processar em ordem de id (sem priorização)')
         parser.add_argument('--regenerar', action='store_true',
                             help='REGENERAR justificativas existentes (útil pra migrar de formato)')
         parser.add_argument('--formato_antigo', action='store_true',
@@ -55,18 +67,21 @@ class Command(BaseCommand):
                             help='Mostra quantas serão processadas sem gerar')
 
     def handle(self, *args, **opts):
-        # ── Query: por padrão pega SEM justificativa ──
+        # ── Query ──
         if opts['regenerar']:
-            # Regenerar → todas as questões que tenham gabarito, sem filtrar por justificativa vazia
             qs = Questao.objects.exclude(rejeitada_definitiva=True)
             if opts['formato_antigo']:
                 # Só regerar as que NÃO têm o novo marcador visual (🔍)
                 qs = qs.exclude(justificativa__contains='🔍')
+            if opts['somente_ia']:
+                qs = qs.filter(gerada_por_ia=True)
+            qs = qs.select_related('categoria').prefetch_related('alternativa_set')
         else:
-            # Padrão: só as sem justificativa
-            qs = Questao.objects.filter(
-                Q(justificativa__isnull=True) | Q(justificativa='')
-            ).exclude(rejeitada_definitiva=True)
+            qs = sem_justificativa(
+                incluir_pendentes=opts['incluir_pendentes'],
+                somente_pendentes=opts['somente_pendentes'],
+                somente_ia=opts['somente_ia'],
+            )
 
         if opts['categoria']:
             try:
@@ -75,32 +90,41 @@ class Command(BaseCommand):
             except Categoria.DoesNotExist:
                 raise CommandError(f'Categoria "{opts["categoria"]}" não encontrada')
 
-        if opts['somente_ia']:
-            qs = qs.filter(gerada_por_ia=True)
-        if opts['somente_pendentes']:
-            qs = qs.filter(revisada=False)
-        if opts['somente_aprovadas']:
-            qs = qs.filter(revisada=True)
-
         total_encontrado = qs.count()
-        qs = qs.select_related('categoria').prefetch_related('alternativa_set')[:opts['limit']]
+        itens = selecionar(
+            qs,
+            limite=opts['limit'],
+            priorizar=not opts['por_id'],
+            incluir_inelegiveis=opts['incluir_inelegiveis'],
+        )
 
         self.stdout.write(self.style.HTTP_INFO(
-            f'\nEncontradas {total_encontrado} questões sem justificativa. '
-            f'Processando {min(opts["limit"], total_encontrado)}…\n'
+            f'\nEncontradas {total_encontrado} questões na fila. '
+            f'Processando {len(itens)}…\n'
         ))
 
+        if not itens:
+            self.stdout.write(self.style.WARNING(
+                '\nNada a processar. Rode `python manage.py fila_justificativas` '
+                'para ver o que está barrado por defeito estrutural.'
+            ))
+            return
+
         if opts['dry_run']:
-            for q in qs:
-                self.stdout.write(f'  · Q#{q.id} [{q.categoria.nome}] {q.texto[:80]}…')
+            for item in itens:
+                q = item['questao']
+                marca = 'DEMO' if item['demo'] else f'{item["respostas"]} resp.'
+                self.stdout.write(f'  · Q#{q.id} [{marca}] [{q.categoria.nome}] '
+                                  f'{(q.texto or "")[:70]}…')
             self.stdout.write(self.style.WARNING('\n--dry_run ativo. Nada gerado.'))
             return
 
         # ── Processa ──
         criadas, puladas, falhas = 0, 0, 0
-        for idx, q in enumerate(qs, 1):
+        for idx, item in enumerate(itens, 1):
+            q = item['questao']
             self.stdout.write(
-                f'  [{idx}/{len(qs)}] Q#{q.id} [{q.categoria.nome[:20]}]… ',
+                f'  [{idx}/{len(itens)}] Q#{q.id} [{q.categoria.nome[:20]}]… ',
                 ending=''
             )
             self.stdout.flush()
@@ -145,7 +169,7 @@ class Command(BaseCommand):
             ))
             criadas += 1
 
-            if opts['delay'] and idx < len(qs):
+            if opts['delay'] and idx < len(itens):
                 time.sleep(opts['delay'])
 
         # ── Resumo ──
@@ -165,9 +189,10 @@ class Command(BaseCommand):
             ).count()
             self.stdout.write(f'\n📋 Restam {ainda} questões no formato antigo.')
         else:
-            ainda = Questao.objects.filter(
-                Q(justificativa__isnull=True) | Q(justificativa='')
-            ).exclude(rejeitada_definitiva=True).count()
+            ainda = sem_justificativa(
+                incluir_pendentes=opts['incluir_pendentes'],
+                somente_pendentes=opts['somente_pendentes'],
+            ).count()
             self.stdout.write(f'\n📋 Restam {ainda} questões sem justificativa.')
 
         if ainda > 0:

@@ -104,10 +104,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'quiz.apps.QuizConfig',
-    'django_browser_reload',
     'axes',  # proteção contra brute-force no login
     'csp',   # Content Security Policy
 ]
+
+# Auto-reload do navegador só faz sentido em desenvolvimento.
+# Em produção ele injetava script e endpoint /__reload__/ em todas as páginas.
+if DEBUG:
+    INSTALLED_APPS.append('django_browser_reload')
 
 SITE_ID = 1
 
@@ -127,7 +131,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'csp.middleware.CSPMiddleware',                         # Content Security Policy
     'prf_master.middleware.SecurityHeadersMiddleware',      # Permissions-Policy + COEP/COOP/CORP
     'prf_master.middleware.RatelimitMiddleware',            # Converte Ratelimited (403) → 429
@@ -135,6 +138,12 @@ MIDDLEWARE = [
     'quiz.middleware_referral.CapturaReferralMiddleware',   # ?ref= -> session pra signal
     'axes.middleware.AxesMiddleware',  # deve ser o ÚLTIMO
 ]
+
+if DEBUG:
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index('django.middleware.common.CommonMiddleware') + 1,
+        'django_browser_reload.middleware.BrowserReloadMiddleware',
+    )
 
 ROOT_URLCONF = 'prf_master.urls'
 
@@ -227,9 +236,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -360,13 +369,10 @@ AI_TIMEOUT_SECONDS = config('AI_TIMEOUT_SECONDS', default=30, cast=int)
 # Threshold de latência (ms) para disparar alerta "IA lenta". Dedup: 30min.
 AI_LATENCIA_ALERTA_MS = config('AI_LATENCIA_ALERTA_MS', default=15000, cast=int)
 
-# ── Analytics (opcional) ─────────────────────────────────────────────────────
-# Plausible: privacy-first, sem cookie, sem opt-in obrigatório (agregado)
-#   Cadastre em https://plausible.io e cole o domínio.
-# GA4: mais robusto, EXIGE opt-in do usuário (respeita cookie_consent)
-#   Cadastre em https://analytics.google.com e cole o Measurement ID.
-PLAUSIBLE_DOMAIN     = config('PLAUSIBLE_DOMAIN',   default='')  # ex: santuarioedu.com.br
-GA_MEASUREMENT_ID    = config('GA_MEASUREMENT_ID',  default='')  # ex: G-XXXXXXXXXX
+# ── GA4 (opcional) ───────────────────────────────────────────────────────────
+# Plausible já é configurado acima. GA4 é mais completo, mas exige opt-in do
+# usuário (respeita o cookie_consent).
+GA_MEASUREMENT_ID = (config('GA_MEASUREMENT_ID', default='') or '').strip()  # ex: G-XXXXXXXXXX
 
 # ── App URL (usada em templates, links Open Graph, sitemap) ─────────────────
 SITE_URL = config('SITE_URL', default='http://127.0.0.1:8000')

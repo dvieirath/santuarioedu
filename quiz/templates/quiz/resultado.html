@@ -171,7 +171,8 @@ tailwind.config = {
       <!-- Enunciado -->
       <div>
         <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Questão</p>
-        <p id="texto-questao" class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-line">{{ escolha.questao.texto }}</p>
+        {% include "quiz/includes/texto_apoio.html" with questao=escolha.questao %}
+        <p id="texto-questao" class="font-serif text-lg text-on-surface leading-relaxed whitespace-pre-line">{{ escolha.questao.texto|enunciado }}</p>
         {% if escolha.questao.imagem %}
         <img src="{{ escolha.questao.imagem.url }}" alt="Imagem da questão" class="mt-3 max-w-full rounded-xl border border-[#e5e1d8]"/>
         {% endif %}
@@ -189,7 +190,7 @@ tailwind.config = {
         <p class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-1">Resposta correta</p>
         {% for alt in escolha.questao.alternativa_set.all %}
           {% if alt.correta %}
-          <p class="text-sm font-semibold text-on-surface leading-relaxed">{{ alt.texto }}</p>
+          <p class="text-sm font-semibold text-on-surface leading-relaxed">{{ alt.texto|enunciado }}</p>
           {% endif %}
         {% endfor %}
       </div>
@@ -200,19 +201,12 @@ tailwind.config = {
         <div class="flex items-center gap-2 mb-3">
           <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">lightbulb</span>
           <h3 class="font-serif text-lg font-semibold text-primary">Análise da questão</h3>
-          <span id="analise-status" class="text-xs text-primary/70 ml-auto"></span>
         </div>
         <div id="analise-conteudo" class="markdown-content text-sm text-on-surface">
           {% if escolha.questao.justificativa %}
             {{ escolha.questao.justificativa|markdown|safe }}
           {% else %}
             <p class="text-on-surface-variant text-sm">Esta questão ainda não tem uma explicação revisada disponível.</p>
-            <button id="gerar-justificativa-btn"
-                    onclick="gerarJustificativa({{ escolha.questao.id }})"
-                    class="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-white hover:bg-primary-container transition-colors">
-              <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
-              Gerar explicação da questão
-            </button>
           {% endif %}
         </div>
       </div>
@@ -463,40 +457,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 const CSRF = '{{ csrf_token }}';
 
-async function gerarJustificativa(questaoId) {
-  const btn = document.getElementById('gerar-justificativa-btn');
-  const status = document.getElementById('analise-status');
-  const conteudo = document.getElementById('analise-conteudo');
-  if (btn) {
-    btn.disabled = true;
-    btn.classList.add('opacity-60', 'cursor-wait');
-    btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:16px;">sync</span> Gerando explicação…';
-  }
-  status.textContent = 'A IA está preparando a explicação…';
-  try {
-    const resposta = await fetch(`/api/justificativa/${questaoId}/`, {
-      method: 'POST',
-      headers: { 'X-CSRFToken': CSRF },
-    });
-    const dados = await resposta.json();
-    if (!resposta.ok || !dados.justificativa) {
-      throw new Error(dados.erro || 'Não foi possível gerar a explicação.');
-    }
-    conteudo.innerHTML = dados.justificativa
-      .split('\n')
-      .map(linha => `<p>${linha.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</p>`)
-      .join('');
-    status.textContent = dados.gerado_agora ? 'Explicação gerada agora.' : 'Explicação disponível.';
-  } catch (erro) {
-    status.textContent = erro.message || 'Falha ao gerar a explicação.';
-    if (btn) {
-      btn.disabled = false;
-      btn.classList.remove('opacity-60', 'cursor-wait');
-      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px;">refresh</span> Tentar gerar novamente';
-    }
-  }
-}
-
 function toggleAnotacao() {
   document.getElementById('anotacao-body').classList.toggle('hidden');
   document.getElementById('anotacao-chevron').classList.toggle('rotate-180');
@@ -580,7 +540,7 @@ async function salvarEdicao() {
 {% with questao=escolha.questao %}
 {% include "quiz/includes/comentarios.html" %}
 {% endwith %}
-{% include "quiz/includes/tutor_ia.html" with questao=escolha.questao %}
+
 {% include "quiz/includes/tutor_ia_drawer.html" %}
 </body>
 </html>

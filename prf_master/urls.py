@@ -24,9 +24,12 @@ urlpatterns = [
     path('sw.js', quiz_views.pwa_sw, name='pwa_sw'),
     path('manifest.json', quiz_views.pwa_manifest, name='pwa_manifest'),
     path('offline/', quiz_views.pwa_offline, name='pwa_offline'),
-    path('__reload__/', include('django_browser_reload.urls')),
     path('', include('quiz.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    # django-browser-reload só é registrado em desenvolvimento.
+    urlpatterns += [path('__reload__/', include('django_browser_reload.urls'))]
 
 # Handlers globais de erro (Django acha por nome em ROOT_URLCONF)
 handler404 = 'prf_master.views.page_404'
