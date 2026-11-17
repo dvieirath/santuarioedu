@@ -1,5 +1,6 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+import logging
 import re
 
 import markdown as md
@@ -34,3 +35,20 @@ def enunciado(value):
     importadas marcam a palavra "em destaque".
     """
     return mark_safe(_RE_DESTAQUE.sub(r"<strong>\1</strong>", escape(value)))
+
+
+@register.simple_tag
+def videos_relacionados(questao, limite=3):
+    """Vídeos aprovados para o tema da questão e o link de busca de reserva.
+
+    Uso: {% videos_relacionados questao as rel %}. Uma falha aqui (tabela
+    ausente, banco fora) não pode derrubar a tela da questão: devolve vazio.
+    """
+    from ..videos import link_busca, termo_da_questao, videos_para
+    try:
+        videos = videos_para(questao, limite)
+        termo = termo_da_questao(questao)
+    except Exception:  # noqa: BLE001 - widget opcional na tela de resultado
+        logging.getLogger(__name__).exception('falha ao montar vídeos relacionados')
+        return {'videos': [], 'termo': '', 'link_busca': ''}
+    return {'videos': videos, 'termo': termo, 'link_busca': link_busca(termo) if termo else ''}

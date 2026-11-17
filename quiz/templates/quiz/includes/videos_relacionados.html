@@ -1,0 +1,86 @@
+{% load quiz_extras %}{% comment %}
+Vídeos sobre o tema da questão. Uso:
+  {% include "quiz/includes/videos_relacionados.html" with questao=q %}
+Só vídeo aprovado aparece (quiz/videos.py). O YouTube só é carregado quando o
+aluno clica: até lá a tela não conversa com o YouTube além das miniaturas, e o
+player vem do domínio sem cookies (youtube-nocookie.com).
+{% endcomment %}{% videos_relacionados questao as rel %}{% if rel.videos or rel.link_busca %}
+<section class="videos-relacionados rounded-xl border border-[#e5e1d8] bg-surface-container-low/60 p-4"
+         aria-labelledby="videos-titulo-{{ questao.id }}">
+  <div class="flex items-center gap-2 mb-3">
+    <span class="material-symbols-outlined text-primary active-icon" style="font-size:20px;">smart_display</span>
+    <h3 id="videos-titulo-{{ questao.id }}" class="font-serif text-lg font-semibold text-primary">Vídeos sobre o tema</h3>
+  </div>
+  {% if rel.videos %}
+  <div class="hidden mb-3 rounded-lg overflow-hidden bg-black aspect-video" data-player></div>
+  <ul class="grid gap-3 sm:grid-cols-3">
+    {% for v in rel.videos %}
+    <li>
+      <button type="button"
+              class="video-card w-full text-left rounded-lg overflow-hidden border border-outline-variant/30 bg-white hover:border-primary transition-all"
+              data-video-id="{{ v.youtube_id }}" data-video-titulo="{{ v.titulo }}"
+              aria-label="Assistir: {{ v.titulo }}">
+        <span class="relative block aspect-video bg-surface-container">
+          <img src="{{ v.miniatura }}" alt="" loading="lazy" referrerpolicy="no-referrer"
+               class="w-full h-full object-cover"/>
+          <span class="absolute inset-0 flex items-center justify-center">
+            <span class="material-symbols-outlined text-white drop-shadow" style="font-size:44px;">play_circle</span>
+          </span>
+          {% if v.duracao %}<span class="absolute bottom-1 right-1 bg-black/75 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">{{ v.duracao }}</span>{% endif %}
+        </span>
+        <span class="block p-2.5">
+          <span class="block text-xs font-semibold text-on-surface leading-snug line-clamp-2">{{ v.titulo }}</span>
+          {% if v.canal %}<span class="block text-[11px] text-on-surface-variant mt-1 truncate">{{ v.canal }}</span>{% endif %}
+        </span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="text-[10px] text-on-surface-variant mt-2">O vídeo abre aqui mesmo, pelo YouTube, quando você clicar.</p>
+  {% else %}
+  <p class="text-sm text-on-surface-variant">
+    Ainda não escolhemos um vídeo para este tema.
+    <a href="{{ rel.link_busca }}" target="_blank" rel="noopener noreferrer"
+       class="font-semibold text-primary underline">Buscar “{{ rel.termo }}” no YouTube</a>
+  </p>
+  {% endif %}
+  {% if user.is_staff %}
+  <p class="mt-2 text-[11px]">
+    <a href="{% url 'admin:quiz_videoaula_add' %}?categoria={{ questao.categoria_id }}&amp;assunto={{ questao.assunto|default_if_none:''|urlencode }}"
+       class="text-primary underline">+ Adicionar vídeo a este tema</a>
+  </p>
+  {% endif %}
+</section>
+{% if rel.videos %}<script>
+(function () {
+  if (window.__videosRelacionados) return;
+  window.__videosRelacionados = true;
+  document.addEventListener('click', function (ev) {
+    var card = ev.target.closest && ev.target.closest('.video-card[data-video-id]');
+    if (!card) return;
+    var secao = card.closest('.videos-relacionados');
+    var player = secao && secao.querySelector('[data-player]');
+    var id = card.getAttribute('data-video-id');
+    if (!player || !/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.title = card.getAttribute('data-video-titulo') || 'Vídeo';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    // O YouTube recusa o player quando não recebe a origem do site.
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.className = 'w-full h-full';
+    iframe.style.border = '0';
+    player.replaceChildren(iframe);
+    player.classList.remove('hidden');
+    secao.querySelectorAll('.video-card').forEach(function (c) {
+      c.removeAttribute('aria-current');
+      c.classList.remove('ring-2', 'ring-primary');
+    });
+    card.setAttribute('aria-current', 'true');
+    card.classList.add('ring-2', 'ring-primary');
+    player.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  });
+})();
+</script>{% endif %}
+{% endif %}

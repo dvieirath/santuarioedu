@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import FileExtensionValidator
+from django.core.validators import FileExtensionValidator, RegexValidator
 from django.core.exceptions import ValidationError
 
 
@@ -1754,3 +1754,79 @@ class PostBlog(models.Model):
         from django.utils import timezone
         return (self.publicado and self.publicado_em
                 and self.publicado_em <= timezone.now())
+
+class VideoAula(models.Model):
+    """Vídeo do YouTube indicado para estudar um tema.
+
+    Vale para a categoria e todas as de baixo. Com `assunto` preenchido, só
+    aparece em questão cujo assunto contém essa palavra-chave. O aluno só vê
+    vídeo aprovado; a busca automática cria candidatos não aprovados.
+    Regras de escolha em `quiz/videos.py`.
+    """
+    ORIGEM_MANUAL = 'manual'
+    ORIGEM_YOUTUBE = 'youtube'
+    ORIGENS = [
+        (ORIGEM_MANUAL, 'Cadastro manual'),
+        (ORIGEM_YOUTUBE, 'Busca automática no YouTube'),
+    ]
+
+    youtube_id = models.CharField(
+        'ID no YouTube', max_length=11,
+        validators=[RegexValidator(r'^[A-Za-z0-9_-]{11}$', 'ID do YouTube inválido.')])
+    titulo = models.CharField('título', max_length=200)
+    canal = models.CharField(max_length=120, blank=True, default='')
+    duracao_segundos = models.PositiveIntegerField('duração (s)', null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='videos')
+    assunto = models.CharField(
+        max_length=255, blank=True, default='',
+        help_text='Palavra-chave do assunto (ex.: "responsabilidade civil"). '
+                  'Vazio: vale para toda a categoria e as de baixo.')
+    assunto_norm = models.CharField(max_length=255, blank=True, default='', editable=False,
+                                    db_index=True)
+    aprovado = models.BooleanField(default=False, help_text='Só vídeo aprovado aparece para o aluno.')
+    aprovado_em = models.DateTimeField(null=True, blank=True)
+    origem = models.CharField(max_length=10, choices=ORIGENS, default=ORIGEM_MANUAL)
+    busca = models.CharField('termo buscado', max_length=255, blank=True, default='')
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Vídeo relacionado'
+        verbose_name_plural = 'Vídeos relacionados'
+        ordering = ['-criado_em']
+        constraints = [
+            models.UniqueConstraint(fields=['youtube_id', 'categoria', 'assunto_norm'],
+                                    name='video_unico_por_tema'),
+        ]
+        indexes = [models.Index(fields=['aprovado', 'categoria'])]
+
+    def save(self, *args, **kwargs):
+        from django.utils import timezone
+        from .videos import normalizar
+        self.assunto = ' '.join((self.assunto or '').split())
+        self.assunto_norm = normalizar(self.assunto)[:255]
+        if self.aprovado and not self.aprovado_em:
+            self.aprovado_em = timezone.now()
+        elif not self.aprovado:
+            self.aprovado_em = None
+        campos = kwargs.get('update_fields')
+        if campos is not None:
+            kwargs['update_fields'] = set(campos) | {'assunto', 'assunto_norm', 'aprovado_em'}
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.titulo
+
+    @property
+    def url_assistir(self):
+        from .videos import url_assistir
+        return url_assistir(self.youtube_id)
+
+    @property
+    def miniatura(self):
+        from .videos import url_miniatura
+        return url_miniatura(self.youtube_id)
+
+    @property
+    def duracao(self):
+        from .videos import duracao_texto
+        return duracao_texto(self.duracao_segundos)

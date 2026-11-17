@@ -476,6 +476,7 @@ CONTENT_SECURITY_POLICY = {
             'https://lh3.googleusercontent.com',  # avatares do Google OAuth
             'https://*.googleusercontent.com',
             'https://www.google-analytics.com',   # pixel do GA4
+            'https://i.ytimg.com',                # miniaturas dos vídeos relacionados
         ],
         'connect-src': [
             "'self'",
@@ -483,12 +484,20 @@ CONTENT_SECURITY_POLICY = {
             'https://*.analytics.google.com',
             'https://plausible.io',               # beacons Plausible
         ],
+        # Player dos vídeos relacionados (só o domínio sem cookies do YouTube)
+        'frame-src': ['https://www.youtube-nocookie.com'],
         'frame-ancestors': ["'none'"],  # equivalente a X-Frame-Options: DENY
         'base-uri': ["'self'"],
         'form-action': ["'self'", 'https://accounts.google.com'],
         'object-src': ["'none'"],
     },
 }
+
+
+# ── Vídeos relacionados ─────────────────────────────────────────────────────
+# Chave gratuita da YouTube Data API, usada só por `manage.py buscar_videos_youtube`
+# para sugerir vídeos. Sem ela, os vídeos são cadastrados à mão no admin.
+YOUTUBE_API_KEY = (config('YOUTUBE_API_KEY', default='') or '').strip()
 
 
 # ── django-axes: proteção contra brute-force no login ───────────────────────

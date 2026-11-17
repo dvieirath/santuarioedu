@@ -226,6 +226,8 @@ tailwind.config = {
       </button>
       {% endif %}
 
+      {% include "quiz/includes/videos_relacionados.html" with questao=escolha.questao %}
+
       <!-- Avaliação de dificuldade -->
       <div class="rounded-xl border border-[#e5e1d8] bg-surface-container-low/60 p-4">
         <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-3 flex items-center gap-1.5">

@@ -74,13 +74,14 @@ class SecurityHeadersMiddleware:
     PERMISSIONS_POLICY = (
         "accelerometer=(), "
         "ambient-light-sensor=(), "
-        "autoplay=(), "
+        # Liberados só para o player dos vídeos relacionados (iframe youtube-nocookie)
+        'autoplay=("https://www.youtube-nocookie.com"), '
         "battery=(), "
         "camera=(), "
         "display-capture=(), "
         "document-domain=(), "
-        "encrypted-media=(), "
-        "fullscreen=(self), "
+        'encrypted-media=("https://www.youtube-nocookie.com"), '
+        'fullscreen=(self "https://www.youtube-nocookie.com"), '
         "geolocation=(), "
         "gyroscope=(), "
         "interest-cohort=(), "       # bloqueia FLoC do Chrome
@@ -88,7 +89,7 @@ class SecurityHeadersMiddleware:
         "microphone=(self), "        # liberado para "Revisão por Voz"
         "midi=(), "
         "payment=(), "
-        "picture-in-picture=(), "
+        'picture-in-picture=("https://www.youtube-nocookie.com"), '
         "publickey-credentials-get=(), "
         "screen-wake-lock=(), "
         "sync-xhr=(), "

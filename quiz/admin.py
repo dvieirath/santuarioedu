@@ -481,3 +481,133 @@ class PostBlogAdmin(admin.ModelAdmin):
     def despublicar(self, request, queryset):
         n = queryset.update(publicado=False)
         self.message_user(request, f'{n} despublicado(s).')
+
+
+# ─── Vídeos relacionados ────────────────────────────────────────────
+from django import forms
+from django.utils import timezone
+
+from . import videos as _videos
+from .models import VideoAula
+
+
+class VideoAulaForm(forms.ModelForm):
+    """Cadastro pelo link: o ID sai do link e título e canal vêm do YouTube."""
+    link = forms.CharField(
+        label='Link do vídeo no YouTube', required=False,
+        help_text='Cole o link (youtube.com/watch?v=..., youtu.be/..., /shorts/...) ou só o ID.')
+
+    class Meta:
+        model = VideoAula
+        fields = ('link', 'titulo', 'canal', 'duracao_segundos', 'categoria', 'assunto', 'aprovado')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['titulo'].required = False
+        self.fields['titulo'].help_text = 'Em branco: vem do YouTube.'
+        self.fields['canal'].help_text = 'Em branco: vem do YouTube.'
+        if self.instance.pk:
+            self.fields['link'].initial = self.instance.url_assistir
+        else:
+            # Cadastro manual é escolha da equipe: já entra aprovado.
+            self.fields['aprovado'].initial = True
+
+    def clean(self):
+        dados = super().clean()
+        link = (dados.get('link') or '').strip()
+        if link:
+            video_id = _videos.extrair_id(link)
+            if not video_id:
+                self.add_error('link', 'Não reconheci um vídeo do YouTube neste link.')
+                return dados
+        elif self.instance.pk:
+            video_id = self.instance.youtube_id
+        else:
+            self.add_error('link', 'Informe o link do vídeo.')
+            return dados
+
+        categoria = dados.get('categoria')
+        if categoria and VideoAula.objects.filter(
+                youtube_id=video_id, categoria=categoria,
+                assunto_norm=_videos.normalizar(' '.join((dados.get('assunto') or '').split())),
+        ).exclude(pk=self.instance.pk).exists():
+            self.add_error('link', 'Este vídeo já está cadastrado para esta categoria e assunto.')
+            return dados
+
+        mudou = video_id != self.instance.youtube_id
+        if mudou or not dados.get('titulo'):
+            try:
+                info = _videos.buscar_oembed(video_id)
+            except _videos.VideoIndisponivel as e:
+                self.add_error('link', str(e))
+                return dados
+            except _videos.ErroYouTube as e:
+                if not dados.get('titulo'):
+                    self.add_error('titulo', f'{e} Preencha o título à mão.')
+                    return dados
+            else:
+                if not dados.get('titulo') or mudou:
+                    dados['titulo'] = info['titulo'] or dados.get('titulo') or ''
+                if not dados.get('canal') or mudou:
+                    dados['canal'] = info['canal']
+        self.instance.youtube_id = video_id
+        return dados
+
+
+@admin.register(VideoAula)
+class VideoAulaAdmin(admin.ModelAdmin):
+    form = VideoAulaForm
+    list_display = ('miniatura_admin', 'titulo', 'canal', 'tema', 'duracao_admin', 'aprovado', 'origem', 'assistir')
+    list_display_links = ('miniatura_admin', 'titulo')
+    list_filter = ('aprovado', 'origem', ('categoria', admin.RelatedOnlyFieldListFilter))
+    search_fields = ('titulo', 'canal', 'assunto', 'categoria__nome', 'youtube_id', 'busca')
+    list_select_related = ('categoria',)
+    list_per_page = 50
+    actions = ['aprovar', 'desaprovar']
+    readonly_fields = ('previa', 'youtube_id', 'origem', 'busca', 'aprovado_em', 'criado_em')
+    fieldsets = (
+        ('Vídeo', {'fields': ('link', 'previa', 'titulo', 'canal', 'duracao_segundos')}),
+        ('Onde aparece', {
+            'fields': ('categoria', 'assunto'),
+            'description': 'Aparece nas questões desta categoria e das categorias de baixo. '
+                           'Com assunto, só nas questões cujo assunto contém essa palavra-chave.',
+        }),
+        ('Revisão', {'fields': ('aprovado', 'aprovado_em', 'origem', 'busca', 'youtube_id', 'criado_em')}),
+    )
+
+    @admin.display(description='')
+    def miniatura_admin(self, obj):
+        return format_html('<img src="{}" alt="" width="120" style="border-radius:6px" loading="lazy">',
+                           obj.miniatura)
+
+    @admin.display(description='Prévia')
+    def previa(self, obj):
+        if not obj or not obj.youtube_id:
+            return '—'
+        return format_html('<a href="{}" target="_blank" rel="noopener noreferrer">'
+                           '<img src="{}" alt="" width="240" style="border-radius:8px"></a>',
+                           obj.url_assistir, obj.miniatura)
+
+    @admin.display(description='Tema', ordering='categoria__nome')
+    def tema(self, obj):
+        return f'{obj.categoria.nome} · {obj.assunto}' if obj.assunto else f'{obj.categoria.nome} (toda)'
+
+    @admin.display(description='Duração', ordering='duracao_segundos')
+    def duracao_admin(self, obj):
+        return obj.duracao or '—'
+
+    @admin.display(description='Abrir')
+    def assistir(self, obj):
+        return format_html('<a href="{}" target="_blank" rel="noopener noreferrer">YouTube ↗</a>',
+                           obj.url_assistir)
+
+    @admin.action(description='Aprovar: passa a aparecer para o aluno')
+    def aprovar(self, request, queryset):
+        n = queryset.filter(aprovado=False).update(aprovado=True, aprovado_em=timezone.now())
+        self.message_user(request, f'{n} vídeo(s) aprovado(s).')
+
+    @admin.action(description='Tirar a aprovação (some para o aluno)')
+    def desaprovar(self, request, queryset):
+        n = queryset.filter(aprovado=True).update(aprovado=False, aprovado_em=None)
+        self.message_user(request, f'{n} vídeo(s) deixaram de aparecer.')
+
